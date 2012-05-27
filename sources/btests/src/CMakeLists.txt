@@ -1,0 +1,4 @@
+INCLUDE_DIRECTORIES(../include)
+INCLUDE_DIRECTORIES(../interface)
+
+ADD_SUBDIRECTORY(luna)

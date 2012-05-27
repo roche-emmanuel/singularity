@@ -1,0 +1,44 @@
+# ignore building folder:
+build/*
+
+# Ignore .bak files:
+*.bak
+
+#Ignore the local setup file
+setup.sh
+
+# CHM file indexes:
+*.chw
+
+# Eclipse workspace metadata
+.metadata
+.externalToolBuilders
+.settings
+
+# Ignore binary files:
+software/bin/win32
+software/bin/mingw32
+software/bin/mingw64
+software/bin/linux32
+software/bin/linux64
+
+sgtLauncher
+
+# Ignore luna binding files:
+luna/bind_*.cpp
+luna/register_*.cpp
+
+# Ignore visual studio files:
+*.ncb
+*.suo
+*.user
+*Release*
+
+# Ignore generated wrapping files:
+luna/
+
+# Ignore tests:
+plug_doxmlparser2/
+
+# Windows files:
+Thumbs.db
