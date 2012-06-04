@@ -26,7 +26,7 @@ function IName:setName(name)
 		-- this name contains a namespace, we should discard it:
 		self._name = name:match("::([%a%d_]+)$")
 		if not self._name then
-			self._name = name:match("::([%a%d_<>%s:]+)$")
+			self._name = name:match("::([%a%d_<>%s:,]+)$")
 			self:notice_v("Performed extended match on name '", name,"', result is: '", self._name,"'")
 		end
 		

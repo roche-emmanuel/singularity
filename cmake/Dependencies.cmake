@@ -37,7 +37,7 @@ IF(MSVC)
 	
 	SET(OSG_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/include)
 	SET(OSG_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/lib)
-	SET(OSG_LIBS     ot12-OpenThreads.lib osg80-osg.lib)
+	SET(OSG_LIBS     ot12-OpenThreads.lib osg80-osg.lib osg80-osgUtil.lib osg80-osgDB.lib)
 	SET(OSG_FLAGS     ) #-DOSG_LIBRARY_STATIC) #-DOT_LIBRARY_STATIC 
 ELSE()
     SET(LUABIND_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUABIND}/include)

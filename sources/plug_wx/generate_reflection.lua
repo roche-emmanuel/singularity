@@ -276,7 +276,9 @@ im:getIgnoreFunctionsPatterns():push_back("wxRename")
 im:getIgnoreFunctionsPatterns():push_back("wxAtol")
 im:getIgnoreFunctionsPatterns():push_back("wxStrdup")
 im:getIgnoreFunctionsPatterns():push_back("wxSystem")
-im:getIgnoreFunctionsPatterns():push_back(" wxAtof")
+im:getIgnoreFunctionsPatterns():push_back("wxAtof")
+im:getIgnoreFunctionsPatterns():push_back("wxStringTokenize")
+im:getIgnoreFunctionsPatterns():push_back("wxGetEnvMap")
 
 im:getIgnoreDefinesPatterns():push_back("wxACC_")
 
@@ -311,6 +313,7 @@ local options = {
         "wxDDE",
         "wxDebug",
         "wxScrolled$",
+		"wxScrolledWindow",
         "wxHash",
         "wxMBConv",
         "wxNotificationMessage",
@@ -321,24 +324,10 @@ local options = {
         "wxAny$",        
         "wxAnyV",   
     },
+	ignoreHeaders = { "helpers%.h" },
+	locationPrefixes = {"W:/Shared/Dev/Projects/singularity/sources/plug_wx/interface/"}
 }
 
---[=[
-        "wxRichTextCharacterStyleDefinition",
-        "wxRichTextFormattingDialog",
-        "wxRichTextHeaderFooterData",
-        "wxRichTextHTMLHandler",
-        "wxRichTextParagraphStyleDefinition",
-        "wxRichTextObjectAddress",
-        "wxRichTextParagraphBox",
-        "wxRichTextPlainTextHandler",
-        "wxRichTextPrinting",
-        "wxRichTextPrintout",
-        "wxRichTextStdRenderer",
-        "wxRichTextStyleComboCtrl",
-        "wxRichTextStyleListBox",
-        "wxRichTextStyleListCtrl",
-]=]
 function buildBindings()
     log:info "Generating reflection..."
     local ReflectionGenerator = require "bindings.LunaReflectionGenerator"

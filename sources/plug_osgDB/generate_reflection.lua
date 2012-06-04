@@ -84,6 +84,15 @@ function refptrToLua(buf,type,argname)
 	buf:writeSubLine("Luna< ${1} >::push(L,${2},false);",tname,argname.. (type:isPointer() and "->get()" or ".get()"));
 end
 
+function obsptrToLua(buf,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::observer_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("Luna< ${1} >::push(L,${2},false);",tname,argname.. (type:isPointer() and "->get()" or ".get()"));
+end
+
 function refptrFromLua(buf,index,type,argname)
 	local tname = type:getBaseName();
 	--log:warn("Converter","Extracting osg ref from ", tname)
@@ -91,6 +100,16 @@ function refptrFromLua(buf,index,type,argname)
 	--log:warn("Converter","Got extracted osg ref ", tname)
 	
 	buf:writeSubLine("osg::ref_ptr< ${1} > ${2} = dynamic_cast< ${1}* >(Luna< osg::Referenced >::check(L,${3}));",tname,argname,index)
+	return false -- this is not a pointer result.
+end
+
+function obsptrFromLua(buf,index,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::observer_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("osg::observer_ptr< ${1} > ${2} = dynamic_cast< ${1}* >(Luna< osg::Referenced >::check(L,${3}));",tname,argname,index)
 	return false -- this is not a pointer result.
 end
 
@@ -112,11 +131,16 @@ end
 local tc = require "bindings.TypeConverter"
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
+local tm = require "bindings.TypeManager"
+
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osg/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osg/functions.luna")
 
 corr:addCorrector("type_name","(OSG_EXPORT )","")
 corr:addCorrector("type_name","(GL_APIENTRY%s*)","")
 	
 tc:setFromLuaConverter("osg::ref_ptr<",refptrFromLua)
+tc:setFromLuaConverter("osg::observer_ptr<",obsptrFromLua)
 tc:setFromLuaConverter("wxString",wxStringFromLua)
 tc:setFromLuaConverter("std::string",stdStringFromLua)
 tc:setFromLuaConverter("std::string &",stdStringFromLua)
@@ -126,6 +150,7 @@ tc:setFromLuaConverter("unsigned char",ucharFromLua)
 tc:setFromLuaConverter("const wxChar *",wxcharFromLua)
 
 tc:setToLuaConverter("osg::ref_ptr<",refptrToLua)
+tc:setToLuaConverter("osg::observer_ptr<",obsptrToLua)
 tc:setToLuaConverter("wxString",wxStringToLua)
 tc:setToLuaConverter("^std::string$",stdStringToLua)
 tc:setToLuaConverter("^std::string &$",stdStringToLua)
@@ -143,64 +168,53 @@ im:addPattern("function","GLTexImage3DProc")
 im:addPattern("function","_GLUfuncptr")
 im:addPattern("function","GLU_TESS_CALLBACK")
 im:addPattern("function","META_")
-im:addPattern("function","setCalendarTime")
-im:addPattern("function","getCalendarTime")
-im:addPattern("function","KdTree::build")
-im:addPattern("function","LOD::[gs]etCenter")
-im:addPattern("function","LOD::[gs]etRadius")
-im:addPattern("function","ProxyNode::[gs]etCenter")
-im:addPattern("function","ProxyNode::[gs]etRadius")
-im:addPattern("function","GetValueVisitor")
-im:addPattern("function","osg::TextureCubeMap::[gs]etExtensions")
-im:addPattern("function","osg::Texture3D::[gs]etExtensions")
-im:addPattern("function","osg::Texture2DArray::[gs]etExtensions")
-im:addPattern("function","ShaderComposer::composeMain")
-im:addPattern("function","ShaderComposer::addShaderToProgram")
-im:addPattern("function","resizeGLObjectBuffers")
-im:addPattern("function","float const %*const")
-im:addPattern("function","double const %*const")
-im:addPattern("function","const %*const")
-im:addPattern("function","OpenThreads::Mutex")
+im:addPattern("function","wstring")
+im:addPattern("function","wchar_t")
+im:addPattern("function","BEGIN_BRACKET")
 im:addPattern("function","std::ostream")
 im:addPattern("function","std::istream")
-im:addPattern("function","Extensions%(const")
-im:addPattern("function","lowestCommonDenominator")
-im:addPattern("function","osg::Texture3D::.-Proc")
-im:addPattern("function","osg::State::.-List")
-im:addPattern("function","getUniformBlocks")
+im:addPattern("function","getPathElements")
+im:addPattern("function","FILE")
+im:addPattern("function","readNodeFiles")
+im:addPattern("function","Proxy")
+im:addPattern("function","Wrapper")
+im:addPattern("function","ofstream")
+im:addPattern("function","ifstream")
+im:addPattern("function","Mutex")
+im:addPattern("function","ios_base")
+im:addPattern("function","Exception")
+im:addPattern("function","getFileNames")
+im:addPattern("function","DatabaseRevisionList")
+im:addPattern("function","Thread")
+im:addPattern("function","IncrementalCompileOperation")
+im:addPattern("function","readXmlFile")
+im:addPattern("function","objectRead")
+--im:addPattern("function","Options::[gs]etTerrain")
 
---im:addPattern("class","ValueObjectClassNameTrait")
---im:addPattern("class","ValueObject")
---im:addPattern("class_declaration","ValueObject")
-
---im:addPattern("function","float *")
---im:addPattern("function","double *")
-
---im:getIgnoreConvertersPatterns():push_back("wxTrackable")
 im:addPattern("converter","ScreenIdentifier")
 im:addPattern("converter","MixinVector")
 im:addPattern("converter","Plane")
 im:addPattern("converter","Matrixd")
 im:addPattern("converter","Matrixf")
 
---im:addPattern("class_declaration","RefNodePath")
---im:addPattern("class_declaration","ConvexPlanarPolygon::VertexList")
---im:addPattern("class_declaration","CullingSet::OccluderList")
---im:addPattern("class_declaration","CullStack::OccluderList")
---im:addPattern("class_declaration","Drawable::ParentList")
+im:addPattern("class","osgDB::DatabasePager::") --DatabaseRequest, ReadQueue, RequestQueue
+im:addPattern("class","osgDB::ImagePager::") --ImageRequest, ReadQueue, RequestQueue
+im:addPattern("class","osgDB::SharedStateManager::") --CompareStateAttributes, CompareStateSets
+im:addPattern("class","osg::State::")
+im:addPattern("class","Serializer")
+im:addPattern("class","XmlNode")
+im:addPattern("class","ControlMap")
+im:addPattern("class","Input")
 
-injector:addFragment("after_headers","using namespace osg;\n")
+injector:addFragment("after_headers","using namespace osg;\nusing namespace osgDB;\n")
 
 local options = {
 	xmlpath=src_path.."/xml",
 	modName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path.."/",
-    ignoreClasses={
-		"osg::State::[^D]"
-    },
 	ignoreHeaders = { "helpers%.h" },
-	locationPrefixes={"W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/", dest_path.."/interface/"}
+	locationPrefixes={"W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/"}
 	
 }
 function buildBindings()

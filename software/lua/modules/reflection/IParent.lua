@@ -21,7 +21,7 @@ end
 
 --- Set the parent of that object.
 function IParent:setParent(parent)
-	obj:checkType(parent,require("reflection.Scope"))
+	self:checkType(parent,require("reflection.Scope"))
     self._parent = parent  -- the parent may be nil.
 end
 

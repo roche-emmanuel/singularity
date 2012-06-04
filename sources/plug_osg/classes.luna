@@ -1,0 +1,445 @@
+module=osg
+GLUtesselator
+osg::TemplateIndexArray< signed char, osg::Array::ByteArrayType, 1, GL_BYTE >
+osg::TemplateIndexArray< short, osg::Array::ShortArrayType, 1, GL_SHORT >
+osg::TemplateIndexArray< int, osg::Array::IntArrayType, 1, GL_INT >
+osg::TemplateIndexArray< unsigned char, osg::Array::UByteArrayType, 1, GL_UNSIGNED_BYTE >
+osg::TemplateIndexArray< unsigned short, osg::Array::UShortArrayType, 1, GL_UNSIGNED_SHORT >
+osg::TemplateIndexArray< unsigned int, osg::Array::UIntArrayType, 1, GL_UNSIGNED_INT >
+osg::TemplateArray< float, osg::Array::FloatArrayType, 1, GL_FLOAT >
+osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT >
+osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT >
+osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >
+osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE >
+osg::TemplateArray< osg::Vec2s, osg::Array::Vec2sArrayType, 2, GL_SHORT >
+osg::TemplateArray< osg::Vec3s, osg::Array::Vec3sArrayType, 3, GL_SHORT >
+osg::TemplateArray< osg::Vec4s, osg::Array::Vec4sArrayType, 4, GL_SHORT >
+osg::TemplateArray< osg::Vec2b, osg::Array::Vec2bArrayType, 2, GL_BYTE >
+osg::TemplateArray< osg::Vec3b, osg::Array::Vec3bArrayType, 3, GL_BYTE >
+osg::TemplateArray< osg::Vec4b, osg::Array::Vec4bArrayType, 4, GL_BYTE >
+osg::TemplateArray< double, osg::Array::DoubleArrayType, 1, GL_DOUBLE >
+osg::TemplateArray< osg::Vec2d, osg::Array::Vec2dArrayType, 2, GL_DOUBLE >
+osg::TemplateArray< osg::Vec3d, osg::Array::Vec3dArrayType, 3, GL_DOUBLE >
+osg::TemplateArray< osg::Vec4d, osg::Array::Vec4dArrayType, 4, GL_DOUBLE >
+osg::TemplateArray< osg::Matrixf, osg::Array::MatrixArrayType, 16, GL_FLOAT >
+osg::BoundingBoxImpl< osg::Vec3f >
+osg::BoundingBoxImpl< osg::Vec3d >
+osg::BoundingSphereImpl< osg::Vec3f >
+osg::BoundingSphereImpl< osg::Vec3d >
+std::list< osg::ref_ptr< osg::GLBufferObject > >
+std::pair< double, double >
+std::vector< osg::ref_ptr< osg::Node > >
+std::vector< osg::ref_ptr< osg::Image > >
+std::vector< osg::Node * >
+std::vector< osg::NodePath >
+std::vector< osg::Matrixd >
+osg::MixinVector< int >
+osg::MixinVector< unsigned char >
+osg::MixinVector< unsigned short >
+osg::MixinVector< unsigned int >
+std::vector< osg::ShaderComponent * >
+std::vector< osg::ShadowVolumeOccluder >
+osg::TemplateValueObject< std::string >
+osg::TemplateValueObject< bool >
+osg::TemplateValueObject< char >
+osg::TemplateValueObject< unsigned char >
+osg::TemplateValueObject< short >
+osg::TemplateValueObject< unsigned short >
+osg::TemplateValueObject< int >
+osg::TemplateValueObject< unsigned int >
+osg::TemplateValueObject< float >
+osg::TemplateValueObject< double >
+osg::TemplateValueObject< osg::Vec2f >
+osg::TemplateValueObject< osg::Vec3f >
+osg::TemplateValueObject< osg::Vec4f >
+osg::TemplateValueObject< osg::Vec2d >
+osg::TemplateValueObject< osg::Vec3d >
+osg::TemplateValueObject< osg::Vec4d >
+osg::TemplateValueObject< osg::Quat >
+osg::TemplateValueObject< osg::Plane >
+osg::TemplateValueObject< osg::Matrixf >
+osg::TemplateValueObject< osg::Matrixd >
+std::vector< osg::Vec3d >
+std::vector< osg::StateSet const * >
+std::vector< std::pair< osg::StateAttribute const *, unsigned int > >
+osg::Referenced
+osg::Object
+osg::StateAttribute
+osg::AlphaFunc
+osg::AnimationPath
+std::map< double, osg::AnimationPath::ControlPoint >
+osg::AnimationPath::ControlPoint
+osg::NodeCallback
+osg::AnimationPathCallback
+osg::ApplicationUsage
+std::map< std::string, std::string >
+osg::ApplicationUsageProxy
+osg::ArgumentParser
+std::map< std::string, osg::ArgumentParser::ErrorSeverity >
+osg::ArgumentParser::Parameter
+osg::BufferData
+osg::Array
+osg::IndexArray
+osg::ArrayVisitor
+osg::ConstArrayVisitor
+osg::ValueVisitor
+osg::ConstValueVisitor
+osg::AttributeDispatch
+osg::ArrayDispatchers
+osg::AudioSink
+osg::AudioStream
+osg::Node
+osg::Group
+osg::Transform
+osg::AutoTransform
+osg::Geode
+osg::Billboard
+std::vector< osg::Vec3f >
+osg::BlendColor
+osg::BlendColor::Extensions
+osg::BlendEquation
+osg::BlendEquation::Extensions
+osg::BlendFunc
+osg::BlendFunc::Extensions
+osg::BufferIndexBinding
+osg::UniformBufferBinding
+osg::TransformFeedbackBufferBinding
+osg::BufferObjectProfile
+osg::GLBufferObject
+osg::GLBufferObject::BufferEntry
+osg::GLBufferObject::Extensions
+osg::GLBufferObjectSet
+osg::GLBufferObjectManager
+osg::BufferObject
+osg::BufferData::ModifiedCallback
+osg::VertexBufferObject
+osg::ElementBufferObject
+osg::PixelBufferObject
+osg::PixelDataBufferObject
+osg::UniformBufferObject
+osg::CullSettings
+osg::Camera
+std::map< osg::Camera::BufferComponent, osg::Camera::Attachment >
+osg::Camera::Attachment
+osg::Camera::DrawCallback
+osg::CameraView
+osg::ClampColor
+osg::ClampColor::Extensions
+osg::ClearNode
+osg::ClipNode
+std::vector< osg::ref_ptr< osg::ClipPlane > >
+osg::ClipPlane
+osg::Drawable::CullCallback
+osg::ClusterCullingCallback
+osg::CullStack
+osg::NodeVisitor
+osg::CollectOccludersVisitor
+std::set< osg::ShadowVolumeOccluder >
+osg::ColorMask
+osg::ColorMatrix
+osg::ComputeBoundsVisitor
+osg::ConvexPlanarOccluder
+std::vector< osg::ConvexPlanarPolygon >
+osg::ConvexPlanarPolygon
+osg::EllipsoidModel
+osg::CoordinateSystemNode
+osg::CopyOp
+osg::CullFace
+osg::CullingSet
+std::pair< osg::ref_ptr< osg::StateSet >, osg::Polytope >
+std::vector< osg::CullingSet::StateFrustumPair >
+osg::CullSettings::ClampProjectionMatrixCallback
+std::vector< osg::CullingSet >
+osg::DeleteHandler
+std::pair< unsigned int, const osg::Referenced * >
+std::list< osg::DeleteHandler::FrameNumberObjectPair >
+osg::Depth
+osg::DisplaySettings
+osg::Drawable
+osg::Drawable::AttributeFunctor
+osg::Drawable::ComputeBoundingBoxCallback
+osg::Drawable::ConstAttributeFunctor
+osg::Drawable::DrawCallback
+osg::Drawable::EventCallback
+osg::Drawable::Extensions
+osg::Drawable::UpdateCallback
+osg::DrawPixels
+osg::Fog
+osg::FragmentProgram
+std::map< unsigned int, osg::Vec4f >
+std::map< unsigned int, osg::Matrixd >
+osg::FragmentProgram::Extensions
+osg::FBOExtensions
+osg::RenderBuffer
+osg::FrameBufferAttachment
+osg::FrameBufferObject
+std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment >
+std::vector< unsigned int >
+osg::FrameStamp
+osg::FrontFace
+std::vector< osg::ref_ptr< osg::Drawable > >
+osg::Geometry
+std::vector< osg::Geometry::ArrayData >
+std::vector< osg::ref_ptr< osg::PrimitiveSet > >
+std::vector< osg::Array * >
+std::vector< osg::DrawElements * >
+osg::Geometry::ArrayData
+osg::Geometry::Vec3ArrayData
+osg::GL2Extensions
+osg::GLBeginEndAdapter
+osg::PixelStorageModes
+osg::GraphicsContext
+std::vector< osg::GraphicsContext::ScreenSettings >
+std::vector< osg::GraphicsContext * >
+std::list< osg::ref_ptr< osg::Operation > >
+std::list< osg::Camera * >
+osg::GraphicsContext::ResizedCallback
+osg::GraphicsContext::ScreenIdentifier
+osg::GraphicsContext::ScreenSettings
+osg::GraphicsContext::SwapCallback
+osg::GraphicsContext::Traits
+osg::GraphicsContext::WindowingSystemInterface
+osg::ClampedLinearCostFunction1D
+osg::GeometryCostEstimator
+osg::TextureCostEstimator
+osg::ProgramCostEstimator
+osg::GraphicsCostEstimator
+osg::OperationThread
+osg::GraphicsThread
+osg::Operation
+osg::GraphicsOperation
+osg::SwapBuffersOperation
+osg::BarrierOperation
+osg::RefBlock
+osg::ReleaseContext_Block_MakeCurrentOperation
+osg::BlockAndFlushOperation
+osg::FlushDeletedGLObjectsOperation
+osg::RunOperations
+osg::State::DynamicObjectRenderingCompletedCallback
+osg::EndOfDynamicDrawBlock
+osg::Hint
+osg::Image
+osg::StateAttributeCallback
+osg::Image::UpdateCallback
+osg::ImageStream
+osg::ImageSequence
+std::vector< std::string >
+std::vector< osg::ref_ptr< osg::AudioStream > >
+osg::Shape
+osg::KdTree
+std::vector< osg::KdTree::LineSegmentIntersection >
+std::vector< osg::KdTree::KdNode >
+std::vector< osg::KdTree::Triangle >
+osg::KdTree::KdNode
+osg::KdTree::LineSegmentIntersection
+std::vector< double >
+osg::KdTree::Triangle
+osg::KdTreeBuilder
+osg::Light
+osg::LightModel
+osg::LightSource
+osg::LineSegment
+osg::LineStipple
+osg::LineWidth
+osg::LOD
+std::pair< float, float >
+std::vector< osg::LOD::MinMaxPair >
+osg::LogicOp
+osg::Material
+osg::Matrixd
+osg::RefMatrixd
+osg::Matrixf
+osg::RefMatrixf
+osg::MatrixTransform
+osg::Multisample
+osg::Multisample::Extensions
+std::vector< osg::Group * >
+osg::Node::ComputeBoundingSphereCallback
+osg::NodeTrackerCallback
+osg::NodeVisitor::DatabaseRequestHandler
+osg::NodeVisitor::ImageRequestHandler
+osg::NodeAcceptOp
+osg::NotifyHandler
+osg::StandardNotifyHandler
+osg::Observer
+osg::ObserverSet
+std::set< osg::Observer * >
+osg::ObserverNodePath
+osg::OccluderNode
+osg::TestResult
+osg::QueryGeometry
+osg::OcclusionQueryNode
+osg::RefBlockCount
+osg::OperationQueue
+std::set< osg::OperationThread * >
+osg::PagedLOD
+std::vector< osg::PagedLOD::PerRangeData >
+osg::PagedLOD::PerRangeData
+osg::Plane
+osg::Point
+osg::Point::Extensions
+osg::PointSprite
+osg::PolygonMode
+osg::PolygonOffset
+osg::PolygonStipple
+osg::Polytope
+std::vector< osg::Plane >
+osg::fast_back_stack< unsigned int >
+osg::PositionAttitudeTransform
+osg::PrimitiveFunctor
+osg::PrimitiveIndexFunctor
+osg::PrimitiveSet
+osg::DrawArrays
+osg::DrawArrayLengths
+osg::DrawElements
+osg::DrawElementsUByte
+osg::DrawElementsUShort
+osg::DrawElementsUInt
+osg::Program
+std::map< std::string, unsigned int >
+std::map< unsigned int, osg::Program::ActiveVarInfo >
+std::map< std::string, osg::Program::ActiveVarInfo >
+std::map< std::string, osg::Program::UniformBlockInfo >
+osg::Program::ActiveVarInfo
+osg::Program::PerContextProgram
+osg::Program::ProgramBinary
+osg::Program::UniformBlockInfo
+osg::Projection
+osg::ProxyNode
+osg::Quat
+osg::RenderInfo
+osg::Scissor
+osg::Sequence
+osg::ShadeModel
+osg::ShaderBinary
+osg::Shader
+std::multimap< float, std::string >
+osg::Shader::PerContextShader
+osg::ShaderComponent
+osg::ShaderAttribute
+osg::ShaderComposer
+osg::ShadowVolumeOccluder
+std::vector< osg::Polytope >
+osg::ShapeVisitor
+osg::ConstShapeVisitor
+osg::Sphere
+osg::Box
+osg::Cone
+osg::Cylinder
+osg::Capsule
+osg::InfinitePlane
+osg::TriangleMesh
+osg::ConvexHull
+osg::HeightField
+std::vector< float >
+osg::CompositeShape
+std::vector< osg::ref_ptr< osg::Shape > >
+osg::TessellationHints
+osg::ShapeDrawable
+osg::VertexAttribAlias
+osg::State
+std::pair< osg::StateAttribute::Type, unsigned int >
+std::vector< osg::StateSet * >
+osg::StateAttribute::ModeUsage
+osg::StateSet
+std::vector< osg::Object * >
+std::map< unsigned int, unsigned int >
+std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int >
+std::map< osg::StateAttribute::TypeMemberPair, osg::StateSet::RefAttributePair >
+std::vector< osg::StateSet::ModeList >
+std::vector< osg::StateSet::AttributeList >
+std::pair< osg::ref_ptr< osg::Uniform >, unsigned int >
+std::map< std::string, osg::StateSet::RefUniformPair >
+osg::StateSet::Callback
+osg::Stats
+std::map< std::string, double >
+std::vector< osg::Stats::AttributeMap >
+std::map< std::string, bool >
+osg::Stencil
+osg::Stencil::Extensions
+osg::StencilTwoSided
+osg::StencilTwoSided::Extensions
+osg::Switch
+std::vector< bool >
+osg::TexEnv
+osg::TexEnvCombine
+osg::TexEnvFilter
+osg::TexGen
+osg::TexGenNode
+osg::TexMat
+osg::Texture
+std::list< osg::ref_ptr< osg::Texture::TextureObject > >
+osg::Texture::Extensions
+osg::Texture::TextureObject
+osg::Texture::TextureObjectManager
+osg::Texture::TextureObjectSet
+osg::Texture::TextureProfile
+osg::Texture1D
+osg::Texture1D::SubloadCallback
+osg::Texture2D
+osg::Texture2D::SubloadCallback
+osg::Texture2DArray
+osg::Texture2DArray::Extensions
+osg::Texture2DArray::SubloadCallback
+osg::Texture2DMultisample
+osg::Texture3D
+osg::Texture3D::Extensions
+osg::Texture3D::SubloadCallback
+osg::TextureCubeMap
+osg::TextureCubeMap::Extensions
+osg::TextureCubeMap::SubloadCallback
+osg::TextureRectangle
+osg::TextureRectangle::SubloadCallback
+osg::Timer
+osg::ElapsedTime
+osg::TransferFunction
+osg::TransferFunction1D
+std::map< float, osg::Vec4f >
+osg::Matrix2
+osg::Matrix3
+osg::Uniform
+osg::Uniform::Callback
+osg::UserDataContainer
+osg::DefaultUserDataContainer
+osg::ValueObject
+osg::ValueObject::SetValueVisitor
+osg::ValueObjectClassNameTrait< std::string >
+osg::ValueObjectClassNameTrait< bool >
+osg::ValueObjectClassNameTrait< char >
+osg::ValueObjectClassNameTrait< unsigned char >
+osg::ValueObjectClassNameTrait< short >
+osg::ValueObjectClassNameTrait< unsigned short >
+osg::ValueObjectClassNameTrait< int >
+osg::ValueObjectClassNameTrait< unsigned int >
+osg::ValueObjectClassNameTrait< float >
+osg::ValueObjectClassNameTrait< double >
+osg::ValueObjectClassNameTrait< Vec2f >
+osg::ValueObjectClassNameTrait< Vec3f >
+osg::ValueObjectClassNameTrait< Vec4f >
+osg::ValueObjectClassNameTrait< Vec2d >
+osg::ValueObjectClassNameTrait< Vec3d >
+osg::ValueObjectClassNameTrait< Vec4d >
+osg::ValueObjectClassNameTrait< Quat >
+osg::ValueObjectClassNameTrait< Plane >
+osg::ValueObjectClassNameTrait< Matrixf >
+osg::ValueObjectClassNameTrait< Matrixd >
+osg::Vec2b
+osg::Vec2d
+osg::Vec2f
+osg::Vec2s
+osg::Vec3b
+osg::Vec3d
+osg::Vec3f
+osg::Vec3s
+osg::Vec4b
+osg::Vec4d
+osg::Vec4f
+osg::Vec4s
+osg::Vec4ub
+osg::VertexProgram
+osg::VertexProgram::Extensions
+osg::View
+osg::View::Slave
+osg::View::Slave::UpdateSlaveCallback
+osg::Viewport
+

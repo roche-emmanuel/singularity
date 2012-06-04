@@ -573,6 +573,8 @@ protected:
 
     @see wxScrolled, ::wxScrolledCanvas
 */
+//class wxScrolledWindow : public wxScrolled<wxPanel> {
+//}
 typedef wxScrolled<wxPanel> wxScrolledWindow;
 
 /**

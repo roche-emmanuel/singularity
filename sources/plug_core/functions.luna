@@ -1,0 +1,6 @@
+module=core
+doLog
+doLogV
+doTrace
+doTraceV
+

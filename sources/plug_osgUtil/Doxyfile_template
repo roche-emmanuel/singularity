@@ -666,7 +666,7 @@ INPUT_ENCODING         = UTF-8
 # *.hxx *.hpp *.h++ *.idl *.odl *.cs *.php *.php3 *.inc *.m *.mm *.dox *.py
 # *.f90 *.f *.for *.vhd *.vhdl
 
-#FILE_PATTERNS          =
+FILE_PATTERNS          =
 
 # The RECURSIVE tag can be used to turn specify whether or not subdirectories
 # should be searched for input files as well. Possible values are YES and NO.
@@ -1493,7 +1493,7 @@ SEARCH_INCLUDES        = YES
 # directories. If left blank, the patterns specified with FILE_PATTERNS will
 # be used.
 
-#INCLUDE_FILE_PATTERNS  =
+INCLUDE_FILE_PATTERNS  =
 
 # The PREDEFINED tag can be used to specify one or more macro names that
 # are defined before the preprocessor is started (similar to the -D option of
@@ -1719,7 +1719,7 @@ INTERACTIVE_SVG        = NO
 # The tag DOT_PATH can be used to specify the path where the dot tool can be
 # found. If left blank, it is assumed the dot tool can be found in the path.
 
-#DOT_PATH               =
+DOT_PATH               =
 
 # The DOTFILE_DIRS tag can be used to specify one or more directories that
 # contain dot files that are included in the documentation (see the

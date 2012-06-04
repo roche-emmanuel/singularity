@@ -1,0 +1,4 @@
+module=osgUtil
+osgUtilGetVersion
+osgUtilGetLibraryName
+

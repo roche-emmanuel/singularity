@@ -9,6 +9,7 @@ local Vector = require "std.Vector"
 local Set = require "std.Set"
 local utils = require "utils"
 local table = table
+local tm = require "bindings.TypeManager"
 
 local im = require "bindings.IgnoreManager"
 
@@ -456,11 +457,11 @@ function Class:setModule(modname)
 end
 
 function Class:getModule()
-	return self.externalModule
+	return self.externalModule or tm:getModule(self)
 end
 
 function Class:isExternal()
-	return self.externalModule ~= nil
+	return self.externalModule or tm:getModule(self)
 end
 
 return Class

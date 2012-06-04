@@ -7,6 +7,7 @@ local Vector = require "std.Vector"
 local Set = require "std.Set"
 
 local im = require "bindings.IgnoreManager"
+local tm = require "bindings.TypeManager"
 
 local log = require "logger"
 
@@ -367,6 +368,10 @@ function Function:hasLuaState()
 	end
 	
 	return false;
+end
+
+function Function:isExternal()
+	return tm:getFunctionModule(self)
 end
 
 -- deprecated, for backward compatibility only

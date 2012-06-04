@@ -21,7 +21,6 @@ function TextCorrector:__init()
     
     obj:addCorrector("filename","[:<>%s]","_")
     obj:addCorrector("filename","__+","_")
-    obj:addCorrector("filename","__+","_")
     obj:addCorrector("filename","^_+","")
     obj:addCorrector("filename","_+$","")
  

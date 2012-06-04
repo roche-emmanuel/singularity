@@ -229,8 +229,16 @@ end
 
 function Type:isString()
 	local str = self:getName()
-	return str:find("const%s+char%s*%*") or str:find("wxChar%s*%*") 
-		or str:find("wchar_t%s*%*") or str:find("string") or str:find("wxString")
+	if str:find("<") then
+		return false;
+	end
+	
+	return str:find("const%s+char%s*%*") 
+		or str:find("wxChar%s*%*") 
+		or str:find("wchar_t%s*%*") 
+		or str:find("string") 
+		or str:find("^%s*wxString%s*[%*&]?$")
+		or str:find("^%s*const%s+wxString%s*[%*&]?$")
 		or str=="char *"	
 end
 
