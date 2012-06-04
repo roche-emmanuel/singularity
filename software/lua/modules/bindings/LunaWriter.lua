@@ -23,6 +23,9 @@ local writeBind = require("bindings.BinderBase")()
 
 local tc = require "bindings.TypeConverter"
 
+local injector = require "bindings.CodeInjector"
+local corr = require "bindings.TextCorrector"
+
 local class_decl_template = [[template<>
 class LunaTraits< ${1} > {
 public:
@@ -32,11 +35,10 @@ public:
     static const char* parents[];
     static const int uniqueIDs[];
     static luna_RegType methods[];
-    static luna_ConverterType converters[];
     static luna_RegEnumType enumValues[];
     static ${1}* _bind_ctor(lua_State *L);
     static void _bind_dtor(${1}* obj);
-    typedef ${1} base_t;
+    typedef ${1} base_t;${2}
 };
 ]]
 
@@ -107,10 +109,11 @@ local LunaWriter = oo.class({},ReflectionWriter)
 
 LunaWriter.CLASS_NAME = "bindings.LunaWriter"
 
-function LunaWriter:__init(datamap)
+function LunaWriter:__init(datamap,withConverters)
     local object = ReflectionWriter:__init(datamap) -- pass the datamap to the ReflectionWriter class.
     object = oo.rawnew(self,object)
     object:setBindingFolder("luna")
+    object.implementConverters = withConverters
     return object
 end
 
@@ -119,8 +122,43 @@ function LunaWriter:writeMainHeader()
 	-- get a copy of that writer:
 	local buf = self:clone();
 	
+	-- write all the headers:
+	local headers = Set();
+	for _,v in self.classes:sequence() do
+		local header = v:getHeaderFile()
+		if header and v:isValidForWrapping() and not im:ignoreHeader(header) then
+			headers:push_back(header)
+		end		
+	end
+	
+	for _,v in headers:sequence() do
+		buf:writeLine("#include <"..v..">")
+	end
+	buf:newLine()
+	
+	injector:inject(buf,"after_headers") -- code injection stage.
+	
+	local writtenTypes = Set();
+	
 	-- write the classes declaration on the buf:
-	buf:writeForeachClass(class_decl_template,getValueName)
+	local add = self.implementConverters and "\n\tstatic luna_ConverterType converters[];" or ""
+	for _,v in self.classes:sequence() do
+		local classname = v:getTypeName()
+		if not writtenTypes:contains(classname) then
+			writtenTypes:push_back(classname)
+		else
+			classname = nil	
+		end
+		
+		if classname and not im:ignore(classname,"class_declaration") then
+			self:debug0_v("Writing class declaration for ", v:getFullName(), " (typename=",classname,")")
+			buf:writeSubLine(class_decl_template,classname,add)
+		else
+			self:notice("Ignoring class declaration for ", v:getFullName(), " (typename=",classname,")")
+		end
+	end
+		
+	--buf:writeForeachClass(class_decl_template,getValueName,add)
 	
 	buf:newLine()
 	
@@ -153,10 +191,18 @@ function LunaWriter:retrieveArguments(func)
 		pt:parse() -- ensure the type fields are value.
 		
 		local bname = pt:getBaseName()
-		local converter = tc:getFromLuaConverter(pt:getName()) or tc:getFromLuaConverter(bname)
+		local typename = pt:getName()
+		
+		local converter = tc:getFromLuaConverter(typename) or tc:getFromLuaConverter(bname)
 		
 		local argname = v:getName()
 		if not argname or argname == "" then
+			argname = "_arg"..k
+		end
+		
+		if typename=="unsigned" and argname=="int" then
+			typename ="unsigned int"
+			bname = "unsigned int"
 			argname = "_arg"..k
 		end
 		
@@ -188,7 +234,7 @@ function LunaWriter:retrieveArguments(func)
 		elseif pt:isBoolean() then
 			self:writeSubLine("${3} ${1}=${4}(${3})(lua_toboolean(L,${2})==1)${5};",argname,index,bname,defStrPre,defStrPost)
 		elseif pt:isString() then
-			self:writeSubLine("${3} ${1}=${4}(${3})lua_tostring(L,${2})${5};",argname,index,pt:getName(),defStrPre,defStrPost)
+			self:writeSubLine("${3} ${1}=${4}(${3})lua_tostring(L,${2})${5};",argname,index,typename,defStrPre,defStrPost)
 			isPointer=true
 		elseif pt:isVoid() and pt:isPointer() then
 			-- We may consider void as a base class:
@@ -197,8 +243,7 @@ function LunaWriter:retrieveArguments(func)
 			isPointer=true			
 		elseif pt:isClass() then
 			-- get the class absolute parent hash:
-			--local bhash = pt:getBase():getAbsoluteBaseHash()
-			local fbname = pt:getBase():getFirstAbsoluteBase():getFullName()
+			local fbname = pt:getAbsoluteBaseFullName()
 			
 			if pt:isPointer() then
 				-- we just retrieve the pointer here:
@@ -224,13 +269,13 @@ function LunaWriter:retrieveArguments(func)
 				self:popIndent()
 				self:writeLine("}")
 				--self:writeSubLine("${2}& ${1}=${3}*${1}_ptr${4};",argname,bname,defStrPre,defStrPost)
-				self:writeSubLine("${2} ${1}=${3}*${1}_ptr${4};",argname,pt:getName(),defStrPre,defStrPost,constPre)
+				self:writeSubLine("${2} ${1}=${3}*${1}_ptr${4};",argname,typename,defStrPre,defStrPost,constPre)
 			end
 		else
 			self:writeLine("////////////////////////////////////////////////////////////////////")
-			self:writeLine("// ERROR: Cannot decide the argument type for '".. pt:getName() .. "'")
+			self:writeLine("// ERROR: Cannot decide the argument type for '".. typename .. "' baseTypeName is '".. pt:getBaseName(true).."'")
 			self:writeLine("////////////////////////////////////////////////////////////////////")
-			log:error("Unsupported type : ".. pt:getName().." in retrieveArguments() for function ".. func:getFullName()) --..". Type object:",pt)
+			log:error("Unsupported type : ".. typename .." in retrieveArguments() for function ".. func:getFullName()) --..". Type object:",pt)
 		end
 		
 		-- for each argument we have to check what is the except type modifier:
@@ -322,12 +367,14 @@ function LunaWriter:writeFunctionCall(cname,func,args)
 	
 	local result_count = 1
 	
+	local deref = rt:isPointer() and "*" or ""
+	
 	if converter then
 		converter(self,rt,argname)
 	elseif rt:isNumber() then
-		self:writeSubLine("lua_pushnumber(L,${1});",argname)
+		self:writeSubLine("lua_pushnumber(L,${2}${1});",argname,deref)
 	elseif rt:isBoolean() then
-		self:writeSubLine("lua_pushboolean(L,${1}?1:0);",argname)
+		self:writeSubLine("lua_pushboolean(L,${2}${1}?1:0);",argname,deref)
 	elseif rt:isString() then
 		self:writeSubLine("lua_pushstring(L,${1});",argname)
 	elseif rt:isVoid() then
@@ -385,27 +432,31 @@ end
 function LunaWriter:writeClass(class)
 	local buf = self:clone();
 	local cname = class:getFullName()
+	local wname = corr:correct("filename",cname)
 	local cshortname = class:getName()
 	local external = class:isExternal()
 	
-	buf:writeSubLine("class luna_wrapper_${1} {",cshortname)
+	buf:writeSubLine("class luna_wrapper_${1} {",wname) --cshortname)
 	buf:writeLine("public:")
 	buf:pushIndent()
 	buf:writeSubLine("typedef Luna< ${1} > luna_t;",cname)
 	buf:newLine()
-	if class:getNumBases()==0 then
-		-- No parents for this class:
-		buf:writeLine("// Base class dynamic cast support:")
-		buf:writeSubLine(dynamic_caster_template,cname)
-	else
-		buf:writeLine("// Derived class converters:")
-		for k,bclass in class:getAbsoluteBases():sequence() do
-			if not im:ignoreConverter(bclass) then
-				buf:writeSubLine(converter_template,bclass:getFullName(),cname,bclass:getName())
+	
+	if self.implementConverters then
+		if class:getNumBases()==0 then
+			-- No parents for this class:
+			buf:writeLine("// Base class dynamic cast support:")
+			buf:writeSubLine(dynamic_caster_template,cname)
+		else
+			buf:writeLine("// Derived class converters:")
+			for k,bclass in class:getAbsoluteBases():sequence() do
+				if not im:ignoreConverter(bclass) then
+					buf:writeSubLine(converter_template,bclass:getFullName(),cname,bclass:getName())
+				end
 			end
 		end
+		buf:newLine()
 	end
-	buf:newLine()
 	
 	if not class:isAbstract() then
 		buf:writeLine("// Constructor checkers:")
@@ -448,7 +499,7 @@ function LunaWriter:writeClass(class)
 			buf:writeLine("return NULL; // No valid default constructor.")
 			--buf:writeSubLine("return new ${1}(); // No default constructor:",cname)
 		else
-			buf:writeSubLine("return luna_wrapper_${1}::_bind_ctor(L);",cshortname)
+			buf:writeSubLine("return luna_wrapper_${1}::_bind_ctor(L);",wname) --cshortname)
 		end
 	else
 		buf:writeLine("return NULL; // Class is abstract.")
@@ -460,11 +511,17 @@ function LunaWriter:writeClass(class)
 	-- implement the lunatraits destructor:
 	buf:writeSubLine("void LunaTraits< ${1} >::_bind_dtor(${1}* obj) {",cname)
 	buf:pushIndent()
-	if not class:getDestructor() or class:getDestructor():isPublic() then
+	local realclass = class
+	if class:getMappedType() then
+		realclass = class:getMappedType():getFirstBase() or realclass
+	end
+	
+	if not realclass:getDestructor() or realclass:getDestructor():isPublic() then
 		buf:writeLine("delete obj;")
 	else
 		buf:writeLine("//delete obj; // destructor protected.")	
 	end
+
 	buf:popIndent()
 	buf:writeLine("}")
 	buf:newLine()
@@ -493,7 +550,7 @@ function LunaWriter:writeClass(class)
 		for _,v in class:getValidPublicFunctions():sequence() do
 			local lname = v:getLuaName()
 			if not funcs[lname] then
-				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',cshortname,lname)
+				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,lname)
 				funcs[lname] = true
 			end
 		end
@@ -501,12 +558,13 @@ function LunaWriter:writeClass(class)
 		for _,v in class:getValidPublicOperators():sequence() do
 			local lname = v:getLuaName()
 			if not funcs[lname] then
-				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',cshortname,lname)
+				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,lname)
 				funcs[lname] = true
 			end
 		end	
-		if class:getNumBases()==0 then
-			buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',cshortname,"dynCast")
+		
+		if self.implementConverters and class:getNumBases()==0 then
+			buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"dynCast")
 		end
 					
 	buf:writeSubLine("{0,0}")
@@ -514,23 +572,25 @@ function LunaWriter:writeClass(class)
 	buf:writeLine("};")
 	buf:newLine()
 	
-	-- write the converter table:
-	buf:writeSubLine("luna_ConverterType LunaTraits< ${1} >::converters[] = {",cname)
-	buf:pushIndent()
-
-		-- Write the absolute base converters:
-		if class:getNumBases() > 0 then
-			for k,bclass in class:getAbsoluteBases():sequence() do
-				if not im:ignoreConverter(bclass) then
-					buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_cast_from_${3}},',cshortname,bclass:getFullName(),bclass:getName())
+	if self.implementConverters then
+		-- write the converter table:
+		buf:writeSubLine("luna_ConverterType LunaTraits< ${1} >::converters[] = {",cname)
+		buf:pushIndent()
+	
+			-- Write the absolute base converters:
+			if class:getNumBases() > 0 then
+				for k,bclass in class:getAbsoluteBases():sequence() do
+					if not im:ignoreConverter(bclass) then
+						buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_cast_from_${3}},',wname,bclass:getFullName(),bclass:getName())
+					end
 				end
 			end
-		end
-		
-	buf:writeSubLine("{0,0}")
-	buf:popIndent()
-	buf:writeLine("};")
-	buf:newLine()
+			
+		buf:writeSubLine("{0,0}")
+		buf:popIndent()
+		buf:writeLine("};")
+		buf:newLine()
+	end
 	
 	-- Write the enum table:
 	buf:writeSubLine("luna_RegEnumType LunaTraits< ${1} >::enumValues[] = {",cname)
@@ -557,12 +617,24 @@ function LunaWriter:writeClass(class)
 	buf:writeLine("};")
 	buf:newLine()
 
-	self:writeSourceContent(buf,"bind_".. cshortname ..".cpp")
+	-- get the proper filename:
+	local filename = wname 
+	self:debug0_v("Writing file ","bind_".. filename ..".cpp")
+	self:writeSourceContent(buf,"bind_".. filename ..".cpp")
 end
 
 function LunaWriter:writeClassSources()
+	local written = Set();
+	
 	for _,v in self.classes:sequence() do
-		self:writeClass(v)
+		local tname = v:getTypeName()
+		if not im:ignore("class_declaration",tname) and not written:contains(tname) then
+			written:push_back(tname)
+			self:debug0_v("writing reflection for class ", v:getFullName(), " with Typename: ", tname)
+			self:writeClass(v)
+		else
+			self:notice("Discarding reflection generation for class ", v:getFullName(), " with Typename: ", tname)
+		end
 	end
 end
 
@@ -596,9 +668,15 @@ function LunaWriter:writeModuleFile()
 	self:writeLine("Luna< void >::Register(L);")
 	
 	-- register the other classes:
+	local written = Set();
+	
 	for _,v in self.classes:sequence() do
-		if not v:isExternal() then
-			self:writeSubLine("Luna< ${1} >::Register(L);",v:getFullName())
+		local tname = v:getTypeName()
+		if not v:isExternal() and not im:ignore("class_declaration",tname) and not written:contains(tname) then
+			written:push_back(tname)
+			self:writeSubLine("Luna< ${1} >::Register(L);",tname)
+		else
+			self:warn("Ignoring registration for class ", tname)
 		end
 	end
 	
@@ -647,6 +725,21 @@ end
 function LunaWriter:writeDefines()
 	self:clearContent()
 
+	local defs = self.datamap:getDefines()
+
+	local headers = Set();
+	for _,def in defs:sequence() do
+		local header = def:getHeaderFile()
+		if header and not im:ignoreHeader(header) then
+			headers:push_back(header)
+		end		
+	end
+	
+	for _,v in headers:sequence() do
+		self:writeLine("#include <"..v..">")
+	end
+	self:newLine()
+	
 	--- retrieve the list of defines from the reflection map:
 	self:writeLine("#include <plug_common.h>")
 	self:newLine()
@@ -657,7 +750,6 @@ function LunaWriter:writeDefines()
 	self:writeSubLine("void register_defines(lua_State* L) {")
 	self:pushIndent()
 		-- Assume the parent container is already on the stack.
-		local defs = self.datamap:getDefines()
 		for _,v in defs:sequence() do
 			if not v:isIgnored() then
 				self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',v:getName(),v:getName()) --InitStr
@@ -679,6 +771,19 @@ function LunaWriter:writeEnums()
 	self:clearContent()
 
 	local enums = self.datamap:getAllEnums()
+	
+	local headers = Set();
+	for _,enum in enums:sequence() do
+		local header = enum:getHeaderFile()
+		if header and not im:ignoreHeader(header) then
+			headers:push_back(header)
+		end		
+	end
+	
+	for _,v in headers:sequence() do
+		self:writeLine("#include <"..v..">")
+	end
+	self:newLine()
 	
 	--- retrieve the list of defines from the reflection map:
 	self:writeLine("#include <plug_common.h>")
@@ -737,6 +842,22 @@ function LunaWriter:writeGlobalFunctionSources()
 	-- register all the global functions here:
 	-- just write all the namespaces with content:
 	local namespaces = self.datamap:getAllNamespaces()
+	
+	local headers = Set();
+	for _,ns in namespaces:sequence() do
+		local functions = ns:getValidPublicFunctions()
+		for _,func in functions:sequence() do
+			local header = func:getHeaderFile()
+			if header and func:isValidForWrapping() and not im:ignoreHeader(header) then
+				headers:push_back(header)
+			end		
+		end
+	end
+	
+	for _,v in headers:sequence() do
+		self:writeLine("#include <"..v..">")
+	end
+	self:newLine()
 	
 	for _,v in namespaces:sequence() do
 		self:writeNamespaceFunctions(v)

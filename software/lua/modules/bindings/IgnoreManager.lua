@@ -1,79 +1,90 @@
 
-local oo = require "loop.base"
+local oo = require "loop.cached"
 local dbg = require "debugger"
 
 local Set = require "std.Set"
 local Map = require "std.Map"
+
 local log = require "logger"
 
---- Class used to configure the piece of codes that should be
--- ignored.
+local Object = require "base.Object"
+
+--- Class used to configure the piece of codes that should be ignored.
 local IgnoreManager = oo.class{}
+
+-- other categories: 
+-- class_declaration
 
 IgnoreManager.CLASS_NAME = "bindings.IgnoreManager"
 
 function IgnoreManager:__init()
-    local obj = oo.rawnew(self,{})
-    obj.ignoreClassPatterns = Set();
-    obj.ignoreConvertersPatterns = Set() 
-    obj.ignoreFunctionPatterns = Set() 
-    obj.ignoreDefinePatterns = Set() 
+    local obj = Object:__init({})
+    obj = oo.rawnew(self,obj)
+    obj._TRACE_ = "IgnoreManager"
+    obj._patternsMap = Map()
+   
     return obj
+end
+
+function IgnoreManager:getPatterns(cat)
+	local category = self._patternsMap:get(cat)
+	if not category then
+		category = Set();
+		self._patternsMap:set(cat,category)
+	end
+	
+	return category
 end
 
 --- Retrieve the ignore converters pattern set.
 function IgnoreManager:getIgnoreClassesPatterns()
-    return self.ignoreClassPatterns
+    return self:getPatterns("class")
 end
 
 function IgnoreManager:getIgnoreDefinesPatterns()
-    return self.ignoreDefinePatterns
+    return self:getPatterns("define")
 end
 
 function IgnoreManager:getIgnoreFunctionsPatterns()
-    return self.ignoreFunctionPatterns
+    return self:getPatterns("function")
 end
 
 --- Retrieve the ignore converters pattern set.
 function IgnoreManager:getIgnoreConvertersPatterns()
-    return self.ignoreConvertersPatterns
+    return self:getPatterns("converter")
+end
+
+function IgnoreManager:getIgnoreHeadersPatterns()
+	return self:getPatterns("header")
+end
+
+function IgnoreManager:addPattern(cat,pattern)
+	self:getPatterns(cat):push_back(pattern)
+end
+
+function IgnoreManager:ignore(text,cat)
+	local patterns = self:getPatterns(cat)
+    for _,pattern in patterns:sequence() do
+        if text:find(pattern) then
+            return true;
+        end
+    end
 end
 
 function IgnoreManager:ignoreFunction(func)
-	local proto = func:getPrototype(false,true);
-    for _,v in self.ignoreFunctionPatterns:sequence() do
-        if proto:find(v) then
-        	if proto:find("wxFrame") then
-	        	log:notice("Ignoring function ",func:getFullName()," as matching pattern ",v)
-	        end
-            return true;
-        end
-    end
-    return false;
+	return self:ignore(func:getPrototype(false,true),"function")
+end
+
+function IgnoreManager:ignoreHeader(header)
+	return self:ignore(header,"header")
 end
 
 function IgnoreManager:ignoreDefine(def)
-    local cname = def:getName()
-    for _,v in self.ignoreDefinePatterns:sequence() do
-    	--error("Checking class ignore pattern ".. v .. " with class ".. class:getName())
-        if cname:find(v) then
-        	--dbg:assert(false,"Ignoring class ",class:getName())
-            return true;
-        end
-    end
-    return false;
+    return self:ignore(def:getName(),"define")
 end
 
 function IgnoreManager:ignoreClass(class)
-    local cname = class:getName()
-    for _,v in self.ignoreClassPatterns:sequence() do
-    	--error("Checking class ignore pattern ".. v .. " with class ".. class:getName())
-        if cname:find(v) then
-        	--dbg:assert(false,"Ignoring class ",class:getName())
-            return true;
-        end
-    end
-    return false;
+	return self:ignore(class:getFullName(),"class")
 end
 
 function IgnoreManager:ignoreConverter(class)
@@ -81,14 +92,7 @@ function IgnoreManager:ignoreConverter(class)
 		return true;
 	end
 
-	local cname = class:getName()
-    for k,v in self.ignoreConvertersPatterns:sequence() do
-        if cname:find(v) then
-            return true;
-        end
-    end
-    
-    return false;
+	return self:ignore(class:getFullName(),"converter")
 end
 
 local instance = IgnoreManager()

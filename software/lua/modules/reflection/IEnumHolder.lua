@@ -27,17 +27,17 @@ function IEnumHolder:addEnum(var)
 	dbg:assertType(var,Enum)
 	self.enums:push_back(var)
 	
-	if var.parent == self then
+	if var:getParent() == self then
 		return -- nothing to do.
 	end
 	
 	-- also add the enum as a regular scope:
 	--self:addChild(var)
 	
-	dbg:assertNil(var.parent,
+	dbg:assertNil(var:getParent(),
 		"Changing enum parent.",
 		"\nEnum=",var,
-		"\nPrevious parent=",var.parent,
+		"\nPrevious parent=",var:getParent(),
 		"\nNew parent=",self)
 	var:setParent(self)	
 end

@@ -2,6 +2,7 @@
 local oo = require "loop.base"
 
 local Map = require "std.Map"
+local OrderedMap = require "std.OrderedMap"
 
 local dbg = require "debugger"
 
@@ -12,9 +13,9 @@ TypeConverter.CLASS_NAME = "bindings.TypeConverter"
 
 function TypeConverter:__init()
     local object = oo.rawnew(self,{})
-	object.fromLuaConverters = Map()
-	object.toLuaConverters = Map() 
-	object.typeCheckers = Map()   
+	object.fromLuaConverters = OrderedMap()
+	object.toLuaConverters = OrderedMap() 
+	object.typeCheckers = OrderedMap()   
 	object._TRACE_ = "TypeConverter"
     return object
 end
@@ -35,15 +36,39 @@ function TypeConverter:setToLuaConverter(typename,converter)
 end
 
 function TypeConverter:getTypeChecker(typename)
-	return self.typeCheckers:get(typename)
+	if not typename then
+		return
+	end
+	
+	for k,v in self.typeCheckers:sequence() do
+		if typename:find(k) then
+			return v
+		end
+	end	
 end
 
 function TypeConverter:getFromLuaConverter(typename)
-	return self.fromLuaConverters:get(typename)
+	if not typename then
+		return
+	end
+	
+	for k,v in self.fromLuaConverters:sequence() do
+		if typename:find(k) then
+			return v
+		end
+	end	
 end
 
 function TypeConverter:getToLuaConverter(typename)
-	return self.toLuaConverters:get(typename)
+	if not typename then
+		return
+	end
+	
+	for k,v in self.toLuaConverters:sequence() do
+		if typename:find(k) then
+			return v
+		end
+	end
 end
 
 return TypeConverter()

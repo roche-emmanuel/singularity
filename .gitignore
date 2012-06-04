@@ -1,6 +1,9 @@
 # ignore building folder:
 build/*
 
+# Ignore log files:
+*.log
+
 # Ignore .bak files:
 *.bak
 

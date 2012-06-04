@@ -55,4 +55,8 @@ function Parameter:isLuaAny()
 	return self:getType():isLuaAny()
 end
 
+function Parameter:isNothing()
+	return self:getType():isNothing()
+end
+
 return Parameter

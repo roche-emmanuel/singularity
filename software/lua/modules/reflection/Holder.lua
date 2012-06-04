@@ -1,12 +1,10 @@
 
 local oo = require "loop.cached"
-local dbg = require "debugger"
 
 local IFunctionHolder = require "reflection.IFunctionHolder"
 local IVariableHolder = require "reflection.IVariableHolder"
 local IEnumHolder = require "reflection.IEnumHolder"
 local Scope = require "reflection.Scope"
-local log = require "logger"
 
 local Set = require "std.Set"
 
@@ -23,9 +21,10 @@ function Holder:__init(obj)
     obj = IFunctionHolder:__init(obj)
     obj = IVariableHolder:__init(obj)
     obj = IEnumHolder:__init(obj)
-    dbg:assertNil(obj.children,"Object already contains a 'children' field")
-    obj.children = Set()
     obj = oo.rawnew(self,obj)
+    obj._TRACE_ = "reflection.Holder"
+    
+    obj.children = Set()
     return obj
 end
 
@@ -35,37 +34,28 @@ function Holder:getChildren()
 end
 
 function Holder:addChild(child)
-	dbg:assert(child,"'child' argument is nil.")
-	dbg:assertType(child,Scope)
+	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
 	
-	if child.parent == self then
+	self:debug0_v("Adding child ",child:getName()," to scope ", self:getName())
+	
+	if child:getParent() == self then
 		return -- nothing to do the child is already in the list.
 	end
 
 	self.children:push_back(child)
 	
 	--Add this object as parent of the child:
-	if (child.parent and child.parent:getName()~="") then
-		log:warn("changing scope parent from ".. child.parent:getFullName() .. " to ".. self:getName())
+	if (child:getParent() and child:getParent():getName()~="") then
+		self:warn("changing scope parent from ".. child:getParent():getFullName() .. " to ".. self:getName())
 	end
 	
-	--[[dbg:assert(not child.parent or child.parent:getName()=="",
-		"Changing Scope parent.",
-		"\nScope=",child,
-		"\nPrevious parent=",child.parent,
-		"\nNew parent=",self)]]
-	
-	-- if this class was in the global namespace so far, remove it:
+
+	-- if this class was in the global namespace so far, remove it:		
+	if child:getParent() then
+		child:getParent():getChildren():eraseValue(child)
+	end
 		
-	if child.parent then
-		child.parent:getChildren():eraseValue(child)
-	end
-	
-	dbg:assert(not child.parent or not child.parent.children:contains(child),"The old parent contains the child.")
-	
-	child:setParent(self)
-	dbg:assert(child.parent.children:contains(child),"The new parent doesn't contain the child.")
-	
+	child:setParent(self)	
 end
 
 return Holder

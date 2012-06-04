@@ -1,5 +1,5 @@
 
-local oo = require "loop.base"
+local oo = require "loop.cached"
 local utils = require "utils"
 local Namespace = require "reflection.Namespace"
 local Scope = require "reflection.Scope"
@@ -10,13 +10,16 @@ local dbg = require "debugger"
 
 local tm = require "bindings.TypeManager"
 
+local Object = require "base.Object"
+
 local log = require "logger"
 
 -- This module contains the mapping of the relfection details read with doxmlparser.
-module("bindings.ReflectionMap", oo.class)
+local RMap = oo.class({},Object)
 
-function __init(class,object)
-    object = oo.rawnew(class,object or {})
+function RMap:__init(class,object)
+    object = Object:__init(object or {})
+    object = oo.rawnew(self,object)
     object.globalNamespace = Namespace() -- the global namespace holding everything.
     object.classes = Set()
     object.namespaces = Set()
@@ -28,28 +31,30 @@ function __init(class,object)
     object.defines = Set()
     object.codeAdditions = Map()
 	object._initialized = false;
+	object._TRACE_ = "ReflectionMap"
+	
     return object
 end
 
-function setCodeAddition(self,name,content)
+function RMap:setCodeAddition(name,content)
 	self.codeAdditions:set(name,content)
 end
 
-function getCodeAddition(self,name)
+function RMap:getCodeAddition(name)
 	return self.codeAdditions:get(name)
 end
 
-function isInitialized(self)
+function RMap:isInitialized()
 	return self._initialized;
 end
 
 --- Retrieve the global namespace:
-function getGlobalNamespace(self)
+function RMap:getGlobalNamespace()
     return self.globalNamespace;
 end
 
 -- helper function to retrieve all the classes.
-function collectClasses(self,scope,visited)
+function RMap:collectClasses(scope,visited)
 	--log:warn("Class collector entering scope: ".. scope:getFullName())
 	
     if not visited:contains(scope) then
@@ -71,7 +76,7 @@ function collectClasses(self,scope,visited)
 end
 
 -- helper function to retrieve all the classes.
-function collectEnums(self,scope,visited)
+function RMap:collectEnums(scope,visited)
 	--log:warn("Class collector entering scope: ".. scope:getFullName())
 	
     if not visited:contains(scope) then
@@ -94,7 +99,7 @@ function collectEnums(self,scope,visited)
 end
 
 -- helper function to retrieve all the namespaces.
-function collectNamespaces(self,scope,visited)
+function RMap:collectNamespaces(scope,visited)
     if not visited:contains(scope) then
         if(scope:getScopeType() == Scope.NAMESPACE) then
             -- only add the namespace if it contains something:
@@ -114,7 +119,7 @@ function collectNamespaces(self,scope,visited)
 end
 
 --- Use to collect all the classes in the reflectin map.
-function collectAllClasses(self)
+function RMap:collectAllClasses()
     log:notice ("Collecting all classes...")
     -- iterate on all the scopes to find the classes:
     self.classes:clear()
@@ -123,7 +128,7 @@ function collectAllClasses(self)
 end
 
 --- Use to collect all the classes in the reflectin map.
-function collectAllEnums(self)
+function RMap:collectAllEnums()
     log:notice ("Collecting all enums...")
     -- iterate on all the scopes to find the classes:
     self.enums:clear()
@@ -132,7 +137,7 @@ function collectAllEnums(self)
 end
 
 
-function collectAllNamespaces(self)
+function RMap:collectAllNamespaces()
     log:notice ("Collecting all namespaces...")
 	--dbg:backtrace(1,true)
 	
@@ -145,7 +150,7 @@ end
 --- Find the base classes.
 -- The "Base classes" are the classes with no parent class in the XML reflection
 -- This function will compute the list of all base classes found so far.
-function findBaseClasses(self)
+function RMap:findBaseClasses()
     self.baseClasses:clear()
     
     log:info ("Finding base classes...")
@@ -162,7 +167,7 @@ function findBaseClasses(self)
 end
 
 --- Find all the derived classes:
-function findDerivedClasses(self)
+function RMap:findDerivedClasses()
     log:info ("Collecting derived classes...")
 
     local map = self.derivedClassesMap
@@ -188,7 +193,7 @@ function findDerivedClasses(self)
 end
 
 --- Get a class by its name.
-function getClass(self,cname)
+function RMap:getClass(cname)
     local classes = self.classes
 
     for k,v in classes:sequence() do
@@ -199,7 +204,7 @@ function getClass(self,cname)
 end
 
 --- Check if class is derived from parent.
-function isDerivedFrom(self,class,base)
+function RMap:isDerivedFrom(class,base)
     -- check if we can find the base class in the parent hierarchy of the class object:
     if not class or not base then
         return false;
@@ -219,7 +224,7 @@ function isDerivedFrom(self,class,base)
 end
 
 --- Sort all classes by hierarchy.
-function sortClassesHierarchy(self)
+function RMap:sortClassesHierarchy()
     log:info ("Sorting classes by hierarchy...")
 
     -- order all the classes by parent/child hierarchy.
@@ -249,7 +254,7 @@ function sortClassesHierarchy(self)
 end
 
 --- Function called when done adding classes to the mapping.
-function generateClassHierarchy(self)
+function RMap:generateClassHierarchy()
     self:collectAllClasses()
     self:collectAllNamespaces()
     self:collectAllEnums()
@@ -265,83 +270,90 @@ function generateClassHierarchy(self)
 end
 
 --- Assign a specific module name for the bindings.
-function setModuleName(self,modname)
+function RMap:setModuleName(modname)
     self.moduleName = modname
 end
 
 --- Retrieve the module name.
-function getModuleName(self)
+function RMap:getModuleName()
     return self.moduleName
 end
 
 
 --- Retrieve the set of user headers.
-function getUserHeaders(self)
+function RMap:getUserHeaders()
     return self.userHeaders
 end
 
 --- Add a new header to the user header list.
-function addUserHeader(self,name)
+function RMap:addUserHeader(name)
     self.userHeaders:push_back(name)
 end
 
 --- Retrieve the set of user headers.
-function getUserContents(self)
+function RMap:getUserContents()
     return self.userContent
 end
 
 --- Add a new header to the user header list.
-function addUserContent(self,cont)
+function RMap:addUserContent(cont)
     self.userContent:push_back(cont)
 end
 
 --- Retrieve the map of derived classes.
-function getDerivedClassesMap(self)
+function RMap:getDerivedClassesMap()
     return self.derivedClassesMap
 end
 
 --- Retrieve derived classes for a specific base class.
-function getDerivedClasses(self,base)
+function RMap:getDerivedClasses(base)
     return self.derivedClassesMap[base]
 end
 
 --- Return the list of all classes.
-function getAllClasses(self,validOnly)
+function RMap:getAllClasses(validOnly)
 	if validOnly then
-		local result = Set();
+		if self._validClasses then
+			return self._validClasses
+		end
+		
+		self._validClasses = Set();
 		for k,v in self.classes:sequence() do
 			if not v:isIgnored() and v:isValidForWrapping() then
-				result:push_back(v)
+				self._validClasses:push_back(v)
+				self:debug0_v("Adding ", v:getFullName()," to class list.")
+			else
+				self:notice("Ignoring class ",v:getFullName())
 			end
 		end
 		
-		return result;
+		return self._validClasses;
 	else
     	return self.classes
     end
 end
 
 --- Return the list of all namespaces.
-function getAllNamespaces(self)
+function RMap:getAllNamespaces()
     return self.namespaces
 end
 
 --- Return the list of available enumerations:
-function getAllEnums(self)
+function RMap:getAllEnums()
 	return self.enums;
 end
 
-function addDefine(self,def)
+function RMap:addDefine(def)
 	dbg:assert(def,"Invalid define object");
 	self.defines:push_back(def)
 	log:info("Adding define ",def:getName())
 end
 
-function getDefines(self)
+function RMap:getDefines()
 	return self.defines;
 end
 
-function retrieveConvertableTypes(self)
+function RMap:retrieveConvertableTypes()
     -- get the "convertable" types:
     local convertables = OrderedMap();
     
@@ -356,7 +368,8 @@ function retrieveConvertableTypes(self)
     self.convertableClassesMap = convertables;
 end
 
-function getConvertableClassesMap(self)
+function RMap:getConvertableClassesMap()
 	return self.convertableClassesMap
 end
 
+return RMap

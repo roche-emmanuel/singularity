@@ -1,13 +1,16 @@
 
 local oo = require "loop.cached"
 local Object = require "reflection.Object"
-local dbg = require "debugger"
-local log = require "logger"
 
 local Scope = require "reflection.Scope"
+local Class = require "reflection.Class"
+
 local Enum = require "reflection.Enum"
 
 local tm = require "bindings.TypeManager"
+local corr = require "bindings.TextCorrector"
+
+local utils = require "utils"
 
 -- The object class implements the IName and IParent interfaces
 local Type = oo.class({},Object)
@@ -19,6 +22,8 @@ function Type:__init(linkvec)
     local obj = Object:__init({})
     obj = oo.rawnew(self,obj)
 	obj:setItemLinks(linkvec)
+	
+	obj._TRACE_ = "reflection.Type"
 	
 	-- register this new type:
 	tm:registerType(obj)
@@ -44,7 +49,10 @@ function Type:extractBaseType(str)
 	str = str:gsub("^[%s]*const[%s]+","")
 	str = str:gsub("^([^%*]+)%*.*","%1")
 	str = str:gsub("^([^&]+)&.*","%1")
-	str = str:gsub("^[%s]*([^%s]+)[%s]*.*","%1")
+	str = str:gsub("^%s*(.-)%s*$", "%1")
+	--str = str:gsub("^%s*([^%s]%.*)$","%1")
+	--str = str:gsub("^(%.*)%s*$","%1")
+	--str = str:gsub("^[%s]*([^%s]+)[%s]*.*","%1")
 	return str	
 end
 
@@ -82,8 +90,8 @@ function Type:parse()
 	-- Actually no because the types are expanded during the doxygen reflection parsing.
 	--linkvec = self:expandTypedefs(linkvec)
 	
-	dbg:assert(linkvec,"linkvec argument is nil")
-	dbg:assertType(linkvec,require("std.Vector"),true)
+	self:check(linkvec,"linkvec argument is nil")
+	self:checkType(linkvec,require("std.Vector"),true)
 	
 	local ItemLink = require "reflection.ItemLink"
 	local Scope = require "reflection.Scope"
@@ -93,19 +101,26 @@ function Type:parse()
 	local str = {}
 	local base = nil
 	for _,v in linkvec:sequence() do
-		dbg:assertType(v,ItemLink)
+		self:checkType(v,ItemLink)
 		if v:getType() == ItemLink.OBJECT then
 			-- retrieve the object as base
-			dbg:assert(base==nil,"Type base class was already found: currentBase=",(type(base)=="table" and base:getFullName() or base),
-				"newBase=",v:getContent():getFullName())
-				
-			base = v:getContent()
-			dbg:assertType(base,Scope)
+			--self:check(base==nil,"Type base class was already found: currentBase=",(type(base)=="table" and base:getFullName() or base),
+			--	" newBase=",v:getContent():getFullName())
 			
-			table.insert(str,base:getFullName())
+			if base == nil then	
+				base = v:getContent()
+			end
+			
+			if self._firstBase == nil and self:isInstanceOf(Class,v:getContent()) then
+				self._firstBase = v:getContent()
+			end
+			
+			--self:checkType(base,Scope)
+			
+			table.insert(str,v:getContent():getFullName())
 		else
 			local data = v:getContent()
-			dbg:assert(type(data)=="string","Invalid data type")
+			self:check(type(data)=="string","Invalid data type")
 			
 			table.insert(str,data) -- concat simple string.
 			if not base and not self:isKeyWord(data) and not data:match("[<>]") then
@@ -116,18 +131,21 @@ function Type:parse()
 	
 	str = table.concat(str)
 	
-	if not base then
+	if not base or str:find("<") then
 		base = self:extractBaseType(str)
+		self:check(base~="","Invalid extracted base name from ", str) 
+		self:info("Extracted base type ",base," from type ", str)
 	end
 	
 	
 	
-	--log:notice("Parsing type : '".. str.."'")
-	dbg:assert(base,"Could not parse base type in type: ".. str)
+	--self:notice("Parsing type : '".. str.."'")
+	self:check(base,"Could not parse base type in type: ".. str)
 	
 	-- assign the base if any;
 	self._base = base;
 	
+	str = corr:correct("type_name",str);
 	self._fullName = str;
 	
 	-- parse the type string:
@@ -137,8 +155,10 @@ function Type:parse()
 	self._isPointer = (str:find("%*")~=nil)
 	self._isConstPointer = (str:find("%*[%s]+const")~=nil)
 	self._isPointerOnPointer = (str:find("%*%*")~=nil)
-	
-	--log:warn("parsed type '".. self._fullName .. "'")
+end
+
+function Type:getFirstBase()
+	return self._firstBase -- return the first base if any.
 end
 
 --- Retrieve the base of that type if any
@@ -174,7 +194,10 @@ function Type:isVoid()
 end
 
 function Type:isEnum()
-	return self._base~=nil and type(self._base)=="table" and self._base:getScopeType() == Scope.ENUM
+	if type(self._base) ~= "table" then return false; end
+	
+	local obj_class = oo.classof(self._base)
+	return obj_class==Enum or oo.subclassof(obj_class,Enum)	
 end
 
 function Type:isInteger()
@@ -186,14 +209,22 @@ function Type:isInteger()
 		or str:find("size_t") 
 		or str:find("unsigned char") 
 		or str:find("unsigned short")
-		or str == "char" 
+		or str:find("^%s*char%s*[%*&]?$")
+		or str:find("^%s*signed char%s*[%*&]?$")
+		or str:find("^%s*const%s*signed char%s*[%*&]?$")
+		or str:find("^%s*short%s*[%*&]?$")
+		or str:find("^%s*const%s*short%s*[%*&]?$")
 		or str == "unsigned" 
 		or str == "wxChar") 
 end
 
 function Type:isNumber()
 	local str = self:getName()
-	return self:isInteger() or str:find("float") or str:find("double") 
+	return self:isInteger() 
+		or str:find("^%s*double%s*[%*&]?$") 
+		or str:find("^%s*float%s*[%*&]?$") 
+		or str:find("^%s*const%s*double%s*[%*&]?$") 
+		or str:find("^%s*const%s*float%s*[%*&]?$")  
 end
 
 function Type:isString()
@@ -208,8 +239,24 @@ function Type:isBoolean()
 	return type(self._base)=="string" and self._base:find("bool")
 end
 
+function Type:getAbsoluteBaseFullName()
+	if type(self._base) == "table" then
+		return self._base:getFirstAbsoluteBase():getFullName()
+	else
+		return self._base;
+	end
+end
+
 function Type:isClass()
-	return self._base~=nil and type(self._base)=="table" and self._base:getScopeType() == Scope.CLASS
+	if type(self._base)=="string" and self._base:find("<") then
+		-- this is a template!
+		return true;
+	end
+	
+	if type(self._base) ~= "table" then return false; end
+	
+	local obj_class = oo.classof(self._base)
+	return obj_class==Class or oo.subclassof(obj_class,Class)
 end
 
 function Type:isPointer()
@@ -228,7 +275,7 @@ end
 -- return the complete name of that type
 function Type:getName()
 	if true then
-		dbg:assert(self._fullName,"Type not parsed yet cannot retrieve its name.")
+		self:check(self._fullName,"Type not parsed yet cannot retrieve its name.")
 		
 		--if not self._fullName then
 			--self:parse()
@@ -284,6 +331,34 @@ function Type:isLuaAny()
 	if self:getName() == "lua_Any *" then
 		return true
 	end
+	return false;
+end
+
+function Type:getAbsoluteBaseHash()
+	if type(self._base)=="table" then
+		return self._base:getAbsoluteBaseHash()
+	else
+		return utils.getHash(self._base)
+	end
+end
+
+function Type:isNothing()
+	local linkvec = self:getItemLinks()
+	
+	if linkvec:size()~=1 then
+		return false;
+	end
+	 
+	local item = linkvec:front()
+	
+	local ItemLink = require "reflection.ItemLink"
+	
+	if (item:getType() == ItemLink.OBJECT and  item:getContent():getFullName()=="void") 
+		or (item:getType() == ItemLink.STRING and  item:getContent()=="void") then
+		self:notice("Found void type!")
+		return true;	
+	end
+	
 	return false;
 end
 

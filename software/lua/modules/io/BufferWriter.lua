@@ -1,19 +1,23 @@
 
-local oo = require "loop.base"
+local oo = require "loop.cached"
 
 local log = require "logger"
 
+local Object = require "base.Object"
+
 -- This module contains the base functions needed to support writing library bindings
-local BufferWriter = oo.class{}
+local BufferWriter = oo.class({},Object)
 
 BufferWriter.CLASS_NAME = "bindings.BufferWriter"
 
 function BufferWriter:__init()
-    object = oo.rawnew(self,{})
+	local object = Object:__init({})
+    object = oo.rawnew(self,object)
     object.content = {} -- The current content of the writer.
     object.indent = 0 -- base intent value
     object.tab = "\t" -- default tabulation value
     object.keepBackup = false
+    object._TRACE_ = "BufferWritter"
     return object
 end
 

@@ -20,12 +20,12 @@ end
 -- The full name will take into account the parent scopes if any.
 -- @return The fullname of the enum value, will have the form "ns1::ns2::enum::value".
 function EnumValue:getFullName()
-    if self.parent and self.parent.parent then
+    if self:getParent() and self:getParent():getParent() then
         -- Assume the parent as a getFullName() function:
         -- get the parent of the parent:
         
-        local pname = self.parent.parent:getFullName()
-        return (pname=="" and "" or (pname .. "::")) .. self.name
+        local pname = self:getParent():getParent():getFullName()
+        return (pname=="" and "" or (pname .. "::")) .. self:getName()
     else
         return self:getName()
     end

@@ -12,14 +12,33 @@ end
 
 function Object:check(cond,msg,...)
 	if not cond then
-		log:error(self,msg,...)
-		self:backtrace()
-		error("Stopping because an assertion error occured.")
+		self:throw(msg,...)
 	end
 end
 
-function Object:error(msg,...)
-	log:error(msg,...)
+function Object:getClassOf(obj)
+	return oo.classof(obj or self)
+end
+
+function Object:isInstanceOf(class,obj)	
+	--self:check(oo.isclass(class),"Invalid class argument.")
+	local obj_class = oo.classof(obj or self)
+	return obj_class==class or oo.subclassof(obj_class,class)
+end
+
+function Object:checkType(obj,base,strict)
+	if not obj then 
+		return 
+	end
+	
+	local obj_class = oo.classof(obj)
+	if not (obj_class == base or (not strict and oo.subclassof(obj_class,base))) then
+		self:throw("Expected class ",base.CLASS_NAME," and got ",obj_class.CLASS_NAME, " for object ", obj)
+	end 
+end
+
+function Object:throw(msg,...)
+	log:error(self,msg,...)
 	self:backtrace()
 	error("Stopping because error occured.")
 end
@@ -30,7 +49,7 @@ function Object:deprecated(msg)
 end
 
 function Object:backtrace(level)
-	log[level or "error"](self,"Current stack trace:\n",debug.traceback())
+	log[level or "error"](log,self,"Current stack trace:\n",debug.traceback())
 end
 
 for k,v in pairs(log.levels) do

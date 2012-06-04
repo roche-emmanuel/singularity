@@ -222,18 +222,21 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../src/luna
         COMMAND echo "Generating doxygen wrapper docs..."
         COMMAND echo INPUT=${${INTERFACE_FILES}} > ${DOXFILE}
-        COMMAND echo PREDEFINED="_DOXYGEN=1 __DOXYGEN__=1 VBS2FUSION_API VBS2FUSION_HUD_API ${DOXY_PREDEFINED}" >> ${DOXFILE}
+        COMMAND echo FILE_PATTERNS=${FILE_PATTERNS} >> ${DOXFILE}
+        COMMAND echo PREDEFINED=_DOXYGEN=1 __DOXYGEN__=1 VBS2FUSION_API VBS2FUSION_HUD_API ${DOXY_PREDEFINED} >> ${DOXFILE}
         COMMAND echo INCLUDE_PATH= >> ${DOXFILE}
         COMMAND echo EXCLUDE_PATTERNS= >> ${DOXFILE}
         COMMAND echo DOT_PATH=${DOT_DIR} >> ${DOXFILE}
         COMMAND type "${DOX_TEMPLATE}" >> ${DOXFILE}
         # Call doxygen on this file:
         #COMMAND set PATH=${DOT_DIR_WIN};%PATH% & ${DOXYGEN} ${DOXFILE}
-        COMMAND ${DOXYGEN} ${DOXFILE}
+        COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_SOURCE_DIR}/../doxygen.log 
+		# 2>&1
         #COMMAND echo ${DOT_DIR_WIN}
         COMMAND echo "Generating lua reflection..."
         COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; src_path='${CMAKE_CURRENT_BINARY_DIR}'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
         COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
+        COMMAND echo "Reflection generation done."
     )
 ENDMACRO(GENERATE_REFLECTION)
 

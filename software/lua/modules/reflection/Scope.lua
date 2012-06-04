@@ -1,5 +1,5 @@
-
 local oo = require "loop.cached"
+
 local Object = require "reflection.Object"
 local dbg = require "debugger"
 
@@ -19,18 +19,28 @@ Scope.TEMPLATE = 3
 function Scope:__init(obj)
     obj = Object:__init(obj or {})
     obj = oo.rawnew(self,obj)
-    dbg:assertNil(obj.scopeType,"Object already contains a 'scopeType' field")
+    obj._TRACE_ = Scope.CLASS_NAME
 	obj.scopeType = nil -- invalid by default.
     return obj
 end
 
+function Scope:getHeaderFile()
+	return self._headerFile
+end
+
+function Scope:setHeaderFile(header)
+	self:check(header==nil or type(header)=="string","Invalid header argument.")
+	self._headerFile = header
+end
+
+
 --- Retrieve the full name of that scope.
 -- The full name will take into account the parent scopes if any.
 function Scope:getFullName()
-    if self.parent then
+    if self:getParent() then
         -- Assume the parent as a getFullName() function:
-        local pname = self.parent:getFullName()
-        return (pname=="" and "" or (pname .. "::")) .. self.name
+        local pname = self:getParent():getFullName()
+        return (pname=="" and "" or (pname .. "::")) .. self:getName()
     else
         return self:getName()
     end

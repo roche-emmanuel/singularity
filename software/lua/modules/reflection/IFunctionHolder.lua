@@ -56,14 +56,14 @@ function IFunctionHolder:addFunction(func)
 	dbg:assert(func,"'func' argument is nil")
 	dbg:assertType(func,Function)
 		
-	if (func.parent == self) then
+	if (func:getParent() == self) then
 		return -- nothing to do.
 	end
 	
-	dbg:assertNil(func.parent,
+	dbg:assertNil(func:getParent(),
 		"Changing function parent.",
 		"\nFunction=",func,
-		"\nPrevious parent=",func.parent,
+		"\nPrevious parent=",func:getParent(),
 		"\nNew parent=",self)
 	func:setParent(self)
 

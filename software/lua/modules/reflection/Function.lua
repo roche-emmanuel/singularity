@@ -80,10 +80,10 @@ function Function:setLuaName(name)
 end
 
 function Function:getFullName()
-    if self.parent then
+    if self:getParent() then
         -- Assume the parent as a getFullName() function:
-        local pname = self.parent:getFullName()
-        return (pname=="" and "" or (pname .. "::")) .. self.name
+        local pname = self:getParent():getFullName()
+        return (pname=="" and "" or (pname .. "::")) .. self:getName()
     else
         return self:getName()
     end
@@ -185,17 +185,20 @@ end
 
 --- Check if function is a constructor.
 function Function:isConstructor()
-	return self:getLuaName() == self.parent:getName()
+	return self:getLuaName() == self:getParent():getName()
 end
 
 --- Check if function is a destructor.
 function Function:isDestructor()
-	return self.name == "~"..self.parent:getName()
+	dbg:assert(self:getParent(),"Invalid parent object.")
+	dbg:assert(self:getParent():getName(), "Invalid parent name")
+	
+	return self:getName() == "~".. self:getParent():getName()
 end
 
 --- Check if function is an operator.
 function Function:isOperator()
-    return self.name:find("^operator")~=nil
+    return self:getName():find("^operator")~=nil
 end
 
 --- Assign the doxygen argsstring to this function.
@@ -247,7 +250,7 @@ function Function:isValidForWrapping()
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:isTemplated()
-    	and not self.name:find("~")
+    	and not self:getName():find("~")
     	and not im:ignoreFunction(self))
 end
 
@@ -297,8 +300,8 @@ end
 -- (this is different from the function prototype)
 function Function:getSignature()
 	local sig = self:getReturnType() and self:getReturnType():getName() or ""
-	if self.parent:getScopeType() == Scope.CLASS and not self:getStatic() then
-		sig = sig .. "(".. self.parent:getFullName().. "::*)"
+	if self:getParent():getScopeType() == Scope.CLASS and not self:getStatic() then
+		sig = sig .. "(".. self:getParent():getFullName().. "::*)"
 	else
 		sig = sig .. "(*)"
 	end
@@ -325,9 +328,9 @@ function Function:isOverloaded()
 	if self._isOverloaded == nil then
 	-- find the overloads in the parent holder:
 	self._overloads = Set();
-	local list = self:isConstructor() and self.parent:getValidPublicConstructors() 
-		or self:isOperator() and self.parent:getValidPublicOperators()
-		or self.parent:getValidPublicFunctions()
+	local list = self:isConstructor() and self:getParent():getValidPublicConstructors() 
+		or self:isOperator() and self:getParent():getValidPublicOperators()
+		or self:getParent():getValidPublicFunctions()
 	
 	local thisname = self:getLuaName() -- retrieve the lua name as this may make a difference for operator-()
 	 
@@ -348,11 +351,11 @@ end
 --end
 
 function Function:isClassMethod()
-	return self.parent:getScopeType() == Scope.CLASS
+	return self:getParent():getScopeType() == Scope.CLASS
 end
 
 function Function:isGlobal()
-	return self.parent:getScopeType() == Scope.NAMESPACE
+	return self:getParent():getScopeType() == Scope.NAMESPACE
 end
 
 --- Check if this function contains the lua_State type in its parameter list.

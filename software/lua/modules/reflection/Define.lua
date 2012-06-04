@@ -17,7 +17,16 @@ function Define:__init(name,initializers)
 		obj:setName(name)
 	end
 	obj.initializers = initializers
+	obj.headerFile = nil
     return obj
+end
+
+function Define:getHeaderFile()
+	return self.headerFile
+end
+
+function Define:setHeaderFile(header)
+	self.headerFile = header
 end
 
 function Define:setInitializers(init)
@@ -61,6 +70,10 @@ function Define:isIgnored()
 		return true
 	end
 	
+	if str:find("||") then
+		return false;
+	end
+
 	if str:find("|") then
 		return false;
 	end

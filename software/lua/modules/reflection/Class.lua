@@ -38,7 +38,16 @@ function Class:__init()
     obj.sourceTemplate = nil
     obj.concreteTypes = nil
     obj.externalModule = nil
+    obj.mappedType = nil
     return obj
+end
+
+function Class:getMappedType()
+	return self.mappedType
+end
+
+function Class:setMappedType(type)
+	self.mappedType = type
 end
 
 --- Retrieve the absolute base classes of that class.
@@ -83,7 +92,7 @@ end
 function Class:getFirstAbsoluteBase()
 	local abs = self:getAbsoluteBases()
 	if abs:size()>1 then
-		log:info("Found more that one absolute base for class: ".. self.name)
+		log:info("Found more that one absolute base for class: ".. self:getName())
 	end
 	return abs:front()
 end
@@ -361,6 +370,45 @@ function Class:getAbstractFunctions()
 	return abstractFuncs
 end
 
+function Class:getAbstractOperators()
+	local abstractFuncs = Set()
+	local concreteFuncs = Set()
+	
+	-- First collect the abstract/non abstract functions in 
+	-- this class.
+	for _,v in self:getOperators():sequence() do
+		if v:isAbstract() then
+			abstractFuncs:push_back(v)
+		else
+			concreteFuncs:push_back(v)
+		end
+	end
+	 
+	-- retrieve the abstract functions inherited from each base
+	-- class:
+	for _,v in self:getBases():sequence() do
+		local baseAbstracts = v:getAbstractOperators()
+		
+		-- remove from that set the functions that have concrete 
+		-- implementation in the current derived class
+		for _,func in baseAbstracts:sequence() do
+			local isConcrete = false;
+			for _,concFunc in concreteFuncs:sequence() do
+				if func:isEqualTo(concFunc) then
+					isConcrete=true;
+					break;
+				end
+			end
+			
+			if not isConcrete then
+				abstractFuncs:push_back(func)
+			end
+		end 
+	end
+	
+	return abstractFuncs
+end
+
 --- Check if this class should be ignored.
 -- Request the IgnoreManager whever this class should be
 -- ignored or not for the bindings generation.
@@ -392,7 +440,11 @@ end
 
 --- Function used to check if a class is abstract.
 function Class:isAbstract()
-	return not self:getAbstractFunctions():empty() 
+	return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
+end
+
+function Class:getTypeName()
+	return self:getMappedType() and self:getMappedType():getName() or self:getFullName()
 end
 
 function Class:isValidForWrapping()

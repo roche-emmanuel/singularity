@@ -19,10 +19,10 @@ end
 --- Retrieve the full name of that Variable.
 -- The full name will take into account the parent scopes if any.
 function Variable:getFullName()
-    if self.parent then
+    if self:getParent() then
         -- Assume the parent as a getFullName() function:
-        local pname = self.parent:getFullName()
-        return (pname=="" and "" or (pname .. "::")) .. self.name
+        local pname = self:getParent():getFullName()
+        return (pname=="" and "" or (pname .. "::")) .. self:getName()
     else
         return self:getName()
     end

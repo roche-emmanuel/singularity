@@ -27,14 +27,14 @@ function IVariableHolder:addVariable(var)
 	dbg:assertType(var,Variable)
 	self.variables:push_back(var)
 	
-	if var.parent == self then
+	if var:getParent() == self then
 		return -- this variable is already added.
 	end
 	
-	dbg:assertNil(var.parent,
+	dbg:assertNil(var:getParent(),
 		"Changing variable parent.",
 		"\nVariable=",var,
-		"\nPrevious parent=",var.parent,
+		"\nPrevious parent=",var:getParent(),
 		"\nNew parent=",self)
 	var:setParent(self)	
 end

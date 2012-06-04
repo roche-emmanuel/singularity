@@ -1,6 +1,8 @@
 
 local oo = require "loop.cached"
 
+local Object = require "base.Object"
+
 local IScopeStack = require "reflection.IScopeStack"
 
 local ReflectionMap = require "bindings.ReflectionMap"
@@ -31,22 +33,28 @@ require "doxmlparser" -- The xml parser.
 
 local dxp = doxmlparser
 
-local ReflectionGenerator = oo.class({},IScopeStack,IteratorHandler)
+local ReflectionGenerator = oo.class({},Object,IScopeStack,IteratorHandler)
 
 ReflectionGenerator.CLASS_NAME = "bindings.ReflectionGenerator"
 
-
 function ReflectionGenerator:__init(datamap)
-    local object = IScopeStack:__init({})
+    local object = Object:__init({})
+    object = IScopeStack:__init(object)
     object = oo.rawnew(self,object)
+    object._TRACE_ = "ReflectionGenerator"
+    
     object.reflectionMap = datamap
     object.currentScope = Vector();
     object.compoundMap = Map();
     object.ignoreGlobalFuncsPatterns = Set();
     object.ignoreClassFunctionsPatterns = Map()       
-    
+    object.locationPrefixes = Set()
     
     return object
+end
+
+function ReflectionGenerator:getLocationPrefixes()
+	return self.locationPrefixes;
 end
 
 --- used to create a single copy of each compound class.
@@ -114,6 +122,17 @@ function ReflectionGenerator:readParameter(param)
 	return Parameter(ptype,pname,pdef);
 end
 
+function ReflectionGenerator:getHeaderFileName(location)
+	for k,prefix in self.locationPrefixes:sequence() do
+		--log:warn("Checking location against prefix ", prefix)
+		if location:find(prefix) then
+			location = location:sub(#prefix+1)
+		end
+	end
+	
+	return location
+end
+
 function ReflectionGenerator:processClass(comp)
     -- assume the given compound is a class.
     -- create a new class scope in the current scope:    
@@ -128,6 +147,13 @@ function ReflectionGenerator:processClass(comp)
         return;
     end
 
+	-- This is not working yet: no protection status on the class or compound objects.
+	--if comp:protection() ~= dxp.IRelatedCompound.Public then
+    --    log:notice("Ignoring non public class ".. class:getName() .. ".")
+    --    return;	
+	--end
+	
+	
 	local desc = comp:detailedDescription()
 	
 	local extmod = self:extractFromDesc(desc and desc:contents(),"LUNA_EXTERNAL%s+([^%s]+)")
@@ -139,7 +165,12 @@ function ReflectionGenerator:processClass(comp)
     local parent = self:getCurrentScope()
     
 	parent:addChild(class)
-
+	
+	-- retrieve the location of that class:
+	local location = self:getHeaderFileName(comp:locationFile():latin1()) 
+	
+	class:setHeaderFile(location)
+	
     -- now push this class as current scope:
     self:pushScope(class)
 
@@ -227,6 +258,41 @@ function ReflectionGenerator:getOrCreateCompound(comp)
     end
 end
 
+function ReflectionGenerator:isClassTypedef(mem)
+	if not mem or mem:kind()~=dxp.IMember.Typedef then
+		return false;
+	end
+	
+	-- iterate on the items looking for the template symbol "<"
+	local lti = mem:type()
+	
+	lti:toFirst()
+    local item = lti:current()
+    if not item then
+        lti:release()
+        return false
+    end
+    
+    
+    while(item) do
+        if item:kind() == dxp.ILinkedText.Kind_Text then
+        	item = dxp.toLinkText(item) 
+            local name = item:text():latin1()
+			if name:find("<") then
+				self:notice("Considering typedef ", mem:name():latin1(), " as class.")
+				lti:release()
+				return true;
+			end
+		end
+		
+        lti:toNext()
+        item = lti:current()
+	end
+	
+	lti:release()
+	return false;
+end
+
 function ReflectionGenerator:getOrCreateMember(mem)
     if (mem:kind()==dxp.IMember.Enum) then 
         return self:getOrCreateObject(mem,Enum)
@@ -244,8 +310,8 @@ function ReflectionGenerator:getOrCreateMember(mem)
         return nil -- just consider Define values as plain text!
     
         --return self:getOrCreateObject(mem,Define)
-    --elseif (mem:kind()==dxp.IMember.Typedef) then
-    --    return self:getOrCreateObject(mem,Type)
+    elseif self:isClassTypedef(mem) then
+        return self:getOrCreateObject(mem,Class)
     else
         log:error("Cannot create member mapping for kind: " .. mem:kind())
     end
@@ -345,8 +411,12 @@ function ReflectionGenerator:generateItemLinks(lti)
                 	else
                 	]]
                 	if mem:kind()==dxp.IMember.Typedef then
-                		log:info("Reading sub item links for member ".. mem:name():latin1() .. " in compound " .. comp:name():latin1())
-                		subtypes = self:generateItemLinks(mem:type());
+                		if self:isClassTypedef(mem) then
+                			object = self:getOrCreateMember(mem)
+                		else
+	                		log:info("Reading sub item links for member ".. mem:name():latin1() .. " in compound " .. comp:name():latin1())
+	                		subtypes = self:generateItemLinks(mem:type());
+                		end
                 	else
                     	object = self:getOrCreateMember(mem)
                     end
@@ -539,6 +609,9 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
         --func:setReturnType()
     end
     
+    local location = self:getHeaderFileName(mem:definitionFile():latin1())
+    func:setHeaderFile(location)
+    
     func:setConstness(mem:isConst())
     func:setStatic(mem:isStatic())
     func:setAbstract(mem:argsstring():latin1():find("=0$")~=nil)
@@ -555,7 +628,10 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     while(param) do
     	local p = self:readParameter(param)
     	
-        func:addParameter(p)
+    	-- check if this parameter is not simply "void"
+    	if not p:isNothing() then
+        	func:addParameter(p)
+        end
         
         pi:toNext()
         param=pi:current()
@@ -642,13 +718,43 @@ function ReflectionGenerator:processMembers(sec)
                 mem:kind()==dxp.IMember.Slot or
                 mem:kind()==dxp.IMember.DCOP) then -- is a "method"
             self:addScopeFunction(scope,mem)
-        elseif(mem:kind()==dxp.IMember.Define and self:isPublic(mem)) then
-            local def = self:getOrCreateObject(mem,Define)
-            local items = self:generateItemLinks(mem:initializer())
-            def:setInitializers(items)
-            def:setName(mem:name():latin1())  
-            self.reflectionMap:addDefine(def)
+        elseif(self:isClassTypedef(mem) and self:isPublic(mem)) then
+        	-- Add this class object to its parent scope:
+        	local class = self:getOrCreateObject(mem,Class)
         	
+    	    local location = self:getHeaderFileName(mem:definitionFile():latin1())
+		    class:setHeaderFile(location)
+    		
+    		-- Add the mapped type string:
+    		local typevec = self:generateItemLinks(mem:type())
+    		
+    		class:setMappedType(Type(typevec))
+
+        	scope:addChild(class)
+    		
+        elseif(mem:kind()==dxp.IMember.Define and self:isPublic(mem)) then
+            
+            -- check if we have parameters:
+            local params = mem:parameters()
+            local param = nil
+            if params then
+            	params:toFirst()
+            	param = params:current()
+            	params:release()
+        	end
+        	
+            if param then
+            	self:notice("Ignoring define with parameters: ",mem:name():latin1())
+            else
+	            local def = self:getOrCreateObject(mem,Define)
+	            local items = self:generateItemLinks(mem:initializer())
+	            def:setInitializers(items)
+	            def:setName(mem:name():latin1())  
+	            self.reflectionMap:addDefine(def)
+	        	
+	    	    local location = self:getHeaderFileName(mem:definitionFile():latin1())
+			    def:setHeaderFile(location)
+		    end
         elseif(mem:kind()==dxp.IMember.Variable or mem:kind()==dxp.IMember.Property) and self:isPublic(mem) then
             -- is an attribute
             -- only add public attributes:
@@ -661,6 +767,9 @@ function ReflectionGenerator:processMembers(sec)
 			
             local enum = self:getOrCreateObject(mem,Enum)
             
+            local location = self:getHeaderFileName(mem:definitionFile():latin1())
+		    enum:setHeaderFile(location)
+		    
             -- manually add this enum to the current scope:
             enum:setName(mem:name():latin1())
 
@@ -814,6 +923,14 @@ function ReflectionGenerator.generate(options)
     	im:getIgnoreConvertersPatterns():fromTable(options.ignoreConverter)
 	end
 	
+	if options.locationPrefixes then
+		rg.locationPrefixes:fromTable(options.locationPrefixes)
+	end
+
+	if options.ignoreHeaders then
+		im:getIgnoreHeadersPatterns():fromTable(options.ignoreHeaders)
+	end
+	
     local map = rg:getIgnoreClassFunctionsPatterns()
 
     for k,v in pairs(options.ignoreClassFuncs or {}) do
@@ -829,7 +946,7 @@ function ReflectionGenerator.generate(options)
     datamap:getUserHeaders():fromTable(options.headers or {})
     datamap:getUserContents():fromTable(options.userContent or {})
 
-	local writer = LunaWriter(datamap)
+	local writer = LunaWriter(datamap,not options.noConverters)
     writer:writeBindings(options.destpath)
 end
 

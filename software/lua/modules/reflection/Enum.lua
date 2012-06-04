@@ -56,14 +56,14 @@ function Enum:addValue(value)
 	
 	self.values:push_back(value);
 
-	if value.parent == self then
+	if value:getParent() == self then
 		return -- nothing to do, value is already added.
 	end 
 
-	if value.parent then
-		log:warn("Overriding Enum value parent ".. value.parent:getName() .. " with new parent " .. self:getName())
+	if value:getParent() then
+		log:warn("Overriding Enum value parent ".. value:getParent():getName() .. " with new parent " .. self:getName())
 	end
-	--dbg:assertNil(value.parent,"The enum value already has a parent: ".. (value.parent and value.parent:getName() or "") .. " and trying to add it to: ".. self:getName())
+	--dbg:assertNil(value:getParent(),"The enum value already has a parent: ".. (value:getParent() and value:getParent():getName() or "") .. " and trying to add it to: ".. self:getName())
 	
 	value:setParent(self)	
 end

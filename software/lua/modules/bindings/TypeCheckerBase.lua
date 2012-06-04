@@ -79,7 +79,7 @@ function TypeCheckerBase:handle(writer,func,name)
 					writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
 				elseif pt:isClass() then
 					-- get the class absolute parent hash:
-					local bhash = pt:getBase():getAbsoluteBaseHash()
+					local bhash = pt:getAbsoluteBaseHash()
 					log:info("Using hash ".. bhash .. " for type ".. pt:getBaseName())
 					if pt:isPointer() then
 						-- we can accept a pointer to be nil, but not a reference.
