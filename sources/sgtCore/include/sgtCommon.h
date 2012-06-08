@@ -86,6 +86,33 @@ typedef double Double;
 #define sgtObserver osg::observer_ptr
 
 #include "base/Object.h"
+#include "base/Exception.h"
 #include "sgtLogging.h"
+
+// Helper macros:
+#define FOREACH BOOST_FOREACH
+
+#define REMOVE(cont,item) cont.erase(std::remove(cont.begin(), cont.end(), item), cont.end());
+
+// Removes only if predicate returns true:
+#define REMOVE_IF(cont,pred) cont.erase(std::remove_if(cont.begin(), cont.end(), pred), cont.end());
+
+// Debugging macros:
+#define THROW_IF(cond,msg) if(cond) { std::ostringstream os; os << msg; logERROR("Throwing exception: " << msg); throw sgtException(os.str()); }
+#define CHECK_EQ(val,expected,msg) if((val)!=(expected)) { logERROR(msg << " (Expected: " << (expected) << " and got: " << (val) << ")"); return; }
+#define CHECK_EQ_RET(val,expected,ret,msg) if((val)!=(expected)) { logERROR(msg << " (Expected: " << (expected) << " and got: " << (val) << ")"); return ret; }
+
+#define CHECK(val,msg) if(!(val)) { logERROR(msg); return; }
+#define CHECK_RET(val,ret,msg) if(!(val)) { logERROR(msg); return ret; }
+
+#define DEPRECATED(msg) { logWARN("Deprecated: " << msg); }
+
+#define TRY try
+#define CATCH(msg) catch(const std::exception& e) { \
+		logERROR("Std exception " << msg << ": " << e.what()); \
+	} \
+		catch(...) { \
+		logERROR("Unknown exception " << msg << "."); \
+	}
 
 #endif

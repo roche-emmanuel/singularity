@@ -34,13 +34,15 @@
 -- Module --
 ------------
 
+local log = require "tracer"
+
 -- standard libraries used
 local debug, io, math, os, string, table =
    debug, io, math, os, string, table
 
 -- required core global functions
-local assert, error, ipairs, pairs, pcall, print, setmetatable, tonumber =
-   assert, error, ipairs, pairs, pcall, print, setmetatable, tonumber
+local assert, error, ipairs, pairs, pcall, setmetatable, tonumber =
+   assert, error, ipairs, pairs, pcall, setmetatable, tonumber
 local fmt, tostring, type, unpack = string.format, tostring, type, unpack
 local getmetatable, rawget, setmetatable, xpcall =
    getmetatable, rawget, setmetatable, xpcall
@@ -72,7 +74,9 @@ local lt_arg = arg
 -- # Utility functions #
 -- #####################
 
-local function printf(...) print(string.format(...)) end
+local function printf(...) 
+	log:notice("unittests",string.format(...))
+end
 
 local function result_table(name)
    return { name=name, pass={}, fail={}, skip={}, err={} }
@@ -590,8 +594,7 @@ function suite(modname)
          suites[modname] = get_tests(mod)
       end)
    if not ok then
-      print(fmt(" * Error loading test suite %q:\n%s",
-                modname, tostring(err)))
+      printf(" * Error loading test suite %q:\n%s", modname, tostring(err))
       failed_suites[#failed_suites+1] = modname
    end
 end
@@ -740,8 +743,10 @@ function run(hooks, suite_filter)
    if hooks.done then hooks.done(results) end
 
    if failures_or_errors(results) or #failed_suites > 0 then
-      os.exit(1)
+	  return false;
    end
+   
+   return true;
 end
 
 

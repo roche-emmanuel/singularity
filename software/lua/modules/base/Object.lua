@@ -1,13 +1,17 @@
+local className = "base.Object"
+
 local oo = require "loop.cached"
 
 local log = require "tracer"
 
-local Object = oo.class{}
-Object.CLASS_NAME = "base.Object"
+require("logger"):debug0_v("Generating class ",className)
 
-function Object:__init()
-	obj = oo.rawnew(self,{})
-	obj._TRACE_ = "Object"
+local Object = oo.class{}
+Object.CLASS_NAME = className
+
+function Object:__init(options,instance)
+	local obj = oo.rawnew(self,instance or {})
+	obj._TRACE_ = className
 	return obj
 end
 
@@ -22,12 +26,13 @@ function Object:getClassOf(obj)
 end
 
 function Object:isInstanceOf(class,obj)	
-	--self:check(oo.isclass(class),"Invalid class argument.")
 	local obj_class = oo.classof(obj or self)
 	return obj_class==class or oo.subclassof(obj_class,class)
 end
 
 function Object:checkType(obj,base,strict)
+	self:deprecated("checkType() should be replaced with isInstanceOf()")
+	
 	if not obj then 
 		return 
 	end
@@ -45,12 +50,12 @@ function Object:throw(msg,...)
 end
 
 function Object:deprecated(msg)
-	log:warn(self,"Deprecated: "..msg)
+	self:warn("Deprecated: ",msg)
 	self:backtrace("warn")
 end
 
 function Object:backtrace(level)
-	log[level or "error"](log,self,"Current stack trace:\n",debug.traceback())
+	log[level or "error"](log,self,debug.traceback())
 end
 
 for k,v in pairs(log.levels) do
