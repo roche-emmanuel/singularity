@@ -689,7 +689,9 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
  	-- force parsing of that type:
  	btype:parse()
  	local bclass = btype:getBase() -- we assume this is a class !!!
- 	bclass:addFunction(func);
+ 	if bclass.addFunction then
+ 		bclass:addFunction(func);
+ 	end
  	
     --local sig = func:getSignature(true)
     --log:info ("Function prototype is: ".. sig)

@@ -3,6 +3,7 @@ local oo = require "loop.cached"
 local log = require "tracer"
 
 local Object = oo.class{}
+Object.CLASS_NAME = "base.Object"
 
 function Object:__init()
 	obj = oo.rawnew(self,{})
