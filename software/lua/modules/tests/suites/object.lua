@@ -1,6 +1,7 @@
 module(..., package.seeall)
 
 local Object = require "base.Object"
+local log = require "tracer"
 
 function test_object()
 	-- create new class:
@@ -19,3 +20,21 @@ function test_object()
 	assert_equal(false,obj:isNil("hello"),"Invalid negative isNil result");
 
 end
+
+function test_i18n()
+	-- perform i18n tests here:
+	local obj = Object()
+	
+	local msg = obj.i18n.hello_world 
+	assert_equal("Hello world!",msg,"Invalid english translation")
+	
+	local msg = obj.i18n.missing_translation
+	log:debug("Tests","Got missing translation: ",msg)
+	
+	local locale = require "base.Locale"
+	locale:setLanguage("fr")
+
+	local msg = obj.i18n.hello_world 
+	assert_equal("Bonjour le monde!",msg,"Invalid french translation")
+end
+

@@ -56,7 +56,7 @@ function Class:__call(options)
 		
 		-- Call the initialize function if any:
 		if obj.initialize then
-			obj:initialize()
+			obj:initialize(opt)
 		end
 		
 		return obj 

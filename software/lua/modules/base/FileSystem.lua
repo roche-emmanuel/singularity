@@ -1,7 +1,5 @@
 -- Default filesystem handler based on luafilesystem.
-local cfg = require "config"
 local lfs = require "lfs"
-local wx = cfg.wx_enabled and require "wx"
 
 local Class = require("classBuilder"){name="FileSystem",bases="base.Object"};
 
@@ -13,6 +11,21 @@ Class.TYPE_DIR="directory"
 -- File locking flags:
 Class.MODE_READ="r"
 Class.MODE_WRITE="w"
+
+--- Perform initialization of the filesystem:
+function Class:initialize(options)
+	self._root_path = options and options.root_path or root_path
+	self:checkFolder(self._root_path,"Invalid root path folder")
+	self._root_path = self:formatPath(self._root_path)
+	self:debug("Initialized with root path: ",self._root_path)
+end
+
+--- Return the root  path for the current installation
+-- Note that the returned path doe not contain any ending path separator by default
+-- set the argument withSeparator to true to change that.
+function Class:getRootPath(withSep)
+	return self._root_path .. (withSep and "/" or "")
+end
 
 --- Method used to convert a filepath to the unix standard format
 -- forward slash are replaced with backward slashs and the last

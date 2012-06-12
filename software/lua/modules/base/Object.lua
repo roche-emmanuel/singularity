@@ -9,9 +9,13 @@ require("logger"):debug0_v("Generating class ",className)
 local Object = oo.class{}
 Object.CLASS_NAME = className
 
+--- Additional data to support i18n:
+Object.i18n = require "i18n"
+
 function Object:__init(options,instance)
 	local obj = oo.rawnew(self,instance or {})
 	obj._TRACE_ = className
+	
 	return obj
 end
 
