@@ -100,10 +100,16 @@ function LoggerBase:write(...)
 	self.writtenTables:clear();
 	self.currentLevel = 0
 	
-	local msg = string.rep(self.indentStr,self.indent);
-	for _,v in ipairs({...}) do
-		msg = msg .. self:writeItem(v)
+	local msg = string.rep(self.indentStr,self.indent);	
+	local num = select('#', ...)
+	for i=1,num do
+		local v = select(i, ...)
+		msg = msg .. (v and self:writeItem(v) or "nil")
 	end
+	
+	--for _,v in ipairs({...}) do
+	--	msg = msg .. self:writeItem(v)
+	--end
 	
 	return msg;
 end

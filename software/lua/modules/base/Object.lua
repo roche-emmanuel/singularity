@@ -15,9 +15,89 @@ function Object:__init(options,instance)
 	return obj
 end
 
+function Object:isString(var)
+	return type(var)=="string"
+end
+
+function Object:isNonEmptyString(var)
+	return type(var)=="string" and #var>0
+end
+
+function Object:isEmptyString(var)
+	return var==""
+end
+
+function Object:isTable(var)
+	return type(var)=="table"
+end
+
+function Object:isNumber(var)
+	return type(var)=="number"
+end
+
+function Object:isFunction(var)
+	return type(var)=="function"
+end
+
+function Object:isNil(var)
+	return type(var)=="nil"
+end
+
+function Object:isInteger(var)
+	return type(var)=="number" and math.floor(var)==var
+end
+
 function Object:check(cond,msg,...)
 	if not cond then
 		self:throw(msg,...)
+	end
+end
+
+function Object:checkFunction(var,msg,...)
+	if not self:isFunction(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkString(var,msg,...)
+	if not self:isString(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkTable(var,msg,...)
+	if not self:isTable(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkNonEmptyString(var,msg,...)
+	if not self:isNonEmptyString(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkEmptyString(var,msg,...)
+	if not self:isEmptyString(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkNumber(var,msg,...)
+	if not self:isNumber(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkInteger(var,msg,...)
+	if not self:isInteger(var) then
+		self:throw("(var=",var,") ",msg,...)
+	end
+end
+
+function Object:checkNil(var,msg,...)
+	if not self:isNil(var) then
+		self:throw("(var=",var,") ",msg,...)
 	end
 end
 
@@ -31,7 +111,7 @@ function Object:isInstanceOf(class,obj)
 end
 
 function Object:checkType(obj,base,strict)
-	self:deprecated("checkType() should be replaced with isInstanceOf()")
+	--self:deprecated("checkType() should be replaced with isInstanceOf()")
 	
 	if not obj then 
 		return 
