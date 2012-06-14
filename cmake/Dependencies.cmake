@@ -32,6 +32,10 @@ IF(MSVC)
     SET(MYSQL_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_MYSQL}/lib)
     SET(MYSQL_LIBS 		libmysql.lib)
 	
+	SET(FIREBIRD_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_FIREBIRD}/include)
+    SET(FIREBIRD_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_FIREBIRD}/lib)
+    SET(FIREBIRD_LIBS 		fbclient_ms.lib)
+	
     SET(WX_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/include ${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll/mswu)
     # SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_lib)
     SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll)
