@@ -18,6 +18,7 @@ SET(DEP_DX DXSDK-June2010)
 # SET(DEP_WX wxWidgets-2.9.3-static)
 SET(DEP_WX wxWidgets-2.9.3)
 SET(DEP_OSG OpenSceneGraph-3.0.1-static)
+SET(DEP_MYSQL mysql-5.5.25)
 
 # SET(LUA "${DEPS_DIR}/${DEP_LUA}/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)
 # SET(LUA "W:/Shared/Dev/Deps/mingw32/luaJIT-2.0.0-beta8/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)

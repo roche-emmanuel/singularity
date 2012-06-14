@@ -28,6 +28,10 @@ IF(MSVC)
     SET(LUA_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUA}/lib)
     SET(LUA_LIBS 		lua51)
 
+	SET(MYSQL_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_MYSQL}/include)
+    SET(MYSQL_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_MYSQL}/lib)
+    SET(MYSQL_LIBS 		libmysql.lib)
+	
     SET(WX_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/include ${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll/mswu)
     # SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_lib)
     SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll)

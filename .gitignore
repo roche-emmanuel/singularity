@@ -13,6 +13,9 @@ setup.sh
 # CHM file indexes:
 *.chw
 
+# ignore UPX
+upx.exe
+
 # Eclipse workspace metadata
 .metadata
 .externalToolBuilders
