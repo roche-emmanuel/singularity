@@ -21,6 +21,7 @@ ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_osgDB)
 
 ADD_SUBDIRECTORY(sgt_launcher)
+ADD_SUBDIRECTORY(webkit_test)
 
 # ADD_SUBDIRECTORY(wx)
 # ADD_SUBDIRECTORY(doxmlparser)

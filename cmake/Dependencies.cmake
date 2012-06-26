@@ -36,6 +36,10 @@ IF(MSVC)
     SET(FIREBIRD_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_FIREBIRD}/lib)
     SET(FIREBIRD_LIBS 		fbclient_ms.lib)
 	
+	SET(WXWEBKIT_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WXWEBKIT}/Source/WebKit/wx)
+    SET(WXWEBKIT_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WXWEBKIT}/WebKitBuild/Release)
+    SET(WXWEBKIT_LIBS 		wxwebkit.lib)
+	
     SET(WX_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/include ${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll/mswu)
     # SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_lib)
     SET(WX_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_WX}/lib/vc_dll)

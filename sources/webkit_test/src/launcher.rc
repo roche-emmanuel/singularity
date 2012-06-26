@@ -1,0 +1,4 @@
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+wxICON_AA	            ICON                    "../../../assets/logos/sgt_logo.ico" // We need this line to ensure that we still use our icon even when including the wx ressource file.
+
