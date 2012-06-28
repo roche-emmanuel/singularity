@@ -14,5 +14,10 @@ if cfg.tests_enabled then
 	require "unittests"
 end
 
+local mainframe = cfg.mainframe_enabled and require "gui.MainFrame"
+
+if mainframe then
+	mainframe:run()
+end
 
 log:notice "Script execution done."

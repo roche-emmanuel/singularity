@@ -2,6 +2,7 @@ module(..., package.seeall)
 
 local Object = require "base.Object"
 local log = require "tracer"
+local cfg = require "config"
 
 function test_object()
 	-- create new class:
@@ -32,9 +33,12 @@ function test_i18n()
 	log:debug("Tests","Got missing translation: ",msg)
 	
 	local locale = require "base.Locale"
-	locale:setLanguage("fr")
+	locale:setLocale("fr")
 
 	local msg = obj.i18n.hello_world 
 	assert_equal("Bonjour le monde!",msg,"Invalid french translation")
+	
+	-- restore locale:
+	locale:setLocale(cfg.default_locale)
 end
 

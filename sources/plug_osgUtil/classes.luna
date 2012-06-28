@@ -1,113 +1,113 @@
 module=osgUtil
-osgUtil::CubeMapGenerator
-osgUtil::CullVisitor
-osgUtil::DelaunayConstraint
-osgUtil::DelaunayTriangulator
-std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > >
-osgUtil::DisplayRequirementsVisitor
-osgUtil::DrawElementTypeSimplifier
-osgUtil::DrawElementTypeSimplifierVisitor
-osgUtil::dereference_less
-osgUtil::dereference_clear
-osgUtil::EdgeCollector
-std::list< osg::ref_ptr< osg::UIntArray > >
-std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less >
-std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >
-std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >
-std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less >
-std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >
-std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >
-std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >
-std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >
-osgUtil::EdgeCollector::Edge
-osgUtil::EdgeCollector::Edgeloop
-osgUtil::EdgeCollector::Point
-osgUtil::EdgeCollector::Triangle
-osgUtil::GLObjectsVisitor
-osgUtil::GLObjectsOperation
-osgUtil::HalfWayMapGenerator
-osgUtil::HighlightMapGenerator
-osgUtil::StateToCompile
-std::set< osg::Drawable * >
-std::set< osg::StateSet * >
-std::set< osg::Texture * >
-std::set< osg::Program * >
-osgUtil::IncrementalCompileOperation
-std::set< osg::GraphicsContext * >
-std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >
-osgUtil::IncrementalCompileOperation::CompileCompletedCallback
-osgUtil::IncrementalCompileOperation::CompileOp
-osgUtil::IncrementalCompileOperation::CompileDrawableOp
-osgUtil::IncrementalCompileOperation::CompileInfo
-osgUtil::IncrementalCompileOperation::CompileList
-std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > >
-osgUtil::IncrementalCompileOperation::CompileProgramOp
-osgUtil::IncrementalCompileOperation::CompileSet
-std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >
-osgUtil::IncrementalCompileOperation::CompileTextureOp
-osgUtil::Intersector
-osgUtil::IntersectorGroup
-std::vector< osg::ref_ptr< osgUtil::Intersector > >
-osgUtil::IntersectionVisitor
-osgUtil::IntersectionVisitor::ReadCallback
-osgUtil::Hit
-std::vector< int >
-osgUtil::IntersectVisitor
-osgUtil::PickVisitor
-osgUtil::LineSegmentIntersector
-std::multiset< osgUtil::LineSegmentIntersector::Intersection >
-osgUtil::LineSegmentIntersector::Intersection
-osgUtil::BaseOptimizerVisitor
-osgUtil::GeometryCollector
-std::set< osg::Geometry * >
-osgUtil::IndexMeshVisitor
-osgUtil::VertexCacheVisitor
-osgUtil::VertexCacheMissVisitor
-osgUtil::VertexAccessOrderVisitor
-osgUtil::AddRangeOperator
-osgUtil::MultiplyRangeOperator
-osgUtil::Optimizer
-osgUtil::PlaneIntersector
-std::vector< osgUtil::PlaneIntersector::Intersection >
-osgUtil::PlaneIntersector::Intersection
-osgUtil::PolytopeIntersector
-std::set< osgUtil::PolytopeIntersector::Intersection >
-osgUtil::PolytopeIntersector::Intersection
-osgUtil::PositionalStateContainer
-std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > >
-std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >
-std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >
-osgUtil::PrintVisitor
-osgUtil::ReflectionMapGenerator
-osgUtil::RenderBin
-std::vector< osgUtil::RenderLeaf * >
-std::vector< osgUtil::StateGraph * >
-std::map< int, osg::ref_ptr< osgUtil::RenderBin > >
-osgUtil::RenderBin::DrawCallback
-osgUtil::RenderBin::SortCallback
-osgUtil::RenderLeaf
-osgUtil::RenderStage
-osgUtil::RenderStage::Attachment
-osgUtil::SceneGraphBuilder
-osgUtil::SceneView
-osgUtil::SceneView::ComputeStereoMatricesCallback
-osgUtil::ShaderGenCache
-std::map< int, osg::ref_ptr< osg::StateSet > >
-osgUtil::ShaderGenVisitor
-osgUtil::Simplifier
-osgUtil::Simplifier::ContinueSimplificationCallback
-osgUtil::SmoothingVisitor
-osgUtil::StateGraph
-std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >
-std::vector< osg::ref_ptr< osgUtil::RenderLeaf > >
-osgUtil::Statistics
-std::pair< unsigned int, unsigned int >
-std::map< unsigned int, osgUtil::Statistics::PrimitivePair >
-osgUtil::StatsVisitor
-std::set< osg::Node * >
-osgUtil::TangentSpaceGenerator
-osgUtil::Tessellator
-osgUtil::TransformCallback
-osgUtil::TriStripVisitor
-osgUtil::UpdateVisitor
+osgUtil::CubeMapGenerator => osg::Referenced
+osgUtil::CullVisitor => osg::Referenced
+osgUtil::DelaunayConstraint => osg::Referenced
+osgUtil::DelaunayTriangulator => osg::Referenced
+std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > => osgUtil::DelaunayTriangulator::linelist
+osgUtil::DisplayRequirementsVisitor => osg::Referenced
+osgUtil::DrawElementTypeSimplifier => osgUtil::DrawElementTypeSimplifier
+osgUtil::DrawElementTypeSimplifierVisitor => osg::Referenced
+osgUtil::dereference_less => osgUtil::dereference_less
+osgUtil::dereference_clear => osgUtil::dereference_clear
+osgUtil::EdgeCollector => osgUtil::EdgeCollector
+std::list< osg::ref_ptr< osg::UIntArray > > => osgUtil::EdgeCollector::IndexArrayList
+std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > => osgUtil::EdgeCollector::EdgeSet
+std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > => osgUtil::EdgeCollector::EdgeList
+std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > => osgUtil::EdgeCollector::EdgeloopList
+std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > => osgUtil::EdgeCollector::PointSet
+std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > => osgUtil::EdgeCollector::PointList
+std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > => osgUtil::EdgeCollector::TriangleList
+std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > => osgUtil::EdgeCollector::TriangleSet
+std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > => osgUtil::EdgeCollector::TriangleMap
+osgUtil::EdgeCollector::Edge => osg::Referenced
+osgUtil::EdgeCollector::Edgeloop => osg::Referenced
+osgUtil::EdgeCollector::Point => osg::Referenced
+osgUtil::EdgeCollector::Triangle => osg::Referenced
+osgUtil::GLObjectsVisitor => osg::Referenced
+osgUtil::GLObjectsOperation => osg::Referenced
+osgUtil::HalfWayMapGenerator => osg::Referenced
+osgUtil::HighlightMapGenerator => osg::Referenced
+osgUtil::StateToCompile => osg::Referenced
+std::set< osg::Drawable * > => osgUtil::StateToCompile::DrawableSet
+std::set< osg::StateSet * > => osgUtil::StateToCompile::StateSetSet
+std::set< osg::Texture * > => osgUtil::StateToCompile::TextureSet
+std::set< osg::Program * > => osgUtil::StateToCompile::ProgramSet
+osgUtil::IncrementalCompileOperation => osg::Referenced
+std::set< osg::GraphicsContext * > => osgUtil::IncrementalCompileOperation::ContextSet
+std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > => osgUtil::IncrementalCompileOperation::CompileSets
+osgUtil::IncrementalCompileOperation::CompileCompletedCallback => osg::Referenced
+osgUtil::IncrementalCompileOperation::CompileOp => osg::Referenced
+osgUtil::IncrementalCompileOperation::CompileDrawableOp => osg::Referenced
+osgUtil::IncrementalCompileOperation::CompileInfo => osg::RenderInfo
+osgUtil::IncrementalCompileOperation::CompileList => osgUtil::IncrementalCompileOperation::CompileList
+std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > => osgUtil::IncrementalCompileOperation::CompileList::CompileOps
+osgUtil::IncrementalCompileOperation::CompileProgramOp => osg::Referenced
+osgUtil::IncrementalCompileOperation::CompileSet => osg::Referenced
+std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > => osgUtil::IncrementalCompileOperation::CompileSet::CompileMap
+osgUtil::IncrementalCompileOperation::CompileTextureOp => osg::Referenced
+osgUtil::Intersector => osg::Referenced
+osgUtil::IntersectorGroup => osg::Referenced
+std::vector< osg::ref_ptr< osgUtil::Intersector > > => osgUtil::IntersectorGroup::Intersectors
+osgUtil::IntersectionVisitor => osg::Referenced
+osgUtil::IntersectionVisitor::ReadCallback => osg::Referenced
+osgUtil::Hit => osgUtil::Hit
+std::vector< int > => osgUtil::Hit::VecIndexList
+osgUtil::IntersectVisitor => osg::Referenced
+osgUtil::PickVisitor => osg::Referenced
+osgUtil::LineSegmentIntersector => osg::Referenced
+std::multiset< osgUtil::LineSegmentIntersector::Intersection > => osgUtil::LineSegmentIntersector::Intersections
+osgUtil::LineSegmentIntersector::Intersection => osgUtil::LineSegmentIntersector::Intersection
+osgUtil::BaseOptimizerVisitor => osg::Referenced
+osgUtil::GeometryCollector => osg::Referenced
+std::set< osg::Geometry * > => osgUtil::GeometryCollector::GeometryList
+osgUtil::IndexMeshVisitor => osg::Referenced
+osgUtil::VertexCacheVisitor => osg::Referenced
+osgUtil::VertexCacheMissVisitor => osg::Referenced
+osgUtil::VertexAccessOrderVisitor => osg::Referenced
+osgUtil::AddRangeOperator => osgUtil::AddRangeOperator
+osgUtil::MultiplyRangeOperator => osgUtil::MultiplyRangeOperator
+osgUtil::Optimizer => osgUtil::Optimizer
+osgUtil::PlaneIntersector => osg::Referenced
+std::vector< osgUtil::PlaneIntersector::Intersection > => osgUtil::PlaneIntersector::Intersections
+osgUtil::PlaneIntersector::Intersection => osgUtil::PlaneIntersector::Intersection
+osgUtil::PolytopeIntersector => osg::Referenced
+std::set< osgUtil::PolytopeIntersector::Intersection > => osgUtil::PolytopeIntersector::Intersections
+osgUtil::PolytopeIntersector::Intersection => osgUtil::PolytopeIntersector::Intersection
+osgUtil::PositionalStateContainer => osg::Referenced
+std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > => osgUtil::PositionalStateContainer::AttrMatrixPair
+std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > => osgUtil::PositionalStateContainer::AttrMatrixList
+std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > => osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap
+osgUtil::PrintVisitor => osg::Referenced
+osgUtil::ReflectionMapGenerator => osg::Referenced
+osgUtil::RenderBin => osg::Referenced
+std::vector< osgUtil::RenderLeaf * > => osgUtil::RenderBin::RenderLeafList
+std::vector< osgUtil::StateGraph * > => osgUtil::RenderBin::StateGraphList
+std::map< int, osg::ref_ptr< osgUtil::RenderBin > > => osgUtil::RenderBin::RenderBinList
+osgUtil::RenderBin::DrawCallback => osg::Referenced
+osgUtil::RenderBin::SortCallback => osg::Referenced
+osgUtil::RenderLeaf => osg::Referenced
+osgUtil::RenderStage => osg::Referenced
+osgUtil::RenderStage::Attachment => osgUtil::RenderStage::Attachment
+osgUtil::SceneGraphBuilder => osgUtil::SceneGraphBuilder
+osgUtil::SceneView => osg::Referenced
+osgUtil::SceneView::ComputeStereoMatricesCallback => osg::Referenced
+osgUtil::ShaderGenCache => osg::Referenced
+std::map< int, osg::ref_ptr< osg::StateSet > > => osgUtil::ShaderGenCache::StateSetMap
+osgUtil::ShaderGenVisitor => osg::Referenced
+osgUtil::Simplifier => osg::Referenced
+osgUtil::Simplifier::ContinueSimplificationCallback => osg::Referenced
+osgUtil::SmoothingVisitor => osg::Referenced
+osgUtil::StateGraph => osg::Referenced
+std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > => osgUtil::StateGraph::ChildList
+std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > => osgUtil::StateGraph::LeafList
+osgUtil::Statistics => osgUtil::Statistics
+std::pair< unsigned int, unsigned int > => osgUtil::Statistics::PrimitivePair
+std::map< unsigned int, osgUtil::Statistics::PrimitivePair > => osgUtil::Statistics::PrimitiveValueMap
+osgUtil::StatsVisitor => osg::Referenced
+std::set< osg::Node * > => osgUtil::StatsVisitor::NodeSet
+osgUtil::TangentSpaceGenerator => osg::Referenced
+osgUtil::Tessellator => osg::Referenced
+osgUtil::TransformCallback => osg::Referenced
+osgUtil::TriStripVisitor => osg::Referenced
+osgUtil::UpdateVisitor => osg::Referenced
 

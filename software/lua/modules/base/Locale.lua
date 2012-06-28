@@ -3,45 +3,45 @@ local cfg = require "config"
 
 local Class = require("classBuilder"){name="Locale",bases="base.Object"};
 
-local currentLanguage = nil -- the default language as global variable.
-local languages = {} -- the language maps.
+local currentLocale = nil -- the default locale as global variable.
+local locales = {} -- the locale maps.
 
 function Class:initialize(options)
-	-- load at least one language here.
-	self:info("Loading available languages...")
+	-- load at least one locale here.
+	self:info("Loading available locales...")
 	
 	local fs = require "base.FileSystem"
-	local path = fs:getRootPath(true).."languages"
+	local path = fs:getRootPath(true).."locales"
 	
 	local loader = function(data)
-		-- extract language name from filename:
+		-- extract locale name from filename:
 		local lang = data.file:gsub("(.-)%.lua$","%1")
 		
-		self:debug("Loading language ",lang," from file ",data.fullpath)
+		self:debug("Loading locale ",lang," from file ",data.fullpath)
 		
 		local func, msg = loadfile(data.fullpath)
 		self:check(func,msg);
 		-- run the function:
 		local map = func();
 		
-		self:addLanguageMap(lang,map)
+		self:addLocaleMap(lang,map)
 	end
 	
 	fs:traverse{path=path,func=loader,pattern="%.lua$"}
 
-	self:info("Selecting default language ",cfg.default_language)
-	currentLanguage=cfg.default_language
-	self:check(languages[currentLanguage],"Invalid current language map")
-	self:info("Languages loaded.")
+	self:info("Selecting default locale ",cfg.default_locale)
+	currentLocale=cfg.default_locale
+	self:check(locales[currentLocale],"Invalid current locale map")
+	self:info("locales loaded.")
 end
 
-function Class:addLanguageMap(lang,map)
-	self:checkNonEmptyString(lang,"Invalid language.")
-	self:checkTable(map,"Invalid language map")
+function Class:addLocaleMap(lang,map)
+	self:checkNonEmptyString(lang,"Invalid locale.")
+	self:checkTable(map,"Invalid locale map")
 	
-	languages[lang] = languages[map] or {}
+	locales[lang] = locales[map] or {}
 	
-	local dest = languages[lang]
+	local dest = locales[lang]
 	for k,v in pairs(map) do
 		if dest[k] and dest[k]~=v then
 			self:warn("Overriding translation '",dest[k],"' with '",v,"' for index ",k)
@@ -50,28 +50,28 @@ function Class:addLanguageMap(lang,map)
 	end
 end
 
-function Class:setLanguage(language)
-  	self:checkNonEmptyString(language,"Invalid language code");
-  	self:check(languages[language],"No language map found for language ",language)
+function Class:setLocale(locale)
+  	self:checkNonEmptyString(locale,"Invalid locale code");
+  	self:check(locales[locale],"No locale map found for locale ",locale)
 
-  	currentLanguage = language
+  	currentLocale = locale
 end
 
 function Class:translate(id,...)
 	self:checkNonEmptyString(id,"Invalid id")
-	self:checkNonEmptyString(currentLanguage,"Invalid current language")
-  	self:check(languages[currentLanguage],"No language map found for language ",currentLanguage)
+	self:checkNonEmptyString(currentLocale,"Invalid current locale")
+  	self:check(locales[currentLocale],"No locale map found for locale ",currentLocale)
 
-	self:debug("Translating id=",id," for language ",currentLanguage)
+	self:debug("Translating id=",id," for locale ",currentLocale)
 	
-	local result = languages[currentLanguage][id]
+	local result = locales[currentLocale][id]
 	
 	if self:isString(result) then
 		for id,v in ipairs({...}) do
 			result = result:gsub("%${"..id.."}",v)
 		end
 	else
-		result = "Missing translation for "..currentLanguage.."."..id
+		result = "Missing translation for "..currentLocale.."."..id
 	end
 	
 	return result

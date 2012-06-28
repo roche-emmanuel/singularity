@@ -1,12 +1,12 @@
 module=core
-sgt::Object
-sgt::LogSink
-sgt::FileLogger
-sgt::LogManager
-std::vector< osg::ref_ptr< sgt::LogSink > >
-std::map< int, int >
-std::map< std::string, int >
-sgt::LogRecord
-std::set< std::string >
-sgt::StdLogger
+sgt::Object => sgt::Object
+sgt::LogSink => sgt::Object
+sgt::FileLogger => sgt::Object
+sgt::LogManager => sgt::Object
+std::vector< osg::ref_ptr< sgt::LogSink > > => sgt::LogManager::SinkVector
+std::map< int, int > => sgt::LogManager::LevelFlagMap
+std::map< std::string, int > => sgt::LogManager::TraceFlagMap
+sgt::LogRecord => sgt::LogRecord
+std::set< std::string > => sgt::LogSink::StringSet
+sgt::StdLogger => sgt::Object
 

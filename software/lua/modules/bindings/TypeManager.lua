@@ -16,6 +16,7 @@ function TypeManager:__init()
     object = oo.rawnew(self,object)
 	object._types = Set()
     object._externals = Map()
+    object._externalParents = Map()
     object._externalFuncs = Map()
     object._TRACE_ = "TypeManager"
     return object
@@ -44,12 +45,23 @@ function TypeManager:registerExternals(file)
 			self:info_v("Switching to current module=",mod)
 		else
 			self:check(currentModule,"Invalid current module.")
-			local prevMod = self._externals:get(line)
-			self:check(prevMod==nil,"The external class ",line," was already registered in module",prevMod)			
+			
+			-- extract class and base from line:
+			local p1,p2, className, baseName=line:find("(.-) => (.*)$")
+			
+			if not p1 then
+				className = line;
+				baseName = line
+			end
+			
+			local prevMod = self._externals:get(className)
+			self:check(prevMod==nil,"The external class ",className," was already registered in module",prevMod)			
 
-			self:info_v("Registering external class: ",line)
-			self._externals:set(line,currentModule)
+			self:info_v("Registering external class: ",className," with parent: ", baseName)
+			self._externals:set(className,currentModule)
+			self._externalParents:set(className,baseName)
 		end
+		
 		line = f:read("*l")	
 	end
 	
@@ -87,6 +99,13 @@ function TypeManager:getModule(class)
 	
 	local tname = class:getTypeName()
 	return self._externals:get(tname)
+end
+
+function TypeManager:getAbsoluteBaseName(class)
+	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class argument")
+	
+	local tname = class:getTypeName()
+	return self._externalParents:get(tname)
 end
 
 function TypeManager:getFunctionModule(func)

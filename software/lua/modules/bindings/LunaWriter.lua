@@ -138,7 +138,9 @@ function LunaWriter:writeExportFile()
 		
 		if classname and not im:ignore(classname,"class_declaration") and not v:isExternal() then
 			self:debug0_v("Writing class export for ", v:getFullName(), " (typename=",classname,")")
-			buf:writeSubLine("${1}",classname)
+			local bname = v:getFirstAbsoluteBase():getFullName();
+			
+			buf:writeSubLine("${1} => ${2}",classname,bname)
 		else
 			self:notice("Ignoring class export for ", v:getFullName(), " (typename=",classname,")")
 		end
@@ -394,7 +396,14 @@ function LunaWriter:writeFunctionCall(cname,func,args)
 	
 	local useself = not (func:isGlobal() or func:isStatic() or func:isExtension())
 	if useself then
-		local bname = func:getParent():getFirstAbsoluteBase():getFullName();
+		local bname = nil
+		if func:getParent():isExternal() then
+			-- retrieve the base name from the type manager:
+			bname = tm:getAbsoluteBaseName(func:getParent())
+			self:info("Retrieving absolute base name=", bname," for external=",func:getParent():getTypeName())
+		else
+			bname = func:getParent():getFirstAbsoluteBase():getFullName();
+		end
 		
 		-- the function is a class method, retrieve the object:
 		if cname == bname then
@@ -903,6 +912,8 @@ function LunaWriter:writeEnums()
 	self:newLine()
 	self:writeSubLine("void register_enums(lua_State* L) {")
 	self:pushIndent()
+		local writtenValues = Set();
+		
 		for _,v in enums:sequence() do
 			-- write the ennumeration content here:
 			
@@ -911,7 +922,7 @@ function LunaWriter:writeEnums()
 			self:newLine()
 			-- Assume the parent container is already on the stack.
 			for _,val in v:getValues():sequence() do
-				if not im:ignore(val,"enum_value") then
+				if not im:ignore(val:getFullName(),"enum_value") then
 					self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
 				end
 			end
@@ -920,6 +931,21 @@ function LunaWriter:writeEnums()
 			self:newLine()
 			-- push the table in the module:
 			self:writeSubLine('lua_setfield(L,-2,"${1}");',v:getName());
+			self:newLine()
+			
+			-- Now write the enum values again but in the module table directly:
+			for _,val in v:getValues():sequence() do
+				if not im:ignore(val:getFullName(),"enum_value") then
+					if writtenValues:contains(val:getFullName()) then
+						self:warn("Overriding enum value ",val:getFullName(), " in module context.")
+					end
+					
+					writtenValues:push_back(val:getFullName())
+					self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
+				end
+			end
+			
+			self:newLine()
 			self:newLine()
 		end
 	self:popIndent()

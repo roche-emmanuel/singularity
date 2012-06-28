@@ -11,17 +11,18 @@ ADD_SUBDIRECTORY(sgtCore)
 
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
-ADD_SUBDIRECTORY(plug_sql)
+# ADD_SUBDIRECTORY(plug_sql)
 
 ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
-# ADD_SUBDIRECTORY(plug_wx)
+ADD_SUBDIRECTORY(plug_wx)
+
 # ADD_SUBDIRECTORY(plug_osg)
-# ADD_SUBDIRECTORY(plug_osgUtil)
-# ADD_SUBDIRECTORY(plug_osgDB)
+ADD_SUBDIRECTORY(plug_osgUtil)
+ADD_SUBDIRECTORY(plug_osgDB)
 
 ADD_SUBDIRECTORY(sgt_launcher)
-ADD_SUBDIRECTORY(webkit_test)
+# ADD_SUBDIRECTORY(webkit_test)
 
 # ADD_SUBDIRECTORY(wx)
 # ADD_SUBDIRECTORY(doxmlparser)

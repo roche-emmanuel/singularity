@@ -289,6 +289,8 @@ im:getIgnoreConvertersPatterns():push_back("wxTextAttr")
 
 --im:getIgnoreClassesPatterns():push_back("wxAccessible")
 
+im:addPattern("enum_value","wxWEB_")
+
 local options = {
 	xmlpath=src_path.."/xml",
 	modName=project,
@@ -301,6 +303,7 @@ local options = {
         "wxRichTextParagraphBox",
         "wxAccessible",
         "wxArchive",
+        "wxWebView",
         "<",
         "Buffer",
         "wxCustomBackgroundWindow",
