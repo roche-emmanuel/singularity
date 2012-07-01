@@ -27,6 +27,12 @@ function Class:getRootPath(withSep)
 	return self._root_path .. (withSep and "/" or "")
 end
 
+--- Retrieve a relative path from the root path.
+function Class:getPath(subpath)
+	self:checkString(subpath,"Invalid string argument")
+	return self._root_path .. "/"..subpath
+end
+
 --- Method used to convert a filepath to the unix standard format
 -- forward slash are replaced with backward slashs and the last
 -- character in the path is removed if it is a slash.

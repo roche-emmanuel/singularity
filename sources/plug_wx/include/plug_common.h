@@ -22,6 +22,8 @@
 #include "wx_headers.h"
 #include "sgtApp.h"
 #include "wx_extensions.h"
+#include <wx/ribbon/art.h>
+#include <wx/ribbon/buttonbar.h>
 
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>

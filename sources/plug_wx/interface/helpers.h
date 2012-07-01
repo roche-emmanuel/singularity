@@ -101,6 +101,8 @@ typedef wxColour wxColor;
 
 typedef wxHelpController wxHelpControllerBase;
 
+class wxRibbonButtonBarButtonBase {};
+
 class wxPGCell : public wxObject
 {
 public:

@@ -67,5 +67,6 @@ osgDB::writeImageFile
 osgDB::writeHeightFieldFile
 osgDB::writeNodeFile
 osgDB::writeShaderFile
+osgDB::readXmlFile
 osgDB::trimEnclosingSpaces
 

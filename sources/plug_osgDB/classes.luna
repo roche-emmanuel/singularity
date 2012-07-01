@@ -71,4 +71,6 @@ std::map< int, std::string > => osgDB::IntLookup::ValueToString
 osgDB::UserLookupTableProxy => osgDB::UserLookupTableProxy
 osgDB::SharedStateManager => osg::Referenced
 osgDB::OutputIterator => osg::Referenced
+osgDB::XmlNode => osg::Referenced
+std::vector< osg::ref_ptr< osgDB::XmlNode > > => osgDB::XmlNode::Children
 

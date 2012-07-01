@@ -532,6 +532,7 @@ wxRibbonControl => wxObject
 wxRibbonBar => wxObject
 wxRibbonBarEvent => wxObject
 wxRibbonButtonBar => wxObject
+wxRibbonButtonBarButtonBase => wxRibbonButtonBarButtonBase
 wxRibbonButtonBarEvent => wxObject
 wxRibbonGallery => wxObject
 wxRibbonGalleryEvent => wxObject

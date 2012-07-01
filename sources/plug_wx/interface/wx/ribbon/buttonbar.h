@@ -171,7 +171,7 @@ public:
                 const wxString& label,
                 const wxBitmap& bitmap,
                 const wxString& help_string,
-                wxRibbonButtonBarButtonKind kind = wxRIBBON_BUTTONBAR_BUTTON_NORMAL);
+                wxRibbonButtonKind kind = wxRIBBON_BUTTON_NORMAL);
 
     /**
         Add a dropdown button to the button bar (simple version).
@@ -248,7 +248,7 @@ public:
                 const wxBitmap& bitmap_small = wxNullBitmap,
                 const wxBitmap& bitmap_disabled = wxNullBitmap,
                 const wxBitmap& bitmap_small_disabled = wxNullBitmap,
-                wxRibbonButtonBarButtonKind kind = wxRIBBON_BUTTONBAR_BUTTON_NORMAL,
+                wxRibbonButtonKind kind = wxRIBBON_BUTTON_NORMAL,
                 const wxString& help_string = wxEmptyString,
                 wxObject* client_data = NULL);
 

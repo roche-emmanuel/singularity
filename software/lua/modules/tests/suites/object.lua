@@ -26,13 +26,15 @@ function test_i18n()
 	-- perform i18n tests here:
 	local obj = Object()
 	
+	local locale = require "base.Locale"
+	locale:setLocale("en")
+	
 	local msg = obj.i18n.hello_world 
 	assert_equal("Hello world!",msg,"Invalid english translation")
 	
 	local msg = obj.i18n.missing_translation
 	log:debug("Tests","Got missing translation: ",msg)
 	
-	local locale = require "base.Locale"
 	locale:setLocale("fr")
 
 	local msg = obj.i18n.hello_world 

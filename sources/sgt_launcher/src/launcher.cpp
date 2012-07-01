@@ -82,6 +82,7 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 	lua_pop(L,1); // remove the string from the stack.
 
 	cpath = path +"bin/"+platform+"/libraries/?."+shared_ext+";"+cpath;
+	cpath = path +"bin/"+platform+"/libraries/?51."+shared_ext+";"+cpath; // also support IUP style dlls
 	cpath = path +"bin/"+platform+"/modules/?.sgp;" + cpath;
 	logINFO_V("Setting package.cpath="<< cpath);
 

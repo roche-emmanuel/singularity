@@ -1,0 +1,10 @@
+module=osgText
+osgTextGetVersion
+osgTextGetLibraryName
+osgText::readFontFile
+osgText::readRefFontFile
+osgText::findFontFile
+osgText::readFont3DFile
+osgText::readRefFont3DFile
+osgText::findFont3DFile
+

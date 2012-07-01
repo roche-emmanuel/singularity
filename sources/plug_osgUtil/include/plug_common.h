@@ -19,8 +19,6 @@
 #include <lua.hpp>
 #include <iostream> 
 
-#define OSG_LIBRARY_STATIC // force static build
-
 #include <osg/Vec3d>
 
 #include "plug_extensions.h"

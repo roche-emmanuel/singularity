@@ -22,6 +22,10 @@ SET(DEP_OSG OpenSceneGraph-3.0.1-static)
 SET(DEP_MYSQL mysql-5.5.25)
 SET(DEP_FIREBIRD Firebird-2.5.1.26351-0)
 
+SET(DEP_IM IM-3.8_vc9_lib)
+SET(DEP_CD CD-5.5.1_vc9_lib)
+SET(DEP_IUP IUP-3.6_vc9_lib)
+
 # SET(LUA "${DEPS_DIR}/${DEP_LUA}/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)
 # SET(LUA "W:/Shared/Dev/Deps/mingw32/luaJIT-2.0.0-beta8/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)
 SET(LUA "W:/Shared/Dev/Deps/win32/LuaJIT-2.0.0-beta9/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)

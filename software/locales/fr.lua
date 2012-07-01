@@ -8,6 +8,8 @@ local lang = {
 	mainframe_menu_file="&Fichier",
 	mainframe_menu_help="&Aide",
 	mainframe_init_message="Bienvenue dans SingularityGate",
+	mainframe_ribbon_home="Acceuil",
+	mainframe_ribbon_panel_toolbar="Outils",
 	about_frame_message="Ceci est la boite de dialogue à propos de SingularityGate",
 	about_frame_title="A propos de SingularityGate",		
 };

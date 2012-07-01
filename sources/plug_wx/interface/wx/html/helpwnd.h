@@ -46,7 +46,7 @@ public:
     */
     wxHtmlHelpWindow(wxWindow* parent, int wxWindowID,
                      const wxPoint& pos = wxDefaultPosition,
-                     const wxSize& pos = wxDefaultSize,
+                     const wxSize& size = wxDefaultSize,
                      int style = wxTAB_TRAVERSAL|wxBORDER_NONE,
                      int helpStyle = wxHF_DEFAULT_STYLE,
                      wxHtmlHelpData* data = NULL);

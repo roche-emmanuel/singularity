@@ -14,6 +14,12 @@ if cfg.tests_enabled then
 	require "unittests"
 end
 
+if cfg.init_script then
+	local script = root_path.."lua/scripts/".. cfg.init_script
+	log:info("Executing script: ",script)
+	dofile(script)
+end
+
 local mainframe = cfg.mainframe_enabled and require "gui.MainFrame"
 
 if mainframe then

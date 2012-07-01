@@ -2,6 +2,7 @@ local Class = require("classBuilder"){name="MainFrame",bases="base.Object"};
 
 local wx = require "wx"
 local i18n = require "i18n"
+local cfg = require "config"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
@@ -27,7 +28,14 @@ function Class:initialize(options)
 		self._frame:Destroy(); 
 	end)
 	
-	self:buildMenus()
+	if cfg.mainframe_ribbon_enabled then
+		self:buildRibbon()
+	end
+	
+	if cfg.mainframe_menus_enabled then
+		self:buildMenus()
+	end
+	
 	self:buildStatusBar()
 	
 	self:debug4("Mainframe initialization done.")
@@ -37,19 +45,19 @@ function Class:buildMenus()
 	self:debug4("Building mainframe menus.")
 	
     -- create a simple file menu
-    local fileMenu = wx.wxMenu()
+    local fileMenu = wx.wxMenu:new()
     fileMenu:Append(wx.wxID_EXIT, 
     	i18n.mainframe_menuitem_exit, 
     	i18n.mainframe_menuitem_exit_hint)
 
     -- create a simple help menu
-    local helpMenu = wx.wxMenu()
+    local helpMenu = wx.wxMenu:new()
     helpMenu:Append(wx.wxID_ABOUT, 
     	i18n.mainframe_menuitem_about,
     	i18n.mainframe_menuitem_about_hint)
 
     -- create a menu bar and append the file and help menus
-    local menuBar = wx.wxMenuBar()
+    local menuBar = wx.wxMenuBar:new()
     menuBar:Append(fileMenu, i18n.mainframe_menu_file)
     menuBar:Append(helpMenu, i18n.mainframe_menu_help)
 
@@ -77,6 +85,19 @@ function Class:buildStatusBar()
     -- create a simple status bar
     self._frame:CreateStatusBar(1)
     self._frame:SetStatusText(i18n.mainframe_init_message)
+end
+
+function Class:buildRibbon()
+	-- create the ribbon bar:
+	local ribbon = wx.wxRibbonBar:new(self._frame)
+	
+	local home = wx.wxRibbonPage:new(ribbon, 
+		wx.wxID_ANY, 
+		i18n.mainframe_ribbon_home) --, ribbon_xpm);
+	
+	local toolbar_panel = wx.wxRibbonPanel:new(home, wx.wxID_ANY, 
+		i18n.mainframe_ribbon_panel_toolbar)
+                                            
 end
 
 function Class:run()

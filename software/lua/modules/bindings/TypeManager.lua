@@ -40,22 +40,30 @@ function TypeManager:registerExternals(file)
 	local currentModule = nil
 	local line = f:read("*l")
 	while line do
-		if line:find("module=(.*)$") then
+		if line=="" then
+			-- do nothing in that case.
+		elseif line:find("module=(.*)$") then
 			currentModule = line:gsub("module=(.*)$","%1")
 			self:info_v("Switching to current module=",mod)
 		else
 			self:check(currentModule,"Invalid current module.")
 			
 			-- extract class and base from line:
+			--self:debug("Checking external line:'",line,"'")
+			
 			local p1,p2, className, baseName=line:find("(.-) => (.*)$")
 			
 			if not p1 then
+				--self:debug("Could not find external pattern");
 				className = line;
 				baseName = line
 			end
 			
+			self:checkNonEmptyString(className,"Invalid empty class name")
+			self:checkNonEmptyString(baseName,"Invalid empty base class name")
+			
 			local prevMod = self._externals:get(className)
-			self:check(prevMod==nil,"The external class ",className," was already registered in module",prevMod)			
+			self:check(prevMod==nil,"The external class ",className," was already registered in module ",prevMod)			
 
 			self:info_v("Registering external class: ",className," with parent: ", baseName)
 			self._externals:set(className,currentModule)
@@ -76,7 +84,9 @@ function TypeManager:registerExternalFunctions(file)
 	local currentModule = nil
 	local line = f:read("*l")
 	while line do
-		if line:find("module=(.*)$") then
+		if line=="" then
+			-- do nothing.
+		elseif line:find("module=(.*)$") then
 			currentModule = line:gsub("module=(.*)$","%1")
 			self:info_v("Switching to current module=",mod)
 		else

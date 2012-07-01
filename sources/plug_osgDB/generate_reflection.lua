@@ -187,7 +187,8 @@ im:addPattern("function","getFileNames")
 im:addPattern("function","DatabaseRevisionList")
 im:addPattern("function","Thread")
 im:addPattern("function","IncrementalCompileOperation")
-im:addPattern("function","readXmlFile")
+im:addPattern("function","osgDB::XmlNode::read")
+-- im:addPattern("function","readXmlFile")
 im:addPattern("function","objectRead")
 --im:addPattern("function","Options::[gs]etTerrain")
 
@@ -202,7 +203,7 @@ im:addPattern("class","osgDB::ImagePager::") --ImageRequest, ReadQueue, RequestQ
 im:addPattern("class","osgDB::SharedStateManager::") --CompareStateAttributes, CompareStateSets
 im:addPattern("class","osg::State::")
 im:addPattern("class","Serializer")
-im:addPattern("class","XmlNode")
+-- im:addPattern("class","XmlNode")
 im:addPattern("class","ControlMap")
 im:addPattern("class","Input")
 

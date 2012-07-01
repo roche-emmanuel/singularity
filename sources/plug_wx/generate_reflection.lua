@@ -20,6 +20,26 @@ end
 package.cpath = package.cpath..";".. root_path .. "bin/".. flavor .."/modules/?.sgp;".. root_path .. "bin/".. flavor .."/libraries/?.".. shared_ext
 package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path .. "lua/libraries/?.lua"
 
+-- setup the log manager:
+require "core"
+
+local logman = core.LogManager.instance()
+logman:setDefaultLevelFlags(core.LogManager.TIME_STAMP);
+logman:setDefaultTraceFlags(core.LogManager.TIME_STAMP);
+logman:addLevelFlags(core.LogManager.FATAL,core.LogManager.FILE_NAME+core.LogManager.LINE_NUMBER);
+logman:addLevelFlags(core.LogManager.ERROR,core.LogManager.FILE_NAME+core.LogManager.LINE_NUMBER);
+logman:addLevelFlags(core.LogManager.WARNING,core.LogManager.FILE_NAME+core.LogManager.LINE_NUMBER);
+
+logman:setVerbose(true);
+logman:setNotifyLevel(core.LogManager.DEBUG3);
+
+logman:addSink(core.FileLogger:new(dest_path.."/reflection.log"));
+--logman:addSink(core.StdLogger:new());
+
+local issuesLog = core.FileLogger:new(dest_path.."/reflection_issues.log");
+issuesLog:setLevelRange(core.LogManager.FATAL,core.LogManager.WARNING);
+logman:addSink(issuesLog);
+
 local log = require "logger" 
 
 log:info "Executing init script"
@@ -113,14 +133,15 @@ im:getIgnoreFunctionsPatterns():push_back("wxGraphics")
 im:getIgnoreFunctionsPatterns():push_back("FindHandler")
 im:getIgnoreFunctionsPatterns():push_back("wxObjectConstructorFn")
 im:getIgnoreFunctionsPatterns():push_back("wxCalendarCtrl::HitTest")
-im:getIgnoreFunctionsPatterns():push_back("unsigned char *")
+im:getIgnoreFunctionsPatterns():push_back("unsigned char %*")
 im:getIgnoreFunctionsPatterns():push_back("wxULongLong_t")
 im:getIgnoreFunctionsPatterns():push_back("wxUint64")
 im:getIgnoreFunctionsPatterns():push_back("wxInt64")
 im:getIgnoreFunctionsPatterns():push_back("__int64")
 im:getIgnoreFunctionsPatterns():push_back("wxLongLong_t")
 im:getIgnoreFunctionsPatterns():push_back("time_t")
-im:getIgnoreFunctionsPatterns():push_back("tm *")
+im:getIgnoreFunctionsPatterns():push_back("tm %*")
+im:getIgnoreFunctionsPatterns():push_back("tm &")
 im:getIgnoreFunctionsPatterns():push_back("_SYSTEMTIME")
 im:getIgnoreFunctionsPatterns():push_back("istream")
 im:getIgnoreFunctionsPatterns():push_back("wxDocument::SaveObject")
@@ -235,6 +256,17 @@ im:getIgnoreFunctionsPatterns():push_back("wxRichTextAttr")
 im:getIgnoreFunctionsPatterns():push_back("wxRichTextPageLocation")
 im:getIgnoreFunctionsPatterns():push_back("wxRichTextListStyleDefinition::GetCombinedStyleLevel")
 im:getIgnoreFunctionsPatterns():push_back("wxRichText")
+im:getIgnoreFunctionsPatterns():push_back("wxToolBar::SetBitmapResource")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWinParser::GetEncodingConverter")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWinParser::GetInputEncoding")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWinParser::GetOutputEncoding")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWinParser::GetWindow")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWinParser::SetInputEncoding")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlParser::AddWord")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlURLType")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlSelection")
+im:getIgnoreFunctionsPatterns():push_back("wxHtmlWindowInterface")
+im:getIgnoreFunctionsPatterns():push_back("wxBitmapComboBox::Insert")
 
 -- missing links:
 im:getIgnoreFunctionsPatterns():push_back("wxApp::Initialize")
@@ -291,6 +323,9 @@ im:getIgnoreConvertersPatterns():push_back("wxTextAttr")
 
 im:addPattern("enum_value","wxWEB_")
 
+local injector = require "bindings.CodeInjector"
+-- injector:addFragment("after_headers","#include \n")
+
 local options = {
 	xmlpath=src_path.."/xml",
 	modName=project,
@@ -343,3 +378,5 @@ buildBindings()
 local dt = os.clock()-t0
 
 log:notice("Done executing script in "..dt.." seconds.")
+
+core.LogManager.destroy()

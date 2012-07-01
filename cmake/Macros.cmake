@@ -231,8 +231,7 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
         COMMAND type "${DOX_TEMPLATE}" >> ${DOXFILE}
         # Call doxygen on this file:
         #COMMAND set PATH=${DOT_DIR_WIN};%PATH% & ${DOXYGEN} ${DOXFILE}
-        COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_SOURCE_DIR}/../doxygen.log 
-		# 2>&1
+        COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_SOURCE_DIR}/../doxygen.log 2>&1
         #COMMAND echo ${DOT_DIR_WIN}
         COMMAND echo "Generating lua reflection..."
         COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; src_path='${CMAKE_CURRENT_BINARY_DIR}'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
@@ -315,4 +314,4 @@ MACRO(BUILD_LUA_PLUGIN)
 		LIBRARY DESTINATION ${TARGET_DIR})
 
 	COMPRESS_BINARY()
-ENDMACRO(BUILD_PLUGIN)
+ENDMACRO(BUILD_LUA_PLUGIN)
