@@ -1,0 +1,4 @@
+module=osgViewer
+osgViewerGetVersion
+osgViewerGetLibraryName
+

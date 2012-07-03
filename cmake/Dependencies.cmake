@@ -51,7 +51,7 @@ IF(MSVC)
 	
 	SET(OSG_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/include)
 	SET(OSG_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/lib)
-	SET(OSG_LIBS     	ot12-OpenThreads.lib osg80-osg.lib osg80-osgUtil.lib osg80-osgDB.lib osg80-osgGA.lib osg80-osgText.lib)
+	SET(OSG_LIBS     	ot12-OpenThreads.lib osg80-osg.lib osg80-osgUtil.lib osg80-osgDB.lib osg80-osgGA.lib osg80-osgText.lib osg80-osgViewer.lib  osg80-osgParticle.lib)
 	SET(OSG_FLAGS     	-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC 
 	
 	SET(IM_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_IM}/include)
@@ -68,6 +68,11 @@ IF(MSVC)
 	SET(IUP_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_IUP})
 	SET(IUP_LIBS     iup.lib iup_mglplot.lib iup_pplot.lib iupcd.lib iupcontrols.lib iupgl.lib iupim.lib iupimglib.lib iuplua_mglplot51.lib iuplua_pplot51.lib iuplua51.lib iupluacd51.lib iupluacontrols51.lib iupluagl51.lib iupluaim51.lib iupluaimglib51.lib iupluaole51.lib iupluatuio51.lib iupluaweb51.lib iupole.lib iuptuio.lib iupweb.lib gdi32.lib user32.lib comdlg32.lib comctl32.lib ole32.lib ws2_32.lib winmm.lib)
 	SET(IUP_FLAGS    -DIUP_DLL)
+
+    SET(SDL_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SDL}/include)
+    SET(SDL_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SDL}/VisualC/SDL/Release)
+    SET(SDL_LIBS 		SDL.lib)
+	
 ELSE()
     SET(LUABIND_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUABIND}/include)
     SET(LUABIND_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUABIND}/lib)

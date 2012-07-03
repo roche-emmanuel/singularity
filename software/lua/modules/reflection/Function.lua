@@ -231,6 +231,18 @@ function Function:containsPointerOnPointer()
     --return proto:find("%[[0-9]*%]")~=nil
 end
 
+function Function:containsFunctionArg()
+	for k,param in self.parameters:sequence() do
+		if param:getType():getName():find("%(") then
+			return true
+		end
+	end
+	
+	if self.returnType and self.returnType:getName():find("%(") then
+		return true;
+	end
+end
+
 --- Check if this function has template parameters.
 function Function:isTemplated()
     return not self.templateParameters:empty();
@@ -251,6 +263,7 @@ function Function:isValidForWrapping()
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:isTemplated()
+    	and not self:containsFunctionArg()
     	and not self:getName():find("~")
     	and not im:ignoreFunction(self))
 end

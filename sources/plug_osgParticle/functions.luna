@@ -1,0 +1,4 @@
+module=osgParticle
+osgParticleGetVersion
+osgParticleGetLibraryName
+

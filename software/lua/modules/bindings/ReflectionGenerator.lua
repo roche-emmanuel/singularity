@@ -207,8 +207,8 @@ function ReflectionGenerator:getOrCreateCompound(comp)
     elseif (comp:kind()==dxp.ICompound.Namespace) then
         return self:getOrCreateObject(comp,Namespace)
     elseif (comp:kind()==dxp.ICompound.Union) then
-    	log:error("Ignoring Union " .. comp:name():latin1())
-		return nil
+    	return self:getOrCreateObject(comp,Class)
+    	---log:error("Ignoring Union " .. comp:name():latin1())
     else
         log:error("Cannot create component mapping for kind: " .. comp:kind())
     end

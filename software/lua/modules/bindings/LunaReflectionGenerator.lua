@@ -251,8 +251,9 @@ function ReflectionGenerator:getOrCreateCompound(comp)
     elseif (comp:kind()==dxp.ICompound.Namespace) then
         return self:getOrCreateObject(comp,Namespace)
     elseif (comp:kind()==dxp.ICompound.Union) then
-    	log:error("Ignoring Union " .. comp:name():latin1())
-		return nil
+    	return self:getOrCreateObject(comp,Class)
+    	--log:error("Ignoring Union " .. comp:name():latin1())
+		--return nil
     else
         log:error("Cannot create component mapping for kind: " .. comp:kind())
     end
@@ -317,7 +318,13 @@ function ReflectionGenerator:getOrCreateMember(mem)
     end
 end
 
-function ReflectionGenerator:generateItemLinks(lti)
+function ReflectionGenerator:generateItemLinks(lti,count,tname)
+    count = count or 0
+    if count > 1000 then
+    	self:error("Detected infinite recursion loop in generateItemLinks() for member: ",tname)
+    	return
+    end
+    
     lti:toFirst()
     local item = lti:current()
     if not item then
@@ -415,7 +422,7 @@ function ReflectionGenerator:generateItemLinks(lti)
                 			object = self:getOrCreateMember(mem)
                 		else
 	                		log:info("Reading sub item links for member ".. mem:name():latin1() .. " in compound " .. comp:name():latin1())
-	                		subtypes = self:generateItemLinks(mem:type());
+	                		subtypes = self:generateItemLinks(mem:type(),count+1,mem:name():latin1());
                 		end
                 	else
                     	object = self:getOrCreateMember(mem)
