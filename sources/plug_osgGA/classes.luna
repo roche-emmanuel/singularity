@@ -18,6 +18,7 @@ osgGA::GUIEventAdapter => osg::Referenced
 osgGA::GUIEventAdapter::TouchData => osg::Referenced
 std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > => osgGA::GUIEventAdapter::TouchData::TouchSet
 osgGA::GUIEventAdapter::TouchData::TouchPoint => osgGA::GUIEventAdapter::TouchData::TouchPoint
+osgGA::GUIEventHandlerVisitor => osgGA::GUIEventHandlerVisitor
 osgGA::KeySwitchMatrixManipulator => osg::Referenced
 std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > => osgGA::KeySwitchMatrixManipulator::NamedManipulator
 std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > => osgGA::KeySwitchMatrixManipulator::KeyManipMap

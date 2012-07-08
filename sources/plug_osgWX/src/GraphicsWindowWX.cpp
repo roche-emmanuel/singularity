@@ -2,10 +2,11 @@
 
 #include "GraphicsWindowWX.h"
 
-GraphicsWindowWX::GraphicsWindowWX(OSGCanvas *canvas)
+GraphicsWindowWX::GraphicsWindowWX(wxGLCanvas *canvas, wxGLContext* context)
 {
     _canvas = canvas;
-
+	_context = context;
+	
     _traits = new GraphicsContext::Traits;
 
     wxPoint pos = _canvas->GetPosition();
@@ -58,7 +59,7 @@ void GraphicsWindowWX::grabFocusIfPointerInWindow()
 
 void GraphicsWindowWX::useCursor(bool cursorOn)
 {
-    _canvas->UseCursor(cursorOn);
+    _canvas->SetCursor(cursorOn?wxNullCursor:wxCursor(wxCURSOR_BLANK));
 }
 
 bool GraphicsWindowWX::makeCurrentImplementation()

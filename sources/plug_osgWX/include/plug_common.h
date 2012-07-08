@@ -13,12 +13,13 @@
 #  define PLUG_EXPORT
 #endif
 
-
 #pragma warning( disable: 4251 )
 
 #include <lua.hpp>
 #include <iostream> 
 
+#include <wx/glcanvas.h>
+#include <osgViewer/GraphicsWindow>
 #include <osg/Vec3d>
 
 #include "plug_extensions.h"

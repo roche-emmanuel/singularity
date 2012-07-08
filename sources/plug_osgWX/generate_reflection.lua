@@ -112,6 +112,18 @@ end
 local tc = require "bindings.TypeConverter"
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
+local tm = require "bindings.TypeManager"
+
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osg/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osg/functions.luna")
+
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osgViewer/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osgViewer/functions.luna")
+
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_wx/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_wx/functions.luna")
+
+--tm:registerExternalClass("wx","wxWindow","wxObject")
 
 corr:addCorrector("type_name","(OSG_EXPORT )","")
 corr:addCorrector("type_name","(GL_APIENTRY%s*)","")

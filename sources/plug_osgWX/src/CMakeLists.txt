@@ -29,9 +29,10 @@ INSTALL(TARGETS ${TARGET_NAME}
 
 # step needed for the generation of the XML documentation:
 SET(INTF_FILES)
-LIST(APPEND INTF_FILES "${OSG_INC_DIR}")
-ADD_FILES(INTF_FILES "../interface/helpers.h")
+# LIST(APPEND INTF_FILES "${OSG_INC_DIR}")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
+ADD_FILES(INTF_FILES "../include/GraphicsWindowWX.h")
+ADD_FILES(INTF_FILES "../interface/helpers.h")
 
 SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES 
 	PREFIX ""

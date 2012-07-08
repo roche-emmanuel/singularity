@@ -19,6 +19,7 @@ function BinderBase:handle(writer,func,name)
 	--local overloaded = func:isOverloaded()
 	
 	-- there are no overloads:
+	writer:writeSubLine("// " .. func:getPrototype(true,true,true))
 	writer:writeSubLine("static ${1} _bind_${2}(lua_State *L) {",isconstruct and fname.."*" or "int",name)
 	writer:pushIndent()	
 	-- There is no overload for the constructor:
@@ -26,8 +27,17 @@ function BinderBase:handle(writer,func,name)
 	writer:pushIndent()
 		-- report error here:
 		writer:writeLine("luna_printStack(L);")
-		local sig = "(" .. func:getArgumentsPrototype() .. ")"
-		writer:writeSubLine('luaL_error(L, "luna typecheck failed in ${1} function, expected prototype:\\n${1}${2}");',func:getName(),sig)
+		local args = {}
+		local params = func:getParameters()
+		for k,p in params:sequence() do
+			local pt = p:getType()
+			if pt:isClass() then
+				local cbase = pt:getBase()
+				table.insert(args,"arg "..k.." ID = ".. (type(cbase)=="table" and cbase:getAbsoluteBaseHash() or "[unknown]").."\\n")
+			end
+		end
+		
+		writer:writeSubLine('luaL_error(L, "luna typecheck failed in ${1} function, expected prototype:\\n${1}\\nClass arguments details:\\n${2}");',func:getPrototype(true,true,true):gsub('\"','\\\"'),table.concat(args))
 	writer:popIndent()
 	writer:writeLine("}")
 	writer:newLine()

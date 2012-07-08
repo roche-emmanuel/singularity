@@ -1,0 +1,3 @@
+module=osgWX
+GraphicsWindowWX => osg::GraphicsContext
+

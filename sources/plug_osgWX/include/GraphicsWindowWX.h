@@ -33,7 +33,7 @@ private:
     // its parent. for this, need to add event handler in OSGCanvas
     wxGLCanvas*  _canvas;
 	
-	wxGLContext* _context
+	wxGLContext* _context;
 };
 
 #endif

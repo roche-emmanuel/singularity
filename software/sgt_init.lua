@@ -1,3 +1,5 @@
+require "luna"
+
 local log = require "logger"
 log:notice "Executing init script..."
 
@@ -8,6 +10,7 @@ log:debug0("Path is: ".. root_path)
 local cfg = require "config"
 
 local core = require "core"
+
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG4)
 
 if cfg.tests_enabled then

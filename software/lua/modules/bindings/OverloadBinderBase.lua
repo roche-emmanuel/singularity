@@ -19,6 +19,7 @@ function OverloadBinderBase:handle(writer,func,overloads)
 	local cname = func:getParent():getName()
 	
 	-- now write the constructor bind function:
+	writer:writeSubLine("// Overload binder for "..func:getFullName())	
 	writer:writeSubLine("static ${1} _bind_${2}(lua_State *L) {",isconstruct and func:getParent():getFullName().."*" or "int",name)
 	writer:pushIndent()
 		local sigs = ""

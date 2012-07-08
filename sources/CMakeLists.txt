@@ -14,7 +14,7 @@ ADD_SUBDIRECTORY(sgtCore)
 # ADD_SUBDIRECTORY(plug_sql)
 # ADD_SUBDIRECTORY(plug_gl)
 # ADD_SUBDIRECTORY(plug_iup)
-ADD_SUBDIRECTORY(plug_SDL)
+# ADD_SUBDIRECTORY(plug_SDL)
 
 ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
@@ -27,11 +27,12 @@ ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_osgText)
 # ADD_SUBDIRECTORY(plug_osgViewer)
 # ADD_SUBDIRECTORY(plug_osgParticle)
+ADD_SUBDIRECTORY(plug_osgWX)
 
 #Sim
 
 ADD_SUBDIRECTORY(sgt_launcher)
-# ADD_SUBDIRECTORY(webkit_test)
+# ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)
 # ADD_SUBDIRECTORY(doxmlparser)

@@ -37,7 +37,12 @@ function Class:initialize(options)
 	end
 	
 	self:buildStatusBar()
-	
+
+	-- ad a simple test OSG canvas:
+	local canvas = require("gui.OSGCanvas"){parent=self._frame}
+	--self:check(self._frame:GetSizer(),"Invalid sizer")
+	--self._frame:GetSizer():Add(canvas._canvas,1,wx.wxEXPAND+wx.wxALL,2)
+		
 	self:debug4("Mainframe initialization done.")
 end
 

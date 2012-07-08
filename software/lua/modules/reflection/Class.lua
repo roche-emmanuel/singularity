@@ -81,8 +81,12 @@ end
 
 function Class:getAllAbsoluteBaseHashes()
     local hashes = {}
-    for _,v in self:getAbsoluteBases():sequence() do
-        table.insert(hashes,utils.getHash(v:getFullName()));
+	if self:isExternal() then
+		table.insert(hashes,utils.getHash(tm:getAbsoluteBaseName(self)))
+	else
+	    for _,v in self:getAbsoluteBases():sequence() do
+	        table.insert(hashes,utils.getHash(v:getFullName()));
+	    end
     end
     return hashes
 end
@@ -100,10 +104,14 @@ end
 
 --- Retrieve the hash code of the first absolute base class.  
 function Class:getAbsoluteBaseHash()
-	local abs = self:getFirstAbsoluteBase()
-	local str = abs:getFullName()
-	
-	return utils.getHash(str)
+	if self:isExternal() then
+		return utils.getHash(tm:getAbsoluteBaseName(self))
+	else
+		local abs = self:getFirstAbsoluteBase()
+		local str = abs:getFullName()
+		
+		return utils.getHash(str)
+	end
 end
 
 --- Retrieve the bases of this class.
@@ -340,6 +348,7 @@ function Class:getAbstractFunctions()
 	-- this class.
 	for _,v in self:getFunctions():sequence() do
 		if v:isAbstract() then
+			self:notice("Found abstract method: ",v:getFullName())
 			abstractFuncs:push_back(v)
 		else
 			concreteFuncs:push_back(v)
@@ -358,6 +367,7 @@ function Class:getAbstractFunctions()
 			for _,concFunc in concreteFuncs:sequence() do
 				if func:isEqualTo(concFunc) then
 					isConcrete=true;
+					self:notice("Found concrete implementation for : ",v:getFullName())
 					break;
 				end
 			end
@@ -379,6 +389,7 @@ function Class:getAbstractOperators()
 	-- this class.
 	for _,v in self:getOperators():sequence() do
 		if v:isAbstract() then
+			self:notice("Found abstract operator: ",v:getFullName())
 			abstractFuncs:push_back(v)
 		else
 			concreteFuncs:push_back(v)

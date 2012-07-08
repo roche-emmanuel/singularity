@@ -30,7 +30,7 @@ enum wxStreamError
 
     @see wxStreamBuffer
 */
-class wxStreamBase
+class wxStreamBase : public wxObject
 {
 public:
     /**

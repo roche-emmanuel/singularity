@@ -331,7 +331,7 @@ end
 
 --- Check if two functions are exactly the sames.
 function Function:isEqualTo(other)
-	return self:getPrototype(true,false,true)==other:getPrototype(true,false,true)
+	return self:getPrototype(false,false,true)==other:getPrototype(false,false,true)
 end
 
 --- Check if function is overloaded.

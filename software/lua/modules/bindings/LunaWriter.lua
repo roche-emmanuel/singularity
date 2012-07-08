@@ -34,11 +34,13 @@ public:
     static const char moduleName[];
     static const char* parents[];
     static const int uniqueIDs[];
+    static const int hash;
     static luna_RegType methods[];
     static luna_RegEnumType enumValues[];
     static ${1}* _bind_ctor(lua_State *L);
     static void _bind_dtor(${1}* obj);
-    typedef ${1} base_t;${2}
+    typedef ${2} parent_t;
+    typedef ${1} base_t;${3}
 };
 ]]
 
@@ -46,6 +48,7 @@ local class_type_template = [[template<>
 class LunaType< ${1} > {
 public:
     typedef ${2} type;
+    
 };
 ]]
 
@@ -227,7 +230,8 @@ function LunaWriter:writeMainHeader()
 		
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for ", v:getFullName(), " (typename=",classname,")")
-			buf:writeSubLine(class_decl_template,classname,add)
+			local abname = v:getFirstAbsoluteBase():getFullName();
+			buf:writeSubLine(class_decl_template,classname,abname,add)
 		else
 			self:notice("Ignoring class declaration for ", v:getFullName(), " (typename=",classname,")")
 		end
@@ -287,9 +291,10 @@ function LunaWriter:retrieveArguments(func)
 		local index = k+offset
 		local defStrPre = defaultOffset and ((k-1)<defaultOffset and "" or "luatop>"..(index-1).." ? ") or ""
 		local defStrAnd = defaultOffset and ((k-1)<defaultOffset and "" or "luatop>"..(index-1).." && ") or ""
-		local defStrPost = defaultOffset and ((k-1)<defaultOffset and "" or " : ".. v:getDefaultValue():getName()) or ""
-		local defStrPostNull = defaultOffset and ((k-1)<defaultOffset and "" or " : NULL") or ""
 		local constPre = isConst and "const " or "";
+
+		local defStrPost = defaultOffset and ((k-1)<defaultOffset and "" or " : "..(pt:isClass() and pt:isPointer() and "("..constPre..bname.."*)" or "").. v:getDefaultValue():getName()) or ""
+		local defStrPostNull = defaultOffset and ((k-1)<defaultOffset and "" or " : NULL") or ""
 		
 		if converter then
 			isPointer = converter(self,index,pt,argname)
@@ -414,7 +419,8 @@ function LunaWriter:writeFunctionCall(cname,func,args)
 		end
 		self:writeLine("if(!self) {")
 		self:pushIndent()
-		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}(...)");',func:getName())
+		self:writeSubLine('luna_printStack(L);')
+		self:writeSubLine('luaL_error(L, "Invalid object in function call ${1}");',func:getPrototype(false,true,true))
 		self:popIndent()
 		self:writeLine("}")
 	end
@@ -590,6 +596,20 @@ function LunaWriter:writeClass(class)
 			end
 		else
 			buf:writeLine("return NULL; // Class is abstract.")
+			
+			-- write the abstract methods:
+			local funcs = class:getAbstractFunctions()
+			buf:writeLine("// Abstract methods:")
+			for _,func in funcs:sequence() do
+				buf:writeLine("// ".. func:getPrototype(true,true,true))
+			end
+			buf:newLine()
+			local funcs = class:getAbstractOperators()
+			buf:writeLine("// Abstract operators:")
+			for _,func in funcs:sequence() do
+				buf:writeLine("// ".. func:getPrototype(true,true,true))
+			end
+			
 		end
 		buf:popIndent()
 		buf:writeLine("}")
@@ -619,7 +639,9 @@ function LunaWriter:writeClass(class)
 	-- build the parent list:
 	local parentList = ""
 	for k,v in class:getBases():sequence() do
-		parentList = parentList .. '"'.. (v:getModule() or mname) .. "." .. v:getName() .. '", '; --v:getFullName():gsub("::",".")
+		if v:isValidForWrapping() then
+			parentList = parentList .. '"'.. (v:getModule() or mname) .. "." .. v:getName() .. '", '; --v:getFullName():gsub("::",".")
+		end
 	end
 	
 	-- Write the lunatraits properties:
@@ -627,6 +649,7 @@ function LunaWriter:writeClass(class)
 	buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
 	buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,class:getModule() or self:getModuleName());
 	buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
+	buf:writeSubLine('const int LunaTraits< ${1} >::hash = ${2};',cname,utils.getHash(class:getFullName()));
 	buf:writeSubLine('const int LunaTraits< ${1} >::uniqueIDs[] = {${2},0};',cname,table.concat(class:getAllAbsoluteBaseHashes(),", "));
 	buf:newLine()
 	
@@ -745,6 +768,7 @@ function LunaWriter:writeExternals()
 			buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
 			buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,v:getModule() or self:getModuleName());
 			--buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
+			buf:writeSubLine('const int LunaTraits< ${1} >::hash = ${2};',cname,utils.getHash(v:getFullName()));
 			buf:writeSubLine('const int LunaTraits< ${1} >::uniqueIDs[] = {${2},0};',cname,table.concat(v:getAllAbsoluteBaseHashes(),", "));
 			buf:newLine()
 		end
@@ -782,6 +806,14 @@ function LunaWriter:writeModuleFile()
 	self:writeLine("lua_newtable(L); // container class")
 	self:newLine()
 	
+	-- register the definitions:
+	self:writeLine("register_defines(L);")
+	self:newLine()
+	
+	-- register the enums:
+	self:writeLine("register_enums(L);")
+	self:newLine()
+	
 	-- register the void class:
 	self:writeLine("Luna< void >::Register(L);")
 	
@@ -801,17 +833,18 @@ function LunaWriter:writeModuleFile()
 	--self:writeForeach(self.classes,"Luna< ${1} >::Register(L);",getValueName)
 	self:newLine()
 	
-	-- register the definitions:
-	self:writeLine("register_defines(L);")
-	self:newLine()
-	
-	-- register the enums:
-	self:writeLine("register_enums(L);")
-	self:newLine()
+
 	
 	-- register the global function:
 	self:writeLine("register_global_functions(L);")
 	self:newLine()
+
+	-- register the module name:
+	self:writeSubLine('lua_pushstring(L,"${1}");',self:getModuleName())
+	self:writeSubLine('lua_setfield(L,-2,"__NAME__");')
+	
+	self:newLine()
+
 
 	-- Now set the table as global:
 	self:writeSubLine('lua_setglobal(L,"${1}");',self:getModuleName())

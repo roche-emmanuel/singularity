@@ -1,4 +1,6 @@
 module=osg
+glLoadMatrix
+glMultMatrix
 osgGetVersion
 osgGetSOVersion
 osgGetLibraryName

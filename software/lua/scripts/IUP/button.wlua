@@ -1,7 +1,7 @@
 -- Creates four buttons. The first uses images, the second turns the first
 -- on and off, the third exits the application and the last does nothing
 
-require( "iuplua" )
+require( "iup" )
 
 -- defines released button image
 img_release = iup.image {

@@ -77,6 +77,12 @@ function TypeManager:registerExternals(file)
 	f:close()
 end
 
+function TypeManager:registerExternalClass(mod,className,baseName)
+	self:info_v("Registering external class: ",className," with parent: ", baseName," in module ", mod)
+	self._externals:set(className,mod)
+	self._externalParents:set(className,baseName)
+end
+
 function TypeManager:registerExternalFunctions(file)
 	self:info_v("Registering external functions from ",file)
 	local f = io.open(file,"r")

@@ -311,6 +311,7 @@ im:getIgnoreFunctionsPatterns():push_back("wxSystem")
 im:getIgnoreFunctionsPatterns():push_back("wxAtof")
 im:getIgnoreFunctionsPatterns():push_back("wxStringTokenize")
 im:getIgnoreFunctionsPatterns():push_back("wxGetEnvMap")
+im:getIgnoreFunctionsPatterns():push_back("wxHVScrolledWindow::wxHVScrolledWindow")
 
 im:getIgnoreDefinesPatterns():push_back("wxACC_")
 
@@ -340,6 +341,9 @@ local options = {
         "wxArchive",
         "wxWebView",
         "<",
+        "wxFileStream",
+        "wxFFileStream",
+        "wxVarHVScrollHelper",
         "Buffer",
         "wxCustomBackgroundWindow",
         "wxNavigationEnabled",

@@ -1,4 +1,4 @@
-require ("iuplua")
+require ("iup")
 
 console = {}
 

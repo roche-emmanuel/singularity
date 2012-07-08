@@ -2,8 +2,8 @@
 --
 -- Duplicate the iupole_browser.cpp sample in pure lua
 
-require "iuplua"
-require "iupluaole"
+require "iup"
+--require "iupluaole"
 require "luacom"
 
 -- create the WebBrowser based on its ProgID
