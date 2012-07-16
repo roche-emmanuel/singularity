@@ -1,4 +1,3 @@
-
 /** LUNA_EXTERNAL wx */
 class wxGLCanvas {
 };
@@ -12,17 +11,15 @@ class wxWindow {
 };
 
 namespace osg {
+class Referenced {};
 
-// will be exported as external.
-class GraphicsContext {};
+}
+
+namespace osgViewer {
+
+class GraphicsWindow : public osg::Referenced {};
 
 };
 
 typedef int wxWindowID;
 
-namespace osgViewer {
-
-/** LUNA_EXTERNAL osgViewer */
-class GraphicsWindow : public osg::GraphicsContext {};
-
-};

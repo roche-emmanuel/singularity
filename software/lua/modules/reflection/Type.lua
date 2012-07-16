@@ -345,8 +345,10 @@ end
 function Type:getAbsoluteBaseHash()
 	if type(self._base)=="table" then
 		return self._base:getAbsoluteBaseHash()
-	else
+	elseif type(self._base)=="string" then
 		return utils.getHash(self._base)
+	else
+		error("Could not retrieve AbsoluteBaseHash for type ",self:getName())
 	end
 end
 

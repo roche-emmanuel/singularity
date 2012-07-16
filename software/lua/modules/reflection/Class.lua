@@ -105,11 +105,15 @@ end
 --- Retrieve the hash code of the first absolute base class.  
 function Class:getAbsoluteBaseHash()
 	if self:isExternal() then
-		return utils.getHash(tm:getAbsoluteBaseName(self))
+		local str = tm:getAbsoluteBaseName(self)
+		--self:check(str,"Invalid absoluteBaseName for external ",self:getFullName())
+		
+		return utils.getHash(str)
 	else
 		local abs = self:getFirstAbsoluteBase()
 		local str = abs:getFullName()
 		
+		self:check(str,"Invalid absoluteBaseName for non-external ",self:getFullName())
 		return utils.getHash(str)
 	end
 end
@@ -465,6 +469,10 @@ end
 
 function Class:setModule(modname)
 	self.externalModule = modname
+end
+
+function Class:getDeleter()
+	return tm:getDeleter(self)
 end
 
 function Class:getModule()

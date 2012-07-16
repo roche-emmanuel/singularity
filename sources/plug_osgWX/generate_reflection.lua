@@ -114,6 +114,8 @@ local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
 local tm = require "bindings.TypeManager"
 
+tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
+
 tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osg/classes.luna")
 tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osg/functions.luna")
 

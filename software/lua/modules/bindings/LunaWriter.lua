@@ -623,7 +623,10 @@ function LunaWriter:writeClass(class)
 			realclass = class:getMappedType():getFirstBase() or realclass
 		end
 		
-		if not realclass:getDestructor() or realclass:getDestructor():isPublic() then
+		local deleter = class:getDeleter() -- only check for deleters on the class, not on the mapped types.
+		if type(deleter)=="string" then
+			buf:writeSubLine(deleter,"obj");
+		elseif not realclass:getDestructor() or realclass:getDestructor():isPublic() then
 			buf:writeLine("delete obj;")
 		else
 			buf:writeLine("//delete obj; // destructor protected.")	

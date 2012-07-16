@@ -18,6 +18,7 @@ function TypeManager:__init()
     object._externals = Map()
     object._externalParents = Map()
     object._externalFuncs = Map()
+    object._deleters = Map()
     object._TRACE_ = "TypeManager"
     return object
 end
@@ -121,7 +122,7 @@ function TypeManager:getAbsoluteBaseName(class)
 	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class argument")
 	
 	local tname = class:getTypeName()
-	return self._externalParents:get(tname)
+	return self._externalParents:get(tname) or class:getFullName()
 end
 
 function TypeManager:getFunctionModule(func)
@@ -130,5 +131,35 @@ function TypeManager:getFunctionModule(func)
 	local tname = func:getFullName()
 	return self._externalFuncs:get(tname)
 end
+
+function TypeManager:registerDeleter(className,deleter)
+	local prevdeleter = self._deleters:get(className)
+	self:check(prevdeleter==nil,"Trying to override deleter '", prevdeleter, "' with new deleter '",deleter,"' for class '",className,"'")
+	
+	self._deleters:set(className,deleter)
+end
+
+function TypeManager:getDeleter(class)
+	-- recursively check for a deleter availability:
+	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class argument")
+
+	--self:info("Checking deleter for ",class:getFullName())
+	
+	local del = self._deleters:get(class:getFullName())
+	if del then
+		return del
+	end
+
+	-- return the deleter for the base:
+	for _,base in class:getBases():sequence() do
+		local del = self:getDeleter(base)
+		if del then
+			return del
+		end
+	end
+	
+	-- return nothing.
+end
+
 
 return TypeManager()

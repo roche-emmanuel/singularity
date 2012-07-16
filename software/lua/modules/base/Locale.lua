@@ -32,6 +32,10 @@ function Class:initialize(options)
 	self:info("Selecting default locale ",cfg.default_locale)
 	currentLocale=cfg.default_locale
 	self:check(locales[currentLocale],"Invalid current locale map")
+	
+	-- restore the numeric locale applied for lua itself:
+	--os.setlocale("C","numeric")
+	
 	self:info("locales loaded.")
 end
 

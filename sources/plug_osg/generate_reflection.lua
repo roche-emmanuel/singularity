@@ -112,6 +112,9 @@ end
 local tc = require "bindings.TypeConverter"
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
+local tm = require "bindings.TypeManager"
+
+tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 
 corr:addCorrector("type_name","(OSG_EXPORT )","")
 corr:addCorrector("type_name","(GL_APIENTRY%s*)","")

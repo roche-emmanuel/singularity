@@ -128,7 +128,7 @@ function Object:checkType(obj,base,strict)
 end
 
 function Object:throw(msg,...)
-	log:error(self,msg,...)
+	self:error(msg,...)
 	self:backtrace()
 	error("Stopping because error occured.")
 end
