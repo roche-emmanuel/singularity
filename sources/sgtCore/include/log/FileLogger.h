@@ -18,6 +18,11 @@ namespace sgt {
  */
 class SGTCORE_EXPORT FileLogger : public LogSink {
 public:
+	//Object_META_DEF(sgt,FileLogger);
+
+	/** Default constructor. */
+	FileLogger() {};
+
 	/**
 	 * Create a new FileLogger object and open the corresponding file.
 	 * @param filename The file to open
@@ -27,13 +32,31 @@ public:
 	FileLogger(const std::string& filename, bool append = false, const std::string& name = "");
 
 	virtual ~FileLogger();
+
     /**
     Output a given message on the LogSink object.
     */
 	virtual void output(int level, std::string trace, std::string msg);
+
+	/** Initialization function.
+	Called in the non default constructor. */
+	bool init(const String& filename, bool append = false);
+
+	/** Retrieve the name of the file used. */
+	inline String getFilename() { return _filename ; }
+
+	/** Retrieving the appending status. */
+	inline Bool getAppending() { return _append; }
+
 private:
 	/** File output stream object.*/
     std::ofstream _stream;
+
+	/** The name of the file used.*/
+	String _filename;
+
+	/** The current appending status. */
+	Bool _append;
 };
 
 } /* namespace scLog */

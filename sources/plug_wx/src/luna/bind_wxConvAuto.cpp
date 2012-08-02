@@ -1,0 +1,243 @@
+#include <plug_common.h>
+
+class luna_wrapper_wxConvAuto {
+public:
+	typedef Luna< wxConvAuto > luna_t;
+
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
+		
+		static LunaConverterMap& converters = luna_getConverterMap("wxConvAuto");
+		
+		return luna_dynamicCast(L,converters,"wxConvAuto",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>1 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+
+	// Function checkers:
+	inline static bool _lg_typecheck_GetBOM(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetBOMChars(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_DisableFallbackEncoding(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetFallbackEncoding(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetFallbackEncoding(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_DetectBOM(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
+	// Operator checkers:
+	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT)
+	static wxConvAuto* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT) function, expected prototype:\nwxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxFontEncoding enc=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : wxFONTENCODING_DEFAULT;
+
+		return new wxConvAuto(enc);
+	}
+
+
+	// Function binds:
+	// wxBOM wxConvAuto::GetBOM() const
+	static int _bind_GetBOM(lua_State *L) {
+		if (!_lg_typecheck_GetBOM(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBOM wxConvAuto::GetBOM() const function, expected prototype:\nwxBOM wxConvAuto::GetBOM() const\nClass arguments details:\n");
+		}
+
+
+		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxBOM wxConvAuto::GetBOM() const");
+		}
+		wxBOM lret = self->GetBOM();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count)
+	static int _bind_GetBOMChars(lua_State *L) {
+		if (!_lg_typecheck_GetBOMChars(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count) function, expected prototype:\nconst char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count)\nClass arguments details:\n");
+		}
+
+		wxBOM bom=(wxBOM)lua_tointeger(L,2);
+		size_t count=(size_t)lua_tointeger(L,3);
+
+		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *)");
+		}
+		const char * lret = self->GetBOMChars(bom, &count);
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// static void wxConvAuto::DisableFallbackEncoding()
+	static int _bind_DisableFallbackEncoding(lua_State *L) {
+		if (!_lg_typecheck_DisableFallbackEncoding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxConvAuto::DisableFallbackEncoding() function, expected prototype:\nstatic void wxConvAuto::DisableFallbackEncoding()\nClass arguments details:\n");
+		}
+
+
+		wxConvAuto::DisableFallbackEncoding();
+
+		return 0;
+	}
+
+	// static wxFontEncoding wxConvAuto::GetFallbackEncoding()
+	static int _bind_GetFallbackEncoding(lua_State *L) {
+		if (!_lg_typecheck_GetFallbackEncoding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxConvAuto::GetFallbackEncoding() function, expected prototype:\nstatic wxFontEncoding wxConvAuto::GetFallbackEncoding()\nClass arguments details:\n");
+		}
+
+
+		wxFontEncoding lret = wxConvAuto::GetFallbackEncoding();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// static void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc)
+	static int _bind_SetFallbackEncoding(lua_State *L) {
+		if (!_lg_typecheck_SetFallbackEncoding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc) function, expected prototype:\nstatic void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc)\nClass arguments details:\n");
+		}
+
+		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
+
+		wxConvAuto::SetFallbackEncoding(enc);
+
+		return 0;
+	}
+
+	// static wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen)
+	static int _bind_DetectBOM(lua_State *L) {
+		if (!_lg_typecheck_DetectBOM(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen) function, expected prototype:\nstatic wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen)\nClass arguments details:\n");
+		}
+
+		const char * src=(const char *)lua_tostring(L,1);
+		size_t srcLen=(size_t)lua_tointeger(L,2);
+
+		wxBOM lret = wxConvAuto::DetectBOM(src, srcLen);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+
+	// Operator binds:
+
+};
+
+wxConvAuto* LunaTraits< wxConvAuto >::_bind_ctor(lua_State *L) {
+	return luna_wrapper_wxConvAuto::_bind_ctor(L);
+}
+
+void LunaTraits< wxConvAuto >::_bind_dtor(wxConvAuto* obj) {
+	delete obj;
+}
+
+const char LunaTraits< wxConvAuto >::className[] = "wxConvAuto";
+const char LunaTraits< wxConvAuto >::fullName[] = "wxConvAuto";
+const char LunaTraits< wxConvAuto >::moduleName[] = "wx";
+const char* LunaTraits< wxConvAuto >::parents[] = {0};
+const int LunaTraits< wxConvAuto >::hash = 13306988;
+const int LunaTraits< wxConvAuto >::uniqueIDs[] = {13306988,0};
+
+luna_RegType LunaTraits< wxConvAuto >::methods[] = {
+	{"GetBOM", &luna_wrapper_wxConvAuto::_bind_GetBOM},
+	{"GetBOMChars", &luna_wrapper_wxConvAuto::_bind_GetBOMChars},
+	{"DisableFallbackEncoding", &luna_wrapper_wxConvAuto::_bind_DisableFallbackEncoding},
+	{"GetFallbackEncoding", &luna_wrapper_wxConvAuto::_bind_GetFallbackEncoding},
+	{"SetFallbackEncoding", &luna_wrapper_wxConvAuto::_bind_SetFallbackEncoding},
+	{"DetectBOM", &luna_wrapper_wxConvAuto::_bind_DetectBOM},
+	{"dynCast", &luna_wrapper_wxConvAuto::_bind_dynCast},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< wxConvAuto >::converters[] = {
+	{0,0}
+};
+
+luna_RegEnumType LunaTraits< wxConvAuto >::enumValues[] = {
+	{0,0}
+};
+
+

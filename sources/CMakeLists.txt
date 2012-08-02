@@ -25,7 +25,7 @@ ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_osgDB)
 # ADD_SUBDIRECTORY(plug_osgGA)
 # ADD_SUBDIRECTORY(plug_osgText)
-ADD_SUBDIRECTORY(plug_osgViewer)
+# ADD_SUBDIRECTORY(plug_osgViewer)
 # ADD_SUBDIRECTORY(plug_osgParticle)
 # ADD_SUBDIRECTORY(plug_osgWX)
 

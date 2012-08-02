@@ -20,6 +20,8 @@ It is a "static only class" and thus do not need any memory management integrate
 */
 class SGTCORE_EXPORT LogManager : public sgtObject {
 public:
+	//Object_META_DEF(sgt,LogManager);
+
 	/** The available flags for each level or trace.
 	The flags specify how the messages should be rendered and which content should be prepended.*/
 	enum Flags {

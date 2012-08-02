@@ -1,0 +1,12 @@
+#include "sgtCommon.h"
+#include "cog/AttentionValue.h"
+
+namespace sgt {
+
+String AttentionValue::toString() const {
+	std::ostringstream os;
+	os << "[" << _sti <<", " << _lti << ", " << _vlti << "]";
+	return os.str();
+};
+
+} /* namespace sgt */

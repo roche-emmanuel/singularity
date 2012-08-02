@@ -35,13 +35,25 @@
 #include <boost/type_traits.hpp>
 #include <boost/thread.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/chrono.hpp>
+#include <boost/foreach.hpp>
+#include <boost/tokenizer.hpp>
+#include <boost/variant.hpp>
 
-#include <osg/Referenced>
+#include <osg/Object>
 #include <osg/ref_ptr>
 #include <osg/observer_ptr>
+#include <osg/Math>
+
+// Smart pointers definitions:
+#define sgtPtr osg::ref_ptr
+#define sgtObserver osg::observer_ptr
+#define AnyCast boost::any_cast 
+
+typedef osg::CopyOp sgtCopyOp;
+typedef osg::Referenced sgtObjectBase; 
 
 // Core definitions and classes:
-
 namespace sgt {
 
 /**
@@ -78,12 +90,13 @@ typedef UInt16 UShort;
 typedef float Float;
 typedef double Double;
 
+typedef sgtPtr<sgtObjectBase> RefPtr;
+
+//typedef boost::any Any;
+
 }; // namespace sgt
 
-
-// Smart pointers definitions:
-#define sgtPtr osg::ref_ptr
-#define sgtObserver osg::observer_ptr
+typedef sgt::RefPtr sgtRefPtr;
 
 #include "base/Object.h"
 #include "base/Exception.h"

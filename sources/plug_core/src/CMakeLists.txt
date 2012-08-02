@@ -29,10 +29,12 @@ INSTALL(TARGETS ${TARGET_NAME}
 
 # step needed for the generation of the XML documentation:
 SET(INTF_FILES)
+ADD_FILES(INTF_FILES "../../sgtCore/include/sgtCommon.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/base/Object.h")
+ADD_FILES(INTF_FILES "../../sgtCore/include/base/DataMap.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/log/*.h")
-ADD_FILES(INTF_FILES "../include/core_extensions.h")
+ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 
-GENERATE_REFLECTION(${TARGET_NAME} INTF_FILES)
+# GENERATE_REFLECTION(${TARGET_NAME} INTF_FILES)
 COMPRESS_BINARY()

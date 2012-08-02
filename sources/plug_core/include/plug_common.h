@@ -25,6 +25,10 @@
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 
+using namespace sgt;
+
+#include "plug_extensions.h"
+
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>
 #include <luna/luna_types.h>

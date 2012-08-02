@@ -38,7 +38,7 @@ function Class:initialize(options)
 	self._viewer:setSceneData(osg.Group());
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
-	self._viewer:getCamera():setClearColor(osg.Vec4f ( 1.0 , 0.0 , 0.0 , 1.0))
+	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
 	
 	self._viewer:frame()
 	

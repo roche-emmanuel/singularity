@@ -1,0 +1,37 @@
+#include "sgtCommon.h"
+#include "cog/SimpleTruthValue.h"
+
+#define KKK  800.0
+
+namespace sgt {
+
+SimpleTruthValue& SimpleTruthValue::operator=(const TruthValue& rhs){
+    const SimpleTruthValue* tv = dynamic_cast<const SimpleTruthValue*>(&rhs);
+    THROW_IF(!tv,"Cannot assign a TV of type "<<rhs.getType()<<" to SimpleTruthValue");
+		
+	if (tv != this) { // check if this is the same object first.
+		_mean = tv->_mean;
+		_count = tv->_count;
+	}
+	
+    return *this;
+}
+
+count_type SimpleTruthValue::confidenceToCount(confidence_type c)
+{
+    c = osg::minimum(c, (confidence_type)0.9999999);
+    return static_cast<count_type>(KKK * c / (1.0 - c));
+}
+
+confidence_type SimpleTruthValue::countToConfidence(count_type c)
+{
+    return static_cast<confidence_type>(c / (c + KKK));
+}
+
+String SimpleTruthValue::toString() const {
+	std::ostringstream os;
+	os << "[STV mean=" << _mean <<", count=" << _count << "]";
+	return os.str();
+}
+
+} /* namespace sgt */

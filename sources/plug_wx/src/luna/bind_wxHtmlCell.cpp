@@ -1,0 +1,675 @@
+#include <plug_common.h>
+
+class luna_wrapper_wxHtmlCell {
+public:
+	typedef Luna< wxHtmlCell > luna_t;
+
+	// Derived class converters:
+	static int _cast_from_wxObject(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxHtmlCell* ptr= dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxHtmlCell >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+
+	// Function checkers:
+	inline static bool _lg_typecheck_AdjustPagebreak(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,47342076) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Draw(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,7,10696080) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_DrawInvisible(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,10696080) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Find(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetDescent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetFirstChild(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetHeight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetId(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetLink(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetNext(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetParent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetPosX(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetPosY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Layout(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetId(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetLink(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetNext(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetParent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetPos(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
+	// Operator checkers:
+	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHtmlCell::wxHtmlCell()
+	static wxHtmlCell* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlCell::wxHtmlCell() function, expected prototype:\nwxHtmlCell::wxHtmlCell()\nClass arguments details:\n");
+		}
+
+
+		return new wxHtmlCell();
+	}
+
+
+	// Function binds:
+	// bool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
+	static int _bind_AdjustPagebreak(lua_State *L) {
+		if (!_lg_typecheck_AdjustPagebreak(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n");
+		}
+
+		int pagebreak=(int)lua_tointeger(L,2);
+		wxArrayInt* known_pagebreaks_ptr=(Luna< wxArrayInt >::check(L,3));
+		if( !known_pagebreaks_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg known_pagebreaks in wxHtmlCell::AdjustPagebreak function");
+		}
+		wxArrayInt & known_pagebreaks=*known_pagebreaks_ptr;
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHtmlCell::AdjustPagebreak(int *, wxArrayInt &) const");
+		}
+		bool lret = self->AdjustPagebreak(&pagebreak, known_pagebreaks);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
+	static int _bind_Draw(lua_State *L) {
+		if (!_lg_typecheck_Draw(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 6 ID = 10696080\n");
+		}
+
+		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		if( !dc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxHtmlCell::Draw function");
+		}
+		wxDC & dc=*dc_ptr;
+		int x=(int)lua_tointeger(L,3);
+		int y=(int)lua_tointeger(L,4);
+		int view_y1=(int)lua_tointeger(L,5);
+		int view_y2=(int)lua_tointeger(L,6);
+		wxHtmlRenderingInfo* info_ptr=(Luna< wxHtmlRenderingInfo >::check(L,7));
+		if( !info_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg info in wxHtmlCell::Draw function");
+		}
+		wxHtmlRenderingInfo & info=*info_ptr;
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &)");
+		}
+		self->Draw(dc, x, y, view_y1, view_y2, info);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
+	static int _bind_DrawInvisible(lua_State *L) {
+		if (!_lg_typecheck_DrawInvisible(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 10696080\n");
+		}
+
+		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		if( !dc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxHtmlCell::DrawInvisible function");
+		}
+		wxDC & dc=*dc_ptr;
+		int x=(int)lua_tointeger(L,3);
+		int y=(int)lua_tointeger(L,4);
+		wxHtmlRenderingInfo* info_ptr=(Luna< wxHtmlRenderingInfo >::check(L,5));
+		if( !info_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg info in wxHtmlCell::DrawInvisible function");
+		}
+		wxHtmlRenderingInfo & info=*info_ptr;
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &)");
+		}
+		self->DrawInvisible(dc, x, y, info);
+
+		return 0;
+	}
+
+	// const wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const
+	static int _bind_Find(lua_State *L) {
+		if (!_lg_typecheck_Find(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const function, expected prototype:\nconst wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const\nClass arguments details:\n");
+		}
+
+		int condition=(int)lua_tointeger(L,2);
+		void* param=(Luna< void >::check(L,3));
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlCell::Find(int, const void *) const");
+		}
+		const wxHtmlCell * lret = self->Find(condition, param);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlCell >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int wxHtmlCell::GetDescent() const
+	static int _bind_GetDescent(lua_State *L) {
+		if (!_lg_typecheck_GetDescent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHtmlCell::GetDescent() const function, expected prototype:\nint wxHtmlCell::GetDescent() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHtmlCell::GetDescent() const");
+		}
+		int lret = self->GetDescent();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxHtmlCell * wxHtmlCell::GetFirstChild() const
+	static int _bind_GetFirstChild(lua_State *L) {
+		if (!_lg_typecheck_GetFirstChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlCell::GetFirstChild() const function, expected prototype:\nwxHtmlCell * wxHtmlCell::GetFirstChild() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlCell::GetFirstChild() const");
+		}
+		wxHtmlCell * lret = self->GetFirstChild();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlCell >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int wxHtmlCell::GetHeight() const
+	static int _bind_GetHeight(lua_State *L) {
+		if (!_lg_typecheck_GetHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHtmlCell::GetHeight() const function, expected prototype:\nint wxHtmlCell::GetHeight() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHtmlCell::GetHeight() const");
+		}
+		int lret = self->GetHeight();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const wxString & wxHtmlCell::GetId() const
+	static int _bind_GetId(lua_State *L) {
+		if (!_lg_typecheck_GetId(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxString & wxHtmlCell::GetId() const function, expected prototype:\nconst wxString & wxHtmlCell::GetId() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxString & wxHtmlCell::GetId() const");
+		}
+		const wxString & lret = self->GetId();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const
+	static int _bind_GetLink(lua_State *L) {
+		if (!_lg_typecheck_GetLink(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const function, expected prototype:\nwxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int x=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int y=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlCell::GetLink(int, int) const");
+		}
+		wxHtmlLinkInfo * lret = self->GetLink(x, y);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlLinkInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxHtmlCell * wxHtmlCell::GetNext() const
+	static int _bind_GetNext(lua_State *L) {
+		if (!_lg_typecheck_GetNext(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlCell::GetNext() const function, expected prototype:\nwxHtmlCell * wxHtmlCell::GetNext() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlCell::GetNext() const");
+		}
+		wxHtmlCell * lret = self->GetNext();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlCell >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxHtmlContainerCell * wxHtmlCell::GetParent() const
+	static int _bind_GetParent(lua_State *L) {
+		if (!_lg_typecheck_GetParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlContainerCell * wxHtmlCell::GetParent() const function, expected prototype:\nwxHtmlContainerCell * wxHtmlCell::GetParent() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxHtmlContainerCell * wxHtmlCell::GetParent() const");
+		}
+		wxHtmlContainerCell * lret = self->GetParent();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxHtmlContainerCell >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int wxHtmlCell::GetPosX() const
+	static int _bind_GetPosX(lua_State *L) {
+		if (!_lg_typecheck_GetPosX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHtmlCell::GetPosX() const function, expected prototype:\nint wxHtmlCell::GetPosX() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHtmlCell::GetPosX() const");
+		}
+		int lret = self->GetPosX();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxHtmlCell::GetPosY() const
+	static int _bind_GetPosY(lua_State *L) {
+		if (!_lg_typecheck_GetPosY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHtmlCell::GetPosY() const function, expected prototype:\nint wxHtmlCell::GetPosY() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHtmlCell::GetPosY() const");
+		}
+		int lret = self->GetPosY();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxHtmlCell::GetWidth() const
+	static int _bind_GetWidth(lua_State *L) {
+		if (!_lg_typecheck_GetWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHtmlCell::GetWidth() const function, expected prototype:\nint wxHtmlCell::GetWidth() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHtmlCell::GetWidth() const");
+		}
+		int lret = self->GetWidth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxHtmlCell::Layout(int w)
+	static int _bind_Layout(lua_State *L) {
+		if (!_lg_typecheck_Layout(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::Layout(int w) function, expected prototype:\nvoid wxHtmlCell::Layout(int w)\nClass arguments details:\n");
+		}
+
+		int w=(int)lua_tointeger(L,2);
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::Layout(int)");
+		}
+		self->Layout(w);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::SetId(const wxString & id)
+	static int _bind_SetId(lua_State *L) {
+		if (!_lg_typecheck_SetId(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::SetId(const wxString & id) function, expected prototype:\nvoid wxHtmlCell::SetId(const wxString & id)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString id(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::SetId(const wxString &)");
+		}
+		self->SetId(id);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::SetLink(const wxHtmlLinkInfo & link)
+	static int _bind_SetLink(lua_State *L) {
+		if (!_lg_typecheck_SetLink(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::SetLink(const wxHtmlLinkInfo & link) function, expected prototype:\nvoid wxHtmlCell::SetLink(const wxHtmlLinkInfo & link)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxHtmlLinkInfo* link_ptr=dynamic_cast< wxHtmlLinkInfo* >(Luna< wxObject >::check(L,2));
+		if( !link_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg link in wxHtmlCell::SetLink function");
+		}
+		const wxHtmlLinkInfo & link=*link_ptr;
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::SetLink(const wxHtmlLinkInfo &)");
+		}
+		self->SetLink(link);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::SetNext(wxHtmlCell * cell)
+	static int _bind_SetNext(lua_State *L) {
+		if (!_lg_typecheck_SetNext(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::SetNext(wxHtmlCell * cell) function, expected prototype:\nvoid wxHtmlCell::SetNext(wxHtmlCell * cell)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxHtmlCell* cell=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,2));
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::SetNext(wxHtmlCell *)");
+		}
+		self->SetNext(cell);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::SetParent(wxHtmlContainerCell * p)
+	static int _bind_SetParent(lua_State *L) {
+		if (!_lg_typecheck_SetParent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::SetParent(wxHtmlContainerCell * p) function, expected prototype:\nvoid wxHtmlCell::SetParent(wxHtmlContainerCell * p)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxHtmlContainerCell* p=dynamic_cast< wxHtmlContainerCell* >(Luna< wxObject >::check(L,2));
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::SetParent(wxHtmlContainerCell *)");
+		}
+		self->SetParent(p);
+
+		return 0;
+	}
+
+	// void wxHtmlCell::SetPos(int x, int y)
+	static int _bind_SetPos(lua_State *L) {
+		if (!_lg_typecheck_SetPos(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlCell::SetPos(int x, int y) function, expected prototype:\nvoid wxHtmlCell::SetPos(int x, int y)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxHtmlCell* self=dynamic_cast< wxHtmlCell* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlCell::SetPos(int, int)");
+		}
+		self->SetPos(x, y);
+
+		return 0;
+	}
+
+
+	// Operator binds:
+
+};
+
+wxHtmlCell* LunaTraits< wxHtmlCell >::_bind_ctor(lua_State *L) {
+	return luna_wrapper_wxHtmlCell::_bind_ctor(L);
+}
+
+void LunaTraits< wxHtmlCell >::_bind_dtor(wxHtmlCell* obj) {
+	delete obj;
+}
+
+const char LunaTraits< wxHtmlCell >::className[] = "wxHtmlCell";
+const char LunaTraits< wxHtmlCell >::fullName[] = "wxHtmlCell";
+const char LunaTraits< wxHtmlCell >::moduleName[] = "wx";
+const char* LunaTraits< wxHtmlCell >::parents[] = {"wx.wxObject", 0};
+const int LunaTraits< wxHtmlCell >::hash = 76063739;
+const int LunaTraits< wxHtmlCell >::uniqueIDs[] = {56813631,0};
+
+luna_RegType LunaTraits< wxHtmlCell >::methods[] = {
+	{"AdjustPagebreak", &luna_wrapper_wxHtmlCell::_bind_AdjustPagebreak},
+	{"Draw", &luna_wrapper_wxHtmlCell::_bind_Draw},
+	{"DrawInvisible", &luna_wrapper_wxHtmlCell::_bind_DrawInvisible},
+	{"Find", &luna_wrapper_wxHtmlCell::_bind_Find},
+	{"GetDescent", &luna_wrapper_wxHtmlCell::_bind_GetDescent},
+	{"GetFirstChild", &luna_wrapper_wxHtmlCell::_bind_GetFirstChild},
+	{"GetHeight", &luna_wrapper_wxHtmlCell::_bind_GetHeight},
+	{"GetId", &luna_wrapper_wxHtmlCell::_bind_GetId},
+	{"GetLink", &luna_wrapper_wxHtmlCell::_bind_GetLink},
+	{"GetNext", &luna_wrapper_wxHtmlCell::_bind_GetNext},
+	{"GetParent", &luna_wrapper_wxHtmlCell::_bind_GetParent},
+	{"GetPosX", &luna_wrapper_wxHtmlCell::_bind_GetPosX},
+	{"GetPosY", &luna_wrapper_wxHtmlCell::_bind_GetPosY},
+	{"GetWidth", &luna_wrapper_wxHtmlCell::_bind_GetWidth},
+	{"Layout", &luna_wrapper_wxHtmlCell::_bind_Layout},
+	{"SetId", &luna_wrapper_wxHtmlCell::_bind_SetId},
+	{"SetLink", &luna_wrapper_wxHtmlCell::_bind_SetLink},
+	{"SetNext", &luna_wrapper_wxHtmlCell::_bind_SetNext},
+	{"SetParent", &luna_wrapper_wxHtmlCell::_bind_SetParent},
+	{"SetPos", &luna_wrapper_wxHtmlCell::_bind_SetPos},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< wxHtmlCell >::converters[] = {
+	{"wxObject", &luna_wrapper_wxHtmlCell::_cast_from_wxObject},
+	{0,0}
+};
+
+luna_RegEnumType LunaTraits< wxHtmlCell >::enumValues[] = {
+	{0,0}
+};
+
+

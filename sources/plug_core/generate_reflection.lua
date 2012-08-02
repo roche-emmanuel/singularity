@@ -47,12 +47,16 @@ im:getIgnoreFunctionsPatterns():push_back("slot_type")
 im:getIgnoreFunctionsPatterns():push_back("iterator")
 im:getIgnoreFunctionsPatterns():push_back("std::ostream")
 im:getIgnoreFunctionsPatterns():push_back("registerKeyObserver")
+im:getIgnoreFunctionsPatterns():push_back("Any ")
+
+im:addPattern("header","helpers%.h")
 
 local options = {
 	xmlpath=src_path.."/xml",
 	modName=project,
 	headers={"plug_common.h"},
 	destpath=dest_path.."/",
+	locationPrefixes={"W:/Shared/Dev/Projects/singularity/sources/sgtCore/include/", dest_path.."/interface/"}
 }
 
 function buildBindings()

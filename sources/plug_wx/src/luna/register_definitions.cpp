@@ -1,0 +1,393 @@
+#include <wx/access.h>
+#include <wx/anybutton.h>
+#include <wx/bitmap.h>
+#include <wx/bookctrl.h>
+#include <wx/checkbox.h>
+#include <wx/clipbrd.h>
+#include <wx/collpane.h>
+#include <wx/cpp.h>
+#include <wx/dataview.h>
+#include <wx/datetime.h>
+#include <wx/dcbuffer.h>
+#include <wx/debug.h>
+#include <wx/defs.h>
+#include <wx/dialog.h>
+#include <wx/gauge.h>
+#include <wx/icon.h>
+#include <wx/image.h>
+#include <wx/imaglist.h>
+#include <wx/longlong.h>
+#include <wx/notebook.h>
+#include <wx/progdlg.h>
+#include <wx/propgrid/property.h>
+#include <wx/propgrid/propgrid.h>
+#include <wx/richtext/richtextbuffer.h>
+#include <wx/richtext/richtextctrl.h>
+#include <wx/slider.h>
+#include <wx/splitter.h>
+#include <wx/stackwalk.h>
+#include <wx/stattext.h>
+#include <wx/statusbr.h>
+#include <wx/textctrl.h>
+#include <wx/timer.h>
+
+#include <plug_common.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void register_defines(lua_State* L) {
+	lua_pushnumber(L,wxBU_LEFT); lua_setfield(L,-2,"wxBU_LEFT");
+	lua_pushnumber(L,wxBU_TOP); lua_setfield(L,-2,"wxBU_TOP");
+	lua_pushnumber(L,wxBU_RIGHT); lua_setfield(L,-2,"wxBU_RIGHT");
+	lua_pushnumber(L,wxBU_BOTTOM); lua_setfield(L,-2,"wxBU_BOTTOM");
+	lua_pushnumber(L,wxBU_ALIGN_MASK); lua_setfield(L,-2,"wxBU_ALIGN_MASK");
+	lua_pushnumber(L,wxBU_EXACTFIT); lua_setfield(L,-2,"wxBU_EXACTFIT");
+	lua_pushnumber(L,wxBU_NOTEXT); lua_setfield(L,-2,"wxBU_NOTEXT");
+	lua_pushnumber(L,wxCHK_2STATE); lua_setfield(L,-2,"wxCHK_2STATE");
+	lua_pushnumber(L,wxCHK_3STATE); lua_setfield(L,-2,"wxCHK_3STATE");
+	lua_pushnumber(L,wxCHK_ALLOW_3RD_STATE_FOR_USER); lua_setfield(L,-2,"wxCHK_ALLOW_3RD_STATE_FOR_USER");
+	lua_pushnumber(L,wxCP_DEFAULT_STYLE); lua_setfield(L,-2,"wxCP_DEFAULT_STYLE");
+	lua_pushnumber(L,wxDVC_DEFAULT_RENDERER_SIZE); lua_setfield(L,-2,"wxDVC_DEFAULT_RENDERER_SIZE");
+	lua_pushnumber(L,wxDVC_DEFAULT_WIDTH); lua_setfield(L,-2,"wxDVC_DEFAULT_WIDTH");
+	lua_pushnumber(L,wxDVC_TOGGLE_DEFAULT_WIDTH); lua_setfield(L,-2,"wxDVC_TOGGLE_DEFAULT_WIDTH");
+	lua_pushnumber(L,wxDVC_DEFAULT_MINWIDTH); lua_setfield(L,-2,"wxDVC_DEFAULT_MINWIDTH");
+	lua_pushnumber(L,wxDVR_DEFAULT_ALIGNMENT); lua_setfield(L,-2,"wxDVR_DEFAULT_ALIGNMENT");
+	lua_pushnumber(L,wxDV_SINGLE); lua_setfield(L,-2,"wxDV_SINGLE");
+	lua_pushnumber(L,wxDV_MULTIPLE); lua_setfield(L,-2,"wxDV_MULTIPLE");
+	lua_pushnumber(L,wxDV_NO_HEADER); lua_setfield(L,-2,"wxDV_NO_HEADER");
+	lua_pushnumber(L,wxDV_HORIZ_RULES); lua_setfield(L,-2,"wxDV_HORIZ_RULES");
+	lua_pushnumber(L,wxDV_VERT_RULES); lua_setfield(L,-2,"wxDV_VERT_RULES");
+	lua_pushnumber(L,wxDV_ROW_LINES); lua_setfield(L,-2,"wxDV_ROW_LINES");
+	lua_pushnumber(L,wxDV_VARIABLE_LINE_HEIGHT); lua_setfield(L,-2,"wxDV_VARIABLE_LINE_HEIGHT");
+	lua_pushnumber(L,wxBUFFER_VIRTUAL_AREA); lua_setfield(L,-2,"wxBUFFER_VIRTUAL_AREA");
+	lua_pushnumber(L,wxBUFFER_CLIENT_AREA); lua_setfield(L,-2,"wxBUFFER_CLIENT_AREA");
+	lua_pushnumber(L,wxBUFFER_USES_SHARED_BUFFER); lua_setfield(L,-2,"wxBUFFER_USES_SHARED_BUFFER");
+	lua_pushnumber(L,wxSIZE_AUTO_WIDTH); lua_setfield(L,-2,"wxSIZE_AUTO_WIDTH");
+	lua_pushnumber(L,wxSIZE_AUTO_HEIGHT); lua_setfield(L,-2,"wxSIZE_AUTO_HEIGHT");
+	lua_pushnumber(L,wxSIZE_AUTO); lua_setfield(L,-2,"wxSIZE_AUTO");
+	lua_pushnumber(L,wxSIZE_USE_EXISTING); lua_setfield(L,-2,"wxSIZE_USE_EXISTING");
+	lua_pushnumber(L,wxSIZE_ALLOW_MINUS_ONE); lua_setfield(L,-2,"wxSIZE_ALLOW_MINUS_ONE");
+	lua_pushnumber(L,wxSIZE_NO_ADJUSTMENTS); lua_setfield(L,-2,"wxSIZE_NO_ADJUSTMENTS");
+	lua_pushnumber(L,wxSIZE_FORCE); lua_setfield(L,-2,"wxSIZE_FORCE");
+	lua_pushnumber(L,wxSIZE_FORCE_EVENT); lua_setfield(L,-2,"wxSIZE_FORCE_EVENT");
+	lua_pushnumber(L,wxVSCROLL); lua_setfield(L,-2,"wxVSCROLL");
+	lua_pushnumber(L,wxHSCROLL); lua_setfield(L,-2,"wxHSCROLL");
+	lua_pushnumber(L,wxCAPTION); lua_setfield(L,-2,"wxCAPTION");
+	lua_pushnumber(L,wxALWAYS_SHOW_SB); lua_setfield(L,-2,"wxALWAYS_SHOW_SB");
+	lua_pushnumber(L,wxCLIP_CHILDREN); lua_setfield(L,-2,"wxCLIP_CHILDREN");
+	lua_pushnumber(L,wxCLIP_SIBLINGS); lua_setfield(L,-2,"wxCLIP_SIBLINGS");
+	lua_pushnumber(L,wxTRANSPARENT_WINDOW); lua_setfield(L,-2,"wxTRANSPARENT_WINDOW");
+	lua_pushnumber(L,wxTAB_TRAVERSAL); lua_setfield(L,-2,"wxTAB_TRAVERSAL");
+	lua_pushnumber(L,wxWANTS_CHARS); lua_setfield(L,-2,"wxWANTS_CHARS");
+	lua_pushnumber(L,wxRETAINED); lua_setfield(L,-2,"wxRETAINED");
+	lua_pushnumber(L,wxPOPUP_WINDOW); lua_setfield(L,-2,"wxPOPUP_WINDOW");
+	lua_pushnumber(L,wxFULL_REPAINT_ON_RESIZE); lua_setfield(L,-2,"wxFULL_REPAINT_ON_RESIZE");
+	lua_pushnumber(L,wxNO_FULL_REPAINT_ON_RESIZE); lua_setfield(L,-2,"wxNO_FULL_REPAINT_ON_RESIZE");
+	lua_pushnumber(L,wxWS_EX_VALIDATE_RECURSIVELY); lua_setfield(L,-2,"wxWS_EX_VALIDATE_RECURSIVELY");
+	lua_pushnumber(L,wxWS_EX_BLOCK_EVENTS); lua_setfield(L,-2,"wxWS_EX_BLOCK_EVENTS");
+	lua_pushnumber(L,wxWS_EX_TRANSIENT); lua_setfield(L,-2,"wxWS_EX_TRANSIENT");
+	lua_pushnumber(L,wxWS_EX_THEMED_BACKGROUND); lua_setfield(L,-2,"wxWS_EX_THEMED_BACKGROUND");
+	lua_pushnumber(L,wxWS_EX_PROCESS_IDLE); lua_setfield(L,-2,"wxWS_EX_PROCESS_IDLE");
+	lua_pushnumber(L,wxWS_EX_PROCESS_UI_UPDATES); lua_setfield(L,-2,"wxWS_EX_PROCESS_UI_UPDATES");
+	lua_pushnumber(L,wxFRAME_EX_METAL); lua_setfield(L,-2,"wxFRAME_EX_METAL");
+	lua_pushnumber(L,wxDIALOG_EX_METAL); lua_setfield(L,-2,"wxDIALOG_EX_METAL");
+	lua_pushnumber(L,wxWS_EX_CONTEXTHELP); lua_setfield(L,-2,"wxWS_EX_CONTEXTHELP");
+	lua_pushnumber(L,wxFRAME_DRAWER); lua_setfield(L,-2,"wxFRAME_DRAWER");
+	lua_pushnumber(L,wxFRAME_NO_WINDOW_MENU); lua_setfield(L,-2,"wxFRAME_NO_WINDOW_MENU");
+	lua_pushnumber(L,wxMB_DOCKABLE); lua_setfield(L,-2,"wxMB_DOCKABLE");
+	lua_pushnumber(L,wxMENU_TEAROFF); lua_setfield(L,-2,"wxMENU_TEAROFF");
+	lua_pushnumber(L,wxCOLOURED); lua_setfield(L,-2,"wxCOLOURED");
+	lua_pushnumber(L,wxFIXED_LENGTH); lua_setfield(L,-2,"wxFIXED_LENGTH");
+	lua_pushnumber(L,wxLB_SORT); lua_setfield(L,-2,"wxLB_SORT");
+	lua_pushnumber(L,wxLB_SINGLE); lua_setfield(L,-2,"wxLB_SINGLE");
+	lua_pushnumber(L,wxLB_MULTIPLE); lua_setfield(L,-2,"wxLB_MULTIPLE");
+	lua_pushnumber(L,wxLB_EXTENDED); lua_setfield(L,-2,"wxLB_EXTENDED");
+	lua_pushnumber(L,wxLB_NEEDED_SB); lua_setfield(L,-2,"wxLB_NEEDED_SB");
+	lua_pushnumber(L,wxLB_OWNERDRAW); lua_setfield(L,-2,"wxLB_OWNERDRAW");
+	lua_pushnumber(L,wxLB_ALWAYS_SB); lua_setfield(L,-2,"wxLB_ALWAYS_SB");
+	lua_pushnumber(L,wxLB_NO_SB); lua_setfield(L,-2,"wxLB_NO_SB");
+	lua_pushnumber(L,wxLB_INT_HEIGHT); lua_setfield(L,-2,"wxLB_INT_HEIGHT");
+	lua_pushnumber(L,wxCB_SIMPLE); lua_setfield(L,-2,"wxCB_SIMPLE");
+	lua_pushnumber(L,wxCB_SORT); lua_setfield(L,-2,"wxCB_SORT");
+	lua_pushnumber(L,wxCB_READONLY); lua_setfield(L,-2,"wxCB_READONLY");
+	lua_pushnumber(L,wxCB_DROPDOWN); lua_setfield(L,-2,"wxCB_DROPDOWN");
+	lua_pushnumber(L,wxRA_LEFTTORIGHT); lua_setfield(L,-2,"wxRA_LEFTTORIGHT");
+	lua_pushnumber(L,wxRA_TOPTOBOTTOM); lua_setfield(L,-2,"wxRA_TOPTOBOTTOM");
+	lua_pushnumber(L,wxRB_GROUP); lua_setfield(L,-2,"wxRB_GROUP");
+	lua_pushnumber(L,wxRB_SINGLE); lua_setfield(L,-2,"wxRB_SINGLE");
+	lua_pushnumber(L,wxSP_ARROW_KEYS); lua_setfield(L,-2,"wxSP_ARROW_KEYS");
+	lua_pushnumber(L,wxSP_WRAP); lua_setfield(L,-2,"wxSP_WRAP");
+	lua_pushnumber(L,wxTC_RIGHTJUSTIFY); lua_setfield(L,-2,"wxTC_RIGHTJUSTIFY");
+	lua_pushnumber(L,wxTC_FIXEDWIDTH); lua_setfield(L,-2,"wxTC_FIXEDWIDTH");
+	lua_pushnumber(L,wxTC_LEFT); lua_setfield(L,-2,"wxTC_LEFT");
+	lua_pushnumber(L,wxTC_RIGHT); lua_setfield(L,-2,"wxTC_RIGHT");
+	lua_pushnumber(L,wxTC_BOTTOM); lua_setfield(L,-2,"wxTC_BOTTOM");
+	lua_pushnumber(L,wxTC_OWNERDRAW); lua_setfield(L,-2,"wxTC_OWNERDRAW");
+	lua_pushnumber(L,wxYES); lua_setfield(L,-2,"wxYES");
+	lua_pushnumber(L,wxOK); lua_setfield(L,-2,"wxOK");
+	lua_pushnumber(L,wxNO); lua_setfield(L,-2,"wxNO");
+	lua_pushnumber(L,wxYES_NO); lua_setfield(L,-2,"wxYES_NO");
+	lua_pushnumber(L,wxCANCEL); lua_setfield(L,-2,"wxCANCEL");
+	lua_pushnumber(L,wxAPPLY); lua_setfield(L,-2,"wxAPPLY");
+	lua_pushnumber(L,wxCLOSE); lua_setfield(L,-2,"wxCLOSE");
+	lua_pushnumber(L,wxICON_EXCLAMATION); lua_setfield(L,-2,"wxICON_EXCLAMATION");
+	lua_pushnumber(L,wxICON_HAND); lua_setfield(L,-2,"wxICON_HAND");
+	lua_pushnumber(L,wxICON_QUESTION); lua_setfield(L,-2,"wxICON_QUESTION");
+	lua_pushnumber(L,wxICON_INFORMATION); lua_setfield(L,-2,"wxICON_INFORMATION");
+	lua_pushnumber(L,wxHELP); lua_setfield(L,-2,"wxHELP");
+	lua_pushnumber(L,wxFORWARD); lua_setfield(L,-2,"wxFORWARD");
+	lua_pushnumber(L,wxBACKWARD); lua_setfield(L,-2,"wxBACKWARD");
+	lua_pushnumber(L,wxRESET); lua_setfield(L,-2,"wxRESET");
+	lua_pushnumber(L,wxMORE); lua_setfield(L,-2,"wxMORE");
+	lua_pushnumber(L,wxSETUP); lua_setfield(L,-2,"wxSETUP");
+	lua_pushnumber(L,wxICON_NONE); lua_setfield(L,-2,"wxICON_NONE");
+	lua_pushnumber(L,wxICON_MASK); lua_setfield(L,-2,"wxICON_MASK");
+	lua_pushnumber(L,wxSTAY_ON_TOP); lua_setfield(L,-2,"wxSTAY_ON_TOP");
+	lua_pushnumber(L,wxICONIZE); lua_setfield(L,-2,"wxICONIZE");
+	lua_pushnumber(L,wxMAXIMIZE); lua_setfield(L,-2,"wxMAXIMIZE");
+	lua_pushnumber(L,wxCLOSE_BOX); lua_setfield(L,-2,"wxCLOSE_BOX");
+	lua_pushnumber(L,wxSYSTEM_MENU); lua_setfield(L,-2,"wxSYSTEM_MENU");
+	lua_pushnumber(L,wxMINIMIZE_BOX); lua_setfield(L,-2,"wxMINIMIZE_BOX");
+	lua_pushnumber(L,wxMAXIMIZE_BOX); lua_setfield(L,-2,"wxMAXIMIZE_BOX");
+	lua_pushnumber(L,wxTINY_CAPTION); lua_setfield(L,-2,"wxTINY_CAPTION");
+	lua_pushnumber(L,wxRESIZE_BORDER); lua_setfield(L,-2,"wxRESIZE_BORDER");
+	lua_pushnumber(L,wxDEFAULT_DIALOG_STYLE); lua_setfield(L,-2,"wxDEFAULT_DIALOG_STYLE");
+	lua_pushnumber(L,wxGA_SMOOTH); lua_setfield(L,-2,"wxGA_SMOOTH");
+	lua_pushnumber(L,wxDEFAULT_FRAME_STYLE); lua_setfield(L,-2,"wxDEFAULT_FRAME_STYLE");
+	lua_pushnumber(L,wxEVT_COMMAND_BUTTON_CLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_BUTTON_CLICKED");
+	lua_pushnumber(L,wxEVT_COMMAND_CHECKBOX_CLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_CHECKBOX_CLICKED");
+	lua_pushnumber(L,wxEVT_COMMAND_CHOICE_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_CHOICE_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_LISTBOX_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_LISTBOX_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_LISTBOX_DOUBLECLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_LISTBOX_DOUBLECLICKED");
+	lua_pushnumber(L,wxEVT_COMMAND_CHECKLISTBOX_TOGGLED); lua_setfield(L,-2,"wxEVT_COMMAND_CHECKLISTBOX_TOGGLED");
+	lua_pushnumber(L,wxEVT_COMMAND_MENU_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_MENU_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_SLIDER_UPDATED); lua_setfield(L,-2,"wxEVT_COMMAND_SLIDER_UPDATED");
+	lua_pushnumber(L,wxEVT_COMMAND_RADIOBOX_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_RADIOBOX_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_RADIOBUTTON_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_RADIOBUTTON_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_SCROLLBAR_UPDATED); lua_setfield(L,-2,"wxEVT_COMMAND_SCROLLBAR_UPDATED");
+	lua_pushnumber(L,wxEVT_COMMAND_VLBOX_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_VLBOX_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_COMBOBOX_SELECTED); lua_setfield(L,-2,"wxEVT_COMMAND_COMBOBOX_SELECTED");
+	lua_pushnumber(L,wxEVT_COMMAND_TOOL_RCLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_TOOL_RCLICKED");
+	lua_pushnumber(L,wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED");
+	lua_pushnumber(L,wxEVT_COMMAND_TOOL_ENTER); lua_setfield(L,-2,"wxEVT_COMMAND_TOOL_ENTER");
+	lua_pushnumber(L,wxEVT_COMMAND_COMBOBOX_DROPDOWN); lua_setfield(L,-2,"wxEVT_COMMAND_COMBOBOX_DROPDOWN");
+	lua_pushnumber(L,wxEVT_COMMAND_COMBOBOX_CLOSEUP); lua_setfield(L,-2,"wxEVT_COMMAND_COMBOBOX_CLOSEUP");
+	lua_pushnumber(L,wxEVT_THREAD); lua_setfield(L,-2,"wxEVT_THREAD");
+	lua_pushnumber(L,wxEVT_LEFT_DOWN); lua_setfield(L,-2,"wxEVT_LEFT_DOWN");
+	lua_pushnumber(L,wxEVT_LEFT_UP); lua_setfield(L,-2,"wxEVT_LEFT_UP");
+	lua_pushnumber(L,wxEVT_MIDDLE_DOWN); lua_setfield(L,-2,"wxEVT_MIDDLE_DOWN");
+	lua_pushnumber(L,wxEVT_MIDDLE_UP); lua_setfield(L,-2,"wxEVT_MIDDLE_UP");
+	lua_pushnumber(L,wxEVT_RIGHT_DOWN); lua_setfield(L,-2,"wxEVT_RIGHT_DOWN");
+	lua_pushnumber(L,wxEVT_RIGHT_UP); lua_setfield(L,-2,"wxEVT_RIGHT_UP");
+	lua_pushnumber(L,wxEVT_MOTION); lua_setfield(L,-2,"wxEVT_MOTION");
+	lua_pushnumber(L,wxEVT_ENTER_WINDOW); lua_setfield(L,-2,"wxEVT_ENTER_WINDOW");
+	lua_pushnumber(L,wxEVT_LEAVE_WINDOW); lua_setfield(L,-2,"wxEVT_LEAVE_WINDOW");
+	lua_pushnumber(L,wxEVT_LEFT_DCLICK); lua_setfield(L,-2,"wxEVT_LEFT_DCLICK");
+	lua_pushnumber(L,wxEVT_MIDDLE_DCLICK); lua_setfield(L,-2,"wxEVT_MIDDLE_DCLICK");
+	lua_pushnumber(L,wxEVT_RIGHT_DCLICK); lua_setfield(L,-2,"wxEVT_RIGHT_DCLICK");
+	lua_pushnumber(L,wxEVT_SET_FOCUS); lua_setfield(L,-2,"wxEVT_SET_FOCUS");
+	lua_pushnumber(L,wxEVT_KILL_FOCUS); lua_setfield(L,-2,"wxEVT_KILL_FOCUS");
+	lua_pushnumber(L,wxEVT_CHILD_FOCUS); lua_setfield(L,-2,"wxEVT_CHILD_FOCUS");
+	lua_pushnumber(L,wxEVT_MOUSEWHEEL); lua_setfield(L,-2,"wxEVT_MOUSEWHEEL");
+	lua_pushnumber(L,wxEVT_AUX1_DOWN); lua_setfield(L,-2,"wxEVT_AUX1_DOWN");
+	lua_pushnumber(L,wxEVT_AUX1_UP); lua_setfield(L,-2,"wxEVT_AUX1_UP");
+	lua_pushnumber(L,wxEVT_AUX1_DCLICK); lua_setfield(L,-2,"wxEVT_AUX1_DCLICK");
+	lua_pushnumber(L,wxEVT_AUX2_DOWN); lua_setfield(L,-2,"wxEVT_AUX2_DOWN");
+	lua_pushnumber(L,wxEVT_AUX2_UP); lua_setfield(L,-2,"wxEVT_AUX2_UP");
+	lua_pushnumber(L,wxEVT_AUX2_DCLICK); lua_setfield(L,-2,"wxEVT_AUX2_DCLICK");
+	lua_pushnumber(L,wxEVT_CHAR); lua_setfield(L,-2,"wxEVT_CHAR");
+	lua_pushnumber(L,wxEVT_CHAR_HOOK); lua_setfield(L,-2,"wxEVT_CHAR_HOOK");
+	lua_pushnumber(L,wxEVT_NAVIGATION_KEY); lua_setfield(L,-2,"wxEVT_NAVIGATION_KEY");
+	lua_pushnumber(L,wxEVT_KEY_DOWN); lua_setfield(L,-2,"wxEVT_KEY_DOWN");
+	lua_pushnumber(L,wxEVT_KEY_UP); lua_setfield(L,-2,"wxEVT_KEY_UP");
+	lua_pushnumber(L,wxEVT_HOTKEY); lua_setfield(L,-2,"wxEVT_HOTKEY");
+	lua_pushnumber(L,wxEVT_SET_CURSOR); lua_setfield(L,-2,"wxEVT_SET_CURSOR");
+	lua_pushnumber(L,wxEVT_SCROLL_TOP); lua_setfield(L,-2,"wxEVT_SCROLL_TOP");
+	lua_pushnumber(L,wxEVT_SCROLL_BOTTOM); lua_setfield(L,-2,"wxEVT_SCROLL_BOTTOM");
+	lua_pushnumber(L,wxEVT_SCROLL_LINEUP); lua_setfield(L,-2,"wxEVT_SCROLL_LINEUP");
+	lua_pushnumber(L,wxEVT_SCROLL_LINEDOWN); lua_setfield(L,-2,"wxEVT_SCROLL_LINEDOWN");
+	lua_pushnumber(L,wxEVT_SCROLL_PAGEUP); lua_setfield(L,-2,"wxEVT_SCROLL_PAGEUP");
+	lua_pushnumber(L,wxEVT_SCROLL_PAGEDOWN); lua_setfield(L,-2,"wxEVT_SCROLL_PAGEDOWN");
+	lua_pushnumber(L,wxEVT_SCROLL_THUMBTRACK); lua_setfield(L,-2,"wxEVT_SCROLL_THUMBTRACK");
+	lua_pushnumber(L,wxEVT_SCROLL_THUMBRELEASE); lua_setfield(L,-2,"wxEVT_SCROLL_THUMBRELEASE");
+	lua_pushnumber(L,wxEVT_SCROLL_CHANGED); lua_setfield(L,-2,"wxEVT_SCROLL_CHANGED");
+	lua_pushnumber(L,wxEVT_SPIN_UP); lua_setfield(L,-2,"wxEVT_SPIN_UP");
+	lua_pushnumber(L,wxEVT_SPIN_DOWN); lua_setfield(L,-2,"wxEVT_SPIN_DOWN");
+	lua_pushnumber(L,wxEVT_SPIN); lua_setfield(L,-2,"wxEVT_SPIN");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_TOP); lua_setfield(L,-2,"wxEVT_SCROLLWIN_TOP");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_BOTTOM); lua_setfield(L,-2,"wxEVT_SCROLLWIN_BOTTOM");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_LINEUP); lua_setfield(L,-2,"wxEVT_SCROLLWIN_LINEUP");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_LINEDOWN); lua_setfield(L,-2,"wxEVT_SCROLLWIN_LINEDOWN");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_PAGEUP); lua_setfield(L,-2,"wxEVT_SCROLLWIN_PAGEUP");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_PAGEDOWN); lua_setfield(L,-2,"wxEVT_SCROLLWIN_PAGEDOWN");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_THUMBTRACK); lua_setfield(L,-2,"wxEVT_SCROLLWIN_THUMBTRACK");
+	lua_pushnumber(L,wxEVT_SCROLLWIN_THUMBRELEASE); lua_setfield(L,-2,"wxEVT_SCROLLWIN_THUMBRELEASE");
+	lua_pushnumber(L,wxEVT_SIZE); lua_setfield(L,-2,"wxEVT_SIZE");
+	lua_pushnumber(L,wxEVT_MOVE); lua_setfield(L,-2,"wxEVT_MOVE");
+	lua_pushnumber(L,wxEVT_CLOSE_WINDOW); lua_setfield(L,-2,"wxEVT_CLOSE_WINDOW");
+	lua_pushnumber(L,wxEVT_END_SESSION); lua_setfield(L,-2,"wxEVT_END_SESSION");
+	lua_pushnumber(L,wxEVT_QUERY_END_SESSION); lua_setfield(L,-2,"wxEVT_QUERY_END_SESSION");
+	lua_pushnumber(L,wxEVT_ACTIVATE_APP); lua_setfield(L,-2,"wxEVT_ACTIVATE_APP");
+	lua_pushnumber(L,wxEVT_ACTIVATE); lua_setfield(L,-2,"wxEVT_ACTIVATE");
+	lua_pushnumber(L,wxEVT_CREATE); lua_setfield(L,-2,"wxEVT_CREATE");
+	lua_pushnumber(L,wxEVT_DESTROY); lua_setfield(L,-2,"wxEVT_DESTROY");
+	lua_pushnumber(L,wxEVT_SHOW); lua_setfield(L,-2,"wxEVT_SHOW");
+	lua_pushnumber(L,wxEVT_ICONIZE); lua_setfield(L,-2,"wxEVT_ICONIZE");
+	lua_pushnumber(L,wxEVT_MAXIMIZE); lua_setfield(L,-2,"wxEVT_MAXIMIZE");
+	lua_pushnumber(L,wxEVT_MOUSE_CAPTURE_CHANGED); lua_setfield(L,-2,"wxEVT_MOUSE_CAPTURE_CHANGED");
+	lua_pushnumber(L,wxEVT_MOUSE_CAPTURE_LOST); lua_setfield(L,-2,"wxEVT_MOUSE_CAPTURE_LOST");
+	lua_pushnumber(L,wxEVT_PAINT); lua_setfield(L,-2,"wxEVT_PAINT");
+	lua_pushnumber(L,wxEVT_ERASE_BACKGROUND); lua_setfield(L,-2,"wxEVT_ERASE_BACKGROUND");
+	lua_pushnumber(L,wxEVT_NC_PAINT); lua_setfield(L,-2,"wxEVT_NC_PAINT");
+	lua_pushnumber(L,wxEVT_MENU_OPEN); lua_setfield(L,-2,"wxEVT_MENU_OPEN");
+	lua_pushnumber(L,wxEVT_MENU_CLOSE); lua_setfield(L,-2,"wxEVT_MENU_CLOSE");
+	lua_pushnumber(L,wxEVT_MENU_HIGHLIGHT); lua_setfield(L,-2,"wxEVT_MENU_HIGHLIGHT");
+	lua_pushnumber(L,wxEVT_CONTEXT_MENU); lua_setfield(L,-2,"wxEVT_CONTEXT_MENU");
+	lua_pushnumber(L,wxEVT_SYS_COLOUR_CHANGED); lua_setfield(L,-2,"wxEVT_SYS_COLOUR_CHANGED");
+	lua_pushnumber(L,wxEVT_DISPLAY_CHANGED); lua_setfield(L,-2,"wxEVT_DISPLAY_CHANGED");
+	lua_pushnumber(L,wxEVT_QUERY_NEW_PALETTE); lua_setfield(L,-2,"wxEVT_QUERY_NEW_PALETTE");
+	lua_pushnumber(L,wxEVT_PALETTE_CHANGED); lua_setfield(L,-2,"wxEVT_PALETTE_CHANGED");
+	lua_pushnumber(L,wxEVT_JOY_BUTTON_DOWN); lua_setfield(L,-2,"wxEVT_JOY_BUTTON_DOWN");
+	lua_pushnumber(L,wxEVT_JOY_BUTTON_UP); lua_setfield(L,-2,"wxEVT_JOY_BUTTON_UP");
+	lua_pushnumber(L,wxEVT_JOY_MOVE); lua_setfield(L,-2,"wxEVT_JOY_MOVE");
+	lua_pushnumber(L,wxEVT_JOY_ZMOVE); lua_setfield(L,-2,"wxEVT_JOY_ZMOVE");
+	lua_pushnumber(L,wxEVT_DROP_FILES); lua_setfield(L,-2,"wxEVT_DROP_FILES");
+	lua_pushnumber(L,wxEVT_INIT_DIALOG); lua_setfield(L,-2,"wxEVT_INIT_DIALOG");
+	lua_pushnumber(L,wxEVT_IDLE); lua_setfield(L,-2,"wxEVT_IDLE");
+	lua_pushnumber(L,wxEVT_UPDATE_UI); lua_setfield(L,-2,"wxEVT_UPDATE_UI");
+	lua_pushnumber(L,wxEVT_SIZING); lua_setfield(L,-2,"wxEVT_SIZING");
+	lua_pushnumber(L,wxEVT_MOVING); lua_setfield(L,-2,"wxEVT_MOVING");
+	lua_pushnumber(L,wxEVT_MOVE_START); lua_setfield(L,-2,"wxEVT_MOVE_START");
+	lua_pushnumber(L,wxEVT_MOVE_END); lua_setfield(L,-2,"wxEVT_MOVE_END");
+	lua_pushnumber(L,wxEVT_HIBERNATE); lua_setfield(L,-2,"wxEVT_HIBERNATE");
+	lua_pushnumber(L,wxEVT_COMMAND_TEXT_COPY); lua_setfield(L,-2,"wxEVT_COMMAND_TEXT_COPY");
+	lua_pushnumber(L,wxEVT_COMMAND_TEXT_CUT); lua_setfield(L,-2,"wxEVT_COMMAND_TEXT_CUT");
+	lua_pushnumber(L,wxEVT_COMMAND_TEXT_PASTE); lua_setfield(L,-2,"wxEVT_COMMAND_TEXT_PASTE");
+	lua_pushnumber(L,wxEVT_COMMAND_LEFT_CLICK); lua_setfield(L,-2,"wxEVT_COMMAND_LEFT_CLICK");
+	lua_pushnumber(L,wxEVT_COMMAND_LEFT_DCLICK); lua_setfield(L,-2,"wxEVT_COMMAND_LEFT_DCLICK");
+	lua_pushnumber(L,wxEVT_COMMAND_RIGHT_CLICK); lua_setfield(L,-2,"wxEVT_COMMAND_RIGHT_CLICK");
+	lua_pushnumber(L,wxEVT_COMMAND_RIGHT_DCLICK); lua_setfield(L,-2,"wxEVT_COMMAND_RIGHT_DCLICK");
+	lua_pushnumber(L,wxEVT_COMMAND_SET_FOCUS); lua_setfield(L,-2,"wxEVT_COMMAND_SET_FOCUS");
+	lua_pushnumber(L,wxEVT_COMMAND_KILL_FOCUS); lua_setfield(L,-2,"wxEVT_COMMAND_KILL_FOCUS");
+	lua_pushnumber(L,wxEVT_COMMAND_ENTER); lua_setfield(L,-2,"wxEVT_COMMAND_ENTER");
+	lua_pushnumber(L,wxEVT_HELP); lua_setfield(L,-2,"wxEVT_HELP");
+	lua_pushnumber(L,wxEVT_DETAILED_HELP); lua_setfield(L,-2,"wxEVT_DETAILED_HELP");
+	lua_pushnumber(L,wxEVT_COMMAND_TEXT_UPDATED); lua_setfield(L,-2,"wxEVT_COMMAND_TEXT_UPDATED");
+	lua_pushnumber(L,wxEVT_COMMAND_TOOL_CLICKED); lua_setfield(L,-2,"wxEVT_COMMAND_TOOL_CLICKED");
+	lua_pushnumber(L,wxEVT_WINDOW_MODAL_DIALOG_CLOSED); lua_setfield(L,-2,"wxEVT_WINDOW_MODAL_DIALOG_CLOSED");
+	lua_pushnumber(L,wxIMAGELIST_DRAW_NORMAL); lua_setfield(L,-2,"wxIMAGELIST_DRAW_NORMAL");
+	lua_pushnumber(L,wxIMAGELIST_DRAW_TRANSPARENT); lua_setfield(L,-2,"wxIMAGELIST_DRAW_TRANSPARENT");
+	lua_pushnumber(L,wxIMAGELIST_DRAW_SELECTED); lua_setfield(L,-2,"wxIMAGELIST_DRAW_SELECTED");
+	lua_pushnumber(L,wxIMAGELIST_DRAW_FOCUSED); lua_setfield(L,-2,"wxIMAGELIST_DRAW_FOCUSED");
+	lua_pushnumber(L,wxNB_FIXEDWIDTH); lua_setfield(L,-2,"wxNB_FIXEDWIDTH");
+	lua_pushnumber(L,wxNB_MULTILINE); lua_setfield(L,-2,"wxNB_MULTILINE");
+	lua_pushnumber(L,wxNB_NOPAGETHEME); lua_setfield(L,-2,"wxNB_NOPAGETHEME");
+	lua_pushnumber(L,wxNB_FLAT); lua_setfield(L,-2,"wxNB_FLAT");
+	lua_pushnumber(L,wxPD_CAN_ABORT); lua_setfield(L,-2,"wxPD_CAN_ABORT");
+	lua_pushnumber(L,wxPD_APP_MODAL); lua_setfield(L,-2,"wxPD_APP_MODAL");
+	lua_pushnumber(L,wxPD_AUTO_HIDE); lua_setfield(L,-2,"wxPD_AUTO_HIDE");
+	lua_pushnumber(L,wxPD_ELAPSED_TIME); lua_setfield(L,-2,"wxPD_ELAPSED_TIME");
+	lua_pushnumber(L,wxPD_ESTIMATED_TIME); lua_setfield(L,-2,"wxPD_ESTIMATED_TIME");
+	lua_pushnumber(L,wxPD_SMOOTH); lua_setfield(L,-2,"wxPD_SMOOTH");
+	lua_pushnumber(L,wxPD_REMAINING_TIME); lua_setfield(L,-2,"wxPD_REMAINING_TIME");
+	lua_pushnumber(L,wxPD_CAN_SKIP); lua_setfield(L,-2,"wxPD_CAN_SKIP");
+	lua_pushnumber(L,wxRICHTEXT_FIXED_WIDTH); lua_setfield(L,-2,"wxRICHTEXT_FIXED_WIDTH");
+	lua_pushnumber(L,wxRICHTEXT_FIXED_HEIGHT); lua_setfield(L,-2,"wxRICHTEXT_FIXED_HEIGHT");
+	lua_pushnumber(L,wxRICHTEXT_VARIABLE_WIDTH); lua_setfield(L,-2,"wxRICHTEXT_VARIABLE_WIDTH");
+	lua_pushnumber(L,wxRICHTEXT_VARIABLE_HEIGHT); lua_setfield(L,-2,"wxRICHTEXT_VARIABLE_HEIGHT");
+	lua_pushnumber(L,wxRICHTEXT_LAYOUT_SPECIFIED_RECT); lua_setfield(L,-2,"wxRICHTEXT_LAYOUT_SPECIFIED_RECT");
+	lua_pushnumber(L,wxRICHTEXT_DRAW_IGNORE_CACHE); lua_setfield(L,-2,"wxRICHTEXT_DRAW_IGNORE_CACHE");
+	lua_pushnumber(L,wxRICHTEXT_DRAW_SELECTED); lua_setfield(L,-2,"wxRICHTEXT_DRAW_SELECTED");
+	lua_pushnumber(L,wxRICHTEXT_DRAW_PRINT); lua_setfield(L,-2,"wxRICHTEXT_DRAW_PRINT");
+	lua_pushnumber(L,wxRICHTEXT_DRAW_GUIDELINES); lua_setfield(L,-2,"wxRICHTEXT_DRAW_GUIDELINES");
+	lua_pushnumber(L,wxRICHTEXT_FORMATTED); lua_setfield(L,-2,"wxRICHTEXT_FORMATTED");
+	lua_pushnumber(L,wxRICHTEXT_UNFORMATTED); lua_setfield(L,-2,"wxRICHTEXT_UNFORMATTED");
+	lua_pushnumber(L,wxRICHTEXT_CACHE_SIZE); lua_setfield(L,-2,"wxRICHTEXT_CACHE_SIZE");
+	lua_pushnumber(L,wxRICHTEXT_HEIGHT_ONLY); lua_setfield(L,-2,"wxRICHTEXT_HEIGHT_ONLY");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_NONE); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_NONE");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_WITH_UNDO); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_WITH_UNDO");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_OPTIMIZE); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_OPTIMIZE");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_PARAGRAPHS_ONLY); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_PARAGRAPHS_ONLY");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_CHARACTERS_ONLY); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_CHARACTERS_ONLY");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_RENUMBER); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_RENUMBER");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_SPECIFY_LEVEL); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_SPECIFY_LEVEL");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_RESET); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_RESET");
+	lua_pushnumber(L,wxRICHTEXT_SETSTYLE_REMOVE); lua_setfield(L,-2,"wxRICHTEXT_SETSTYLE_REMOVE");
+	lua_pushnumber(L,wxRICHTEXT_INSERT_NONE); lua_setfield(L,-2,"wxRICHTEXT_INSERT_NONE");
+	lua_pushnumber(L,wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE); lua_setfield(L,-2,"wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE");
+	lua_pushnumber(L,wxRICHTEXT_INSERT_INTERACTIVE); lua_setfield(L,-2,"wxRICHTEXT_INSERT_INTERACTIVE");
+	lua_pushnumber(L,wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE); lua_setfield(L,-2,"wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE");
+	lua_pushnumber(L,wxSCRIPT_MUL_FACTOR); lua_setfield(L,-2,"wxSCRIPT_MUL_FACTOR");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_INCLUDE_STYLESHEET); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_INCLUDE_STYLESHEET");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_MEMORY); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_MEMORY");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_NO_HEADER_FOOTER); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_NO_HEADER_FOOTER");
+	lua_pushnumber(L,wxRICHTEXT_HANDLER_CONVERT_FACENAMES); lua_setfield(L,-2,"wxRICHTEXT_HANDLER_CONVERT_FACENAMES");
+	lua_pushnumber(L,wxRE_READONLY); lua_setfield(L,-2,"wxRE_READONLY");
+	lua_pushnumber(L,wxRE_MULTILINE); lua_setfield(L,-2,"wxRE_MULTILINE");
+	lua_pushnumber(L,wxRE_CENTRE_CARET); lua_setfield(L,-2,"wxRE_CENTRE_CARET");
+	lua_pushnumber(L,wxRICHTEXT_SHIFT_DOWN); lua_setfield(L,-2,"wxRICHTEXT_SHIFT_DOWN");
+	lua_pushnumber(L,wxRICHTEXT_CTRL_DOWN); lua_setfield(L,-2,"wxRICHTEXT_CTRL_DOWN");
+	lua_pushnumber(L,wxRICHTEXT_ALT_DOWN); lua_setfield(L,-2,"wxRICHTEXT_ALT_DOWN");
+	lua_pushnumber(L,wxRICHTEXT_EX_NO_GUIDELINES); lua_setfield(L,-2,"wxRICHTEXT_EX_NO_GUIDELINES");
+	lua_pushnumber(L,wxRICHTEXT_DEFAULT_SPACING); lua_setfield(L,-2,"wxRICHTEXT_DEFAULT_SPACING");
+	lua_pushnumber(L,wxRICHTEXT_DEFAULT_MARGIN); lua_setfield(L,-2,"wxRICHTEXT_DEFAULT_MARGIN");
+	lua_pushnumber(L,wxRICHTEXT_DEFAULT_CARET_WIDTH); lua_setfield(L,-2,"wxRICHTEXT_DEFAULT_CARET_WIDTH");
+	lua_pushnumber(L,wxRICHTEXT_DEFAULT_DELAYED_LAYOUT_THRESHOLD); lua_setfield(L,-2,"wxRICHTEXT_DEFAULT_DELAYED_LAYOUT_THRESHOLD");
+	lua_pushnumber(L,wxRICHTEXT_DEFAULT_LAYOUT_INTERVAL); lua_setfield(L,-2,"wxRICHTEXT_DEFAULT_LAYOUT_INTERVAL");
+	lua_pushnumber(L,wxSL_TICKS); lua_setfield(L,-2,"wxSL_TICKS");
+	lua_pushnumber(L,wxSL_LEFT); lua_setfield(L,-2,"wxSL_LEFT");
+	lua_pushnumber(L,wxSL_TOP); lua_setfield(L,-2,"wxSL_TOP");
+	lua_pushnumber(L,wxSL_RIGHT); lua_setfield(L,-2,"wxSL_RIGHT");
+	lua_pushnumber(L,wxSL_BOTTOM); lua_setfield(L,-2,"wxSL_BOTTOM");
+	lua_pushnumber(L,wxSL_BOTH); lua_setfield(L,-2,"wxSL_BOTH");
+	lua_pushnumber(L,wxSL_SELRANGE); lua_setfield(L,-2,"wxSL_SELRANGE");
+	lua_pushnumber(L,wxSL_INVERSE); lua_setfield(L,-2,"wxSL_INVERSE");
+	lua_pushnumber(L,wxSL_MIN_MAX_LABELS); lua_setfield(L,-2,"wxSL_MIN_MAX_LABELS");
+	lua_pushnumber(L,wxSL_VALUE_LABEL); lua_setfield(L,-2,"wxSL_VALUE_LABEL");
+	lua_pushnumber(L,wxSL_LABELS); lua_setfield(L,-2,"wxSL_LABELS");
+	lua_pushnumber(L,wxSP_NOBORDER); lua_setfield(L,-2,"wxSP_NOBORDER");
+	lua_pushnumber(L,wxSP_THIN_SASH); lua_setfield(L,-2,"wxSP_THIN_SASH");
+	lua_pushnumber(L,wxSP_NOSASH); lua_setfield(L,-2,"wxSP_NOSASH");
+	lua_pushnumber(L,wxSP_PERMIT_UNSPLIT); lua_setfield(L,-2,"wxSP_PERMIT_UNSPLIT");
+	lua_pushnumber(L,wxSP_LIVE_UPDATE); lua_setfield(L,-2,"wxSP_LIVE_UPDATE");
+	lua_pushnumber(L,wxSP_3DSASH); lua_setfield(L,-2,"wxSP_3DSASH");
+	lua_pushnumber(L,wxSP_3DBORDER); lua_setfield(L,-2,"wxSP_3DBORDER");
+	lua_pushnumber(L,wxSP_NO_XP_THEME); lua_setfield(L,-2,"wxSP_NO_XP_THEME");
+	lua_pushnumber(L,wxSP_3D); lua_setfield(L,-2,"wxSP_3D");
+	lua_pushnumber(L,wxST_NO_AUTORESIZE); lua_setfield(L,-2,"wxST_NO_AUTORESIZE");
+	lua_pushnumber(L,wxST_ELLIPSIZE_START); lua_setfield(L,-2,"wxST_ELLIPSIZE_START");
+	lua_pushnumber(L,wxST_ELLIPSIZE_MIDDLE); lua_setfield(L,-2,"wxST_ELLIPSIZE_MIDDLE");
+	lua_pushnumber(L,wxST_ELLIPSIZE_END); lua_setfield(L,-2,"wxST_ELLIPSIZE_END");
+	lua_pushnumber(L,wxSTB_SIZEGRIP); lua_setfield(L,-2,"wxSTB_SIZEGRIP");
+	lua_pushnumber(L,wxSTB_SHOW_TIPS); lua_setfield(L,-2,"wxSTB_SHOW_TIPS");
+	lua_pushnumber(L,wxSTB_ELLIPSIZE_START); lua_setfield(L,-2,"wxSTB_ELLIPSIZE_START");
+	lua_pushnumber(L,wxSTB_ELLIPSIZE_MIDDLE); lua_setfield(L,-2,"wxSTB_ELLIPSIZE_MIDDLE");
+	lua_pushnumber(L,wxSTB_ELLIPSIZE_END); lua_setfield(L,-2,"wxSTB_ELLIPSIZE_END");
+	lua_pushnumber(L,wxSTB_DEFAULT_STYLE); lua_setfield(L,-2,"wxSTB_DEFAULT_STYLE");
+	lua_pushnumber(L,wxSB_NORMAL); lua_setfield(L,-2,"wxSB_NORMAL");
+	lua_pushnumber(L,wxSB_FLAT); lua_setfield(L,-2,"wxSB_FLAT");
+	lua_pushnumber(L,wxSB_RAISED); lua_setfield(L,-2,"wxSB_RAISED");
+	lua_pushnumber(L,wxTE_NO_VSCROLL); lua_setfield(L,-2,"wxTE_NO_VSCROLL");
+	lua_pushnumber(L,wxTE_READONLY); lua_setfield(L,-2,"wxTE_READONLY");
+	lua_pushnumber(L,wxTE_MULTILINE); lua_setfield(L,-2,"wxTE_MULTILINE");
+	lua_pushnumber(L,wxTE_PROCESS_TAB); lua_setfield(L,-2,"wxTE_PROCESS_TAB");
+	lua_pushnumber(L,wxTE_LEFT); lua_setfield(L,-2,"wxTE_LEFT");
+	lua_pushnumber(L,wxTE_RICH); lua_setfield(L,-2,"wxTE_RICH");
+	lua_pushnumber(L,wxTE_PROCESS_ENTER); lua_setfield(L,-2,"wxTE_PROCESS_ENTER");
+	lua_pushnumber(L,wxTE_PASSWORD); lua_setfield(L,-2,"wxTE_PASSWORD");
+	lua_pushnumber(L,wxTE_AUTO_URL); lua_setfield(L,-2,"wxTE_AUTO_URL");
+	lua_pushnumber(L,wxTE_NOHIDESEL); lua_setfield(L,-2,"wxTE_NOHIDESEL");
+	lua_pushnumber(L,wxTE_CHARWRAP); lua_setfield(L,-2,"wxTE_CHARWRAP");
+	lua_pushnumber(L,wxTE_WORDWRAP); lua_setfield(L,-2,"wxTE_WORDWRAP");
+	lua_pushnumber(L,wxTE_BESTWRAP); lua_setfield(L,-2,"wxTE_BESTWRAP");
+	lua_pushnumber(L,wxTE_RICH2); lua_setfield(L,-2,"wxTE_RICH2");
+}
+
+#ifdef __cplusplus
+}
+#endif
+

@@ -15,12 +15,19 @@ void FileLogger::output(int level, std::string trace, std::string msg) {
 	_stream.flush();
 }
 
-FileLogger::FileLogger(const std::string& filename, bool append, const std::string& name) : LogSink(name) {
-	_stream.open(filename.c_str(), append ? (std::ofstream::out | std::ofstream::app) : std::ofstream::out);
+FileLogger::FileLogger(const String& filename, Bool append, const std::string& name) : LogSink(name) {
+	init(filename,append);	
 }
 
 FileLogger::~FileLogger() {
 	_stream.close();
+}
+
+Bool FileLogger::init(const String& filename, Bool append) {
+	_filename = filename;
+	_append = append;
+	_stream.open(filename.c_str(), append ? (std::ofstream::out | std::ofstream::app) : std::ofstream::out);
+	return true;
 }
 
 } /* namespace scLog */

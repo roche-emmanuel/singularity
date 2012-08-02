@@ -1,4 +1,6 @@
 module=core
+osg::Referenced => osg::Referenced
+osg::ref_ptr< osg::Object > => sgt::RefPtr
 sgt::Object => sgt::Object
 sgt::LogSink => sgt::Object
 sgt::FileLogger => sgt::Object
