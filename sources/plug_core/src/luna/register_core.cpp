@@ -19,6 +19,9 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	Luna< void >::Register(L);
 	Luna< osg::Referenced >::Register(L);
+	Luna< osg::CopyOp >::Register(L);
+	Luna< osg::Object >::Register(L);
+	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
 	Luna< sgt::Object >::Register(L);
 	Luna< sgt::LogSink >::Register(L);
 	Luna< sgt::FileLogger >::Register(L);

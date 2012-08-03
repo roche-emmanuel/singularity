@@ -51,7 +51,7 @@ sgt::RefPtr* LunaTraits< sgt::RefPtr >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::RefPtr >::_bind_dtor(sgt::RefPtr* obj) {
-	delete obj;
+	//delete obj; // destructor protected.
 }
 
 const char LunaTraits< sgt::RefPtr >::className[] = "RefPtr";

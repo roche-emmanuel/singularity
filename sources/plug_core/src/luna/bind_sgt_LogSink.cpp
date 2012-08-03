@@ -4,17 +4,31 @@ class luna_wrapper_sgt_LogSink {
 public:
 	typedef Luna< sgt::LogSink > luna_t;
 
-	// Derived class converters:
-	static int _cast_from_Object(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		sgt::LogSink* ptr= dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
-		if(!ptr)
-			return 0;
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
 		
-		// Otherwise push the pointer:
-		Luna< sgt::LogSink >::push(L,ptr,false);
-		return 1;
-	};
+		static LunaConverterMap& converters = luna_getConverterMap("sgt::LogSink");
+		
+		return luna_dynamicCast(L,converters,"sgt::LogSink",name);
+	}
 
 
 	// Function checkers:
@@ -86,7 +100,7 @@ public:
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool)");
@@ -107,7 +121,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string)");
@@ -127,7 +141,7 @@ public:
 		int mini=(int)lua_tointeger(L,2);
 		int maxi=(int)lua_tointeger(L,3);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int)");
@@ -146,7 +160,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string)");
@@ -165,7 +179,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string)");
@@ -184,7 +198,7 @@ public:
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool)");
@@ -205,7 +219,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string)");
@@ -235,9 +249,9 @@ void LunaTraits< sgt::LogSink >::_bind_dtor(sgt::LogSink* obj) {
 const char LunaTraits< sgt::LogSink >::className[] = "LogSink";
 const char LunaTraits< sgt::LogSink >::fullName[] = "sgt::LogSink";
 const char LunaTraits< sgt::LogSink >::moduleName[] = "core";
-const char* LunaTraits< sgt::LogSink >::parents[] = {"core.Object", 0};
+const char* LunaTraits< sgt::LogSink >::parents[] = {0};
 const int LunaTraits< sgt::LogSink >::hash = 81755923;
-const int LunaTraits< sgt::LogSink >::uniqueIDs[] = {44367388,0};
+const int LunaTraits< sgt::LogSink >::uniqueIDs[] = {81755923,0};
 
 luna_RegType LunaTraits< sgt::LogSink >::methods[] = {
 	{"setEnabled", &luna_wrapper_sgt_LogSink::_bind_setEnabled},
@@ -247,11 +261,11 @@ luna_RegType LunaTraits< sgt::LogSink >::methods[] = {
 	{"removeTrace", &luna_wrapper_sgt_LogSink::_bind_removeTrace},
 	{"setLogTraceList", &luna_wrapper_sgt_LogSink::_bind_setLogTraceList},
 	{"process", &luna_wrapper_sgt_LogSink::_bind_process},
+	{"dynCast", &luna_wrapper_sgt_LogSink::_bind_dynCast},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< sgt::LogSink >::converters[] = {
-	{"sgt::Object", &luna_wrapper_sgt_LogSink::_cast_from_Object},
 	{0,0}
 };
 

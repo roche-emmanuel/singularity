@@ -18,7 +18,7 @@ Log management core class.
 This class is used to manage the state and properties of the logging system used inside the library.
 It is a "static only class" and thus do not need any memory management integrated.
 */
-class SGTCORE_EXPORT LogManager : public sgtObject {
+class SGTCORE_EXPORT LogManager : public sgtReferenced {
 public:
 	//Object_META_DEF(sgt,LogManager);
 

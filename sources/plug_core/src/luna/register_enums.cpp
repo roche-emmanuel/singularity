@@ -7,6 +7,43 @@ extern "C" {
 #endif
 
 void register_enums(lua_State* L) {
+	lua_newtable(L); // enum Options
+
+	lua_pushnumber(L,osg::CopyOp::SHALLOW_COPY); lua_setfield(L,-2,"SHALLOW_COPY");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_OBJECTS); lua_setfield(L,-2,"DEEP_COPY_OBJECTS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_NODES); lua_setfield(L,-2,"DEEP_COPY_NODES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_DRAWABLES); lua_setfield(L,-2,"DEEP_COPY_DRAWABLES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_STATESETS); lua_setfield(L,-2,"DEEP_COPY_STATESETS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_STATEATTRIBUTES); lua_setfield(L,-2,"DEEP_COPY_STATEATTRIBUTES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_TEXTURES); lua_setfield(L,-2,"DEEP_COPY_TEXTURES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_IMAGES); lua_setfield(L,-2,"DEEP_COPY_IMAGES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_ARRAYS); lua_setfield(L,-2,"DEEP_COPY_ARRAYS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_PRIMITIVES); lua_setfield(L,-2,"DEEP_COPY_PRIMITIVES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_SHAPES); lua_setfield(L,-2,"DEEP_COPY_SHAPES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_UNIFORMS); lua_setfield(L,-2,"DEEP_COPY_UNIFORMS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_CALLBACKS); lua_setfield(L,-2,"DEEP_COPY_CALLBACKS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_USERDATA); lua_setfield(L,-2,"DEEP_COPY_USERDATA");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_ALL); lua_setfield(L,-2,"DEEP_COPY_ALL");
+
+	lua_setfield(L,-2,"Options");
+
+	lua_pushnumber(L,osg::CopyOp::SHALLOW_COPY); lua_setfield(L,-2,"SHALLOW_COPY");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_OBJECTS); lua_setfield(L,-2,"DEEP_COPY_OBJECTS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_NODES); lua_setfield(L,-2,"DEEP_COPY_NODES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_DRAWABLES); lua_setfield(L,-2,"DEEP_COPY_DRAWABLES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_STATESETS); lua_setfield(L,-2,"DEEP_COPY_STATESETS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_STATEATTRIBUTES); lua_setfield(L,-2,"DEEP_COPY_STATEATTRIBUTES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_TEXTURES); lua_setfield(L,-2,"DEEP_COPY_TEXTURES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_IMAGES); lua_setfield(L,-2,"DEEP_COPY_IMAGES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_ARRAYS); lua_setfield(L,-2,"DEEP_COPY_ARRAYS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_PRIMITIVES); lua_setfield(L,-2,"DEEP_COPY_PRIMITIVES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_SHAPES); lua_setfield(L,-2,"DEEP_COPY_SHAPES");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_UNIFORMS); lua_setfield(L,-2,"DEEP_COPY_UNIFORMS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_CALLBACKS); lua_setfield(L,-2,"DEEP_COPY_CALLBACKS");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_USERDATA); lua_setfield(L,-2,"DEEP_COPY_USERDATA");
+	lua_pushnumber(L,osg::CopyOp::DEEP_COPY_ALL); lua_setfield(L,-2,"DEEP_COPY_ALL");
+
+
 	lua_newtable(L); // enum Flags
 
 	lua_pushnumber(L,sgt::LogManager::FILE_NAME); lua_setfield(L,-2,"FILE_NAME");

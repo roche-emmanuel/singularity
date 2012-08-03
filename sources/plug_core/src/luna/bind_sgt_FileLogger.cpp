@@ -1,16 +1,13 @@
 #include <plug_common.h>
 
-
-
 class luna_wrapper_sgt_FileLogger {
 public:
 	typedef Luna< sgt::FileLogger > luna_t;
 
-
 	// Derived class converters:
-	static int _cast_from_Object(lua_State *L) {
+	static int _cast_from_LogSink(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< sgt::Object >::check(L,1));
+		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -39,16 +36,6 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_Object_META_DEF(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'sgt'
-		////////////////////////////////////////////////////////////////////
-		if( !Luna<void>::has_uniqueid(L,3,44367388) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_output(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -122,7 +109,6 @@ public:
 
 
 	// Function binds:
-
 	// void sgt::FileLogger::output(int level, std::string trace, std::string msg)
 	static int _bind_output(lua_State *L) {
 		if (!_lg_typecheck_output(L)) {
@@ -134,7 +120,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::Object >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string)");
@@ -156,7 +142,7 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::Object >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool)");
@@ -175,7 +161,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::Object >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename()");
@@ -194,7 +180,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::Object >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending()");
@@ -205,10 +191,10 @@ public:
 		return 1;
 	}
 
+
 	// Operator binds:
 
 };
-
 
 sgt::FileLogger* LunaTraits< sgt::FileLogger >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_FileLogger::_bind_ctor(L);
@@ -223,10 +209,9 @@ const char LunaTraits< sgt::FileLogger >::fullName[] = "sgt::FileLogger";
 const char LunaTraits< sgt::FileLogger >::moduleName[] = "core";
 const char* LunaTraits< sgt::FileLogger >::parents[] = {"core.LogSink", 0};
 const int LunaTraits< sgt::FileLogger >::hash = 37776665;
-const int LunaTraits< sgt::FileLogger >::uniqueIDs[] = {44367388,0};
+const int LunaTraits< sgt::FileLogger >::uniqueIDs[] = {81755923,0};
 
 luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
-	//{"Object_META_DEF", &luna_wrapper_sgt_FileLogger::_bind_Object_META_DEF},
 	{"output", &luna_wrapper_sgt_FileLogger::_bind_output},
 	{"init", &luna_wrapper_sgt_FileLogger::_bind_init},
 	{"getFilename", &luna_wrapper_sgt_FileLogger::_bind_getFilename},
@@ -235,7 +220,7 @@ luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< sgt::FileLogger >::converters[] = {
-	{"sgt::Object", &luna_wrapper_sgt_FileLogger::_cast_from_Object},
+	{"sgt::LogSink", &luna_wrapper_sgt_FileLogger::_cast_from_LogSink},
 	{0,0}
 };
 

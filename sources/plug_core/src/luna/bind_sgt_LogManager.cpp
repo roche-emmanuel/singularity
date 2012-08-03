@@ -4,17 +4,31 @@ class luna_wrapper_sgt_LogManager {
 public:
 	typedef Luna< sgt::LogManager > luna_t;
 
-	// Derived class converters:
-	static int _cast_from_Object(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		sgt::LogManager* ptr= dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
-		if(!ptr)
-			return 0;
+	// Base class dynamic cast support:
+	inline static bool _lg_typecheck_dynCast(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+	
+	static int _bind_dynCast(lua_State *L) {
+		if (!_lg_typecheck_dynCast(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call dynCast(...)");
+		}
 		
-		// Otherwise push the pointer:
-		Luna< sgt::LogManager >::push(L,ptr,false);
-		return 1;
-	};
+		static LunaConverterMap& converters = luna_getConverterMap("sgt::LogManager");
+		
+		return luna_dynamicCast(L,converters,"sgt::LogManager",name);
+	}
 
 
 	// Constructor checkers:
@@ -26,16 +40,6 @@ public:
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_Object_META_DEF(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'sgt'
-		////////////////////////////////////////////////////////////////////
-		if( !Luna<void>::has_uniqueid(L,3,44367388) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_log(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -94,7 +98,7 @@ public:
 	inline static bool _lg_typecheck_addSink(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,44367388)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81755923)) ) return false;
 		return true;
 	}
 
@@ -195,28 +199,6 @@ public:
 
 
 	// Function binds:
-	// sgt::LogManager::Object_META_DEF(sgt , sgt::LogManager )
-	static int _bind_Object_META_DEF(lua_State *L) {
-		if (!_lg_typecheck_Object_META_DEF(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in sgt::LogManager::Object_META_DEF(sgt , sgt::LogManager ) function, expected prototype:\nsgt::LogManager::Object_META_DEF(sgt , sgt::LogManager )\nClass arguments details:\narg 2 ID = 44367388\n");
-		}
-
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'sgt' baseTypeName is 'sgt'
-		////////////////////////////////////////////////////////////////////
-		sgt::LogManager* _arg2_ptr=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,3));
-		if( !_arg2_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in sgt::LogManager::Object_META_DEF function");
-		}
-		sgt::LogManager _arg2=*_arg2_ptr;
-
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Invalid return type object for function 'sgt::LogManager::Object_META_DEF'
-		////////////////////////////////////////////////////////////////////
-		return 0;
-	}
-
 	// void sgt::LogManager::log(int level, std::string trace, std::string msg)
 	static int _bind_log(lua_State *L) {
 		if (!_lg_typecheck_log(L)) {
@@ -228,7 +210,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::log(int, std::string, std::string)");
@@ -247,7 +229,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getLevelFlags(int)");
@@ -268,7 +250,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setLevelFlags(int, int)");
@@ -288,7 +270,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::addLevelFlags(int, int)");
@@ -308,7 +290,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::removeLevelFlags(int, int)");
@@ -327,7 +309,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getTraceFlags(std::string)");
@@ -348,7 +330,7 @@ public:
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setTraceFlags(std::string, int)");
@@ -362,12 +344,12 @@ public:
 	static int _bind_addSink(lua_State *L) {
 		if (!_lg_typecheck_addSink(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogManager::addSink(sgt::LogSink * sink) function, expected prototype:\nvoid sgt::LogManager::addSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 44367388\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogManager::addSink(sgt::LogSink * sink) function, expected prototype:\nvoid sgt::LogManager::addSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 81755923\n");
 		}
 
-		sgt::LogSink* sink=dynamic_cast< sgt::LogSink* >(Luna< sgt::Object >::check(L,2));
+		sgt::LogSink* sink=(Luna< sgt::LogSink >::check(L,2));
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::addSink(sgt::LogSink *)");
@@ -386,7 +368,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(const std::string &)");
@@ -406,7 +388,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call sgt::LogSink * sgt::LogManager::getSink(const std::string &)");
@@ -427,7 +409,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getNotifyLevel()");
@@ -447,7 +429,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setNotifyLevel(int)");
@@ -465,7 +447,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::LogManager::getVerbose()");
@@ -485,7 +467,7 @@ public:
 
 		bool verbose=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setVerbose(bool)");
@@ -504,7 +486,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getLevelString(int)");
@@ -523,7 +505,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getTimeStamp()");
@@ -543,7 +525,7 @@ public:
 
 		int val=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultTraceFlags(int)");
@@ -562,7 +544,7 @@ public:
 
 		int val=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< sgt::Object >::check(L,1));
+		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultLevelFlags(int)");
@@ -617,12 +599,11 @@ void LunaTraits< sgt::LogManager >::_bind_dtor(sgt::LogManager* obj) {
 const char LunaTraits< sgt::LogManager >::className[] = "LogManager";
 const char LunaTraits< sgt::LogManager >::fullName[] = "sgt::LogManager";
 const char LunaTraits< sgt::LogManager >::moduleName[] = "core";
-const char* LunaTraits< sgt::LogManager >::parents[] = {"core.Object", 0};
+const char* LunaTraits< sgt::LogManager >::parents[] = {0};
 const int LunaTraits< sgt::LogManager >::hash = 36134915;
-const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {44367388,0};
+const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {36134915,0};
 
 luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
-	{"Object_META_DEF", &luna_wrapper_sgt_LogManager::_bind_Object_META_DEF},
 	{"log", &luna_wrapper_sgt_LogManager::_bind_log},
 	{"getLevelFlags", &luna_wrapper_sgt_LogManager::_bind_getLevelFlags},
 	{"setLevelFlags", &luna_wrapper_sgt_LogManager::_bind_setLevelFlags},
@@ -643,11 +624,11 @@ luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"setDefaultLevelFlags", &luna_wrapper_sgt_LogManager::_bind_setDefaultLevelFlags},
 	{"instance", &luna_wrapper_sgt_LogManager::_bind_instance},
 	{"destroy", &luna_wrapper_sgt_LogManager::_bind_destroy},
+	{"dynCast", &luna_wrapper_sgt_LogManager::_bind_dynCast},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< sgt::LogManager >::converters[] = {
-	{"sgt::Object", &luna_wrapper_sgt_LogManager::_cast_from_Object},
 	{0,0}
 };
 

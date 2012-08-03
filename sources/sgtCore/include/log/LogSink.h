@@ -10,7 +10,7 @@ namespace sgt {
 Sink class to handle log records.
 The LogSink class is an abstract class that can handle LogRecord objects with various settings.
 */
-class SGTCORE_EXPORT LogSink : public sgtObject {
+class SGTCORE_EXPORT LogSink : public sgtReferenced {
   public:
 	  /** Definition of a set of strings.*/
 	  typedef std::set<std::string> StringSet;

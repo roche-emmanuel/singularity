@@ -30,7 +30,7 @@ public:
 };
 
 template<>
-class LunaTraits< osg::ref_ptr< osg::Object > > {
+class LunaTraits< osg::CopyOp > {
 public:
     static const char className[];
     static const char fullName[];
@@ -40,10 +40,46 @@ public:
     static const int hash;
     static luna_RegType methods[];
     static luna_RegEnumType enumValues[];
-    static osg::ref_ptr< osg::Object >* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::ref_ptr< osg::Object >* obj);
+    static osg::CopyOp* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::CopyOp* obj);
+    typedef osg::CopyOp parent_t;
+    typedef osg::CopyOp base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Object > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::Object* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::Object* obj);
+    typedef osg::Referenced parent_t;
+    typedef osg::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ref_ptr< osg::Referenced > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::ref_ptr< osg::Referenced >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::ref_ptr< osg::Referenced >* obj);
     typedef sgt::RefPtr parent_t;
-    typedef osg::ref_ptr< osg::Object > base_t;
+    typedef osg::ref_ptr< osg::Referenced > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -60,7 +96,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::Object* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::Object* obj);
-    typedef sgt::Object parent_t;
+    typedef osg::Referenced parent_t;
     typedef sgt::Object base_t;
 	static luna_ConverterType converters[];
 };
@@ -78,7 +114,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::LogSink* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::LogSink* obj);
-    typedef sgt::Object parent_t;
+    typedef sgt::LogSink parent_t;
     typedef sgt::LogSink base_t;
 	static luna_ConverterType converters[];
 };
@@ -96,7 +132,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::FileLogger* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::FileLogger* obj);
-    typedef sgt::Object parent_t;
+    typedef sgt::LogSink parent_t;
     typedef sgt::FileLogger base_t;
 	static luna_ConverterType converters[];
 };
@@ -114,7 +150,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::LogManager* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::LogManager* obj);
-    typedef sgt::Object parent_t;
+    typedef sgt::LogManager parent_t;
     typedef sgt::LogManager base_t;
 	static luna_ConverterType converters[];
 };
@@ -222,7 +258,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::StdLogger* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::StdLogger* obj);
-    typedef sgt::Object parent_t;
+    typedef sgt::LogSink parent_t;
     typedef sgt::StdLogger base_t;
 	static luna_ConverterType converters[];
 };
@@ -236,6 +272,13 @@ public:
 };
 
 template<>
+class LunaType< 27134364 > {
+public:
+    typedef osg::CopyOp type;
+    
+};
+
+template<>
 class LunaType< 32886573 > {
 public:
     typedef sgt::RefPtr type;
@@ -243,9 +286,16 @@ public:
 };
 
 template<>
-class LunaType< 44367388 > {
+class LunaType< 81755923 > {
 public:
-    typedef sgt::Object type;
+    typedef sgt::LogSink type;
+    
+};
+
+template<>
+class LunaType< 36134915 > {
+public:
+    typedef sgt::LogManager type;
     
 };
 

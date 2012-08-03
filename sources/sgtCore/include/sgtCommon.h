@@ -51,7 +51,8 @@
 #define AnyCast boost::any_cast 
 
 typedef osg::CopyOp sgtCopyOp;
-typedef osg::Referenced sgtObjectBase; 
+typedef osg::Referenced sgtReferencedBase; 
+typedef osg::Object sgtObjectBase; // it is assumed that the object base class is derived from sgtReferenced.
 
 // Core definitions and classes:
 namespace sgt {
@@ -90,7 +91,7 @@ typedef UInt16 UShort;
 typedef float Float;
 typedef double Double;
 
-typedef sgtPtr<sgtObjectBase> RefPtr;
+typedef sgtPtr<sgtReferencedBase> RefPtr;
 
 //typedef boost::any Any;
 
@@ -98,6 +99,7 @@ typedef sgtPtr<sgtObjectBase> RefPtr;
 
 typedef sgt::RefPtr sgtRefPtr;
 
+#include "base/Referenced.h"
 #include "base/Object.h"
 #include "base/Exception.h"
 #include "sgtLogging.h"

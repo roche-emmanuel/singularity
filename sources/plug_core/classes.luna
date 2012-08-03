@@ -1,14 +1,16 @@
 module=core
 osg::Referenced => osg::Referenced
-osg::ref_ptr< osg::Object > => sgt::RefPtr
-sgt::Object => sgt::Object
-sgt::LogSink => sgt::Object
-sgt::FileLogger => sgt::Object
-sgt::LogManager => sgt::Object
+osg::CopyOp => osg::CopyOp
+osg::Object => osg::Referenced
+osg::ref_ptr< osg::Referenced > => sgt::RefPtr
+sgt::Object => osg::Referenced
+sgt::LogSink => sgt::LogSink
+sgt::FileLogger => sgt::LogSink
+sgt::LogManager => sgt::LogManager
 std::vector< osg::ref_ptr< sgt::LogSink > > => sgt::LogManager::SinkVector
 std::map< int, int > => sgt::LogManager::LevelFlagMap
 std::map< std::string, int > => sgt::LogManager::TraceFlagMap
 sgt::LogRecord => sgt::LogRecord
 std::set< std::string > => sgt::LogSink::StringSet
-sgt::StdLogger => sgt::Object
+sgt::StdLogger => sgt::LogSink
 

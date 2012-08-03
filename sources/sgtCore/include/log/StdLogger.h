@@ -13,7 +13,6 @@ class SGTCORE_EXPORT StdLogger : public LogSink {
   public:
 	//Object_META_DEF(sgt,StdLogger);
 
-
     /** Constructor 
 	\param name Optional name for this LogSink. If a name is provided, the LogSink can then be retrieved
 	by name from the LogManager.*/
