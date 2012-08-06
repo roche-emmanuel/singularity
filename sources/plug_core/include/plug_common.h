@@ -27,6 +27,8 @@
 
 using namespace sgt;
 
+#include <osg/UserDataContainer>
+
 #include "plug_extensions.h"
 
 #ifdef LUNA_BINDINGS

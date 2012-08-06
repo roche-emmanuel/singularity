@@ -71,4 +71,8 @@ function ReflectionWriter:getModuleName()
 	return self.datamap:getModuleName()
 end
 
+function ReflectionWriter:getLuaOpenName()
+	return self.datamap:getLuaOpenName()
+end
+
 return ReflectionWriter

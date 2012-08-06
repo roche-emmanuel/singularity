@@ -951,6 +951,7 @@ function ReflectionGenerator.generate(options)
     rg:generateReflection(options.xmlpath)
 
     datamap:setModuleName(options.modName)
+	datamap:setLuaOpenName(options.luaOpenName)
 
     datamap:getUserHeaders():fromTable(options.headers or {})
     datamap:getUserContents():fromTable(options.userContent or {})

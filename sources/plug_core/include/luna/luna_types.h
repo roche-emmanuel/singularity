@@ -30,6 +30,96 @@ public:
 };
 
 template<>
+class LunaTraits< osg::Object > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::Object* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::Object* obj);
+    typedef osg::Referenced parent_t;
+    typedef osg::Object base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::DeleteHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::DeleteHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::DeleteHandler* obj);
+    typedef osg::DeleteHandler parent_t;
+    typedef osg::DeleteHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Observer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::Observer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::Observer* obj);
+    typedef osg::Observer parent_t;
+    typedef osg::Observer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::ObserverSet > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::ObserverSet* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::ObserverSet* obj);
+    typedef osg::Referenced parent_t;
+    typedef osg::ObserverSet base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::UserDataContainer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osg::UserDataContainer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::UserDataContainer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osg::UserDataContainer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osg::CopyOp > {
 public:
     static const char className[];
@@ -48,7 +138,7 @@ public:
 };
 
 template<>
-class LunaTraits< osg::Object > {
+class LunaTraits< osg::State > {
 public:
     static const char className[];
     static const char fullName[];
@@ -58,10 +148,10 @@ public:
     static const int hash;
     static luna_RegType methods[];
     static luna_RegEnumType enumValues[];
-    static osg::Object* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::Object* obj);
+    static osg::State* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osg::State* obj);
     typedef osg::Referenced parent_t;
-    typedef osg::Object base_t;
+    typedef osg::State base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -268,6 +358,20 @@ template<>
 class LunaType< 50169651 > {
 public:
     typedef osg::Referenced type;
+    
+};
+
+template<>
+class LunaType< 1576447 > {
+public:
+    typedef osg::DeleteHandler type;
+    
+};
+
+template<>
+class LunaType< 58375525 > {
+public:
+    typedef osg::Observer type;
     
 };
 

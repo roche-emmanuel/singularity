@@ -1,4 +1,3 @@
-local osg = require "osg"
 require "luna"
  -- needed for the core module.
 local log = require "logger"

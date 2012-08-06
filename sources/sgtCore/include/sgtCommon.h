@@ -44,6 +44,10 @@
 #include <osg/ref_ptr>
 #include <osg/observer_ptr>
 #include <osg/Math>
+#include <osgDB/ObjectWrapper>
+#include <osgDB/Registry>
+#include <osgDB/ReadFile>
+#include <osgDB/WriteFile>
 
 // Smart pointers definitions:
 #define sgtPtr osg::ref_ptr

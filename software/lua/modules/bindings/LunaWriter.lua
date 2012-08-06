@@ -798,7 +798,7 @@ function LunaWriter:writeModuleFile()
 	self:writeLine("extern void register_enums(lua_State* L);")
 	self:writeLine("extern void register_global_functions(lua_State* L);")
 	self:newLine()
-	self:writeSubLine("int PLUG_EXPORT luaopen_${1}(lua_State* L) {",mname)
+	self:writeSubLine("int PLUG_EXPORT luaopen_${1}(lua_State* L) {",self:getLuaOpenName())
 	self:pushIndent()
 	
 	-- first open the luna table:

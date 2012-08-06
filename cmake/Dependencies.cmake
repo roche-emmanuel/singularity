@@ -50,9 +50,32 @@ IF(MSVC)
     SET(WX_FLAGS    -D__WXMSW__ -DWXUSINGDLL)
 	
 	SET(OSG_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/include)
-	SET(OSG_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/lib)
-	SET(OSG_LIBS     	ot12-OpenThreads.lib osg80-osg.lib osg80-osgUtil.lib osg80-osgDB.lib osg80-osgGA.lib osg80-osgText.lib osg80-osgViewer.lib  osg80-osgParticle.lib)
-	SET(OSG_FLAGS     	-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC 
+	SET(OSG_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/lib ${DEPS_DIR}/${FLAVOR}/${DEP_OSG}/lib/osgPlugins-3.0.1)
+	SET(OSG_LIBS     	OpenThreads.lib 
+						osg.lib 
+						osgUtil.lib 
+						osgDB.lib 
+						osgGA.lib 
+						osgText.lib 
+						osgViewer.lib  
+						osgParticle.lib
+						
+						# ot12-OpenThreads.lib 
+						# osg80-osg.lib 
+						# osg80-osgUtil.lib 
+						# osg80-osgDB.lib 
+						# osg80-osgGA.lib 
+						# osg80-osgText.lib 
+						# osg80-osgViewer.lib  
+						# osg80-osgParticle.lib 
+						# part for serialization support:
+						# osgdb_osg
+						# osgdb_serializers_osg osgdb_serializers_osgparticle osgdb_serializers_osgtext
+						# osgdb_serializers_osgterrain osgdb_serializers_osganimation osgdb_serializers_osgfx
+						# osgdb_serializers_osgshadow osgdb_serializers_osgmanipulator osgdb_serializers_osgsim
+						# osgdb_serializers_osgvolume
+						)
+	SET(OSG_FLAGS     	) #-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC 
 	
 	SET(IM_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_IM}/include)
 	SET(IM_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_IM})

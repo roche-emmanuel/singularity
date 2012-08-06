@@ -13,10 +13,10 @@
 namespace sgt {
 
 #define Object_META(library,name) \
-        virtual sgt::Object* cloneType() const { return new name (); } \
-        virtual sgt::Object* clone() const { return new name (*this); } \
-        virtual sgt::Object* clone(const sgtCopyOp& copyop) const { return new name (*this,copyop); } \
-        virtual bool isSameKindAs(const sgt::Object* obj) const { return dynamic_cast<const name *>(obj)!=NULL; } \
+        virtual sgtObjectBase* cloneType() const { return new name (); } \
+        virtual sgtObjectBase* clone() const { return new name (*this); } \
+        virtual sgtObjectBase* clone(const sgtCopyOp& copyop) const { return new name (*this,copyop); } \
+        virtual bool isSameKindAs(const sgtObjectBase* obj) const { return dynamic_cast<const name *>(obj)!=NULL; } \
         virtual const char* libraryName() const { return #library; }\
         virtual const char* className() const { return #name; } 
 		//virtual String toString(Bool shortDesc = false) { std::ostringstream os; toStream(os,shortDesc); return os.str(); }
@@ -24,10 +24,10 @@ namespace sgt {
 #define Object_META_DEF(library,name) \
 	name( const name & rhs ) {}; \
 	name( const name & rhs, const sgtCopyOp& copyop ) {}; \
-	virtual sgt::Object* cloneType() const { return new name (); } \
-	virtual sgt::Object* clone() const { return new name (*this); } \
-	virtual sgt::Object* clone(const sgtCopyOp& copyop) const { return new name (*this,copyop); } \
-	virtual bool isSameKindAs(const sgt::Object* obj) const { return dynamic_cast<const name *>(obj)!=NULL; } \
+	virtual sgtObjectBase* cloneType() const { return new name (); } \
+	virtual sgtObjectBase* clone() const { return new name (*this); } \
+	virtual sgtObjectBase* clone(const sgtCopyOp& copyop) const { return new name (*this,copyop); } \
+	virtual bool isSameKindAs(const sgtObjectBase* obj) const { return dynamic_cast<const name *>(obj)!=NULL; } \
 	virtual const char* libraryName() const { return #library; }\
 	virtual const char* className() const { return #name; }
 	//virtual String toString(Bool shortDesc = false) { std::ostringstream os; toStream(os,shortDesc); return os.str(); }
@@ -39,7 +39,9 @@ The Object class will serve as the base object class for all other classes. To s
 class SGTCORE_EXPORT Object : public sgtObjectBase {
 public:
 	Object() {};
-	virtual ~Object() {}; 	
+	virtual ~Object() {}; 
+
+	Object_META_DEF(sgt,Object);
 };
 
 } /* namespace sc */

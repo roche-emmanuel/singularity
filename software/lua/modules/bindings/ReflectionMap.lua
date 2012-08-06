@@ -279,6 +279,14 @@ function RMap:getModuleName()
     return self.moduleName
 end
 
+function RMap:setLuaOpenName(name)
+	self.luaOpenName = name
+end
+
+function RMap:getLuaOpenName()
+	return self.luaOpenName or self:getModuleName()
+end
+
 
 --- Retrieve the set of user headers.
 function RMap:getUserHeaders()
