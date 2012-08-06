@@ -1,6 +1,8 @@
 local oo = require "loop.base"
 
-require "core" -- load the core library.
+require "core"
+
+--local sgt = require "core" -- load the core library.
 
 local Set = require "std.Set"
 
@@ -8,18 +10,18 @@ local Set = require "std.Set"
 local LoggerBase = oo.class{}
 
 local levels = {}
-levels.fatal = core.LogManager.FATAL
-levels.error = core.LogManager.ERROR
-levels.warn = core.LogManager.WARNING
-levels.notice = core.LogManager.NOTICE
-levels.info = core.LogManager.INFO
-levels.debug = core.LogManager.DEBUG0
-levels.debug0 = core.LogManager.DEBUG0
-levels.debug1 = core.LogManager.DEBUG1
-levels.debug2 = core.LogManager.DEBUG2
-levels.debug3 = core.LogManager.DEBUG3
-levels.debug4 = core.LogManager.DEBUG4
-levels.debug5 = core.LogManager.DEBUG5
+levels.fatal = sgt.LogManager.FATAL
+levels.error = sgt.LogManager.ERROR
+levels.warn = sgt.LogManager.WARNING
+levels.notice = sgt.LogManager.NOTICE
+levels.info = sgt.LogManager.INFO
+levels.debug = sgt.LogManager.DEBUG0
+levels.debug0 = sgt.LogManager.DEBUG0
+levels.debug1 = sgt.LogManager.DEBUG1
+levels.debug2 = sgt.LogManager.DEBUG2
+levels.debug3 = sgt.LogManager.DEBUG3
+levels.debug4 = sgt.LogManager.DEBUG4
+levels.debug5 = sgt.LogManager.DEBUG5
 
 LoggerBase.levels = levels
 

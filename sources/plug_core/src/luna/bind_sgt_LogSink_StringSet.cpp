@@ -56,7 +56,7 @@ void LunaTraits< sgt::LogSink::StringSet >::_bind_dtor(sgt::LogSink::StringSet* 
 
 const char LunaTraits< sgt::LogSink::StringSet >::className[] = "StringSet";
 const char LunaTraits< sgt::LogSink::StringSet >::fullName[] = "sgt::LogSink::StringSet";
-const char LunaTraits< sgt::LogSink::StringSet >::moduleName[] = "core";
+const char LunaTraits< sgt::LogSink::StringSet >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogSink::StringSet >::parents[] = {0};
 const int LunaTraits< sgt::LogSink::StringSet >::hash = 59964048;
 const int LunaTraits< sgt::LogSink::StringSet >::uniqueIDs[] = {59964048,0};

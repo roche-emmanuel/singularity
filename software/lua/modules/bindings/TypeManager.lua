@@ -19,8 +19,29 @@ function TypeManager:__init()
     object._externalParents = Map()
     object._externalFuncs = Map()
     object._deleters = Map()
+    -- this is a mapping of the actual root namespace of a class to the lua module that will be used for it.
+    -- if no such mapping is available then
+    -- 1. The class is placed in the default module in case this root namespace is the default namespace.
+    -- 2. The class is placed in the module with the same name as the root namespace otherwise.
+    object._moduleNameMap = Map()  
     object._TRACE_ = "TypeManager"
     return object
+end
+
+function TypeManager:getMappedModuleName(class)
+	-- get the root namespace for this class:
+	local ns = class:getRootNamespace()
+	if not ns then
+		-- this class is in the std default namespace, so we use the default module name.
+		return nil;
+	else 
+		self:info("Found root namespace ", ns:getName(), " for class ", class:getFullName())
+		return self._moduleNameMap:get(ns:getName()) or ns:getName()
+	end
+end
+
+function TypeManager:setMappedModuleName(mname, mapped)
+	self._moduleNameMap:set(mname,mapped)
 end
 
 function TypeManager:registerType(type)

@@ -56,7 +56,7 @@ void LunaTraits< sgt::RefPtr >::_bind_dtor(sgt::RefPtr* obj) {
 
 const char LunaTraits< sgt::RefPtr >::className[] = "RefPtr";
 const char LunaTraits< sgt::RefPtr >::fullName[] = "sgt::RefPtr";
-const char LunaTraits< sgt::RefPtr >::moduleName[] = "core";
+const char LunaTraits< sgt::RefPtr >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::RefPtr >::parents[] = {0};
 const int LunaTraits< sgt::RefPtr >::hash = 32886573;
 const int LunaTraits< sgt::RefPtr >::uniqueIDs[] = {32886573,0};

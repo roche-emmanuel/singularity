@@ -294,7 +294,7 @@ void LunaTraits< sgt::Object >::_bind_dtor(sgt::Object* obj) {
 
 const char LunaTraits< sgt::Object >::className[] = "Object";
 const char LunaTraits< sgt::Object >::fullName[] = "sgt::Object";
-const char LunaTraits< sgt::Object >::moduleName[] = "core";
+const char LunaTraits< sgt::Object >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::Object >::parents[] = {"osg.Object", 0};
 const int LunaTraits< sgt::Object >::hash = 44367388;
 const int LunaTraits< sgt::Object >::uniqueIDs[] = {50169651,0};

@@ -43,6 +43,18 @@ function Class:__init()
     return obj
 end
 
+--- Retrieve the root namespace for this parent
+function Class:getRootNamespace()
+	local prevParent = nil;
+	local parent = self:getParent();
+	while(parent:getName()~="") do
+		prevParent = parent
+		parent = parent:getParent();
+	end
+	
+	return prevParent
+end
+
 function Class:getMappedType()
 	return self.mappedType
 end
@@ -476,7 +488,7 @@ function Class:getDeleter()
 end
 
 function Class:getModule()
-	return self.externalModule or tm:getModule(self)
+	return self.externalModule or tm:getModule(self) or tm:getMappedModuleName(self)
 end
 
 function Class:isExternal()

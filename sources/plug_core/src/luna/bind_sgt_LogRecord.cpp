@@ -73,7 +73,7 @@ void LunaTraits< sgt::LogRecord >::_bind_dtor(sgt::LogRecord* obj) {
 
 const char LunaTraits< sgt::LogRecord >::className[] = "LogRecord";
 const char LunaTraits< sgt::LogRecord >::fullName[] = "sgt::LogRecord";
-const char LunaTraits< sgt::LogRecord >::moduleName[] = "core";
+const char LunaTraits< sgt::LogRecord >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogRecord >::parents[] = {0};
 const int LunaTraits< sgt::LogRecord >::hash = 34788330;
 const int LunaTraits< sgt::LogRecord >::uniqueIDs[] = {34788330,0};

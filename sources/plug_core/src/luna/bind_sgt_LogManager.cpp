@@ -598,7 +598,7 @@ void LunaTraits< sgt::LogManager >::_bind_dtor(sgt::LogManager* obj) {
 
 const char LunaTraits< sgt::LogManager >::className[] = "LogManager";
 const char LunaTraits< sgt::LogManager >::fullName[] = "sgt::LogManager";
-const char LunaTraits< sgt::LogManager >::moduleName[] = "core";
+const char LunaTraits< sgt::LogManager >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogManager >::parents[] = {0};
 const int LunaTraits< sgt::LogManager >::hash = 36134915;
 const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {36134915,0};

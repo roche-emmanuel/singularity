@@ -1,5 +1,7 @@
 local oo = require "loop.cached"
 
+local sgt = require "core"
+
 -- Default logger class
 local LoggerBase = require("logging.LoggerBase")
 
@@ -12,11 +14,11 @@ function DefaultLogger:__init()
 end
 
 local performLog = function(self,level,...)
-	core.doLog(level,self:write(...))
+	sgt.doLog(level,self:write(...))
 end
 
 local performLogV = function(self,level,...)
-	core.doLogV(level,self:write(...))	
+	sgt.doLogV(level,self:write(...))	
 end
 
 for k,v in pairs(LoggerBase.levels) do

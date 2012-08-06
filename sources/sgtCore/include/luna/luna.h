@@ -615,4 +615,7 @@ SGTCORE_EXPORT LunaConverterMap& luna_getConverterMap(std::string baseName);
 SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, std::string baseName, std::string derivedName);
 SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, std::string baseName, std::string derivedName);
 
+SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname);
+SGTCORE_EXPORT int luna_popModule(lua_State* L);
+
 #endif

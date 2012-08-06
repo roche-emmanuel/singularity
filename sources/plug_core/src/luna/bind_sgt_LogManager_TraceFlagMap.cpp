@@ -56,7 +56,7 @@ void LunaTraits< sgt::LogManager::TraceFlagMap >::_bind_dtor(sgt::LogManager::Tr
 
 const char LunaTraits< sgt::LogManager::TraceFlagMap >::className[] = "TraceFlagMap";
 const char LunaTraits< sgt::LogManager::TraceFlagMap >::fullName[] = "sgt::LogManager::TraceFlagMap";
-const char LunaTraits< sgt::LogManager::TraceFlagMap >::moduleName[] = "core";
+const char LunaTraits< sgt::LogManager::TraceFlagMap >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogManager::TraceFlagMap >::parents[] = {0};
 const int LunaTraits< sgt::LogManager::TraceFlagMap >::hash = 65247664;
 const int LunaTraits< sgt::LogManager::TraceFlagMap >::uniqueIDs[] = {65247664,0};

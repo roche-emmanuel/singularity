@@ -56,7 +56,7 @@ void LunaTraits< sgt::LogManager::SinkVector >::_bind_dtor(sgt::LogManager::Sink
 
 const char LunaTraits< sgt::LogManager::SinkVector >::className[] = "SinkVector";
 const char LunaTraits< sgt::LogManager::SinkVector >::fullName[] = "sgt::LogManager::SinkVector";
-const char LunaTraits< sgt::LogManager::SinkVector >::moduleName[] = "core";
+const char LunaTraits< sgt::LogManager::SinkVector >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogManager::SinkVector >::parents[] = {0};
 const int LunaTraits< sgt::LogManager::SinkVector >::hash = 79167517;
 const int LunaTraits< sgt::LogManager::SinkVector >::uniqueIDs[] = {79167517,0};

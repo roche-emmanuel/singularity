@@ -56,7 +56,7 @@ void LunaTraits< sgt::LogManager::LevelFlagMap >::_bind_dtor(sgt::LogManager::Le
 
 const char LunaTraits< sgt::LogManager::LevelFlagMap >::className[] = "LevelFlagMap";
 const char LunaTraits< sgt::LogManager::LevelFlagMap >::fullName[] = "sgt::LogManager::LevelFlagMap";
-const char LunaTraits< sgt::LogManager::LevelFlagMap >::moduleName[] = "core";
+const char LunaTraits< sgt::LogManager::LevelFlagMap >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogManager::LevelFlagMap >::parents[] = {0};
 const int LunaTraits< sgt::LogManager::LevelFlagMap >::hash = 47213589;
 const int LunaTraits< sgt::LogManager::LevelFlagMap >::uniqueIDs[] = {47213589,0};

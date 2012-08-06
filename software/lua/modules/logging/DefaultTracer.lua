@@ -1,5 +1,7 @@
 local oo = require "loop.cached"
 
+local sgt = require "core"
+
 -- Default logger class
 local LoggerBase = require("logging.LoggerBase")
 
@@ -13,17 +15,17 @@ end
 
 local performLog = function(self,level,trace,...)
 	if trace and trace ~= "" then
-		core.doTrace(level,trace,self:write(...))
+		sgt.doTrace(level,trace,self:write(...))
 	else
-		core.doLog(level,self:write(...))
+		sgt.doLog(level,self:write(...))
 	end
 end
 
 local performLogV = function(self,level,trace,...)
 	if trace and trace ~= "" then
-		core.doTraceV(level,trace,self:write(...))
+		sgt.doTraceV(level,trace,self:write(...))
 	else
-		core.doLogV(level,"default",self:write(...))
+		sgt.doLogV(level,"default",self:write(...))
 	end	
 end
 

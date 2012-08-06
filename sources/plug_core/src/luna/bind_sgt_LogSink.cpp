@@ -248,7 +248,7 @@ void LunaTraits< sgt::LogSink >::_bind_dtor(sgt::LogSink* obj) {
 
 const char LunaTraits< sgt::LogSink >::className[] = "LogSink";
 const char LunaTraits< sgt::LogSink >::fullName[] = "sgt::LogSink";
-const char LunaTraits< sgt::LogSink >::moduleName[] = "core";
+const char LunaTraits< sgt::LogSink >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::LogSink >::parents[] = {0};
 const int LunaTraits< sgt::LogSink >::hash = 81755923;
 const int LunaTraits< sgt::LogSink >::uniqueIDs[] = {81755923,0};

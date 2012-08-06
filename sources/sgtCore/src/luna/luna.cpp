@@ -210,3 +210,34 @@ int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, std::string bas
 	return it->second(L); // apply the conversion.
 }
 
+int luna_pushModule(lua_State* L, const std::string& mname) {
+	// retrieve the module by name:
+	//lua_pushstring(L, mname.c_str());    // push key
+	//lua_rawget(L, LUA_REGISTRYINDEX);                   // pop key, push value (table)
+
+	lua_getglobal(L,mname.c_str());
+
+	if(lua_isnil(L,-1)) {
+		trINFO("Luna","Creating module "<<mname);
+		lua_pop(L,1);
+		//lua_pushstring(L, mname.c_str());    // push key
+		lua_newtable(L);
+		lua_pushstring(L,mname.c_str());
+		lua_setfield(L,-2,"__NAME__");
+
+		lua_setglobal(L,mname.c_str());
+		lua_getglobal(L,mname.c_str());
+
+		/*lua_rawset(L, LUA_REGISTRYINDEX);                   // pop key, push value (table)
+
+		lua_pushstring(L, mname.c_str());    // push key
+		lua_rawget(L, LUA_REGISTRYINDEX);                   // pop key, push value (table)
+		*/
+	}
+	return 1;
+}
+
+int luna_popModule(lua_State* L) {
+	lua_pop(L,1);
+	return 0;
+}

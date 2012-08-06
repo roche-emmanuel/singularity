@@ -206,8 +206,8 @@ void LunaTraits< sgt::FileLogger >::_bind_dtor(sgt::FileLogger* obj) {
 
 const char LunaTraits< sgt::FileLogger >::className[] = "FileLogger";
 const char LunaTraits< sgt::FileLogger >::fullName[] = "sgt::FileLogger";
-const char LunaTraits< sgt::FileLogger >::moduleName[] = "core";
-const char* LunaTraits< sgt::FileLogger >::parents[] = {"core.LogSink", 0};
+const char LunaTraits< sgt::FileLogger >::moduleName[] = "sgt";
+const char* LunaTraits< sgt::FileLogger >::parents[] = {"sgt.LogSink", 0};
 const int LunaTraits< sgt::FileLogger >::hash = 37776665;
 const int LunaTraits< sgt::FileLogger >::uniqueIDs[] = {81755923,0};
 
