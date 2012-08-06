@@ -17,6 +17,10 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< void >::Register(L);
 	luna_popModule(L);
 
+	luna_pushModule(L,"osg");
+	Luna< osg::Referenced >::Register(L);
+	Luna< osg::Object >::Register(L);
+	luna_popModule(L);
 	luna_pushModule(L,"sgt");
 	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
 	Luna< sgt::Object >::Register(L);
@@ -41,6 +45,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_popModule(L);
 
+	luna_copyParents(L,"osg");
 	luna_copyParents(L,"sgt");
 
 	luna_pushModule(L,"sgt");

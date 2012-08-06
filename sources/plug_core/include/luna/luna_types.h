@@ -3,6 +3,8 @@
 
 #include <plug_common.h>
 
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
 #include <sgtCommon.h>
 #include <base/Object.h>
 #include <log/LogSink.h>

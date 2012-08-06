@@ -63,7 +63,7 @@ public:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58481028)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -186,25 +186,25 @@ public:
 		return 1;
 	}
 
-	// osg::Object * sgt::Object::clone(const osg::CopyOp & copyop) const
+	// osg::Object * sgt::Object::clone(const osg::CopyOp & ) const
 	static int _bind_clone_overload_2(lua_State *L) {
 		if (!_lg_typecheck_clone_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * sgt::Object::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * sgt::Object::clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * sgt::Object::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * sgt::Object::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
-		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
-		if( !copyop_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg copyop in sgt::Object::clone function");
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in sgt::Object::clone function");
 		}
-		const osg::CopyOp & copyop=*copyop_ptr;
+		const osg::CopyOp & _arg1=*_arg1_ptr;
 
 		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone(const osg::CopyOp &) const");
 		}
-		osg::Object * lret = self->clone(copyop);
+		osg::Object * lret = self->clone(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osg::Object >::push(L,lret,false);
@@ -225,7 +225,7 @@ public:
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool sgt::Object::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool sgt::Object::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 58481028\n");
+			luaL_error(L, "luna typecheck failed in bool sgt::Object::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool sgt::Object::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));

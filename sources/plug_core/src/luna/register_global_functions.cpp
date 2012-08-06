@@ -1,5 +1,6 @@
 #include <plug_common.h>
 
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
 
 // Function checkers:
 inline static bool _lg_typecheck_doLog(lua_State *L) {
@@ -101,6 +102,52 @@ static int _bind_doTraceV(lua_State *L) {
 }
 
 
+// Function checkers:
+inline static bool _lg_typecheck_intrusive_ptr_add_ref(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_intrusive_ptr_release(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+	return true;
+}
+
+
+// Function binds:
+// void osg::intrusive_ptr_add_ref(osg::Referenced * p)
+static int _bind_intrusive_ptr_add_ref(lua_State *L) {
+	if (!_lg_typecheck_intrusive_ptr_add_ref(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_add_ref(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_add_ref(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+	}
+
+	osg::Referenced* p=(Luna< osg::Referenced >::check(L,1));
+
+	intrusive_ptr_add_ref(p);
+
+	return 0;
+}
+
+// void osg::intrusive_ptr_release(osg::Referenced * p)
+static int _bind_intrusive_ptr_release(lua_State *L) {
+	if (!_lg_typecheck_intrusive_ptr_release(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in void osg::intrusive_ptr_release(osg::Referenced * p) function, expected prototype:\nvoid osg::intrusive_ptr_release(osg::Referenced * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+	}
+
+	osg::Referenced* p=(Luna< osg::Referenced >::check(L,1));
+
+	intrusive_ptr_release(p);
+
+	return 0;
+}
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -110,6 +157,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	lua_pushcfunction(L, _bind_intrusive_ptr_add_ref); lua_setfield(L,-2,"intrusive_ptr_add_ref");
+	lua_pushcfunction(L, _bind_intrusive_ptr_release); lua_setfield(L,-2,"intrusive_ptr_release");
 }
 
 #ifdef __cplusplus

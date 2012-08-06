@@ -1,4 +1,6 @@
 module=sgt
+osg::Referenced => osg::Referenced
+osg::Object => osg::Referenced
 osg::ref_ptr< osg::Referenced > => sgt::RefPtr
 sgt::Object => osg::Referenced
 sgt::LogSink => sgt::LogSink

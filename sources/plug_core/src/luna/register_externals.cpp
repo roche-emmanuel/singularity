@@ -1,17 +1,5 @@
 #include <plug_common.h>
 
-const char LunaTraits< osg::Referenced >::className[] = "Referenced";
-const char LunaTraits< osg::Referenced >::fullName[] = "osg::Referenced";
-const char LunaTraits< osg::Referenced >::moduleName[] = "osg";
-const int LunaTraits< osg::Referenced >::hash = 50169651;
-const int LunaTraits< osg::Referenced >::uniqueIDs[] = {50169651,0};
-
-const char LunaTraits< osg::Object >::className[] = "Object";
-const char LunaTraits< osg::Object >::fullName[] = "osg::Object";
-const char LunaTraits< osg::Object >::moduleName[] = "osg";
-const int LunaTraits< osg::Object >::hash = 58481028;
-const int LunaTraits< osg::Object >::uniqueIDs[] = {58481028,0};
-
 const char LunaTraits< osg::DeleteHandler >::className[] = "DeleteHandler";
 const char LunaTraits< osg::DeleteHandler >::fullName[] = "osg::DeleteHandler";
 const char LunaTraits< osg::DeleteHandler >::moduleName[] = "osg";

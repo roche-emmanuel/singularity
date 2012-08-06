@@ -20,7 +20,7 @@ end
 package.cpath = package.cpath..";".. root_path .. "bin/".. flavor .."/modules/?.sgp;".. root_path .. "bin/".. flavor .."/libraries/?.".. shared_ext
 package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path .. "lua/libraries/?.lua"
 
-osg = require "osg"
+--osg = require "osg"
 
 log = require "logger" 
 

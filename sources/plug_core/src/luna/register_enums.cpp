@@ -1,3 +1,4 @@
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
 #include <log/LogManager.h>
 
 #include <plug_common.h>
@@ -7,6 +8,19 @@ extern "C" {
 #endif
 
 void register_enums(lua_State* L) {
+	lua_newtable(L); // enum DataVariance
+
+	lua_pushnumber(L,osg::Object::DYNAMIC); lua_setfield(L,-2,"DYNAMIC");
+	lua_pushnumber(L,osg::Object::STATIC); lua_setfield(L,-2,"STATIC");
+	lua_pushnumber(L,osg::Object::UNSPECIFIED); lua_setfield(L,-2,"UNSPECIFIED");
+
+	lua_setfield(L,-2,"DataVariance");
+
+	lua_pushnumber(L,osg::Object::DYNAMIC); lua_setfield(L,-2,"DYNAMIC");
+	lua_pushnumber(L,osg::Object::STATIC); lua_setfield(L,-2,"STATIC");
+	lua_pushnumber(L,osg::Object::UNSPECIFIED); lua_setfield(L,-2,"UNSPECIFIED");
+
+
 	lua_newtable(L); // enum Flags
 
 	lua_pushnumber(L,sgt::LogManager::FILE_NAME); lua_setfield(L,-2,"FILE_NAME");
