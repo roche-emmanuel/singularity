@@ -10,7 +10,7 @@ function test_file_serialization()
 	log:info("Tests","Doing serialization test...")
 	
 	-- create a new sgt object:
-	local obj = osg.Node()
+	local obj = sgt.Object()
 	obj:setName("testObject")
 	
 	--local rw = osgDB.Registry.instance():getReaderWriterForExtension("osgt")
