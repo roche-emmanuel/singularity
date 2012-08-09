@@ -1,40 +1,43 @@
 #include <plug_common.h>
 
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Version>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Version>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/Version>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Version>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLExtensions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLObjects>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLU>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Math>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Archive>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ConvertUTF>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileNameUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ObjectWrapper>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/PluginQuery>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReadFile>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/WriteFile>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
+#include <osg/GL>
+#include <osg/Version>
+#include <osgDB/Version>
+#include <osgGA/Version>
+#include <osgText/Version>
+#include <osgUtil/Version>
+#include <osg/Endian>
+#include <osg/Geometry>
+#include <osg/GLExtensions>
+#include <osg/GLObjects>
+#include <osg/GLU>
+#include <osg/Image>
+#include <osg/ImageUtils>
+#include <osg/Math>
+#include <osg/Notify>
+#include <osg/StateSet>
+#include <osg/Transform>
+#include <osg/Vec2d>
+#include <osg/Vec2f>
+#include <osg/Vec2s>
+#include <osg/Vec3d>
+#include <osg/Vec3f>
+#include <osg/Vec3s>
+#include <osg/Vec4d>
+#include <osg/Vec4f>
+#include <osg/Vec4s>
+#include <osgDB/Archive>
+#include <osgDB/ConvertUTF>
+#include <osgDB/FileNameUtils>
+#include <osgDB/FileUtils>
+#include <osgDB/ObjectWrapper>
+#include <osgDB/PluginQuery>
+#include <osgDB/ReadFile>
+#include <osgDB/Registry>
+#include <osgDB/WriteFile>
+#include <osgDB/XmlParser>
+#include <osgText/Font>
+#include <osgText/Font3D>
 
 // Function checkers:
 inline static bool _lg_typecheck_glLoadMatrix_overload_1(lua_State *L) {
@@ -102,6 +105,18 @@ inline static bool _lg_typecheck_osgGAGetVersion(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_osgGAGetLibraryName(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgTextGetVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgTextGetLibraryName(lua_State *L) {
 	if( lua_gettop(L)!=0 ) return false;
 
 	return true;
@@ -288,6 +303,34 @@ static int _bind_osgGAGetLibraryName(lua_State *L) {
 
 
 	const char * lret = osgGAGetLibraryName();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgTextGetVersion()
+static int _bind_osgTextGetVersion(lua_State *L) {
+	if (!_lg_typecheck_osgTextGetVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgTextGetVersion() function, expected prototype:\nconst char * osgTextGetVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgTextGetVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgTextGetLibraryName()
+static int _bind_osgTextGetLibraryName(lua_State *L) {
+	if (!_lg_typecheck_osgTextGetLibraryName(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgTextGetLibraryName() function, expected prototype:\nconst char * osgTextGetLibraryName()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgTextGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -5557,6 +5600,166 @@ static int _bind_trimEnclosingSpaces(lua_State *L) {
 // Function binds:
 
 // Function checkers:
+inline static bool _lg_typecheck_readFontFile(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readRefFontFile(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_findFontFile(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readFont3DFile(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readRefFont3DFile(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_findFont3DFile(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( lua_isstring(L,1)==0 ) return false;
+	return true;
+}
+
+
+// Function binds:
+// osgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)
+static int _bind_readFontFile(lua_State *L) {
+	if (!_lg_typecheck_readFontFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
+	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+
+	osgText::Font * lret = readFontFile(filename, userOptions);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgText::Font >::push(L,lret,false);
+
+	return 1;
+}
+
+// osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)
+static int _bind_readRefFontFile(lua_State *L) {
+	if (!_lg_typecheck_readRefFontFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
+	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+
+	osg::ref_ptr< osgText::Font > lret = readRefFontFile(filename, userOptions);
+	Luna< osgText::Font >::push(L,lret.get(),false);
+
+	return 1;
+}
+
+// std::string osgText::findFontFile(const std::string & str)
+static int _bind_findFontFile(lua_State *L) {
+	if (!_lg_typecheck_findFontFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in std::string osgText::findFontFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFontFile(const std::string & str)\nClass arguments details:\n");
+	}
+
+	std::string str(lua_tostring(L,1),lua_objlen(L,1));
+
+	std::string lret = findFontFile(str);
+	lua_pushlstring(L,lret.data(),lret.size());
+
+	return 1;
+}
+
+// osgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)
+static int _bind_readFont3DFile(lua_State *L) {
+	if (!_lg_typecheck_readFont3DFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
+	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+
+	osgText::Font * lret = readFont3DFile(filename, userOptions);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgText::Font >::push(L,lret,false);
+
+	return 1;
+}
+
+// osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)
+static int _bind_readRefFont3DFile(lua_State *L) {
+	if (!_lg_typecheck_readRefFont3DFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
+	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+
+	osg::ref_ptr< osgText::Font > lret = readRefFont3DFile(filename, userOptions);
+	Luna< osgText::Font >::push(L,lret.get(),false);
+
+	return 1;
+}
+
+// std::string osgText::findFont3DFile(const std::string & str)
+static int _bind_findFont3DFile(lua_State *L) {
+	if (!_lg_typecheck_findFont3DFile(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in std::string osgText::findFont3DFile(const std::string & str) function, expected prototype:\nstd::string osgText::findFont3DFile(const std::string & str)\nClass arguments details:\n");
+	}
+
+	std::string str(lua_tostring(L,1),lua_objlen(L,1));
+
+	std::string lret = findFont3DFile(str);
+	lua_pushlstring(L,lret.data(),lret.size());
+
+	return 1;
+}
+
+
+// Function checkers:
 
 // Function binds:
 
@@ -5574,6 +5777,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_osgDBGetLibraryName); lua_setfield(L,-2,"osgDBGetLibraryName");
 	lua_pushcfunction(L, _bind_osgGAGetVersion); lua_setfield(L,-2,"osgGAGetVersion");
 	lua_pushcfunction(L, _bind_osgGAGetLibraryName); lua_setfield(L,-2,"osgGAGetLibraryName");
+	lua_pushcfunction(L, _bind_osgTextGetVersion); lua_setfield(L,-2,"osgTextGetVersion");
+	lua_pushcfunction(L, _bind_osgTextGetLibraryName); lua_setfield(L,-2,"osgTextGetLibraryName");
 	lua_pushcfunction(L, _bind_osgUtilGetVersion); lua_setfield(L,-2,"osgUtilGetVersion");
 	lua_pushcfunction(L, _bind_osgUtilGetLibraryName); lua_setfield(L,-2,"osgUtilGetLibraryName");
 	lua_pushcfunction(L, _bind_getCpuByteOrder); lua_setfield(L,-2,"getCpuByteOrder");
@@ -5708,6 +5913,12 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_writeShaderFile); lua_setfield(L,-2,"writeShaderFile");
 	lua_pushcfunction(L, _bind_readXmlFile); lua_setfield(L,-2,"readXmlFile");
 	lua_pushcfunction(L, _bind_trimEnclosingSpaces); lua_setfield(L,-2,"trimEnclosingSpaces");
+	lua_pushcfunction(L, _bind_readFontFile); lua_setfield(L,-2,"readFontFile");
+	lua_pushcfunction(L, _bind_readRefFontFile); lua_setfield(L,-2,"readRefFontFile");
+	lua_pushcfunction(L, _bind_findFontFile); lua_setfield(L,-2,"findFontFile");
+	lua_pushcfunction(L, _bind_readFont3DFile); lua_setfield(L,-2,"readFont3DFile");
+	lua_pushcfunction(L, _bind_readRefFont3DFile); lua_setfield(L,-2,"readRefFont3DFile");
+	lua_pushcfunction(L, _bind_findFont3DFile); lua_setfield(L,-2,"findFont3DFile");
 }
 
 #ifdef __cplusplus

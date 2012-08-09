@@ -124,9 +124,11 @@ end
 
 function ReflectionGenerator:getHeaderFileName(location)
 	for k,prefix in self.locationPrefixes:sequence() do
-		--log:warn("Checking location against prefix ", prefix)
+		--log:warn("Checking location=",location," against prefix=", prefix)
 		if location:find(prefix) then
-			location = location:sub(#prefix+1)
+			local loc = location:gsub(prefix,"") 
+			--log:warn("Checking location=",location," against prefix=", prefix," extracted=",loc)
+			return loc
 		end
 	end
 	

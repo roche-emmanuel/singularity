@@ -3,249 +3,259 @@
 
 #include <plug_common.h>
 
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Array>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingBox>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingSphere>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsCostEstimator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Group>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Node>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ObserverNodePath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PrimitiveSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderComposer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadowVolumeOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ValueObject>
-#include <W:/Shared/Dev/Projects/singularity/sources/plug_osg/include/plug_extensions.h>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArrayDispatchers>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AudioStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AutoTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Billboard>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendEquation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferIndexBinding>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullSettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClampColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClearNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipPlane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClusterCullingCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullStack>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CollectOccludersVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMask>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMatrix>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ComputeBoundsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarPolygon>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CoordinateSystemNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CopyOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullingSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DeleteHandler>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Depth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DisplaySettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DrawPixels>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FragmentProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameStamp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrontFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL2Extensions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLBeginEndAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLU>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsContext>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OperationThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Hint>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttributeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageSequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shape>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/KdTree>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Light>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineSegment>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineWidth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LogicOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Material>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixd>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixf>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/MatrixTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeTrackerCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Observer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OccluderNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OcclusionQueryNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PagedLOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Plane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Point>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PointSprite>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonMode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonOffset>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Polytope>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PositionAttitudeTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Program>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Projection>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ProxyNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Quat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/RenderInfo>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Scissor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Sequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadeModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shader>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShapeDrawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stats>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StencilTwoSided>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Switch>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvFilter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGenNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexMat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture1D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DArray>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DMultisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture3D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureRectangle>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Timer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TransferFunction>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/UserDataContainer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/VertexProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Viewport>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ObjectWrapper>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/PluginQuery>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReaderWriter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Archive>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/AuthenticationMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabasePager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabaseRevisions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DataTypes>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DotOsgWrapper>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DynamicLibrary>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ExternalFileWriter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileCache>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/fstream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageOptions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImagePager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageProcessor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Input>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ParameterOutput>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Serializer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/StreamOperator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventHandler>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/AnimationPathManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraViewSwitchManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/DriveManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventQueue>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StandardManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FirstPersonManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FlightManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIActionAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/KeySwitchMatrixManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/OrbitManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TrackballManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/MultiTouchTrackballManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/NodeTrackerManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/SphericalManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StateSetManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TerrainManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/UFOManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CubeMapGenerator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CullVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DelaunayTriangulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DisplayRequirementsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DrawElementTypeSimplifier>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/EdgeCollector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HalfWayMapGenerator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HighlightMapGenerator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IncrementalCompileOperation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/LineSegmentIntersector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/MeshOptimizers>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/OperationArrayFunctor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PlaneIntersector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PolytopeIntersector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PositionalStateContainer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PrintVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ReflectionMapGenerator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderBin>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderLeaf>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderStage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneGraphBuilder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ShaderGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Simplifier>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SmoothingVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/StateGraph>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TangentSpaceGenerator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TransformCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TriStripVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/UpdateVisitor>
+#include <osg/Array>
+#include <osg/BoundingBox>
+#include <osg/BoundingSphere>
+#include <osg/BufferObject>
+#include <osg/GraphicsCostEstimator>
+#include <osg/Group>
+#include <osg/ImageUtils>
+#include <osg/Node>
+#include <osg/ObserverNodePath>
+#include <osg/PrimitiveSet>
+#include <osg/ShaderComposer>
+#include <osg/ShadowVolumeOccluder>
+#include <osg/ValueObject>
+#include <plug_extensions.h>
+#include <osg/Referenced>
+#include <osg/Object>
+#include <osg/StateAttribute>
+#include <osg/AlphaFunc>
+#include <osg/AnimationPath>
+#include <osg/NodeCallback>
+#include <osg/ApplicationUsage>
+#include <osg/ArgumentParser>
+#include <osg/ArrayDispatchers>
+#include <osg/AudioStream>
+#include <osg/Transform>
+#include <osg/AutoTransform>
+#include <osg/Geode>
+#include <osg/Billboard>
+#include <osg/BlendColor>
+#include <osg/BlendEquation>
+#include <osg/BlendFunc>
+#include <osg/BufferIndexBinding>
+#include <osg/CullSettings>
+#include <osg/Camera>
+#include <osg/CameraView>
+#include <osg/ClampColor>
+#include <osg/ClearNode>
+#include <osg/ClipNode>
+#include <osg/ClipPlane>
+#include <osg/Drawable>
+#include <osg/ClusterCullingCallback>
+#include <osg/CullStack>
+#include <osg/NodeVisitor>
+#include <osg/CollectOccludersVisitor>
+#include <osg/ColorMask>
+#include <osg/ColorMatrix>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/ConvexPlanarOccluder>
+#include <osg/ConvexPlanarPolygon>
+#include <osg/CoordinateSystemNode>
+#include <osg/CopyOp>
+#include <osg/CullFace>
+#include <osg/CullingSet>
+#include <osg/DeleteHandler>
+#include <osg/Depth>
+#include <osg/DisplaySettings>
+#include <osg/DrawPixels>
+#include <osg/Fog>
+#include <osg/FragmentProgram>
+#include <osg/FrameBufferObject>
+#include <osg/FrameStamp>
+#include <osg/FrontFace>
+#include <osg/Geometry>
+#include <osg/GL2Extensions>
+#include <osg/GLBeginEndAdapter>
+#include <osg/GLU>
+#include <osg/GraphicsContext>
+#include <osg/OperationThread>
+#include <osg/GraphicsThread>
+#include <osg/State>
+#include <osg/Hint>
+#include <osg/Image>
+#include <osg/StateAttributeCallback>
+#include <osg/ImageStream>
+#include <osg/ImageSequence>
+#include <osg/Shape>
+#include <osg/KdTree>
+#include <osg/Light>
+#include <osg/LightModel>
+#include <osg/LightSource>
+#include <osg/LineSegment>
+#include <osg/LineStipple>
+#include <osg/LineWidth>
+#include <osg/LOD>
+#include <osg/LogicOp>
+#include <osg/Material>
+#include <osg/Matrixd>
+#include <osg/Matrixf>
+#include <osg/MatrixTransform>
+#include <osg/Multisample>
+#include <osg/NodeTrackerCallback>
+#include <osg/Notify>
+#include <osg/Observer>
+#include <osg/OccluderNode>
+#include <osg/OcclusionQueryNode>
+#include <osg/PagedLOD>
+#include <osg/Plane>
+#include <osg/Point>
+#include <osg/PointSprite>
+#include <osg/PolygonMode>
+#include <osg/PolygonOffset>
+#include <osg/PolygonStipple>
+#include <osg/Polytope>
+#include <osg/PositionAttitudeTransform>
+#include <osg/Program>
+#include <osg/Projection>
+#include <osg/ProxyNode>
+#include <osg/Quat>
+#include <osg/RenderInfo>
+#include <osg/Scissor>
+#include <osg/Sequence>
+#include <osg/ShadeModel>
+#include <osg/Shader>
+#include <osg/ShaderAttribute>
+#include <osg/ShapeDrawable>
+#include <osg/StateSet>
+#include <osg/Stats>
+#include <osg/Stencil>
+#include <osg/StencilTwoSided>
+#include <osg/Switch>
+#include <osg/TexEnv>
+#include <osg/TexEnvCombine>
+#include <osg/TexEnvFilter>
+#include <osg/TexGen>
+#include <osg/TexGenNode>
+#include <osg/TexMat>
+#include <osg/Texture>
+#include <osg/Texture1D>
+#include <osg/Texture2D>
+#include <osg/Texture2DArray>
+#include <osg/Texture2DMultisample>
+#include <osg/Texture3D>
+#include <osg/TextureCubeMap>
+#include <osg/TextureRectangle>
+#include <osg/Timer>
+#include <osg/TransferFunction>
+#include <osg/Uniform>
+#include <osg/UserDataContainer>
+#include <osg/Vec2b>
+#include <osg/Vec2d>
+#include <osg/Vec2f>
+#include <osg/Vec2s>
+#include <osg/Vec3b>
+#include <osg/Vec3d>
+#include <osg/Vec3f>
+#include <osg/Vec3s>
+#include <osg/Vec4b>
+#include <osg/Vec4d>
+#include <osg/Vec4f>
+#include <osg/Vec4s>
+#include <osg/Vec4ub>
+#include <osg/VertexProgram>
+#include <osg/View>
+#include <osg/Viewport>
+#include <osgDB/Callbacks>
+#include <osgDB/FileUtils>
+#include <osgDB/ObjectWrapper>
+#include <osgDB/PluginQuery>
+#include <osgDB/ReaderWriter>
+#include <osgDB/Archive>
+#include <osgDB/AuthenticationMap>
+#include <osgDB/DatabasePager>
+#include <osgDB/DatabaseRevisions>
+#include <osgDB/DataTypes>
+#include <osgDB/DotOsgWrapper>
+#include <osgDB/DynamicLibrary>
+#include <osgDB/ExternalFileWriter>
+#include <osgDB/FileCache>
+#include <osgDB/fstream>
+#include <osgDB/Options>
+#include <osgDB/ImageOptions>
+#include <osgDB/ImagePager>
+#include <osgDB/ImageProcessor>
+#include <osgDB/Input>
+#include <osgDB/Output>
+#include <osgDB/OutputStream>
+#include <osgDB/ParameterOutput>
+#include <osgDB/Registry>
+#include <osgDB/Serializer>
+#include <osgDB/SharedStateManager>
+#include <osgDB/StreamOperator>
+#include <osgDB/XmlParser>
+#include <osgGA/GUIEventHandler>
+#include <osgGA/CameraManipulator>
+#include <osgGA/AnimationPathManipulator>
+#include <osgGA/CameraViewSwitchManipulator>
+#include <osgGA/DriveManipulator>
+#include <osgGA/EventQueue>
+#include <osgGA/EventVisitor>
+#include <osgGA/StandardManipulator>
+#include <osgGA/FirstPersonManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/GUIActionAdapter>
+#include <osgGA/GUIEventAdapter>
+#include <osgGA/KeySwitchMatrixManipulator>
+#include <osgGA/OrbitManipulator>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/MultiTouchTrackballManipulator>
+#include <osgGA/NodeTrackerManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgGA/StateSetManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgGA/UFOManipulator>
+#include <osgText/KerningType>
+#include <osgText/TextBase>
+#include <osgText/Text>
+#include <osgText/FadeText>
+#include <osgText/Font>
+#include <osgText/Glyph>
+#include <osgText/String>
+#include <osgText/Style>
+#include <osgText/Text3D>
+#include <osgUtil/CubeMapGenerator>
+#include <osgUtil/CullVisitor>
+#include <osgUtil/DelaunayTriangulator>
+#include <osgUtil/DisplayRequirementsVisitor>
+#include <osgUtil/DrawElementTypeSimplifier>
+#include <osgUtil/EdgeCollector>
+#include <osgUtil/GLObjectsVisitor>
+#include <osgUtil/HalfWayMapGenerator>
+#include <osgUtil/HighlightMapGenerator>
+#include <osgUtil/IncrementalCompileOperation>
+#include <osgUtil/IntersectionVisitor>
+#include <osgUtil/IntersectVisitor>
+#include <osgUtil/LineSegmentIntersector>
+#include <osgUtil/Optimizer>
+#include <osgUtil/MeshOptimizers>
+#include <osgUtil/OperationArrayFunctor>
+#include <osgUtil/PlaneIntersector>
+#include <osgUtil/PolytopeIntersector>
+#include <osgUtil/PositionalStateContainer>
+#include <osgUtil/PrintVisitor>
+#include <osgUtil/ReflectionMapGenerator>
+#include <osgUtil/RenderBin>
+#include <osgUtil/RenderLeaf>
+#include <osgUtil/RenderStage>
+#include <osgUtil/SceneGraphBuilder>
+#include <osgUtil/SceneView>
+#include <osgUtil/ShaderGen>
+#include <osgUtil/Simplifier>
+#include <osgUtil/SmoothingVisitor>
+#include <osgUtil/StateGraph>
+#include <osgUtil/Statistics>
+#include <osgUtil/TangentSpaceGenerator>
+#include <osgUtil/Tessellator>
+#include <osgUtil/TransformCallback>
+#include <osgUtil/TriStripVisitor>
+#include <osgUtil/UpdateVisitor>
 
 using namespace osg;
 using namespace osgUtil;
 using namespace osgDB;
+using namespace osgText;
 
 template<>
 class LunaTraits< GLUtesselator > {
@@ -10094,6 +10104,366 @@ public:
 };
 
 template<>
+class LunaTraits< std::pair< unsigned int, unsigned int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::pair< unsigned int, unsigned int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::pair< unsigned int, unsigned int >* obj);
+    typedef osgText::FontResolution parent_t;
+    typedef std::pair< unsigned int, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::TextBase > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::TextBase* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::TextBase* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::TextBase base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Text > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Text* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Text* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Text base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::FadeText > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::FadeText* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::FadeText* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::FadeText base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Font > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Font* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Font* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Font base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgText::GlyphTexture > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgText::GlyphTexture > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgText::GlyphTexture > >* obj);
+    typedef osgText::Font::GlyphTextureList parent_t;
+    typedef std::vector< osg::ref_ptr< osgText::GlyphTexture > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Font::FontImplementation > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Font::FontImplementation* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Font::FontImplementation* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Font::FontImplementation base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Glyph > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Glyph* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Glyph* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Glyph base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::GlyphGeometry > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::GlyphGeometry* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::GlyphGeometry* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::GlyphGeometry base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Glyph3D > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Glyph3D* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Glyph3D* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Glyph3D base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::GlyphTexture > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::GlyphTexture* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::GlyphTexture* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::GlyphTexture base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::String > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::String* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::String* obj);
+    typedef osgText::String parent_t;
+    typedef osgText::String base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Bevel > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Bevel* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Bevel* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Bevel base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::Vec2f > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::Vec2f >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::Vec2f >* obj);
+    typedef osgText::Bevel::Vertices parent_t;
+    typedef std::vector< osg::Vec2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Style > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Style* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Style* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Style base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads >* obj);
+    typedef osgText::Text::TextureGlyphQuadMap parent_t;
+    typedef std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Text::GlyphQuads > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Text::GlyphQuads* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Text::GlyphQuads* obj);
+    typedef osgText::Text::GlyphQuads parent_t;
+    typedef osgText::Text::GlyphQuads base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgText::Glyph * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgText::Glyph * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgText::Glyph * >* obj);
+    typedef osgText::Text::GlyphQuads::Glyphs parent_t;
+    typedef std::vector< osgText::Glyph * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::Vec4f > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::Vec4f >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::Vec4f >* obj);
+    typedef osgText::Text::GlyphQuads::ColorCoords parent_t;
+    typedef std::vector< osg::Vec4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgText::Text3D > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgText::Text3D* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgText::Text3D* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgText::Text3D base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osgUtil::CubeMapGenerator > {
 public:
     static const char className[];
@@ -11926,24 +12296,6 @@ public:
     static void _bind_dtor(osgUtil::Statistics* obj);
     typedef osgUtil::Statistics parent_t;
     typedef osgUtil::Statistics base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< std::pair< unsigned int, unsigned int > > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static std::pair< unsigned int, unsigned int >* _bind_ctor(lua_State *L);
-    static void _bind_dtor(std::pair< unsigned int, unsigned int >* obj);
-    typedef osgUtil::Statistics::PrimitivePair parent_t;
-    typedef std::pair< unsigned int, unsigned int > base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -14123,6 +14475,90 @@ public:
 };
 
 template<>
+class LunaType< 17799265 > {
+public:
+    typedef osgText::FontResolution type;
+    
+};
+
+template<>
+class LunaType< 5080884 > {
+public:
+    typedef osgText::Font::GlyphTextureList type;
+    
+};
+
+template<>
+class LunaType< 42086333 > {
+public:
+    typedef osgText::String type;
+    
+};
+
+template<>
+class LunaType< 78061823 > {
+public:
+    typedef osgText::Bevel::Vertices type;
+    
+};
+
+template<>
+class LunaType< 48619134 > {
+public:
+    typedef osgText::Text::TextureGlyphQuadMap type;
+    
+};
+
+template<>
+class LunaType< 89190250 > {
+public:
+    typedef osgText::Text::GlyphQuads type;
+    
+};
+
+template<>
+class LunaType< 3878690 > {
+public:
+    typedef osgText::Text::GlyphQuads::Glyphs type;
+    
+};
+
+template<>
+class LunaType< 43001465 > {
+public:
+    typedef osgText::Text::GlyphQuads::LineNumbers type;
+    
+};
+
+template<>
+class LunaType< 46933791 > {
+public:
+    typedef osgText::Text::GlyphQuads::Coords2 type;
+    
+};
+
+template<>
+class LunaType< 46933792 > {
+public:
+    typedef osgText::Text::GlyphQuads::Coords3 type;
+    
+};
+
+template<>
+class LunaType< 72230542 > {
+public:
+    typedef osgText::Text::GlyphQuads::TexCoords type;
+    
+};
+
+template<>
+class LunaType< 26979605 > {
+public:
+    typedef osgText::Text::GlyphQuads::ColorCoords type;
+    
+};
+
+template<>
 class LunaType< 91536996 > {
 public:
     typedef osgUtil::DelaunayTriangulator::linelist type;
@@ -14504,13 +14940,6 @@ template<>
 class LunaType< 95996950 > {
 public:
     typedef osgUtil::Statistics type;
-    
-};
-
-template<>
-class LunaType< 48492479 > {
-public:
-    typedef osgUtil::Statistics::PrimitivePair type;
     
 };
 

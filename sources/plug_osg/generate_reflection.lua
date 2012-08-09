@@ -248,6 +248,7 @@ im:addPattern("class","osgUtil::IntersectVisitor::") --ImageRequest, ReadQueue, 
 im:addPattern("class","osgUtil::Optimizer::") --CompareStateAttributes, CompareStateSets
 im:addPattern("class","osgUtil::SceneGraphBuilder::") --CompareStateAttributes, CompareStateSets
 im:addPattern("class","osgUtil::Tessellator::") --CompareStateAttributes, CompareStateSets
+im:addPattern("class","osgUtil::Statistics::PrimitivePair") --CompareStateAttributes, CompareStateSets
 im:addPattern("class","osg::State::[^D]")
 im:addPattern("class","Functor")
 
@@ -265,9 +266,15 @@ im:addPattern("class","osgGA::GUIEventAdapter::TabletPen")
 im:addPattern("class","osgGA::StandardManipulator::AnimationData")
 im:addPattern("class","osgGA::OrbitManipulator::OrbitAnimationData")
 
-im:addPattern("enum_value","osgUtil::Optimizer::")
+-- for osgText:
+im:addPattern("class","VectorUInt")
+im:addPattern("class","osgText::Text3D::GlyphRenderInfo")
+im:addPattern("class","osgText::TextBase::AutoTransformCache")
 
-injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\n")
+im:addPattern("enum_value","osgUtil::Optimizer::TextureAtlasBuilder::")
+im:addPattern("enum_value","FileOpResult::")
+
+injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\n")
 
 --im:addPattern("class_declaration","RefNodePath")
 --im:addPattern("class_declaration","ConvexPlanarPolygon::VertexList")
@@ -281,7 +288,7 @@ local options = {
 	headers={"plug_common.h"},
 	destpath=dest_path.."/",
 	ignoreHeaders = { "helpers%.h" },
-	locationPrefixes={"W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/", dest_path.."/interface/"}
+	locationPrefixes={"W:/Shared/Dev/Deps/win32/OpenSceneGraph%-3%.0%.1/include/", dest_path.."/interface/", dest_path.."/include/"}
 	
 }
 function buildBindings()

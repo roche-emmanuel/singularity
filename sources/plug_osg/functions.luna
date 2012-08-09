@@ -8,6 +8,8 @@ osgDBGetVersion
 osgDBGetLibraryName
 osgGAGetVersion
 osgGAGetLibraryName
+osgTextGetVersion
+osgTextGetLibraryName
 osgUtilGetVersion
 osgUtilGetLibraryName
 osg::getCpuByteOrder
@@ -142,4 +144,10 @@ osgDB::writeNodeFile
 osgDB::writeShaderFile
 osgDB::readXmlFile
 osgDB::trimEnclosingSpaces
+osgText::readFontFile
+osgText::readRefFontFile
+osgText::findFontFile
+osgText::readFont3DFile
+osgText::readRefFont3DFile
+osgText::findFont3DFile
 

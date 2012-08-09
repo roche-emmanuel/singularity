@@ -566,6 +566,28 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgGA::TerrainManipulator >::Register(L);
 	Luna< osgGA::UFOManipulator >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"osgText");
+	Luna< std::pair< unsigned int, unsigned int > >::Register(L);
+	Luna< osgText::TextBase >::Register(L);
+	Luna< osgText::Text >::Register(L);
+	Luna< osgText::FadeText >::Register(L);
+	Luna< osgText::Font >::Register(L);
+	Luna< std::vector< osg::ref_ptr< osgText::GlyphTexture > > >::Register(L);
+	Luna< osgText::Font::FontImplementation >::Register(L);
+	Luna< osgText::Glyph >::Register(L);
+	Luna< osgText::GlyphGeometry >::Register(L);
+	Luna< osgText::Glyph3D >::Register(L);
+	Luna< osgText::GlyphTexture >::Register(L);
+	Luna< osgText::String >::Register(L);
+	Luna< osgText::Bevel >::Register(L);
+	Luna< std::vector< osg::Vec2f > >::Register(L);
+	Luna< osgText::Style >::Register(L);
+	Luna< std::map< osg::ref_ptr< osgText::GlyphTexture >, osgText::Text::GlyphQuads > >::Register(L);
+	Luna< osgText::Text::GlyphQuads >::Register(L);
+	Luna< std::vector< osgText::Glyph * > >::Register(L);
+	Luna< std::vector< osg::Vec4f > >::Register(L);
+	Luna< osgText::Text3D >::Register(L);
+	luna_popModule(L);
 	luna_pushModule(L,"osgUtil");
 	Luna< osgUtil::CubeMapGenerator >::Register(L);
 	Luna< osgUtil::CullVisitor >::Register(L);
@@ -669,7 +691,6 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > >::Register(L);
 	Luna< osgUtil::Statistics >::Register(L);
-	Luna< std::pair< unsigned int, unsigned int > >::Register(L);
 	Luna< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > >::Register(L);
 	Luna< osgUtil::StatsVisitor >::Register(L);
 	Luna< std::set< osg::Node * > >::Register(L);
@@ -693,6 +714,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"osgDB");
 	luna_copyParents(L,"osgGA");
+	luna_copyParents(L,"osgText");
 	luna_copyParents(L,"osgUtil");
 
 	luna_pushModule(L,"osg");

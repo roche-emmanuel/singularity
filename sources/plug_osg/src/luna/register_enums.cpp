@@ -1,111 +1,116 @@
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Array>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AudioStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AutoTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Billboard>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendEquation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CopyOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullingSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullSettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Depth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DisplaySettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrontFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLBeginEndAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageSequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LogicOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Material>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Plane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PointSprite>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonMode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PrimitiveSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ProxyNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Sequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadeModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shader>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShapeDrawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StencilTwoSided>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGenNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/AuthenticationMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabasePager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DotOsgWrapper>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageOptions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImagePager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageProcessor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Input>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReaderWriter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FlightManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/NodeTrackerManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/SphericalManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StandardManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TerrainManipulator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PolytopeIntersector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderBin>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ShaderGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
+#include <osg/Endian>
+#include <osg/Notify>
+#include <osg/AlphaFunc>
+#include <osg/AnimationPath>
+#include <osg/ApplicationUsage>
+#include <osg/ArgumentParser>
+#include <osg/Array>
+#include <osg/AudioStream>
+#include <osg/AutoTransform>
+#include <osg/Billboard>
+#include <osg/BlendEquation>
+#include <osg/BlendFunc>
+#include <osg/BufferObject>
+#include <osg/Camera>
+#include <osg/CameraView>
+#include <osg/ClipNode>
+#include <osg/CopyOp>
+#include <osg/CullFace>
+#include <osg/CullingSet>
+#include <osg/CullSettings>
+#include <osg/Depth>
+#include <osg/DisplaySettings>
+#include <osg/Drawable>
+#include <osg/Fog>
+#include <osg/FrameBufferObject>
+#include <osg/FrontFace>
+#include <osg/Geometry>
+#include <osg/GLBeginEndAdapter>
+#include <osg/GraphicsThread>
+#include <osg/Image>
+#include <osg/ImageSequence>
+#include <osg/ImageStream>
+#include <osg/LightModel>
+#include <osg/LightSource>
+#include <osg/LOD>
+#include <osg/LogicOp>
+#include <osg/Material>
+#include <osg/Multisample>
+#include <osg/NodeVisitor>
+#include <osg/Object>
+#include <osg/Plane>
+#include <osg/PointSprite>
+#include <osg/PolygonMode>
+#include <osg/PrimitiveSet>
+#include <osg/ProxyNode>
+#include <osg/Sequence>
+#include <osg/ShadeModel>
+#include <osg/Shader>
+#include <osg/ShapeDrawable>
+#include <osg/State>
+#include <osg/StateAttribute>
+#include <osg/StateSet>
+#include <osg/Stencil>
+#include <osg/StencilTwoSided>
+#include <osg/TexEnv>
+#include <osg/TexEnvCombine>
+#include <osg/TexGen>
+#include <osg/TexGenNode>
+#include <osg/Texture>
+#include <osg/TextureCubeMap>
+#include <osg/Transform>
+#include <osg/Uniform>
+#include <osg/Vec2b>
+#include <osg/Vec2d>
+#include <osg/Vec2f>
+#include <osg/Vec2s>
+#include <osg/Vec3b>
+#include <osg/Vec3d>
+#include <osg/Vec3f>
+#include <osg/Vec3s>
+#include <osg/Vec4b>
+#include <osg/Vec4d>
+#include <osg/Vec4f>
+#include <osg/Vec4s>
+#include <osg/Vec4ub>
+#include <osg/View>
+#include <osgDB/Callbacks>
+#include <osgDB/FileUtils>
+#include <osgDB/AuthenticationMap>
+#include <osgDB/DatabasePager>
+#include <osgDB/DotOsgWrapper>
+#include <osgDB/ImageOptions>
+#include <osgDB/ImagePager>
+#include <osgDB/ImageProcessor>
+#include <osgDB/Input>
+#include <osgDB/Options>
+#include <osgDB/Output>
+#include <osgDB/OutputStream>
+#include <osgDB/ReaderWriter>
+#include <osgDB/Registry>
+#include <osgDB/SharedStateManager>
+#include <osgDB/XmlParser>
+#include <osgGA/FlightManipulator>
+#include <osgGA/GUIEventAdapter>
+#include <osgGA/NodeTrackerManipulator>
+#include <osgGA/SphericalManipulator>
+#include <osgGA/StandardManipulator>
+#include <osgGA/TerrainManipulator>
+#include <osgText/KerningType>
+#include <osgText/String>
+#include <osgText/Text>
+#include <osgText/Text3D>
+#include <osgText/TextBase>
+#include <osgUtil/GLObjectsVisitor>
+#include <osgUtil/IntersectionVisitor>
+#include <osgUtil/IntersectVisitor>
+#include <osgUtil/Optimizer>
+#include <osgUtil/PolytopeIntersector>
+#include <osgUtil/RenderBin>
+#include <osgUtil/SceneView>
+#include <osgUtil/ShaderGen>
+#include <osgUtil/Statistics>
+#include <osgUtil/Tessellator>
 
 #include <plug_common.h>
 
@@ -2683,25 +2688,9 @@ void register_enums(lua_State* L) {
 
 	lua_newtable(L); // enum Value
 
-	lua_pushnumber(L,FileOpResult::OK); lua_setfield(L,-2,"OK");
-	lua_pushnumber(L,FileOpResult::SOURCE_EQUALS_DESTINATION); lua_setfield(L,-2,"SOURCE_EQUALS_DESTINATION");
-	lua_pushnumber(L,FileOpResult::BAD_ARGUMENT); lua_setfield(L,-2,"BAD_ARGUMENT");
-	lua_pushnumber(L,FileOpResult::SOURCE_MISSING); lua_setfield(L,-2,"SOURCE_MISSING");
-	lua_pushnumber(L,FileOpResult::SOURCE_NOT_OPENED); lua_setfield(L,-2,"SOURCE_NOT_OPENED");
-	lua_pushnumber(L,FileOpResult::DESTINATION_NOT_OPENED); lua_setfield(L,-2,"DESTINATION_NOT_OPENED");
-	lua_pushnumber(L,FileOpResult::READ_ERROR); lua_setfield(L,-2,"READ_ERROR");
-	lua_pushnumber(L,FileOpResult::WRITE_ERROR); lua_setfield(L,-2,"WRITE_ERROR");
 
 	lua_setfield(L,-2,"Value");
 
-	lua_pushnumber(L,FileOpResult::OK); lua_setfield(L,-2,"OK");
-	lua_pushnumber(L,FileOpResult::SOURCE_EQUALS_DESTINATION); lua_setfield(L,-2,"SOURCE_EQUALS_DESTINATION");
-	lua_pushnumber(L,FileOpResult::BAD_ARGUMENT); lua_setfield(L,-2,"BAD_ARGUMENT");
-	lua_pushnumber(L,FileOpResult::SOURCE_MISSING); lua_setfield(L,-2,"SOURCE_MISSING");
-	lua_pushnumber(L,FileOpResult::SOURCE_NOT_OPENED); lua_setfield(L,-2,"SOURCE_NOT_OPENED");
-	lua_pushnumber(L,FileOpResult::DESTINATION_NOT_OPENED); lua_setfield(L,-2,"DESTINATION_NOT_OPENED");
-	lua_pushnumber(L,FileOpResult::READ_ERROR); lua_setfield(L,-2,"READ_ERROR");
-	lua_pushnumber(L,FileOpResult::WRITE_ERROR); lua_setfield(L,-2,"WRITE_ERROR");
 
 
 	lua_newtable(L); // enum YawControlMode
@@ -3324,6 +3313,217 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
 
 
+	lua_newtable(L); // enum KerningType
+
+	lua_pushnumber(L,osgText::KERNING_DEFAULT); lua_setfield(L,-2,"KERNING_DEFAULT");
+	lua_pushnumber(L,osgText::KERNING_UNFITTED); lua_setfield(L,-2,"KERNING_UNFITTED");
+	lua_pushnumber(L,osgText::KERNING_NONE); lua_setfield(L,-2,"KERNING_NONE");
+
+	lua_setfield(L,-2,"KerningType");
+
+	lua_pushnumber(L,osgText::KERNING_DEFAULT); lua_setfield(L,-2,"KERNING_DEFAULT");
+	lua_pushnumber(L,osgText::KERNING_UNFITTED); lua_setfield(L,-2,"KERNING_UNFITTED");
+	lua_pushnumber(L,osgText::KERNING_NONE); lua_setfield(L,-2,"KERNING_NONE");
+
+
+	lua_newtable(L); // enum Encoding
+
+	lua_pushnumber(L,osgText::String::ENCODING_UNDEFINED); lua_setfield(L,-2,"ENCODING_UNDEFINED");
+	lua_pushnumber(L,osgText::String::ENCODING_ASCII); lua_setfield(L,-2,"ENCODING_ASCII");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF8); lua_setfield(L,-2,"ENCODING_UTF8");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16); lua_setfield(L,-2,"ENCODING_UTF16");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16_BE); lua_setfield(L,-2,"ENCODING_UTF16_BE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16_LE); lua_setfield(L,-2,"ENCODING_UTF16_LE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32); lua_setfield(L,-2,"ENCODING_UTF32");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32_BE); lua_setfield(L,-2,"ENCODING_UTF32_BE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32_LE); lua_setfield(L,-2,"ENCODING_UTF32_LE");
+	lua_pushnumber(L,osgText::String::ENCODING_SIGNATURE); lua_setfield(L,-2,"ENCODING_SIGNATURE");
+
+	lua_setfield(L,-2,"Encoding");
+
+	lua_pushnumber(L,osgText::String::ENCODING_UNDEFINED); lua_setfield(L,-2,"ENCODING_UNDEFINED");
+	lua_pushnumber(L,osgText::String::ENCODING_ASCII); lua_setfield(L,-2,"ENCODING_ASCII");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF8); lua_setfield(L,-2,"ENCODING_UTF8");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16); lua_setfield(L,-2,"ENCODING_UTF16");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16_BE); lua_setfield(L,-2,"ENCODING_UTF16_BE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF16_LE); lua_setfield(L,-2,"ENCODING_UTF16_LE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32); lua_setfield(L,-2,"ENCODING_UTF32");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32_BE); lua_setfield(L,-2,"ENCODING_UTF32_BE");
+	lua_pushnumber(L,osgText::String::ENCODING_UTF32_LE); lua_setfield(L,-2,"ENCODING_UTF32_LE");
+	lua_pushnumber(L,osgText::String::ENCODING_SIGNATURE); lua_setfield(L,-2,"ENCODING_SIGNATURE");
+
+
+	lua_newtable(L); // enum BackdropType
+
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_CENTER_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_CENTER_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_TOP_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_CENTER); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_CENTER");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_CENTER); lua_setfield(L,-2,"DROP_SHADOW_TOP_CENTER");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_LEFT); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_LEFT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_CENTER_LEFT); lua_setfield(L,-2,"DROP_SHADOW_CENTER_LEFT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_LEFT); lua_setfield(L,-2,"DROP_SHADOW_TOP_LEFT");
+	lua_pushnumber(L,osgText::Text::OUTLINE); lua_setfield(L,-2,"OUTLINE");
+	lua_pushnumber(L,osgText::Text::NONE); lua_setfield(L,-2,"NONE");
+
+	lua_setfield(L,-2,"BackdropType");
+
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_CENTER_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_CENTER_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_RIGHT); lua_setfield(L,-2,"DROP_SHADOW_TOP_RIGHT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_CENTER); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_CENTER");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_CENTER); lua_setfield(L,-2,"DROP_SHADOW_TOP_CENTER");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_BOTTOM_LEFT); lua_setfield(L,-2,"DROP_SHADOW_BOTTOM_LEFT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_CENTER_LEFT); lua_setfield(L,-2,"DROP_SHADOW_CENTER_LEFT");
+	lua_pushnumber(L,osgText::Text::DROP_SHADOW_TOP_LEFT); lua_setfield(L,-2,"DROP_SHADOW_TOP_LEFT");
+	lua_pushnumber(L,osgText::Text::OUTLINE); lua_setfield(L,-2,"OUTLINE");
+	lua_pushnumber(L,osgText::Text::NONE); lua_setfield(L,-2,"NONE");
+
+
+	lua_newtable(L); // enum BackdropImplementation
+
+	lua_pushnumber(L,osgText::Text::POLYGON_OFFSET); lua_setfield(L,-2,"POLYGON_OFFSET");
+	lua_pushnumber(L,osgText::Text::NO_DEPTH_BUFFER); lua_setfield(L,-2,"NO_DEPTH_BUFFER");
+	lua_pushnumber(L,osgText::Text::DEPTH_RANGE); lua_setfield(L,-2,"DEPTH_RANGE");
+	lua_pushnumber(L,osgText::Text::STENCIL_BUFFER); lua_setfield(L,-2,"STENCIL_BUFFER");
+	lua_pushnumber(L,osgText::Text::DELAYED_DEPTH_WRITES); lua_setfield(L,-2,"DELAYED_DEPTH_WRITES");
+
+	lua_setfield(L,-2,"BackdropImplementation");
+
+	lua_pushnumber(L,osgText::Text::POLYGON_OFFSET); lua_setfield(L,-2,"POLYGON_OFFSET");
+	lua_pushnumber(L,osgText::Text::NO_DEPTH_BUFFER); lua_setfield(L,-2,"NO_DEPTH_BUFFER");
+	lua_pushnumber(L,osgText::Text::DEPTH_RANGE); lua_setfield(L,-2,"DEPTH_RANGE");
+	lua_pushnumber(L,osgText::Text::STENCIL_BUFFER); lua_setfield(L,-2,"STENCIL_BUFFER");
+	lua_pushnumber(L,osgText::Text::DELAYED_DEPTH_WRITES); lua_setfield(L,-2,"DELAYED_DEPTH_WRITES");
+
+
+	lua_newtable(L); // enum ColorGradientMode
+
+	lua_pushnumber(L,osgText::Text::SOLID); lua_setfield(L,-2,"SOLID");
+	lua_pushnumber(L,osgText::Text::PER_CHARACTER); lua_setfield(L,-2,"PER_CHARACTER");
+	lua_pushnumber(L,osgText::Text::OVERALL); lua_setfield(L,-2,"OVERALL");
+
+	lua_setfield(L,-2,"ColorGradientMode");
+
+	lua_pushnumber(L,osgText::Text::SOLID); lua_setfield(L,-2,"SOLID");
+	lua_pushnumber(L,osgText::Text::PER_CHARACTER); lua_setfield(L,-2,"PER_CHARACTER");
+	lua_pushnumber(L,osgText::Text::OVERALL); lua_setfield(L,-2,"OVERALL");
+
+
+	lua_newtable(L); // enum RenderMode
+
+	lua_pushnumber(L,osgText::Text3D::PER_FACE); lua_setfield(L,-2,"PER_FACE");
+	lua_pushnumber(L,osgText::Text3D::PER_GLYPH); lua_setfield(L,-2,"PER_GLYPH");
+
+	lua_setfield(L,-2,"RenderMode");
+
+	lua_pushnumber(L,osgText::Text3D::PER_FACE); lua_setfield(L,-2,"PER_FACE");
+	lua_pushnumber(L,osgText::Text3D::PER_GLYPH); lua_setfield(L,-2,"PER_GLYPH");
+
+
+	lua_newtable(L); // enum CharacterSizeMode
+
+	lua_pushnumber(L,osgText::TextBase::OBJECT_COORDS); lua_setfield(L,-2,"OBJECT_COORDS");
+	lua_pushnumber(L,osgText::TextBase::SCREEN_COORDS); lua_setfield(L,-2,"SCREEN_COORDS");
+	lua_pushnumber(L,osgText::TextBase::OBJECT_COORDS_WITH_MAXIMUM_SCREEN_SIZE_CAPPED_BY_FONT_HEIGHT); lua_setfield(L,-2,"OBJECT_COORDS_WITH_MAXIMUM_SCREEN_SIZE_CAPPED_BY_FONT_HEIGHT");
+
+	lua_setfield(L,-2,"CharacterSizeMode");
+
+	lua_pushnumber(L,osgText::TextBase::OBJECT_COORDS); lua_setfield(L,-2,"OBJECT_COORDS");
+	lua_pushnumber(L,osgText::TextBase::SCREEN_COORDS); lua_setfield(L,-2,"SCREEN_COORDS");
+	lua_pushnumber(L,osgText::TextBase::OBJECT_COORDS_WITH_MAXIMUM_SCREEN_SIZE_CAPPED_BY_FONT_HEIGHT); lua_setfield(L,-2,"OBJECT_COORDS_WITH_MAXIMUM_SCREEN_SIZE_CAPPED_BY_FONT_HEIGHT");
+
+
+	lua_newtable(L); // enum AlignmentType
+
+	lua_pushnumber(L,osgText::TextBase::LEFT_TOP); lua_setfield(L,-2,"LEFT_TOP");
+	lua_pushnumber(L,osgText::TextBase::LEFT_CENTER); lua_setfield(L,-2,"LEFT_CENTER");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BOTTOM); lua_setfield(L,-2,"LEFT_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::CENTER_TOP); lua_setfield(L,-2,"CENTER_TOP");
+	lua_pushnumber(L,osgText::TextBase::CENTER_CENTER); lua_setfield(L,-2,"CENTER_CENTER");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BOTTOM); lua_setfield(L,-2,"CENTER_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_TOP); lua_setfield(L,-2,"RIGHT_TOP");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_CENTER); lua_setfield(L,-2,"RIGHT_CENTER");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BOTTOM); lua_setfield(L,-2,"RIGHT_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BASE_LINE); lua_setfield(L,-2,"LEFT_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BASE_LINE); lua_setfield(L,-2,"CENTER_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BASE_LINE); lua_setfield(L,-2,"RIGHT_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BOTTOM_BASE_LINE); lua_setfield(L,-2,"LEFT_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BOTTOM_BASE_LINE); lua_setfield(L,-2,"CENTER_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BOTTOM_BASE_LINE); lua_setfield(L,-2,"RIGHT_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::BASE_LINE); lua_setfield(L,-2,"BASE_LINE");
+
+	lua_setfield(L,-2,"AlignmentType");
+
+	lua_pushnumber(L,osgText::TextBase::LEFT_TOP); lua_setfield(L,-2,"LEFT_TOP");
+	lua_pushnumber(L,osgText::TextBase::LEFT_CENTER); lua_setfield(L,-2,"LEFT_CENTER");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BOTTOM); lua_setfield(L,-2,"LEFT_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::CENTER_TOP); lua_setfield(L,-2,"CENTER_TOP");
+	lua_pushnumber(L,osgText::TextBase::CENTER_CENTER); lua_setfield(L,-2,"CENTER_CENTER");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BOTTOM); lua_setfield(L,-2,"CENTER_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_TOP); lua_setfield(L,-2,"RIGHT_TOP");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_CENTER); lua_setfield(L,-2,"RIGHT_CENTER");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BOTTOM); lua_setfield(L,-2,"RIGHT_BOTTOM");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BASE_LINE); lua_setfield(L,-2,"LEFT_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BASE_LINE); lua_setfield(L,-2,"CENTER_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BASE_LINE); lua_setfield(L,-2,"RIGHT_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::LEFT_BOTTOM_BASE_LINE); lua_setfield(L,-2,"LEFT_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::CENTER_BOTTOM_BASE_LINE); lua_setfield(L,-2,"CENTER_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_BOTTOM_BASE_LINE); lua_setfield(L,-2,"RIGHT_BOTTOM_BASE_LINE");
+	lua_pushnumber(L,osgText::TextBase::BASE_LINE); lua_setfield(L,-2,"BASE_LINE");
+
+
+	lua_newtable(L); // enum AxisAlignment
+
+	lua_pushnumber(L,osgText::TextBase::XY_PLANE); lua_setfield(L,-2,"XY_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_XY_PLANE); lua_setfield(L,-2,"REVERSED_XY_PLANE");
+	lua_pushnumber(L,osgText::TextBase::XZ_PLANE); lua_setfield(L,-2,"XZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_XZ_PLANE); lua_setfield(L,-2,"REVERSED_XZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::YZ_PLANE); lua_setfield(L,-2,"YZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_YZ_PLANE); lua_setfield(L,-2,"REVERSED_YZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::SCREEN); lua_setfield(L,-2,"SCREEN");
+	lua_pushnumber(L,osgText::TextBase::USER_DEFINED_ROTATION); lua_setfield(L,-2,"USER_DEFINED_ROTATION");
+
+	lua_setfield(L,-2,"AxisAlignment");
+
+	lua_pushnumber(L,osgText::TextBase::XY_PLANE); lua_setfield(L,-2,"XY_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_XY_PLANE); lua_setfield(L,-2,"REVERSED_XY_PLANE");
+	lua_pushnumber(L,osgText::TextBase::XZ_PLANE); lua_setfield(L,-2,"XZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_XZ_PLANE); lua_setfield(L,-2,"REVERSED_XZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::YZ_PLANE); lua_setfield(L,-2,"YZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::REVERSED_YZ_PLANE); lua_setfield(L,-2,"REVERSED_YZ_PLANE");
+	lua_pushnumber(L,osgText::TextBase::SCREEN); lua_setfield(L,-2,"SCREEN");
+	lua_pushnumber(L,osgText::TextBase::USER_DEFINED_ROTATION); lua_setfield(L,-2,"USER_DEFINED_ROTATION");
+
+
+	lua_newtable(L); // enum Layout
+
+	lua_pushnumber(L,osgText::TextBase::LEFT_TO_RIGHT); lua_setfield(L,-2,"LEFT_TO_RIGHT");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_TO_LEFT); lua_setfield(L,-2,"RIGHT_TO_LEFT");
+	lua_pushnumber(L,osgText::TextBase::VERTICAL); lua_setfield(L,-2,"VERTICAL");
+
+	lua_setfield(L,-2,"Layout");
+
+	lua_pushnumber(L,osgText::TextBase::LEFT_TO_RIGHT); lua_setfield(L,-2,"LEFT_TO_RIGHT");
+	lua_pushnumber(L,osgText::TextBase::RIGHT_TO_LEFT); lua_setfield(L,-2,"RIGHT_TO_LEFT");
+	lua_pushnumber(L,osgText::TextBase::VERTICAL); lua_setfield(L,-2,"VERTICAL");
+
+
+	lua_newtable(L); // enum DrawModeMask
+
+	lua_pushnumber(L,osgText::TextBase::TEXT); lua_setfield(L,-2,"TEXT");
+	lua_pushnumber(L,osgText::TextBase::BOUNDINGBOX); lua_setfield(L,-2,"BOUNDINGBOX");
+	lua_pushnumber(L,osgText::TextBase::FILLEDBOUNDINGBOX); lua_setfield(L,-2,"FILLEDBOUNDINGBOX");
+	lua_pushnumber(L,osgText::TextBase::ALIGNMENT); lua_setfield(L,-2,"ALIGNMENT");
+
+	lua_setfield(L,-2,"DrawModeMask");
+
+	lua_pushnumber(L,osgText::TextBase::TEXT); lua_setfield(L,-2,"TEXT");
+	lua_pushnumber(L,osgText::TextBase::BOUNDINGBOX); lua_setfield(L,-2,"BOUNDINGBOX");
+	lua_pushnumber(L,osgText::TextBase::FILLEDBOUNDINGBOX); lua_setfield(L,-2,"FILLEDBOUNDINGBOX");
+	lua_pushnumber(L,osgText::TextBase::ALIGNMENT); lua_setfield(L,-2,"ALIGNMENT");
+
+
 	lua_newtable(L); // enum ModeValues
 
 	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_ON_DISPLAY_LISTS); lua_setfield(L,-2,"SWITCH_ON_DISPLAY_LISTS");
@@ -3403,9 +3603,55 @@ void register_enums(lua_State* L) {
 
 	lua_newtable(L); // enum OptimizationOptions
 
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS); lua_setfield(L,-2,"FLATTEN_STATIC_TRANSFORMS");
+	lua_pushnumber(L,osgUtil::Optimizer::REMOVE_REDUNDANT_NODES); lua_setfield(L,-2,"REMOVE_REDUNDANT_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::REMOVE_LOADED_PROXY_NODES); lua_setfield(L,-2,"REMOVE_LOADED_PROXY_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::COMBINE_ADJACENT_LODS); lua_setfield(L,-2,"COMBINE_ADJACENT_LODS");
+	lua_pushnumber(L,osgUtil::Optimizer::SHARE_DUPLICATE_STATE); lua_setfield(L,-2,"SHARE_DUPLICATE_STATE");
+	lua_pushnumber(L,osgUtil::Optimizer::MERGE_GEOMETRY); lua_setfield(L,-2,"MERGE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::CHECK_GEOMETRY); lua_setfield(L,-2,"CHECK_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::MAKE_FAST_GEOMETRY); lua_setfield(L,-2,"MAKE_FAST_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::SPATIALIZE_GROUPS); lua_setfield(L,-2,"SPATIALIZE_GROUPS");
+	lua_pushnumber(L,osgUtil::Optimizer::COPY_SHARED_NODES); lua_setfield(L,-2,"COPY_SHARED_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::TRISTRIP_GEOMETRY); lua_setfield(L,-2,"TRISTRIP_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::TESSELLATE_GEOMETRY); lua_setfield(L,-2,"TESSELLATE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::OPTIMIZE_TEXTURE_SETTINGS); lua_setfield(L,-2,"OPTIMIZE_TEXTURE_SETTINGS");
+	lua_pushnumber(L,osgUtil::Optimizer::MERGE_GEODES); lua_setfield(L,-2,"MERGE_GEODES");
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_BILLBOARDS); lua_setfield(L,-2,"FLATTEN_BILLBOARDS");
+	lua_pushnumber(L,osgUtil::Optimizer::TEXTURE_ATLAS_BUILDER); lua_setfield(L,-2,"TEXTURE_ATLAS_BUILDER");
+	lua_pushnumber(L,osgUtil::Optimizer::STATIC_OBJECT_DETECTION); lua_setfield(L,-2,"STATIC_OBJECT_DETECTION");
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS); lua_setfield(L,-2,"FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS");
+	lua_pushnumber(L,osgUtil::Optimizer::INDEX_MESH); lua_setfield(L,-2,"INDEX_MESH");
+	lua_pushnumber(L,osgUtil::Optimizer::VERTEX_POSTTRANSFORM); lua_setfield(L,-2,"VERTEX_POSTTRANSFORM");
+	lua_pushnumber(L,osgUtil::Optimizer::VERTEX_PRETRANSFORM); lua_setfield(L,-2,"VERTEX_PRETRANSFORM");
+	lua_pushnumber(L,osgUtil::Optimizer::DEFAULT_OPTIMIZATIONS); lua_setfield(L,-2,"DEFAULT_OPTIMIZATIONS");
+	lua_pushnumber(L,osgUtil::Optimizer::ALL_OPTIMIZATIONS); lua_setfield(L,-2,"ALL_OPTIMIZATIONS");
 
 	lua_setfield(L,-2,"OptimizationOptions");
 
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS); lua_setfield(L,-2,"FLATTEN_STATIC_TRANSFORMS");
+	lua_pushnumber(L,osgUtil::Optimizer::REMOVE_REDUNDANT_NODES); lua_setfield(L,-2,"REMOVE_REDUNDANT_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::REMOVE_LOADED_PROXY_NODES); lua_setfield(L,-2,"REMOVE_LOADED_PROXY_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::COMBINE_ADJACENT_LODS); lua_setfield(L,-2,"COMBINE_ADJACENT_LODS");
+	lua_pushnumber(L,osgUtil::Optimizer::SHARE_DUPLICATE_STATE); lua_setfield(L,-2,"SHARE_DUPLICATE_STATE");
+	lua_pushnumber(L,osgUtil::Optimizer::MERGE_GEOMETRY); lua_setfield(L,-2,"MERGE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::CHECK_GEOMETRY); lua_setfield(L,-2,"CHECK_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::MAKE_FAST_GEOMETRY); lua_setfield(L,-2,"MAKE_FAST_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::SPATIALIZE_GROUPS); lua_setfield(L,-2,"SPATIALIZE_GROUPS");
+	lua_pushnumber(L,osgUtil::Optimizer::COPY_SHARED_NODES); lua_setfield(L,-2,"COPY_SHARED_NODES");
+	lua_pushnumber(L,osgUtil::Optimizer::TRISTRIP_GEOMETRY); lua_setfield(L,-2,"TRISTRIP_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::TESSELLATE_GEOMETRY); lua_setfield(L,-2,"TESSELLATE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Optimizer::OPTIMIZE_TEXTURE_SETTINGS); lua_setfield(L,-2,"OPTIMIZE_TEXTURE_SETTINGS");
+	lua_pushnumber(L,osgUtil::Optimizer::MERGE_GEODES); lua_setfield(L,-2,"MERGE_GEODES");
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_BILLBOARDS); lua_setfield(L,-2,"FLATTEN_BILLBOARDS");
+	lua_pushnumber(L,osgUtil::Optimizer::TEXTURE_ATLAS_BUILDER); lua_setfield(L,-2,"TEXTURE_ATLAS_BUILDER");
+	lua_pushnumber(L,osgUtil::Optimizer::STATIC_OBJECT_DETECTION); lua_setfield(L,-2,"STATIC_OBJECT_DETECTION");
+	lua_pushnumber(L,osgUtil::Optimizer::FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS); lua_setfield(L,-2,"FLATTEN_STATIC_TRANSFORMS_DUPLICATING_SHARED_SUBGRAPHS");
+	lua_pushnumber(L,osgUtil::Optimizer::INDEX_MESH); lua_setfield(L,-2,"INDEX_MESH");
+	lua_pushnumber(L,osgUtil::Optimizer::VERTEX_POSTTRANSFORM); lua_setfield(L,-2,"VERTEX_POSTTRANSFORM");
+	lua_pushnumber(L,osgUtil::Optimizer::VERTEX_PRETRANSFORM); lua_setfield(L,-2,"VERTEX_PRETRANSFORM");
+	lua_pushnumber(L,osgUtil::Optimizer::DEFAULT_OPTIMIZATIONS); lua_setfield(L,-2,"DEFAULT_OPTIMIZATIONS");
+	lua_pushnumber(L,osgUtil::Optimizer::ALL_OPTIMIZATIONS); lua_setfield(L,-2,"ALL_OPTIMIZATIONS");
 
 
 	lua_newtable(L); // enum FitsIn
