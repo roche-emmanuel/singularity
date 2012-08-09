@@ -700,6 +700,38 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgUtil::TriStripVisitor >::Register(L);
 	Luna< osgUtil::UpdateVisitor >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"osgViewer");
+	Luna< osgViewer::ViewerBase >::Register(L);
+	Luna< osgViewer::CompositeViewer >::Register(L);
+	Luna< osgViewer::GraphicsWindow >::Register(L);
+	Luna< std::list< osgViewer::View * > >::Register(L);
+	Luna< osgViewer::GraphicsWindowEmbedded >::Register(L);
+	Luna< osgViewer::GraphicsWindowFunctionProxy >::Register(L);
+	Luna< osgViewer::OpenGLQuerySupport >::Register(L);
+	Luna< osgViewer::Renderer >::Register(L);
+	Luna< osgViewer::Scene >::Register(L);
+	Luna< osgViewer::DepthPartitionSettings >::Register(L);
+	Luna< osgViewer::View >::Register(L);
+	Luna< std::list< osg::ref_ptr< osgGA::GUIEventHandler > > >::Register(L);
+	Luna< osgViewer::Viewer >::Register(L);
+	Luna< std::vector< osg::Camera * > >::Register(L);
+	Luna< std::vector< osgViewer::GraphicsWindow * > >::Register(L);
+	Luna< std::vector< OpenThreads::Thread * > >::Register(L);
+	Luna< std::vector< osg::OperationThread * > >::Register(L);
+	Luna< std::vector< osgViewer::Scene * > >::Register(L);
+	Luna< std::vector< osgViewer::View * > >::Register(L);
+	Luna< osgViewer::HelpHandler >::Register(L);
+	Luna< osgViewer::StatsHandler >::Register(L);
+	Luna< osgViewer::WindowSizeHandler >::Register(L);
+	Luna< osgViewer::ThreadingHandler >::Register(L);
+	Luna< osgViewer::RecordCameraPathHandler >::Register(L);
+	Luna< osgViewer::LODScaleHandler >::Register(L);
+	Luna< osgViewer::ToggleSyncToVBlankHandler >::Register(L);
+	Luna< osgViewer::ScreenCaptureHandler >::Register(L);
+	Luna< osgViewer::ScreenCaptureHandler::CaptureOperation >::Register(L);
+	Luna< osgViewer::ScreenCaptureHandler::WriteToFile >::Register(L);
+	Luna< osgViewer::InteractiveImageHandler >::Register(L);
+	luna_popModule(L);
 
 	luna_pushModule(L,"osg");
 
@@ -716,6 +748,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	luna_copyParents(L,"osgGA");
 	luna_copyParents(L,"osgText");
 	luna_copyParents(L,"osgUtil");
+	luna_copyParents(L,"osgViewer");
 
 	luna_pushModule(L,"osg");
 	return 1;

@@ -111,6 +111,10 @@
 #include <osgUtil/ShaderGen>
 #include <osgUtil/Statistics>
 #include <osgUtil/Tessellator>
+#include <osgViewer/GraphicsWindow>
+#include <osgViewer/View>
+#include <osgViewer/ViewerBase>
+#include <osgViewer/ViewerEventHandlers>
 
 #include <plug_common.h>
 
@@ -3823,6 +3827,143 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_GEOMETRY); lua_setfield(L,-2,"TESS_TYPE_GEOMETRY");
 	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_DRAWABLE); lua_setfield(L,-2,"TESS_TYPE_DRAWABLE");
 	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_POLYGONS); lua_setfield(L,-2,"TESS_TYPE_POLYGONS");
+
+
+	lua_newtable(L); // enum MouseCursor
+
+	lua_pushnumber(L,osgViewer::GraphicsWindow::InheritCursor); lua_setfield(L,-2,"InheritCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::NoCursor); lua_setfield(L,-2,"NoCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::RightArrowCursor); lua_setfield(L,-2,"RightArrowCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftArrowCursor); lua_setfield(L,-2,"LeftArrowCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::InfoCursor); lua_setfield(L,-2,"InfoCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::DestroyCursor); lua_setfield(L,-2,"DestroyCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::HelpCursor); lua_setfield(L,-2,"HelpCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::CycleCursor); lua_setfield(L,-2,"CycleCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::SprayCursor); lua_setfield(L,-2,"SprayCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::WaitCursor); lua_setfield(L,-2,"WaitCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TextCursor); lua_setfield(L,-2,"TextCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::CrosshairCursor); lua_setfield(L,-2,"CrosshairCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::HandCursor); lua_setfield(L,-2,"HandCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::UpDownCursor); lua_setfield(L,-2,"UpDownCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftRightCursor); lua_setfield(L,-2,"LeftRightCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopSideCursor); lua_setfield(L,-2,"TopSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomSideCursor); lua_setfield(L,-2,"BottomSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftSideCursor); lua_setfield(L,-2,"LeftSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::RightSideCursor); lua_setfield(L,-2,"RightSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopLeftCorner); lua_setfield(L,-2,"TopLeftCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopRightCorner); lua_setfield(L,-2,"TopRightCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomRightCorner); lua_setfield(L,-2,"BottomRightCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomLeftCorner); lua_setfield(L,-2,"BottomLeftCorner");
+
+	lua_setfield(L,-2,"MouseCursor");
+
+	lua_pushnumber(L,osgViewer::GraphicsWindow::InheritCursor); lua_setfield(L,-2,"InheritCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::NoCursor); lua_setfield(L,-2,"NoCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::RightArrowCursor); lua_setfield(L,-2,"RightArrowCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftArrowCursor); lua_setfield(L,-2,"LeftArrowCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::InfoCursor); lua_setfield(L,-2,"InfoCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::DestroyCursor); lua_setfield(L,-2,"DestroyCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::HelpCursor); lua_setfield(L,-2,"HelpCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::CycleCursor); lua_setfield(L,-2,"CycleCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::SprayCursor); lua_setfield(L,-2,"SprayCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::WaitCursor); lua_setfield(L,-2,"WaitCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TextCursor); lua_setfield(L,-2,"TextCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::CrosshairCursor); lua_setfield(L,-2,"CrosshairCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::HandCursor); lua_setfield(L,-2,"HandCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::UpDownCursor); lua_setfield(L,-2,"UpDownCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftRightCursor); lua_setfield(L,-2,"LeftRightCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopSideCursor); lua_setfield(L,-2,"TopSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomSideCursor); lua_setfield(L,-2,"BottomSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::LeftSideCursor); lua_setfield(L,-2,"LeftSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::RightSideCursor); lua_setfield(L,-2,"RightSideCursor");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopLeftCorner); lua_setfield(L,-2,"TopLeftCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::TopRightCorner); lua_setfield(L,-2,"TopRightCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomRightCorner); lua_setfield(L,-2,"BottomRightCorner");
+	lua_pushnumber(L,osgViewer::GraphicsWindow::BottomLeftCorner); lua_setfield(L,-2,"BottomLeftCorner");
+
+
+	lua_newtable(L); // enum DepthMode
+
+	lua_pushnumber(L,osgViewer::DepthPartitionSettings::FIXED_RANGE); lua_setfield(L,-2,"FIXED_RANGE");
+	lua_pushnumber(L,osgViewer::DepthPartitionSettings::BOUNDING_VOLUME); lua_setfield(L,-2,"BOUNDING_VOLUME");
+
+	lua_setfield(L,-2,"DepthMode");
+
+	lua_pushnumber(L,osgViewer::DepthPartitionSettings::FIXED_RANGE); lua_setfield(L,-2,"FIXED_RANGE");
+	lua_pushnumber(L,osgViewer::DepthPartitionSettings::BOUNDING_VOLUME); lua_setfield(L,-2,"BOUNDING_VOLUME");
+
+
+	lua_newtable(L); // enum ThreadingModel
+
+	lua_pushnumber(L,osgViewer::ViewerBase::SingleThreaded); lua_setfield(L,-2,"SingleThreaded");
+	lua_pushnumber(L,osgViewer::ViewerBase::CullDrawThreadPerContext); lua_setfield(L,-2,"CullDrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::ThreadPerContext); lua_setfield(L,-2,"ThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::DrawThreadPerContext); lua_setfield(L,-2,"DrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::CullThreadPerCameraDrawThreadPerContext); lua_setfield(L,-2,"CullThreadPerCameraDrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::ThreadPerCamera); lua_setfield(L,-2,"ThreadPerCamera");
+	lua_pushnumber(L,osgViewer::ViewerBase::AutomaticSelection); lua_setfield(L,-2,"AutomaticSelection");
+
+	lua_setfield(L,-2,"ThreadingModel");
+
+	lua_pushnumber(L,osgViewer::ViewerBase::SingleThreaded); lua_setfield(L,-2,"SingleThreaded");
+	lua_pushnumber(L,osgViewer::ViewerBase::CullDrawThreadPerContext); lua_setfield(L,-2,"CullDrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::ThreadPerContext); lua_setfield(L,-2,"ThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::DrawThreadPerContext); lua_setfield(L,-2,"DrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::CullThreadPerCameraDrawThreadPerContext); lua_setfield(L,-2,"CullThreadPerCameraDrawThreadPerContext");
+	lua_pushnumber(L,osgViewer::ViewerBase::ThreadPerCamera); lua_setfield(L,-2,"ThreadPerCamera");
+	lua_pushnumber(L,osgViewer::ViewerBase::AutomaticSelection); lua_setfield(L,-2,"AutomaticSelection");
+
+
+	lua_newtable(L); // enum BarrierPosition
+
+	lua_pushnumber(L,osgViewer::ViewerBase::BeforeSwapBuffers); lua_setfield(L,-2,"BeforeSwapBuffers");
+	lua_pushnumber(L,osgViewer::ViewerBase::AfterSwapBuffers); lua_setfield(L,-2,"AfterSwapBuffers");
+
+	lua_setfield(L,-2,"BarrierPosition");
+
+	lua_pushnumber(L,osgViewer::ViewerBase::BeforeSwapBuffers); lua_setfield(L,-2,"BeforeSwapBuffers");
+	lua_pushnumber(L,osgViewer::ViewerBase::AfterSwapBuffers); lua_setfield(L,-2,"AfterSwapBuffers");
+
+
+	lua_newtable(L); // enum FrameScheme
+
+	lua_pushnumber(L,osgViewer::ViewerBase::ON_DEMAND); lua_setfield(L,-2,"ON_DEMAND");
+	lua_pushnumber(L,osgViewer::ViewerBase::CONTINUOUS); lua_setfield(L,-2,"CONTINUOUS");
+
+	lua_setfield(L,-2,"FrameScheme");
+
+	lua_pushnumber(L,osgViewer::ViewerBase::ON_DEMAND); lua_setfield(L,-2,"ON_DEMAND");
+	lua_pushnumber(L,osgViewer::ViewerBase::CONTINUOUS); lua_setfield(L,-2,"CONTINUOUS");
+
+
+	lua_newtable(L); // enum StatsType
+
+	lua_pushnumber(L,osgViewer::StatsHandler::NO_STATS); lua_setfield(L,-2,"NO_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::FRAME_RATE); lua_setfield(L,-2,"FRAME_RATE");
+	lua_pushnumber(L,osgViewer::StatsHandler::VIEWER_STATS); lua_setfield(L,-2,"VIEWER_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::CAMERA_SCENE_STATS); lua_setfield(L,-2,"CAMERA_SCENE_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::VIEWER_SCENE_STATS); lua_setfield(L,-2,"VIEWER_SCENE_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::LAST); lua_setfield(L,-2,"LAST");
+
+	lua_setfield(L,-2,"StatsType");
+
+	lua_pushnumber(L,osgViewer::StatsHandler::NO_STATS); lua_setfield(L,-2,"NO_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::FRAME_RATE); lua_setfield(L,-2,"FRAME_RATE");
+	lua_pushnumber(L,osgViewer::StatsHandler::VIEWER_STATS); lua_setfield(L,-2,"VIEWER_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::CAMERA_SCENE_STATS); lua_setfield(L,-2,"CAMERA_SCENE_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::VIEWER_SCENE_STATS); lua_setfield(L,-2,"VIEWER_SCENE_STATS");
+	lua_pushnumber(L,osgViewer::StatsHandler::LAST); lua_setfield(L,-2,"LAST");
+
+
+	lua_newtable(L); // enum SavePolicy
+
+	lua_pushnumber(L,osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE); lua_setfield(L,-2,"OVERWRITE");
+	lua_pushnumber(L,osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER); lua_setfield(L,-2,"SEQUENTIAL_NUMBER");
+
+	lua_setfield(L,-2,"SavePolicy");
+
+	lua_pushnumber(L,osgViewer::ScreenCaptureHandler::WriteToFile::OVERWRITE); lua_setfield(L,-2,"OVERWRITE");
+	lua_pushnumber(L,osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER); lua_setfield(L,-2,"SEQUENTIAL_NUMBER");
 
 
 }

@@ -251,6 +251,14 @@
 #include <osgUtil/TransformCallback>
 #include <osgUtil/TriStripVisitor>
 #include <osgUtil/UpdateVisitor>
+#include <osgViewer/ViewerBase>
+#include <osgViewer/CompositeViewer>
+#include <osgViewer/GraphicsWindow>
+#include <osgViewer/Renderer>
+#include <osgViewer/Scene>
+#include <osgViewer/View>
+#include <osgViewer/Viewer>
+#include <osgViewer/ViewerEventHandlers>
 
 using namespace osg;
 using namespace osgUtil;
@@ -12443,6 +12451,546 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< osgViewer::ViewerBase > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ViewerBase* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ViewerBase* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ViewerBase base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::CompositeViewer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::CompositeViewer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::CompositeViewer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::CompositeViewer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::GraphicsWindow > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::GraphicsWindow* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::GraphicsWindow* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::GraphicsWindow base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osgViewer::View * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osgViewer::View * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osgViewer::View * >* obj);
+    typedef osgViewer::GraphicsWindow::Views parent_t;
+    typedef std::list< osgViewer::View * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::GraphicsWindowEmbedded > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::GraphicsWindowEmbedded* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::GraphicsWindowEmbedded* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::GraphicsWindowEmbedded base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::GraphicsWindowFunctionProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::GraphicsWindowFunctionProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::GraphicsWindowFunctionProxy* obj);
+    typedef osgViewer::GraphicsWindowFunctionProxy parent_t;
+    typedef osgViewer::GraphicsWindowFunctionProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::OpenGLQuerySupport > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::OpenGLQuerySupport* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::OpenGLQuerySupport* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::OpenGLQuerySupport base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::Renderer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::Renderer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::Renderer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::Renderer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::Scene > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::Scene* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::Scene* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::Scene base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::DepthPartitionSettings > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::DepthPartitionSettings* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::DepthPartitionSettings* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::DepthPartitionSettings base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::View > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::View* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::View* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::View base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventHandler > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgGA::GUIEventHandler > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgGA::GUIEventHandler > >* obj);
+    typedef osgViewer::View::EventHandlers parent_t;
+    typedef std::list< osg::ref_ptr< osgGA::GUIEventHandler > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::Viewer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::Viewer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::Viewer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::Viewer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::Camera * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::Camera * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::Camera * >* obj);
+    typedef osgViewer::ViewerBase::Cameras parent_t;
+    typedef std::vector< osg::Camera * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgViewer::GraphicsWindow * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgViewer::GraphicsWindow * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgViewer::GraphicsWindow * >* obj);
+    typedef osgViewer::ViewerBase::Windows parent_t;
+    typedef std::vector< osgViewer::GraphicsWindow * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< OpenThreads::Thread * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< OpenThreads::Thread * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< OpenThreads::Thread * >* obj);
+    typedef osgViewer::ViewerBase::Threads parent_t;
+    typedef std::vector< OpenThreads::Thread * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::OperationThread * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::OperationThread * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::OperationThread * >* obj);
+    typedef osgViewer::ViewerBase::OperationThreads parent_t;
+    typedef std::vector< osg::OperationThread * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgViewer::Scene * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgViewer::Scene * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgViewer::Scene * >* obj);
+    typedef osgViewer::ViewerBase::Scenes parent_t;
+    typedef std::vector< osgViewer::Scene * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgViewer::View * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgViewer::View * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgViewer::View * >* obj);
+    typedef osgViewer::ViewerBase::Views parent_t;
+    typedef std::vector< osgViewer::View * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::HelpHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::HelpHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::HelpHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::HelpHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::StatsHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::StatsHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::StatsHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::StatsHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::WindowSizeHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::WindowSizeHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::WindowSizeHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::WindowSizeHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::ThreadingHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ThreadingHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ThreadingHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ThreadingHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::RecordCameraPathHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::RecordCameraPathHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::RecordCameraPathHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::RecordCameraPathHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::LODScaleHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::LODScaleHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::LODScaleHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::LODScaleHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::ToggleSyncToVBlankHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ToggleSyncToVBlankHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ToggleSyncToVBlankHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ToggleSyncToVBlankHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::ScreenCaptureHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ScreenCaptureHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ScreenCaptureHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ScreenCaptureHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ScreenCaptureHandler::CaptureOperation* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ScreenCaptureHandler::CaptureOperation* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ScreenCaptureHandler::CaptureOperation base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::ScreenCaptureHandler::WriteToFile > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::ScreenCaptureHandler::WriteToFile* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::ScreenCaptureHandler::WriteToFile* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::ScreenCaptureHandler::WriteToFile base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgViewer::InteractiveImageHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgViewer::InteractiveImageHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgViewer::InteractiveImageHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgViewer::InteractiveImageHandler base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 37525689 > {
@@ -14975,6 +15523,76 @@ template<>
 class LunaType< 77774778 > {
 public:
     typedef osgUtil::StatsVisitor::StateSetSet type;
+    
+};
+
+template<>
+class LunaType< 51540588 > {
+public:
+    typedef osgViewer::GraphicsWindow::Views type;
+    
+};
+
+template<>
+class LunaType< 30766822 > {
+public:
+    typedef osgViewer::GraphicsWindowFunctionProxy type;
+    
+};
+
+template<>
+class LunaType< 62378713 > {
+public:
+    typedef osgViewer::View::EventHandlers type;
+    
+};
+
+template<>
+class LunaType< 18740017 > {
+public:
+    typedef osgViewer::ViewerBase::Cameras type;
+    
+};
+
+template<>
+class LunaType< 48105087 > {
+public:
+    typedef osgViewer::ViewerBase::Contexts type;
+    
+};
+
+template<>
+class LunaType< 98734151 > {
+public:
+    typedef osgViewer::ViewerBase::Windows type;
+    
+};
+
+template<>
+class LunaType< 11304538 > {
+public:
+    typedef osgViewer::ViewerBase::Threads type;
+    
+};
+
+template<>
+class LunaType< 32227808 > {
+public:
+    typedef osgViewer::ViewerBase::OperationThreads type;
+    
+};
+
+template<>
+class LunaType< 98997480 > {
+public:
+    typedef osgViewer::ViewerBase::Scenes type;
+    
+};
+
+template<>
+class LunaType< 2917259 > {
+public:
+    typedef osgViewer::ViewerBase::Views type;
     
 };
 

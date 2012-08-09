@@ -225,6 +225,11 @@ im:addPattern("function","wchar_t")
 im:addPattern("function","BEGIN_BRACKET")
 im:addPattern("function","Thread")
 
+-- for osgViewer:
+im:addPattern("function","GraphicsWindow::makeContextCurrentImplementation")
+im:addPattern("function","GraphicsWindow::isSameKindAs")
+im:addPattern("function","GraphicsWindowEmbedded::isSameKindAs")
+
 -- im:addPattern("class","QueryGeometry")
 -- im:addPattern("class_declaration","QueryGeometry")
 
@@ -270,6 +275,15 @@ im:addPattern("class","osgGA::OrbitManipulator::OrbitAnimationData")
 im:addPattern("class","VectorUInt")
 im:addPattern("class","osgText::Text3D::GlyphRenderInfo")
 im:addPattern("class","osgText::TextBase::AutoTransformCache")
+
+-- for osgViewer:
+im:addPattern("class","osgViewer::Renderer::ThreadSafeQueue")
+im:addPattern("class","osgViewer::StatsHandler::UserStatsLine")
+im:addPattern("class","PixelBufferWin32")
+im:addPattern("class","GraphicsWindowWin32")
+im:addPattern("class","GraphicsHandleWin32")
+im:addPattern("class","WindowData")
+
 
 im:addPattern("enum_value","osgUtil::Optimizer::TextureAtlasBuilder::")
 im:addPattern("enum_value","FileOpResult::")

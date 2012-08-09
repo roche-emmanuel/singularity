@@ -12,6 +12,8 @@ osgTextGetVersion
 osgTextGetLibraryName
 osgUtilGetVersion
 osgUtilGetLibraryName
+osgViewerGetVersion
+osgViewerGetLibraryName
 osg::getCpuByteOrder
 osg::swapBytes
 osg::swapBytes2
