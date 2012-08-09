@@ -27,6 +27,7 @@ SET(DEP_IM IM-3.8_vc9_lib)
 SET(DEP_CD CD-5.5.1_vc9_lib)
 SET(DEP_IUP IUP-3.6_vc9_lib)
 SET(DEP_SDL SDL-1.2.15)
+SET(DEP_SPICE CSpice-N0064)
 
 # SET(LUA "${DEPS_DIR}/${DEP_LUA}/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)
 # SET(LUA "W:/Shared/Dev/Deps/mingw32/luaJIT-2.0.0-beta8/bin/luajit.exe" CACHE STRING "Lua executable" FORCE)

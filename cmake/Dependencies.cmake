@@ -95,6 +95,10 @@ IF(MSVC)
     SET(SDL_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SDL}/include)
     SET(SDL_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SDL}/VisualC/SDL/Release)
     SET(SDL_LIBS 		SDL.lib)
+
+    SET(SPICE_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SPICE}/include)
+    SET(SPICE_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SPICE}/lib)
+    SET(SPICE_LIBS 		cspice.lib) #csupport.lib
 	
 ELSE()
     SET(LUABIND_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUABIND}/include)
