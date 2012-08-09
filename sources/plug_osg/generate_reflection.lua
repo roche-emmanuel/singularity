@@ -187,7 +187,7 @@ im:addPattern("function","resizeGLObjectBuffers")
 im:addPattern("function","float const %*const")
 im:addPattern("function","double const %*const")
 im:addPattern("function","const %*const")
-im:addPattern("function","OpenThreads::Mutex")
+im:addPattern("function","Mutex")
 im:addPattern("function","std::ostream")
 im:addPattern("function","std::istream")
 im:addPattern("function","Extensions%(const")
@@ -257,6 +257,13 @@ im:addPattern("class","osgDB::SharedStateManager::") --CompareStateAttributes, C
 im:addPattern("class","Serializer")
 im:addPattern("class","ControlMap")
 im:addPattern("class","Input")
+
+-- for osgGA:
+im:addPattern("class","osgGA::FirstPersonManipulator::FirstPersonAnimationData")
+im:addPattern("class","osgGA::GUIEventAdapter::Scrolling")
+im:addPattern("class","osgGA::GUIEventAdapter::TabletPen")
+im:addPattern("class","osgGA::StandardManipulator::AnimationData")
+im:addPattern("class","osgGA::OrbitManipulator::OrbitAnimationData")
 
 im:addPattern("enum_value","osgUtil::Optimizer::")
 

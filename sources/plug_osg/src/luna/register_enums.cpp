@@ -90,6 +90,12 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FlightManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/NodeTrackerManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/SphericalManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StandardManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TerrainManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
@@ -2696,6 +2702,626 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,FileOpResult::DESTINATION_NOT_OPENED); lua_setfield(L,-2,"DESTINATION_NOT_OPENED");
 	lua_pushnumber(L,FileOpResult::READ_ERROR); lua_setfield(L,-2,"READ_ERROR");
 	lua_pushnumber(L,FileOpResult::WRITE_ERROR); lua_setfield(L,-2,"WRITE_ERROR");
+
+
+	lua_newtable(L); // enum YawControlMode
+
+	lua_pushnumber(L,osgGA::FlightManipulator::YAW_AUTOMATICALLY_WHEN_BANKED); lua_setfield(L,-2,"YAW_AUTOMATICALLY_WHEN_BANKED");
+	lua_pushnumber(L,osgGA::FlightManipulator::NO_AUTOMATIC_YAW); lua_setfield(L,-2,"NO_AUTOMATIC_YAW");
+
+	lua_setfield(L,-2,"YawControlMode");
+
+	lua_pushnumber(L,osgGA::FlightManipulator::YAW_AUTOMATICALLY_WHEN_BANKED); lua_setfield(L,-2,"YAW_AUTOMATICALLY_WHEN_BANKED");
+	lua_pushnumber(L,osgGA::FlightManipulator::NO_AUTOMATIC_YAW); lua_setfield(L,-2,"NO_AUTOMATIC_YAW");
+
+
+	lua_newtable(L); // enum MouseButtonMask
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON); lua_setfield(L,-2,"LEFT_MOUSE_BUTTON");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MIDDLE_MOUSE_BUTTON); lua_setfield(L,-2,"MIDDLE_MOUSE_BUTTON");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON); lua_setfield(L,-2,"RIGHT_MOUSE_BUTTON");
+
+	lua_setfield(L,-2,"MouseButtonMask");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::LEFT_MOUSE_BUTTON); lua_setfield(L,-2,"LEFT_MOUSE_BUTTON");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MIDDLE_MOUSE_BUTTON); lua_setfield(L,-2,"MIDDLE_MOUSE_BUTTON");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RIGHT_MOUSE_BUTTON); lua_setfield(L,-2,"RIGHT_MOUSE_BUTTON");
+
+
+	lua_newtable(L); // enum EventType
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::NONE); lua_setfield(L,-2,"NONE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PUSH); lua_setfield(L,-2,"PUSH");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RELEASE); lua_setfield(L,-2,"RELEASE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::DOUBLECLICK); lua_setfield(L,-2,"DOUBLECLICK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::DRAG); lua_setfield(L,-2,"DRAG");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MOVE); lua_setfield(L,-2,"MOVE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEYDOWN); lua_setfield(L,-2,"KEYDOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEYUP); lua_setfield(L,-2,"KEYUP");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::FRAME); lua_setfield(L,-2,"FRAME");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RESIZE); lua_setfield(L,-2,"RESIZE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL); lua_setfield(L,-2,"SCROLL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PRESSURE); lua_setfield(L,-2,"PEN_PRESSURE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_ORIENTATION); lua_setfield(L,-2,"PEN_ORIENTATION");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PROXIMITY_ENTER); lua_setfield(L,-2,"PEN_PROXIMITY_ENTER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PROXIMITY_LEAVE); lua_setfield(L,-2,"PEN_PROXIMITY_LEAVE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::CLOSE_WINDOW); lua_setfield(L,-2,"CLOSE_WINDOW");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::QUIT_APPLICATION); lua_setfield(L,-2,"QUIT_APPLICATION");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::USER); lua_setfield(L,-2,"USER");
+
+	lua_setfield(L,-2,"EventType");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::NONE); lua_setfield(L,-2,"NONE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PUSH); lua_setfield(L,-2,"PUSH");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RELEASE); lua_setfield(L,-2,"RELEASE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::DOUBLECLICK); lua_setfield(L,-2,"DOUBLECLICK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::DRAG); lua_setfield(L,-2,"DRAG");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MOVE); lua_setfield(L,-2,"MOVE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEYDOWN); lua_setfield(L,-2,"KEYDOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEYUP); lua_setfield(L,-2,"KEYUP");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::FRAME); lua_setfield(L,-2,"FRAME");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::RESIZE); lua_setfield(L,-2,"RESIZE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL); lua_setfield(L,-2,"SCROLL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PRESSURE); lua_setfield(L,-2,"PEN_PRESSURE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_ORIENTATION); lua_setfield(L,-2,"PEN_ORIENTATION");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PROXIMITY_ENTER); lua_setfield(L,-2,"PEN_PROXIMITY_ENTER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN_PROXIMITY_LEAVE); lua_setfield(L,-2,"PEN_PROXIMITY_LEAVE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::CLOSE_WINDOW); lua_setfield(L,-2,"CLOSE_WINDOW");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::QUIT_APPLICATION); lua_setfield(L,-2,"QUIT_APPLICATION");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::USER); lua_setfield(L,-2,"USER");
+
+
+	lua_newtable(L); // enum KeySymbol
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Space); lua_setfield(L,-2,"KEY_Space");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_0); lua_setfield(L,-2,"KEY_0");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_1); lua_setfield(L,-2,"KEY_1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_2); lua_setfield(L,-2,"KEY_2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_3); lua_setfield(L,-2,"KEY_3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_4); lua_setfield(L,-2,"KEY_4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_5); lua_setfield(L,-2,"KEY_5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_6); lua_setfield(L,-2,"KEY_6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_7); lua_setfield(L,-2,"KEY_7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_8); lua_setfield(L,-2,"KEY_8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_9); lua_setfield(L,-2,"KEY_9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_A); lua_setfield(L,-2,"KEY_A");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_B); lua_setfield(L,-2,"KEY_B");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_C); lua_setfield(L,-2,"KEY_C");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_D); lua_setfield(L,-2,"KEY_D");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_E); lua_setfield(L,-2,"KEY_E");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F); lua_setfield(L,-2,"KEY_F");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_G); lua_setfield(L,-2,"KEY_G");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_H); lua_setfield(L,-2,"KEY_H");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_I); lua_setfield(L,-2,"KEY_I");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_J); lua_setfield(L,-2,"KEY_J");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_K); lua_setfield(L,-2,"KEY_K");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_L); lua_setfield(L,-2,"KEY_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_M); lua_setfield(L,-2,"KEY_M");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_N); lua_setfield(L,-2,"KEY_N");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_O); lua_setfield(L,-2,"KEY_O");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_P); lua_setfield(L,-2,"KEY_P");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Q); lua_setfield(L,-2,"KEY_Q");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_R); lua_setfield(L,-2,"KEY_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_S); lua_setfield(L,-2,"KEY_S");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_T); lua_setfield(L,-2,"KEY_T");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_U); lua_setfield(L,-2,"KEY_U");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_V); lua_setfield(L,-2,"KEY_V");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_W); lua_setfield(L,-2,"KEY_W");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_X); lua_setfield(L,-2,"KEY_X");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Y); lua_setfield(L,-2,"KEY_Y");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Z); lua_setfield(L,-2,"KEY_Z");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Exclaim); lua_setfield(L,-2,"KEY_Exclaim");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Quotedbl); lua_setfield(L,-2,"KEY_Quotedbl");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hash); lua_setfield(L,-2,"KEY_Hash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Dollar); lua_setfield(L,-2,"KEY_Dollar");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Ampersand); lua_setfield(L,-2,"KEY_Ampersand");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Quote); lua_setfield(L,-2,"KEY_Quote");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Leftparen); lua_setfield(L,-2,"KEY_Leftparen");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Rightparen); lua_setfield(L,-2,"KEY_Rightparen");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Asterisk); lua_setfield(L,-2,"KEY_Asterisk");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Plus); lua_setfield(L,-2,"KEY_Plus");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Comma); lua_setfield(L,-2,"KEY_Comma");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Minus); lua_setfield(L,-2,"KEY_Minus");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Period); lua_setfield(L,-2,"KEY_Period");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Slash); lua_setfield(L,-2,"KEY_Slash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Colon); lua_setfield(L,-2,"KEY_Colon");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Semicolon); lua_setfield(L,-2,"KEY_Semicolon");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Less); lua_setfield(L,-2,"KEY_Less");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Equals); lua_setfield(L,-2,"KEY_Equals");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Greater); lua_setfield(L,-2,"KEY_Greater");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Question); lua_setfield(L,-2,"KEY_Question");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_At); lua_setfield(L,-2,"KEY_At");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Leftbracket); lua_setfield(L,-2,"KEY_Leftbracket");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Backslash); lua_setfield(L,-2,"KEY_Backslash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Rightbracket); lua_setfield(L,-2,"KEY_Rightbracket");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Caret); lua_setfield(L,-2,"KEY_Caret");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Underscore); lua_setfield(L,-2,"KEY_Underscore");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Backquote); lua_setfield(L,-2,"KEY_Backquote");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_BackSpace); lua_setfield(L,-2,"KEY_BackSpace");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Tab); lua_setfield(L,-2,"KEY_Tab");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Linefeed); lua_setfield(L,-2,"KEY_Linefeed");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Clear); lua_setfield(L,-2,"KEY_Clear");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Return); lua_setfield(L,-2,"KEY_Return");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Pause); lua_setfield(L,-2,"KEY_Pause");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Scroll_Lock); lua_setfield(L,-2,"KEY_Scroll_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Sys_Req); lua_setfield(L,-2,"KEY_Sys_Req");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Escape); lua_setfield(L,-2,"KEY_Escape");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Delete); lua_setfield(L,-2,"KEY_Delete");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Home); lua_setfield(L,-2,"KEY_Home");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Left); lua_setfield(L,-2,"KEY_Left");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Up); lua_setfield(L,-2,"KEY_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Right); lua_setfield(L,-2,"KEY_Right");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Down); lua_setfield(L,-2,"KEY_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Prior); lua_setfield(L,-2,"KEY_Prior");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Page_Up); lua_setfield(L,-2,"KEY_Page_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Next); lua_setfield(L,-2,"KEY_Next");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Page_Down); lua_setfield(L,-2,"KEY_Page_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_End); lua_setfield(L,-2,"KEY_End");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Begin); lua_setfield(L,-2,"KEY_Begin");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Select); lua_setfield(L,-2,"KEY_Select");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Print); lua_setfield(L,-2,"KEY_Print");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Execute); lua_setfield(L,-2,"KEY_Execute");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Insert); lua_setfield(L,-2,"KEY_Insert");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Undo); lua_setfield(L,-2,"KEY_Undo");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Redo); lua_setfield(L,-2,"KEY_Redo");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Menu); lua_setfield(L,-2,"KEY_Menu");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Find); lua_setfield(L,-2,"KEY_Find");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Cancel); lua_setfield(L,-2,"KEY_Cancel");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Help); lua_setfield(L,-2,"KEY_Help");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Break); lua_setfield(L,-2,"KEY_Break");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Mode_switch); lua_setfield(L,-2,"KEY_Mode_switch");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Script_switch); lua_setfield(L,-2,"KEY_Script_switch");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Num_Lock); lua_setfield(L,-2,"KEY_Num_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Space); lua_setfield(L,-2,"KEY_KP_Space");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Tab); lua_setfield(L,-2,"KEY_KP_Tab");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Enter); lua_setfield(L,-2,"KEY_KP_Enter");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F1); lua_setfield(L,-2,"KEY_KP_F1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F2); lua_setfield(L,-2,"KEY_KP_F2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F3); lua_setfield(L,-2,"KEY_KP_F3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F4); lua_setfield(L,-2,"KEY_KP_F4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Home); lua_setfield(L,-2,"KEY_KP_Home");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Left); lua_setfield(L,-2,"KEY_KP_Left");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Up); lua_setfield(L,-2,"KEY_KP_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Right); lua_setfield(L,-2,"KEY_KP_Right");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Down); lua_setfield(L,-2,"KEY_KP_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Prior); lua_setfield(L,-2,"KEY_KP_Prior");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Page_Up); lua_setfield(L,-2,"KEY_KP_Page_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Next); lua_setfield(L,-2,"KEY_KP_Next");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Page_Down); lua_setfield(L,-2,"KEY_KP_Page_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_End); lua_setfield(L,-2,"KEY_KP_End");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Begin); lua_setfield(L,-2,"KEY_KP_Begin");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Insert); lua_setfield(L,-2,"KEY_KP_Insert");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Delete); lua_setfield(L,-2,"KEY_KP_Delete");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Equal); lua_setfield(L,-2,"KEY_KP_Equal");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Multiply); lua_setfield(L,-2,"KEY_KP_Multiply");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Add); lua_setfield(L,-2,"KEY_KP_Add");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Separator); lua_setfield(L,-2,"KEY_KP_Separator");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Subtract); lua_setfield(L,-2,"KEY_KP_Subtract");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Decimal); lua_setfield(L,-2,"KEY_KP_Decimal");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Divide); lua_setfield(L,-2,"KEY_KP_Divide");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_0); lua_setfield(L,-2,"KEY_KP_0");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_1); lua_setfield(L,-2,"KEY_KP_1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_2); lua_setfield(L,-2,"KEY_KP_2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_3); lua_setfield(L,-2,"KEY_KP_3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_4); lua_setfield(L,-2,"KEY_KP_4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_5); lua_setfield(L,-2,"KEY_KP_5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_6); lua_setfield(L,-2,"KEY_KP_6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_7); lua_setfield(L,-2,"KEY_KP_7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_8); lua_setfield(L,-2,"KEY_KP_8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_9); lua_setfield(L,-2,"KEY_KP_9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F1); lua_setfield(L,-2,"KEY_F1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F2); lua_setfield(L,-2,"KEY_F2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F3); lua_setfield(L,-2,"KEY_F3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F4); lua_setfield(L,-2,"KEY_F4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F5); lua_setfield(L,-2,"KEY_F5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F6); lua_setfield(L,-2,"KEY_F6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F7); lua_setfield(L,-2,"KEY_F7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F8); lua_setfield(L,-2,"KEY_F8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F9); lua_setfield(L,-2,"KEY_F9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F10); lua_setfield(L,-2,"KEY_F10");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F11); lua_setfield(L,-2,"KEY_F11");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F12); lua_setfield(L,-2,"KEY_F12");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F13); lua_setfield(L,-2,"KEY_F13");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F14); lua_setfield(L,-2,"KEY_F14");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F15); lua_setfield(L,-2,"KEY_F15");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F16); lua_setfield(L,-2,"KEY_F16");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F17); lua_setfield(L,-2,"KEY_F17");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F18); lua_setfield(L,-2,"KEY_F18");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F19); lua_setfield(L,-2,"KEY_F19");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F20); lua_setfield(L,-2,"KEY_F20");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F21); lua_setfield(L,-2,"KEY_F21");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F22); lua_setfield(L,-2,"KEY_F22");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F23); lua_setfield(L,-2,"KEY_F23");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F24); lua_setfield(L,-2,"KEY_F24");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F25); lua_setfield(L,-2,"KEY_F25");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F26); lua_setfield(L,-2,"KEY_F26");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F27); lua_setfield(L,-2,"KEY_F27");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F28); lua_setfield(L,-2,"KEY_F28");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F29); lua_setfield(L,-2,"KEY_F29");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F30); lua_setfield(L,-2,"KEY_F30");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F31); lua_setfield(L,-2,"KEY_F31");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F32); lua_setfield(L,-2,"KEY_F32");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F33); lua_setfield(L,-2,"KEY_F33");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F34); lua_setfield(L,-2,"KEY_F34");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F35); lua_setfield(L,-2,"KEY_F35");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_L); lua_setfield(L,-2,"KEY_Shift_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_R); lua_setfield(L,-2,"KEY_Shift_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Control_L); lua_setfield(L,-2,"KEY_Control_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Control_R); lua_setfield(L,-2,"KEY_Control_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Caps_Lock); lua_setfield(L,-2,"KEY_Caps_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_Lock); lua_setfield(L,-2,"KEY_Shift_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Meta_L); lua_setfield(L,-2,"KEY_Meta_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Meta_R); lua_setfield(L,-2,"KEY_Meta_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Alt_L); lua_setfield(L,-2,"KEY_Alt_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Alt_R); lua_setfield(L,-2,"KEY_Alt_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Super_L); lua_setfield(L,-2,"KEY_Super_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Super_R); lua_setfield(L,-2,"KEY_Super_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hyper_L); lua_setfield(L,-2,"KEY_Hyper_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hyper_R); lua_setfield(L,-2,"KEY_Hyper_R");
+
+	lua_setfield(L,-2,"KeySymbol");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Space); lua_setfield(L,-2,"KEY_Space");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_0); lua_setfield(L,-2,"KEY_0");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_1); lua_setfield(L,-2,"KEY_1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_2); lua_setfield(L,-2,"KEY_2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_3); lua_setfield(L,-2,"KEY_3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_4); lua_setfield(L,-2,"KEY_4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_5); lua_setfield(L,-2,"KEY_5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_6); lua_setfield(L,-2,"KEY_6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_7); lua_setfield(L,-2,"KEY_7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_8); lua_setfield(L,-2,"KEY_8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_9); lua_setfield(L,-2,"KEY_9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_A); lua_setfield(L,-2,"KEY_A");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_B); lua_setfield(L,-2,"KEY_B");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_C); lua_setfield(L,-2,"KEY_C");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_D); lua_setfield(L,-2,"KEY_D");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_E); lua_setfield(L,-2,"KEY_E");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F); lua_setfield(L,-2,"KEY_F");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_G); lua_setfield(L,-2,"KEY_G");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_H); lua_setfield(L,-2,"KEY_H");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_I); lua_setfield(L,-2,"KEY_I");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_J); lua_setfield(L,-2,"KEY_J");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_K); lua_setfield(L,-2,"KEY_K");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_L); lua_setfield(L,-2,"KEY_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_M); lua_setfield(L,-2,"KEY_M");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_N); lua_setfield(L,-2,"KEY_N");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_O); lua_setfield(L,-2,"KEY_O");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_P); lua_setfield(L,-2,"KEY_P");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Q); lua_setfield(L,-2,"KEY_Q");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_R); lua_setfield(L,-2,"KEY_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_S); lua_setfield(L,-2,"KEY_S");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_T); lua_setfield(L,-2,"KEY_T");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_U); lua_setfield(L,-2,"KEY_U");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_V); lua_setfield(L,-2,"KEY_V");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_W); lua_setfield(L,-2,"KEY_W");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_X); lua_setfield(L,-2,"KEY_X");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Y); lua_setfield(L,-2,"KEY_Y");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Z); lua_setfield(L,-2,"KEY_Z");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Exclaim); lua_setfield(L,-2,"KEY_Exclaim");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Quotedbl); lua_setfield(L,-2,"KEY_Quotedbl");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hash); lua_setfield(L,-2,"KEY_Hash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Dollar); lua_setfield(L,-2,"KEY_Dollar");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Ampersand); lua_setfield(L,-2,"KEY_Ampersand");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Quote); lua_setfield(L,-2,"KEY_Quote");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Leftparen); lua_setfield(L,-2,"KEY_Leftparen");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Rightparen); lua_setfield(L,-2,"KEY_Rightparen");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Asterisk); lua_setfield(L,-2,"KEY_Asterisk");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Plus); lua_setfield(L,-2,"KEY_Plus");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Comma); lua_setfield(L,-2,"KEY_Comma");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Minus); lua_setfield(L,-2,"KEY_Minus");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Period); lua_setfield(L,-2,"KEY_Period");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Slash); lua_setfield(L,-2,"KEY_Slash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Colon); lua_setfield(L,-2,"KEY_Colon");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Semicolon); lua_setfield(L,-2,"KEY_Semicolon");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Less); lua_setfield(L,-2,"KEY_Less");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Equals); lua_setfield(L,-2,"KEY_Equals");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Greater); lua_setfield(L,-2,"KEY_Greater");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Question); lua_setfield(L,-2,"KEY_Question");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_At); lua_setfield(L,-2,"KEY_At");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Leftbracket); lua_setfield(L,-2,"KEY_Leftbracket");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Backslash); lua_setfield(L,-2,"KEY_Backslash");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Rightbracket); lua_setfield(L,-2,"KEY_Rightbracket");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Caret); lua_setfield(L,-2,"KEY_Caret");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Underscore); lua_setfield(L,-2,"KEY_Underscore");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Backquote); lua_setfield(L,-2,"KEY_Backquote");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_BackSpace); lua_setfield(L,-2,"KEY_BackSpace");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Tab); lua_setfield(L,-2,"KEY_Tab");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Linefeed); lua_setfield(L,-2,"KEY_Linefeed");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Clear); lua_setfield(L,-2,"KEY_Clear");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Return); lua_setfield(L,-2,"KEY_Return");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Pause); lua_setfield(L,-2,"KEY_Pause");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Scroll_Lock); lua_setfield(L,-2,"KEY_Scroll_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Sys_Req); lua_setfield(L,-2,"KEY_Sys_Req");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Escape); lua_setfield(L,-2,"KEY_Escape");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Delete); lua_setfield(L,-2,"KEY_Delete");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Home); lua_setfield(L,-2,"KEY_Home");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Left); lua_setfield(L,-2,"KEY_Left");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Up); lua_setfield(L,-2,"KEY_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Right); lua_setfield(L,-2,"KEY_Right");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Down); lua_setfield(L,-2,"KEY_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Prior); lua_setfield(L,-2,"KEY_Prior");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Page_Up); lua_setfield(L,-2,"KEY_Page_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Next); lua_setfield(L,-2,"KEY_Next");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Page_Down); lua_setfield(L,-2,"KEY_Page_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_End); lua_setfield(L,-2,"KEY_End");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Begin); lua_setfield(L,-2,"KEY_Begin");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Select); lua_setfield(L,-2,"KEY_Select");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Print); lua_setfield(L,-2,"KEY_Print");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Execute); lua_setfield(L,-2,"KEY_Execute");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Insert); lua_setfield(L,-2,"KEY_Insert");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Undo); lua_setfield(L,-2,"KEY_Undo");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Redo); lua_setfield(L,-2,"KEY_Redo");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Menu); lua_setfield(L,-2,"KEY_Menu");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Find); lua_setfield(L,-2,"KEY_Find");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Cancel); lua_setfield(L,-2,"KEY_Cancel");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Help); lua_setfield(L,-2,"KEY_Help");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Break); lua_setfield(L,-2,"KEY_Break");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Mode_switch); lua_setfield(L,-2,"KEY_Mode_switch");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Script_switch); lua_setfield(L,-2,"KEY_Script_switch");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Num_Lock); lua_setfield(L,-2,"KEY_Num_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Space); lua_setfield(L,-2,"KEY_KP_Space");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Tab); lua_setfield(L,-2,"KEY_KP_Tab");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Enter); lua_setfield(L,-2,"KEY_KP_Enter");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F1); lua_setfield(L,-2,"KEY_KP_F1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F2); lua_setfield(L,-2,"KEY_KP_F2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F3); lua_setfield(L,-2,"KEY_KP_F3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_F4); lua_setfield(L,-2,"KEY_KP_F4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Home); lua_setfield(L,-2,"KEY_KP_Home");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Left); lua_setfield(L,-2,"KEY_KP_Left");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Up); lua_setfield(L,-2,"KEY_KP_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Right); lua_setfield(L,-2,"KEY_KP_Right");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Down); lua_setfield(L,-2,"KEY_KP_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Prior); lua_setfield(L,-2,"KEY_KP_Prior");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Page_Up); lua_setfield(L,-2,"KEY_KP_Page_Up");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Next); lua_setfield(L,-2,"KEY_KP_Next");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Page_Down); lua_setfield(L,-2,"KEY_KP_Page_Down");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_End); lua_setfield(L,-2,"KEY_KP_End");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Begin); lua_setfield(L,-2,"KEY_KP_Begin");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Insert); lua_setfield(L,-2,"KEY_KP_Insert");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Delete); lua_setfield(L,-2,"KEY_KP_Delete");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Equal); lua_setfield(L,-2,"KEY_KP_Equal");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Multiply); lua_setfield(L,-2,"KEY_KP_Multiply");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Add); lua_setfield(L,-2,"KEY_KP_Add");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Separator); lua_setfield(L,-2,"KEY_KP_Separator");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Subtract); lua_setfield(L,-2,"KEY_KP_Subtract");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Decimal); lua_setfield(L,-2,"KEY_KP_Decimal");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_Divide); lua_setfield(L,-2,"KEY_KP_Divide");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_0); lua_setfield(L,-2,"KEY_KP_0");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_1); lua_setfield(L,-2,"KEY_KP_1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_2); lua_setfield(L,-2,"KEY_KP_2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_3); lua_setfield(L,-2,"KEY_KP_3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_4); lua_setfield(L,-2,"KEY_KP_4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_5); lua_setfield(L,-2,"KEY_KP_5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_6); lua_setfield(L,-2,"KEY_KP_6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_7); lua_setfield(L,-2,"KEY_KP_7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_8); lua_setfield(L,-2,"KEY_KP_8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_KP_9); lua_setfield(L,-2,"KEY_KP_9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F1); lua_setfield(L,-2,"KEY_F1");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F2); lua_setfield(L,-2,"KEY_F2");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F3); lua_setfield(L,-2,"KEY_F3");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F4); lua_setfield(L,-2,"KEY_F4");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F5); lua_setfield(L,-2,"KEY_F5");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F6); lua_setfield(L,-2,"KEY_F6");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F7); lua_setfield(L,-2,"KEY_F7");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F8); lua_setfield(L,-2,"KEY_F8");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F9); lua_setfield(L,-2,"KEY_F9");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F10); lua_setfield(L,-2,"KEY_F10");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F11); lua_setfield(L,-2,"KEY_F11");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F12); lua_setfield(L,-2,"KEY_F12");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F13); lua_setfield(L,-2,"KEY_F13");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F14); lua_setfield(L,-2,"KEY_F14");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F15); lua_setfield(L,-2,"KEY_F15");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F16); lua_setfield(L,-2,"KEY_F16");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F17); lua_setfield(L,-2,"KEY_F17");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F18); lua_setfield(L,-2,"KEY_F18");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F19); lua_setfield(L,-2,"KEY_F19");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F20); lua_setfield(L,-2,"KEY_F20");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F21); lua_setfield(L,-2,"KEY_F21");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F22); lua_setfield(L,-2,"KEY_F22");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F23); lua_setfield(L,-2,"KEY_F23");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F24); lua_setfield(L,-2,"KEY_F24");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F25); lua_setfield(L,-2,"KEY_F25");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F26); lua_setfield(L,-2,"KEY_F26");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F27); lua_setfield(L,-2,"KEY_F27");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F28); lua_setfield(L,-2,"KEY_F28");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F29); lua_setfield(L,-2,"KEY_F29");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F30); lua_setfield(L,-2,"KEY_F30");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F31); lua_setfield(L,-2,"KEY_F31");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F32); lua_setfield(L,-2,"KEY_F32");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F33); lua_setfield(L,-2,"KEY_F33");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F34); lua_setfield(L,-2,"KEY_F34");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_F35); lua_setfield(L,-2,"KEY_F35");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_L); lua_setfield(L,-2,"KEY_Shift_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_R); lua_setfield(L,-2,"KEY_Shift_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Control_L); lua_setfield(L,-2,"KEY_Control_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Control_R); lua_setfield(L,-2,"KEY_Control_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Caps_Lock); lua_setfield(L,-2,"KEY_Caps_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Shift_Lock); lua_setfield(L,-2,"KEY_Shift_Lock");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Meta_L); lua_setfield(L,-2,"KEY_Meta_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Meta_R); lua_setfield(L,-2,"KEY_Meta_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Alt_L); lua_setfield(L,-2,"KEY_Alt_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Alt_R); lua_setfield(L,-2,"KEY_Alt_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Super_L); lua_setfield(L,-2,"KEY_Super_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Super_R); lua_setfield(L,-2,"KEY_Super_R");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hyper_L); lua_setfield(L,-2,"KEY_Hyper_L");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::KEY_Hyper_R); lua_setfield(L,-2,"KEY_Hyper_R");
+
+
+	lua_newtable(L); // enum ModKeyMask
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_SHIFT); lua_setfield(L,-2,"MODKEY_LEFT_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_SHIFT); lua_setfield(L,-2,"MODKEY_RIGHT_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_CTRL); lua_setfield(L,-2,"MODKEY_LEFT_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_CTRL); lua_setfield(L,-2,"MODKEY_RIGHT_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_ALT); lua_setfield(L,-2,"MODKEY_LEFT_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_ALT); lua_setfield(L,-2,"MODKEY_RIGHT_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_META); lua_setfield(L,-2,"MODKEY_LEFT_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_META); lua_setfield(L,-2,"MODKEY_RIGHT_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_SUPER); lua_setfield(L,-2,"MODKEY_LEFT_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_SUPER); lua_setfield(L,-2,"MODKEY_RIGHT_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_HYPER); lua_setfield(L,-2,"MODKEY_LEFT_HYPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_HYPER); lua_setfield(L,-2,"MODKEY_RIGHT_HYPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_NUM_LOCK); lua_setfield(L,-2,"MODKEY_NUM_LOCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_CAPS_LOCK); lua_setfield(L,-2,"MODKEY_CAPS_LOCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_CTRL); lua_setfield(L,-2,"MODKEY_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_SHIFT); lua_setfield(L,-2,"MODKEY_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_ALT); lua_setfield(L,-2,"MODKEY_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_META); lua_setfield(L,-2,"MODKEY_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_SUPER); lua_setfield(L,-2,"MODKEY_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_HYPER); lua_setfield(L,-2,"MODKEY_HYPER");
+
+	lua_setfield(L,-2,"ModKeyMask");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_SHIFT); lua_setfield(L,-2,"MODKEY_LEFT_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_SHIFT); lua_setfield(L,-2,"MODKEY_RIGHT_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_CTRL); lua_setfield(L,-2,"MODKEY_LEFT_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_CTRL); lua_setfield(L,-2,"MODKEY_RIGHT_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_ALT); lua_setfield(L,-2,"MODKEY_LEFT_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_ALT); lua_setfield(L,-2,"MODKEY_RIGHT_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_META); lua_setfield(L,-2,"MODKEY_LEFT_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_META); lua_setfield(L,-2,"MODKEY_RIGHT_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_SUPER); lua_setfield(L,-2,"MODKEY_LEFT_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_SUPER); lua_setfield(L,-2,"MODKEY_RIGHT_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_LEFT_HYPER); lua_setfield(L,-2,"MODKEY_LEFT_HYPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_RIGHT_HYPER); lua_setfield(L,-2,"MODKEY_RIGHT_HYPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_NUM_LOCK); lua_setfield(L,-2,"MODKEY_NUM_LOCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_CAPS_LOCK); lua_setfield(L,-2,"MODKEY_CAPS_LOCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_CTRL); lua_setfield(L,-2,"MODKEY_CTRL");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_SHIFT); lua_setfield(L,-2,"MODKEY_SHIFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_ALT); lua_setfield(L,-2,"MODKEY_ALT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_META); lua_setfield(L,-2,"MODKEY_META");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_SUPER); lua_setfield(L,-2,"MODKEY_SUPER");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::MODKEY_HYPER); lua_setfield(L,-2,"MODKEY_HYPER");
+
+
+	lua_newtable(L); // enum MouseYOrientation
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::Y_INCREASING_UPWARDS); lua_setfield(L,-2,"Y_INCREASING_UPWARDS");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS); lua_setfield(L,-2,"Y_INCREASING_DOWNWARDS");
+
+	lua_setfield(L,-2,"MouseYOrientation");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::Y_INCREASING_UPWARDS); lua_setfield(L,-2,"Y_INCREASING_UPWARDS");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS); lua_setfield(L,-2,"Y_INCREASING_DOWNWARDS");
+
+
+	lua_newtable(L); // enum ScrollingMotion
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_NONE); lua_setfield(L,-2,"SCROLL_NONE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_LEFT); lua_setfield(L,-2,"SCROLL_LEFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_RIGHT); lua_setfield(L,-2,"SCROLL_RIGHT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_UP); lua_setfield(L,-2,"SCROLL_UP");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_DOWN); lua_setfield(L,-2,"SCROLL_DOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_2D); lua_setfield(L,-2,"SCROLL_2D");
+
+	lua_setfield(L,-2,"ScrollingMotion");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_NONE); lua_setfield(L,-2,"SCROLL_NONE");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_LEFT); lua_setfield(L,-2,"SCROLL_LEFT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_RIGHT); lua_setfield(L,-2,"SCROLL_RIGHT");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_UP); lua_setfield(L,-2,"SCROLL_UP");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_DOWN); lua_setfield(L,-2,"SCROLL_DOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::SCROLL_2D); lua_setfield(L,-2,"SCROLL_2D");
+
+
+	lua_newtable(L); // enum TabletPointerType
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::UNKNOWN); lua_setfield(L,-2,"UNKNOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN); lua_setfield(L,-2,"PEN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PUCK); lua_setfield(L,-2,"PUCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::ERASER); lua_setfield(L,-2,"ERASER");
+
+	lua_setfield(L,-2,"TabletPointerType");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::UNKNOWN); lua_setfield(L,-2,"UNKNOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PEN); lua_setfield(L,-2,"PEN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::PUCK); lua_setfield(L,-2,"PUCK");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::ERASER); lua_setfield(L,-2,"ERASER");
+
+
+	lua_newtable(L); // enum TouchPhase
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_UNKNOWN); lua_setfield(L,-2,"TOUCH_UNKNOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_BEGAN); lua_setfield(L,-2,"TOUCH_BEGAN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_MOVED); lua_setfield(L,-2,"TOUCH_MOVED");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_STATIONERY); lua_setfield(L,-2,"TOUCH_STATIONERY");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_ENDED); lua_setfield(L,-2,"TOUCH_ENDED");
+
+	lua_setfield(L,-2,"TouchPhase");
+
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_UNKNOWN); lua_setfield(L,-2,"TOUCH_UNKNOWN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_BEGAN); lua_setfield(L,-2,"TOUCH_BEGAN");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_MOVED); lua_setfield(L,-2,"TOUCH_MOVED");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_STATIONERY); lua_setfield(L,-2,"TOUCH_STATIONERY");
+	lua_pushnumber(L,osgGA::GUIEventAdapter::TOUCH_ENDED); lua_setfield(L,-2,"TOUCH_ENDED");
+
+
+	lua_newtable(L); // enum TrackerMode
+
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER); lua_setfield(L,-2,"NODE_CENTER");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER_AND_AZIM); lua_setfield(L,-2,"NODE_CENTER_AND_AZIM");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER_AND_ROTATION); lua_setfield(L,-2,"NODE_CENTER_AND_ROTATION");
+
+	lua_setfield(L,-2,"TrackerMode");
+
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER); lua_setfield(L,-2,"NODE_CENTER");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER_AND_AZIM); lua_setfield(L,-2,"NODE_CENTER_AND_AZIM");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::NODE_CENTER_AND_ROTATION); lua_setfield(L,-2,"NODE_CENTER_AND_ROTATION");
+
+
+	lua_newtable(L); // enum RotationMode
+
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::TRACKBALL); lua_setfield(L,-2,"TRACKBALL");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
+
+	lua_setfield(L,-2,"RotationMode");
+
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::TRACKBALL); lua_setfield(L,-2,"TRACKBALL");
+	lua_pushnumber(L,osgGA::NodeTrackerManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
+
+
+	lua_newtable(L); // enum RotationMode
+
+	lua_pushnumber(L,osgGA::SphericalManipulator::ELEVATION_HEADING); lua_setfield(L,-2,"ELEVATION_HEADING");
+	lua_pushnumber(L,osgGA::SphericalManipulator::HEADING); lua_setfield(L,-2,"HEADING");
+	lua_pushnumber(L,osgGA::SphericalManipulator::ELEVATION); lua_setfield(L,-2,"ELEVATION");
+	lua_pushnumber(L,osgGA::SphericalManipulator::MAP); lua_setfield(L,-2,"MAP");
+
+	lua_setfield(L,-2,"RotationMode");
+
+	lua_pushnumber(L,osgGA::SphericalManipulator::ELEVATION_HEADING); lua_setfield(L,-2,"ELEVATION_HEADING");
+	lua_pushnumber(L,osgGA::SphericalManipulator::HEADING); lua_setfield(L,-2,"HEADING");
+	lua_pushnumber(L,osgGA::SphericalManipulator::ELEVATION); lua_setfield(L,-2,"ELEVATION");
+	lua_pushnumber(L,osgGA::SphericalManipulator::MAP); lua_setfield(L,-2,"MAP");
+
+
+	lua_newtable(L); // enum UserInteractionFlags
+
+	lua_pushnumber(L,osgGA::StandardManipulator::UPDATE_MODEL_SIZE); lua_setfield(L,-2,"UPDATE_MODEL_SIZE");
+	lua_pushnumber(L,osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX); lua_setfield(L,-2,"COMPUTE_HOME_USING_BBOX");
+	lua_pushnumber(L,osgGA::StandardManipulator::PROCESS_MOUSE_WHEEL); lua_setfield(L,-2,"PROCESS_MOUSE_WHEEL");
+	lua_pushnumber(L,osgGA::StandardManipulator::SET_CENTER_ON_WHEEL_FORWARD_MOVEMENT); lua_setfield(L,-2,"SET_CENTER_ON_WHEEL_FORWARD_MOVEMENT");
+	lua_pushnumber(L,osgGA::StandardManipulator::DEFAULT_SETTINGS); lua_setfield(L,-2,"DEFAULT_SETTINGS");
+
+	lua_setfield(L,-2,"UserInteractionFlags");
+
+	lua_pushnumber(L,osgGA::StandardManipulator::UPDATE_MODEL_SIZE); lua_setfield(L,-2,"UPDATE_MODEL_SIZE");
+	lua_pushnumber(L,osgGA::StandardManipulator::COMPUTE_HOME_USING_BBOX); lua_setfield(L,-2,"COMPUTE_HOME_USING_BBOX");
+	lua_pushnumber(L,osgGA::StandardManipulator::PROCESS_MOUSE_WHEEL); lua_setfield(L,-2,"PROCESS_MOUSE_WHEEL");
+	lua_pushnumber(L,osgGA::StandardManipulator::SET_CENTER_ON_WHEEL_FORWARD_MOVEMENT); lua_setfield(L,-2,"SET_CENTER_ON_WHEEL_FORWARD_MOVEMENT");
+	lua_pushnumber(L,osgGA::StandardManipulator::DEFAULT_SETTINGS); lua_setfield(L,-2,"DEFAULT_SETTINGS");
+
+
+	lua_newtable(L); // enum RotationMode
+
+	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM_ROLL); lua_setfield(L,-2,"ELEVATION_AZIM_ROLL");
+	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
+
+	lua_setfield(L,-2,"RotationMode");
+
+	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM_ROLL); lua_setfield(L,-2,"ELEVATION_AZIM_ROLL");
+	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
 
 
 	lua_newtable(L); // enum ModeValues

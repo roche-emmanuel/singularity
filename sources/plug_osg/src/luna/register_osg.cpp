@@ -533,6 +533,39 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgDB::XmlNode >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::XmlNode > > >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"osgGA");
+	Luna< osgGA::GUIEventHandler >::Register(L);
+	Luna< osgGA::CameraManipulator >::Register(L);
+	Luna< osgGA::AnimationPathManipulator >::Register(L);
+	Luna< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::Register(L);
+	Luna< osgGA::CameraManipulator::CoordinateFrameCallback >::Register(L);
+	Luna< osgGA::CameraViewSwitchManipulator >::Register(L);
+	Luna< std::vector< osg::ref_ptr< osg::CameraView > > >::Register(L);
+	Luna< osgGA::DriveManipulator >::Register(L);
+	Luna< osgGA::EventQueue >::Register(L);
+	Luna< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > >::Register(L);
+	Luna< osgGA::EventVisitor >::Register(L);
+	Luna< osgGA::StandardManipulator >::Register(L);
+	Luna< osgGA::FirstPersonManipulator >::Register(L);
+	Luna< osgGA::FlightManipulator >::Register(L);
+	Luna< osgGA::GUIActionAdapter >::Register(L);
+	Luna< osgGA::GUIEventAdapter >::Register(L);
+	Luna< osgGA::GUIEventAdapter::TouchData >::Register(L);
+	Luna< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > >::Register(L);
+	Luna< osgGA::GUIEventAdapter::TouchData::TouchPoint >::Register(L);
+	Luna< osgGA::GUIEventHandlerVisitor >::Register(L);
+	Luna< osgGA::KeySwitchMatrixManipulator >::Register(L);
+	Luna< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > >::Register(L);
+	Luna< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > >::Register(L);
+	Luna< osgGA::OrbitManipulator >::Register(L);
+	Luna< osgGA::TrackballManipulator >::Register(L);
+	Luna< osgGA::MultiTouchTrackballManipulator >::Register(L);
+	Luna< osgGA::NodeTrackerManipulator >::Register(L);
+	Luna< osgGA::SphericalManipulator >::Register(L);
+	Luna< osgGA::StateSetManipulator >::Register(L);
+	Luna< osgGA::TerrainManipulator >::Register(L);
+	Luna< osgGA::UFOManipulator >::Register(L);
+	luna_popModule(L);
 	luna_pushModule(L,"osgUtil");
 	Luna< osgUtil::CubeMapGenerator >::Register(L);
 	Luna< osgUtil::CullVisitor >::Register(L);
@@ -659,6 +692,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"osgDB");
+	luna_copyParents(L,"osgGA");
 	luna_copyParents(L,"osgUtil");
 
 	luna_pushModule(L,"osg");

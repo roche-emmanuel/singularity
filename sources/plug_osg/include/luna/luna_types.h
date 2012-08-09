@@ -185,6 +185,27 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/StreamOperator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventHandler>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/AnimationPathManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraViewSwitchManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/DriveManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventQueue>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StandardManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FirstPersonManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FlightManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIActionAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/KeySwitchMatrixManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/OrbitManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TrackballManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/MultiTouchTrackballManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/NodeTrackerManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/SphericalManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StateSetManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TerrainManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/UFOManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CubeMapGenerator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CullVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DelaunayTriangulator>
@@ -9515,6 +9536,564 @@ public:
 };
 
 template<>
+class LunaTraits< osgGA::GUIEventHandler > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIEventHandler* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIEventHandler* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::GUIEventHandler base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::CameraManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::CameraManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::CameraManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::CameraManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::AnimationPathManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::AnimationPathManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::AnimationPathManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::AnimationPathManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::AnimationPathManipulator::AnimationCompletedCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::AnimationPathManipulator::AnimationCompletedCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::AnimationPathManipulator::AnimationCompletedCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::CameraManipulator::CoordinateFrameCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::CameraManipulator::CoordinateFrameCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::CameraManipulator::CoordinateFrameCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::CameraViewSwitchManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::CameraViewSwitchManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::CameraViewSwitchManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::CameraViewSwitchManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osg::CameraView > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osg::CameraView > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osg::CameraView > >* obj);
+    typedef osgGA::CameraViewSwitchManipulator::CameraViewList parent_t;
+    typedef std::vector< osg::ref_ptr< osg::CameraView > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::DriveManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::DriveManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::DriveManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::DriveManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::EventQueue > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::EventQueue* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::EventQueue* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::EventQueue base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgGA::GUIEventAdapter > >* obj);
+    typedef osgGA::EventQueue::Events parent_t;
+    typedef std::list< osg::ref_ptr< osgGA::GUIEventAdapter > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::EventVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::EventVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::EventVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::EventVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::StandardManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::StandardManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::StandardManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::StandardManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::FirstPersonManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::FirstPersonManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::FirstPersonManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::FirstPersonManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::FlightManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::FlightManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::FlightManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::FlightManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::GUIActionAdapter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIActionAdapter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIActionAdapter* obj);
+    typedef osgGA::GUIActionAdapter parent_t;
+    typedef osgGA::GUIActionAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::GUIEventAdapter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIEventAdapter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIEventAdapter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::GUIEventAdapter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::GUIEventAdapter::TouchData > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIEventAdapter::TouchData* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIEventAdapter::TouchData* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::GUIEventAdapter::TouchData base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint >* obj);
+    typedef osgGA::GUIEventAdapter::TouchData::TouchSet parent_t;
+    typedef std::vector< osgGA::GUIEventAdapter::TouchData::TouchPoint > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::GUIEventAdapter::TouchData::TouchPoint > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIEventAdapter::TouchData::TouchPoint* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIEventAdapter::TouchData::TouchPoint* obj);
+    typedef osgGA::GUIEventAdapter::TouchData::TouchPoint parent_t;
+    typedef osgGA::GUIEventAdapter::TouchData::TouchPoint base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::GUIEventHandlerVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::GUIEventHandlerVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::GUIEventHandlerVisitor* obj);
+    typedef osgGA::GUIEventHandlerVisitor parent_t;
+    typedef osgGA::GUIEventHandlerVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::KeySwitchMatrixManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::KeySwitchMatrixManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::KeySwitchMatrixManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::KeySwitchMatrixManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > >* obj);
+    typedef osgGA::KeySwitchMatrixManipulator::NamedManipulator parent_t;
+    typedef std::pair< std::string, osg::ref_ptr< osgGA::CameraManipulator > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator >* obj);
+    typedef osgGA::KeySwitchMatrixManipulator::KeyManipMap parent_t;
+    typedef std::map< int, osgGA::KeySwitchMatrixManipulator::NamedManipulator > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::OrbitManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::OrbitManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::OrbitManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::OrbitManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::TrackballManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::TrackballManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::TrackballManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::TrackballManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::MultiTouchTrackballManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::MultiTouchTrackballManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::MultiTouchTrackballManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::MultiTouchTrackballManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::NodeTrackerManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::NodeTrackerManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::NodeTrackerManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::NodeTrackerManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::SphericalManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::SphericalManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::SphericalManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::SphericalManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::StateSetManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::StateSetManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::StateSetManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::StateSetManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::TerrainManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::TerrainManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::TerrainManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::TerrainManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgGA::UFOManipulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgGA::UFOManipulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgGA::UFOManipulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgGA::UFOManipulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osgUtil::CubeMapGenerator > {
 public:
     static const char className[];
@@ -13477,6 +14056,69 @@ template<>
 class LunaType< 5928633 > {
 public:
     typedef osgDB::XmlNode::Children type;
+    
+};
+
+template<>
+class LunaType< 14581426 > {
+public:
+    typedef osgGA::CameraViewSwitchManipulator::CameraViewList type;
+    
+};
+
+template<>
+class LunaType< 42735238 > {
+public:
+    typedef osgGA::EventQueue::Events type;
+    
+};
+
+template<>
+class LunaType< 29142050 > {
+public:
+    typedef osgGA::EventVisitor::EventList type;
+    
+};
+
+template<>
+class LunaType< 85302998 > {
+public:
+    typedef osgGA::GUIActionAdapter type;
+    
+};
+
+template<>
+class LunaType< 77825770 > {
+public:
+    typedef osgGA::GUIEventAdapter::TouchData::TouchSet type;
+    
+};
+
+template<>
+class LunaType< 88052401 > {
+public:
+    typedef osgGA::GUIEventAdapter::TouchData::TouchPoint type;
+    
+};
+
+template<>
+class LunaType< 65490382 > {
+public:
+    typedef osgGA::GUIEventHandlerVisitor type;
+    
+};
+
+template<>
+class LunaType< 44319162 > {
+public:
+    typedef osgGA::KeySwitchMatrixManipulator::NamedManipulator type;
+    
+};
+
+template<>
+class LunaType< 71456208 > {
+public:
+    typedef osgGA::KeySwitchMatrixManipulator::KeyManipMap type;
     
 };
 

@@ -1,5 +1,6 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/AnimationPathManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Archive>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
@@ -20,8 +21,10 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraNode>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/CameraViewSwitchManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClampColor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClearNode>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
@@ -56,17 +59,23 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DrawElementTypeSimplifier>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DrawPixels>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/DriveManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DynamicLibrary>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/EdgeCollector>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventQueue>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/EventVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Export>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Export>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/Export>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Export>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ExternalFileWriter>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/fast_back_stack>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileCache>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileNameUtils>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FirstPersonManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/FlightManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FragmentProgram>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
@@ -86,6 +95,9 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsCostEstimator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Group>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIActionAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/GUIEventHandler>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HalfWayMapGenerator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HighlightMapGenerator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Hint>
@@ -103,6 +115,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/io_utils>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/KdTree>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/KeySwitchMatrixManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Light>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
@@ -121,9 +134,11 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/MeshOptimizers>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/MixinVector>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/MultiTouchTrackballManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Node>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeCallback>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeTrackerCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/NodeTrackerManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
@@ -137,6 +152,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OperationThread>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/OrbitManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PagedLOD>
@@ -186,11 +202,14 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Simplifier>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SmoothingVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/SphericalManipulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StandardManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttributeCallback>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/StateGraph>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/StateSetManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stats>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
@@ -199,6 +218,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Switch>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TangentSpaceGenerator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TemplatePrimitiveFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TerrainManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
@@ -215,6 +235,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureRectangle>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Timer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/TrackballManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TransferFunction>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TransformAttributeFunctor>
@@ -222,6 +243,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TriangleFunctor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TriangleIndexFunctor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TriStripVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/UFOManipulator>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/UpdateVisitor>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/UserDataContainer>
@@ -244,6 +266,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/VertexProgram>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
@@ -261,6 +284,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_ALPHAFUNC); lua_setfield(L,-2,"OSG_ALPHAFUNC");
 	lua_pushnumber(L,GL_ALPHA_TEST); lua_setfield(L,-2,"GL_ALPHA_TEST");
 	lua_pushnumber(L,OSG_ANIMATIONPATH); lua_setfield(L,-2,"OSG_ANIMATIONPATH");
+	lua_pushnumber(L,OSGGA_ANIMATION_PATH_MANIPULATOR); lua_setfield(L,-2,"OSGGA_ANIMATION_PATH_MANIPULATOR");
 	lua_pushnumber(L,OSG_APPLICATIONUSAGE); lua_setfield(L,-2,"OSG_APPLICATIONUSAGE");
 	lua_pushnumber(L,OSGDB_ARCHIVE); lua_setfield(L,-2,"OSGDB_ARCHIVE");
 	lua_pushnumber(L,OSG_ARGUMENTPARSER); lua_setfield(L,-2,"OSG_ARGUMENTPARSER");
@@ -347,8 +371,10 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_PIXEL_UNPACK_BUFFER_BINDING_ARB); lua_setfield(L,-2,"GL_PIXEL_UNPACK_BUFFER_BINDING_ARB");
 	lua_pushnumber(L,OSGDB_CALLBACKS); lua_setfield(L,-2,"OSGDB_CALLBACKS");
 	lua_pushnumber(L,OSG_CAMERA); lua_setfield(L,-2,"OSG_CAMERA");
+	lua_pushnumber(L,OSGGA_CameraManipulator); lua_setfield(L,-2,"OSGGA_CameraManipulator");
 	lua_pushnumber(L,OSG_CAMERANODE); lua_setfield(L,-2,"OSG_CAMERANODE");
 	lua_pushnumber(L,OSG_CAMERAVIEW); lua_setfield(L,-2,"OSG_CAMERAVIEW");
+	lua_pushnumber(L,OSGGA_VIEWLISTMANIPULATOR); lua_setfield(L,-2,"OSGGA_VIEWLISTMANIPULATOR");
 	lua_pushnumber(L,OSG_CLAMPCOLOR); lua_setfield(L,-2,"OSG_CLAMPCOLOR");
 	lua_pushnumber(L,GL_RGBA_FLOAT_MODE_ARB); lua_setfield(L,-2,"GL_RGBA_FLOAT_MODE_ARB");
 	lua_pushnumber(L,GL_CLAMP_VERTEX_COLOR_ARB); lua_setfield(L,-2,"GL_CLAMP_VERTEX_COLOR_ARB");
@@ -407,17 +433,23 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_QUERY_RESULT); lua_setfield(L,-2,"GL_QUERY_RESULT");
 	lua_pushnumber(L,GL_QUERY_RESULT_AVAILABLE); lua_setfield(L,-2,"GL_QUERY_RESULT_AVAILABLE");
 	lua_pushnumber(L,OSG_DRAWPIXELS); lua_setfield(L,-2,"OSG_DRAWPIXELS");
+	lua_pushnumber(L,OSGGA_DRIVEMANIPULATOR); lua_setfield(L,-2,"OSGGA_DRIVEMANIPULATOR");
 	lua_pushnumber(L,OSGDB_DYNAMICLIBRARY); lua_setfield(L,-2,"OSGDB_DYNAMICLIBRARY");
 	lua_pushnumber(L,OSGUTIL_EDGECOLLECTOR); lua_setfield(L,-2,"OSGUTIL_EDGECOLLECTOR");
 	lua_pushnumber(L,OSG_ENDIAN); lua_setfield(L,-2,"OSG_ENDIAN");
+	lua_pushnumber(L,OSGGA_EVENTQUEUE); lua_setfield(L,-2,"OSGGA_EVENTQUEUE");
+	lua_pushnumber(L,OSGGA_EVENTVISITOR); lua_setfield(L,-2,"OSGGA_EVENTVISITOR");
 	lua_pushnumber(L,OSG_EXPORT_); lua_setfield(L,-2,"OSG_EXPORT_");
 	lua_pushnumber(L,OSGDB_EXPORT_); lua_setfield(L,-2,"OSGDB_EXPORT_");
+	lua_pushnumber(L,OSGGA_EXPORT_); lua_setfield(L,-2,"OSGGA_EXPORT_");
 	lua_pushnumber(L,OSGUTIL_EXPORT_); lua_setfield(L,-2,"OSGUTIL_EXPORT_");
 	lua_pushnumber(L,OSGDB_PLUGIN_IMAGE_WRITER); lua_setfield(L,-2,"OSGDB_PLUGIN_IMAGE_WRITER");
 	lua_pushnumber(L,OSG_FAST_BACK_STACK); lua_setfield(L,-2,"OSG_FAST_BACK_STACK");
 	lua_pushnumber(L,OSGDB_FILECACHE); lua_setfield(L,-2,"OSGDB_FILECACHE");
 	lua_pushnumber(L,OSGDB_FILENAMEUTILS); lua_setfield(L,-2,"OSGDB_FILENAMEUTILS");
 	lua_pushnumber(L,OSGDB_FILEUTILS); lua_setfield(L,-2,"OSGDB_FILEUTILS");
+	lua_pushnumber(L,OSGGA_FIRST_PERSON_MANIPULATOR); lua_setfield(L,-2,"OSGGA_FIRST_PERSON_MANIPULATOR");
+	lua_pushnumber(L,OSGGA_FLIGHT_MANIPULATOR); lua_setfield(L,-2,"OSGGA_FLIGHT_MANIPULATOR");
 	lua_pushnumber(L,OSG_FOG); lua_setfield(L,-2,"OSG_FOG");
 	lua_pushnumber(L,GL_FOG_DISTANCE_MODE_NV); lua_setfield(L,-2,"GL_FOG_DISTANCE_MODE_NV");
 	lua_pushnumber(L,GL_EYE_PLANE_ABSOLUTE_NV); lua_setfield(L,-2,"GL_EYE_PLANE_ABSOLUTE_NV");
@@ -895,6 +927,9 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_GRAPHICSCONTEXT); lua_setfield(L,-2,"OSG_GRAPHICSCONTEXT");
 	lua_pushnumber(L,OSG_GRAPHICSTHREAD); lua_setfield(L,-2,"OSG_GRAPHICSTHREAD");
 	lua_pushnumber(L,OSG_GROUP); lua_setfield(L,-2,"OSG_GROUP");
+	lua_pushnumber(L,OSGGA_GUIACTIONADAPTER); lua_setfield(L,-2,"OSGGA_GUIACTIONADAPTER");
+	lua_pushnumber(L,OSGGA_EVENT); lua_setfield(L,-2,"OSGGA_EVENT");
+	lua_pushnumber(L,OSGGA_GUIEVENTHANDLER); lua_setfield(L,-2,"OSGGA_GUIEVENTHANDLER");
 	lua_pushnumber(L,OSG_HINT); lua_setfield(L,-2,"OSG_HINT");
 	lua_pushnumber(L,OSG_IMAGE); lua_setfield(L,-2,"OSG_IMAGE");
 	lua_pushnumber(L,GL_BGR); lua_setfield(L,-2,"GL_BGR");
@@ -933,6 +968,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGUTIL_INTERSECTVISITOR); lua_setfield(L,-2,"OSGUTIL_INTERSECTVISITOR");
 	lua_pushnumber(L,OSG_IO_UTILS); lua_setfield(L,-2,"OSG_IO_UTILS");
 	lua_pushnumber(L,OSG_KDTREE); lua_setfield(L,-2,"OSG_KDTREE");
+	lua_pushnumber(L,OSGUTIL_KEYSWITCMATRIXMANIPULATOR); lua_setfield(L,-2,"OSGUTIL_KEYSWITCMATRIXMANIPULATOR");
 	lua_pushnumber(L,OSG_LIGHT); lua_setfield(L,-2,"OSG_LIGHT");
 	lua_pushnumber(L,GL_LIGHT0); lua_setfield(L,-2,"GL_LIGHT0");
 	lua_pushnumber(L,GL_LIGHT1); lua_setfield(L,-2,"GL_LIGHT1");
@@ -970,9 +1006,11 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_SAMPLE_COVERAGE_INVERT_ARB); lua_setfield(L,-2,"GL_SAMPLE_COVERAGE_INVERT_ARB");
 	lua_pushnumber(L,GL_MULTISAMPLE_BIT_ARB); lua_setfield(L,-2,"GL_MULTISAMPLE_BIT_ARB");
 	lua_pushnumber(L,GL_MULTISAMPLE_FILTER_HINT_NV); lua_setfield(L,-2,"GL_MULTISAMPLE_FILTER_HINT_NV");
+	lua_pushnumber(L,OSGGA_MULTITOUCH_TRACKBALL_MANIPULATOR); lua_setfield(L,-2,"OSGGA_MULTITOUCH_TRACKBALL_MANIPULATOR");
 	lua_pushnumber(L,OSG_NODE); lua_setfield(L,-2,"OSG_NODE");
 	lua_pushnumber(L,OSG_NODECALLBACK); lua_setfield(L,-2,"OSG_NODECALLBACK");
 	lua_pushnumber(L,OSG_NODETRACKERCALLBACK); lua_setfield(L,-2,"OSG_NODETRACKERCALLBACK");
+	lua_pushnumber(L,OSGGA_NODE_TRACKER_MANIPULATOR); lua_setfield(L,-2,"OSGGA_NODE_TRACKER_MANIPULATOR");
 	lua_pushnumber(L,OSG_NODEVISITOR); lua_setfield(L,-2,"OSG_NODEVISITOR");
 	lua_pushnumber(L,OSG_NOTIFY_H); lua_setfield(L,-2,"OSG_NOTIFY_H");
 	lua_pushnumber(L,OSG_OBJECT); lua_setfield(L,-2,"OSG_OBJECT");
@@ -983,6 +1021,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGUTIL_OPERATIONARRAYFUNCTOR); lua_setfield(L,-2,"OSGUTIL_OPERATIONARRAYFUNCTOR");
 	lua_pushnumber(L,OSG_OPERATIONTHREAD); lua_setfield(L,-2,"OSG_OPERATIONTHREAD");
 	lua_pushnumber(L,OSGDB_OPTIONS); lua_setfield(L,-2,"OSGDB_OPTIONS");
+	lua_pushnumber(L,OSGGA_ORBIT_MANIPULATOR); lua_setfield(L,-2,"OSGGA_ORBIT_MANIPULATOR");
 	lua_pushnumber(L,OSGDB_OUTPUT); lua_setfield(L,-2,"OSGDB_OUTPUT");
 	lua_pushnumber(L,OSG_PagedLOD); lua_setfield(L,-2,"OSG_PagedLOD");
 	lua_pushnumber(L,OSGDB_PARAMETEROUTPUT); lua_setfield(L,-2,"OSGDB_PARAMETEROUTPUT");
@@ -1035,6 +1074,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGDB_SHAREDSTATEMANAGER); lua_setfield(L,-2,"OSGDB_SHAREDSTATEMANAGER");
 	lua_pushnumber(L,OSGUTIL_SIMPLIFIER); lua_setfield(L,-2,"OSGUTIL_SIMPLIFIER");
 	lua_pushnumber(L,OSGUTIL_SMOOTHINGVISITOR); lua_setfield(L,-2,"OSGUTIL_SMOOTHINGVISITOR");
+	lua_pushnumber(L,OSGGA_CAMERA_MANIPULATOR); lua_setfield(L,-2,"OSGGA_CAMERA_MANIPULATOR");
 	lua_pushnumber(L,OSG_STATE); lua_setfield(L,-2,"OSG_STATE");
 	lua_pushnumber(L,GL_FOG_COORDINATE_ARRAY); lua_setfield(L,-2,"GL_FOG_COORDINATE_ARRAY");
 	lua_pushnumber(L,GL_SECONDARY_COLOR_ARRAY); lua_setfield(L,-2,"GL_SECONDARY_COLOR_ARRAY");
@@ -1044,6 +1084,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGUTIL_STATEGRAPH); lua_setfield(L,-2,"OSGUTIL_STATEGRAPH");
 	lua_pushnumber(L,OSG_STATESET); lua_setfield(L,-2,"OSG_STATESET");
 	lua_pushnumber(L,GL_RESCALE_NORMAL); lua_setfield(L,-2,"GL_RESCALE_NORMAL");
+	lua_pushnumber(L,OSGGA_STATESET_MANIPULATOR); lua_setfield(L,-2,"OSGGA_STATESET_MANIPULATOR");
 	lua_pushnumber(L,OSGUTIL_STATISTICS); lua_setfield(L,-2,"OSGUTIL_STATISTICS");
 	lua_pushnumber(L,OSG_STATS); lua_setfield(L,-2,"OSG_STATS");
 	lua_pushnumber(L,OSG_STENCIL); lua_setfield(L,-2,"OSG_STENCIL");
@@ -1053,6 +1094,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_STENCIL_TEST_TWO_SIDE); lua_setfield(L,-2,"GL_STENCIL_TEST_TWO_SIDE");
 	lua_pushnumber(L,OSG_SWITCH); lua_setfield(L,-2,"OSG_SWITCH");
 	lua_pushnumber(L,OSG_TERMPLATEPRIMITIVEFUNCTOR); lua_setfield(L,-2,"OSG_TERMPLATEPRIMITIVEFUNCTOR");
+	lua_pushnumber(L,OSGGA_TERRAIN_MANIPULATOR); lua_setfield(L,-2,"OSGGA_TERRAIN_MANIPULATOR");
 	lua_pushnumber(L,OSG_TEXENV); lua_setfield(L,-2,"OSG_TEXENV");
 	lua_pushnumber(L,OSG_TEXENVCOMBINE); lua_setfield(L,-2,"OSG_TEXENVCOMBINE");
 	lua_pushnumber(L,GL_COMBINE_ARB); lua_setfield(L,-2,"GL_COMBINE_ARB");
@@ -1270,6 +1312,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_TEXTURERECTANGLE); lua_setfield(L,-2,"OSG_TEXTURERECTANGLE");
 	lua_pushnumber(L,GL_TEXTURE_RECTANGLE_NV); lua_setfield(L,-2,"GL_TEXTURE_RECTANGLE_NV");
 	lua_pushnumber(L,OSG_TIMER); lua_setfield(L,-2,"OSG_TIMER");
+	lua_pushnumber(L,OSGGA_TRACKBALL_MANIPULATOR); lua_setfield(L,-2,"OSGGA_TRACKBALL_MANIPULATOR");
 	lua_pushnumber(L,OSG_TRANSFERFUNCTION); lua_setfield(L,-2,"OSG_TRANSFERFUNCTION");
 	lua_pushnumber(L,OSG_TRANSFORM); lua_setfield(L,-2,"OSG_TRANSFORM");
 	lua_pushnumber(L,GL_NORMALIZE); lua_setfield(L,-2,"GL_NORMALIZE");
@@ -1278,6 +1321,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_TRIANGLEFUNCTOR); lua_setfield(L,-2,"OSG_TRIANGLEFUNCTOR");
 	lua_pushnumber(L,OSG_TRIANGLEINDEXFUNCTOR); lua_setfield(L,-2,"OSG_TRIANGLEINDEXFUNCTOR");
 	lua_pushnumber(L,OSGUTIL_TRISTRIPVISITOR); lua_setfield(L,-2,"OSGUTIL_TRISTRIPVISITOR");
+	lua_pushnumber(L,OSGGA_UFO_MANIPULATOR_DEF); lua_setfield(L,-2,"OSGGA_UFO_MANIPULATOR_DEF");
 	lua_pushnumber(L,OSG_UNIFORM); lua_setfield(L,-2,"OSG_UNIFORM");
 	lua_pushnumber(L,OSGUTIL_UPDATEVISITOR); lua_setfield(L,-2,"OSGUTIL_UPDATEVISITOR");
 	lua_pushnumber(L,OSG_USERDATACONTAINER); lua_setfield(L,-2,"OSG_USERDATACONTAINER");
@@ -1305,6 +1349,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OPENSCENEGRAPH_SOVERSION); lua_setfield(L,-2,"OPENSCENEGRAPH_SOVERSION");
 	lua_pushnumber(L,OSG_VERSION_REVISION); lua_setfield(L,-2,"OSG_VERSION_REVISION");
 	lua_pushnumber(L,OSGDB_VERSION); lua_setfield(L,-2,"OSGDB_VERSION");
+	lua_pushnumber(L,OSGGA_VERSION); lua_setfield(L,-2,"OSGGA_VERSION");
 	lua_pushnumber(L,OSGUTIL_VERSION); lua_setfield(L,-2,"OSGUTIL_VERSION");
 	lua_pushnumber(L,OSG_VERTEXPROGRAM); lua_setfield(L,-2,"OSG_VERTEXPROGRAM");
 	lua_pushnumber(L,GL_VERTEX_PROGRAM_ARB); lua_setfield(L,-2,"GL_VERTEX_PROGRAM_ARB");

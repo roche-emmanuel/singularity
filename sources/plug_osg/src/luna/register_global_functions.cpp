@@ -3,6 +3,7 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgGA/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Version>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
@@ -89,6 +90,18 @@ inline static bool _lg_typecheck_osgDBGetVersion(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_osgDBGetLibraryName(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgGAGetVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgGAGetLibraryName(lua_State *L) {
 	if( lua_gettop(L)!=0 ) return false;
 
 	return true;
@@ -247,6 +260,34 @@ static int _bind_osgDBGetLibraryName(lua_State *L) {
 
 
 	const char * lret = osgDBGetLibraryName();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgGAGetVersion()
+static int _bind_osgGAGetVersion(lua_State *L) {
+	if (!_lg_typecheck_osgGAGetVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgGAGetVersion() function, expected prototype:\nconst char * osgGAGetVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgGAGetVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgGAGetLibraryName()
+static int _bind_osgGAGetLibraryName(lua_State *L) {
+	if (!_lg_typecheck_osgGAGetLibraryName(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgGAGetLibraryName() function, expected prototype:\nconst char * osgGAGetLibraryName()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgGAGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -5531,6 +5572,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_osgGetLibraryName); lua_setfield(L,-2,"osgGetLibraryName");
 	lua_pushcfunction(L, _bind_osgDBGetVersion); lua_setfield(L,-2,"osgDBGetVersion");
 	lua_pushcfunction(L, _bind_osgDBGetLibraryName); lua_setfield(L,-2,"osgDBGetLibraryName");
+	lua_pushcfunction(L, _bind_osgGAGetVersion); lua_setfield(L,-2,"osgGAGetVersion");
+	lua_pushcfunction(L, _bind_osgGAGetLibraryName); lua_setfield(L,-2,"osgGAGetLibraryName");
 	lua_pushcfunction(L, _bind_osgUtilGetVersion); lua_setfield(L,-2,"osgUtilGetVersion");
 	lua_pushcfunction(L, _bind_osgUtilGetLibraryName); lua_setfield(L,-2,"osgUtilGetLibraryName");
 	lua_pushcfunction(L, _bind_getCpuByteOrder); lua_setfield(L,-2,"getCpuByteOrder");

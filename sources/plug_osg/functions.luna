@@ -6,6 +6,8 @@ osgGetSOVersion
 osgGetLibraryName
 osgDBGetVersion
 osgDBGetLibraryName
+osgGAGetVersion
+osgGAGetLibraryName
 osgUtilGetVersion
 osgUtilGetLibraryName
 osg::getCpuByteOrder
