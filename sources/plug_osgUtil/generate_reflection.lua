@@ -135,6 +135,9 @@ local tm = require "bindings.TypeManager"
 
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_core/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_core/functions.luna")
+
 tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osg/classes.luna")
 tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osg/functions.luna")
 
@@ -194,6 +197,8 @@ im:addPattern("function","IsOperationPermissibleForObjectCallback")
 im:addPattern("function","HitList")
 im:addPattern("function","Identifier")
 im:addPattern("function","Prim")
+im:addPattern("function","initOQState")
+im:addPattern("function","initOQDebugState")
 
 im:addPattern("converter","RenderInfo")
 

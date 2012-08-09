@@ -66,7 +66,7 @@ function TypeManager:registerExternals(file)
 			-- do nothing in that case.
 		elseif line:find("module=(.*)$") then
 			currentModule = line:gsub("module=(.*)$","%1")
-			self:info_v("Switching to current module=",mod)
+			self:info_v("Switching to current module=",currentModule)
 		else
 			self:check(currentModule,"Invalid current module.")
 			

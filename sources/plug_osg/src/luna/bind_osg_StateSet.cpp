@@ -664,13 +664,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_compileGLObjects(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -2748,25 +2741,6 @@ public:
 		return 1;
 	}
 
-	// void osg::StateSet::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateSet::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::StateSet::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::StateSet* self=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::StateSet::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 	// void osg::StateSet::compileGLObjects(osg::State & state) const
 	static int _bind_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_compileGLObjects(L)) {
@@ -2978,7 +2952,6 @@ luna_RegType LunaTraits< osg::StateSet >::methods[] = {
 	{"getNumChildrenRequiringEventTraversal", &luna_wrapper_osg_StateSet::_bind_getNumChildrenRequiringEventTraversal},
 	{"runEventCallbacks", &luna_wrapper_osg_StateSet::_bind_runEventCallbacks},
 	{"checkValidityOfAssociatedModes", &luna_wrapper_osg_StateSet::_bind_checkValidityOfAssociatedModes},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_StateSet::_bind_setThreadSafeRefUnref},
 	{"compileGLObjects", &luna_wrapper_osg_StateSet::_bind_compileGLObjects},
 	{"releaseGLObjects", &luna_wrapper_osg_StateSet::_bind_releaseGLObjects},
 	{"__lt", &luna_wrapper_osg_StateSet::_bind___lt},

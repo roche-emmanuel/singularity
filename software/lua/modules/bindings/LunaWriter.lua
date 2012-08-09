@@ -125,9 +125,11 @@ function LunaWriter:writeExportFile()
 	local buf = self:clone();
 	
 	-- write the module name:
-	buf:writeLine("module=".. self:getModuleName())
+	--buf:writeLine("module=".. self:getModuleName())
 	
 	local writtenTypes = Set();
+	
+	local currentModule = nil
 	
 	-- write the classes declaration on the buf:
 	for _,v in self.classes:sequence() do
@@ -141,6 +143,12 @@ function LunaWriter:writeExportFile()
 		
 		if classname and not im:ignore(classname,"class_declaration") and not v:isExternal() then
 			self:debug0_v("Writing class export for ", v:getFullName(), " (typename=",classname,")")
+			local mod = v:getModule() or self:getModuleName()
+			if currentModule ~= mod then
+				buf:writeLine("module=".. mod)
+				currentModule = mod
+			end
+			
 			local bname = v:getFirstAbsoluteBase():getFullName();
 			
 			buf:writeSubLine("${1} => ${2}",classname,bname)

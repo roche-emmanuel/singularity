@@ -1,79 +1,105 @@
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Endian>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AlphaFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AnimationPath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ApplicationUsage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ArgumentParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Array>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AudioStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AutoTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Billboard>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendEquation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Camera>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CameraView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClipNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CopyOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullingSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullSettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Depth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DisplaySettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Drawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Fog>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrameBufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrontFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLBeginEndAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageSequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightSource>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LogicOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Material>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Multisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Plane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PointSprite>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonMode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PrimitiveSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ProxyNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Sequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShadeModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Shader>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShapeDrawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/State>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Stencil>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StencilTwoSided>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnv>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnvCombine>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGenNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TextureCubeMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Uniform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4ub>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/View>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Array>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AudioStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AutoTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Billboard>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendEquation>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CopyOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullingSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullSettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Depth>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DisplaySettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrontFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLBeginEndAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageSequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LOD>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LogicOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Material>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Plane>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PointSprite>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonMode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PrimitiveSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ProxyNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Sequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadeModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shader>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShapeDrawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StencilTwoSided>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGenNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/AuthenticationMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabasePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DotOsgWrapper>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageOptions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImagePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageProcessor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Input>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReaderWriter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PolytopeIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderBin>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ShaderGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
 
 #include <plug_common.h>
 
@@ -2197,6 +2223,734 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osg::View::NO_LIGHT); lua_setfield(L,-2,"NO_LIGHT");
 	lua_pushnumber(L,osg::View::HEADLIGHT); lua_setfield(L,-2,"HEADLIGHT");
 	lua_pushnumber(L,osg::View::SKY_LIGHT); lua_setfield(L,-2,"SKY_LIGHT");
+
+
+	lua_newtable(L); // enum CaseSensitivity
+
+	lua_pushnumber(L,osgDB::CASE_SENSITIVE); lua_setfield(L,-2,"CASE_SENSITIVE");
+	lua_pushnumber(L,osgDB::CASE_INSENSITIVE); lua_setfield(L,-2,"CASE_INSENSITIVE");
+
+	lua_setfield(L,-2,"CaseSensitivity");
+
+	lua_pushnumber(L,osgDB::CASE_SENSITIVE); lua_setfield(L,-2,"CASE_SENSITIVE");
+	lua_pushnumber(L,osgDB::CASE_INSENSITIVE); lua_setfield(L,-2,"CASE_INSENSITIVE");
+
+
+	lua_newtable(L); // enum FileType
+
+	lua_pushnumber(L,osgDB::FILE_NOT_FOUND); lua_setfield(L,-2,"FILE_NOT_FOUND");
+	lua_pushnumber(L,osgDB::REGULAR_FILE); lua_setfield(L,-2,"REGULAR_FILE");
+	lua_pushnumber(L,osgDB::DIRECTORY); lua_setfield(L,-2,"DIRECTORY");
+
+	lua_setfield(L,-2,"FileType");
+
+	lua_pushnumber(L,osgDB::FILE_NOT_FOUND); lua_setfield(L,-2,"FILE_NOT_FOUND");
+	lua_pushnumber(L,osgDB::REGULAR_FILE); lua_setfield(L,-2,"REGULAR_FILE");
+	lua_pushnumber(L,osgDB::DIRECTORY); lua_setfield(L,-2,"DIRECTORY");
+
+
+	lua_newtable(L); // enum HttpAuthentication
+
+	lua_pushnumber(L,osgDB::AuthenticationDetails::BASIC); lua_setfield(L,-2,"BASIC");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::DIGEST); lua_setfield(L,-2,"DIGEST");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::NTLM); lua_setfield(L,-2,"NTLM");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::GSSNegotiate); lua_setfield(L,-2,"GSSNegotiate");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::ANY); lua_setfield(L,-2,"ANY");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::ANYSAFE); lua_setfield(L,-2,"ANYSAFE");
+
+	lua_setfield(L,-2,"HttpAuthentication");
+
+	lua_pushnumber(L,osgDB::AuthenticationDetails::BASIC); lua_setfield(L,-2,"BASIC");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::DIGEST); lua_setfield(L,-2,"DIGEST");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::NTLM); lua_setfield(L,-2,"NTLM");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::GSSNegotiate); lua_setfield(L,-2,"GSSNegotiate");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::ANY); lua_setfield(L,-2,"ANY");
+	lua_pushnumber(L,osgDB::AuthenticationDetails::ANYSAFE); lua_setfield(L,-2,"ANYSAFE");
+
+
+	lua_newtable(L); // enum Location
+
+	lua_pushnumber(L,osgDB::FileLocationCallback::LOCAL_FILE); lua_setfield(L,-2,"LOCAL_FILE");
+	lua_pushnumber(L,osgDB::FileLocationCallback::REMOTE_FILE); lua_setfield(L,-2,"REMOTE_FILE");
+
+	lua_setfield(L,-2,"Location");
+
+	lua_pushnumber(L,osgDB::FileLocationCallback::LOCAL_FILE); lua_setfield(L,-2,"LOCAL_FILE");
+	lua_pushnumber(L,osgDB::FileLocationCallback::REMOTE_FILE); lua_setfield(L,-2,"REMOTE_FILE");
+
+
+	lua_newtable(L); // enum DrawablePolicy
+
+	lua_pushnumber(L,osgDB::DatabasePager::DO_NOT_MODIFY_DRAWABLE_SETTINGS); lua_setfield(L,-2,"DO_NOT_MODIFY_DRAWABLE_SETTINGS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_DISPLAY_LISTS); lua_setfield(L,-2,"USE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"USE_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_VERTEX_ARRAYS); lua_setfield(L,-2,"USE_VERTEX_ARRAYS");
+
+	lua_setfield(L,-2,"DrawablePolicy");
+
+	lua_pushnumber(L,osgDB::DatabasePager::DO_NOT_MODIFY_DRAWABLE_SETTINGS); lua_setfield(L,-2,"DO_NOT_MODIFY_DRAWABLE_SETTINGS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_DISPLAY_LISTS); lua_setfield(L,-2,"USE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"USE_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgDB::DatabasePager::USE_VERTEX_ARRAYS); lua_setfield(L,-2,"USE_VERTEX_ARRAYS");
+
+
+	lua_newtable(L); // enum Mode
+
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_ALL_REQUESTS); lua_setfield(L,-2,"HANDLE_ALL_REQUESTS");
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_NON_HTTP); lua_setfield(L,-2,"HANDLE_NON_HTTP");
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_ONLY_HTTP); lua_setfield(L,-2,"HANDLE_ONLY_HTTP");
+
+	lua_setfield(L,-2,"Mode");
+
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_ALL_REQUESTS); lua_setfield(L,-2,"HANDLE_ALL_REQUESTS");
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_NON_HTTP); lua_setfield(L,-2,"HANDLE_NON_HTTP");
+	lua_pushnumber(L,osgDB::DatabasePager::DatabaseThread::HANDLE_ONLY_HTTP); lua_setfield(L,-2,"HANDLE_ONLY_HTTP");
+
+
+	lua_newtable(L); // enum ReadWriteMode
+
+	lua_pushnumber(L,osgDB::DotOsgWrapper::READ_AND_WRITE); lua_setfield(L,-2,"READ_AND_WRITE");
+	lua_pushnumber(L,osgDB::DotOsgWrapper::READ_ONLY); lua_setfield(L,-2,"READ_ONLY");
+
+	lua_setfield(L,-2,"ReadWriteMode");
+
+	lua_pushnumber(L,osgDB::DotOsgWrapper::READ_AND_WRITE); lua_setfield(L,-2,"READ_AND_WRITE");
+	lua_pushnumber(L,osgDB::DotOsgWrapper::READ_ONLY); lua_setfield(L,-2,"READ_ONLY");
+
+
+	lua_newtable(L); // enum ImageWindowMode
+
+	lua_pushnumber(L,osgDB::ImageOptions::ALL_IMAGE); lua_setfield(L,-2,"ALL_IMAGE");
+	lua_pushnumber(L,osgDB::ImageOptions::RATIO_WINDOW); lua_setfield(L,-2,"RATIO_WINDOW");
+	lua_pushnumber(L,osgDB::ImageOptions::PIXEL_WINDOW); lua_setfield(L,-2,"PIXEL_WINDOW");
+
+	lua_setfield(L,-2,"ImageWindowMode");
+
+	lua_pushnumber(L,osgDB::ImageOptions::ALL_IMAGE); lua_setfield(L,-2,"ALL_IMAGE");
+	lua_pushnumber(L,osgDB::ImageOptions::RATIO_WINDOW); lua_setfield(L,-2,"RATIO_WINDOW");
+	lua_pushnumber(L,osgDB::ImageOptions::PIXEL_WINDOW); lua_setfield(L,-2,"PIXEL_WINDOW");
+
+
+	lua_newtable(L); // enum ImageSamplingMode
+
+	lua_pushnumber(L,osgDB::ImageOptions::NEAREST); lua_setfield(L,-2,"NEAREST");
+	lua_pushnumber(L,osgDB::ImageOptions::LINEAR); lua_setfield(L,-2,"LINEAR");
+	lua_pushnumber(L,osgDB::ImageOptions::CUBIC); lua_setfield(L,-2,"CUBIC");
+
+	lua_setfield(L,-2,"ImageSamplingMode");
+
+	lua_pushnumber(L,osgDB::ImageOptions::NEAREST); lua_setfield(L,-2,"NEAREST");
+	lua_pushnumber(L,osgDB::ImageOptions::LINEAR); lua_setfield(L,-2,"LINEAR");
+	lua_pushnumber(L,osgDB::ImageOptions::CUBIC); lua_setfield(L,-2,"CUBIC");
+
+
+	lua_newtable(L); // enum Mode
+
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_ALL_REQUESTS); lua_setfield(L,-2,"HANDLE_ALL_REQUESTS");
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_NON_HTTP); lua_setfield(L,-2,"HANDLE_NON_HTTP");
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_ONLY_HTTP); lua_setfield(L,-2,"HANDLE_ONLY_HTTP");
+
+	lua_setfield(L,-2,"Mode");
+
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_ALL_REQUESTS); lua_setfield(L,-2,"HANDLE_ALL_REQUESTS");
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_NON_HTTP); lua_setfield(L,-2,"HANDLE_NON_HTTP");
+	lua_pushnumber(L,osgDB::ImagePager::ImageThread::HANDLE_ONLY_HTTP); lua_setfield(L,-2,"HANDLE_ONLY_HTTP");
+
+
+	lua_newtable(L); // enum CompressionMethod
+
+	lua_pushnumber(L,osgDB::ImageProcessor::USE_CPU); lua_setfield(L,-2,"USE_CPU");
+	lua_pushnumber(L,osgDB::ImageProcessor::USE_GPU); lua_setfield(L,-2,"USE_GPU");
+
+	lua_setfield(L,-2,"CompressionMethod");
+
+	lua_pushnumber(L,osgDB::ImageProcessor::USE_CPU); lua_setfield(L,-2,"USE_CPU");
+	lua_pushnumber(L,osgDB::ImageProcessor::USE_GPU); lua_setfield(L,-2,"USE_GPU");
+
+
+	lua_newtable(L); // enum CompressionQuality
+
+	lua_pushnumber(L,osgDB::ImageProcessor::FASTEST); lua_setfield(L,-2,"FASTEST");
+	lua_pushnumber(L,osgDB::ImageProcessor::NORMAL); lua_setfield(L,-2,"NORMAL");
+	lua_pushnumber(L,osgDB::ImageProcessor::PRODUCTION); lua_setfield(L,-2,"PRODUCTION");
+	lua_pushnumber(L,osgDB::ImageProcessor::HIGHEST); lua_setfield(L,-2,"HIGHEST");
+
+	lua_setfield(L,-2,"CompressionQuality");
+
+	lua_pushnumber(L,osgDB::ImageProcessor::FASTEST); lua_setfield(L,-2,"FASTEST");
+	lua_pushnumber(L,osgDB::ImageProcessor::NORMAL); lua_setfield(L,-2,"NORMAL");
+	lua_pushnumber(L,osgDB::ImageProcessor::PRODUCTION); lua_setfield(L,-2,"PRODUCTION");
+	lua_pushnumber(L,osgDB::ImageProcessor::HIGHEST); lua_setfield(L,-2,"HIGHEST");
+
+
+	lua_newtable(L); // enum unnamed_14
+
+	lua_pushnumber(L,osgDB::Field::MIN_CACHE_SIZE); lua_setfield(L,-2,"MIN_CACHE_SIZE");
+
+	lua_setfield(L,-2,"unnamed_14");
+
+	lua_pushnumber(L,osgDB::Field::MIN_CACHE_SIZE); lua_setfield(L,-2,"MIN_CACHE_SIZE");
+
+
+	lua_newtable(L); // enum FieldType
+
+	lua_pushnumber(L,osgDB::Field::OPEN_BRACKET); lua_setfield(L,-2,"OPEN_BRACKET");
+	lua_pushnumber(L,osgDB::Field::CLOSE_BRACKET); lua_setfield(L,-2,"CLOSE_BRACKET");
+	lua_pushnumber(L,osgDB::Field::STRING); lua_setfield(L,-2,"STRING");
+	lua_pushnumber(L,osgDB::Field::WORD); lua_setfield(L,-2,"WORD");
+	lua_pushnumber(L,osgDB::Field::REAL); lua_setfield(L,-2,"REAL");
+	lua_pushnumber(L,osgDB::Field::INTEGER); lua_setfield(L,-2,"INTEGER");
+	lua_pushnumber(L,osgDB::Field::BLANK); lua_setfield(L,-2,"BLANK");
+	lua_pushnumber(L,osgDB::Field::UNINITIALISED); lua_setfield(L,-2,"UNINITIALISED");
+
+	lua_setfield(L,-2,"FieldType");
+
+	lua_pushnumber(L,osgDB::Field::OPEN_BRACKET); lua_setfield(L,-2,"OPEN_BRACKET");
+	lua_pushnumber(L,osgDB::Field::CLOSE_BRACKET); lua_setfield(L,-2,"CLOSE_BRACKET");
+	lua_pushnumber(L,osgDB::Field::STRING); lua_setfield(L,-2,"STRING");
+	lua_pushnumber(L,osgDB::Field::WORD); lua_setfield(L,-2,"WORD");
+	lua_pushnumber(L,osgDB::Field::REAL); lua_setfield(L,-2,"REAL");
+	lua_pushnumber(L,osgDB::Field::INTEGER); lua_setfield(L,-2,"INTEGER");
+	lua_pushnumber(L,osgDB::Field::BLANK); lua_setfield(L,-2,"BLANK");
+	lua_pushnumber(L,osgDB::Field::UNINITIALISED); lua_setfield(L,-2,"UNINITIALISED");
+
+
+	lua_newtable(L); // enum unnamed_15
+
+	lua_pushnumber(L,osgDB::FieldReaderIterator::MINIMUM_FIELD_READER_QUEUE_SIZE); lua_setfield(L,-2,"MINIMUM_FIELD_READER_QUEUE_SIZE");
+
+	lua_setfield(L,-2,"unnamed_15");
+
+	lua_pushnumber(L,osgDB::FieldReaderIterator::MINIMUM_FIELD_READER_QUEUE_SIZE); lua_setfield(L,-2,"MINIMUM_FIELD_READER_QUEUE_SIZE");
+
+
+	lua_newtable(L); // enum CacheHintOptions
+
+	lua_pushnumber(L,osgDB::Options::CACHE_NONE); lua_setfield(L,-2,"CACHE_NONE");
+	lua_pushnumber(L,osgDB::Options::CACHE_NODES); lua_setfield(L,-2,"CACHE_NODES");
+	lua_pushnumber(L,osgDB::Options::CACHE_IMAGES); lua_setfield(L,-2,"CACHE_IMAGES");
+	lua_pushnumber(L,osgDB::Options::CACHE_HEIGHTFIELDS); lua_setfield(L,-2,"CACHE_HEIGHTFIELDS");
+	lua_pushnumber(L,osgDB::Options::CACHE_ARCHIVES); lua_setfield(L,-2,"CACHE_ARCHIVES");
+	lua_pushnumber(L,osgDB::Options::CACHE_OBJECTS); lua_setfield(L,-2,"CACHE_OBJECTS");
+	lua_pushnumber(L,osgDB::Options::CACHE_SHADERS); lua_setfield(L,-2,"CACHE_SHADERS");
+	lua_pushnumber(L,osgDB::Options::CACHE_ALL); lua_setfield(L,-2,"CACHE_ALL");
+
+	lua_setfield(L,-2,"CacheHintOptions");
+
+	lua_pushnumber(L,osgDB::Options::CACHE_NONE); lua_setfield(L,-2,"CACHE_NONE");
+	lua_pushnumber(L,osgDB::Options::CACHE_NODES); lua_setfield(L,-2,"CACHE_NODES");
+	lua_pushnumber(L,osgDB::Options::CACHE_IMAGES); lua_setfield(L,-2,"CACHE_IMAGES");
+	lua_pushnumber(L,osgDB::Options::CACHE_HEIGHTFIELDS); lua_setfield(L,-2,"CACHE_HEIGHTFIELDS");
+	lua_pushnumber(L,osgDB::Options::CACHE_ARCHIVES); lua_setfield(L,-2,"CACHE_ARCHIVES");
+	lua_pushnumber(L,osgDB::Options::CACHE_OBJECTS); lua_setfield(L,-2,"CACHE_OBJECTS");
+	lua_pushnumber(L,osgDB::Options::CACHE_SHADERS); lua_setfield(L,-2,"CACHE_SHADERS");
+	lua_pushnumber(L,osgDB::Options::CACHE_ALL); lua_setfield(L,-2,"CACHE_ALL");
+
+
+	lua_newtable(L); // enum PrecisionHint
+
+	lua_pushnumber(L,osgDB::Options::FLOAT_PRECISION_ALL); lua_setfield(L,-2,"FLOAT_PRECISION_ALL");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_VERTEX); lua_setfield(L,-2,"DOUBLE_PRECISION_VERTEX");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_NORMAL); lua_setfield(L,-2,"DOUBLE_PRECISION_NORMAL");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_COLOR); lua_setfield(L,-2,"DOUBLE_PRECISION_COLOR");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_SECONDARY_COLOR); lua_setfield(L,-2,"DOUBLE_PRECISION_SECONDARY_COLOR");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_FOG_COORD); lua_setfield(L,-2,"DOUBLE_PRECISION_FOG_COORD");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_TEX_COORD); lua_setfield(L,-2,"DOUBLE_PRECISION_TEX_COORD");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_VERTEX_ATTRIB); lua_setfield(L,-2,"DOUBLE_PRECISION_VERTEX_ATTRIB");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_ALL); lua_setfield(L,-2,"DOUBLE_PRECISION_ALL");
+
+	lua_setfield(L,-2,"PrecisionHint");
+
+	lua_pushnumber(L,osgDB::Options::FLOAT_PRECISION_ALL); lua_setfield(L,-2,"FLOAT_PRECISION_ALL");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_VERTEX); lua_setfield(L,-2,"DOUBLE_PRECISION_VERTEX");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_NORMAL); lua_setfield(L,-2,"DOUBLE_PRECISION_NORMAL");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_COLOR); lua_setfield(L,-2,"DOUBLE_PRECISION_COLOR");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_SECONDARY_COLOR); lua_setfield(L,-2,"DOUBLE_PRECISION_SECONDARY_COLOR");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_FOG_COORD); lua_setfield(L,-2,"DOUBLE_PRECISION_FOG_COORD");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_TEX_COORD); lua_setfield(L,-2,"DOUBLE_PRECISION_TEX_COORD");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_VERTEX_ATTRIB); lua_setfield(L,-2,"DOUBLE_PRECISION_VERTEX_ATTRIB");
+	lua_pushnumber(L,osgDB::Options::DOUBLE_PRECISION_ALL); lua_setfield(L,-2,"DOUBLE_PRECISION_ALL");
+
+
+	lua_newtable(L); // enum BuildKdTreesHint
+
+	lua_pushnumber(L,osgDB::Options::NO_PREFERENCE); lua_setfield(L,-2,"NO_PREFERENCE");
+	lua_pushnumber(L,osgDB::Options::DO_NOT_BUILD_KDTREES); lua_setfield(L,-2,"DO_NOT_BUILD_KDTREES");
+	lua_pushnumber(L,osgDB::Options::BUILD_KDTREES); lua_setfield(L,-2,"BUILD_KDTREES");
+
+	lua_setfield(L,-2,"BuildKdTreesHint");
+
+	lua_pushnumber(L,osgDB::Options::NO_PREFERENCE); lua_setfield(L,-2,"NO_PREFERENCE");
+	lua_pushnumber(L,osgDB::Options::DO_NOT_BUILD_KDTREES); lua_setfield(L,-2,"DO_NOT_BUILD_KDTREES");
+	lua_pushnumber(L,osgDB::Options::BUILD_KDTREES); lua_setfield(L,-2,"BUILD_KDTREES");
+
+
+	lua_newtable(L); // enum PathNameHint
+
+	lua_pushnumber(L,osgDB::Output::AS_IS); lua_setfield(L,-2,"AS_IS");
+	lua_pushnumber(L,osgDB::Output::FULL_PATH); lua_setfield(L,-2,"FULL_PATH");
+	lua_pushnumber(L,osgDB::Output::RELATIVE_PATH); lua_setfield(L,-2,"RELATIVE_PATH");
+	lua_pushnumber(L,osgDB::Output::FILENAME_ONLY); lua_setfield(L,-2,"FILENAME_ONLY");
+
+	lua_setfield(L,-2,"PathNameHint");
+
+	lua_pushnumber(L,osgDB::Output::AS_IS); lua_setfield(L,-2,"AS_IS");
+	lua_pushnumber(L,osgDB::Output::FULL_PATH); lua_setfield(L,-2,"FULL_PATH");
+	lua_pushnumber(L,osgDB::Output::RELATIVE_PATH); lua_setfield(L,-2,"RELATIVE_PATH");
+	lua_pushnumber(L,osgDB::Output::FILENAME_ONLY); lua_setfield(L,-2,"FILENAME_ONLY");
+
+
+	lua_newtable(L); // enum WriteType
+
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_UNKNOWN); lua_setfield(L,-2,"WRITE_UNKNOWN");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_SCENE); lua_setfield(L,-2,"WRITE_SCENE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_IMAGE); lua_setfield(L,-2,"WRITE_IMAGE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_OBJECT); lua_setfield(L,-2,"WRITE_OBJECT");
+
+	lua_setfield(L,-2,"WriteType");
+
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_UNKNOWN); lua_setfield(L,-2,"WRITE_UNKNOWN");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_SCENE); lua_setfield(L,-2,"WRITE_SCENE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_IMAGE); lua_setfield(L,-2,"WRITE_IMAGE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_OBJECT); lua_setfield(L,-2,"WRITE_OBJECT");
+
+
+	lua_newtable(L); // enum WriteImageHint
+
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_USE_IMAGE_HINT); lua_setfield(L,-2,"WRITE_USE_IMAGE_HINT");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_USE_EXTERNAL); lua_setfield(L,-2,"WRITE_USE_EXTERNAL");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_INLINE_DATA); lua_setfield(L,-2,"WRITE_INLINE_DATA");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_INLINE_FILE); lua_setfield(L,-2,"WRITE_INLINE_FILE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_EXTERNAL_FILE); lua_setfield(L,-2,"WRITE_EXTERNAL_FILE");
+
+	lua_setfield(L,-2,"WriteImageHint");
+
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_USE_IMAGE_HINT); lua_setfield(L,-2,"WRITE_USE_IMAGE_HINT");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_USE_EXTERNAL); lua_setfield(L,-2,"WRITE_USE_EXTERNAL");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_INLINE_DATA); lua_setfield(L,-2,"WRITE_INLINE_DATA");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_INLINE_FILE); lua_setfield(L,-2,"WRITE_INLINE_FILE");
+	lua_pushnumber(L,osgDB::OutputStream::WRITE_EXTERNAL_FILE); lua_setfield(L,-2,"WRITE_EXTERNAL_FILE");
+
+
+	lua_newtable(L); // enum Features
+
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_NONE); lua_setfield(L,-2,"FEATURE_NONE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_OBJECT); lua_setfield(L,-2,"FEATURE_READ_OBJECT");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_IMAGE); lua_setfield(L,-2,"FEATURE_READ_IMAGE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_HEIGHT_FIELD); lua_setfield(L,-2,"FEATURE_READ_HEIGHT_FIELD");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_NODE); lua_setfield(L,-2,"FEATURE_READ_NODE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_SHADER); lua_setfield(L,-2,"FEATURE_READ_SHADER");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_OBJECT); lua_setfield(L,-2,"FEATURE_WRITE_OBJECT");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_IMAGE); lua_setfield(L,-2,"FEATURE_WRITE_IMAGE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_HEIGHT_FIELD); lua_setfield(L,-2,"FEATURE_WRITE_HEIGHT_FIELD");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_NODE); lua_setfield(L,-2,"FEATURE_WRITE_NODE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_SHADER); lua_setfield(L,-2,"FEATURE_WRITE_SHADER");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_ALL); lua_setfield(L,-2,"FEATURE_ALL");
+
+	lua_setfield(L,-2,"Features");
+
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_NONE); lua_setfield(L,-2,"FEATURE_NONE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_OBJECT); lua_setfield(L,-2,"FEATURE_READ_OBJECT");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_IMAGE); lua_setfield(L,-2,"FEATURE_READ_IMAGE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_HEIGHT_FIELD); lua_setfield(L,-2,"FEATURE_READ_HEIGHT_FIELD");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_NODE); lua_setfield(L,-2,"FEATURE_READ_NODE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_READ_SHADER); lua_setfield(L,-2,"FEATURE_READ_SHADER");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_OBJECT); lua_setfield(L,-2,"FEATURE_WRITE_OBJECT");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_IMAGE); lua_setfield(L,-2,"FEATURE_WRITE_IMAGE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_HEIGHT_FIELD); lua_setfield(L,-2,"FEATURE_WRITE_HEIGHT_FIELD");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_NODE); lua_setfield(L,-2,"FEATURE_WRITE_NODE");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_WRITE_SHADER); lua_setfield(L,-2,"FEATURE_WRITE_SHADER");
+	lua_pushnumber(L,osgDB::ReaderWriter::FEATURE_ALL); lua_setfield(L,-2,"FEATURE_ALL");
+
+
+	lua_newtable(L); // enum ArchiveStatus
+
+	lua_pushnumber(L,osgDB::ReaderWriter::READ); lua_setfield(L,-2,"READ");
+	lua_pushnumber(L,osgDB::ReaderWriter::WRITE); lua_setfield(L,-2,"WRITE");
+	lua_pushnumber(L,osgDB::ReaderWriter::CREATE); lua_setfield(L,-2,"CREATE");
+
+	lua_setfield(L,-2,"ArchiveStatus");
+
+	lua_pushnumber(L,osgDB::ReaderWriter::READ); lua_setfield(L,-2,"READ");
+	lua_pushnumber(L,osgDB::ReaderWriter::WRITE); lua_setfield(L,-2,"WRITE");
+	lua_pushnumber(L,osgDB::ReaderWriter::CREATE); lua_setfield(L,-2,"CREATE");
+
+
+	lua_newtable(L); // enum ReadStatus
+
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::NOT_IMPLEMENTED); lua_setfield(L,-2,"NOT_IMPLEMENTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_NOT_HANDLED); lua_setfield(L,-2,"FILE_NOT_HANDLED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_NOT_FOUND); lua_setfield(L,-2,"FILE_NOT_FOUND");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_LOADED); lua_setfield(L,-2,"FILE_LOADED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_LOADED_FROM_CACHE); lua_setfield(L,-2,"FILE_LOADED_FROM_CACHE");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::ERROR_IN_READING_FILE); lua_setfield(L,-2,"ERROR_IN_READING_FILE");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_REQUESTED); lua_setfield(L,-2,"FILE_REQUESTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::INSUFFICIENT_MEMORY_TO_LOAD); lua_setfield(L,-2,"INSUFFICIENT_MEMORY_TO_LOAD");
+
+	lua_setfield(L,-2,"ReadStatus");
+
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::NOT_IMPLEMENTED); lua_setfield(L,-2,"NOT_IMPLEMENTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_NOT_HANDLED); lua_setfield(L,-2,"FILE_NOT_HANDLED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_NOT_FOUND); lua_setfield(L,-2,"FILE_NOT_FOUND");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_LOADED); lua_setfield(L,-2,"FILE_LOADED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_LOADED_FROM_CACHE); lua_setfield(L,-2,"FILE_LOADED_FROM_CACHE");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::ERROR_IN_READING_FILE); lua_setfield(L,-2,"ERROR_IN_READING_FILE");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::FILE_REQUESTED); lua_setfield(L,-2,"FILE_REQUESTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::ReadResult::INSUFFICIENT_MEMORY_TO_LOAD); lua_setfield(L,-2,"INSUFFICIENT_MEMORY_TO_LOAD");
+
+
+	lua_newtable(L); // enum WriteStatus
+
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::NOT_IMPLEMENTED); lua_setfield(L,-2,"NOT_IMPLEMENTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::FILE_NOT_HANDLED); lua_setfield(L,-2,"FILE_NOT_HANDLED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::FILE_SAVED); lua_setfield(L,-2,"FILE_SAVED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::ERROR_IN_WRITING_FILE); lua_setfield(L,-2,"ERROR_IN_WRITING_FILE");
+
+	lua_setfield(L,-2,"WriteStatus");
+
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::NOT_IMPLEMENTED); lua_setfield(L,-2,"NOT_IMPLEMENTED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::FILE_NOT_HANDLED); lua_setfield(L,-2,"FILE_NOT_HANDLED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::FILE_SAVED); lua_setfield(L,-2,"FILE_SAVED");
+	lua_pushnumber(L,osgDB::ReaderWriter::WriteResult::ERROR_IN_WRITING_FILE); lua_setfield(L,-2,"ERROR_IN_WRITING_FILE");
+
+
+	lua_newtable(L); // enum LoadStatus
+
+	lua_pushnumber(L,osgDB::Registry::NOT_LOADED); lua_setfield(L,-2,"NOT_LOADED");
+	lua_pushnumber(L,osgDB::Registry::PREVIOUSLY_LOADED); lua_setfield(L,-2,"PREVIOUSLY_LOADED");
+	lua_pushnumber(L,osgDB::Registry::LOADED); lua_setfield(L,-2,"LOADED");
+
+	lua_setfield(L,-2,"LoadStatus");
+
+	lua_pushnumber(L,osgDB::Registry::NOT_LOADED); lua_setfield(L,-2,"NOT_LOADED");
+	lua_pushnumber(L,osgDB::Registry::PREVIOUSLY_LOADED); lua_setfield(L,-2,"PREVIOUSLY_LOADED");
+	lua_pushnumber(L,osgDB::Registry::LOADED); lua_setfield(L,-2,"LOADED");
+
+
+	lua_newtable(L); // enum ShareMode
+
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_NONE); lua_setfield(L,-2,"SHARE_NONE");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATIC_TEXTURES); lua_setfield(L,-2,"SHARE_STATIC_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_UNSPECIFIED_TEXTURES); lua_setfield(L,-2,"SHARE_UNSPECIFIED_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_DYNAMIC_TEXTURES); lua_setfield(L,-2,"SHARE_DYNAMIC_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATIC_STATESETS); lua_setfield(L,-2,"SHARE_STATIC_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_UNSPECIFIED_STATESETS); lua_setfield(L,-2,"SHARE_UNSPECIFIED_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_DYNAMIC_STATESETS); lua_setfield(L,-2,"SHARE_DYNAMIC_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_TEXTURES); lua_setfield(L,-2,"SHARE_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATESETS); lua_setfield(L,-2,"SHARE_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_ALL); lua_setfield(L,-2,"SHARE_ALL");
+
+	lua_setfield(L,-2,"ShareMode");
+
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_NONE); lua_setfield(L,-2,"SHARE_NONE");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATIC_TEXTURES); lua_setfield(L,-2,"SHARE_STATIC_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_UNSPECIFIED_TEXTURES); lua_setfield(L,-2,"SHARE_UNSPECIFIED_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_DYNAMIC_TEXTURES); lua_setfield(L,-2,"SHARE_DYNAMIC_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATIC_STATESETS); lua_setfield(L,-2,"SHARE_STATIC_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_UNSPECIFIED_STATESETS); lua_setfield(L,-2,"SHARE_UNSPECIFIED_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_DYNAMIC_STATESETS); lua_setfield(L,-2,"SHARE_DYNAMIC_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_TEXTURES); lua_setfield(L,-2,"SHARE_TEXTURES");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_STATESETS); lua_setfield(L,-2,"SHARE_STATESETS");
+	lua_pushnumber(L,osgDB::SharedStateManager::SHARE_ALL); lua_setfield(L,-2,"SHARE_ALL");
+
+
+	lua_newtable(L); // enum NodeType
+
+	lua_pushnumber(L,osgDB::XmlNode::UNASSIGNED); lua_setfield(L,-2,"UNASSIGNED");
+	lua_pushnumber(L,osgDB::XmlNode::ATOM); lua_setfield(L,-2,"ATOM");
+	lua_pushnumber(L,osgDB::XmlNode::NODE); lua_setfield(L,-2,"NODE");
+	lua_pushnumber(L,osgDB::XmlNode::GROUP); lua_setfield(L,-2,"GROUP");
+	lua_pushnumber(L,osgDB::XmlNode::ROOT); lua_setfield(L,-2,"ROOT");
+	lua_pushnumber(L,osgDB::XmlNode::COMMENT); lua_setfield(L,-2,"COMMENT");
+	lua_pushnumber(L,osgDB::XmlNode::INFORMATION); lua_setfield(L,-2,"INFORMATION");
+
+	lua_setfield(L,-2,"NodeType");
+
+	lua_pushnumber(L,osgDB::XmlNode::UNASSIGNED); lua_setfield(L,-2,"UNASSIGNED");
+	lua_pushnumber(L,osgDB::XmlNode::ATOM); lua_setfield(L,-2,"ATOM");
+	lua_pushnumber(L,osgDB::XmlNode::NODE); lua_setfield(L,-2,"NODE");
+	lua_pushnumber(L,osgDB::XmlNode::GROUP); lua_setfield(L,-2,"GROUP");
+	lua_pushnumber(L,osgDB::XmlNode::ROOT); lua_setfield(L,-2,"ROOT");
+	lua_pushnumber(L,osgDB::XmlNode::COMMENT); lua_setfield(L,-2,"COMMENT");
+	lua_pushnumber(L,osgDB::XmlNode::INFORMATION); lua_setfield(L,-2,"INFORMATION");
+
+
+	lua_newtable(L); // enum Value
+
+	lua_pushnumber(L,FileOpResult::OK); lua_setfield(L,-2,"OK");
+	lua_pushnumber(L,FileOpResult::SOURCE_EQUALS_DESTINATION); lua_setfield(L,-2,"SOURCE_EQUALS_DESTINATION");
+	lua_pushnumber(L,FileOpResult::BAD_ARGUMENT); lua_setfield(L,-2,"BAD_ARGUMENT");
+	lua_pushnumber(L,FileOpResult::SOURCE_MISSING); lua_setfield(L,-2,"SOURCE_MISSING");
+	lua_pushnumber(L,FileOpResult::SOURCE_NOT_OPENED); lua_setfield(L,-2,"SOURCE_NOT_OPENED");
+	lua_pushnumber(L,FileOpResult::DESTINATION_NOT_OPENED); lua_setfield(L,-2,"DESTINATION_NOT_OPENED");
+	lua_pushnumber(L,FileOpResult::READ_ERROR); lua_setfield(L,-2,"READ_ERROR");
+	lua_pushnumber(L,FileOpResult::WRITE_ERROR); lua_setfield(L,-2,"WRITE_ERROR");
+
+	lua_setfield(L,-2,"Value");
+
+	lua_pushnumber(L,FileOpResult::OK); lua_setfield(L,-2,"OK");
+	lua_pushnumber(L,FileOpResult::SOURCE_EQUALS_DESTINATION); lua_setfield(L,-2,"SOURCE_EQUALS_DESTINATION");
+	lua_pushnumber(L,FileOpResult::BAD_ARGUMENT); lua_setfield(L,-2,"BAD_ARGUMENT");
+	lua_pushnumber(L,FileOpResult::SOURCE_MISSING); lua_setfield(L,-2,"SOURCE_MISSING");
+	lua_pushnumber(L,FileOpResult::SOURCE_NOT_OPENED); lua_setfield(L,-2,"SOURCE_NOT_OPENED");
+	lua_pushnumber(L,FileOpResult::DESTINATION_NOT_OPENED); lua_setfield(L,-2,"DESTINATION_NOT_OPENED");
+	lua_pushnumber(L,FileOpResult::READ_ERROR); lua_setfield(L,-2,"READ_ERROR");
+	lua_pushnumber(L,FileOpResult::WRITE_ERROR); lua_setfield(L,-2,"WRITE_ERROR");
+
+
+	lua_newtable(L); // enum ModeValues
+
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_ON_DISPLAY_LISTS); lua_setfield(L,-2,"SWITCH_ON_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_OFF_DISPLAY_LISTS); lua_setfield(L,-2,"SWITCH_OFF_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS); lua_setfield(L,-2,"COMPILE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES); lua_setfield(L,-2,"COMPILE_STATE_ATTRIBUTES");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::RELEASE_DISPLAY_LISTS); lua_setfield(L,-2,"RELEASE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::RELEASE_STATE_ATTRIBUTES); lua_setfield(L,-2,"RELEASE_STATE_ATTRIBUTES");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_ON_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"SWITCH_ON_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_OFF_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"SWITCH_OFF_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES); lua_setfield(L,-2,"CHECK_BLACK_LISTED_MODES");
+
+	lua_setfield(L,-2,"ModeValues");
+
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_ON_DISPLAY_LISTS); lua_setfield(L,-2,"SWITCH_ON_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_OFF_DISPLAY_LISTS); lua_setfield(L,-2,"SWITCH_OFF_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS); lua_setfield(L,-2,"COMPILE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES); lua_setfield(L,-2,"COMPILE_STATE_ATTRIBUTES");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::RELEASE_DISPLAY_LISTS); lua_setfield(L,-2,"RELEASE_DISPLAY_LISTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::RELEASE_STATE_ATTRIBUTES); lua_setfield(L,-2,"RELEASE_STATE_ATTRIBUTES");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_ON_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"SWITCH_ON_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::SWITCH_OFF_VERTEX_BUFFER_OBJECTS); lua_setfield(L,-2,"SWITCH_OFF_VERTEX_BUFFER_OBJECTS");
+	lua_pushnumber(L,osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES); lua_setfield(L,-2,"CHECK_BLACK_LISTED_MODES");
+
+
+	lua_newtable(L); // enum CoordinateFrame
+
+	lua_pushnumber(L,osgUtil::Intersector::WINDOW); lua_setfield(L,-2,"WINDOW");
+	lua_pushnumber(L,osgUtil::Intersector::PROJECTION); lua_setfield(L,-2,"PROJECTION");
+	lua_pushnumber(L,osgUtil::Intersector::VIEW); lua_setfield(L,-2,"VIEW");
+	lua_pushnumber(L,osgUtil::Intersector::MODEL); lua_setfield(L,-2,"MODEL");
+
+	lua_setfield(L,-2,"CoordinateFrame");
+
+	lua_pushnumber(L,osgUtil::Intersector::WINDOW); lua_setfield(L,-2,"WINDOW");
+	lua_pushnumber(L,osgUtil::Intersector::PROJECTION); lua_setfield(L,-2,"PROJECTION");
+	lua_pushnumber(L,osgUtil::Intersector::VIEW); lua_setfield(L,-2,"VIEW");
+	lua_pushnumber(L,osgUtil::Intersector::MODEL); lua_setfield(L,-2,"MODEL");
+
+
+	lua_newtable(L); // enum IntersectionLimit
+
+	lua_pushnumber(L,osgUtil::Intersector::NO_LIMIT); lua_setfield(L,-2,"NO_LIMIT");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_ONE_PER_DRAWABLE); lua_setfield(L,-2,"LIMIT_ONE_PER_DRAWABLE");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_ONE); lua_setfield(L,-2,"LIMIT_ONE");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_NEAREST); lua_setfield(L,-2,"LIMIT_NEAREST");
+
+	lua_setfield(L,-2,"IntersectionLimit");
+
+	lua_pushnumber(L,osgUtil::Intersector::NO_LIMIT); lua_setfield(L,-2,"NO_LIMIT");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_ONE_PER_DRAWABLE); lua_setfield(L,-2,"LIMIT_ONE_PER_DRAWABLE");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_ONE); lua_setfield(L,-2,"LIMIT_ONE");
+	lua_pushnumber(L,osgUtil::Intersector::LIMIT_NEAREST); lua_setfield(L,-2,"LIMIT_NEAREST");
+
+
+	lua_newtable(L); // enum LODSelectionMode
+
+	lua_pushnumber(L,osgUtil::IntersectionVisitor::USE_HIGHEST_LEVEL_OF_DETAIL); lua_setfield(L,-2,"USE_HIGHEST_LEVEL_OF_DETAIL");
+	lua_pushnumber(L,osgUtil::IntersectionVisitor::USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION); lua_setfield(L,-2,"USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION");
+
+	lua_setfield(L,-2,"LODSelectionMode");
+
+	lua_pushnumber(L,osgUtil::IntersectionVisitor::USE_HIGHEST_LEVEL_OF_DETAIL); lua_setfield(L,-2,"USE_HIGHEST_LEVEL_OF_DETAIL");
+	lua_pushnumber(L,osgUtil::IntersectionVisitor::USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION); lua_setfield(L,-2,"USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION");
+
+
+	lua_newtable(L); // enum LODSelectionMode
+
+	lua_pushnumber(L,osgUtil::IntersectVisitor::USE_HIGHEST_LEVEL_OF_DETAIL); lua_setfield(L,-2,"USE_HIGHEST_LEVEL_OF_DETAIL");
+	lua_pushnumber(L,osgUtil::IntersectVisitor::USE_SEGMENT_START_POINT_AS_EYE_POINT_FOR_LOD_LEVEL_SELECTION); lua_setfield(L,-2,"USE_SEGMENT_START_POINT_AS_EYE_POINT_FOR_LOD_LEVEL_SELECTION");
+
+	lua_setfield(L,-2,"LODSelectionMode");
+
+	lua_pushnumber(L,osgUtil::IntersectVisitor::USE_HIGHEST_LEVEL_OF_DETAIL); lua_setfield(L,-2,"USE_HIGHEST_LEVEL_OF_DETAIL");
+	lua_pushnumber(L,osgUtil::IntersectVisitor::USE_SEGMENT_START_POINT_AS_EYE_POINT_FOR_LOD_LEVEL_SELECTION); lua_setfield(L,-2,"USE_SEGMENT_START_POINT_AS_EYE_POINT_FOR_LOD_LEVEL_SELECTION");
+
+
+	lua_newtable(L); // enum OptimizationOptions
+
+
+	lua_setfield(L,-2,"OptimizationOptions");
+
+
+
+	lua_newtable(L); // enum FitsIn
+
+
+	lua_setfield(L,-2,"FitsIn");
+
+
+
+	lua_newtable(L); // enum unnamed_16
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
+
+	lua_setfield(L,-2,"unnamed_16");
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
+
+
+	lua_newtable(L); // enum unnamed_17
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::Intersection::MaxNumIntesectionPoints); lua_setfield(L,-2,"MaxNumIntesectionPoints");
+
+	lua_setfield(L,-2,"unnamed_17");
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::Intersection::MaxNumIntesectionPoints); lua_setfield(L,-2,"MaxNumIntesectionPoints");
+
+
+	lua_newtable(L); // enum SortMode
+
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BY_STATE); lua_setfield(L,-2,"SORT_BY_STATE");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BY_STATE_THEN_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_BY_STATE_THEN_FRONT_TO_BACK");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_FRONT_TO_BACK");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BACK_TO_FRONT); lua_setfield(L,-2,"SORT_BACK_TO_FRONT");
+	lua_pushnumber(L,osgUtil::RenderBin::TRAVERSAL_ORDER); lua_setfield(L,-2,"TRAVERSAL_ORDER");
+
+	lua_setfield(L,-2,"SortMode");
+
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BY_STATE); lua_setfield(L,-2,"SORT_BY_STATE");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BY_STATE_THEN_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_BY_STATE_THEN_FRONT_TO_BACK");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_FRONT_TO_BACK");
+	lua_pushnumber(L,osgUtil::RenderBin::SORT_BACK_TO_FRONT); lua_setfield(L,-2,"SORT_BACK_TO_FRONT");
+	lua_pushnumber(L,osgUtil::RenderBin::TRAVERSAL_ORDER); lua_setfield(L,-2,"TRAVERSAL_ORDER");
+
+
+	lua_newtable(L); // enum Options
+
+	lua_pushnumber(L,osgUtil::SceneView::NO_SCENEVIEW_LIGHT); lua_setfield(L,-2,"NO_SCENEVIEW_LIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::HEADLIGHT); lua_setfield(L,-2,"HEADLIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::SKY_LIGHT); lua_setfield(L,-2,"SKY_LIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::COMPILE_GLOBJECTS_AT_INIT); lua_setfield(L,-2,"COMPILE_GLOBJECTS_AT_INIT");
+	lua_pushnumber(L,osgUtil::SceneView::STANDARD_SETTINGS); lua_setfield(L,-2,"STANDARD_SETTINGS");
+
+	lua_setfield(L,-2,"Options");
+
+	lua_pushnumber(L,osgUtil::SceneView::NO_SCENEVIEW_LIGHT); lua_setfield(L,-2,"NO_SCENEVIEW_LIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::HEADLIGHT); lua_setfield(L,-2,"HEADLIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::SKY_LIGHT); lua_setfield(L,-2,"SKY_LIGHT");
+	lua_pushnumber(L,osgUtil::SceneView::COMPILE_GLOBJECTS_AT_INIT); lua_setfield(L,-2,"COMPILE_GLOBJECTS_AT_INIT");
+	lua_pushnumber(L,osgUtil::SceneView::STANDARD_SETTINGS); lua_setfield(L,-2,"STANDARD_SETTINGS");
+
+
+	lua_newtable(L); // enum ActiveUniforms
+
+	lua_pushnumber(L,osgUtil::SceneView::FRAME_NUMBER_UNIFORM); lua_setfield(L,-2,"FRAME_NUMBER_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::FRAME_TIME_UNIFORM); lua_setfield(L,-2,"FRAME_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DELTA_FRAME_TIME_UNIFORM); lua_setfield(L,-2,"DELTA_FRAME_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::SIMULATION_TIME_UNIFORM); lua_setfield(L,-2,"SIMULATION_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DELTA_SIMULATION_TIME_UNIFORM); lua_setfield(L,-2,"DELTA_SIMULATION_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::VIEW_MATRIX_UNIFORM); lua_setfield(L,-2,"VIEW_MATRIX_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::VIEW_MATRIX_INVERSE_UNIFORM); lua_setfield(L,-2,"VIEW_MATRIX_INVERSE_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DEFAULT_UNIFORMS); lua_setfield(L,-2,"DEFAULT_UNIFORMS");
+	lua_pushnumber(L,osgUtil::SceneView::ALL_UNIFORMS); lua_setfield(L,-2,"ALL_UNIFORMS");
+
+	lua_setfield(L,-2,"ActiveUniforms");
+
+	lua_pushnumber(L,osgUtil::SceneView::FRAME_NUMBER_UNIFORM); lua_setfield(L,-2,"FRAME_NUMBER_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::FRAME_TIME_UNIFORM); lua_setfield(L,-2,"FRAME_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DELTA_FRAME_TIME_UNIFORM); lua_setfield(L,-2,"DELTA_FRAME_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::SIMULATION_TIME_UNIFORM); lua_setfield(L,-2,"SIMULATION_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DELTA_SIMULATION_TIME_UNIFORM); lua_setfield(L,-2,"DELTA_SIMULATION_TIME_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::VIEW_MATRIX_UNIFORM); lua_setfield(L,-2,"VIEW_MATRIX_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::VIEW_MATRIX_INVERSE_UNIFORM); lua_setfield(L,-2,"VIEW_MATRIX_INVERSE_UNIFORM");
+	lua_pushnumber(L,osgUtil::SceneView::DEFAULT_UNIFORMS); lua_setfield(L,-2,"DEFAULT_UNIFORMS");
+	lua_pushnumber(L,osgUtil::SceneView::ALL_UNIFORMS); lua_setfield(L,-2,"ALL_UNIFORMS");
+
+
+	lua_newtable(L); // enum FusionDistanceMode
+
+	lua_pushnumber(L,osgUtil::SceneView::USE_FUSION_DISTANCE_VALUE); lua_setfield(L,-2,"USE_FUSION_DISTANCE_VALUE");
+	lua_pushnumber(L,osgUtil::SceneView::PROPORTIONAL_TO_SCREEN_DISTANCE); lua_setfield(L,-2,"PROPORTIONAL_TO_SCREEN_DISTANCE");
+
+	lua_setfield(L,-2,"FusionDistanceMode");
+
+	lua_pushnumber(L,osgUtil::SceneView::USE_FUSION_DISTANCE_VALUE); lua_setfield(L,-2,"USE_FUSION_DISTANCE_VALUE");
+	lua_pushnumber(L,osgUtil::SceneView::PROPORTIONAL_TO_SCREEN_DISTANCE); lua_setfield(L,-2,"PROPORTIONAL_TO_SCREEN_DISTANCE");
+
+
+	lua_newtable(L); // enum StateMask
+
+	lua_pushnumber(L,osgUtil::ShaderGenCache::BLEND); lua_setfield(L,-2,"BLEND");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::LIGHTING); lua_setfield(L,-2,"LIGHTING");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::FOG); lua_setfield(L,-2,"FOG");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::DIFFUSE_MAP); lua_setfield(L,-2,"DIFFUSE_MAP");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::NORMAL_MAP); lua_setfield(L,-2,"NORMAL_MAP");
+
+	lua_setfield(L,-2,"StateMask");
+
+	lua_pushnumber(L,osgUtil::ShaderGenCache::BLEND); lua_setfield(L,-2,"BLEND");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::LIGHTING); lua_setfield(L,-2,"LIGHTING");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::FOG); lua_setfield(L,-2,"FOG");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::DIFFUSE_MAP); lua_setfield(L,-2,"DIFFUSE_MAP");
+	lua_pushnumber(L,osgUtil::ShaderGenCache::NORMAL_MAP); lua_setfield(L,-2,"NORMAL_MAP");
+
+
+	lua_newtable(L); // enum StatsType
+
+	lua_pushnumber(L,osgUtil::Statistics::STAT_NONE); lua_setfield(L,-2,"STAT_NONE");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_FRAMERATE); lua_setfield(L,-2,"STAT_FRAMERATE");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_GRAPHS); lua_setfield(L,-2,"STAT_GRAPHS");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMS); lua_setfield(L,-2,"STAT_PRIMS");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMSPERVIEW); lua_setfield(L,-2,"STAT_PRIMSPERVIEW");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMSPERBIN); lua_setfield(L,-2,"STAT_PRIMSPERBIN");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_DC); lua_setfield(L,-2,"STAT_DC");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_RESTART); lua_setfield(L,-2,"STAT_RESTART");
+
+	lua_setfield(L,-2,"StatsType");
+
+	lua_pushnumber(L,osgUtil::Statistics::STAT_NONE); lua_setfield(L,-2,"STAT_NONE");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_FRAMERATE); lua_setfield(L,-2,"STAT_FRAMERATE");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_GRAPHS); lua_setfield(L,-2,"STAT_GRAPHS");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMS); lua_setfield(L,-2,"STAT_PRIMS");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMSPERVIEW); lua_setfield(L,-2,"STAT_PRIMSPERVIEW");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_PRIMSPERBIN); lua_setfield(L,-2,"STAT_PRIMSPERBIN");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_DC); lua_setfield(L,-2,"STAT_DC");
+	lua_pushnumber(L,osgUtil::Statistics::STAT_RESTART); lua_setfield(L,-2,"STAT_RESTART");
+
+
+	lua_newtable(L); // enum WindingType
+
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_ODD); lua_setfield(L,-2,"TESS_WINDING_ODD");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_NONZERO); lua_setfield(L,-2,"TESS_WINDING_NONZERO");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_POSITIVE); lua_setfield(L,-2,"TESS_WINDING_POSITIVE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_NEGATIVE); lua_setfield(L,-2,"TESS_WINDING_NEGATIVE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_ABS_GEQ_TWO); lua_setfield(L,-2,"TESS_WINDING_ABS_GEQ_TWO");
+
+	lua_setfield(L,-2,"WindingType");
+
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_ODD); lua_setfield(L,-2,"TESS_WINDING_ODD");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_NONZERO); lua_setfield(L,-2,"TESS_WINDING_NONZERO");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_POSITIVE); lua_setfield(L,-2,"TESS_WINDING_POSITIVE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_NEGATIVE); lua_setfield(L,-2,"TESS_WINDING_NEGATIVE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_WINDING_ABS_GEQ_TWO); lua_setfield(L,-2,"TESS_WINDING_ABS_GEQ_TWO");
+
+
+	lua_newtable(L); // enum TessellationType
+
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_GEOMETRY); lua_setfield(L,-2,"TESS_TYPE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_DRAWABLE); lua_setfield(L,-2,"TESS_TYPE_DRAWABLE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_POLYGONS); lua_setfield(L,-2,"TESS_TYPE_POLYGONS");
+
+	lua_setfield(L,-2,"TessellationType");
+
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_GEOMETRY); lua_setfield(L,-2,"TESS_TYPE_GEOMETRY");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_DRAWABLE); lua_setfield(L,-2,"TESS_TYPE_DRAWABLE");
+	lua_pushnumber(L,osgUtil::Tessellator::TESS_TYPE_POLYGONS); lua_setfield(L,-2,"TESS_TYPE_POLYGONS");
 
 
 }

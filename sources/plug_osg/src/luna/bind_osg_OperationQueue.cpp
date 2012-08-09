@@ -93,12 +93,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getOperationThreads(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -318,27 +312,6 @@ public:
 		return 0;
 	}
 
-	// const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const
-	static int _bind_getOperationThreads(lua_State *L) {
-		if (!_lg_typecheck_getOperationThreads(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const function, expected prototype:\nconst osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const\nClass arguments details:\n");
-		}
-
-
-		osg::OperationQueue* self=dynamic_cast< osg::OperationQueue* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::OperationQueue::OperationThreads & osg::OperationQueue::getOperationThreads() const");
-		}
-		const osg::OperationQueue::OperationThreads* lret = &self->getOperationThreads();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::OperationQueue::OperationThreads >::push(L,lret,false);
-
-		return 1;
-	}
-
 
 	// Operator binds:
 
@@ -369,7 +342,6 @@ luna_RegType LunaTraits< osg::OperationQueue >::methods[] = {
 	{"runOperations", &luna_wrapper_osg_OperationQueue::_bind_runOperations},
 	{"releaseAllOperations", &luna_wrapper_osg_OperationQueue::_bind_releaseAllOperations},
 	{"releaseOperationsBlock", &luna_wrapper_osg_OperationQueue::_bind_releaseOperationsBlock},
-	{"getOperationThreads", &luna_wrapper_osg_OperationQueue::_bind_getOperationThreads},
 	{0,0}
 };
 

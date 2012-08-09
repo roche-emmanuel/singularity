@@ -32,15 +32,6 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		return true;
-	}
-
 
 	// Function checkers:
 
@@ -48,20 +39,6 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// osg::ApplicationUsageProxy::ApplicationUsageProxy(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation)
-	static osg::ApplicationUsageProxy* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ApplicationUsageProxy::ApplicationUsageProxy(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation) function, expected prototype:\nosg::ApplicationUsageProxy::ApplicationUsageProxy(osg::ApplicationUsage::Type type, const std::string & option, const std::string & explanation)\nClass arguments details:\n");
-		}
-
-		osg::ApplicationUsage::Type type=(osg::ApplicationUsage::Type)lua_tointeger(L,1);
-		std::string option(lua_tostring(L,2),lua_objlen(L,2));
-		std::string explanation(lua_tostring(L,3),lua_objlen(L,3));
-
-		return new osg::ApplicationUsageProxy(type, option, explanation);
-	}
-
 
 	// Function binds:
 
@@ -70,7 +47,7 @@ public:
 };
 
 osg::ApplicationUsageProxy* LunaTraits< osg::ApplicationUsageProxy >::_bind_ctor(lua_State *L) {
-	return luna_wrapper_osg_ApplicationUsageProxy::_bind_ctor(L);
+	return NULL; // No valid default constructor.
 }
 
 void LunaTraits< osg::ApplicationUsageProxy >::_bind_dtor(osg::ApplicationUsageProxy* obj) {

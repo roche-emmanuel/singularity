@@ -179,18 +179,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_getFileNames_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getFileNames_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_addImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -749,57 +737,6 @@ public:
 		return 1;
 	}
 
-	// osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()
-	static int _bind_getFileNames_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getFileNames_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() function, expected prototype:\nosg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()\nClass arguments details:\n");
-		}
-
-
-		osg::ImageSequence* self=dynamic_cast< osg::ImageSequence* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()");
-		}
-		const osg::ImageSequence::FileNames* lret = &self->getFileNames();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::ImageSequence::FileNames >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const
-	static int _bind_getFileNames_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getFileNames_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const function, expected prototype:\nconst osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const\nClass arguments details:\n");
-		}
-
-
-		osg::ImageSequence* self=dynamic_cast< osg::ImageSequence* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const");
-		}
-		const osg::ImageSequence::FileNames* lret = &self->getFileNames();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::ImageSequence::FileNames >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::ImageSequence::getFileNames
-	static int _bind_getFileNames(lua_State *L) {
-		if (_lg_typecheck_getFileNames_overload_1(L)) return _bind_getFileNames_overload_1(L);
-		if (_lg_typecheck_getFileNames_overload_2(L)) return _bind_getFileNames_overload_2(L);
-
-		luaL_error(L, "error in function getFileNames, cannot match any of the overloads for function getFileNames:\n  getFileNames()\n  getFileNames()\n");
-		return 0;
-	}
-
 	// void osg::ImageSequence::addImage(osg::Image * image)
 	static int _bind_addImage(lua_State *L) {
 		if (!_lg_typecheck_addImage(L)) {
@@ -1081,7 +1018,6 @@ luna_RegType LunaTraits< osg::ImageSequence >::methods[] = {
 	{"setImageFile", &luna_wrapper_osg_ImageSequence::_bind_setImageFile},
 	{"getImageFile", &luna_wrapper_osg_ImageSequence::_bind_getImageFile},
 	{"getNumImageFiles", &luna_wrapper_osg_ImageSequence::_bind_getNumImageFiles},
-	{"getFileNames", &luna_wrapper_osg_ImageSequence::_bind_getFileNames},
 	{"addImage", &luna_wrapper_osg_ImageSequence::_bind_addImage},
 	{"setImage", &luna_wrapper_osg_ImageSequence::_bind_setImage},
 	{"getImage", &luna_wrapper_osg_ImageSequence::_bind_getImage},

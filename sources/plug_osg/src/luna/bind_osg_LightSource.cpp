@@ -122,13 +122,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_computeBound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -466,25 +459,6 @@ public:
 		return 0;
 	}
 
-	// void osg::LightSource::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::LightSource::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::LightSource::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::LightSource* self=dynamic_cast< osg::LightSource* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::LightSource::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 	// osg::BoundingSpheref osg::LightSource::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
@@ -540,7 +514,6 @@ luna_RegType LunaTraits< osg::LightSource >::methods[] = {
 	{"getLight", &luna_wrapper_osg_LightSource::_bind_getLight},
 	{"setStateSetModes", &luna_wrapper_osg_LightSource::_bind_setStateSetModes},
 	{"setLocalStateSetModes", &luna_wrapper_osg_LightSource::_bind_setLocalStateSetModes},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_LightSource::_bind_setThreadSafeRefUnref},
 	{"computeBound", &luna_wrapper_osg_LightSource::_bind_computeBound},
 	{0,0}
 };

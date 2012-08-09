@@ -3,162 +3,228 @@
 
 #include <plug_common.h>
 
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Array>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BoundingBox>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BoundingSphere>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsCostEstimator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Group>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Node>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ObserverNodePath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PrimitiveSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShaderComposer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShadowVolumeOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ValueObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Array>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingBox>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingSphere>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsCostEstimator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Group>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Node>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ObserverNodePath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PrimitiveSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderComposer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadowVolumeOccluder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ValueObject>
 #include <W:/Shared/Dev/Projects/singularity/sources/plug_osg/include/plug_extensions.h>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Referenced>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AlphaFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AnimationPath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ApplicationUsage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ArgumentParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ArrayDispatchers>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AudioStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AutoTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Geode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Billboard>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendEquation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BufferIndexBinding>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullSettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Camera>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CameraView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClampColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClearNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClipNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClipPlane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Drawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClusterCullingCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullStack>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CollectOccludersVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ColorMask>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ColorMatrix>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ComputeBoundsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ConvexPlanarOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ConvexPlanarPolygon>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CoordinateSystemNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CopyOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullingSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DeleteHandler>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Depth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DisplaySettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DrawPixels>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Fog>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FragmentProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrameBufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrameStamp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrontFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GL2Extensions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLBeginEndAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLU>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsContext>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OperationThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/State>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Hint>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateAttributeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageSequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Shape>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/KdTree>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Light>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightSource>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineSegment>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineWidth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LogicOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Material>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Matrixd>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Matrixf>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/MatrixTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Multisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeTrackerCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Observer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OccluderNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OcclusionQueryNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PagedLOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Plane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Point>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PointSprite>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonMode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonOffset>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Polytope>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PositionAttitudeTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Program>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Projection>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ProxyNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Quat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/RenderInfo>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Scissor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Sequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShadeModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Shader>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShaderAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShapeDrawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Stats>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Stencil>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StencilTwoSided>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Switch>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnv>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnvCombine>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnvFilter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGenNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexMat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture1D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2DArray>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2DMultisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture3D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TextureCubeMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TextureRectangle>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Timer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TransferFunction>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Uniform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/UserDataContainer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4ub>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/VertexProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/View>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Viewport>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArrayDispatchers>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AudioStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AutoTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Billboard>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendColor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendEquation>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferIndexBinding>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullSettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClampColor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClearNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipPlane>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClusterCullingCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullStack>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CollectOccludersVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMask>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMatrix>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ComputeBoundsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarOccluder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarPolygon>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CoordinateSystemNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CopyOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullingSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DeleteHandler>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Depth>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DisplaySettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DrawPixels>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FragmentProgram>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameStamp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrontFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL2Extensions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLBeginEndAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLU>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsContext>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OperationThread>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Hint>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttributeCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageSequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shape>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/KdTree>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Light>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineSegment>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineStipple>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineWidth>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LOD>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LogicOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Material>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixd>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixf>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/MatrixTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeTrackerCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Observer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OccluderNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OcclusionQueryNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PagedLOD>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Plane>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Point>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PointSprite>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonMode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonOffset>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonStipple>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Polytope>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PositionAttitudeTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Program>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Projection>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ProxyNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Quat>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/RenderInfo>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Scissor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Sequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadeModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shader>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderAttribute>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShapeDrawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stats>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StencilTwoSided>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Switch>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvFilter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGenNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexMat>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture1D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DArray>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DMultisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture3D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureRectangle>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Timer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TransferFunction>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/UserDataContainer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/VertexProgram>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Viewport>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ObjectWrapper>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/PluginQuery>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReaderWriter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Archive>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/AuthenticationMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabasePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabaseRevisions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DataTypes>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DotOsgWrapper>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DynamicLibrary>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ExternalFileWriter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileCache>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/fstream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageOptions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImagePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageProcessor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Input>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ParameterOutput>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Serializer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/StreamOperator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CubeMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CullVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DelaunayTriangulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DisplayRequirementsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DrawElementTypeSimplifier>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/EdgeCollector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HalfWayMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HighlightMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IncrementalCompileOperation>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/LineSegmentIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/MeshOptimizers>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/OperationArrayFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PlaneIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PolytopeIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PositionalStateContainer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PrintVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ReflectionMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderBin>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderLeaf>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderStage>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneGraphBuilder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ShaderGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Simplifier>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SmoothingVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/StateGraph>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TangentSpaceGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TransformCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TriStripVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/UpdateVisitor>
 
 using namespace osg;
+using namespace osgUtil;
+using namespace osgDB;
 
 template<>
 class LunaTraits< GLUtesselator > {
@@ -2987,24 +3053,6 @@ public:
 };
 
 template<>
-class LunaTraits< osg::Drawable::AttributeFunctor > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static osg::Drawable::AttributeFunctor* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::Drawable::AttributeFunctor* obj);
-    typedef osg::Drawable::AttributeFunctor parent_t;
-    typedef osg::Drawable::AttributeFunctor base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< osg::Drawable::ComputeBoundingBoxCallback > {
 public:
     static const char className[];
@@ -3019,24 +3067,6 @@ public:
     static void _bind_dtor(osg::Drawable::ComputeBoundingBoxCallback* obj);
     typedef osg::Referenced parent_t;
     typedef osg::Drawable::ComputeBoundingBoxCallback base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::Drawable::ConstAttributeFunctor > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static osg::Drawable::ConstAttributeFunctor* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::Drawable::ConstAttributeFunctor* obj);
-    typedef osg::Drawable::ConstAttributeFunctor parent_t;
-    typedef osg::Drawable::ConstAttributeFunctor base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -5341,42 +5371,6 @@ public:
     static void _bind_dtor(osg::PositionAttitudeTransform* obj);
     typedef osg::Referenced parent_t;
     typedef osg::PositionAttitudeTransform base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::PrimitiveFunctor > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static osg::PrimitiveFunctor* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::PrimitiveFunctor* obj);
-    typedef osg::PrimitiveFunctor parent_t;
-    typedef osg::PrimitiveFunctor base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::PrimitiveIndexFunctor > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static osg::PrimitiveIndexFunctor* _bind_ctor(lua_State *L);
-    static void _bind_dtor(osg::PrimitiveIndexFunctor* obj);
-    typedef osg::PrimitiveIndexFunctor parent_t;
-    typedef osg::PrimitiveIndexFunctor base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -8188,6 +8182,3336 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< std::deque< std::string > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::deque< std::string >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::deque< std::string >* obj);
+    typedef osgDB::FilePathList parent_t;
+    typedef std::deque< std::string > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< std::string > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< std::string >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< std::string >* obj);
+    typedef osgDB::FileNameList parent_t;
+    typedef std::list< std::string > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > >* obj);
+    typedef osgDB::ReaderWriterInfoList parent_t;
+    typedef std::list< osg::ref_ptr< osgDB::ReaderWriterInfo > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ReaderWriter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ReaderWriter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ReaderWriter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ReaderWriter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::Archive > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::Archive* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::Archive* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::Archive base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::AuthenticationDetails > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::AuthenticationDetails* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::AuthenticationDetails* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::AuthenticationDetails base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::AuthenticationMap > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::AuthenticationMap* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::AuthenticationMap* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::AuthenticationMap base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FindFileCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FindFileCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FindFileCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::FindFileCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ReadFileCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ReadFileCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ReadFileCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ReadFileCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::WriteFileCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::WriteFileCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::WriteFileCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::WriteFileCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FileLocationCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FileLocationCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FileLocationCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::FileLocationCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DatabasePager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DatabasePager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DatabasePager* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DatabasePager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FileList > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FileList* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FileList* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::FileList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< std::string > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< std::string >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< std::string >* obj);
+    typedef osgDB::FileList::FileNames parent_t;
+    typedef std::set< std::string > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DatabaseRevision > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DatabaseRevision* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DatabaseRevision* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DatabaseRevision base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DatabaseRevisions > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DatabaseRevisions* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DatabaseRevisions* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DatabaseRevisions base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgDB::DatabaseRevision > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::DatabaseRevision > >* obj);
+    typedef osgDB::DatabaseRevisions::DatabaseRevisionList parent_t;
+    typedef std::vector< osg::ref_ptr< osgDB::DatabaseRevision > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ObjectGLenum > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ObjectGLenum* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ObjectGLenum* obj);
+    typedef osgDB::ObjectGLenum parent_t;
+    typedef osgDB::ObjectGLenum base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ObjectProperty > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ObjectProperty* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ObjectProperty* obj);
+    typedef osgDB::ObjectProperty parent_t;
+    typedef osgDB::ObjectProperty base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ObjectMark > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ObjectMark* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ObjectMark* obj);
+    typedef osgDB::ObjectMark parent_t;
+    typedef osgDB::ObjectMark base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DotOsgWrapper > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DotOsgWrapper* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DotOsgWrapper* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DotOsgWrapper base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DeprecatedDotOsgWrapperManager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DeprecatedDotOsgWrapperManager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DeprecatedDotOsgWrapperManager* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DeprecatedDotOsgWrapperManager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::RegisterDotOsgWrapperProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::RegisterDotOsgWrapperProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::RegisterDotOsgWrapperProxy* obj);
+    typedef osgDB::RegisterDotOsgWrapperProxy parent_t;
+    typedef osgDB::RegisterDotOsgWrapperProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::DynamicLibrary > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::DynamicLibrary* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::DynamicLibrary* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::DynamicLibrary base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ExternalFileWriter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ExternalFileWriter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ExternalFileWriter* obj);
+    typedef osgDB::ExternalFileWriter parent_t;
+    typedef osgDB::ExternalFileWriter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData >* obj);
+    typedef osgDB::ExternalFileWriter::ObjectsSet parent_t;
+    typedef std::map< const osg::Object *, osgDB::ExternalFileWriter::ObjectData > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ExternalFileWriter::ObjectData > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ExternalFileWriter::ObjectData* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ExternalFileWriter::ObjectData* obj);
+    typedef osgDB::ExternalFileWriter::ObjectData parent_t;
+    typedef osgDB::ExternalFileWriter::ObjectData base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FileCache > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FileCache* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FileCache* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::FileCache base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgDB::DatabaseRevisions > >* obj);
+    typedef osgDB::FileCache::DatabaseRevisionsList parent_t;
+    typedef std::list< osg::ref_ptr< osgDB::DatabaseRevisions > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::fstream > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::fstream* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::fstream* obj);
+    typedef osgDB::fstream parent_t;
+    typedef osgDB::fstream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ifstream > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ifstream* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ifstream* obj);
+    typedef osgDB::ifstream parent_t;
+    typedef osgDB::ifstream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ofstream > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ofstream* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ofstream* obj);
+    typedef osgDB::ofstream parent_t;
+    typedef osgDB::ofstream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::Options > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::Options* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::Options* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::Options base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImageOptions > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImageOptions* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImageOptions* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ImageOptions base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImageOptions::PixelWindow > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImageOptions::PixelWindow* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImageOptions::PixelWindow* obj);
+    typedef osgDB::ImageOptions::PixelWindow parent_t;
+    typedef osgDB::ImageOptions::PixelWindow base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImageOptions::RatioWindow > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImageOptions::RatioWindow* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImageOptions::RatioWindow* obj);
+    typedef osgDB::ImageOptions::RatioWindow parent_t;
+    typedef osgDB::ImageOptions::RatioWindow base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImageOptions::TexCoordRange > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImageOptions::TexCoordRange* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImageOptions::TexCoordRange* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ImageOptions::TexCoordRange base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImagePager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImagePager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImagePager* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ImagePager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ImageProcessor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ImageProcessor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ImageProcessor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ImageProcessor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::Field > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::Field* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::Field* obj);
+    typedef osgDB::Field parent_t;
+    typedef osgDB::Field base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FieldReader > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FieldReader* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FieldReader* obj);
+    typedef osgDB::FieldReader parent_t;
+    typedef osgDB::FieldReader base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FieldReaderIterator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FieldReaderIterator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FieldReaderIterator* obj);
+    typedef osgDB::FieldReaderIterator parent_t;
+    typedef osgDB::FieldReaderIterator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::BaseCompressor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::BaseCompressor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::BaseCompressor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::BaseCompressor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::FinishedObjectReadCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::FinishedObjectReadCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::FinishedObjectReadCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::FinishedObjectReadCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ObjectWrapper > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ObjectWrapper* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ObjectWrapper* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ObjectWrapper base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > >* obj);
+    typedef osgDB::ObjectWrapper::FinishedObjectReadCallbackList parent_t;
+    typedef std::vector< osg::ref_ptr< osgDB::FinishedObjectReadCallback > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ObjectWrapperManager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ObjectWrapperManager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ObjectWrapperManager* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ObjectWrapperManager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > >* obj);
+    typedef osgDB::ObjectWrapperManager::WrapperMap parent_t;
+    typedef std::map< std::string, osg::ref_ptr< osgDB::ObjectWrapper > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > >* obj);
+    typedef osgDB::ObjectWrapperManager::CompressorMap parent_t;
+    typedef std::map< std::string, osg::ref_ptr< osgDB::BaseCompressor > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, osgDB::IntLookup > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< std::string, osgDB::IntLookup >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< std::string, osgDB::IntLookup >* obj);
+    typedef osgDB::ObjectWrapperManager::IntLookupMap parent_t;
+    typedef std::map< std::string, osgDB::IntLookup > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::RegisterWrapperProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::RegisterWrapperProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::RegisterWrapperProxy* obj);
+    typedef osgDB::RegisterWrapperProxy parent_t;
+    typedef osgDB::RegisterWrapperProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::RegisterCompressorProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::RegisterCompressorProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::RegisterCompressorProxy* obj);
+    typedef osgDB::RegisterCompressorProxy parent_t;
+    typedef osgDB::RegisterCompressorProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::Output > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::Output* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::Output* obj);
+    typedef osgDB::ofstream parent_t;
+    typedef osgDB::Output base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::OutputException > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::OutputException* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::OutputException* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::OutputException base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::OutputStream > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::OutputStream* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::OutputStream* obj);
+    typedef osgDB::OutputStream parent_t;
+    typedef osgDB::OutputStream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< const osg::Array *, unsigned int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< const osg::Array *, unsigned int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< const osg::Array *, unsigned int >* obj);
+    typedef osgDB::OutputStream::ArrayMap parent_t;
+    typedef std::map< const osg::Array *, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< const osg::Object *, unsigned int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< const osg::Object *, unsigned int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< const osg::Object *, unsigned int >* obj);
+    typedef osgDB::OutputStream::ObjectMap parent_t;
+    typedef std::map< const osg::Object *, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ParameterOutput > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ParameterOutput* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ParameterOutput* obj);
+    typedef osgDB::ParameterOutput parent_t;
+    typedef osgDB::ParameterOutput base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ReaderWriterInfo > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ReaderWriterInfo* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ReaderWriterInfo* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::ReaderWriterInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ReaderWriter::ReadResult > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ReaderWriter::ReadResult* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ReaderWriter::ReadResult* obj);
+    typedef osgDB::ReaderWriter::ReadResult parent_t;
+    typedef osgDB::ReaderWriter::ReadResult base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::ReaderWriter::WriteResult > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::ReaderWriter::WriteResult* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::ReaderWriter::WriteResult* obj);
+    typedef osgDB::ReaderWriter::WriteResult parent_t;
+    typedef osgDB::ReaderWriter::WriteResult base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::basic_type_wrapper > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::basic_type_wrapper* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::basic_type_wrapper* obj);
+    typedef osgDB::basic_type_wrapper parent_t;
+    typedef osgDB::basic_type_wrapper base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::Registry > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::Registry* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::Registry* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::Registry base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgDB::ReaderWriter > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgDB::ReaderWriter > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::ReaderWriter > >* obj);
+    typedef osgDB::Registry::ReaderWriterList parent_t;
+    typedef std::vector< osg::ref_ptr< osgDB::ReaderWriter > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgDB::ImageProcessor > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgDB::ImageProcessor > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::ImageProcessor > >* obj);
+    typedef osgDB::Registry::ImageProcessorList parent_t;
+    typedef std::vector< osg::ref_ptr< osgDB::ImageProcessor > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::PluginFunctionProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::PluginFunctionProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::PluginFunctionProxy* obj);
+    typedef osgDB::PluginFunctionProxy parent_t;
+    typedef osgDB::PluginFunctionProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::IntLookup > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::IntLookup* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::IntLookup* obj);
+    typedef osgDB::IntLookup parent_t;
+    typedef osgDB::IntLookup base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< std::string, int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< std::string, int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< std::string, int >* obj);
+    typedef osgDB::IntLookup::StringToValue parent_t;
+    typedef std::map< std::string, int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< int, std::string > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< int, std::string >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< int, std::string >* obj);
+    typedef osgDB::IntLookup::ValueToString parent_t;
+    typedef std::map< int, std::string > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::UserLookupTableProxy > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::UserLookupTableProxy* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::UserLookupTableProxy* obj);
+    typedef osgDB::UserLookupTableProxy parent_t;
+    typedef osgDB::UserLookupTableProxy base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::SharedStateManager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::SharedStateManager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::SharedStateManager* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::SharedStateManager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::OutputIterator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::OutputIterator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::OutputIterator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::OutputIterator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgDB::XmlNode > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgDB::XmlNode* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgDB::XmlNode* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgDB::XmlNode base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgDB::XmlNode > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgDB::XmlNode > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgDB::XmlNode > >* obj);
+    typedef osgDB::XmlNode::Children parent_t;
+    typedef std::vector< osg::ref_ptr< osgDB::XmlNode > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::CubeMapGenerator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::CubeMapGenerator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::CubeMapGenerator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::CubeMapGenerator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::CullVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::CullVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::CullVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::CullVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::DelaunayConstraint > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::DelaunayConstraint* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::DelaunayConstraint* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::DelaunayConstraint base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::DelaunayTriangulator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::DelaunayTriangulator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::DelaunayTriangulator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::DelaunayTriangulator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > >* obj);
+    typedef osgUtil::DelaunayTriangulator::linelist parent_t;
+    typedef std::vector< osg::ref_ptr< osgUtil::DelaunayConstraint > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::DisplayRequirementsVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::DisplayRequirementsVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::DisplayRequirementsVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::DisplayRequirementsVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::DrawElementTypeSimplifier > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::DrawElementTypeSimplifier* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::DrawElementTypeSimplifier* obj);
+    typedef osgUtil::DrawElementTypeSimplifier parent_t;
+    typedef osgUtil::DrawElementTypeSimplifier base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::DrawElementTypeSimplifierVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::DrawElementTypeSimplifierVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::DrawElementTypeSimplifierVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::DrawElementTypeSimplifierVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::dereference_less > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::dereference_less* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::dereference_less* obj);
+    typedef osgUtil::dereference_less parent_t;
+    typedef osgUtil::dereference_less base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::dereference_clear > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::dereference_clear* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::dereference_clear* obj);
+    typedef osgUtil::dereference_clear parent_t;
+    typedef osgUtil::dereference_clear base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::EdgeCollector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::EdgeCollector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::EdgeCollector* obj);
+    typedef osgUtil::EdgeCollector parent_t;
+    typedef osgUtil::EdgeCollector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osg::UIntArray > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osg::UIntArray > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osg::UIntArray > >* obj);
+    typedef osgUtil::EdgeCollector::IndexArrayList parent_t;
+    typedef std::list< osg::ref_ptr< osg::UIntArray > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less >* obj);
+    typedef osgUtil::EdgeCollector::EdgeSet parent_t;
+    typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Edge >, osgUtil::dereference_less > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > >* obj);
+    typedef osgUtil::EdgeCollector::EdgeList parent_t;
+    typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Edge > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > >* obj);
+    typedef osgUtil::EdgeCollector::EdgeloopList parent_t;
+    typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Edgeloop > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less >* obj);
+    typedef osgUtil::EdgeCollector::PointSet parent_t;
+    typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Point >, osgUtil::dereference_less > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > >* obj);
+    typedef osgUtil::EdgeCollector::PointList parent_t;
+    typedef std::vector< osg::ref_ptr< osgUtil::EdgeCollector::Point > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* obj);
+    typedef osgUtil::EdgeCollector::TriangleList parent_t;
+    typedef std::list< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > >* obj);
+    typedef osgUtil::EdgeCollector::TriangleSet parent_t;
+    typedef std::set< osg::ref_ptr< osgUtil::EdgeCollector::Triangle > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less >* obj);
+    typedef osgUtil::EdgeCollector::TriangleMap parent_t;
+    typedef std::map< osg::ref_ptr< osgUtil::EdgeCollector::Triangle >, unsigned int, osgUtil::dereference_less > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::EdgeCollector::Edge > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::EdgeCollector::Edge* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::EdgeCollector::Edge* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::EdgeCollector::Edge base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::EdgeCollector::Edgeloop > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::EdgeCollector::Edgeloop* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::EdgeCollector::Edgeloop* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::EdgeCollector::Edgeloop base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::EdgeCollector::Point > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::EdgeCollector::Point* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::EdgeCollector::Point* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::EdgeCollector::Point base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::EdgeCollector::Triangle > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::EdgeCollector::Triangle* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::EdgeCollector::Triangle* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::EdgeCollector::Triangle base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::GLObjectsVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::GLObjectsVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::GLObjectsVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::GLObjectsVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::GLObjectsOperation > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::GLObjectsOperation* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::GLObjectsOperation* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::GLObjectsOperation base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::HalfWayMapGenerator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::HalfWayMapGenerator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::HalfWayMapGenerator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::HalfWayMapGenerator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::HighlightMapGenerator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::HighlightMapGenerator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::HighlightMapGenerator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::HighlightMapGenerator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::StateToCompile > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::StateToCompile* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::StateToCompile* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::StateToCompile base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::Drawable * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::Drawable * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::Drawable * >* obj);
+    typedef osgUtil::StateToCompile::DrawableSet parent_t;
+    typedef std::set< osg::Drawable * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::StateSet * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::StateSet * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::StateSet * >* obj);
+    typedef osgUtil::StateToCompile::StateSetSet parent_t;
+    typedef std::set< osg::StateSet * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::Texture * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::Texture * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::Texture * >* obj);
+    typedef osgUtil::StateToCompile::TextureSet parent_t;
+    typedef std::set< osg::Texture * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::Program * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::Program * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::Program * >* obj);
+    typedef osgUtil::StateToCompile::ProgramSet parent_t;
+    typedef std::set< osg::Program * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::GraphicsContext * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::GraphicsContext * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::GraphicsContext * >* obj);
+    typedef osgUtil::IncrementalCompileOperation::ContextSet parent_t;
+    typedef std::set< osg::GraphicsContext * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > >* obj);
+    typedef osgUtil::IncrementalCompileOperation::CompileSets parent_t;
+    typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileSet > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileCompletedCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileCompletedCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileCompletedCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileOp* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileOp* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileOp base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileDrawableOp > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileDrawableOp* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileDrawableOp* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileDrawableOp base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileInfo > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileInfo* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileInfo* obj);
+    typedef osg::RenderInfo parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileInfo base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileList > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileList* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileList* obj);
+    typedef osgUtil::IncrementalCompileOperation::CompileList parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileList base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > >* obj);
+    typedef osgUtil::IncrementalCompileOperation::CompileList::CompileOps parent_t;
+    typedef std::list< osg::ref_ptr< osgUtil::IncrementalCompileOperation::CompileOp > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileProgramOp > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileProgramOp* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileProgramOp* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileProgramOp base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileSet > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileSet* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileSet* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileSet base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList >* obj);
+    typedef osgUtil::IncrementalCompileOperation::CompileSet::CompileMap parent_t;
+    typedef std::map< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation::CompileList > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IncrementalCompileOperation::CompileTextureOp > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IncrementalCompileOperation::CompileTextureOp* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IncrementalCompileOperation::CompileTextureOp* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IncrementalCompileOperation::CompileTextureOp base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Intersector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Intersector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Intersector* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::Intersector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IntersectorGroup > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IntersectorGroup* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IntersectorGroup* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IntersectorGroup base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::Intersector > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgUtil::Intersector > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::Intersector > >* obj);
+    typedef osgUtil::IntersectorGroup::Intersectors parent_t;
+    typedef std::vector< osg::ref_ptr< osgUtil::Intersector > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IntersectionVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IntersectionVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IntersectionVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IntersectionVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IntersectionVisitor::ReadCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IntersectionVisitor::ReadCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IntersectionVisitor::ReadCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IntersectionVisitor::ReadCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Hit > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Hit* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Hit* obj);
+    typedef osgUtil::Hit parent_t;
+    typedef osgUtil::Hit base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< int >* obj);
+    typedef osgUtil::Hit::VecIndexList parent_t;
+    typedef std::vector< int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IntersectVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IntersectVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IntersectVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IntersectVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PickVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PickVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PickVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::PickVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::LineSegmentIntersector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::LineSegmentIntersector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::LineSegmentIntersector* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::LineSegmentIntersector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::multiset< osgUtil::LineSegmentIntersector::Intersection > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::multiset< osgUtil::LineSegmentIntersector::Intersection >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::multiset< osgUtil::LineSegmentIntersector::Intersection >* obj);
+    typedef osgUtil::LineSegmentIntersector::Intersections parent_t;
+    typedef std::multiset< osgUtil::LineSegmentIntersector::Intersection > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::LineSegmentIntersector::Intersection > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::LineSegmentIntersector::Intersection* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::LineSegmentIntersector::Intersection* obj);
+    typedef osgUtil::LineSegmentIntersector::Intersection parent_t;
+    typedef osgUtil::LineSegmentIntersector::Intersection base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::BaseOptimizerVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::BaseOptimizerVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::BaseOptimizerVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::BaseOptimizerVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::GeometryCollector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::GeometryCollector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::GeometryCollector* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::GeometryCollector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::Geometry * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::Geometry * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::Geometry * >* obj);
+    typedef osgUtil::GeometryCollector::GeometryList parent_t;
+    typedef std::set< osg::Geometry * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::IndexMeshVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::IndexMeshVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::IndexMeshVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::IndexMeshVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::VertexCacheVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::VertexCacheVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::VertexCacheVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::VertexCacheVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::VertexCacheMissVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::VertexCacheMissVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::VertexCacheMissVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::VertexCacheMissVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::VertexAccessOrderVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::VertexAccessOrderVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::VertexAccessOrderVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::VertexAccessOrderVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::AddRangeOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::AddRangeOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::AddRangeOperator* obj);
+    typedef osgUtil::AddRangeOperator parent_t;
+    typedef osgUtil::AddRangeOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::MultiplyRangeOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::MultiplyRangeOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::MultiplyRangeOperator* obj);
+    typedef osgUtil::MultiplyRangeOperator parent_t;
+    typedef osgUtil::MultiplyRangeOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Optimizer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Optimizer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Optimizer* obj);
+    typedef osgUtil::Optimizer parent_t;
+    typedef osgUtil::Optimizer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PlaneIntersector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PlaneIntersector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PlaneIntersector* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::PlaneIntersector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgUtil::PlaneIntersector::Intersection > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgUtil::PlaneIntersector::Intersection >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgUtil::PlaneIntersector::Intersection >* obj);
+    typedef osgUtil::PlaneIntersector::Intersections parent_t;
+    typedef std::vector< osgUtil::PlaneIntersector::Intersection > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PlaneIntersector::Intersection > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PlaneIntersector::Intersection* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PlaneIntersector::Intersection* obj);
+    typedef osgUtil::PlaneIntersector::Intersection parent_t;
+    typedef osgUtil::PlaneIntersector::Intersection base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PolytopeIntersector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PolytopeIntersector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PolytopeIntersector* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::PolytopeIntersector base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osgUtil::PolytopeIntersector::Intersection > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osgUtil::PolytopeIntersector::Intersection >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osgUtil::PolytopeIntersector::Intersection >* obj);
+    typedef osgUtil::PolytopeIntersector::Intersections parent_t;
+    typedef std::set< osgUtil::PolytopeIntersector::Intersection > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PolytopeIntersector::Intersection > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PolytopeIntersector::Intersection* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PolytopeIntersector::Intersection* obj);
+    typedef osgUtil::PolytopeIntersector::Intersection parent_t;
+    typedef osgUtil::PolytopeIntersector::Intersection base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PositionalStateContainer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PositionalStateContainer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PositionalStateContainer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::PositionalStateContainer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > >* obj);
+    typedef osgUtil::PositionalStateContainer::AttrMatrixPair parent_t;
+    typedef std::pair< osg::ref_ptr< const osg::StateAttribute >, osg::ref_ptr< osg::RefMatrixd > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair >* obj);
+    typedef osgUtil::PositionalStateContainer::AttrMatrixList parent_t;
+    typedef std::vector< osgUtil::PositionalStateContainer::AttrMatrixPair > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList >* obj);
+    typedef osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap parent_t;
+    typedef std::map< unsigned int, osgUtil::PositionalStateContainer::AttrMatrixList > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::PrintVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::PrintVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::PrintVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::PrintVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::ReflectionMapGenerator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::ReflectionMapGenerator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::ReflectionMapGenerator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::ReflectionMapGenerator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderBin > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderBin* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderBin* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::RenderBin base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgUtil::RenderLeaf * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgUtil::RenderLeaf * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgUtil::RenderLeaf * >* obj);
+    typedef osgUtil::RenderBin::RenderLeafList parent_t;
+    typedef std::vector< osgUtil::RenderLeaf * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osgUtil::StateGraph * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osgUtil::StateGraph * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osgUtil::StateGraph * >* obj);
+    typedef osgUtil::RenderBin::StateGraphList parent_t;
+    typedef std::vector< osgUtil::StateGraph * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< int, osg::ref_ptr< osgUtil::RenderBin > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< int, osg::ref_ptr< osgUtil::RenderBin > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< int, osg::ref_ptr< osgUtil::RenderBin > >* obj);
+    typedef osgUtil::RenderBin::RenderBinList parent_t;
+    typedef std::map< int, osg::ref_ptr< osgUtil::RenderBin > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderBin::DrawCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderBin::DrawCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderBin::DrawCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::RenderBin::DrawCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderBin::SortCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderBin::SortCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderBin::SortCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::RenderBin::SortCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderLeaf > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderLeaf* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderLeaf* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::RenderLeaf base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderStage > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderStage* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderStage* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::RenderStage base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::RenderStage::Attachment > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::RenderStage::Attachment* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::RenderStage::Attachment* obj);
+    typedef osgUtil::RenderStage::Attachment parent_t;
+    typedef osgUtil::RenderStage::Attachment base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::SceneGraphBuilder > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::SceneGraphBuilder* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::SceneGraphBuilder* obj);
+    typedef osgUtil::SceneGraphBuilder parent_t;
+    typedef osgUtil::SceneGraphBuilder base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::SceneView > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::SceneView* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::SceneView* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::SceneView base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::SceneView::ComputeStereoMatricesCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::SceneView::ComputeStereoMatricesCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::SceneView::ComputeStereoMatricesCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::ShaderGenCache > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::ShaderGenCache* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::ShaderGenCache* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::ShaderGenCache base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< int, osg::ref_ptr< osg::StateSet > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< int, osg::ref_ptr< osg::StateSet > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< int, osg::ref_ptr< osg::StateSet > >* obj);
+    typedef osgUtil::ShaderGenCache::StateSetMap parent_t;
+    typedef std::map< int, osg::ref_ptr< osg::StateSet > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::ShaderGenVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::ShaderGenVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::ShaderGenVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::ShaderGenVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Simplifier > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Simplifier* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Simplifier* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::Simplifier base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Simplifier::ContinueSimplificationCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Simplifier::ContinueSimplificationCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Simplifier::ContinueSimplificationCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::Simplifier::ContinueSimplificationCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::SmoothingVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::SmoothingVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::SmoothingVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::SmoothingVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::StateGraph > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::StateGraph* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::StateGraph* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::StateGraph base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > >* obj);
+    typedef osgUtil::StateGraph::ChildList parent_t;
+    typedef std::map< const osg::StateSet *, osg::ref_ptr< osgUtil::StateGraph > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::vector< osg::ref_ptr< osgUtil::RenderLeaf > >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::vector< osg::ref_ptr< osgUtil::RenderLeaf > >* obj);
+    typedef osgUtil::StateGraph::LeafList parent_t;
+    typedef std::vector< osg::ref_ptr< osgUtil::RenderLeaf > > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Statistics > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Statistics* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Statistics* obj);
+    typedef osgUtil::Statistics parent_t;
+    typedef osgUtil::Statistics base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::pair< unsigned int, unsigned int > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::pair< unsigned int, unsigned int >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::pair< unsigned int, unsigned int >* obj);
+    typedef osgUtil::Statistics::PrimitivePair parent_t;
+    typedef std::pair< unsigned int, unsigned int > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< unsigned int, osgUtil::Statistics::PrimitivePair > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< unsigned int, osgUtil::Statistics::PrimitivePair >* obj);
+    typedef osgUtil::Statistics::PrimitiveValueMap parent_t;
+    typedef std::map< unsigned int, osgUtil::Statistics::PrimitivePair > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::StatsVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::StatsVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::StatsVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::StatsVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::set< osg::Node * > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::set< osg::Node * >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::set< osg::Node * >* obj);
+    typedef osgUtil::StatsVisitor::NodeSet parent_t;
+    typedef std::set< osg::Node * > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::TangentSpaceGenerator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::TangentSpaceGenerator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::TangentSpaceGenerator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::TangentSpaceGenerator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::Tessellator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::Tessellator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::Tessellator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::Tessellator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::TransformCallback > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::TransformCallback* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::TransformCallback* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::TransformCallback base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::TriStripVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::TriStripVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::TriStripVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::TriStripVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgUtil::UpdateVisitor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgUtil::UpdateVisitor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgUtil::UpdateVisitor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgUtil::UpdateVisitor base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 37525689 > {
@@ -8869,20 +12193,6 @@ public:
 };
 
 template<>
-class LunaType< 20397010 > {
-public:
-    typedef osg::Drawable::AttributeFunctor type;
-    
-};
-
-template<>
-class LunaType< 68991165 > {
-public:
-    typedef osg::Drawable::ConstAttributeFunctor type;
-    
-};
-
-template<>
 class LunaType< 13846292 > {
 public:
     typedef osg::FragmentProgram::LocalParamList type;
@@ -9243,20 +12553,6 @@ template<>
 class LunaType< 95628403 > {
 public:
     typedef osg::Polytope::MaskStack type;
-    
-};
-
-template<>
-class LunaType< 8652005 > {
-public:
-    typedef osg::PrimitiveFunctor type;
-    
-};
-
-template<>
-class LunaType< 22170058 > {
-public:
-    typedef osg::PrimitiveIndexFunctor type;
     
 };
 
@@ -9824,6 +13120,790 @@ template<>
 class LunaType< 94812983 > {
 public:
     typedef osg::View::Slave type;
+    
+};
+
+template<>
+class LunaType< 54591957 > {
+public:
+    typedef osgDB::FilePathList type;
+    
+};
+
+template<>
+class LunaType< 1372978 > {
+public:
+    typedef osgDB::DirectoryContents type;
+    
+};
+
+template<>
+class LunaType< 26072480 > {
+public:
+    typedef osgDB::StringList type;
+    
+};
+
+template<>
+class LunaType< 26199076 > {
+public:
+    typedef osgDB::FileNameList type;
+    
+};
+
+template<>
+class LunaType< 75164642 > {
+public:
+    typedef osgDB::ReaderWriterInfoList type;
+    
+};
+
+template<>
+class LunaType< 18196832 > {
+public:
+    typedef osgDB::FileList::FileNames type;
+    
+};
+
+template<>
+class LunaType< 17225216 > {
+public:
+    typedef osgDB::DatabaseRevision::FileNames type;
+    
+};
+
+template<>
+class LunaType< 52474503 > {
+public:
+    typedef osgDB::DatabaseRevisions::DatabaseRevisionList type;
+    
+};
+
+template<>
+class LunaType< 32567652 > {
+public:
+    typedef osgDB::ObjectGLenum type;
+    
+};
+
+template<>
+class LunaType< 23791141 > {
+public:
+    typedef osgDB::ObjectProperty type;
+    
+};
+
+template<>
+class LunaType< 60066730 > {
+public:
+    typedef osgDB::ObjectMark type;
+    
+};
+
+template<>
+class LunaType< 61619922 > {
+public:
+    typedef osgDB::DotOsgWrapper::Associates type;
+    
+};
+
+template<>
+class LunaType< 88225557 > {
+public:
+    typedef osgDB::DeprecatedDotOsgWrapperManager::FileNames type;
+    
+};
+
+template<>
+class LunaType< 98364369 > {
+public:
+    typedef osgDB::RegisterDotOsgWrapperProxy type;
+    
+};
+
+template<>
+class LunaType< 48602626 > {
+public:
+    typedef osgDB::ExternalFileWriter type;
+    
+};
+
+template<>
+class LunaType< 51931662 > {
+public:
+    typedef osgDB::ExternalFileWriter::ObjectsSet type;
+    
+};
+
+template<>
+class LunaType< 50545385 > {
+public:
+    typedef osgDB::ExternalFileWriter::ObjectData type;
+    
+};
+
+template<>
+class LunaType< 2520362 > {
+public:
+    typedef osgDB::FileCache::DatabaseRevisionsList type;
+    
+};
+
+template<>
+class LunaType< 52537382 > {
+public:
+    typedef osgDB::fstream type;
+    
+};
+
+template<>
+class LunaType< 2552861 > {
+public:
+    typedef osgDB::ifstream type;
+    
+};
+
+template<>
+class LunaType< 78216342 > {
+public:
+    typedef osgDB::ofstream type;
+    
+};
+
+template<>
+class LunaType< 68659525 > {
+public:
+    typedef osgDB::ImageOptions::PixelWindow type;
+    
+};
+
+template<>
+class LunaType< 44466488 > {
+public:
+    typedef osgDB::ImageOptions::RatioWindow type;
+    
+};
+
+template<>
+class LunaType< 7546407 > {
+public:
+    typedef osgDB::Field type;
+    
+};
+
+template<>
+class LunaType< 53806078 > {
+public:
+    typedef osgDB::FieldReader type;
+    
+};
+
+template<>
+class LunaType< 2696163 > {
+public:
+    typedef osgDB::FieldReaderIterator type;
+    
+};
+
+template<>
+class LunaType< 87742033 > {
+public:
+    typedef osgDB::ObjectWrapper::FinishedObjectReadCallbackList type;
+    
+};
+
+template<>
+class LunaType< 48773478 > {
+public:
+    typedef osgDB::ObjectWrapperManager::WrapperMap type;
+    
+};
+
+template<>
+class LunaType< 70763649 > {
+public:
+    typedef osgDB::ObjectWrapperManager::CompressorMap type;
+    
+};
+
+template<>
+class LunaType< 42677985 > {
+public:
+    typedef osgDB::ObjectWrapperManager::IntLookupMap type;
+    
+};
+
+template<>
+class LunaType< 23508632 > {
+public:
+    typedef osgDB::RegisterWrapperProxy type;
+    
+};
+
+template<>
+class LunaType< 26799771 > {
+public:
+    typedef osgDB::RegisterCompressorProxy type;
+    
+};
+
+template<>
+class LunaType< 70071506 > {
+public:
+    typedef osgDB::OutputStream type;
+    
+};
+
+template<>
+class LunaType< 44293694 > {
+public:
+    typedef osgDB::OutputStream::ArrayMap type;
+    
+};
+
+template<>
+class LunaType< 38014942 > {
+public:
+    typedef osgDB::OutputStream::ObjectMap type;
+    
+};
+
+template<>
+class LunaType< 76529504 > {
+public:
+    typedef osgDB::ParameterOutput type;
+    
+};
+
+template<>
+class LunaType< 59830411 > {
+public:
+    typedef osgDB::ReaderWriter::FormatDescriptionMap type;
+    
+};
+
+template<>
+class LunaType< 30730921 > {
+public:
+    typedef osgDB::ReaderWriter::FeatureList type;
+    
+};
+
+template<>
+class LunaType< 25279089 > {
+public:
+    typedef osgDB::ReaderWriter::ReadResult type;
+    
+};
+
+template<>
+class LunaType< 54653644 > {
+public:
+    typedef osgDB::ReaderWriter::WriteResult type;
+    
+};
+
+template<>
+class LunaType< 56095127 > {
+public:
+    typedef osgDB::basic_type_wrapper type;
+    
+};
+
+template<>
+class LunaType< 48032032 > {
+public:
+    typedef osgDB::Registry::ReaderWriterList type;
+    
+};
+
+template<>
+class LunaType< 47131645 > {
+public:
+    typedef osgDB::Registry::ImageProcessorList type;
+    
+};
+
+template<>
+class LunaType< 4579936 > {
+public:
+    typedef osgDB::Registry::ArchiveExtensionList type;
+    
+};
+
+template<>
+class LunaType< 71649278 > {
+public:
+    typedef osgDB::PluginFunctionProxy type;
+    
+};
+
+template<>
+class LunaType< 10250166 > {
+public:
+    typedef osgDB::IntLookup type;
+    
+};
+
+template<>
+class LunaType< 34334607 > {
+public:
+    typedef osgDB::IntLookup::StringToValue type;
+    
+};
+
+template<>
+class LunaType< 27498346 > {
+public:
+    typedef osgDB::IntLookup::ValueToString type;
+    
+};
+
+template<>
+class LunaType< 58712445 > {
+public:
+    typedef osgDB::UserLookupTableProxy type;
+    
+};
+
+template<>
+class LunaType< 73311934 > {
+public:
+    typedef osgDB::XmlNode::Properties type;
+    
+};
+
+template<>
+class LunaType< 5928633 > {
+public:
+    typedef osgDB::XmlNode::Children type;
+    
+};
+
+template<>
+class LunaType< 91536996 > {
+public:
+    typedef osgUtil::DelaunayTriangulator::linelist type;
+    
+};
+
+template<>
+class LunaType< 96401270 > {
+public:
+    typedef osgUtil::DrawElementTypeSimplifier type;
+    
+};
+
+template<>
+class LunaType< 4191371 > {
+public:
+    typedef osgUtil::dereference_less type;
+    
+};
+
+template<>
+class LunaType< 21815425 > {
+public:
+    typedef osgUtil::dereference_clear type;
+    
+};
+
+template<>
+class LunaType< 81832682 > {
+public:
+    typedef osgUtil::EdgeCollector type;
+    
+};
+
+template<>
+class LunaType< 655286 > {
+public:
+    typedef osgUtil::EdgeCollector::IndexArrayList type;
+    
+};
+
+template<>
+class LunaType< 50528172 > {
+public:
+    typedef osgUtil::EdgeCollector::EdgeSet type;
+    
+};
+
+template<>
+class LunaType< 66168244 > {
+public:
+    typedef osgUtil::EdgeCollector::EdgeList type;
+    
+};
+
+template<>
+class LunaType< 55216760 > {
+public:
+    typedef osgUtil::EdgeCollector::EdgeloopList type;
+    
+};
+
+template<>
+class LunaType< 34110025 > {
+public:
+    typedef osgUtil::EdgeCollector::PointSet type;
+    
+};
+
+template<>
+class LunaType< 57205837 > {
+public:
+    typedef osgUtil::EdgeCollector::PointList type;
+    
+};
+
+template<>
+class LunaType< 52419701 > {
+public:
+    typedef osgUtil::EdgeCollector::TriangleList type;
+    
+};
+
+template<>
+class LunaType< 62987903 > {
+public:
+    typedef osgUtil::EdgeCollector::TriangleSet type;
+    
+};
+
+template<>
+class LunaType< 62982009 > {
+public:
+    typedef osgUtil::EdgeCollector::TriangleMap type;
+    
+};
+
+template<>
+class LunaType< 72030032 > {
+public:
+    typedef osgUtil::EdgeCollector::Edgeloop::EdgeList type;
+    
+};
+
+template<>
+class LunaType< 70884799 > {
+public:
+    typedef osgUtil::StateToCompile::DrawableSet type;
+    
+};
+
+template<>
+class LunaType< 88961844 > {
+public:
+    typedef osgUtil::StateToCompile::StateSetSet type;
+    
+};
+
+template<>
+class LunaType< 41341545 > {
+public:
+    typedef osgUtil::StateToCompile::TextureSet type;
+    
+};
+
+template<>
+class LunaType< 13242464 > {
+public:
+    typedef osgUtil::StateToCompile::ProgramSet type;
+    
+};
+
+template<>
+class LunaType< 99133557 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::Contexts type;
+    
+};
+
+template<>
+class LunaType< 67276006 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::ContextSet type;
+    
+};
+
+template<>
+class LunaType< 37124597 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::CompileSets type;
+    
+};
+
+template<>
+class LunaType< 36919874 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::CompileList type;
+    
+};
+
+template<>
+class LunaType< 95636375 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::CompileList::CompileOps type;
+    
+};
+
+template<>
+class LunaType< 82923186 > {
+public:
+    typedef osgUtil::IncrementalCompileOperation::CompileSet::CompileMap type;
+    
+};
+
+template<>
+class LunaType< 66660324 > {
+public:
+    typedef osgUtil::IntersectorGroup::Intersectors type;
+    
+};
+
+template<>
+class LunaType< 16095945 > {
+public:
+    typedef osgUtil::Hit type;
+    
+};
+
+template<>
+class LunaType< 26842661 > {
+public:
+    typedef osgUtil::Hit::VecIndexList type;
+    
+};
+
+template<>
+class LunaType< 19574398 > {
+public:
+    typedef osgUtil::LineSegmentIntersector::Intersections type;
+    
+};
+
+template<>
+class LunaType< 74825011 > {
+public:
+    typedef osgUtil::LineSegmentIntersector::Intersection type;
+    
+};
+
+template<>
+class LunaType< 24112391 > {
+public:
+    typedef osgUtil::LineSegmentIntersector::Intersection::IndexList type;
+    
+};
+
+template<>
+class LunaType< 81829436 > {
+public:
+    typedef osgUtil::LineSegmentIntersector::Intersection::RatioList type;
+    
+};
+
+template<>
+class LunaType< 43037357 > {
+public:
+    typedef osgUtil::GeometryCollector::GeometryList type;
+    
+};
+
+template<>
+class LunaType< 12139482 > {
+public:
+    typedef osgUtil::AddRangeOperator type;
+    
+};
+
+template<>
+class LunaType< 72996634 > {
+public:
+    typedef osgUtil::MultiplyRangeOperator type;
+    
+};
+
+template<>
+class LunaType< 85233381 > {
+public:
+    typedef osgUtil::Optimizer type;
+    
+};
+
+template<>
+class LunaType< 23612133 > {
+public:
+    typedef osgUtil::PlaneIntersector::Intersections type;
+    
+};
+
+template<>
+class LunaType< 761678 > {
+public:
+    typedef osgUtil::PlaneIntersector::Intersection type;
+    
+};
+
+template<>
+class LunaType< 1808182 > {
+public:
+    typedef osgUtil::PlaneIntersector::Intersection::Polyline type;
+    
+};
+
+template<>
+class LunaType< 12610647 > {
+public:
+    typedef osgUtil::PlaneIntersector::Intersection::Attributes type;
+    
+};
+
+template<>
+class LunaType< 63717560 > {
+public:
+    typedef osgUtil::PolytopeIntersector::Intersections type;
+    
+};
+
+template<>
+class LunaType< 31087672 > {
+public:
+    typedef osgUtil::PolytopeIntersector::Intersection type;
+    
+};
+
+template<>
+class LunaType< 92627939 > {
+public:
+    typedef osgUtil::PositionalStateContainer::AttrMatrixPair type;
+    
+};
+
+template<>
+class LunaType< 92516775 > {
+public:
+    typedef osgUtil::PositionalStateContainer::AttrMatrixList type;
+    
+};
+
+template<>
+class LunaType< 42744840 > {
+public:
+    typedef osgUtil::PositionalStateContainer::TexUnitAttrMatrixListMap type;
+    
+};
+
+template<>
+class LunaType< 21382558 > {
+public:
+    typedef osgUtil::RenderBin::RenderLeafList type;
+    
+};
+
+template<>
+class LunaType< 60103097 > {
+public:
+    typedef osgUtil::RenderBin::StateGraphList type;
+    
+};
+
+template<>
+class LunaType< 38528519 > {
+public:
+    typedef osgUtil::RenderBin::RenderBinList type;
+    
+};
+
+template<>
+class LunaType< 25782964 > {
+public:
+    typedef osgUtil::RenderStage::Attachment type;
+    
+};
+
+template<>
+class LunaType< 42545431 > {
+public:
+    typedef osgUtil::SceneGraphBuilder type;
+    
+};
+
+template<>
+class LunaType< 11745068 > {
+public:
+    typedef osgUtil::ShaderGenCache::StateSetMap type;
+    
+};
+
+template<>
+class LunaType< 12058436 > {
+public:
+    typedef osgUtil::Simplifier::IndexList type;
+    
+};
+
+template<>
+class LunaType< 8678160 > {
+public:
+    typedef osgUtil::StateGraph::ChildList type;
+    
+};
+
+template<>
+class LunaType< 32098161 > {
+public:
+    typedef osgUtil::StateGraph::LeafList type;
+    
+};
+
+template<>
+class LunaType< 95996950 > {
+public:
+    typedef osgUtil::Statistics type;
+    
+};
+
+template<>
+class LunaType< 48492479 > {
+public:
+    typedef osgUtil::Statistics::PrimitivePair type;
+    
+};
+
+template<>
+class LunaType< 74391787 > {
+public:
+    typedef osgUtil::Statistics::PrimitiveValueMap type;
+    
+};
+
+template<>
+class LunaType< 11573909 > {
+public:
+    typedef osgUtil::Statistics::PrimitiveCountMap type;
+    
+};
+
+template<>
+class LunaType< 22793184 > {
+public:
+    typedef osgUtil::StatsVisitor::NodeSet type;
+    
+};
+
+template<>
+class LunaType< 41381585 > {
+public:
+    typedef osgUtil::StatsVisitor::DrawableSet type;
+    
+};
+
+template<>
+class LunaType< 77774778 > {
+public:
+    typedef osgUtil::StatsVisitor::StateSetSet type;
     
 };
 

@@ -67,28 +67,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_addDrawElements(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_removeDrawElements(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setDrawElements(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_getDrawElements_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -258,65 +236,6 @@ public:
 		return 1;
 	}
 
-	// unsigned int osg::ElementBufferObject::addDrawElements(osg::DrawElements * PrimitiveSet)
-	static int _bind_addDrawElements(lua_State *L) {
-		if (!_lg_typecheck_addDrawElements(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::ElementBufferObject::addDrawElements(osg::DrawElements * PrimitiveSet) function, expected prototype:\nunsigned int osg::ElementBufferObject::addDrawElements(osg::DrawElements * PrimitiveSet)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::DrawElements* PrimitiveSet=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,2));
-
-		osg::ElementBufferObject* self=dynamic_cast< osg::ElementBufferObject* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::ElementBufferObject::addDrawElements(osg::DrawElements *)");
-		}
-		unsigned int lret = self->addDrawElements(PrimitiveSet);
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// void osg::ElementBufferObject::removeDrawElements(osg::DrawElements * PrimitiveSet)
-	static int _bind_removeDrawElements(lua_State *L) {
-		if (!_lg_typecheck_removeDrawElements(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ElementBufferObject::removeDrawElements(osg::DrawElements * PrimitiveSet) function, expected prototype:\nvoid osg::ElementBufferObject::removeDrawElements(osg::DrawElements * PrimitiveSet)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::DrawElements* PrimitiveSet=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,2));
-
-		osg::ElementBufferObject* self=dynamic_cast< osg::ElementBufferObject* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElementBufferObject::removeDrawElements(osg::DrawElements *)");
-		}
-		self->removeDrawElements(PrimitiveSet);
-
-		return 0;
-	}
-
-	// void osg::ElementBufferObject::setDrawElements(unsigned int i, osg::DrawElements * PrimitiveSet)
-	static int _bind_setDrawElements(lua_State *L) {
-		if (!_lg_typecheck_setDrawElements(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ElementBufferObject::setDrawElements(unsigned int i, osg::DrawElements * PrimitiveSet) function, expected prototype:\nvoid osg::ElementBufferObject::setDrawElements(unsigned int i, osg::DrawElements * PrimitiveSet)\nClass arguments details:\narg 2 ID = 50169651\n");
-		}
-
-		unsigned int i=(unsigned int)lua_tointeger(L,2);
-		osg::DrawElements* PrimitiveSet=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,3));
-
-		osg::ElementBufferObject* self=dynamic_cast< osg::ElementBufferObject* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ElementBufferObject::setDrawElements(unsigned int, osg::DrawElements *)");
-		}
-		self->setDrawElements(i, PrimitiveSet);
-
-		return 0;
-	}
-
 	// osg::DrawElements * osg::ElementBufferObject::getDrawElements(unsigned int i)
 	static int _bind_getDrawElements_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getDrawElements_overload_1(L)) {
@@ -396,9 +315,6 @@ luna_RegType LunaTraits< osg::ElementBufferObject >::methods[] = {
 	{"isSameKindAs", &luna_wrapper_osg_ElementBufferObject::_bind_isSameKindAs},
 	{"libraryName", &luna_wrapper_osg_ElementBufferObject::_bind_libraryName},
 	{"className", &luna_wrapper_osg_ElementBufferObject::_bind_className},
-	{"addDrawElements", &luna_wrapper_osg_ElementBufferObject::_bind_addDrawElements},
-	{"removeDrawElements", &luna_wrapper_osg_ElementBufferObject::_bind_removeDrawElements},
-	{"setDrawElements", &luna_wrapper_osg_ElementBufferObject::_bind_setDrawElements},
 	{"getDrawElements", &luna_wrapper_osg_ElementBufferObject::_bind_getDrawElements},
 	{0,0}
 };

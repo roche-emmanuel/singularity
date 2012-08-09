@@ -67,13 +67,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setUserData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -338,25 +331,6 @@ public:
 		lua_pushstring(L,lret);
 
 		return 1;
-	}
-
-	// void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::DefaultUserDataContainer* self=dynamic_cast< osg::DefaultUserDataContainer* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DefaultUserDataContainer::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
 	}
 
 	// void osg::DefaultUserDataContainer::setUserData(osg::Referenced * obj)
@@ -753,7 +727,6 @@ luna_RegType LunaTraits< osg::DefaultUserDataContainer >::methods[] = {
 	{"isSameKindAs", &luna_wrapper_osg_DefaultUserDataContainer::_bind_isSameKindAs},
 	{"libraryName", &luna_wrapper_osg_DefaultUserDataContainer::_bind_libraryName},
 	{"className", &luna_wrapper_osg_DefaultUserDataContainer::_bind_className},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_DefaultUserDataContainer::_bind_setThreadSafeRefUnref},
 	{"setUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_setUserData},
 	{"getUserData", &luna_wrapper_osg_DefaultUserDataContainer::_bind_getUserData},
 	{"addUserObject", &luna_wrapper_osg_DefaultUserDataContainer::_bind_addUserObject},

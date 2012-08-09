@@ -642,31 +642,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_createCameraThread(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setCameraThread(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getCameraThread_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getCameraThread_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setGraphicsContext(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -2747,94 +2722,6 @@ public:
 		return 1;
 	}
 
-	// void osg::Camera::createCameraThread()
-	static int _bind_createCameraThread(lua_State *L) {
-		if (!_lg_typecheck_createCameraThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::createCameraThread() function, expected prototype:\nvoid osg::Camera::createCameraThread()\nClass arguments details:\n");
-		}
-
-
-		osg::Camera* self=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::createCameraThread()");
-		}
-		self->createCameraThread();
-
-		return 0;
-	}
-
-	// void osg::Camera::setCameraThread(osg::OperationThread * gt)
-	static int _bind_setCameraThread(lua_State *L) {
-		if (!_lg_typecheck_setCameraThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::setCameraThread(osg::OperationThread * gt) function, expected prototype:\nvoid osg::Camera::setCameraThread(osg::OperationThread * gt)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::OperationThread* gt=dynamic_cast< osg::OperationThread* >(Luna< osg::Referenced >::check(L,2));
-
-		osg::Camera* self=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Camera::setCameraThread(osg::OperationThread *)");
-		}
-		self->setCameraThread(gt);
-
-		return 0;
-	}
-
-	// osg::OperationThread * osg::Camera::getCameraThread()
-	static int _bind_getCameraThread_overload_1(lua_State *L) {
-		if (!_lg_typecheck_getCameraThread_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::OperationThread * osg::Camera::getCameraThread() function, expected prototype:\nosg::OperationThread * osg::Camera::getCameraThread()\nClass arguments details:\n");
-		}
-
-
-		osg::Camera* self=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::OperationThread * osg::Camera::getCameraThread()");
-		}
-		osg::OperationThread * lret = self->getCameraThread();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::OperationThread >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// const osg::OperationThread * osg::Camera::getCameraThread() const
-	static int _bind_getCameraThread_overload_2(lua_State *L) {
-		if (!_lg_typecheck_getCameraThread_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::OperationThread * osg::Camera::getCameraThread() const function, expected prototype:\nconst osg::OperationThread * osg::Camera::getCameraThread() const\nClass arguments details:\n");
-		}
-
-
-		osg::Camera* self=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::OperationThread * osg::Camera::getCameraThread() const");
-		}
-		const osg::OperationThread * lret = self->getCameraThread();
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< osg::OperationThread >::push(L,lret,false);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Camera::getCameraThread
-	static int _bind_getCameraThread(lua_State *L) {
-		if (_lg_typecheck_getCameraThread_overload_1(L)) return _bind_getCameraThread_overload_1(L);
-		if (_lg_typecheck_getCameraThread_overload_2(L)) return _bind_getCameraThread_overload_2(L);
-
-		luaL_error(L, "error in function getCameraThread, cannot match any of the overloads for function getCameraThread:\n  getCameraThread()\n  getCameraThread()\n");
-		return 0;
-	}
-
 	// void osg::Camera::setGraphicsContext(osg::GraphicsContext * context)
 	static int _bind_setGraphicsContext(lua_State *L) {
 		if (!_lg_typecheck_setGraphicsContext(L)) {
@@ -3506,9 +3393,6 @@ luna_RegType LunaTraits< osg::Camera >::methods[] = {
 	{"setImplicitBufferAttachmentResolveMask", &luna_wrapper_osg_Camera::_bind_setImplicitBufferAttachmentResolveMask},
 	{"getImplicitBufferAttachmentRenderMask", &luna_wrapper_osg_Camera::_bind_getImplicitBufferAttachmentRenderMask},
 	{"getImplicitBufferAttachmentResolveMask", &luna_wrapper_osg_Camera::_bind_getImplicitBufferAttachmentResolveMask},
-	{"createCameraThread", &luna_wrapper_osg_Camera::_bind_createCameraThread},
-	{"setCameraThread", &luna_wrapper_osg_Camera::_bind_setCameraThread},
-	{"getCameraThread", &luna_wrapper_osg_Camera::_bind_getCameraThread},
 	{"setGraphicsContext", &luna_wrapper_osg_Camera::_bind_setGraphicsContext},
 	{"getGraphicsContext", &luna_wrapper_osg_Camera::_bind_getGraphicsContext},
 	{"setRenderer", &luna_wrapper_osg_Camera::_bind_setRenderer},

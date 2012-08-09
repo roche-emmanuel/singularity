@@ -126,13 +126,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -470,25 +463,6 @@ public:
 		return 0;
 	}
 
-	// void osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::TexGenNode::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::TexGenNode* self=dynamic_cast< osg::TexGenNode* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::TexGenNode::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 
 	// Operator binds:
 
@@ -522,7 +496,6 @@ luna_RegType LunaTraits< osg::TexGenNode >::methods[] = {
 	{"getTextureUnit", &luna_wrapper_osg_TexGenNode::_bind_getTextureUnit},
 	{"setTexGen", &luna_wrapper_osg_TexGenNode::_bind_setTexGen},
 	{"getTexGen", &luna_wrapper_osg_TexGenNode::_bind_getTexGen},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_TexGenNode::_bind_setThreadSafeRefUnref},
 	{0,0}
 };
 

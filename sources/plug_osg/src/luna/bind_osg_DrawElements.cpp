@@ -295,8 +295,8 @@ osg::DrawElements* LunaTraits< osg::DrawElements >::_bind_ctor(lua_State *L) {
 	// unsigned int osg::DrawElements::getElement(unsigned int)
 	// void osg::DrawElements::addElement(unsigned int)
 	// void osg::PrimitiveSet::draw(osg::State & state, bool useVertexBufferObjects) const
-	// void osg::PrimitiveSet::accept(osg::PrimitiveFunctor & functor) const
-	// void osg::PrimitiveSet::accept(osg::PrimitiveIndexFunctor & functor) const
+	// void osg::PrimitiveSet::accept(PrimitiveFunctor & functor) const
+	// void osg::PrimitiveSet::accept(PrimitiveIndexFunctor & functor) const
 	// unsigned int osg::PrimitiveSet::index(unsigned int pos) const
 	// unsigned int osg::PrimitiveSet::getNumIndices() const
 	// void osg::PrimitiveSet::offsetIndices(int offset)

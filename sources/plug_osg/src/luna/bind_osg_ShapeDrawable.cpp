@@ -115,41 +115,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_supports_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,20397010) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,68991165) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,8652005) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,68991165) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,8652005) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_computeBound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -464,143 +429,6 @@ public:
 		return 0;
 	}
 
-	// bool osg::ShapeDrawable::supports(const osg::Drawable::AttributeFunctor & ) const
-	static int _bind_supports_overload_1(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShapeDrawable::supports(const osg::Drawable::AttributeFunctor & ) const function, expected prototype:\nbool osg::ShapeDrawable::supports(const osg::Drawable::AttributeFunctor & ) const\nClass arguments details:\narg 1 ID = 20397010\n");
-		}
-
-		const osg::Drawable::AttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::AttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ShapeDrawable::supports function");
-		}
-		const osg::Drawable::AttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::ShapeDrawable* self=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::supports(const osg::Drawable::AttributeFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// bool osg::ShapeDrawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const
-	static int _bind_supports_overload_2(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShapeDrawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const function, expected prototype:\nbool osg::ShapeDrawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const\nClass arguments details:\narg 1 ID = 68991165\n");
-		}
-
-		const osg::Drawable::ConstAttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::ConstAttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ShapeDrawable::supports function");
-		}
-		const osg::Drawable::ConstAttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::ShapeDrawable* self=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::supports(const osg::Drawable::ConstAttributeFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// bool osg::ShapeDrawable::supports(const osg::PrimitiveFunctor & ) const
-	static int _bind_supports_overload_3(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ShapeDrawable::supports(const osg::PrimitiveFunctor & ) const function, expected prototype:\nbool osg::ShapeDrawable::supports(const osg::PrimitiveFunctor & ) const\nClass arguments details:\narg 1 ID = 8652005\n");
-		}
-
-		const osg::PrimitiveFunctor* _arg1_ptr=(Luna< osg::PrimitiveFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::ShapeDrawable::supports function");
-		}
-		const osg::PrimitiveFunctor & _arg1=*_arg1_ptr;
-
-		osg::ShapeDrawable* self=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::ShapeDrawable::supports(const osg::PrimitiveFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// Overload binder for osg::ShapeDrawable::supports
-	static int _bind_supports(lua_State *L) {
-		if (_lg_typecheck_supports_overload_1(L)) return _bind_supports_overload_1(L);
-		if (_lg_typecheck_supports_overload_2(L)) return _bind_supports_overload_2(L);
-		if (_lg_typecheck_supports_overload_3(L)) return _bind_supports_overload_3(L);
-
-		luaL_error(L, "error in function supports, cannot match any of the overloads for function supports:\n  supports(const osg::Drawable::AttributeFunctor &)\n  supports(const osg::Drawable::ConstAttributeFunctor &)\n  supports(const osg::PrimitiveFunctor &)\n");
-		return 0;
-	}
-
-	// void osg::ShapeDrawable::accept(osg::Drawable::ConstAttributeFunctor & af) const
-	static int _bind_accept_overload_1(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeDrawable::accept(osg::Drawable::ConstAttributeFunctor & af) const function, expected prototype:\nvoid osg::ShapeDrawable::accept(osg::Drawable::ConstAttributeFunctor & af) const\nClass arguments details:\narg 1 ID = 68991165\n");
-		}
-
-		osg::Drawable::ConstAttributeFunctor* af_ptr=(Luna< osg::Drawable::ConstAttributeFunctor >::check(L,2));
-		if( !af_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg af in osg::ShapeDrawable::accept function");
-		}
-		osg::Drawable::ConstAttributeFunctor & af=*af_ptr;
-
-		osg::ShapeDrawable* self=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::accept(osg::Drawable::ConstAttributeFunctor &) const");
-		}
-		self->accept(af);
-
-		return 0;
-	}
-
-	// void osg::ShapeDrawable::accept(osg::PrimitiveFunctor & pf) const
-	static int _bind_accept_overload_2(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeDrawable::accept(osg::PrimitiveFunctor & pf) const function, expected prototype:\nvoid osg::ShapeDrawable::accept(osg::PrimitiveFunctor & pf) const\nClass arguments details:\narg 1 ID = 8652005\n");
-		}
-
-		osg::PrimitiveFunctor* pf_ptr=(Luna< osg::PrimitiveFunctor >::check(L,2));
-		if( !pf_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg pf in osg::ShapeDrawable::accept function");
-		}
-		osg::PrimitiveFunctor & pf=*pf_ptr;
-
-		osg::ShapeDrawable* self=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ShapeDrawable::accept(osg::PrimitiveFunctor &) const");
-		}
-		self->accept(pf);
-
-		return 0;
-	}
-
-	// Overload binder for osg::ShapeDrawable::accept
-	static int _bind_accept(lua_State *L) {
-		if (_lg_typecheck_accept_overload_1(L)) return _bind_accept_overload_1(L);
-		if (_lg_typecheck_accept_overload_2(L)) return _bind_accept_overload_2(L);
-
-		luaL_error(L, "error in function accept, cannot match any of the overloads for function accept:\n  accept(osg::Drawable::ConstAttributeFunctor &)\n  accept(osg::PrimitiveFunctor &)\n");
-		return 0;
-	}
-
 	// osg::BoundingBoxf osg::ShapeDrawable::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
@@ -654,8 +482,6 @@ luna_RegType LunaTraits< osg::ShapeDrawable >::methods[] = {
 	{"setTessellationHints", &luna_wrapper_osg_ShapeDrawable::_bind_setTessellationHints},
 	{"getTessellationHints", &luna_wrapper_osg_ShapeDrawable::_bind_getTessellationHints},
 	{"drawImplementation", &luna_wrapper_osg_ShapeDrawable::_bind_drawImplementation},
-	{"supports", &luna_wrapper_osg_ShapeDrawable::_bind_supports},
-	{"accept", &luna_wrapper_osg_ShapeDrawable::_bind_accept},
 	{"computeBound", &luna_wrapper_osg_ShapeDrawable::_bind_computeBound},
 	{0,0}
 };

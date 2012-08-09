@@ -1,179 +1,255 @@
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AlphaFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AnimationPath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ApplicationUsage>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ArgumentParser>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Array>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ArrayDispatchers>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AudioStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/AutoTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Billboard>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendEquation>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BlendFunc>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BoundingBox>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BoundingSphere>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BoundsChecking>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/buffered_value>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BufferIndexBinding>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/BufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Camera>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CameraNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CameraView>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClampColor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClearNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClipNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClipPlane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ClusterCullingCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CollectOccludersVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ColorMask>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ColorMatrix>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ComputeBoundsVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Config>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ConvexPlanarOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ConvexPlanarPolygon>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CoordinateSystemNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CopyOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullingSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullSettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/CullStack>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DeleteHandler>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Depth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DisplaySettings>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Drawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/DrawPixels>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Endian>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Export>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/fast_back_stack>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Fog>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FragmentProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrameBufferObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrameStamp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/FrontFace>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Geode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Geometry>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GL>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GL2Extensions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLBeginEndAdapter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLExtensions>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLObjects>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GLU>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsContext>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsCostEstimator>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/GraphicsThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Group>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Hint>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Image>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageSequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageStream>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ImageUtils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/io_utils>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/KdTree>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Light>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LightSource>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineSegment>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LineWidth>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/LogicOp>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Material>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Math>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Matrix>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Matrixd>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Matrixf>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/MatrixTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/MixinVector>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Multisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Node>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeTrackerCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/NodeVisitor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Notify>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Observer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/observer_ptr>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ObserverNodePath>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OccluderNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OcclusionQueryNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/OperationThread>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PagedLOD>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Plane>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Point>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PointSprite>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonMode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonOffset>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PolygonStipple>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Polytope>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PositionAttitudeTransform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/PrimitiveSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Program>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Projection>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ProxyNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Quat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ref_ptr>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Referenced>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/RenderInfo>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Scissor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Sequence>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShadeModel>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Shader>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShaderAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShaderComposer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShadowVolumeOccluder>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Shape>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ShapeDrawable>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/State>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateAttribute>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateAttributeCallback>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StateSet>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Stats>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Stencil>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/StencilTwoSided>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Switch>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TemplatePrimitiveFunctor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnv>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnvCombine>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexEnvFilter>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGen>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexGenNode>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TexMat>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture1D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2DArray>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture2DMultisample>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Texture3D>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TextureCubeMap>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TextureRectangle>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Timer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TransferFunction>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Transform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TriangleFunctor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/TriangleIndexFunctor>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Uniform>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/UserDataContainer>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/ValueObject>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec2s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec3s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4b>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4d>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4f>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4s>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Vec4ub>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Version>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/VertexProgram>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/View>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osg/Viewport>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AlphaFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AnimationPath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ApplicationUsage>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Archive>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArgumentParser>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Array>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ArrayDispatchers>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AudioStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/AuthenticationMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/AutoTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Billboard>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendColor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendEquation>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BlendFunc>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingBox>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundingSphere>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BoundsChecking>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/buffered_value>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferIndexBinding>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/BufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Callbacks>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Camera>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CameraView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClampColor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClearNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClipPlane>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ClusterCullingCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CollectOccludersVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMask>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ColorMatrix>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ComputeBoundsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Config>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ConvertUTF>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ConvertVec>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarOccluder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ConvexPlanarPolygon>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CoordinateSystemNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CopyOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CubeMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullingSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullSettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/CullStack>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/CullVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabasePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DatabaseRevisions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DataTypes>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DelaunayTriangulator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DeleteHandler>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Depth>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DisplayRequirementsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DisplaySettings>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DotOsgWrapper>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Drawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/DrawElementTypeSimplifier>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/DrawPixels>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/DynamicLibrary>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/EdgeCollector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Endian>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Export>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Export>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Export>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ExternalFileWriter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/fast_back_stack>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileCache>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileNameUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/FileUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Fog>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FragmentProgram>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameBufferObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrameStamp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/FrontFace>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/fstream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Geometry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GL2Extensions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLBeginEndAdapter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLExtensions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLObjects>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/GLObjectsVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GLU>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsContext>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsCostEstimator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/GraphicsThread>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Group>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HalfWayMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/HighlightMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Hint>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Image>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageOptions>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImagePager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ImageProcessor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageSequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ImageUtils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IncrementalCompileOperation>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Input>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/InputStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectionVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/IntersectVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/io_utils>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/KdTree>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Light>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LightSource>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineSegment>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/LineSegmentIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineStipple>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LineWidth>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LOD>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/LogicOp>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Material>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Math>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrix>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixd>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Matrixf>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/MatrixTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/MeshOptimizers>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/MixinVector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Multisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Node>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeTrackerCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/NodeVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Notify>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ObjectWrapper>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Observer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/observer_ptr>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ObserverNodePath>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OccluderNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OcclusionQueryNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/OperationArrayFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/OperationThread>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Optimizer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Options>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Output>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/OutputStream>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PagedLOD>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ParameterOutput>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Plane>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PlaneIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/PluginQuery>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Point>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PointSprite>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonMode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonOffset>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PolygonStipple>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Polytope>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PolytopeIntersector>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PositionalStateContainer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PositionAttitudeTransform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/PrimitiveSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/PrintVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Program>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Projection>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ProxyNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Quat>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReaderWriter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/ReadFile>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ref_ptr>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ReflectionMapGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Registry>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderBin>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/RenderInfo>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderLeaf>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/RenderStage>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ReversePrimitiveFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneGraphBuilder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SceneView>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Scissor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Sequence>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Serializer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadeModel>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shader>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderAttribute>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShaderComposer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/ShaderGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShadowVolumeOccluder>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Shape>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ShapeDrawable>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/SharedStateManager>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Simplifier>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/SmoothingVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/State>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttribute>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateAttributeCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/StateGraph>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StateSet>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Statistics>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stats>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Stencil>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/StencilTwoSided>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/StreamOperator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Switch>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TangentSpaceGenerator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TemplatePrimitiveFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Tessellator>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnv>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvCombine>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexEnvFilter>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGen>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexGenNode>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TexMat>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture1D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DArray>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture2DMultisample>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Texture3D>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureCubeMap>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TextureRectangle>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Timer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TransferFunction>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Transform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TransformAttributeFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TransformCallback>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TriangleFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/TriangleIndexFunctor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/TriStripVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Uniform>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/UpdateVisitor>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/UserDataContainer>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/ValueObject>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec2s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec3s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4b>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4d>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4f>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4s>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Vec4ub>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/VertexProgram>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/View>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Viewport>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/WriteFile>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgDB/XmlParser>
 
 #include <plug_common.h>
 
@@ -186,10 +262,12 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_ALPHA_TEST); lua_setfield(L,-2,"GL_ALPHA_TEST");
 	lua_pushnumber(L,OSG_ANIMATIONPATH); lua_setfield(L,-2,"OSG_ANIMATIONPATH");
 	lua_pushnumber(L,OSG_APPLICATIONUSAGE); lua_setfield(L,-2,"OSG_APPLICATIONUSAGE");
+	lua_pushnumber(L,OSGDB_ARCHIVE); lua_setfield(L,-2,"OSGDB_ARCHIVE");
 	lua_pushnumber(L,OSG_ARGUMENTPARSER); lua_setfield(L,-2,"OSG_ARGUMENTPARSER");
 	lua_pushnumber(L,OSG_ARRAY); lua_setfield(L,-2,"OSG_ARRAY");
 	lua_pushnumber(L,OSG_ArrayDispatchers); lua_setfield(L,-2,"OSG_ArrayDispatchers");
 	lua_pushnumber(L,OSG_AUDIOSTREAM); lua_setfield(L,-2,"OSG_AUDIOSTREAM");
+	lua_pushnumber(L,OSGDB_AUTHENTICATIONMAP); lua_setfield(L,-2,"OSGDB_AUTHENTICATIONMAP");
 	lua_pushnumber(L,OSG_AUTOTRANSFORM); lua_setfield(L,-2,"OSG_AUTOTRANSFORM");
 	lua_pushnumber(L,OSG_BILLBOARD); lua_setfield(L,-2,"OSG_BILLBOARD");
 	lua_pushnumber(L,OSG_BLENDCOLOR); lua_setfield(L,-2,"OSG_BLENDCOLOR");
@@ -267,6 +345,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_PIXEL_UNPACK_BUFFER_ARB); lua_setfield(L,-2,"GL_PIXEL_UNPACK_BUFFER_ARB");
 	lua_pushnumber(L,GL_PIXEL_PACK_BUFFER_BINDING_ARB); lua_setfield(L,-2,"GL_PIXEL_PACK_BUFFER_BINDING_ARB");
 	lua_pushnumber(L,GL_PIXEL_UNPACK_BUFFER_BINDING_ARB); lua_setfield(L,-2,"GL_PIXEL_UNPACK_BUFFER_BINDING_ARB");
+	lua_pushnumber(L,OSGDB_CALLBACKS); lua_setfield(L,-2,"OSGDB_CALLBACKS");
 	lua_pushnumber(L,OSG_CAMERA); lua_setfield(L,-2,"OSG_CAMERA");
 	lua_pushnumber(L,OSG_CAMERANODE); lua_setfield(L,-2,"OSG_CAMERANODE");
 	lua_pushnumber(L,OSG_CAMERAVIEW); lua_setfield(L,-2,"OSG_CAMERAVIEW");
@@ -291,6 +370,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_COLORMATRIX); lua_setfield(L,-2,"OSG_COLORMATRIX");
 	lua_pushnumber(L,OSG_COMPUTEBOUNDSVISITOR); lua_setfield(L,-2,"OSG_COMPUTEBOUNDSVISITOR");
 	lua_pushnumber(L,OSG_CONFIG); lua_setfield(L,-2,"OSG_CONFIG");
+	lua_pushnumber(L,OSGDB_CONVERTUTF); lua_setfield(L,-2,"OSGDB_CONVERTUTF");
+	lua_pushnumber(L,OSGUTIL_CONVERTVEC); lua_setfield(L,-2,"OSGUTIL_CONVERTVEC");
 	lua_pushnumber(L,OSG_CONVEXPLANAROCCLUDER); lua_setfield(L,-2,"OSG_CONVEXPLANAROCCLUDER");
 	lua_pushnumber(L,OSG_CONVEXPLANARPOLYGON); lua_setfield(L,-2,"OSG_CONVEXPLANARPOLYGON");
 	lua_pushnumber(L,OSG_COORDINATESYSTEMNODE); lua_setfield(L,-2,"OSG_COORDINATESYSTEMNODE");
@@ -299,9 +380,16 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_CullingSet); lua_setfield(L,-2,"OSG_CullingSet");
 	lua_pushnumber(L,OSG_CULLSETTINGS); lua_setfield(L,-2,"OSG_CULLSETTINGS");
 	lua_pushnumber(L,OSG_CULLSTACK); lua_setfield(L,-2,"OSG_CULLSTACK");
+	lua_pushnumber(L,OSGUTIL_CULLVISITOR); lua_setfield(L,-2,"OSGUTIL_CULLVISITOR");
+	lua_pushnumber(L,OSGDB_DATABASEPAGER); lua_setfield(L,-2,"OSGDB_DATABASEPAGER");
+	lua_pushnumber(L,OSGDB_DATABASEREVISIONS); lua_setfield(L,-2,"OSGDB_DATABASEREVISIONS");
+	lua_pushnumber(L,OSG_HEADER_LOW); lua_setfield(L,-2,"OSG_HEADER_LOW");
+	lua_pushnumber(L,OSG_HEADER_HIGH); lua_setfield(L,-2,"OSG_HEADER_HIGH");
 	lua_pushnumber(L,OSG_DELETEHANDLER); lua_setfield(L,-2,"OSG_DELETEHANDLER");
 	lua_pushnumber(L,OSG_DEPTH); lua_setfield(L,-2,"OSG_DEPTH");
+	lua_pushnumber(L,OSGUTIL_DISPLAYREQUIREMENTSVISITOR); lua_setfield(L,-2,"OSGUTIL_DISPLAYREQUIREMENTSVISITOR");
 	lua_pushnumber(L,OSG_DisplaySettings); lua_setfield(L,-2,"OSG_DisplaySettings");
+	lua_pushnumber(L,OSGDB_DOTOSGWRAPPER); lua_setfield(L,-2,"OSGDB_DOTOSGWRAPPER");
 	lua_pushnumber(L,OSG_DRAWABLE); lua_setfield(L,-2,"OSG_DRAWABLE");
 	lua_pushnumber(L,GL_OCCLUSION_TEST_HP); lua_setfield(L,-2,"GL_OCCLUSION_TEST_HP");
 	lua_pushnumber(L,GL_OCCLUSION_TEST_RESULT_HP); lua_setfield(L,-2,"GL_OCCLUSION_TEST_RESULT_HP");
@@ -319,9 +407,17 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_QUERY_RESULT); lua_setfield(L,-2,"GL_QUERY_RESULT");
 	lua_pushnumber(L,GL_QUERY_RESULT_AVAILABLE); lua_setfield(L,-2,"GL_QUERY_RESULT_AVAILABLE");
 	lua_pushnumber(L,OSG_DRAWPIXELS); lua_setfield(L,-2,"OSG_DRAWPIXELS");
+	lua_pushnumber(L,OSGDB_DYNAMICLIBRARY); lua_setfield(L,-2,"OSGDB_DYNAMICLIBRARY");
+	lua_pushnumber(L,OSGUTIL_EDGECOLLECTOR); lua_setfield(L,-2,"OSGUTIL_EDGECOLLECTOR");
 	lua_pushnumber(L,OSG_ENDIAN); lua_setfield(L,-2,"OSG_ENDIAN");
 	lua_pushnumber(L,OSG_EXPORT_); lua_setfield(L,-2,"OSG_EXPORT_");
+	lua_pushnumber(L,OSGDB_EXPORT_); lua_setfield(L,-2,"OSGDB_EXPORT_");
+	lua_pushnumber(L,OSGUTIL_EXPORT_); lua_setfield(L,-2,"OSGUTIL_EXPORT_");
+	lua_pushnumber(L,OSGDB_PLUGIN_IMAGE_WRITER); lua_setfield(L,-2,"OSGDB_PLUGIN_IMAGE_WRITER");
 	lua_pushnumber(L,OSG_FAST_BACK_STACK); lua_setfield(L,-2,"OSG_FAST_BACK_STACK");
+	lua_pushnumber(L,OSGDB_FILECACHE); lua_setfield(L,-2,"OSGDB_FILECACHE");
+	lua_pushnumber(L,OSGDB_FILENAMEUTILS); lua_setfield(L,-2,"OSGDB_FILENAMEUTILS");
+	lua_pushnumber(L,OSGDB_FILEUTILS); lua_setfield(L,-2,"OSGDB_FILEUTILS");
 	lua_pushnumber(L,OSG_FOG); lua_setfield(L,-2,"OSG_FOG");
 	lua_pushnumber(L,GL_FOG_DISTANCE_MODE_NV); lua_setfield(L,-2,"GL_FOG_DISTANCE_MODE_NV");
 	lua_pushnumber(L,GL_EYE_PLANE_ABSOLUTE_NV); lua_setfield(L,-2,"GL_EYE_PLANE_ABSOLUTE_NV");
@@ -493,6 +589,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_TEXTURE_STENCIL_SIZE_EXT); lua_setfield(L,-2,"GL_TEXTURE_STENCIL_SIZE_EXT");
 	lua_pushnumber(L,OSG_FRAMESTAMP); lua_setfield(L,-2,"OSG_FRAMESTAMP");
 	lua_pushnumber(L,OSG_FRONTFACE); lua_setfield(L,-2,"OSG_FRONTFACE");
+	lua_pushnumber(L,OSGDB_FSTREAM); lua_setfield(L,-2,"OSGDB_FSTREAM");
 	lua_pushnumber(L,OSG_GEODE); lua_setfield(L,-2,"OSG_GEODE");
 	lua_pushnumber(L,OSG_GEOMETRY); lua_setfield(L,-2,"OSG_GEOMETRY");
 	lua_pushnumber(L,OSG_GL); lua_setfield(L,-2,"OSG_GL");
@@ -733,6 +830,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_TEXTURE0); lua_setfield(L,-2,"GL_TEXTURE0");
 	lua_pushnumber(L,OSG_GLEXTENSIONS); lua_setfield(L,-2,"OSG_GLEXTENSIONS");
 	lua_pushnumber(L,OSG_GLOBJECTS); lua_setfield(L,-2,"OSG_GLOBJECTS");
+	lua_pushnumber(L,OSGUTIL_GLOBJECTSVISITOR); lua_setfield(L,-2,"OSGUTIL_GLOBJECTSVISITOR");
 	lua_pushnumber(L,OSG_GLU); lua_setfield(L,-2,"OSG_GLU");
 	lua_pushnumber(L,GLU_INVALID_ENUM); lua_setfield(L,-2,"GLU_INVALID_ENUM");
 	lua_pushnumber(L,GLU_INVALID_VALUE); lua_setfield(L,-2,"GLU_INVALID_VALUE");
@@ -824,9 +922,15 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_PACK_IMAGE_HEIGHT); lua_setfield(L,-2,"GL_PACK_IMAGE_HEIGHT");
 	lua_pushnumber(L,GL_UNPACK_SKIP_IMAGES); lua_setfield(L,-2,"GL_UNPACK_SKIP_IMAGES");
 	lua_pushnumber(L,GL_UNPACK_IMAGE_HEIGHT); lua_setfield(L,-2,"GL_UNPACK_IMAGE_HEIGHT");
+	lua_pushnumber(L,OSGDB_IMAGEOPTIONS); lua_setfield(L,-2,"OSGDB_IMAGEOPTIONS");
+	lua_pushnumber(L,OSGDB_IMAGEPAGER); lua_setfield(L,-2,"OSGDB_IMAGEPAGER");
+	lua_pushnumber(L,OSGDB_IMAGEPROCESSOR); lua_setfield(L,-2,"OSGDB_IMAGEPROCESSOR");
 	lua_pushnumber(L,OSG_IMAGESEQUENCE); lua_setfield(L,-2,"OSG_IMAGESEQUENCE");
 	lua_pushnumber(L,OSG_IMAGESTREAM); lua_setfield(L,-2,"OSG_IMAGESTREAM");
 	lua_pushnumber(L,OSG_IMAGEUTILS); lua_setfield(L,-2,"OSG_IMAGEUTILS");
+	lua_pushnumber(L,OSGDB_INPUT); lua_setfield(L,-2,"OSGDB_INPUT");
+	lua_pushnumber(L,OSGUTIL_INTERSECTIONVISITOR); lua_setfield(L,-2,"OSGUTIL_INTERSECTIONVISITOR");
+	lua_pushnumber(L,OSGUTIL_INTERSECTVISITOR); lua_setfield(L,-2,"OSGUTIL_INTERSECTVISITOR");
 	lua_pushnumber(L,OSG_IO_UTILS); lua_setfield(L,-2,"OSG_IO_UTILS");
 	lua_pushnumber(L,OSG_KDTREE); lua_setfield(L,-2,"OSG_KDTREE");
 	lua_pushnumber(L,OSG_LIGHT); lua_setfield(L,-2,"OSG_LIGHT");
@@ -842,6 +946,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_LIGHTMODEL); lua_setfield(L,-2,"OSG_LIGHTMODEL");
 	lua_pushnumber(L,OSG_LIGHTSOURCE); lua_setfield(L,-2,"OSG_LIGHTSOURCE");
 	lua_pushnumber(L,OSG_LINESEGMENT); lua_setfield(L,-2,"OSG_LINESEGMENT");
+	lua_pushnumber(L,OSGUTIL_LINESEGMENTINTERSECTOR); lua_setfield(L,-2,"OSGUTIL_LINESEGMENTINTERSECTOR");
 	lua_pushnumber(L,OSG_LINESTIPPLE); lua_setfield(L,-2,"OSG_LINESTIPPLE");
 	lua_pushnumber(L,GL_LINE_STIPPLE); lua_setfield(L,-2,"GL_LINE_STIPPLE");
 	lua_pushnumber(L,OSG_LINEWIDTH); lua_setfield(L,-2,"OSG_LINEWIDTH");
@@ -852,6 +957,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_MATRIXD); lua_setfield(L,-2,"OSG_MATRIXD");
 	lua_pushnumber(L,OSG_MATRIXF); lua_setfield(L,-2,"OSG_MATRIXF");
 	lua_pushnumber(L,OSG_MATRIXTRANSFORM); lua_setfield(L,-2,"OSG_MATRIXTRANSFORM");
+	lua_pushnumber(L,OSGUTIL_MESHOPTIMIZERS); lua_setfield(L,-2,"OSGUTIL_MESHOPTIMIZERS");
 	lua_pushnumber(L,OSG_MIXIN_VECTOR); lua_setfield(L,-2,"OSG_MIXIN_VECTOR");
 	lua_pushnumber(L,OSG_MULTISAMPLE); lua_setfield(L,-2,"OSG_MULTISAMPLE");
 	lua_pushnumber(L,GL_MULTISAMPLE_ARB); lua_setfield(L,-2,"GL_MULTISAMPLE_ARB");
@@ -874,9 +980,14 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_OBSERVERNODEPATH); lua_setfield(L,-2,"OSG_OBSERVERNODEPATH");
 	lua_pushnumber(L,OSG_OCCLUDERNODE); lua_setfield(L,-2,"OSG_OCCLUDERNODE");
 	lua_pushnumber(L,OSG_OCCLUSION_QUERY_NODE); lua_setfield(L,-2,"OSG_OCCLUSION_QUERY_NODE");
+	lua_pushnumber(L,OSGUTIL_OPERATIONARRAYFUNCTOR); lua_setfield(L,-2,"OSGUTIL_OPERATIONARRAYFUNCTOR");
 	lua_pushnumber(L,OSG_OPERATIONTHREAD); lua_setfield(L,-2,"OSG_OPERATIONTHREAD");
+	lua_pushnumber(L,OSGDB_OPTIONS); lua_setfield(L,-2,"OSGDB_OPTIONS");
+	lua_pushnumber(L,OSGDB_OUTPUT); lua_setfield(L,-2,"OSGDB_OUTPUT");
 	lua_pushnumber(L,OSG_PagedLOD); lua_setfield(L,-2,"OSG_PagedLOD");
+	lua_pushnumber(L,OSGDB_PARAMETEROUTPUT); lua_setfield(L,-2,"OSGDB_PARAMETEROUTPUT");
 	lua_pushnumber(L,OSG_PLANE); lua_setfield(L,-2,"OSG_PLANE");
+	lua_pushnumber(L,OSGUTIL_PLANEINTERSECTOR); lua_setfield(L,-2,"OSGUTIL_PLANEINTERSECTOR");
 	lua_pushnumber(L,OSG_POINT); lua_setfield(L,-2,"OSG_POINT");
 	lua_pushnumber(L,GL_POINT_SMOOTH); lua_setfield(L,-2,"GL_POINT_SMOOTH");
 	lua_pushnumber(L,GL_POINT_SMOOTH_HINT); lua_setfield(L,-2,"GL_POINT_SMOOTH_HINT");
@@ -890,32 +1001,50 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_POLYGONSTIPPLE); lua_setfield(L,-2,"OSG_POLYGONSTIPPLE");
 	lua_pushnumber(L,GL_POLYGON_STIPPLE); lua_setfield(L,-2,"GL_POLYGON_STIPPLE");
 	lua_pushnumber(L,OSG_POLYTOPE); lua_setfield(L,-2,"OSG_POLYTOPE");
+	lua_pushnumber(L,OSGUTIL_POLYTOPEINTERSECTOR); lua_setfield(L,-2,"OSGUTIL_POLYTOPEINTERSECTOR");
+	lua_pushnumber(L,OSGUTIL_POSTIONALSTATECONTIANER); lua_setfield(L,-2,"OSGUTIL_POSTIONALSTATECONTIANER");
 	lua_pushnumber(L,OSG_POSITIONATTITUDETRANSFORM); lua_setfield(L,-2,"OSG_POSITIONATTITUDETRANSFORM");
 	lua_pushnumber(L,OSG_PRIMITIVESET); lua_setfield(L,-2,"OSG_PRIMITIVESET");
+	lua_pushnumber(L,OSGUTIL_PRINTVISITOR); lua_setfield(L,-2,"OSGUTIL_PRINTVISITOR");
 	lua_pushnumber(L,OSG_PROGRAM); lua_setfield(L,-2,"OSG_PROGRAM");
 	lua_pushnumber(L,OSG_PROJECTION); lua_setfield(L,-2,"OSG_PROJECTION");
 	lua_pushnumber(L,OSG_ProxyNode); lua_setfield(L,-2,"OSG_ProxyNode");
 	lua_pushnumber(L,OSG_QUAT); lua_setfield(L,-2,"OSG_QUAT");
+	lua_pushnumber(L,OSGDB_READERWRITER); lua_setfield(L,-2,"OSGDB_READERWRITER");
+	lua_pushnumber(L,OSGDB_READFILE); lua_setfield(L,-2,"OSGDB_READFILE");
 	lua_pushnumber(L,OSG_REF_PTR); lua_setfield(L,-2,"OSG_REF_PTR");
 	lua_pushnumber(L,OSG_REFERENCED); lua_setfield(L,-2,"OSG_REFERENCED");
+	lua_pushnumber(L,OSGDB_REGISTRY); lua_setfield(L,-2,"OSGDB_REGISTRY");
+	lua_pushnumber(L,OSGUTIL_RENDERBIN); lua_setfield(L,-2,"OSGUTIL_RENDERBIN");
 	lua_pushnumber(L,OSG_RENDERINFO); lua_setfield(L,-2,"OSG_RENDERINFO");
+	lua_pushnumber(L,OSGUTIL_RENDERLEAF); lua_setfield(L,-2,"OSGUTIL_RENDERLEAF");
+	lua_pushnumber(L,OSGUTIL_RENDERSTAGE); lua_setfield(L,-2,"OSGUTIL_RENDERSTAGE");
+	lua_pushnumber(L,OSGUTIL_REVERSEPRIMITIVEFUNCTOR); lua_setfield(L,-2,"OSGUTIL_REVERSEPRIMITIVEFUNCTOR");
+	lua_pushnumber(L,OSGUTIL_SCENEGRAPHBUILDER); lua_setfield(L,-2,"OSGUTIL_SCENEGRAPHBUILDER");
+	lua_pushnumber(L,OSGUTIL_SCENEVIEW); lua_setfield(L,-2,"OSGUTIL_SCENEVIEW");
 	lua_pushnumber(L,OSG_Scissor); lua_setfield(L,-2,"OSG_Scissor");
 	lua_pushnumber(L,OSG_SEQUENCE); lua_setfield(L,-2,"OSG_SEQUENCE");
 	lua_pushnumber(L,OSG_SHADEMODEL); lua_setfield(L,-2,"OSG_SHADEMODEL");
 	lua_pushnumber(L,OSG_SHADER); lua_setfield(L,-2,"OSG_SHADER");
 	lua_pushnumber(L,OSG_SHADERATTRIBUTE); lua_setfield(L,-2,"OSG_SHADERATTRIBUTE");
 	lua_pushnumber(L,OSG_SHADERCOMPOSER); lua_setfield(L,-2,"OSG_SHADERCOMPOSER");
+	lua_pushnumber(L,OSGUTIL_SHADER_STATE_); lua_setfield(L,-2,"OSGUTIL_SHADER_STATE_");
 	lua_pushnumber(L,OSG_SHADOWVOLUMEOCCLUDER); lua_setfield(L,-2,"OSG_SHADOWVOLUMEOCCLUDER");
 	lua_pushnumber(L,OSG_SHAPE); lua_setfield(L,-2,"OSG_SHAPE");
 	lua_pushnumber(L,OSG_SHAPEDRAWABLE); lua_setfield(L,-2,"OSG_SHAPEDRAWABLE");
+	lua_pushnumber(L,OSGDB_SHAREDSTATEMANAGER); lua_setfield(L,-2,"OSGDB_SHAREDSTATEMANAGER");
+	lua_pushnumber(L,OSGUTIL_SIMPLIFIER); lua_setfield(L,-2,"OSGUTIL_SIMPLIFIER");
+	lua_pushnumber(L,OSGUTIL_SMOOTHINGVISITOR); lua_setfield(L,-2,"OSGUTIL_SMOOTHINGVISITOR");
 	lua_pushnumber(L,OSG_STATE); lua_setfield(L,-2,"OSG_STATE");
 	lua_pushnumber(L,GL_FOG_COORDINATE_ARRAY); lua_setfield(L,-2,"GL_FOG_COORDINATE_ARRAY");
 	lua_pushnumber(L,GL_SECONDARY_COLOR_ARRAY); lua_setfield(L,-2,"GL_SECONDARY_COLOR_ARRAY");
 	lua_pushnumber(L,OSG_STATEATTRIBUTE); lua_setfield(L,-2,"OSG_STATEATTRIBUTE");
 	lua_pushnumber(L,GL_COLOR_SUM); lua_setfield(L,-2,"GL_COLOR_SUM");
 	lua_pushnumber(L,OSG_STATEATTRIBUTECALLBACK); lua_setfield(L,-2,"OSG_STATEATTRIBUTECALLBACK");
+	lua_pushnumber(L,OSGUTIL_STATEGRAPH); lua_setfield(L,-2,"OSGUTIL_STATEGRAPH");
 	lua_pushnumber(L,OSG_STATESET); lua_setfield(L,-2,"OSG_STATESET");
 	lua_pushnumber(L,GL_RESCALE_NORMAL); lua_setfield(L,-2,"GL_RESCALE_NORMAL");
+	lua_pushnumber(L,OSGUTIL_STATISTICS); lua_setfield(L,-2,"OSGUTIL_STATISTICS");
 	lua_pushnumber(L,OSG_STATS); lua_setfield(L,-2,"OSG_STATS");
 	lua_pushnumber(L,OSG_STENCIL); lua_setfield(L,-2,"OSG_STENCIL");
 	lua_pushnumber(L,GL_INCR_WRAP); lua_setfield(L,-2,"GL_INCR_WRAP");
@@ -1144,9 +1273,13 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_TRANSFERFUNCTION); lua_setfield(L,-2,"OSG_TRANSFERFUNCTION");
 	lua_pushnumber(L,OSG_TRANSFORM); lua_setfield(L,-2,"OSG_TRANSFORM");
 	lua_pushnumber(L,GL_NORMALIZE); lua_setfield(L,-2,"GL_NORMALIZE");
+	lua_pushnumber(L,OSGUTIL_TRANSFORMATTRIBUTEFUNCTOR); lua_setfield(L,-2,"OSGUTIL_TRANSFORMATTRIBUTEFUNCTOR");
+	lua_pushnumber(L,OSGUTIL_TRANSFORMCALLBACK); lua_setfield(L,-2,"OSGUTIL_TRANSFORMCALLBACK");
 	lua_pushnumber(L,OSG_TRIANGLEFUNCTOR); lua_setfield(L,-2,"OSG_TRIANGLEFUNCTOR");
 	lua_pushnumber(L,OSG_TRIANGLEINDEXFUNCTOR); lua_setfield(L,-2,"OSG_TRIANGLEINDEXFUNCTOR");
+	lua_pushnumber(L,OSGUTIL_TRISTRIPVISITOR); lua_setfield(L,-2,"OSGUTIL_TRISTRIPVISITOR");
 	lua_pushnumber(L,OSG_UNIFORM); lua_setfield(L,-2,"OSG_UNIFORM");
+	lua_pushnumber(L,OSGUTIL_UPDATEVISITOR); lua_setfield(L,-2,"OSGUTIL_UPDATEVISITOR");
 	lua_pushnumber(L,OSG_USERDATACONTAINER); lua_setfield(L,-2,"OSG_USERDATACONTAINER");
 	lua_pushnumber(L,OSG_VALUEOBJECT); lua_setfield(L,-2,"OSG_VALUEOBJECT");
 	lua_pushnumber(L,OSG_VEC2); lua_setfield(L,-2,"OSG_VEC2");
@@ -1171,6 +1304,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OPENSCENEGRAPH_PATCH_VERSION); lua_setfield(L,-2,"OPENSCENEGRAPH_PATCH_VERSION");
 	lua_pushnumber(L,OPENSCENEGRAPH_SOVERSION); lua_setfield(L,-2,"OPENSCENEGRAPH_SOVERSION");
 	lua_pushnumber(L,OSG_VERSION_REVISION); lua_setfield(L,-2,"OSG_VERSION_REVISION");
+	lua_pushnumber(L,OSGDB_VERSION); lua_setfield(L,-2,"OSGDB_VERSION");
+	lua_pushnumber(L,OSGUTIL_VERSION); lua_setfield(L,-2,"OSGUTIL_VERSION");
 	lua_pushnumber(L,OSG_VERTEXPROGRAM); lua_setfield(L,-2,"OSG_VERTEXPROGRAM");
 	lua_pushnumber(L,GL_VERTEX_PROGRAM_ARB); lua_setfield(L,-2,"GL_VERTEX_PROGRAM_ARB");
 	lua_pushnumber(L,GL_VERTEX_PROGRAM_POINT_SIZE_ARB); lua_setfield(L,-2,"GL_VERTEX_PROGRAM_POINT_SIZE_ARB");
@@ -1253,6 +1388,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_MATRIX31_ARB); lua_setfield(L,-2,"GL_MATRIX31_ARB");
 	lua_pushnumber(L,OSG_VIEW); lua_setfield(L,-2,"OSG_VIEW");
 	lua_pushnumber(L,OSG_VIEWPORT); lua_setfield(L,-2,"OSG_VIEWPORT");
+	lua_pushnumber(L,OSGDB_WRITEFILE); lua_setfield(L,-2,"OSGDB_WRITEFILE");
+	lua_pushnumber(L,OSGDB_XML_PARSER); lua_setfield(L,-2,"OSGDB_XML_PARSER");
 }
 
 #ifdef __cplusplus

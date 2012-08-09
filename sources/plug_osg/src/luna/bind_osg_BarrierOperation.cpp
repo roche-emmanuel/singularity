@@ -18,16 +18,6 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>3 ) return false;
-
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
-		return true;
-	}
-
 
 	// Function checkers:
 	inline static bool _lg_typecheck_release(lua_State *L) {
@@ -48,22 +38,6 @@ public:
 
 
 	// Constructor binds:
-	// osg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)
-	static osg::BarrierOperation* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true) function, expected prototype:\nosg::BarrierOperation::BarrierOperation(int numThreads, osg::BarrierOperation::PreBlockOp op = osg::BarrierOperation::NO_OPERATION, bool keep = true)\nClass arguments details:\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		int numThreads=(int)lua_tointeger(L,1);
-		osg::BarrierOperation::PreBlockOp op=luatop>1 ? (osg::BarrierOperation::PreBlockOp)lua_tointeger(L,2) : osg::BarrierOperation::NO_OPERATION;
-		bool keep=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
-
-		return new osg::BarrierOperation(numThreads, op, keep);
-	}
-
 
 	// Function binds:
 	// void osg::BarrierOperation::release()
@@ -109,7 +83,7 @@ public:
 };
 
 osg::BarrierOperation* LunaTraits< osg::BarrierOperation >::_bind_ctor(lua_State *L) {
-	return luna_wrapper_osg_BarrierOperation::_bind_ctor(L);
+	return NULL; // No valid default constructor.
 }
 
 void LunaTraits< osg::BarrierOperation >::_bind_dtor(osg::BarrierOperation* obj) {

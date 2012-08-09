@@ -8,16 +8,16 @@ extern void register_defines(lua_State* L);
 extern void register_enums(lua_State* L);
 extern void register_global_functions(lua_State* L);
 
+	
+	
 int PLUG_EXPORT luaopen_osgUtil(lua_State* L) {
 	luna_open(L);
 
-	lua_newtable(L); // container class
-
-	register_defines(L);
-
-	register_enums(L);
-
+	luna_pushModule(L,"luna");
 	Luna< void >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"osgUtil");
 	Luna< osgUtil::CubeMapGenerator >::Register(L);
 	Luna< osgUtil::CullVisitor >::Register(L);
 	Luna< osgUtil::DelaunayConstraint >::Register(L);
@@ -129,17 +129,21 @@ int PLUG_EXPORT luaopen_osgUtil(lua_State* L) {
 	Luna< osgUtil::TransformCallback >::Register(L);
 	Luna< osgUtil::TriStripVisitor >::Register(L);
 	Luna< osgUtil::UpdateVisitor >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"osgUtil");
+
+	register_defines(L);
+
+	register_enums(L);
 
 	register_global_functions(L);
 
-	lua_pushstring(L,"osgUtil");
-	lua_setfield(L,-2,"__NAME__");
-
-	lua_setglobal(L,"osgUtil");
-	lua_getglobal(L,"osgUtil");
+	luna_popModule(L);
 
 	luna_copyParents(L,"osgUtil");
 
+	luna_pushModule(L,"osgUtil");
 	return 1;
 }
 

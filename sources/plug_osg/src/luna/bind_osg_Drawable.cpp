@@ -261,13 +261,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -368,62 +361,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,20397010) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,68991165) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,8652005) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_supports_overload_4(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,22170058) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,20397010) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,68991165) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,8652005) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_4(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,22170058) ) return false;
 		return true;
 	}
 
@@ -1331,25 +1268,6 @@ public:
 		return 0;
 	}
 
-	// void osg::Drawable::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Drawable::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
@@ -1712,216 +1630,6 @@ public:
 		return 0;
 	}
 
-	// bool osg::Drawable::supports(const osg::Drawable::AttributeFunctor & ) const
-	static int _bind_supports_overload_1(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Drawable::supports(const osg::Drawable::AttributeFunctor & ) const function, expected prototype:\nbool osg::Drawable::supports(const osg::Drawable::AttributeFunctor & ) const\nClass arguments details:\narg 1 ID = 20397010\n");
-		}
-
-		const osg::Drawable::AttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::AttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::supports function");
-		}
-		const osg::Drawable::AttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::supports(const osg::Drawable::AttributeFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// bool osg::Drawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const
-	static int _bind_supports_overload_2(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Drawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const function, expected prototype:\nbool osg::Drawable::supports(const osg::Drawable::ConstAttributeFunctor & ) const\nClass arguments details:\narg 1 ID = 68991165\n");
-		}
-
-		const osg::Drawable::ConstAttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::ConstAttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::supports function");
-		}
-		const osg::Drawable::ConstAttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::supports(const osg::Drawable::ConstAttributeFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// bool osg::Drawable::supports(const osg::PrimitiveFunctor & ) const
-	static int _bind_supports_overload_3(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Drawable::supports(const osg::PrimitiveFunctor & ) const function, expected prototype:\nbool osg::Drawable::supports(const osg::PrimitiveFunctor & ) const\nClass arguments details:\narg 1 ID = 8652005\n");
-		}
-
-		const osg::PrimitiveFunctor* _arg1_ptr=(Luna< osg::PrimitiveFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::supports function");
-		}
-		const osg::PrimitiveFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::supports(const osg::PrimitiveFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// bool osg::Drawable::supports(const osg::PrimitiveIndexFunctor & ) const
-	static int _bind_supports_overload_4(lua_State *L) {
-		if (!_lg_typecheck_supports_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Drawable::supports(const osg::PrimitiveIndexFunctor & ) const function, expected prototype:\nbool osg::Drawable::supports(const osg::PrimitiveIndexFunctor & ) const\nClass arguments details:\narg 1 ID = 22170058\n");
-		}
-
-		const osg::PrimitiveIndexFunctor* _arg1_ptr=(Luna< osg::PrimitiveIndexFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::supports function");
-		}
-		const osg::PrimitiveIndexFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Drawable::supports(const osg::PrimitiveIndexFunctor &) const");
-		}
-		bool lret = self->supports(_arg1);
-		lua_pushboolean(L,lret?1:0);
-
-		return 1;
-	}
-
-	// Overload binder for osg::Drawable::supports
-	static int _bind_supports(lua_State *L) {
-		if (_lg_typecheck_supports_overload_1(L)) return _bind_supports_overload_1(L);
-		if (_lg_typecheck_supports_overload_2(L)) return _bind_supports_overload_2(L);
-		if (_lg_typecheck_supports_overload_3(L)) return _bind_supports_overload_3(L);
-		if (_lg_typecheck_supports_overload_4(L)) return _bind_supports_overload_4(L);
-
-		luaL_error(L, "error in function supports, cannot match any of the overloads for function supports:\n  supports(const osg::Drawable::AttributeFunctor &)\n  supports(const osg::Drawable::ConstAttributeFunctor &)\n  supports(const osg::PrimitiveFunctor &)\n  supports(const osg::PrimitiveIndexFunctor &)\n");
-		return 0;
-	}
-
-	// void osg::Drawable::accept(osg::Drawable::AttributeFunctor & )
-	static int _bind_accept_overload_1(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::accept(osg::Drawable::AttributeFunctor & ) function, expected prototype:\nvoid osg::Drawable::accept(osg::Drawable::AttributeFunctor & )\nClass arguments details:\narg 1 ID = 20397010\n");
-		}
-
-		osg::Drawable::AttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::AttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::accept function");
-		}
-		osg::Drawable::AttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::accept(osg::Drawable::AttributeFunctor &)");
-		}
-		self->accept(_arg1);
-
-		return 0;
-	}
-
-	// void osg::Drawable::accept(osg::Drawable::ConstAttributeFunctor & ) const
-	static int _bind_accept_overload_2(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::accept(osg::Drawable::ConstAttributeFunctor & ) const function, expected prototype:\nvoid osg::Drawable::accept(osg::Drawable::ConstAttributeFunctor & ) const\nClass arguments details:\narg 1 ID = 68991165\n");
-		}
-
-		osg::Drawable::ConstAttributeFunctor* _arg1_ptr=(Luna< osg::Drawable::ConstAttributeFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::accept function");
-		}
-		osg::Drawable::ConstAttributeFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::accept(osg::Drawable::ConstAttributeFunctor &) const");
-		}
-		self->accept(_arg1);
-
-		return 0;
-	}
-
-	// void osg::Drawable::accept(osg::PrimitiveFunctor & ) const
-	static int _bind_accept_overload_3(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::accept(osg::PrimitiveFunctor & ) const function, expected prototype:\nvoid osg::Drawable::accept(osg::PrimitiveFunctor & ) const\nClass arguments details:\narg 1 ID = 8652005\n");
-		}
-
-		osg::PrimitiveFunctor* _arg1_ptr=(Luna< osg::PrimitiveFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::accept function");
-		}
-		osg::PrimitiveFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::accept(osg::PrimitiveFunctor &) const");
-		}
-		self->accept(_arg1);
-
-		return 0;
-	}
-
-	// void osg::Drawable::accept(osg::PrimitiveIndexFunctor & ) const
-	static int _bind_accept_overload_4(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::accept(osg::PrimitiveIndexFunctor & ) const function, expected prototype:\nvoid osg::Drawable::accept(osg::PrimitiveIndexFunctor & ) const\nClass arguments details:\narg 1 ID = 22170058\n");
-		}
-
-		osg::PrimitiveIndexFunctor* _arg1_ptr=(Luna< osg::PrimitiveIndexFunctor >::check(L,2));
-		if( !_arg1_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Drawable::accept function");
-		}
-		osg::PrimitiveIndexFunctor & _arg1=*_arg1_ptr;
-
-		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::accept(osg::PrimitiveIndexFunctor &) const");
-		}
-		self->accept(_arg1);
-
-		return 0;
-	}
-
-	// Overload binder for osg::Drawable::accept
-	static int _bind_accept(lua_State *L) {
-		if (_lg_typecheck_accept_overload_1(L)) return _bind_accept_overload_1(L);
-		if (_lg_typecheck_accept_overload_2(L)) return _bind_accept_overload_2(L);
-		if (_lg_typecheck_accept_overload_3(L)) return _bind_accept_overload_3(L);
-		if (_lg_typecheck_accept_overload_4(L)) return _bind_accept_overload_4(L);
-
-		luaL_error(L, "error in function accept, cannot match any of the overloads for function accept:\n  accept(osg::Drawable::AttributeFunctor &)\n  accept(osg::Drawable::ConstAttributeFunctor &)\n  accept(osg::PrimitiveFunctor &)\n  accept(osg::PrimitiveIndexFunctor &)\n");
-		return 0;
-	}
-
 	// static unsigned int osg::Drawable::generateDisplayList(unsigned int contextID, unsigned int sizeHint = 0)
 	static int _bind_generateDisplayList(lua_State *L) {
 		if (!_lg_typecheck_generateDisplayList(L)) {
@@ -2121,7 +1829,6 @@ luna_RegType LunaTraits< osg::Drawable >::methods[] = {
 	{"getGLObjectSizeHint", &luna_wrapper_osg_Drawable::_bind_getGLObjectSizeHint},
 	{"draw", &luna_wrapper_osg_Drawable::_bind_draw},
 	{"compileGLObjects", &luna_wrapper_osg_Drawable::_bind_compileGLObjects},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_Drawable::_bind_setThreadSafeRefUnref},
 	{"releaseGLObjects", &luna_wrapper_osg_Drawable::_bind_releaseGLObjects},
 	{"setUpdateCallback", &luna_wrapper_osg_Drawable::_bind_setUpdateCallback},
 	{"getUpdateCallback", &luna_wrapper_osg_Drawable::_bind_getUpdateCallback},
@@ -2134,8 +1841,6 @@ luna_RegType LunaTraits< osg::Drawable >::methods[] = {
 	{"setDrawCallback", &luna_wrapper_osg_Drawable::_bind_setDrawCallback},
 	{"getDrawCallback", &luna_wrapper_osg_Drawable::_bind_getDrawCallback},
 	{"drawImplementation", &luna_wrapper_osg_Drawable::_bind_drawImplementation},
-	{"supports", &luna_wrapper_osg_Drawable::_bind_supports},
-	{"accept", &luna_wrapper_osg_Drawable::_bind_accept},
 	{"generateDisplayList", &luna_wrapper_osg_Drawable::_bind_generateDisplayList},
 	{"setMinimumNumberOfDisplayListsToRetainInCache", &luna_wrapper_osg_Drawable::_bind_setMinimumNumberOfDisplayListsToRetainInCache},
 	{"getMinimumNumberOfDisplayListsToRetainInCache", &luna_wrapper_osg_Drawable::_bind_getMinimumNumberOfDisplayListsToRetainInCache},

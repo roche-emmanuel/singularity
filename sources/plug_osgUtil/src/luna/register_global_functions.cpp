@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1-static/include/osgUtil/Version>
+#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osgUtil/Version>
 
 // Function checkers:
 inline static bool _lg_typecheck_osgUtilGetVersion(lua_State *L) {

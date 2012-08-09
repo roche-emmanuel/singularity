@@ -117,20 +117,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_accept_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,8652005) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_accept_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,22170058) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_getNumIndices(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -148,12 +134,6 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getNumPrimitives(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
 		return true;
 	}
 
@@ -422,61 +402,6 @@ public:
 		return 0;
 	}
 
-	// void osg::DrawArrayLengths::accept(osg::PrimitiveFunctor & functor) const
-	static int _bind_accept_overload_1(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DrawArrayLengths::accept(osg::PrimitiveFunctor & functor) const function, expected prototype:\nvoid osg::DrawArrayLengths::accept(osg::PrimitiveFunctor & functor) const\nClass arguments details:\narg 1 ID = 8652005\n");
-		}
-
-		osg::PrimitiveFunctor* functor_ptr=(Luna< osg::PrimitiveFunctor >::check(L,2));
-		if( !functor_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg functor in osg::DrawArrayLengths::accept function");
-		}
-		osg::PrimitiveFunctor & functor=*functor_ptr;
-
-		osg::DrawArrayLengths* self=dynamic_cast< osg::DrawArrayLengths* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::accept(osg::PrimitiveFunctor &) const");
-		}
-		self->accept(functor);
-
-		return 0;
-	}
-
-	// void osg::DrawArrayLengths::accept(osg::PrimitiveIndexFunctor & functor) const
-	static int _bind_accept_overload_2(lua_State *L) {
-		if (!_lg_typecheck_accept_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DrawArrayLengths::accept(osg::PrimitiveIndexFunctor & functor) const function, expected prototype:\nvoid osg::DrawArrayLengths::accept(osg::PrimitiveIndexFunctor & functor) const\nClass arguments details:\narg 1 ID = 22170058\n");
-		}
-
-		osg::PrimitiveIndexFunctor* functor_ptr=(Luna< osg::PrimitiveIndexFunctor >::check(L,2));
-		if( !functor_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg functor in osg::DrawArrayLengths::accept function");
-		}
-		osg::PrimitiveIndexFunctor & functor=*functor_ptr;
-
-		osg::DrawArrayLengths* self=dynamic_cast< osg::DrawArrayLengths* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawArrayLengths::accept(osg::PrimitiveIndexFunctor &) const");
-		}
-		self->accept(functor);
-
-		return 0;
-	}
-
-	// Overload binder for osg::DrawArrayLengths::accept
-	static int _bind_accept(lua_State *L) {
-		if (_lg_typecheck_accept_overload_1(L)) return _bind_accept_overload_1(L);
-		if (_lg_typecheck_accept_overload_2(L)) return _bind_accept_overload_2(L);
-
-		luaL_error(L, "error in function accept, cannot match any of the overloads for function accept:\n  accept(osg::PrimitiveFunctor &)\n  accept(osg::PrimitiveIndexFunctor &)\n");
-		return 0;
-	}
-
 	// unsigned int osg::DrawArrayLengths::getNumIndices() const
 	static int _bind_getNumIndices(lua_State *L) {
 		if (!_lg_typecheck_getNumIndices(L)) {
@@ -535,25 +460,6 @@ public:
 		return 0;
 	}
 
-	// unsigned int osg::DrawArrayLengths::getNumPrimitives() const
-	static int _bind_getNumPrimitives(lua_State *L) {
-		if (!_lg_typecheck_getNumPrimitives(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DrawArrayLengths::getNumPrimitives() const function, expected prototype:\nunsigned int osg::DrawArrayLengths::getNumPrimitives() const\nClass arguments details:\n");
-		}
-
-
-		osg::DrawArrayLengths* self=dynamic_cast< osg::DrawArrayLengths* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawArrayLengths::getNumPrimitives() const");
-		}
-		unsigned int lret = self->getNumPrimitives();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 
 	// Operator binds:
 
@@ -583,11 +489,9 @@ luna_RegType LunaTraits< osg::DrawArrayLengths >::methods[] = {
 	{"setFirst", &luna_wrapper_osg_DrawArrayLengths::_bind_setFirst},
 	{"getFirst", &luna_wrapper_osg_DrawArrayLengths::_bind_getFirst},
 	{"draw", &luna_wrapper_osg_DrawArrayLengths::_bind_draw},
-	{"accept", &luna_wrapper_osg_DrawArrayLengths::_bind_accept},
 	{"getNumIndices", &luna_wrapper_osg_DrawArrayLengths::_bind_getNumIndices},
 	{"index", &luna_wrapper_osg_DrawArrayLengths::_bind_index},
 	{"offsetIndices", &luna_wrapper_osg_DrawArrayLengths::_bind_offsetIndices},
-	{"getNumPrimitives", &luna_wrapper_osg_DrawArrayLengths::_bind_getNumPrimitives},
 	{0,0}
 };
 

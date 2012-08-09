@@ -410,32 +410,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setNumOfDatabaseThreadsHint(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getNumOfDatabaseThreadsHint(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setNumOfHttpDatabaseThreadsHint(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_getNumOfHttpDatabaseThreadsHint(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setApplication(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1713,82 +1687,6 @@ public:
 		return 1;
 	}
 
-	// void osg::DisplaySettings::setNumOfDatabaseThreadsHint(unsigned int numThreads)
-	static int _bind_setNumOfDatabaseThreadsHint(lua_State *L) {
-		if (!_lg_typecheck_setNumOfDatabaseThreadsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setNumOfDatabaseThreadsHint(unsigned int numThreads) function, expected prototype:\nvoid osg::DisplaySettings::setNumOfDatabaseThreadsHint(unsigned int numThreads)\nClass arguments details:\n");
-		}
-
-		unsigned int numThreads=(unsigned int)lua_tointeger(L,2);
-
-		osg::DisplaySettings* self=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setNumOfDatabaseThreadsHint(unsigned int)");
-		}
-		self->setNumOfDatabaseThreadsHint(numThreads);
-
-		return 0;
-	}
-
-	// unsigned int osg::DisplaySettings::getNumOfDatabaseThreadsHint() const
-	static int _bind_getNumOfDatabaseThreadsHint(lua_State *L) {
-		if (!_lg_typecheck_getNumOfDatabaseThreadsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getNumOfDatabaseThreadsHint() const function, expected prototype:\nunsigned int osg::DisplaySettings::getNumOfDatabaseThreadsHint() const\nClass arguments details:\n");
-		}
-
-
-		osg::DisplaySettings* self=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getNumOfDatabaseThreadsHint() const");
-		}
-		unsigned int lret = self->getNumOfDatabaseThreadsHint();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
-	// void osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint(unsigned int numThreads)
-	static int _bind_setNumOfHttpDatabaseThreadsHint(lua_State *L) {
-		if (!_lg_typecheck_setNumOfHttpDatabaseThreadsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint(unsigned int numThreads) function, expected prototype:\nvoid osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint(unsigned int numThreads)\nClass arguments details:\n");
-		}
-
-		unsigned int numThreads=(unsigned int)lua_tointeger(L,2);
-
-		osg::DisplaySettings* self=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint(unsigned int)");
-		}
-		self->setNumOfHttpDatabaseThreadsHint(numThreads);
-
-		return 0;
-	}
-
-	// unsigned int osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint() const
-	static int _bind_getNumOfHttpDatabaseThreadsHint(lua_State *L) {
-		if (!_lg_typecheck_getNumOfHttpDatabaseThreadsHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint() const function, expected prototype:\nunsigned int osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint() const\nClass arguments details:\n");
-		}
-
-
-		osg::DisplaySettings* self=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint() const");
-		}
-		unsigned int lret = self->getNumOfHttpDatabaseThreadsHint();
-		lua_pushnumber(L,lret);
-
-		return 1;
-	}
-
 	// void osg::DisplaySettings::setApplication(const std::string & application)
 	static int _bind_setApplication(lua_State *L) {
 		if (!_lg_typecheck_setApplication(L)) {
@@ -2231,10 +2129,6 @@ luna_RegType LunaTraits< osg::DisplaySettings >::methods[] = {
 	{"getCompileContextsHint", &luna_wrapper_osg_DisplaySettings::_bind_getCompileContextsHint},
 	{"setSerializeDrawDispatch", &luna_wrapper_osg_DisplaySettings::_bind_setSerializeDrawDispatch},
 	{"getSerializeDrawDispatch", &luna_wrapper_osg_DisplaySettings::_bind_getSerializeDrawDispatch},
-	{"setNumOfDatabaseThreadsHint", &luna_wrapper_osg_DisplaySettings::_bind_setNumOfDatabaseThreadsHint},
-	{"getNumOfDatabaseThreadsHint", &luna_wrapper_osg_DisplaySettings::_bind_getNumOfDatabaseThreadsHint},
-	{"setNumOfHttpDatabaseThreadsHint", &luna_wrapper_osg_DisplaySettings::_bind_setNumOfHttpDatabaseThreadsHint},
-	{"getNumOfHttpDatabaseThreadsHint", &luna_wrapper_osg_DisplaySettings::_bind_getNumOfHttpDatabaseThreadsHint},
 	{"setApplication", &luna_wrapper_osg_DisplaySettings::_bind_setApplication},
 	{"getApplication", &luna_wrapper_osg_DisplaySettings::_bind_getApplication},
 	{"setMaxTexturePoolSize", &luna_wrapper_osg_DisplaySettings::_bind_setMaxTexturePoolSize},

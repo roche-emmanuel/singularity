@@ -374,13 +374,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_apply_overload_22(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_setDatabaseRequestHandler(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1166,32 +1159,9 @@ public:
 		return 0;
 	}
 
-	// void osg::NodeVisitor::apply(osg::ProxyNode & node)
+	// void osg::NodeVisitor::apply(osg::Projection & node)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::ProxyNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::ProxyNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
-		}
-
-		osg::ProxyNode* node_ptr=dynamic_cast< osg::ProxyNode* >(Luna< osg::Referenced >::check(L,2));
-		if( !node_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg node in osg::NodeVisitor::apply function");
-		}
-		osg::ProxyNode & node=*node_ptr;
-
-		osg::NodeVisitor* self=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::apply(osg::ProxyNode &)");
-		}
-		self->apply(node);
-
-		return 0;
-	}
-
-	// void osg::NodeVisitor::apply(osg::Projection & node)
-	static int _bind_apply_overload_6(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::Projection & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::Projection & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1213,8 +1183,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::CoordinateSystemNode & node)
-	static int _bind_apply_overload_7(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_7(L)) {
+	static int _bind_apply_overload_6(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::CoordinateSystemNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::CoordinateSystemNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1236,8 +1206,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::ClipNode & node)
-	static int _bind_apply_overload_8(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_8(L)) {
+	static int _bind_apply_overload_7(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_7(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::ClipNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::ClipNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1259,8 +1229,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::TexGenNode & node)
-	static int _bind_apply_overload_9(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_9(L)) {
+	static int _bind_apply_overload_8(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_8(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::TexGenNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::TexGenNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1282,8 +1252,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::LightSource & node)
-	static int _bind_apply_overload_10(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_10(L)) {
+	static int _bind_apply_overload_9(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_9(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::LightSource & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::LightSource & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1305,8 +1275,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::Transform & node)
-	static int _bind_apply_overload_11(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_11(L)) {
+	static int _bind_apply_overload_10(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_10(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::Transform & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::Transform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1328,8 +1298,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::Camera & node)
-	static int _bind_apply_overload_12(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_12(L)) {
+	static int _bind_apply_overload_11(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_11(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::Camera & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::Camera & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1351,8 +1321,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::CameraView & node)
-	static int _bind_apply_overload_13(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_13(L)) {
+	static int _bind_apply_overload_12(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_12(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::CameraView & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::CameraView & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1374,8 +1344,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::MatrixTransform & node)
-	static int _bind_apply_overload_14(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_14(L)) {
+	static int _bind_apply_overload_13(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_13(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::MatrixTransform & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::MatrixTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1397,8 +1367,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::PositionAttitudeTransform & node)
-	static int _bind_apply_overload_15(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_15(L)) {
+	static int _bind_apply_overload_14(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_14(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::PositionAttitudeTransform & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::PositionAttitudeTransform & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1420,8 +1390,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::Switch & node)
-	static int _bind_apply_overload_16(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_16(L)) {
+	static int _bind_apply_overload_15(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_15(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::Switch & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::Switch & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1443,8 +1413,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::Sequence & node)
-	static int _bind_apply_overload_17(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_17(L)) {
+	static int _bind_apply_overload_16(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_16(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::Sequence & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::Sequence & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1466,8 +1436,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::LOD & node)
-	static int _bind_apply_overload_18(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_18(L)) {
+	static int _bind_apply_overload_17(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_17(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::LOD & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::LOD & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1489,8 +1459,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::PagedLOD & node)
-	static int _bind_apply_overload_19(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_19(L)) {
+	static int _bind_apply_overload_18(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_18(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::PagedLOD & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::PagedLOD & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1512,8 +1482,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::ClearNode & node)
-	static int _bind_apply_overload_20(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_20(L)) {
+	static int _bind_apply_overload_19(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_19(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::ClearNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::ClearNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1535,8 +1505,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::OccluderNode & node)
-	static int _bind_apply_overload_21(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_21(L)) {
+	static int _bind_apply_overload_20(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_20(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::OccluderNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::OccluderNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1558,8 +1528,8 @@ public:
 	}
 
 	// void osg::NodeVisitor::apply(osg::OcclusionQueryNode & node)
-	static int _bind_apply_overload_22(lua_State *L) {
-		if (!_lg_typecheck_apply_overload_22(L)) {
+	static int _bind_apply_overload_21(lua_State *L) {
+		if (!_lg_typecheck_apply_overload_21(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osg::NodeVisitor::apply(osg::OcclusionQueryNode & node) function, expected prototype:\nvoid osg::NodeVisitor::apply(osg::OcclusionQueryNode & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -1603,9 +1573,8 @@ public:
 		if (_lg_typecheck_apply_overload_19(L)) return _bind_apply_overload_19(L);
 		if (_lg_typecheck_apply_overload_20(L)) return _bind_apply_overload_20(L);
 		if (_lg_typecheck_apply_overload_21(L)) return _bind_apply_overload_21(L);
-		if (_lg_typecheck_apply_overload_22(L)) return _bind_apply_overload_22(L);
 
-		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Billboard &)\n  apply(osg::Group &)\n  apply(osg::ProxyNode &)\n  apply(osg::Projection &)\n  apply(osg::CoordinateSystemNode &)\n  apply(osg::ClipNode &)\n  apply(osg::TexGenNode &)\n  apply(osg::LightSource &)\n  apply(osg::Transform &)\n  apply(osg::Camera &)\n  apply(osg::CameraView &)\n  apply(osg::MatrixTransform &)\n  apply(osg::PositionAttitudeTransform &)\n  apply(osg::Switch &)\n  apply(osg::Sequence &)\n  apply(osg::LOD &)\n  apply(osg::PagedLOD &)\n  apply(osg::ClearNode &)\n  apply(osg::OccluderNode &)\n  apply(osg::OcclusionQueryNode &)\n");
+		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Billboard &)\n  apply(osg::Group &)\n  apply(osg::Projection &)\n  apply(osg::CoordinateSystemNode &)\n  apply(osg::ClipNode &)\n  apply(osg::TexGenNode &)\n  apply(osg::LightSource &)\n  apply(osg::Transform &)\n  apply(osg::Camera &)\n  apply(osg::CameraView &)\n  apply(osg::MatrixTransform &)\n  apply(osg::PositionAttitudeTransform &)\n  apply(osg::Switch &)\n  apply(osg::Sequence &)\n  apply(osg::LOD &)\n  apply(osg::PagedLOD &)\n  apply(osg::ClearNode &)\n  apply(osg::OccluderNode &)\n  apply(osg::OcclusionQueryNode &)\n");
 		return 0;
 	}
 

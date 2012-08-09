@@ -184,13 +184,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -732,25 +725,6 @@ public:
 		return 1;
 	}
 
-	// void osg::Geode::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Geode::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Geode::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::Geode* self=dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Geode::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 	// void osg::Geode::releaseGLObjects(osg::State *  = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
@@ -813,7 +787,6 @@ luna_RegType LunaTraits< osg::Geode >::methods[] = {
 	{"compileDrawables", &luna_wrapper_osg_Geode::_bind_compileDrawables},
 	{"getBoundingBox", &luna_wrapper_osg_Geode::_bind_getBoundingBox},
 	{"computeBound", &luna_wrapper_osg_Geode::_bind_computeBound},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_Geode::_bind_setThreadSafeRefUnref},
 	{"releaseGLObjects", &luna_wrapper_osg_Geode::_bind_releaseGLObjects},
 	{0,0}
 };

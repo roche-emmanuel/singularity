@@ -478,13 +478,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_setThreadSafeRefUnref(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isboolean(L,2)==0 ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_releaseGLObjects(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -2087,25 +2080,6 @@ public:
 		return 0;
 	}
 
-	// void osg::Node::setThreadSafeRefUnref(bool threadSafe)
-	static int _bind_setThreadSafeRefUnref(lua_State *L) {
-		if (!_lg_typecheck_setThreadSafeRefUnref(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Node::setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid osg::Node::setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
-		}
-
-		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
-
-		osg::Node* self=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Node::setThreadSafeRefUnref(bool)");
-		}
-		self->setThreadSafeRefUnref(threadSafe);
-
-		return 0;
-	}
-
 	// void osg::Node::releaseGLObjects(osg::State *  = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
@@ -2203,7 +2177,6 @@ luna_RegType LunaTraits< osg::Node >::methods[] = {
 	{"computeBound", &luna_wrapper_osg_Node::_bind_computeBound},
 	{"setComputeBoundingSphereCallback", &luna_wrapper_osg_Node::_bind_setComputeBoundingSphereCallback},
 	{"getComputeBoundingSphereCallback", &luna_wrapper_osg_Node::_bind_getComputeBoundingSphereCallback},
-	{"setThreadSafeRefUnref", &luna_wrapper_osg_Node::_bind_setThreadSafeRefUnref},
 	{"releaseGLObjects", &luna_wrapper_osg_Node::_bind_releaseGLObjects},
 	{0,0}
 };
