@@ -8,28 +8,32 @@ extern void register_defines(lua_State* L);
 extern void register_enums(lua_State* L);
 extern void register_global_functions(lua_State* L);
 
+	
+	
 int PLUG_EXPORT luaopen_osgWX(lua_State* L) {
 	luna_open(L);
 
-	lua_newtable(L); // container class
+	luna_pushModule(L,"luna");
+	Luna< void >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"osgWX");
+	Luna< GraphicsWindowWX >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"osgWX");
 
 	register_defines(L);
 
 	register_enums(L);
 
-	Luna< void >::Register(L);
-	Luna< GraphicsWindowWX >::Register(L);
-
 	register_global_functions(L);
 
-	lua_pushstring(L,"osgWX");
-	lua_setfield(L,-2,"__NAME__");
-
-	lua_setglobal(L,"osgWX");
-	lua_getglobal(L,"osgWX");
+	luna_popModule(L);
 
 	luna_copyParents(L,"osgWX");
 
+	luna_pushModule(L,"osgWX");
 	return 1;
 }
 

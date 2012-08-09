@@ -834,7 +834,7 @@ function LunaWriter:writeModuleFile()
 			written:push_back(tname)
 			
 			-- check if we should change the currentModule:
-			local mod = v:getModule()
+			local mod = v:getModule() or self:getModuleName()
 			if currentModule ~= mod then
 				if currentModule then
 					self:writeSubLine("luna_popModule(L);")

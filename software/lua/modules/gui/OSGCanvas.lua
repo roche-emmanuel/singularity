@@ -3,10 +3,6 @@ local Class = require("classBuilder"){name="OSGCanvas",bases="base.Object"};
 local wx = require "wx"
 
 local osg = require "osg"
-local osgUtil = require "osgUtil"
-local osgGA = require "osgGA"
-local osgText = require "osgText"
-local osgViewer = require "osgViewer"
 local osgwx = require "osgWX"
 local i18n = require "i18n"
 local cfg = require "config"

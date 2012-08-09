@@ -8,6 +8,8 @@ osgDBGetVersion
 osgDBGetLibraryName
 osgGAGetVersion
 osgGAGetLibraryName
+osgParticleGetVersion
+osgParticleGetLibraryName
 osgTextGetVersion
 osgTextGetLibraryName
 osgUtilGetVersion

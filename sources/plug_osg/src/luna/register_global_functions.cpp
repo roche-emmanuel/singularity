@@ -4,6 +4,7 @@
 #include <osg/Version>
 #include <osgDB/Version>
 #include <osgGA/Version>
+#include <osgParticle/Version>
 #include <osgText/Version>
 #include <osgUtil/Version>
 #include <osgViewer/Version>
@@ -106,6 +107,18 @@ inline static bool _lg_typecheck_osgGAGetVersion(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_osgGAGetLibraryName(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgParticleGetVersion(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_osgParticleGetLibraryName(lua_State *L) {
 	if( lua_gettop(L)!=0 ) return false;
 
 	return true;
@@ -316,6 +329,34 @@ static int _bind_osgGAGetLibraryName(lua_State *L) {
 
 
 	const char * lret = osgGAGetLibraryName();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgParticleGetVersion()
+static int _bind_osgParticleGetVersion(lua_State *L) {
+	if (!_lg_typecheck_osgParticleGetVersion(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgParticleGetVersion() function, expected prototype:\nconst char * osgParticleGetVersion()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgParticleGetVersion();
+	lua_pushstring(L,lret);
+
+	return 1;
+}
+
+// const char * osgParticleGetLibraryName()
+static int _bind_osgParticleGetLibraryName(lua_State *L) {
+	if (!_lg_typecheck_osgParticleGetLibraryName(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in const char * osgParticleGetLibraryName() function, expected prototype:\nconst char * osgParticleGetLibraryName()\nClass arguments details:\n");
+	}
+
+
+	const char * lret = osgParticleGetLibraryName();
 	lua_pushstring(L,lret);
 
 	return 1;
@@ -5818,6 +5859,8 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_osgDBGetLibraryName); lua_setfield(L,-2,"osgDBGetLibraryName");
 	lua_pushcfunction(L, _bind_osgGAGetVersion); lua_setfield(L,-2,"osgGAGetVersion");
 	lua_pushcfunction(L, _bind_osgGAGetLibraryName); lua_setfield(L,-2,"osgGAGetLibraryName");
+	lua_pushcfunction(L, _bind_osgParticleGetVersion); lua_setfield(L,-2,"osgParticleGetVersion");
+	lua_pushcfunction(L, _bind_osgParticleGetLibraryName); lua_setfield(L,-2,"osgParticleGetLibraryName");
 	lua_pushcfunction(L, _bind_osgTextGetVersion); lua_setfield(L,-2,"osgTextGetVersion");
 	lua_pushcfunction(L, _bind_osgTextGetLibraryName); lua_setfield(L,-2,"osgTextGetLibraryName");
 	lua_pushcfunction(L, _bind_osgUtilGetVersion); lua_setfield(L,-2,"osgUtilGetVersion");

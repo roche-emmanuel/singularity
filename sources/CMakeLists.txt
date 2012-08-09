@@ -20,14 +20,14 @@ ADD_SUBDIRECTORY(sgtCore)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 # ADD_SUBDIRECTORY(plug_wx)
 
-ADD_SUBDIRECTORY(plug_osg)
+# ADD_SUBDIRECTORY(plug_osg)
 # ADD_SUBDIRECTORY(plug_osgUtil)
 # ADD_SUBDIRECTORY(plug_osgDB)
 # ADD_SUBDIRECTORY(plug_osgGA)
 # ADD_SUBDIRECTORY(plug_osgText)
 # ADD_SUBDIRECTORY(plug_osgViewer)
 # ADD_SUBDIRECTORY(plug_osgParticle)
-# ADD_SUBDIRECTORY(plug_osgWX)
+ADD_SUBDIRECTORY(plug_osgWX)
 
 #Sim
 

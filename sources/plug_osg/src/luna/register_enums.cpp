@@ -96,6 +96,11 @@
 #include <osgGA/SphericalManipulator>
 #include <osgGA/StandardManipulator>
 #include <osgGA/TerrainManipulator>
+#include <osgParticle/DomainOperator>
+#include <osgParticle/Particle>
+#include <osgParticle/ParticleProcessor>
+#include <osgParticle/ParticleSystem>
+#include <osgParticle/SinkOperator>
 #include <osgText/KerningType>
 #include <osgText/String>
 #include <osgText/Text>
@@ -3317,6 +3322,129 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osgGA::TerrainManipulator::ELEVATION_AZIM); lua_setfield(L,-2,"ELEVATION_AZIM");
 
 
+	lua_newtable(L); // enum Type
+
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::UNDEFINED_DOMAIN); lua_setfield(L,-2,"UNDEFINED_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::POINT_DOMAIN); lua_setfield(L,-2,"POINT_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::LINE_DOMAIN); lua_setfield(L,-2,"LINE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::TRI_DOMAIN); lua_setfield(L,-2,"TRI_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::RECT_DOMAIN); lua_setfield(L,-2,"RECT_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::PLANE_DOMAIN); lua_setfield(L,-2,"PLANE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::SPHERE_DOMAIN); lua_setfield(L,-2,"SPHERE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::BOX_DOMAIN); lua_setfield(L,-2,"BOX_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::DISK_DOMAIN); lua_setfield(L,-2,"DISK_DOMAIN");
+
+	lua_setfield(L,-2,"Type");
+
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::UNDEFINED_DOMAIN); lua_setfield(L,-2,"UNDEFINED_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::POINT_DOMAIN); lua_setfield(L,-2,"POINT_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::LINE_DOMAIN); lua_setfield(L,-2,"LINE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::TRI_DOMAIN); lua_setfield(L,-2,"TRI_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::RECT_DOMAIN); lua_setfield(L,-2,"RECT_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::PLANE_DOMAIN); lua_setfield(L,-2,"PLANE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::SPHERE_DOMAIN); lua_setfield(L,-2,"SPHERE_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::BOX_DOMAIN); lua_setfield(L,-2,"BOX_DOMAIN");
+	lua_pushnumber(L,osgParticle::DomainOperator::Domain::DISK_DOMAIN); lua_setfield(L,-2,"DISK_DOMAIN");
+
+
+	lua_newtable(L); // enum unnamed_16
+
+	lua_pushnumber(L,osgParticle::Particle::INVALID_INDEX); lua_setfield(L,-2,"INVALID_INDEX");
+
+	lua_setfield(L,-2,"unnamed_16");
+
+	lua_pushnumber(L,osgParticle::Particle::INVALID_INDEX); lua_setfield(L,-2,"INVALID_INDEX");
+
+
+	lua_newtable(L); // enum Shape
+
+	lua_pushnumber(L,osgParticle::Particle::POINT); lua_setfield(L,-2,"POINT");
+	lua_pushnumber(L,osgParticle::Particle::QUAD); lua_setfield(L,-2,"QUAD");
+	lua_pushnumber(L,osgParticle::Particle::QUAD_TRIANGLESTRIP); lua_setfield(L,-2,"QUAD_TRIANGLESTRIP");
+	lua_pushnumber(L,osgParticle::Particle::HEXAGON); lua_setfield(L,-2,"HEXAGON");
+	lua_pushnumber(L,osgParticle::Particle::LINE); lua_setfield(L,-2,"LINE");
+	lua_pushnumber(L,osgParticle::Particle::USER); lua_setfield(L,-2,"USER");
+
+	lua_setfield(L,-2,"Shape");
+
+	lua_pushnumber(L,osgParticle::Particle::POINT); lua_setfield(L,-2,"POINT");
+	lua_pushnumber(L,osgParticle::Particle::QUAD); lua_setfield(L,-2,"QUAD");
+	lua_pushnumber(L,osgParticle::Particle::QUAD_TRIANGLESTRIP); lua_setfield(L,-2,"QUAD_TRIANGLESTRIP");
+	lua_pushnumber(L,osgParticle::Particle::HEXAGON); lua_setfield(L,-2,"HEXAGON");
+	lua_pushnumber(L,osgParticle::Particle::LINE); lua_setfield(L,-2,"LINE");
+	lua_pushnumber(L,osgParticle::Particle::USER); lua_setfield(L,-2,"USER");
+
+
+	lua_newtable(L); // enum ReferenceFrame
+
+	lua_pushnumber(L,osgParticle::ParticleProcessor::RELATIVE_RF); lua_setfield(L,-2,"RELATIVE_RF");
+	lua_pushnumber(L,osgParticle::ParticleProcessor::ABSOLUTE_RF); lua_setfield(L,-2,"ABSOLUTE_RF");
+
+	lua_setfield(L,-2,"ReferenceFrame");
+
+	lua_pushnumber(L,osgParticle::ParticleProcessor::RELATIVE_RF); lua_setfield(L,-2,"RELATIVE_RF");
+	lua_pushnumber(L,osgParticle::ParticleProcessor::ABSOLUTE_RF); lua_setfield(L,-2,"ABSOLUTE_RF");
+
+
+	lua_newtable(L); // enum Alignment
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::BILLBOARD); lua_setfield(L,-2,"BILLBOARD");
+	lua_pushnumber(L,osgParticle::ParticleSystem::FIXED); lua_setfield(L,-2,"FIXED");
+
+	lua_setfield(L,-2,"Alignment");
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::BILLBOARD); lua_setfield(L,-2,"BILLBOARD");
+	lua_pushnumber(L,osgParticle::ParticleSystem::FIXED); lua_setfield(L,-2,"FIXED");
+
+
+	lua_newtable(L); // enum ParticleScaleReferenceFrame
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::LOCAL_COORDINATES); lua_setfield(L,-2,"LOCAL_COORDINATES");
+	lua_pushnumber(L,osgParticle::ParticleSystem::WORLD_COORDINATES); lua_setfield(L,-2,"WORLD_COORDINATES");
+
+	lua_setfield(L,-2,"ParticleScaleReferenceFrame");
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::LOCAL_COORDINATES); lua_setfield(L,-2,"LOCAL_COORDINATES");
+	lua_pushnumber(L,osgParticle::ParticleSystem::WORLD_COORDINATES); lua_setfield(L,-2,"WORLD_COORDINATES");
+
+
+	lua_newtable(L); // enum SortMode
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::NO_SORT); lua_setfield(L,-2,"NO_SORT");
+	lua_pushnumber(L,osgParticle::ParticleSystem::SORT_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_FRONT_TO_BACK");
+	lua_pushnumber(L,osgParticle::ParticleSystem::SORT_BACK_TO_FRONT); lua_setfield(L,-2,"SORT_BACK_TO_FRONT");
+
+	lua_setfield(L,-2,"SortMode");
+
+	lua_pushnumber(L,osgParticle::ParticleSystem::NO_SORT); lua_setfield(L,-2,"NO_SORT");
+	lua_pushnumber(L,osgParticle::ParticleSystem::SORT_FRONT_TO_BACK); lua_setfield(L,-2,"SORT_FRONT_TO_BACK");
+	lua_pushnumber(L,osgParticle::ParticleSystem::SORT_BACK_TO_FRONT); lua_setfield(L,-2,"SORT_BACK_TO_FRONT");
+
+
+	lua_newtable(L); // enum SinkTarget
+
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_POSITION); lua_setfield(L,-2,"SINK_POSITION");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_VELOCITY); lua_setfield(L,-2,"SINK_VELOCITY");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_ANGULAR_VELOCITY); lua_setfield(L,-2,"SINK_ANGULAR_VELOCITY");
+
+	lua_setfield(L,-2,"SinkTarget");
+
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_POSITION); lua_setfield(L,-2,"SINK_POSITION");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_VELOCITY); lua_setfield(L,-2,"SINK_VELOCITY");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_ANGULAR_VELOCITY); lua_setfield(L,-2,"SINK_ANGULAR_VELOCITY");
+
+
+	lua_newtable(L); // enum SinkStrategy
+
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_INSIDE); lua_setfield(L,-2,"SINK_INSIDE");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_OUTSIDE); lua_setfield(L,-2,"SINK_OUTSIDE");
+
+	lua_setfield(L,-2,"SinkStrategy");
+
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_INSIDE); lua_setfield(L,-2,"SINK_INSIDE");
+	lua_pushnumber(L,osgParticle::SinkOperator::SINK_OUTSIDE); lua_setfield(L,-2,"SINK_OUTSIDE");
+
+
 	lua_newtable(L); // enum KerningType
 
 	lua_pushnumber(L,osgText::KERNING_DEFAULT); lua_setfield(L,-2,"KERNING_DEFAULT");
@@ -3665,26 +3793,26 @@ void register_enums(lua_State* L) {
 
 
 
-	lua_newtable(L); // enum unnamed_16
-
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
-
-	lua_setfield(L,-2,"unnamed_16");
-
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
-	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
-
-
 	lua_newtable(L); // enum unnamed_17
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
+
+	lua_setfield(L,-2,"unnamed_17");
+
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimZero); lua_setfield(L,-2,"DimZero");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimOne); lua_setfield(L,-2,"DimOne");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::DimTwo); lua_setfield(L,-2,"DimTwo");
+	lua_pushnumber(L,osgUtil::PolytopeIntersector::AllDims); lua_setfield(L,-2,"AllDims");
+
+
+	lua_newtable(L); // enum unnamed_18
 
 	lua_pushnumber(L,osgUtil::PolytopeIntersector::Intersection::MaxNumIntesectionPoints); lua_setfield(L,-2,"MaxNumIntesectionPoints");
 
-	lua_setfield(L,-2,"unnamed_17");
+	lua_setfield(L,-2,"unnamed_18");
 
 	lua_pushnumber(L,osgUtil::PolytopeIntersector::Intersection::MaxNumIntesectionPoints); lua_setfield(L,-2,"MaxNumIntesectionPoints");
 

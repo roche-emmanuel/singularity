@@ -284,11 +284,15 @@ im:addPattern("class","GraphicsWindowWin32")
 im:addPattern("class","GraphicsHandleWin32")
 im:addPattern("class","WindowData")
 
+-- for osgParticle:
+im:addPattern("class","osgParticle::PrecipitationEffect::PrecipitationDrawableSet")
+
+
 
 im:addPattern("enum_value","osgUtil::Optimizer::TextureAtlasBuilder::")
 im:addPattern("enum_value","FileOpResult::")
 
-injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\n")
+injector:addFragment("after_headers","using namespace osg;\nusing namespace osgUtil;\nusing namespace osgDB;\nusing namespace osgText;\nusing namespace osgParticle;\n")
 
 --im:addPattern("class_declaration","RefNodePath")
 --im:addPattern("class_declaration","ConvexPlanarPolygon::VertexList")

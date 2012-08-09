@@ -116,11 +116,11 @@ local tm = require "bindings.TypeManager"
 
 tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
 
+tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_core/classes.luna")
+tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_core/functions.luna")
+
 tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osg/classes.luna")
 tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osg/functions.luna")
-
-tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_osgViewer/classes.luna")
-tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_osgViewer/functions.luna")
 
 tm:registerExternals("W:/Shared/Dev/Projects/singularity/sources/plug_wx/classes.luna")
 tm:registerExternalFunctions("W:/Shared/Dev/Projects/singularity/sources/plug_wx/functions.luna")

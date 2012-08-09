@@ -206,6 +206,52 @@
 #include <osgGA/StateSetManipulator>
 #include <osgGA/TerrainManipulator>
 #include <osgGA/UFOManipulator>
+#include <osgParticle/range>
+#include <osgParticle/Operator>
+#include <osgParticle/AccelOperator>
+#include <osgParticle/AngularAccelOperator>
+#include <osgParticle/AngularDampingOperator>
+#include <osgParticle/DomainOperator>
+#include <osgParticle/BounceOperator>
+#include <osgParticle/Placer>
+#include <osgParticle/CenteredPlacer>
+#include <osgParticle/BoxPlacer>
+#include <osgParticle/CompositePlacer>
+#include <osgParticle/ParticleSystem>
+#include <osgParticle/ConnectedParticleSystem>
+#include <osgParticle/Counter>
+#include <osgParticle/ConstantRateCounter>
+#include <osgParticle/DampingOperator>
+#include <osgParticle/ParticleProcessor>
+#include <osgParticle/Emitter>
+#include <osgParticle/ParticleEffect>
+#include <osgParticle/ExplosionDebrisEffect>
+#include <osgParticle/ExplosionEffect>
+#include <osgParticle/ExplosionOperator>
+#include <osgParticle/FireEffect>
+#include <osgParticle/FluidFrictionOperator>
+#include <osgParticle/Program>
+#include <osgParticle/FluidProgram>
+#include <osgParticle/ForceOperator>
+#include <osgParticle/Interpolator>
+#include <osgParticle/LinearInterpolator>
+#include <osgParticle/ModularEmitter>
+#include <osgParticle/ModularProgram>
+#include <osgParticle/MultiSegmentPlacer>
+#include <osgParticle/OrbitOperator>
+#include <osgParticle/Particle>
+#include <osgParticle/ParticleSystemUpdater>
+#include <osgParticle/PointPlacer>
+#include <osgParticle/PrecipitationEffect>
+#include <osgParticle/Shooter>
+#include <osgParticle/RadialShooter>
+#include <osgParticle/VariableRateCounter>
+#include <osgParticle/RandomRateCounter>
+#include <osgParticle/SectorPlacer>
+#include <osgParticle/SegmentPlacer>
+#include <osgParticle/SinkOperator>
+#include <osgParticle/SmokeEffect>
+#include <osgParticle/SmokeTrailEffect>
 #include <osgText/KerningType>
 #include <osgText/TextBase>
 #include <osgText/Text>
@@ -264,6 +310,7 @@ using namespace osg;
 using namespace osgUtil;
 using namespace osgDB;
 using namespace osgText;
+using namespace osgParticle;
 
 template<>
 class LunaTraits< GLUtesselator > {
@@ -10112,6 +10159,996 @@ public:
 };
 
 template<>
+class LunaTraits< osgParticle::range< float > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::range< float >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::range< float >* obj);
+    typedef osgParticle::rangef parent_t;
+    typedef osgParticle::range< float > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::range< osg::Vec2f > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::range< osg::Vec2f >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::range< osg::Vec2f >* obj);
+    typedef osgParticle::rangev2 parent_t;
+    typedef osgParticle::range< osg::Vec2f > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::range< osg::Vec3f > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::range< osg::Vec3f >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::range< osg::Vec3f >* obj);
+    typedef osgParticle::rangev3 parent_t;
+    typedef osgParticle::range< osg::Vec3f > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::range< osg::Vec4f > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::range< osg::Vec4f >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::range< osg::Vec4f >* obj);
+    typedef osgParticle::rangev4 parent_t;
+    typedef osgParticle::range< osg::Vec4f > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Operator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Operator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Operator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Operator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::AccelOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::AccelOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::AccelOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::AccelOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::AngularAccelOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::AngularAccelOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::AngularAccelOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::AngularAccelOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::AngularDampingOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::AngularDampingOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::AngularDampingOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::AngularDampingOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::DomainOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::DomainOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::DomainOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::DomainOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::BounceOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::BounceOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::BounceOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::BounceOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Placer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Placer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Placer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Placer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::CenteredPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::CenteredPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::CenteredPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::CenteredPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::BoxPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::BoxPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::BoxPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::BoxPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::CompositePlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::CompositePlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::CompositePlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::CompositePlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ParticleSystem > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ParticleSystem* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ParticleSystem* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ParticleSystem base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ConnectedParticleSystem > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ConnectedParticleSystem* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ConnectedParticleSystem* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ConnectedParticleSystem base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Counter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Counter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Counter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Counter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ConstantRateCounter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ConstantRateCounter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ConstantRateCounter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ConstantRateCounter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::DampingOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::DampingOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::DampingOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::DampingOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::DomainOperator::Domain > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::DomainOperator::Domain* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::DomainOperator::Domain* obj);
+    typedef osgParticle::DomainOperator::Domain parent_t;
+    typedef osgParticle::DomainOperator::Domain base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ParticleProcessor > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ParticleProcessor* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ParticleProcessor* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ParticleProcessor base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Emitter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Emitter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Emitter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Emitter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ParticleEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ParticleEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ParticleEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ParticleEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ExplosionDebrisEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ExplosionDebrisEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ExplosionDebrisEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ExplosionDebrisEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ExplosionEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ExplosionEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ExplosionEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ExplosionEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ExplosionOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ExplosionOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ExplosionOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ExplosionOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::FireEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::FireEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::FireEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::FireEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::FluidFrictionOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::FluidFrictionOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::FluidFrictionOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::FluidFrictionOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Program > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Program* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Program* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Program base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::FluidProgram > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::FluidProgram* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::FluidProgram* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::FluidProgram base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ForceOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ForceOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ForceOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ForceOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Interpolator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Interpolator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Interpolator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Interpolator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::LinearInterpolator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::LinearInterpolator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::LinearInterpolator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::LinearInterpolator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ModularEmitter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ModularEmitter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ModularEmitter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ModularEmitter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ModularProgram > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ModularProgram* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ModularProgram* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ModularProgram base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::MultiSegmentPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::MultiSegmentPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::MultiSegmentPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::MultiSegmentPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::OrbitOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::OrbitOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::OrbitOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::OrbitOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Particle > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Particle* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Particle* obj);
+    typedef osgParticle::Particle parent_t;
+    typedef osgParticle::Particle base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
+    typedef osgParticle::ParticleSystem::ScopedReadLock parent_t;
+    typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::ParticleSystemUpdater > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::ParticleSystemUpdater* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::ParticleSystemUpdater* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::ParticleSystemUpdater base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::PointPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::PointPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::PointPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::PointPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::PrecipitationEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::PrecipitationEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::PrecipitationEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::PrecipitationEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::PrecipitationEffect::PrecipitationDrawable* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >* _bind_ctor(lua_State *L);
+    static void _bind_dtor(std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >* obj);
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap parent_t;
+    typedef std::map< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell, osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* obj);
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell parent_t;
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* obj);
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime parent_t;
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::Shooter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::Shooter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::Shooter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::Shooter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::RadialShooter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::RadialShooter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::RadialShooter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::RadialShooter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::VariableRateCounter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::VariableRateCounter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::VariableRateCounter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::VariableRateCounter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::RandomRateCounter > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::RandomRateCounter* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::RandomRateCounter* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::RandomRateCounter base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::SectorPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::SectorPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::SectorPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::SectorPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::SegmentPlacer > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::SegmentPlacer* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::SegmentPlacer* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::SegmentPlacer base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::SinkOperator > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::SinkOperator* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::SinkOperator* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::SinkOperator base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::SmokeEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::SmokeEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::SmokeEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::SmokeEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osgParticle::SmokeTrailEffect > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static osgParticle::SmokeTrailEffect* _bind_ctor(lua_State *L);
+    static void _bind_dtor(osgParticle::SmokeTrailEffect* obj);
+    typedef osg::Referenced parent_t;
+    typedef osgParticle::SmokeTrailEffect base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< std::pair< unsigned int, unsigned int > > {
 public:
     static const char className[];
@@ -15019,6 +16056,83 @@ template<>
 class LunaType< 71456208 > {
 public:
     typedef osgGA::KeySwitchMatrixManipulator::KeyManipMap type;
+    
+};
+
+template<>
+class LunaType< 13510606 > {
+public:
+    typedef osgParticle::rangef type;
+    
+};
+
+template<>
+class LunaType< 18829252 > {
+public:
+    typedef osgParticle::rangev2 type;
+    
+};
+
+template<>
+class LunaType< 18829253 > {
+public:
+    typedef osgParticle::rangev3 type;
+    
+};
+
+template<>
+class LunaType< 18829254 > {
+public:
+    typedef osgParticle::rangev4 type;
+    
+};
+
+template<>
+class LunaType< 60781756 > {
+public:
+    typedef osgParticle::DomainOperator::Domain type;
+    
+};
+
+template<>
+class LunaType< 81629555 > {
+public:
+    typedef osgParticle::Particle type;
+    
+};
+
+template<>
+class LunaType< 61073220 > {
+public:
+    typedef osgParticle::ParticleSystem::ScopedReadLock type;
+    
+};
+
+template<>
+class LunaType< 90677436 > {
+public:
+    typedef osgParticle::ParticleSystem::ScopedWriteLock type;
+    
+};
+
+template<>
+class LunaType< 30297084 > {
+public:
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap type;
+    
+};
+
+template<>
+class LunaType< 4475636 > {
+public:
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell type;
+    
+};
+
+template<>
+class LunaType< 87684634 > {
+public:
+    typedef osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime type;
     
 };
 

@@ -1,4 +1,7 @@
+#include <osgParticle/AccelOperator>
 #include <osg/AlphaFunc>
+#include <osgParticle/AngularAccelOperator>
+#include <osgParticle/AngularDampingOperator>
 #include <osg/AnimationPath>
 #include <osgGA/AnimationPathManipulator>
 #include <osg/ApplicationUsage>
@@ -13,9 +16,11 @@
 #include <osg/BlendColor>
 #include <osg/BlendEquation>
 #include <osg/BlendFunc>
+#include <osgParticle/BounceOperator>
 #include <osg/BoundingBox>
 #include <osg/BoundingSphere>
 #include <osg/BoundsChecking>
+#include <osgParticle/BoxPlacer>
 #include <osg/buffered_value>
 #include <osg/BufferIndexBinding>
 #include <osg/BufferObject>
@@ -25,6 +30,7 @@
 #include <osg/CameraNode>
 #include <osg/CameraView>
 #include <osgGA/CameraViewSwitchManipulator>
+#include <osgParticle/CenteredPlacer>
 #include <osg/ClampColor>
 #include <osg/ClearNode>
 #include <osg/ClipNode>
@@ -33,21 +39,26 @@
 #include <osg/CollectOccludersVisitor>
 #include <osg/ColorMask>
 #include <osg/ColorMatrix>
+#include <osgParticle/CompositePlacer>
 #include <osgViewer/CompositeViewer>
 #include <osg/ComputeBoundsVisitor>
 #include <osg/Config>
+#include <osgParticle/ConnectedParticleSystem>
+#include <osgParticle/ConstantRateCounter>
 #include <osgDB/ConvertUTF>
 #include <osgUtil/ConvertVec>
 #include <osg/ConvexPlanarOccluder>
 #include <osg/ConvexPlanarPolygon>
 #include <osg/CoordinateSystemNode>
 #include <osg/CopyOp>
+#include <osgParticle/Counter>
 #include <osgUtil/CubeMapGenerator>
 #include <osg/CullFace>
 #include <osg/CullingSet>
 #include <osg/CullSettings>
 #include <osg/CullStack>
 #include <osgUtil/CullVisitor>
+#include <osgParticle/DampingOperator>
 #include <osgDB/DatabasePager>
 #include <osgDB/DatabaseRevisions>
 #include <osgDB/DataTypes>
@@ -56,6 +67,7 @@
 #include <osg/Depth>
 #include <osgUtil/DisplayRequirementsVisitor>
 #include <osg/DisplaySettings>
+#include <osgParticle/DomainOperator>
 #include <osgDB/DotOsgWrapper>
 #include <osg/Drawable>
 #include <osgUtil/DrawElementTypeSimplifier>
@@ -63,12 +75,17 @@
 #include <osgGA/DriveManipulator>
 #include <osgDB/DynamicLibrary>
 #include <osgUtil/EdgeCollector>
+#include <osgParticle/Emitter>
 #include <osg/Endian>
 #include <osgGA/EventQueue>
 #include <osgGA/EventVisitor>
+#include <osgParticle/ExplosionDebrisEffect>
+#include <osgParticle/ExplosionEffect>
+#include <osgParticle/ExplosionOperator>
 #include <osg/Export>
 #include <osgDB/Export>
 #include <osgGA/Export>
+#include <osgParticle/Export>
 #include <osgText/Export>
 #include <osgUtil/Export>
 #include <osgViewer/Export>
@@ -78,11 +95,15 @@
 #include <osgDB/FileCache>
 #include <osgDB/FileNameUtils>
 #include <osgDB/FileUtils>
+#include <osgParticle/FireEffect>
 #include <osgGA/FirstPersonManipulator>
 #include <osgGA/FlightManipulator>
+#include <osgParticle/FluidFrictionOperator>
+#include <osgParticle/FluidProgram>
 #include <osg/Fog>
 #include <osgText/Font>
 #include <osgText/Font3D>
+#include <osgParticle/ForceOperator>
 #include <osg/FragmentProgram>
 #include <osg/FrameBufferObject>
 #include <osg/FrameStamp>
@@ -121,6 +142,7 @@
 #include <osgUtil/IncrementalCompileOperation>
 #include <osgDB/Input>
 #include <osgDB/InputStream>
+#include <osgParticle/Interpolator>
 #include <osgUtil/IntersectionVisitor>
 #include <osgUtil/IntersectVisitor>
 #include <osg/io_utils>
@@ -130,6 +152,7 @@
 #include <osg/Light>
 #include <osg/LightModel>
 #include <osg/LightSource>
+#include <osgParticle/LinearInterpolator>
 #include <osg/LineSegment>
 #include <osgUtil/LineSegmentIntersector>
 #include <osg/LineStipple>
@@ -144,7 +167,10 @@
 #include <osg/MatrixTransform>
 #include <osgUtil/MeshOptimizers>
 #include <osg/MixinVector>
+#include <osgParticle/ModularEmitter>
+#include <osgParticle/ModularProgram>
 #include <osg/Multisample>
+#include <osgParticle/MultiSegmentPlacer>
 #include <osgGA/MultiTouchTrackballManipulator>
 #include <osg/Node>
 #include <osg/NodeCallback>
@@ -161,18 +187,27 @@
 #include <osg/OcclusionQueryNode>
 #include <osgUtil/OperationArrayFunctor>
 #include <osg/OperationThread>
+#include <osgParticle/Operator>
 #include <osgUtil/Optimizer>
 #include <osgDB/Options>
 #include <osgGA/OrbitManipulator>
+#include <osgParticle/OrbitOperator>
 #include <osgDB/Output>
 #include <osgDB/OutputStream>
 #include <osg/PagedLOD>
 #include <osgDB/ParameterOutput>
+#include <osgParticle/Particle>
+#include <osgParticle/ParticleEffect>
+#include <osgParticle/ParticleProcessor>
+#include <osgParticle/ParticleSystem>
+#include <osgParticle/ParticleSystemUpdater>
 #include <osgViewer/api/Win32/PixelBufferWin32>
+#include <osgParticle/Placer>
 #include <osg/Plane>
 #include <osgUtil/PlaneIntersector>
 #include <osgDB/PluginQuery>
 #include <osg/Point>
+#include <osgParticle/PointPlacer>
 #include <osg/PointSprite>
 #include <osg/PolygonMode>
 #include <osg/PolygonOffset>
@@ -181,12 +216,17 @@
 #include <osgUtil/PolytopeIntersector>
 #include <osgUtil/PositionalStateContainer>
 #include <osg/PositionAttitudeTransform>
+#include <osgParticle/PrecipitationEffect>
 #include <osg/PrimitiveSet>
 #include <osgUtil/PrintVisitor>
 #include <osg/Program>
+#include <osgParticle/Program>
 #include <osg/Projection>
 #include <osg/ProxyNode>
 #include <osg/Quat>
+#include <osgParticle/RadialShooter>
+#include <osgParticle/RandomRateCounter>
+#include <osgParticle/range>
 #include <osgDB/ReaderWriter>
 #include <osgDB/ReadFile>
 #include <osg/ref_ptr>
@@ -203,6 +243,8 @@
 #include <osgUtil/SceneGraphBuilder>
 #include <osgUtil/SceneView>
 #include <osg/Scissor>
+#include <osgParticle/SectorPlacer>
+#include <osgParticle/SegmentPlacer>
 #include <osg/Sequence>
 #include <osgDB/Serializer>
 #include <osg/ShadeModel>
@@ -214,7 +256,11 @@
 #include <osg/Shape>
 #include <osg/ShapeDrawable>
 #include <osgDB/SharedStateManager>
+#include <osgParticle/Shooter>
 #include <osgUtil/Simplifier>
+#include <osgParticle/SinkOperator>
+#include <osgParticle/SmokeEffect>
+#include <osgParticle/SmokeTrailEffect>
 #include <osgUtil/SmoothingVisitor>
 #include <osgGA/SphericalManipulator>
 #include <osgGA/StandardManipulator>
@@ -267,6 +313,7 @@
 #include <osgUtil/UpdateVisitor>
 #include <osg/UserDataContainer>
 #include <osg/ValueObject>
+#include <osgParticle/VariableRateCounter>
 #include <osg/Vec2>
 #include <osg/Vec2b>
 #include <osg/Vec2d>
@@ -286,6 +333,7 @@
 #include <osg/Version>
 #include <osgDB/Version>
 #include <osgGA/Version>
+#include <osgParticle/Version>
 #include <osgText/Version>
 #include <osgUtil/Version>
 #include <osgViewer/Version>
@@ -306,8 +354,10 @@ extern "C" {
 #endif
 
 void register_defines(lua_State* L) {
+	lua_pushnumber(L,OSGPARTICLE_ACCELOPERATOR); lua_setfield(L,-2,"OSGPARTICLE_ACCELOPERATOR");
 	lua_pushnumber(L,OSG_ALPHAFUNC); lua_setfield(L,-2,"OSG_ALPHAFUNC");
 	lua_pushnumber(L,GL_ALPHA_TEST); lua_setfield(L,-2,"GL_ALPHA_TEST");
+	lua_pushnumber(L,OSGPARTICLE_ANGULARACCELOPERATOR); lua_setfield(L,-2,"OSGPARTICLE_ANGULARACCELOPERATOR");
 	lua_pushnumber(L,OSG_ANIMATIONPATH); lua_setfield(L,-2,"OSG_ANIMATIONPATH");
 	lua_pushnumber(L,OSGGA_ANIMATION_PATH_MANIPULATOR); lua_setfield(L,-2,"OSGGA_ANIMATION_PATH_MANIPULATOR");
 	lua_pushnumber(L,OSG_APPLICATIONUSAGE); lua_setfield(L,-2,"OSG_APPLICATIONUSAGE");
@@ -342,6 +392,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_BOUNDINGBOX); lua_setfield(L,-2,"OSG_BOUNDINGBOX");
 	lua_pushnumber(L,OSG_BOUNDINGSPHERE); lua_setfield(L,-2,"OSG_BOUNDINGSPHERE");
 	lua_pushnumber(L,OSG_BOUNDSCHECKING); lua_setfield(L,-2,"OSG_BOUNDSCHECKING");
+	lua_pushnumber(L,OSGPARTICLE_BOX_PLACER); lua_setfield(L,-2,"OSGPARTICLE_BOX_PLACER");
 	lua_pushnumber(L,OSG_BUFFERED_VALUE); lua_setfield(L,-2,"OSG_BUFFERED_VALUE");
 	lua_pushnumber(L,OSG_BUFFERINDEXBINDING); lua_setfield(L,-2,"OSG_BUFFERINDEXBINDING");
 	lua_pushnumber(L,GL_TRANSFORM_FEEDBACK_BUFFER); lua_setfield(L,-2,"GL_TRANSFORM_FEEDBACK_BUFFER");
@@ -400,6 +451,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_CAMERANODE); lua_setfield(L,-2,"OSG_CAMERANODE");
 	lua_pushnumber(L,OSG_CAMERAVIEW); lua_setfield(L,-2,"OSG_CAMERAVIEW");
 	lua_pushnumber(L,OSGGA_VIEWLISTMANIPULATOR); lua_setfield(L,-2,"OSGGA_VIEWLISTMANIPULATOR");
+	lua_pushnumber(L,OSGPARTICLE_CENTERED_PLACER); lua_setfield(L,-2,"OSGPARTICLE_CENTERED_PLACER");
 	lua_pushnumber(L,OSG_CLAMPCOLOR); lua_setfield(L,-2,"OSG_CLAMPCOLOR");
 	lua_pushnumber(L,GL_RGBA_FLOAT_MODE_ARB); lua_setfield(L,-2,"GL_RGBA_FLOAT_MODE_ARB");
 	lua_pushnumber(L,GL_CLAMP_VERTEX_COLOR_ARB); lua_setfield(L,-2,"GL_CLAMP_VERTEX_COLOR_ARB");
@@ -422,12 +474,15 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGVIEWER_CompositeViewer); lua_setfield(L,-2,"OSGVIEWER_CompositeViewer");
 	lua_pushnumber(L,OSG_COMPUTEBOUNDSVISITOR); lua_setfield(L,-2,"OSG_COMPUTEBOUNDSVISITOR");
 	lua_pushnumber(L,OSG_CONFIG); lua_setfield(L,-2,"OSG_CONFIG");
+	lua_pushnumber(L,OSGPARTICLE_CONNECTEDPARTICLESYSTEM); lua_setfield(L,-2,"OSGPARTICLE_CONNECTEDPARTICLESYSTEM");
+	lua_pushnumber(L,OSGPARTICLE_CONSTANTRATECOUNTER); lua_setfield(L,-2,"OSGPARTICLE_CONSTANTRATECOUNTER");
 	lua_pushnumber(L,OSGDB_CONVERTUTF); lua_setfield(L,-2,"OSGDB_CONVERTUTF");
 	lua_pushnumber(L,OSGUTIL_CONVERTVEC); lua_setfield(L,-2,"OSGUTIL_CONVERTVEC");
 	lua_pushnumber(L,OSG_CONVEXPLANAROCCLUDER); lua_setfield(L,-2,"OSG_CONVEXPLANAROCCLUDER");
 	lua_pushnumber(L,OSG_CONVEXPLANARPOLYGON); lua_setfield(L,-2,"OSG_CONVEXPLANARPOLYGON");
 	lua_pushnumber(L,OSG_COORDINATESYSTEMNODE); lua_setfield(L,-2,"OSG_COORDINATESYSTEMNODE");
 	lua_pushnumber(L,OSG_COPYOP); lua_setfield(L,-2,"OSG_COPYOP");
+	lua_pushnumber(L,OSGPARTICLE_COUNTER); lua_setfield(L,-2,"OSGPARTICLE_COUNTER");
 	lua_pushnumber(L,OSG_CULLFACE); lua_setfield(L,-2,"OSG_CULLFACE");
 	lua_pushnumber(L,OSG_CullingSet); lua_setfield(L,-2,"OSG_CullingSet");
 	lua_pushnumber(L,OSG_CULLSETTINGS); lua_setfield(L,-2,"OSG_CULLSETTINGS");
@@ -462,12 +517,14 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGGA_DRIVEMANIPULATOR); lua_setfield(L,-2,"OSGGA_DRIVEMANIPULATOR");
 	lua_pushnumber(L,OSGDB_DYNAMICLIBRARY); lua_setfield(L,-2,"OSGDB_DYNAMICLIBRARY");
 	lua_pushnumber(L,OSGUTIL_EDGECOLLECTOR); lua_setfield(L,-2,"OSGUTIL_EDGECOLLECTOR");
+	lua_pushnumber(L,OSGPARTICLE_EMITTER); lua_setfield(L,-2,"OSGPARTICLE_EMITTER");
 	lua_pushnumber(L,OSG_ENDIAN); lua_setfield(L,-2,"OSG_ENDIAN");
 	lua_pushnumber(L,OSGGA_EVENTQUEUE); lua_setfield(L,-2,"OSGGA_EVENTQUEUE");
 	lua_pushnumber(L,OSGGA_EVENTVISITOR); lua_setfield(L,-2,"OSGGA_EVENTVISITOR");
 	lua_pushnumber(L,OSG_EXPORT_); lua_setfield(L,-2,"OSG_EXPORT_");
 	lua_pushnumber(L,OSGDB_EXPORT_); lua_setfield(L,-2,"OSGDB_EXPORT_");
 	lua_pushnumber(L,OSGGA_EXPORT_); lua_setfield(L,-2,"OSGGA_EXPORT_");
+	lua_pushnumber(L,OSGPARTICLE_EXPORT_); lua_setfield(L,-2,"OSGPARTICLE_EXPORT_");
 	lua_pushnumber(L,OSGTEXT_EXPORT_); lua_setfield(L,-2,"OSGTEXT_EXPORT_");
 	lua_pushnumber(L,OSGUTIL_EXPORT_); lua_setfield(L,-2,"OSGUTIL_EXPORT_");
 	lua_pushnumber(L,OSGVIEWER_EXPORT_); lua_setfield(L,-2,"OSGVIEWER_EXPORT_");
@@ -479,6 +536,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGDB_FILEUTILS); lua_setfield(L,-2,"OSGDB_FILEUTILS");
 	lua_pushnumber(L,OSGGA_FIRST_PERSON_MANIPULATOR); lua_setfield(L,-2,"OSGGA_FIRST_PERSON_MANIPULATOR");
 	lua_pushnumber(L,OSGGA_FLIGHT_MANIPULATOR); lua_setfield(L,-2,"OSGGA_FLIGHT_MANIPULATOR");
+	lua_pushnumber(L,OSGPARTICLE_FLUIDFRICTIONOPERATOR); lua_setfield(L,-2,"OSGPARTICLE_FLUIDFRICTIONOPERATOR");
+	lua_pushnumber(L,OSGPARTICLE_FLUIDPROGRAM); lua_setfield(L,-2,"OSGPARTICLE_FLUIDPROGRAM");
 	lua_pushnumber(L,OSG_FOG); lua_setfield(L,-2,"OSG_FOG");
 	lua_pushnumber(L,GL_FOG_DISTANCE_MODE_NV); lua_setfield(L,-2,"GL_FOG_DISTANCE_MODE_NV");
 	lua_pushnumber(L,GL_EYE_PLANE_ABSOLUTE_NV); lua_setfield(L,-2,"GL_EYE_PLANE_ABSOLUTE_NV");
@@ -491,6 +550,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_FOG_HINT); lua_setfield(L,-2,"GL_FOG_HINT");
 	lua_pushnumber(L,OSGTEXT_FONT); lua_setfield(L,-2,"OSGTEXT_FONT");
 	lua_pushnumber(L,OSGTEXT_FONT3D); lua_setfield(L,-2,"OSGTEXT_FONT3D");
+	lua_pushnumber(L,OSGPARTICLE_FORCEOPERATOR); lua_setfield(L,-2,"OSGPARTICLE_FORCEOPERATOR");
 	lua_pushnumber(L,OSG_FRAGMENTPROGRAM); lua_setfield(L,-2,"OSG_FRAGMENTPROGRAM");
 	lua_pushnumber(L,GL_FRAGMENT_PROGRAM_ARB); lua_setfield(L,-2,"GL_FRAGMENT_PROGRAM_ARB");
 	lua_pushnumber(L,GL_PROGRAM_FORMAT_ASCII_ARB); lua_setfield(L,-2,"GL_PROGRAM_FORMAT_ASCII_ARB");
@@ -1083,6 +1143,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_MATRIXTRANSFORM); lua_setfield(L,-2,"OSG_MATRIXTRANSFORM");
 	lua_pushnumber(L,OSGUTIL_MESHOPTIMIZERS); lua_setfield(L,-2,"OSGUTIL_MESHOPTIMIZERS");
 	lua_pushnumber(L,OSG_MIXIN_VECTOR); lua_setfield(L,-2,"OSG_MIXIN_VECTOR");
+	lua_pushnumber(L,OSGPARTICLE_MODULAREMITTER); lua_setfield(L,-2,"OSGPARTICLE_MODULAREMITTER");
+	lua_pushnumber(L,OSGPARTICLE_MODULARPROGRAM); lua_setfield(L,-2,"OSGPARTICLE_MODULARPROGRAM");
 	lua_pushnumber(L,OSG_MULTISAMPLE); lua_setfield(L,-2,"OSG_MULTISAMPLE");
 	lua_pushnumber(L,GL_MULTISAMPLE_ARB); lua_setfield(L,-2,"GL_MULTISAMPLE_ARB");
 	lua_pushnumber(L,GL_SAMPLE_ALPHA_TO_COVERAGE_ARB); lua_setfield(L,-2,"GL_SAMPLE_ALPHA_TO_COVERAGE_ARB");
@@ -1094,6 +1156,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,GL_SAMPLE_COVERAGE_INVERT_ARB); lua_setfield(L,-2,"GL_SAMPLE_COVERAGE_INVERT_ARB");
 	lua_pushnumber(L,GL_MULTISAMPLE_BIT_ARB); lua_setfield(L,-2,"GL_MULTISAMPLE_BIT_ARB");
 	lua_pushnumber(L,GL_MULTISAMPLE_FILTER_HINT_NV); lua_setfield(L,-2,"GL_MULTISAMPLE_FILTER_HINT_NV");
+	lua_pushnumber(L,OSGPARTICLE_MULTISEGMENT_PLACER); lua_setfield(L,-2,"OSGPARTICLE_MULTISEGMENT_PLACER");
 	lua_pushnumber(L,OSGGA_MULTITOUCH_TRACKBALL_MANIPULATOR); lua_setfield(L,-2,"OSGGA_MULTITOUCH_TRACKBALL_MANIPULATOR");
 	lua_pushnumber(L,OSG_NODE); lua_setfield(L,-2,"OSG_NODE");
 	lua_pushnumber(L,OSG_NODECALLBACK); lua_setfield(L,-2,"OSG_NODECALLBACK");
@@ -1108,17 +1171,24 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_OCCLUSION_QUERY_NODE); lua_setfield(L,-2,"OSG_OCCLUSION_QUERY_NODE");
 	lua_pushnumber(L,OSGUTIL_OPERATIONARRAYFUNCTOR); lua_setfield(L,-2,"OSGUTIL_OPERATIONARRAYFUNCTOR");
 	lua_pushnumber(L,OSG_OPERATIONTHREAD); lua_setfield(L,-2,"OSG_OPERATIONTHREAD");
+	lua_pushnumber(L,OSGPARTICLE_OPERATOR); lua_setfield(L,-2,"OSGPARTICLE_OPERATOR");
 	lua_pushnumber(L,OSGDB_OPTIONS); lua_setfield(L,-2,"OSGDB_OPTIONS");
 	lua_pushnumber(L,OSGGA_ORBIT_MANIPULATOR); lua_setfield(L,-2,"OSGGA_ORBIT_MANIPULATOR");
 	lua_pushnumber(L,OSGDB_OUTPUT); lua_setfield(L,-2,"OSGDB_OUTPUT");
 	lua_pushnumber(L,OSG_PagedLOD); lua_setfield(L,-2,"OSG_PagedLOD");
 	lua_pushnumber(L,OSGDB_PARAMETEROUTPUT); lua_setfield(L,-2,"OSGDB_PARAMETEROUTPUT");
+	lua_pushnumber(L,OSGPARTICLE_PARTICLE); lua_setfield(L,-2,"OSGPARTICLE_PARTICLE");
+	lua_pushnumber(L,OSGPARTICLE_PARTICLEPROCESSOR); lua_setfield(L,-2,"OSGPARTICLE_PARTICLEPROCESSOR");
+	lua_pushnumber(L,OSGPARTICLE_PARTICLESYSTEM); lua_setfield(L,-2,"OSGPARTICLE_PARTICLESYSTEM");
+	lua_pushnumber(L,OSGPARTICLE_PARTICLESYSTEMUPDATER); lua_setfield(L,-2,"OSGPARTICLE_PARTICLESYSTEMUPDATER");
 	lua_pushnumber(L,OSGVIEWER_PIXELBUFFERWIN32); lua_setfield(L,-2,"OSGVIEWER_PIXELBUFFERWIN32");
+	lua_pushnumber(L,OSGPARTICLE_PLACER); lua_setfield(L,-2,"OSGPARTICLE_PLACER");
 	lua_pushnumber(L,OSG_PLANE); lua_setfield(L,-2,"OSG_PLANE");
 	lua_pushnumber(L,OSGUTIL_PLANEINTERSECTOR); lua_setfield(L,-2,"OSGUTIL_PLANEINTERSECTOR");
 	lua_pushnumber(L,OSG_POINT); lua_setfield(L,-2,"OSG_POINT");
 	lua_pushnumber(L,GL_POINT_SMOOTH); lua_setfield(L,-2,"GL_POINT_SMOOTH");
 	lua_pushnumber(L,GL_POINT_SMOOTH_HINT); lua_setfield(L,-2,"GL_POINT_SMOOTH_HINT");
+	lua_pushnumber(L,OSGPARTICLE_POINT_PLACER); lua_setfield(L,-2,"OSGPARTICLE_POINT_PLACER");
 	lua_pushnumber(L,OSG_POINTSPRITE); lua_setfield(L,-2,"OSG_POINTSPRITE");
 	lua_pushnumber(L,GL_POINT_SPRITE_ARB); lua_setfield(L,-2,"GL_POINT_SPRITE_ARB");
 	lua_pushnumber(L,GL_COORD_REPLACE_ARB); lua_setfield(L,-2,"GL_COORD_REPLACE_ARB");
@@ -1135,9 +1205,13 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_PRIMITIVESET); lua_setfield(L,-2,"OSG_PRIMITIVESET");
 	lua_pushnumber(L,OSGUTIL_PRINTVISITOR); lua_setfield(L,-2,"OSGUTIL_PRINTVISITOR");
 	lua_pushnumber(L,OSG_PROGRAM); lua_setfield(L,-2,"OSG_PROGRAM");
+	lua_pushnumber(L,OSGPARTICLE_PROGRAM); lua_setfield(L,-2,"OSGPARTICLE_PROGRAM");
 	lua_pushnumber(L,OSG_PROJECTION); lua_setfield(L,-2,"OSG_PROJECTION");
 	lua_pushnumber(L,OSG_ProxyNode); lua_setfield(L,-2,"OSG_ProxyNode");
 	lua_pushnumber(L,OSG_QUAT); lua_setfield(L,-2,"OSG_QUAT");
+	lua_pushnumber(L,OSGPARTICLE_RADIAL_SHOOTER); lua_setfield(L,-2,"OSGPARTICLE_RADIAL_SHOOTER");
+	lua_pushnumber(L,OSGPARTICLE_RANDOMRATE_COUNTER); lua_setfield(L,-2,"OSGPARTICLE_RANDOMRATE_COUNTER");
+	lua_pushnumber(L,OSGPARTICLE_RANGE); lua_setfield(L,-2,"OSGPARTICLE_RANGE");
 	lua_pushnumber(L,OSGDB_READERWRITER); lua_setfield(L,-2,"OSGDB_READERWRITER");
 	lua_pushnumber(L,OSGDB_READFILE); lua_setfield(L,-2,"OSGDB_READFILE");
 	lua_pushnumber(L,OSG_REF_PTR); lua_setfield(L,-2,"OSG_REF_PTR");
@@ -1153,6 +1227,8 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGUTIL_SCENEGRAPHBUILDER); lua_setfield(L,-2,"OSGUTIL_SCENEGRAPHBUILDER");
 	lua_pushnumber(L,OSGUTIL_SCENEVIEW); lua_setfield(L,-2,"OSGUTIL_SCENEVIEW");
 	lua_pushnumber(L,OSG_Scissor); lua_setfield(L,-2,"OSG_Scissor");
+	lua_pushnumber(L,OSGPARTICLE_SECTOR_PLACER); lua_setfield(L,-2,"OSGPARTICLE_SECTOR_PLACER");
+	lua_pushnumber(L,OSGPARTICLE_SEGMENT_PLACER); lua_setfield(L,-2,"OSGPARTICLE_SEGMENT_PLACER");
 	lua_pushnumber(L,OSG_SEQUENCE); lua_setfield(L,-2,"OSG_SEQUENCE");
 	lua_pushnumber(L,OSG_SHADEMODEL); lua_setfield(L,-2,"OSG_SHADEMODEL");
 	lua_pushnumber(L,OSG_SHADER); lua_setfield(L,-2,"OSG_SHADER");
@@ -1163,6 +1239,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_SHAPE); lua_setfield(L,-2,"OSG_SHAPE");
 	lua_pushnumber(L,OSG_SHAPEDRAWABLE); lua_setfield(L,-2,"OSG_SHAPEDRAWABLE");
 	lua_pushnumber(L,OSGDB_SHAREDSTATEMANAGER); lua_setfield(L,-2,"OSGDB_SHAREDSTATEMANAGER");
+	lua_pushnumber(L,OSGPARTICLE_SHOOTER); lua_setfield(L,-2,"OSGPARTICLE_SHOOTER");
 	lua_pushnumber(L,OSGUTIL_SIMPLIFIER); lua_setfield(L,-2,"OSGUTIL_SIMPLIFIER");
 	lua_pushnumber(L,OSGUTIL_SMOOTHINGVISITOR); lua_setfield(L,-2,"OSGUTIL_SMOOTHINGVISITOR");
 	lua_pushnumber(L,OSGGA_CAMERA_MANIPULATOR); lua_setfield(L,-2,"OSGGA_CAMERA_MANIPULATOR");
@@ -1422,6 +1499,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSGUTIL_UPDATEVISITOR); lua_setfield(L,-2,"OSGUTIL_UPDATEVISITOR");
 	lua_pushnumber(L,OSG_USERDATACONTAINER); lua_setfield(L,-2,"OSG_USERDATACONTAINER");
 	lua_pushnumber(L,OSG_VALUEOBJECT); lua_setfield(L,-2,"OSG_VALUEOBJECT");
+	lua_pushnumber(L,OSGPARTICLE_VARIABLERATE_COUNTER); lua_setfield(L,-2,"OSGPARTICLE_VARIABLERATE_COUNTER");
 	lua_pushnumber(L,OSG_VEC2); lua_setfield(L,-2,"OSG_VEC2");
 	lua_pushnumber(L,OSG_VEC2B); lua_setfield(L,-2,"OSG_VEC2B");
 	lua_pushnumber(L,OSG_VEC2D); lua_setfield(L,-2,"OSG_VEC2D");
@@ -1446,6 +1524,7 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,OSG_VERSION_REVISION); lua_setfield(L,-2,"OSG_VERSION_REVISION");
 	lua_pushnumber(L,OSGDB_VERSION); lua_setfield(L,-2,"OSGDB_VERSION");
 	lua_pushnumber(L,OSGGA_VERSION); lua_setfield(L,-2,"OSGGA_VERSION");
+	lua_pushnumber(L,OSGPARTICLE_VERSION); lua_setfield(L,-2,"OSGPARTICLE_VERSION");
 	lua_pushnumber(L,OSGTEXT_VERSION); lua_setfield(L,-2,"OSGTEXT_VERSION");
 	lua_pushnumber(L,OSGUTIL_VERSION); lua_setfield(L,-2,"OSGUTIL_VERSION");
 	lua_pushnumber(L,OSGVIEWER_VERSION); lua_setfield(L,-2,"OSGVIEWER_VERSION");
