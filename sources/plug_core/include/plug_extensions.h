@@ -3,6 +3,9 @@
 
 #include "luna/luna.h"
 
+/** LUNA_CLASS_EXTENSION LUNA_RENAME __tostring */
+int ptime_tostring(boost::posix_time::ptime* val, lua_State* L);
+
 
 //#include "base/DataMap.h"
 

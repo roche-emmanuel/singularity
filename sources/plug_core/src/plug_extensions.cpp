@@ -1,5 +1,12 @@
 #include "plug_extensions.h"
 
+int ptime_tostring(boost::posix_time::ptime* val, lua_State* L) {
+	// convert the value to a string:
+	std::string timestr = boost::posix_time::to_iso_extended_string(*val);
+	lua_pushstring(L,timestr.c_str());
+	return 1;
+};
+
 /*
 
 int datamap_set(sgt::DataMap* dmap, String& name, lua_Any* dummy, lua_State* L) {
