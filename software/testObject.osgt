@@ -1,0 +1,8 @@
+#Ascii Object 
+#Version 80 
+#Generator OpenSceneGraph 3.0.1 
+
+sgt::Object {
+  UniqueID 1 
+  Name "testObject" 
+}

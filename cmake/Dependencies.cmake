@@ -98,7 +98,7 @@ IF(MSVC)
 
     SET(SPICE_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SPICE}/include)
     SET(SPICE_LIB_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_SPICE}/lib)
-    SET(SPICE_LIBS 		cspice.lib) #csupport.lib
+    SET(SPICE_LIBS 		cspice.lib csupport.lib)
 	
 ELSE()
     SET(LUABIND_INC_DIR 	${DEPS_DIR}/${FLAVOR}/${DEP_LUABIND}/include)
