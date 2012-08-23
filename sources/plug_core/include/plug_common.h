@@ -25,6 +25,7 @@
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 
+using namespace boost;
 using namespace sgt;
 
 #include <osg/UserDataContainer>

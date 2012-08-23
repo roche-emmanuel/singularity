@@ -599,8 +599,8 @@ int Luna<T>::new_modified_T(lua_State *L) {
 	return 1;  // userdata containing pointer to T object
 }
 
-EXPIMP_TEMPLATE template 
-class SGTCORE_EXPORT LunaTraits< void >;
+//EXPIMP_TEMPLATE 
+template class SGTCORE_EXPORT LunaTraits< void >;
 
 SGTCORE_EXPORT void luna_open(lua_State* L);
 SGTCORE_EXPORT void luna_copyParents(lua_State* L, const char* modName);

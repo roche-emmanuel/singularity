@@ -51,6 +51,8 @@ im:getIgnoreFunctionsPatterns():push_back("std::ostream")
 im:getIgnoreFunctionsPatterns():push_back("registerKeyObserver")
 im:getIgnoreFunctionsPatterns():push_back("Any ")
 
+im:addPattern("class_declaration","SingletonHolder")
+
 im:addPattern("header","helpers%.h")
 
 local options = {

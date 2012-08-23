@@ -17,13 +17,18 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< void >::Register(L);
 	luna_popModule(L);
 
+	luna_pushModule(L,"posix_time");
+	Luna< posix_time::ptime >::Register(L);
+	luna_popModule(L);
 	luna_pushModule(L,"osg");
 	Luna< osg::Referenced >::Register(L);
 	Luna< osg::Object >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
 	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
+	Luna< SingletonHolder< sgt::TimeProvider > >::Register(L);
 	Luna< sgt::Object >::Register(L);
+	Luna< sgt::TimeProvider >::Register(L);
 	Luna< sgt::LogSink >::Register(L);
 	Luna< sgt::FileLogger >::Register(L);
 	Luna< sgt::LogManager >::Register(L);
@@ -33,6 +38,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< sgt::LogRecord >::Register(L);
 	Luna< std::set< std::string > >::Register(L);
 	Luna< sgt::StdLogger >::Register(L);
+	Luna< sgt::TimeManager >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"sgt");
@@ -45,6 +51,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 
 	luna_popModule(L);
 
+	luna_copyParents(L,"posix_time");
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"sgt");
 

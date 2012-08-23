@@ -33,63 +33,101 @@ public:
 	};
 };
 
+/** Singleton getter. */
+template <typename ObjectType, typename InstanceType>
+class SingletonRefHandler {
+public:
+	static ObjectType* get(const InstanceType& singleton) {
+		// Extract the pointer from the referenced object:
+		return (const_cast< sgtPtr<ObjectType>& >(singleton)).get();
+	};
+
+	static void set(const InstanceType& singleton, ObjectType* obj) {
+		// Extract the pointer from the referenced object:
+		sgtPtr<ObjectType>& ptr = (const_cast< sgtPtr<ObjectType>& >(singleton));
+		ptr = obj;
+	};
+};
+
 /** Template used to create referenced singleton objects.
 */
 template <typename T,
 	template <class> class CreationPolicy = SingletonRefCreator,
 	template <class> class InitPolicy = SingletonNoInitializer,
-	template <class> class ThreadingModel = ClassLevelLockable >
-class SGTCORE_EXPORT Singleton : public T, public ThreadingModel<Singleton> {
+	template <class, class> class HandlerPolicy = SingletonRefHandler,
+	template <class, class> class ThreadingModel = ClassLevelLockable,
+	typename MutexPolicy = sgtMutex>
+class SGTCORE_EXPORT SingletonHolder : public T {
 public:
-	typedef ThreadingModel<CreationPolicy<T>::singleton_holder_type>::VolatileType InstanceType;
-	
+	typedef typename ThreadingModel<typename CreationPolicy<T>::singleton_holder_type,MutexPolicy>::VolatileType InstanceType;
+	typedef T ObjectType;
+	typedef HandlerPolicy<ObjectType,InstanceType> Handler;
+
 protected:
 	/** Default constructor. 
 	Protected for singleton pattern.
 	*/
-	Singleton() : {};
+	SingletonHolder() {};
 
 	/** Copy constructor intentionally left unimplemented (to respect the singleton pattern).*/
-	Singleton(const Singleton&);
+	SingletonHolder(const SingletonHolder&) { THROW_IF(true,"Singleton copy constructor called."); };
 	/** Assignment operator intentionally left unimplemented (to respect the singleton pattern).*/
-	Singleton& operator=(const Singleton&);
+	SingletonHolder& operator=(const SingletonHolder&)  { THROW_IF(true,"Singleton assignment operator called."); };
 	
 public:
 	/** Retrieve the singleton instance of this class.
 	*/
 	static T& instance() {
-		if(!_singleton) {
-			Lock guard;
-			 if (!_singleton)
-			{
-				_singleton = CreationPolicy<T>::create();
-				trINFO_V("","Created " << _singletonName << " singleton");
-				InitPolicy<T>::initialize(*_singleton);
+		if(!Handler::get(_singleton)) {
+			typename ThreadingModel<SingletonHolder,MutexPolicy>::Lock guard;
+
+			if (!Handler::get(_singleton)) {
+				ObjectType* obj = CreationPolicy<T>::create();
+				Handler::set(_singleton,obj);
+
+				trINFO_V("SingletonHolder","Created " << obj->libraryName() << "::" << obj->className() << " singleton");
+				InitPolicy<T>::initialize(*obj);
 			}
 		}
 
-		return *_singleton;	
+		return *Handler::get(_singleton);	
 	}
 	
 	/** Used to destroy the actual singleton object.*/
 	static void destroy() {
-		if(_singleton) {
-			// Destroy the singleton:
-			trINFO_V("","Destroying " << libraryName << "::" << className() << " singleton");
-			InitPolicy<T>::uninitialize(*_singleton);
-			_singleton = NULL;
+		if(Handler::get(_singleton)) {
+			typename ThreadingModel<SingletonHolder,MutexPolicy>::Lock guard;
+
+			if (!Handler::get(_singleton)) {
+				ObjectType* obj = Handler::get(_singleton);
+				// Destroy the singleton:
+				trINFO_V("SingletonHolder","Destroying " << obj->libraryName() << "::" << obj->className() << " singleton");
+				InitPolicy<T>::uninitialize(*obj);
+				Handler::set(_singleton,NULL);
+			}
 		}	
 	}
 
 	/** Check if the instance of this class is already constructed. */
 	static bool isInstanciated() {
-		return _singleton.valid();
+		return Handler::get(_singleton)!=NULL;
 	}
 	
 private:
 	static InstanceType _singleton;
 };
 
+/*
+template <typename T,
+template <class> class CreationPolicy,
+template <class> class InitPolicy,
+template <class, class> class HandlerPolicy,
+template <class, class> class ThreadingModel,
+typename MutexPolicy>
+typename SingletonHolder<T, CreationPolicy, InitPolicy, HandlerPolicy, ThreadingModel, MutexPolicy>::InstanceType
+SingletonHolder<T, CreationPolicy, InitPolicy, HandlerPolicy, ThreadingModel, MutexPolicy>::_singleton;
+*/
+
 } /* namespace sgt */
 
-#endif /* OBJECT_H_ */
+#endif /* SINGLETON_H_ */

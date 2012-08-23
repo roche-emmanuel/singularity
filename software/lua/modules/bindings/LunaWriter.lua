@@ -250,9 +250,17 @@ function LunaWriter:writeMainHeader()
 	buf:newLine()
 	
 	-- write the LunaTypes for all the absolute base classes:
+	local writtenTypes = Set();
+	
 	for k,v in self.classes:sequence() do
 		if v:getBases():empty() then
-			buf:writeSubLine(class_type_template,utils.getHash(v:getFullName()),v:getFullName())
+			local hash = utils.getHash(v:getFullName())
+			if not writtenTypes:contains(hash) then
+				buf:writeSubLine(class_type_template,hash,v:getFullName())
+				writtenTypes:push_back(hash)
+			else
+				self:warn("Luna type already written for hash=",hash," type=",v:getFullName())
+			end
 		end
 	end
 	

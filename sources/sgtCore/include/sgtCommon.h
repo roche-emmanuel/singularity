@@ -48,6 +48,7 @@
 #include <osgDB/Registry>
 #include <osgDB/ReadFile>
 #include <osgDB/WriteFile>
+#include <OpenThreads/Mutex>
 
 // Smart pointers definitions:
 #define sgtPtr osg::ref_ptr
@@ -96,6 +97,8 @@ typedef float Float;
 typedef double Double;
 
 typedef sgtPtr<sgtReferencedBase> RefPtr;
+
+typedef OpenThreads::Mutex sgtMutex;
 
 //typedef boost::any Any;
 

@@ -1,9 +1,12 @@
+module=posix_time
+posix_time::ptime => posix_time::ptime
 module=osg
 osg::Referenced => osg::Referenced
 osg::Object => osg::Referenced
 module=sgt
 osg::ref_ptr< osg::Referenced > => sgt::RefPtr
 sgt::Object => osg::Referenced
+sgt::TimeProvider => osg::Referenced
 sgt::LogSink => sgt::LogSink
 sgt::FileLogger => sgt::LogSink
 sgt::LogManager => sgt::LogManager
@@ -13,4 +16,5 @@ std::map< std::string, int > => sgt::LogManager::TraceFlagMap
 sgt::LogRecord => sgt::LogRecord
 std::set< std::string > => sgt::LogSink::StringSet
 sgt::StdLogger => sgt::LogSink
+sgt::TimeManager => sgt::TimeManager
 

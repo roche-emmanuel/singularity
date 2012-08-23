@@ -6,12 +6,31 @@
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
 #include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
 #include <sgtCommon.h>
+#include <base/TimeProvider.h>
 #include <base/Object.h>
 #include <log/LogSink.h>
 #include <log/FileLogger.h>
 #include <log/LogManager.h>
 #include <log/LogRecord.h>
 #include <log/StdLogger.h>
+
+template<>
+class LunaTraits< posix_time::ptime > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static posix_time::ptime* _bind_ctor(lua_State *L);
+    static void _bind_dtor(posix_time::ptime* obj);
+    typedef posix_time::ptime parent_t;
+    typedef posix_time::ptime base_t;
+	static luna_ConverterType converters[];
+};
 
 template<>
 class LunaTraits< osg::Referenced > {
@@ -194,6 +213,24 @@ public:
 };
 
 template<>
+class LunaTraits< sgt::TimeProvider > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static sgt::TimeProvider* _bind_ctor(lua_State *L);
+    static void _bind_dtor(sgt::TimeProvider* obj);
+    typedef osg::Referenced parent_t;
+    typedef sgt::TimeProvider base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< sgt::LogSink > {
 public:
     static const char className[];
@@ -355,6 +392,31 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< sgt::TimeManager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static sgt::TimeManager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(sgt::TimeManager* obj);
+    typedef sgt::TimeManager parent_t;
+    typedef sgt::TimeManager base_t;
+	static luna_ConverterType converters[];
+};
+
+
+template<>
+class LunaType< 12269219 > {
+public:
+    typedef posix_time::ptime type;
+    
+};
 
 template<>
 class LunaType< 50169651 > {
@@ -388,6 +450,13 @@ template<>
 class LunaType< 32886573 > {
 public:
     typedef sgt::RefPtr type;
+    
+};
+
+template<>
+class LunaType< 10949480 > {
+public:
+    typedef sgt::TimeManager type;
     
 };
 

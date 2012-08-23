@@ -29,8 +29,11 @@ INSTALL(TARGETS ${TARGET_NAME}
 
 # step needed for the generation of the XML documentation:
 SET(INTF_FILES)
+SET(INCLUDE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../sgtCore/include")
+
 ADD_FILES(INTF_FILES "../../sgtCore/include/sgtCommon.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/base/Object.h")
+ADD_FILES(INTF_FILES "../../sgtCore/include/base/TimeProvider.h")
 #ADD_FILES(INTF_FILES "../../sgtCore/include/base/DataMap.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/log/*.h")
 LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/Referenced")
@@ -38,6 +41,8 @@ LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/Object")
 # LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/CopyOp")
 ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
+
+SET(EXPAND_AS_DEFINED META_Object META_Node META_StateAttribute META_NodeVisitor META_Shape Object_META Object_META_DEF)
 
 GENERATE_REFLECTION(${TARGET_NAME} INTF_FILES)
 COMPRESS_BINARY()
