@@ -86,14 +86,11 @@ public:
 
 };
 
-typedef SingletonHolder<TimeProvider> TimeManager;
+DECLARE_SINGLETON(TimeProvider, TimeManager, SGTCORE_EXPORT);
 
 } // namespace sgt
 
 typedef sgt::TimeProvider sgtTimeProvider;
 typedef sgt::TimeManager sgtTimeManager;
-
-// force template export:
-template class SGTCORE_EXPORT sgt::SingletonHolder<sgt::TimeProvider>;
 
 #endif

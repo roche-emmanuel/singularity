@@ -3,8 +3,7 @@
 
 namespace sgt {
 
-// implement singleton:
-TimeManager::InstanceType TimeManager::_singleton;
+IMPLEMENT_SINGLETON(TimeManager);
 
 Time TimeProvider::getCurrentTime() {
 	//! Return the current simulation time in the time manager object.

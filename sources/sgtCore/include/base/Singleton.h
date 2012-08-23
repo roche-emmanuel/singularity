@@ -130,4 +130,11 @@ SingletonHolder<T, CreationPolicy, InitPolicy, HandlerPolicy, ThreadingModel, Mu
 
 } /* namespace sgt */
 
+#define DECLARE_SINGLETON(BaseType,SingletonType,ExportConvention) \
+	typedef SingletonHolder<BaseType> SingletonType; \
+	template class ExportConvention SingletonHolder<BaseType>; // force template export
+
+#define IMPLEMENT_SINGLETON(SingletonType) \
+	SingletonType::InstanceType SingletonType::_singleton;
+
 #endif /* SINGLETON_H_ */
