@@ -1,11 +1,37 @@
 #include "sgtCommon.h"
 
-#include "base/TimeManager.h"
+#include "base/TimeProvider.h"
 
 #include "SPICECallback.h"
 #include <osg/PositionAttitudeTransform>
 
 #include "SpiceUsr.h"
+
+#undef OBJECT_CAST
+#define OBJECT_CAST dynamic_cast
+
+#include <osgDB/Registry>
+#include <osgDB/ReadFile>
+#include <osgDB/WriteFile>
+#include <osgDB/ObjectWrapper>
+
+// write the wrapper:
+REGISTER_OBJECT_WRAPPER( sgtSPICECallback_Wrapper,
+						new sgt::SPICECallback, sgt::SPICECallback,
+						"osg::Object osg::NodeCallback sgt::SPICECallback" )
+{
+	ADD_STRING_SERIALIZER( Target, "" ); 
+	ADD_STRING_SERIALIZER( Observer, "" ); 
+	ADD_STRING_SERIALIZER( Frame, "" ); 
+	ADD_STRING_SERIALIZER( SrcFrame, "" ); 
+	ADD_STRING_SERIALIZER( Mode, "" ); 
+	ADD_BOOL_SERIALIZER( UpdatePosition, false ); 
+	ADD_BOOL_SERIALIZER( UpdateAttitude, false ); 
+}
+
+#undef OBJECT_CAST
+#define OBJECT_CAST static_cast
+
 namespace sgt {
 
 void SPICECallback::operator()(osg::Node * node, osg::NodeVisitor * nv) {

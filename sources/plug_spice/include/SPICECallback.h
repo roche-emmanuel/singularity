@@ -53,11 +53,11 @@ protected:
     inline void setUpdatePosition(bool value) { _updatePosition = value; }
     inline void setUpdateAttitude(bool value) { _updateAttitude = value; }
 	
-    inline String getTarget() const { return _target; }
-    inline String getObserver() const { return _observer; }
-    inline String getFrame() const { return _frame; }
-    inline String getSrcFrame() const { return _srcFrame; }
-    inline String getMode() const { return _mode; }
+    inline const String& getTarget() const { return _target; }
+    inline const String& getObserver() const { return _observer; }
+    inline const String& getFrame() const { return _frame; }
+    inline const String& getSrcFrame() const { return _srcFrame; }
+    inline const String& getMode() const { return _mode; }
     inline bool getUpdatePosition() const { return _updatePosition; }
     inline bool getUpdateAttitude() const { return _updateAttitude; }
 	

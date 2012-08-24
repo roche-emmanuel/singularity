@@ -1,5 +1,9 @@
 #include "sgtCommon.h"
 
+#include <osgDB/Registry>
+#include <osgDB/ReadFile>
+#include <osgDB/WriteFile>
+
 osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Time & pt) {
 	std::string str;
 	is >> str;

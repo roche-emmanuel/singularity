@@ -44,10 +44,6 @@
 #include <osg/ref_ptr>
 #include <osg/observer_ptr>
 #include <osg/Math>
-#include <osgDB/ObjectWrapper>
-#include <osgDB/Registry>
-#include <osgDB/ReadFile>
-#include <osgDB/WriteFile>
 #include <OpenThreads/Mutex>
 
 // Smart pointers definitions:

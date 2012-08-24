@@ -1,6 +1,8 @@
 #include "sgtCommon.h"
 #include "base/TimeProvider.h"
 
+#include <osgDB/ObjectWrapper>
+
 static bool checkSimulationTime( const sgt::TimeProvider& tp )
 {
 	return true; // there is always a simulation time.

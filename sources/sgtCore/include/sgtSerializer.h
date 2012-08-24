@@ -1,8 +1,13 @@
 #ifndef SGTCORE_SERIALIZER_
 #define SGTCORE_SERIALIZER_
 
+namespace osgDB {
+class InputStream;
+class OutputStream;
+};
+
 enum ExtendedTypes {
-	RW_TIME = osgDB::BaseSerializer::RW_ENUM+100
+	RW_TIME = 100
 };
 
 // This file contains helper to perform basic serializations.

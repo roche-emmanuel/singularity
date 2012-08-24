@@ -29,6 +29,7 @@ using namespace boost;
 using namespace sgt;
 
 #include <osg/UserDataContainer>
+#include <osg/State>
 
 #include "plug_extensions.h"
 

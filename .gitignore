@@ -28,6 +28,8 @@ upx.exe
 #software/bin/linux32
 #software/bin/linux64
 
+software/*.osgt
+
 sgtLauncher
 
 # Ignore luna binding files:
