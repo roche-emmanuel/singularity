@@ -403,18 +403,18 @@ public:
 		return 0;
 	}
 
-	// double sgt::TimeProvider::getTimeSpeed()
+	// double sgt::TimeProvider::getTimeSpeed() const
 	static int _bind_getTimeSpeed(lua_State *L) {
 		if (!_lg_typecheck_getTimeSpeed(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double sgt::TimeProvider::getTimeSpeed() function, expected prototype:\ndouble sgt::TimeProvider::getTimeSpeed()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double sgt::TimeProvider::getTimeSpeed() const function, expected prototype:\ndouble sgt::TimeProvider::getTimeSpeed() const\nClass arguments details:\n");
 		}
 
 
 		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double sgt::TimeProvider::getTimeSpeed()");
+			luaL_error(L, "Invalid object in function call double sgt::TimeProvider::getTimeSpeed() const");
 		}
 		double lret = self->getTimeSpeed();
 		lua_pushnumber(L,lret);
@@ -460,45 +460,44 @@ public:
 		return 1;
 	}
 
-	// posix_time::ptime sgt::TimeProvider::getStartTime() const
+	// const posix_time::ptime & sgt::TimeProvider::getStartTime() const
 	static int _bind_getStartTime(lua_State *L) {
 		if (!_lg_typecheck_getStartTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in posix_time::ptime sgt::TimeProvider::getStartTime() const function, expected prototype:\nposix_time::ptime sgt::TimeProvider::getStartTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const posix_time::ptime & sgt::TimeProvider::getStartTime() const function, expected prototype:\nconst posix_time::ptime & sgt::TimeProvider::getStartTime() const\nClass arguments details:\n");
 		}
 
 
 		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call posix_time::ptime sgt::TimeProvider::getStartTime() const");
+			luaL_error(L, "Invalid object in function call const posix_time::ptime & sgt::TimeProvider::getStartTime() const");
 		}
-		posix_time::ptime stack_lret = self->getStartTime();
-		posix_time::ptime* lret = new posix_time::ptime(stack_lret);
+		const posix_time::ptime* lret = &self->getStartTime();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< posix_time::ptime >::push(L,lret,true);
+		Luna< posix_time::ptime >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// void sgt::TimeProvider::setStartTime(posix_time::ptime & val)
+	// void sgt::TimeProvider::setStartTime(const posix_time::ptime & val)
 	static int _bind_setStartTime(lua_State *L) {
 		if (!_lg_typecheck_setStartTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setStartTime(posix_time::ptime & val) function, expected prototype:\nvoid sgt::TimeProvider::setStartTime(posix_time::ptime & val)\nClass arguments details:\narg 1 ID = 12269219\n");
+			luaL_error(L, "luna typecheck failed in void sgt::TimeProvider::setStartTime(const posix_time::ptime & val) function, expected prototype:\nvoid sgt::TimeProvider::setStartTime(const posix_time::ptime & val)\nClass arguments details:\narg 1 ID = 12269219\n");
 		}
 
-		posix_time::ptime* val_ptr=(Luna< posix_time::ptime >::check(L,2));
+		const posix_time::ptime* val_ptr=(Luna< posix_time::ptime >::check(L,2));
 		if( !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in sgt::TimeProvider::setStartTime function");
 		}
-		posix_time::ptime & val=*val_ptr;
+		const posix_time::ptime & val=*val_ptr;
 
 		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setStartTime(posix_time::ptime &)");
+			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setStartTime(const posix_time::ptime &)");
 		}
 		self->setStartTime(val);
 

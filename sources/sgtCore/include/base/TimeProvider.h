@@ -62,7 +62,7 @@ public:
 	}
 
     //! Return the time speed value stored in this time manager object.
-    inline double getTimeSpeed() { return _timeSpeed; }
+    inline double getTimeSpeed() const { return _timeSpeed; }
 
     //! Return the real current time
     //! \param utc if true then the UTC time is returned, otherwise, using local computer time.
@@ -77,10 +77,10 @@ public:
     static Time getTime(TimeProvider * provider = NULL, bool utc = false);
 
     //! Return the assigned start time value
-    inline Time getStartTime() const { return _startTime; }
+    inline const Time& getStartTime() const { return _startTime; }
 
     //! Assign a start time value (used when computing the elapsed seconds)
-    inline void setStartTime(Time & val) { _startTime = val; } 
+    inline void setStartTime(const Time & val) { _startTime = val; } 
 
     static double getElapsedSeconds(TimeProvider * provider);
 

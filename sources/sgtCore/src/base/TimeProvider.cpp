@@ -1,6 +1,37 @@
 #include "sgtCommon.h"
 #include "base/TimeProvider.h"
 
+static bool checkSimulationTime( const sgt::TimeProvider& tp )
+{
+	return true; // there is always a simulation time.
+}
+
+static bool readSimulationTime( osgDB::InputStream& is, sgt::TimeProvider& tp )
+{
+	sgt::Time pt;
+	is >> pt;
+	tp.setCurrentTime(pt);
+	return true;
+}
+
+static bool writeSimulationTime( osgDB::OutputStream& os, const sgt::TimeProvider& tp )
+{
+	os << const_cast<sgt::TimeProvider&>(tp).getCurrentTime() << std::endl;
+	return true;
+}
+
+
+// write the wrapper:
+REGISTER_OBJECT_WRAPPER( sgtTimeProvider_Wrapper,
+						new sgt::TimeProvider, sgt::TimeProvider,
+						"osg::Object sgt::Object sgt::TimeProvider" )
+{
+	ADD_DOUBLE_SERIALIZER( TimeSpeed, 1.0 ); 
+	ADD_BOOL_SERIALIZER( MicroPrecision, false );
+	ADD_TIME_SERIALIZER( StartTime, sgt::Time() );
+	ADD_USER_SERIALIZER( SimulationTime );
+}
+
 namespace sgt {
 
 IMPLEMENT_SINGLETON(TimeManager);

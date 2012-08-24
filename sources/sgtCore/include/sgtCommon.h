@@ -110,6 +110,7 @@ typedef sgt::RefPtr sgtRefPtr;
 #include "base/Object.h"
 #include "base/Exception.h"
 #include "sgtLogging.h"
+#include "sgtSerializer.h"
 
 // Helper macros:
 #define FOREACH BOOST_FOREACH
