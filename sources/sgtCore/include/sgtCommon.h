@@ -67,6 +67,7 @@ namespace sgt {
 typedef std::string String;
 
 typedef boost::posix_time::ptime Time;
+typedef boost::posix_time::time_duration Duration;
 
 typedef void Void;
 typedef bool Bool;
