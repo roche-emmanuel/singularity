@@ -66,7 +66,7 @@ public:
     inline const osg::Quat& getAttitudeOffset() const { return _attitudeOffset; }
 
     inline void setDefaultForward(const osg::Vec3d& value) {_defaultForward = value; }
-	inline const osg::Vec3d& getDefaultForward() { return _defaultForward; }
+	inline const osg::Vec3d& getDefaultForward() const { return _defaultForward; }
 
 	inline void setUseSpeed(bool value) { _useSpeed = value; }
 	inline bool getUseSpeed() const { return _useSpeed; }
@@ -81,7 +81,7 @@ public:
 	inline double getSpeedThreshold() const { return _speedThreshold; }
 
 	inline void setTargetFrame(const String& val) { _targetFrame = val; }
-	inline String getTargetFrame() const { return _targetFrame; }
+	inline const String& getTargetFrame() const { return _targetFrame; }
 
     osg::Vec3d getLocation(Time pt);
     double getArgumentOfLatitude(Time pt);

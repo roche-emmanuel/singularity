@@ -12,6 +12,56 @@ using namespace std;
 #include <SGP4io.h>
 #include <SGP4ext.h>
 
+#undef OBJECT_CAST
+#define OBJECT_CAST dynamic_cast
+
+#include <osgDB/Registry>
+#include <osgDB/ReadFile>
+#include <osgDB/WriteFile>
+#include <osgDB/ObjectWrapper>
+
+static bool checkTLEs( const sgt::SGP4Callback& cb )
+{
+	return true;
+}
+
+static bool readTLEs( osgDB::InputStream& is, sgt::SGP4Callback& cb )
+{
+	sgt::String line1,line2;
+	is >> osgDB::BEGIN_BRACKET;
+	is >> osgDB::PROPERTY("Line1") >> line1;
+	is >> osgDB::PROPERTY("Line2") >> line2;
+	is >> osgDB::END_BRACKET;
+	cb.setTLE(line1,line2);
+	return true;
+}
+
+static bool writeTLEs( osgDB::OutputStream& os, const sgt::SGP4Callback& cb )
+{
+	os << osgDB::BEGIN_BRACKET << std::endl;
+	os << osgDB::PROPERTY("Line1") << cb.getTLELine1() << std::endl;
+	os << osgDB::PROPERTY("Line2") << cb.getTLELine2() << std::endl;
+	os << osgDB::END_BRACKET << std::endl;
+	return true;
+}
+
+// write the wrapper:
+REGISTER_OBJECT_WRAPPER( sgtSGP4Callback_Wrapper,
+						new sgt::SGP4Callback, sgt::SGP4Callback,
+						"osg::Object osg::NodeCallback sgt::SGP4Callback" )
+{
+	ADD_QUAT_SERIALIZER( AttitudeOffset, osg::Quat() ); 
+	ADD_VEC3D_SERIALIZER( DefaultForward, osg::Vec3d(1.0,0.0,0.0) ); 
+	ADD_BOOL_SERIALIZER( UseSpeed, true ); 
+	ADD_BOOL_SERIALIZER( Active, true ); 
+	ADD_DOUBLE_SERIALIZER( SpeedThreshold, 1000.0 ); 
+	ADD_STRING_SERIALIZER( TargetFrame, "" ); 
+	ADD_USER_SERIALIZER( TLEs ); 
+}
+
+#undef OBJECT_CAST
+#define OBJECT_CAST static_cast
+
 namespace sgt {
 
 SGP4Callback::SGP4Callback() {
@@ -24,7 +74,7 @@ SGP4Callback::SGP4Callback() {
 	_eci = new cEci();
 	_ellipsoid = new osg::EllipsoidModel;
 	_useSpeed = true;
-	_defaultForward = osg::Vec3d(0.0,0.0,1.0);
+	_defaultForward = osg::Vec3d(1.0,0.0,0.0);
 	_active = true;
 	_prevTime = 0.0;
 	_speedThreshold = 1000.0;
