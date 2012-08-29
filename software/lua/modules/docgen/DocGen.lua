@@ -9,6 +9,7 @@ local ImageReferenceTable = require "docgen.ImageReferenceTable"
 local SymbolTable = require "docgen.SymbolTable"
 local ClassHierarchy = require "docgen.ClassHierarchy"
 local SourceDB = require "docgen.SourceDB"
+local Parser = require "docgen.Parser"
 
 ---  Compares two strings so that the result is good for proper sorting.  A proper sort orders the characters as
 --   follows:
@@ -78,6 +79,16 @@ function Class:run()
 	ClassHierarchy:purge()
 	SourceDB:purgeDeletedSourceFiles()
 	
+	local filesToParse = Projects:getFilesToParse()
+	local num = filesToParse:size()
+	if num > O then
+		self:info("Parsing ",num," file",num>1 and "s" or "","...")
+		
+		for k,file in filesToParse:sequence() do
+			Parser:parseForInformation(file)
+			self:info("Parsed file ",file)
+		end
+	end
 end
 
 return Class;
