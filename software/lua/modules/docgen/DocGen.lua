@@ -8,6 +8,7 @@ local Languages = require "docgen.Languages"
 local ImageReferenceTable = require "docgen.ImageReferenceTable"
 local SymbolTable = require "docgen.SymbolTable"
 local ClassHierarchy = require "docgen.ClassHierarchy"
+local SourceDB = require "docgen.SourceDB"
 
 ---  Compares two strings so that the result is good for proper sorting.  A proper sort orders the characters as
 --   follows:
@@ -71,6 +72,12 @@ function Class:run()
 	
 	SymbolTable:load()
 	ClassHierarchy:load()
+	SourceDB:load()
+	
+	SymbolTable:purge()
+	ClassHierarchy:purge()
+	SourceDB:purgeDeletedSourceFiles()
+	
 end
 
 return Class;
