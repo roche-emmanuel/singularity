@@ -6,6 +6,8 @@ local Project = require "docgen.Project"
 local Topics = require "docgen.Topics"
 local Languages = require "docgen.Languages"
 local ImageReferenceTable = require "docgen.ImageReferenceTable"
+local SymbolTable = require "docgen.SymbolTable"
+local ClassHierarchy = require "docgen.ClassHierarchy"
 
 ---  Compares two strings so that the result is good for proper sorting.  A proper sort orders the characters as
 --   follows:
@@ -66,6 +68,9 @@ function Class:run()
 	Project:loadImageFileInfo()
 	
 	ImageReferenceTable:register()
+	
+	SymbolTable:load()
+	ClassHierarchy:load()
 end
 
 return Class;

@@ -214,7 +214,7 @@ end
 --
 --       type  - The <TopicType> to limit the index to.
 --
-function Class:indexChanged(TopicType type)
+function Class:indexChanged(type)
 	self:no_impl()
 end
 
@@ -232,7 +232,7 @@ end
 --
 --       type - The <TopicType> of the symbol that caused the change.
 --
-function Class:onIndexChange(TopicType type)
+function Class:onIndexChange(type)
 	self:no_impl()
 end
 
