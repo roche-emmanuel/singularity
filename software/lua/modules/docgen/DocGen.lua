@@ -5,6 +5,7 @@ local Settings = require "docgen.Settings"
 local Project = require "docgen.Project"
 local Topics = require "docgen.Topics"
 local Languages = require "docgen.Languages"
+local ImageReferenceTable = require "docgen.ImageReferenceTable"
 
 ---  Compares two strings so that the result is good for proper sorting.  A proper sort orders the characters as
 --   follows:
@@ -59,6 +60,12 @@ function Class:run()
 	
 	Topics:load()
 	Languages:load()
+	
+	Project:migrateOldFiles()
+	Project:loadSourceFileInfo()
+	Project:loadImageFileInfo()
+	
+	ImageReferenceTable:register()
 end
 
 return Class;
