@@ -2,6 +2,9 @@ local Class = require("classBuilder"){name="DocGen",bases="base.Object"};
 
 local File = require "docgen.File"
 local Settings = require "docgen.Settings"
+local Project = require "docgen.Project"
+local Topics = require "docgen.Topics"
+local Languages = require "docgen.Languages"
 
 ---  Compares two strings so that the result is good for proper sorting.  A proper sort orders the characters as
 --   follows:
@@ -51,6 +54,11 @@ end
 --- Main Entry point for documentation generation.
 function Class:run()
 	Settings:load()
+	
+	Project:loadConfigFileInfo()
+	
+	Topics:load()
+	Languages:load()
 end
 
 return Class;
