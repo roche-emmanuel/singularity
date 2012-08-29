@@ -57,4 +57,21 @@ function Class:initialize(options)
 	self:debug4("OSG Canvas initialization done.")
 end
 
+
+-- Function used to load a model from a file.
+function Class:loadModel(filename)
+	self:checkString(filename,"Invalid model filename")
+	local node = osg.readNodeFile(filename)
+	if not node then
+		self:warn("Cannot load model from file: ",filename)
+		return;
+	end
+	
+	-- The node was loaded properly,
+	-- now add it to the scenegraph:
+	self._viewer:getSceneData():addChild(node)
+	self:debug2_v("Successfully loaded model from file ", filename)
+end
+
+
 return Class
