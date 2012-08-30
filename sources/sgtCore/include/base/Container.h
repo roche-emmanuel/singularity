@@ -9,7 +9,7 @@ namespace sgt {
 /** Class used to build containers of various types
 based on the variant type concept.*/
 template < typename ContType, typename ValueType >
-class SGTCORE_EXPORT Container : public sgt::Object {
+class Container : public sgt::Object {
 public:
 	/** The type of the container used here.*/
 	typedef ContType container_type;
@@ -18,7 +18,7 @@ public:
 	typedef ValueType value_type;
 		
 	/** Iterator on container value type.*/
-	typedef ContType::iterator iterator;
+	typedef typename ContType::iterator iterator;
 	
 public:
 	/** Default constructor.*/
@@ -83,6 +83,9 @@ public:
 	
 	}
 	
+	inline void setData(const container_type& data) { _data = data; }
+	inline const container_type& getData() const { return _data; }
+
 protected:
 
 	/** The actual container with the real items inside.*/

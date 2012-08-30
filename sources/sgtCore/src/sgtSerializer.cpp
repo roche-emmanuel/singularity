@@ -16,3 +16,5 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Time & pt) {
 	os << str;
 	return os;
 }
+
+
