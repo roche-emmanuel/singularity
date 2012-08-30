@@ -1,5 +1,42 @@
 #include "plug_extensions.h"
 
+sgt::Any luaToAny(lua_State* L, int index) {
+	int ltype = lua_type(L,index);
+
+	if(ltype == LUA_TNUMBER && lua_tointeger(L,index) == lua_tonumber(L,index)) { 		
+		// this is an integer:
+		int val = lua_tointeger(L,index);
+		return sgt::Any(val);
+	}
+	else if(ltype == LUA_TNUMBER) {
+		double val = lua_tonumber(L,index);
+		return sgt::Any(val);
+	}
+	else if(ltype == LUA_TBOOLEAN) {
+		int val = lua_toboolean(L,index);
+		return sgt::Any(val==1);
+	}
+	else if(ltype == LUA_TSTRING) {
+		std::string val = lua_tostring(L,index);
+		return sgt::Any(val);
+	}
+	else if(ltype==LUA_TUSERDATA) {
+		// userdata
+		sgtReferencedBase* obj = Luna< sgtReferencedBase >::check(L,index);
+		if(obj) {
+			return sgt::Any(sgtRefPtr(obj));
+		}
+	}
+	else { //(ltype==LUA_TTABLE || ltype==LUA_TFUNCTION || ltype==LUA_TTHREAD || ltype==LUA_TLIGHTUSERDATA) {
+		luaL_error(L,"Invalid lua data type in luaToAny(), type=%d",ltype);
+		return sgt::Any();
+	}
+};
+
+int anyToLua(lua_State* L, const sgt::Any& val) {
+	return 0;
+};
+
 int ptime_tostring(boost::posix_time::ptime* val, lua_State* L) {
 	// convert the value to a string:
 	std::string timestr = boost::posix_time::to_iso_extended_string(*val);
@@ -7,50 +44,14 @@ int ptime_tostring(boost::posix_time::ptime* val, lua_State* L) {
 	return 1;
 };
 
-/*
-
-int datamap_set(sgt::DataMap* dmap, String& name, lua_Any* dummy, lua_State* L) {
-	// value not found, assign default:
-	int index = 3;
+int vector_push_back(sgt::AnyVector* vec, lua_Any* dummy, lua_State* L) {
+	sgt::Any val = luaToAny(L,2);
 	
-	int ltype = lua_type(L,index);
-	
-	if(ltype == LUA_TNIL) {
-		// nothing to save:
-		return 0;
-	}
-	else if(ltype == LUA_TNUMBER && lua_tointeger(L,index) == lua_tonumber(L,index)) { 		
-		// this is an integer:
-		int val = lua_tointeger(L,index);
-		dmap->setAny(name,val);
-	}
-	else if(ltype == LUA_TNUMBER) {
-		double val = lua_tonumber(L,index);
-		dmap->setAny(name,val);
-	}
-	else if(ltype == LUA_TBOOLEAN) {
-		int val = lua_toboolean(L,index);
-		dmap->setAny(name,(val==1));
-	}
-	else if(ltype == LUA_TSTRING) {
-		std::string val = lua_tostring(L,index);
-		dmap->setAny(name,val);
-	}
-	else if(ltype==LUA_TTABLE || ltype==LUA_TFUNCTION || ltype==LUA_TTHREAD || ltype==LUA_TLIGHTUSERDATA) {
-		luaL_error(L,"Invalid lua data type in DataMap:set() method, type=%d",ltype);
-		return 0;
-	}
-	else {
-		// userdata
-		sgtReferenced* obj = Luna< sgtReferenced >::check(L,index);
-		if(obj) {
-			dmap->setAny(name, sgtRefPtr(obj));
-		}
-	}
-
+	vec->push_back(val);
 	return 0;
-}
+};
 
+/*
 int datamap_get(sgt::DataMap* dmap, String& name, lua_Any* dummy, lua_State* L) {
 	// if there is already a value push it:
 	int result = datamap_get(dmap,name,L);

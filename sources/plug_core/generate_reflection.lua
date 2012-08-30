@@ -22,6 +22,27 @@ package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path
 
 --osg = require "osg"
 
+require "core"
+
+-- setup the log manager:
+
+local logman = sgt.LogManager.instance()
+logman:setDefaultLevelFlags(sgt.LogManager.TIME_STAMP);
+logman:setDefaultTraceFlags(sgt.LogManager.TIME_STAMP);
+logman:addLevelFlags(sgt.LogManager.FATAL,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+logman:addLevelFlags(sgt.LogManager.ERROR,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+logman:addLevelFlags(sgt.LogManager.WARNING,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+
+logman:setVerbose(true);
+logman:setNotifyLevel(sgt.LogManager.DEBUG3);
+
+logman:addSink(sgt.FileLogger:new(dest_path.."/reflection.log"));
+--logman:addSink(sgt.StdLogger:new());
+
+local issuesLog = sgt.FileLogger:new(dest_path.."/reflection_issues.log");
+issuesLog:setLevelRange(sgt.LogManager.FATAL,sgt.LogManager.WARNING);
+logman:addSink(issuesLog);
+	
 log = require "logger" 
 
 log:info "Executing init script"
@@ -49,7 +70,7 @@ im:getIgnoreFunctionsPatterns():push_back("slot_type")
 im:getIgnoreFunctionsPatterns():push_back("iterator")
 im:getIgnoreFunctionsPatterns():push_back("std::ostream")
 im:getIgnoreFunctionsPatterns():push_back("registerKeyObserver")
-im:getIgnoreFunctionsPatterns():push_back("Any ")
+im:getIgnoreFunctionsPatterns():push_back(" Any ")
 
 im:addPattern("class_declaration","SingletonHolder")
 
@@ -77,4 +98,5 @@ local dt = os.clock()-t0
 
 log:notice("Done executing script in "..dt.." seconds.")
 
+sgt.LogManager.destroy()
 

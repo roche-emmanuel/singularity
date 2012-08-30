@@ -39,8 +39,8 @@ ADD_FILES(INTF_FILES "../../sgtCore/include/log/*.h")
 LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/Referenced")
 LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/Object")
 # LIST(APPEND INTF_FILES "${OSG_INC_DIR}/osg/CopyOp")
-ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
+ADD_FILES(INTF_FILES "../include/plug_extensions.h")
 
 SET(EXPAND_AS_DEFINED META_Object META_Node META_StateAttribute META_NodeVisitor META_Shape Object_META Object_META_DEF)
 

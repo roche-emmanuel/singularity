@@ -26,6 +26,13 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_push_back(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -44,6 +51,18 @@ public:
 
 
 	// Function binds:
+	// int sgt::AnyVector::vector_push_back(sgt::AnyVector * vec, lua_Any * dum, lua_State * L)
+	static int _bind_push_back(lua_State *L) {
+		if (!_lg_typecheck_push_back(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int sgt::AnyVector::vector_push_back(sgt::AnyVector * vec, lua_Any * dum, lua_State * L) function, expected prototype:\nint sgt::AnyVector::vector_push_back(sgt::AnyVector * vec, lua_Any * dum, lua_State * L)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		sgt::AnyVector* vec=dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+
+		return vector_push_back(vec, NULL, L);
+	}
+
 
 	// Operator binds:
 
@@ -65,6 +84,7 @@ const int LunaTraits< sgt::AnyVector >::hash = 11388484;
 const int LunaTraits< sgt::AnyVector >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::AnyVector >::methods[] = {
+	{"push_back", &luna_wrapper_sgt_AnyVector::_bind_push_back},
 	{0,0}
 };
 

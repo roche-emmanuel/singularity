@@ -82,6 +82,9 @@ function test_anyvector_serialization()
 		fs:removeFile(file)
 	end
 	
+	-- Add a double value:
+	obj:push_back(1.234)
+	
 	log:info("Tests","Writing test object to "..file)
 	local res = osg.writeObjectFile(obj,file)
 	assert_equal(true,res,"Cannot write object file.")
