@@ -17,4 +17,5 @@ sgt::LogRecord => sgt::LogRecord
 std::set< std::string > => sgt::LogSink::StringSet
 sgt::StdLogger => sgt::LogSink
 sgt::TimeManager => sgt::TimeManager
+sgt::AnyVector => osg::Referenced
 

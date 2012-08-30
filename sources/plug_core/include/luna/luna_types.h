@@ -410,6 +410,24 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< sgt::AnyVector > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static sgt::AnyVector* _bind_ctor(lua_State *L);
+    static void _bind_dtor(sgt::AnyVector* obj);
+    typedef osg::Referenced parent_t;
+    typedef sgt::AnyVector base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 12269219 > {

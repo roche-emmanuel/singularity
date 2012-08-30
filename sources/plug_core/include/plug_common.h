@@ -24,6 +24,7 @@
 #include "sgtCommon.h"
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
+#include "base/Container.h"
 
 using namespace boost;
 using namespace sgt;

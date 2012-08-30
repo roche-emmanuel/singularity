@@ -62,3 +62,11 @@ function test_timeprovider_serialization()
 	log:info("Tests","Retrieved start time is: ", st)
 end
 
+function test_anyvector()
+	log:info("Tests","Performing AnyVector creation...")
+	local obj = sgt.AnyVector()
+	assert_not_equal(nil,obj,"Invalid AnyVector object.")
+	log:info("Tests","AnyVector test done.")
+end
+
+

@@ -29,7 +29,7 @@ ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_osgParticle)
 # ADD_SUBDIRECTORY(plug_osgWX)
 # ADD_SUBDIRECTORY(plug_spice)
-ADD_SUBDIRECTORY(plug_norad)
+# ADD_SUBDIRECTORY(plug_norad)
 
 #Sim
 
