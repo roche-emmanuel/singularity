@@ -23,6 +23,9 @@ public:
 public:
 	/** Default constructor.*/
 	Container() {};
+
+	Container(const Container& rhs) : _data(rhs._data), sgt::Object(rhs) {};
+
 	virtual ~Container() {};
 
 	/** Retrieve the beginning iterator on the underlying map implementation.*/
@@ -51,27 +54,27 @@ public:
 	};
 	
 	/** Insert an object at the front of a vector, when applicable.*/
-	void push_front(const ValueType& val) {
+	/*void push_front(const ValueType& val) {
 		_data.push_front(val);	
-	};
+	};*/
 
 	void pop_back() {
 		_data.pop_back();
 	}
 	
-	void pop_front() {
+	/*void pop_front() {
 		_data.pop_front();
-	}
+	}*/
 
 	ValueType& back() {
-		_data.back();
+		return _data.back();
 	}
 	
 	ValueType& front() {
-		_data.front();
+		return _data.front();
 	}
 	
-	iterator find(const ValueType& val) {
+	/*iterator find(const ValueType& val) {
 	
 	}
 	
@@ -81,7 +84,7 @@ public:
 	
 	ValueType& operator[](UInt32 index) {
 	
-	}
+	}*/
 	
 	inline void setData(const container_type& data) { _data = data; }
 	inline const container_type& getData() const { return _data; }
@@ -92,7 +95,17 @@ protected:
 	ContType _data;
 };
 
-typedef Container< std::vector<Any>, Any > AnyVector;
+class SGTCORE_EXPORT AnyVector : public Container< std::vector<Any>, Any > {
+public:
+	typedef Container< std::vector<Any>, Any > base_type;
+
+	AnyVector() {};
+	AnyVector( const AnyVector & rhs, const sgtCopyOp& copyop = sgtCopyOp::SHALLOW_COPY ) : base_type(rhs) {};
+
+	Object_META(sgt, AnyVector);
+};
+
+//typedef Container< std::vector<Any>, Any > AnyVector;
 typedef Container< std::set<Any>, Any > AnySet;
 typedef Container< std::deque<Any>, Any > AnyDeque;
 

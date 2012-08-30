@@ -8,5 +8,5 @@ REGISTER_OBJECT_WRAPPER( sgtAnyVector_Wrapper,
 						new sgt::AnyVector, sgt::AnyVector,
 						"osg::Object sgt::Object sgt::AnyVector" )
 {
-	ADD_VECTOR_SERIALIZER(Data, sgt::AnyVector::container_type);
+	//ADD_VECTOR_SERIALIZER(Data, sgt::AnyVector::container_type);
 }

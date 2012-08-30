@@ -207,14 +207,16 @@ function Class:touch(filename,atime,mtime)
 	
 	self:debug2_v("Unlocking file: ",file, " with start=",start," length=",length)
 	local res, msg = lfs.unlock(file, start, length)
-	self:check(rs,msg)
-end
-
-
-function Class:removeFile(filename)
-	
+	self:check(res,msg)
 end
 ]=]
+
+function Class:removeFile(filename)
+	self:checkNonEmptyString(filename,"Invalid filename argument")
+	local res, msg = os.remove(filename)
+	self:check(res,msg)
+end
+
 
 -- function aliases:
 Class.isFolder = Class.isDirectory
