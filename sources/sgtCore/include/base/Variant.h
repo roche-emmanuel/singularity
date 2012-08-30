@@ -116,22 +116,35 @@ public:
 	/** Retrieve a value type from this container
 	with a default value in case the type is incorrect.*/
 	template <typename ValueType>
-	inline ValueType get(const ValueType& defVal = ValueType()) {
+	inline ValueType& get(const ValueType& defVal) const {
 		ValueType* ptr = boost::get<ValueType>( this );
 		return ptr ? *ptr : defVal;
 	}
 
+	template <typename ValueType>
+	inline ValueType get() const {
+		const ValueType* ptr = boost::get<const ValueType>( this );
+		return ptr ? *ptr : ValueType();
+	}
+
 	/** Retrieve double value from this container. */
 	template <>
-	inline Double get<Double>(const Double& defVal) {
+	inline Double& get<Double>(const Double& defVal) const {
 		Int32* ptr = boost::get<Int32>( this );
-		Double* ptr = boost::get<Double>( this );
-		return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : defVal;
+		Double* ptr2 = boost::get<Double>( this );
+		return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : const_cast<Double&>(defVal);
 	}
 	
+	template <>
+	inline Double get<Double>() const {
+		const Int32* ptr = boost::get<const Int32>( this );
+		const Double* ptr2 = boost::get<const Double>( this );
+		return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : 0.0;
+	}
+
 	/** Retrieve referenced value from this container. */
 	//template <>
-	inline sgtReferenced* get(const sgtReferenced* defVal = NULL) { //<sgtReferenced*>
+	inline sgtReferenced* get(const sgtReferenced* defVal = NULL) const { //<sgtReferenced*>
 		RefPtr* ptr = boost::get<RefPtr>( this );
 		return ptr ? ptr->get() : NULL;
 	}
@@ -199,13 +212,12 @@ public:
     }
 };
 
-#if 0
 /** Class used to write variant to a stream. */
 class SGTCORE_EXPORT WriteVariantVisitor : public boost::static_visitor<Void> {
 public:
 	WriteVariantVisitor(osgDB::OutputStream& os) : _os(os) {};
 
-	Void operator()(const EmptyType & i) { 
+	Void operator()(const EmptyType & i) const { 
 		if(_os.isBinary()) {
 			_os << VARIANT_EMPTY;
 		}
@@ -214,47 +226,47 @@ public:
 		}
 	}
 
-	Void operator()(const Int32 & i) { 
+	Void operator()(const Int32 & i) const { 
 		if(_os.isBinary()) {
 			_os << VARIANT_INT32 << i;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_INT32 << std::endl; 
+			_os << osgDB::PROPERTY("Type") << VARIANT_INT32; // << std::endl;  
 			_os << osgDB::PROPERTY("Value") << i << std::endl;
 		}
 	}
 
-	Void operator()(const Double & d) { 
+	Void operator()(const Double & d) const { 
 		if(_os.isBinary()) {
 			_os << VARIANT_DOUBLE << d;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_DOUBLE << std::endl; 
+			_os << osgDB::PROPERTY("Type") << VARIANT_DOUBLE; // << std::endl; 
 			_os << osgDB::PROPERTY("Value") << d << std::endl;
 		}
 	}
 
-	Void operator()(const Bool & b) { 
+	Void operator()(const Bool & b) const { 
 		if(_os.isBinary()) {
 			_os << VARIANT_BOOL << b;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_BOOL << std::endl; 
+			_os << osgDB::PROPERTY("Type") << VARIANT_BOOL; // << std::endl; 
 			_os << osgDB::PROPERTY("Value") << b << std::endl;
 		}
 	}
 
-	Void operator()(const String & str) {
+	Void operator()(const String & str) const {
 		if(_os.isBinary()) {
 			_os << VARIANT_STRING << str;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_STRING << std::endl; 
+			_os << osgDB::PROPERTY("Type") << VARIANT_STRING; // << std::endl; 
 			_os << osgDB::PROPERTY("Value") << str << std::endl;
 		}
 	}
 
-	Void operator()(const RefPtr & ref) {
+	Void operator()(const RefPtr & ref) const {
 		sgt::Object* obj = dynamic_cast<sgt::Object*>(ref.get());
 		if(!obj) {
 			return;
@@ -264,22 +276,22 @@ public:
 			_os << VARIANT_OBJECT << obj;
 		}
 		else {
-			_os << osgDB::PROPERTY("Type") << VARIANT_OBJECT << std::endl; 
+			_os << osgDB::PROPERTY("Type") << VARIANT_OBJECT; // << std::endl; 
 			_os << osgDB::PROPERTY("Value") << obj << std::endl;
 		}
 
 	}
 
 	template <typename T>
-	Void operator()( const T & operand )
+	Void operator()( const T & operand ) const
 	{
 		return; // return unknown type in generic case.
 	}
 
 protected:
-	osgDB::OutputStream _os;
+	mutable osgDB::OutputStream& _os;
 };
-#endif
+
 
 typedef Variant<> Any;
 

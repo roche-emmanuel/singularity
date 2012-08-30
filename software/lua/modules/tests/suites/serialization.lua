@@ -84,6 +84,9 @@ function test_anyvector_serialization()
 	
 	-- Add a double value:
 	obj:push_back(1.234)
+	obj:push_back(1.534)
+	obj:push_back(4.0)
+	obj:push_back(true)
 	
 	log:info("Tests","Writing test object to "..file)
 	local res = osg.writeObjectFile(obj,file)

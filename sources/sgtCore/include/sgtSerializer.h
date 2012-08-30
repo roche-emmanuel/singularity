@@ -31,6 +31,42 @@ osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Variant<ValueType> &
 
 template <class ValueType>
 osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<ValueType> & var) {
+	unsigned int type = var.getType();
+
+	if(os.isBinary()) {
+		os << type;
+
+		switch(type) {
+		case sgt::VARIANT_BOOL:
+			os << var.get<sgt::Bool>(); break;
+		case sgt::VARIANT_DOUBLE:
+			os << var.get<sgt::Double>(); break;
+		case sgt::VARIANT_INT32:
+			os << var.get<sgt::Int32>(); break;
+		case sgt::VARIANT_STRING:
+			os << var.get<sgt::String>(); break;
+		default:
+			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
+			break;
+		}
+	}
+	else {
+		switch(type) {
+		case sgt::VARIANT_BOOL:
+			os << osgDB::PROPERTY("Bool") << var.get<sgt::Bool>() << std::endl; break;
+		case sgt::VARIANT_DOUBLE:
+			os << osgDB::PROPERTY("Double") << var.get<sgt::Double>() << std::endl; break;
+		case sgt::VARIANT_INT32:
+			os << osgDB::PROPERTY("Int32") <<var.get<sgt::Int32>() << std::endl; break;
+		case sgt::VARIANT_STRING:
+			os << osgDB::PROPERTY("String") <<var.get<sgt::String>() << std::endl; break;
+		default:
+			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
+			break;
+		}
+	}
+
+	//boost::apply_visitor(sgt::WriteVariantVisitor(os), var);
 	return os;
 };
 
@@ -87,7 +123,6 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const std::vector<Value
 		{
 			os << (*itr);
 		}
-		os << std::endl;
 		os << osgDB::END_BRACKET << std::endl;
 	}
 	return os;
