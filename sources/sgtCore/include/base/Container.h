@@ -48,6 +48,10 @@ public:
 		_data.clear();
 	}
 	
+	inline ValueType& at(unsigned int index) {
+		return *(begin()+index);
+	}
+
 	/** Insert an object at the back of a vector, when applicable.*/
 	void push_back(const ValueType& val) {
 		_data.push_back(val);	

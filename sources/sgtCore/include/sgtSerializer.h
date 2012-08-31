@@ -21,11 +21,64 @@ enum ExtendedTypes {
 #PROP, TYPE(), &MyClass::get##PROP, &MyClass::set##PROP), (osgDB::BaseSerializer::Type)RW_VECTOR )
 
 
+namespace osgDB {
+using namespace sgt;
+
 osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Time & pt);
 osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Time & pt);
 
-template <class ValueType>
-osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Variant<ValueType> & var) {
+template <class ValueType, class VariantType>
+void readValue(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
+	ValueType val;
+	is >> val;
+	var = val;
+}
+
+template <class VariantType>
+void readStringValue(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
+	sgt::String val;
+	is.readWrappedString(val);
+	var = val;
+}
+
+template <class VariantType>
+osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
+	if(is.isBinary()) {
+		unsigned int type = 0;
+		is >> type;
+		
+		switch(type) {
+		case sgt::VARIANT_BOOL:
+			readValue<Bool>(is,var); break;
+		case sgt::VARIANT_DOUBLE:
+			readValue<Double>(is,var); break;
+		case sgt::VARIANT_INT32:
+			readValue<Int32>(is,var); break;
+		case sgt::VARIANT_STRING:
+			readStringValue(is,var); break;
+		default:
+			trERROR("Variant serializer","Cannotread unknown variant type="<<type);
+			break;
+		}
+	}
+	else {
+		if(is.matchString("Bool")) {
+			readValue<Bool>(is,var);
+		}
+		else if(is.matchString("Double")) {
+			readValue<Double>(is,var);
+		}
+		else if(is.matchString("Int32")) {
+			readValue<Int32>(is,var);
+		}
+		else if(is.matchString("String")) {
+			readStringValue(is,var);
+		}
+		else {
+			trERROR("Variant serializer","Cannot read unknown variant type");
+		}
+	}
+
 	return is;
 };
 
@@ -44,7 +97,7 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<Valu
 		case sgt::VARIANT_INT32:
 			os << var.get<sgt::Int32>(); break;
 		case sgt::VARIANT_STRING:
-			os << var.get<sgt::String>(); break;
+			os.writeWrappedString(var.get<sgt::String>()); break;
 		default:
 			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
 			break;
@@ -59,7 +112,9 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<Valu
 		case sgt::VARIANT_INT32:
 			os << osgDB::PROPERTY("Int32") <<var.get<sgt::Int32>() << std::endl; break;
 		case sgt::VARIANT_STRING:
-			os << osgDB::PROPERTY("String") <<var.get<sgt::String>() << std::endl; break;
+			os << osgDB::PROPERTY("String");
+			os.writeWrappedString(var.get<sgt::String>());
+			os << std::endl; break;
 		default:
 			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
 			break;
@@ -128,5 +183,6 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const std::vector<Value
 	return os;
 };
 
+};
 
 #endif

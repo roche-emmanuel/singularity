@@ -69,11 +69,28 @@ function test_anyvector()
 	log:info("Tests","AnyVector test done.")
 end
 
+function test_anyvector_access()
+	local obj = sgt.AnyVector()
+	
+	obj:push_back(1.234)
+	obj:push_back(1.534)
+	obj:push_back(4.0)
+	obj:push_back(true)
+	obj:push_back("Hello world!\n From Manu!")
+	
+	assert_equal(1.234,obj:get(0),"Invalid double value")
+	assert_equal(1.534,obj:get(1),"Invalid double value")
+	assert_equal(4.0,obj:get(2),"Invalid integer value")
+	assert_equal(true,obj:get(3),"Invalid bool value")
+	assert_equal("Hello world!\n From Manu!",obj:get(4),"Invalid string value")
+
+	log:info("Tests","AnyVector access test done.")
+end
+
 function test_anyvector_serialization()
 	log:info("Tests","Performing AnyVector serialization...")
 	local obj = sgt.AnyVector()
 	assert_not_equal(nil,obj,"Invalid AnyVector object.")
-	log:info("Tests","AnyVector serialization test done.")
 	
 	local file = fs:getRootPath(true).."tests/anyvector.osgt"
 	
@@ -87,6 +104,8 @@ function test_anyvector_serialization()
 	obj:push_back(1.534)
 	obj:push_back(4.0)
 	obj:push_back(true)
+	obj:push_back("Hello world!\n From Manu!")
+	
 	
 	log:info("Tests","Writing test object to "..file)
 	local res = osg.writeObjectFile(obj,file)
@@ -101,5 +120,6 @@ function test_anyvector_serialization()
 	local vec = res:dynCast("sgt::AnyVector")
 	
 	assert_not_equal(nil,vec,"Cannot dyncast anyvector.")
+	log:info("Tests","AnyVector serialization test done.")
 end
 

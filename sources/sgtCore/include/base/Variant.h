@@ -61,7 +61,8 @@ public:
 	/** assignment operator from variant types.*/
 	template <typename U>
 	Variant& operator=(const U & rhs) {
-		return variant_type::operator=(rhs);
+		variant_type::operator=(rhs);
+		return *this;
 	};
 	
 	/** Default destructor.*/

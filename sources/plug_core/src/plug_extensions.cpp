@@ -1,5 +1,9 @@
 #include "plug_extensions.h"
 
+#include "base/Variant.h"
+
+using namespace sgt;
+
 sgt::Any luaToAny(lua_State* L, int index) {
 	int ltype = lua_type(L,index);
 
@@ -34,6 +38,31 @@ sgt::Any luaToAny(lua_State* L, int index) {
 };
 
 int anyToLua(lua_State* L, const sgt::Any& val) {
+	int type = val.getType();
+	//logINFO("Retrieved any type is: "<<type);
+
+	String str;
+
+	switch(type) {
+	case sgt::VARIANT_BOOL:
+		lua_pushboolean(L,val.get<Bool>()?1:0);
+		return 1;
+	case sgt::VARIANT_DOUBLE:
+		lua_pushnumber(L,val.get<Double>());
+		return 1;
+	case sgt::VARIANT_EMPTY:
+		return 0;
+	case sgt::VARIANT_INT32:
+		lua_pushnumber(L,val.get<Int32>());
+		return 1;
+	case sgt::VARIANT_STRING:
+		str = val.get<String>();
+		lua_pushlstring(L,str.data(),str.size());
+		return 1;
+	default:
+		luaL_error(L,"Invalid variant data type in luaToAny(), type=%d",type);
+		break;
+	}
 	return 0;
 };
 
@@ -50,6 +79,16 @@ int vector_push_back(sgt::AnyVector* vec, lua_Any* dummy, lua_State* L) {
 	vec->push_back(val);
 	return 0;
 };
+
+int vector_get(sgt::AnyVector* vec, unsigned int index, lua_State* L) {
+	if(index>=vec->size()) {
+		luaL_error(L,"out of range access in vector_get() index=%d, vec_size=%d",index,vec->size());
+		return 0;
+	}
+
+	//logINFO("Retrieving vector item at index="<<index);
+	return anyToLua(L,vec->at(index));	
+}
 
 /*
 int datamap_get(sgt::DataMap* dmap, String& name, lua_Any* dummy, lua_State* L) {

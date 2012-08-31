@@ -22,7 +22,6 @@ static bool writeSimulationTime( osgDB::OutputStream& os, const sgt::TimeProvide
 	return true;
 }
 
-
 // write the wrapper:
 REGISTER_OBJECT_WRAPPER( sgtTimeProvider_Wrapper,
 						new sgt::TimeProvider, sgt::TimeProvider,

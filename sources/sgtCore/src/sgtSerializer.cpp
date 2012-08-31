@@ -4,6 +4,9 @@
 #include <osgDB/ReadFile>
 #include <osgDB/WriteFile>
 
+namespace osgDB {
+using namespace sgt;
+
 osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Time & pt) {
 	std::string str;
 	is >> str;
@@ -17,4 +20,5 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Time & pt) {
 	return os;
 }
 
+};
 

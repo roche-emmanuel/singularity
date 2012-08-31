@@ -33,6 +33,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_get(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -63,6 +71,19 @@ public:
 		return vector_push_back(vec, NULL, L);
 	}
 
+	// int sgt::AnyVector::vector_get(sgt::AnyVector * vec, unsigned int index, lua_State * L)
+	static int _bind_get(lua_State *L) {
+		if (!_lg_typecheck_get(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int sgt::AnyVector::vector_get(sgt::AnyVector * vec, unsigned int index, lua_State * L) function, expected prototype:\nint sgt::AnyVector::vector_get(sgt::AnyVector * vec, unsigned int index, lua_State * L)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		sgt::AnyVector* vec=dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+		unsigned int index=(unsigned int)lua_tointeger(L,2);
+
+		return vector_get(vec, index, L);
+	}
+
 
 	// Operator binds:
 
@@ -85,6 +106,7 @@ const int LunaTraits< sgt::AnyVector >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::AnyVector >::methods[] = {
 	{"push_back", &luna_wrapper_sgt_AnyVector::_bind_push_back},
+	{"get", &luna_wrapper_sgt_AnyVector::_bind_get},
 	{0,0}
 };
 
