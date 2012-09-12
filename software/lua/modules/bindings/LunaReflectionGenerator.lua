@@ -918,7 +918,45 @@ function ReflectionGenerator:getIgnoreClassFunctionsPatterns()
     return self.ignoreClassFunctionsPatterns
 end
 
+function stdStringFromLua(buf,index,type,argname)
+	buf:writeSubLine("std::string ${2}(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
+end
+
+function stdStringToLua(buf,type,argname)
+	local access = type:isPointer() and "->" or "."
+	buf:writeSubLine("lua_pushlstring(L,${1}${2}data(),${1}${2}size());",argname,access)
+end
+
 function ReflectionGenerator.generate(options)
+	local t0 = os.clock()
+	
+	-- first setup the log manager:
+	require "core"
+	
+	local logman = sgt.LogManager.instance()
+	logman:setDefaultLevelFlags(sgt.LogManager.TIME_STAMP);
+	logman:setDefaultTraceFlags(sgt.LogManager.TIME_STAMP);
+	logman:addLevelFlags(sgt.LogManager.FATAL,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+	logman:addLevelFlags(sgt.LogManager.ERROR,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+	logman:addLevelFlags(sgt.LogManager.WARNING,sgt.LogManager.FILE_NAME+sgt.LogManager.LINE_NUMBER);
+
+	logman:setVerbose(true);
+	logman:setNotifyLevel(sgt.LogManager.DEBUG3);
+
+	logman:addSink(sgt.FileLogger:new(options.destpath.."reflection.log"));
+	--logman:addSink(sgt.StdLogger:new());
+
+	local issuesLog = sgt.FileLogger:new(options.destpath.."reflection_issues.log");
+	issuesLog:setLevelRange(sgt.LogManager.FATAL,sgt.LogManager.WARNING);
+	logman:addSink(issuesLog);
+
+	local tc = require "bindings.TypeConverter"
+	
+	tc:setFromLuaConverter("std::string",stdStringFromLua)
+	tc:setFromLuaConverter("string",stdStringFromLua)
+	tc:setToLuaConverter("std::string",stdStringToLua)
+	tc:setToLuaConverter("string",stdStringToLua)
+
     local ReflectionMap = require "bindings.ReflectionMap"
     local LunaWriter = require "bindings.LunaWriter"
 	local im = require "bindings.IgnoreManager"
@@ -927,6 +965,10 @@ function ReflectionGenerator.generate(options)
     local rg = ReflectionGenerator(datamap)
     rg:getIgnoreGlobalFunctionsPatterns():fromTable(options.ignoreGlobalFuncs or {})
 
+	for k,v in ipairs(options.ignoreFunctions or {}) do
+		im:getIgnoreFunctionsPatterns():push_back(v)
+	end
+	
 	if options.ignoreClasses then
     	im:getIgnoreClassesPatterns():fromTable(options.ignoreClasses)
     end
@@ -938,8 +980,12 @@ function ReflectionGenerator.generate(options)
 		rg.locationPrefixes:fromTable(options.locationPrefixes)
 	end
 
-	if options.ignoreHeaders then
-		im:getIgnoreHeadersPatterns():fromTable(options.ignoreHeaders)
+	for k,v in ipairs(options.ignoreHeaders or {}) do
+		im:addPattern("header",v)
+	end
+	
+	for k,v in ipairs(options.ignoreClassDeclarations or {}) do
+		im:addPattern("class_declaration",v)
 	end
 	
     local map = rg:getIgnoreClassFunctionsPatterns()
@@ -949,6 +995,12 @@ function ReflectionGenerator.generate(options)
         map:set(k,set)
     end
 	
+	log:info("Xml source path: ",options.xmlpath)
+	log:info("Lua module name: ",options.luaOpenName)
+	log:info("Default module name: ",options.modName)
+	log:info("Dest path: ",options.destpath)
+	
+	log:info("Generating reflection...")
 
     rg:generateReflection(options.xmlpath)
 
@@ -960,6 +1012,12 @@ function ReflectionGenerator.generate(options)
 
 	local writer = LunaWriter(datamap,not options.noConverters)
     writer:writeBindings(options.destpath)
+	
+	local dt = os.clock()-t0
+	
+	log:info("Luna reflection generated in "..dt.." seconds.")
+	
+	sgt.LogManager.destroy()
 end
 
 return ReflectionGenerator

@@ -235,7 +235,7 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
         COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_SOURCE_DIR}/../doxygen.log 2>&1
         #COMMAND echo ${DOT_DIR_WIN}
         COMMAND echo "Generating lua reflection..."
-        COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; src_path='${CMAKE_CURRENT_BINARY_DIR}'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+        COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/' sgt_path='${SGT_DIR}/'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
         COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
         COMMAND echo "Reflection generation done."
     )
