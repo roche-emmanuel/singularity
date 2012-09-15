@@ -58,6 +58,7 @@ const char LunaTraits< SDL_AudioCVT >::className[] = "SDL_AudioCVT";
 const char LunaTraits< SDL_AudioCVT >::fullName[] = "SDL_AudioCVT";
 const char LunaTraits< SDL_AudioCVT >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_AudioCVT >::parents[] = {0};
+const int LunaTraits< SDL_AudioCVT >::hash = 74863825;
 const int LunaTraits< SDL_AudioCVT >::uniqueIDs[] = {74863825,0};
 
 luna_RegType LunaTraits< SDL_AudioCVT >::methods[] = {

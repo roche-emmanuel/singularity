@@ -58,6 +58,7 @@ const char LunaTraits< SDL_cond >::className[] = "SDL_cond";
 const char LunaTraits< SDL_cond >::fullName[] = "SDL_cond";
 const char LunaTraits< SDL_cond >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_cond >::parents[] = {0};
+const int LunaTraits< SDL_cond >::hash = 63689794;
 const int LunaTraits< SDL_cond >::uniqueIDs[] = {63689794,0};
 
 luna_RegType LunaTraits< SDL_cond >::methods[] = {

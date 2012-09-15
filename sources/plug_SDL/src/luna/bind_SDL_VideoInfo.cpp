@@ -58,6 +58,7 @@ const char LunaTraits< SDL_VideoInfo >::className[] = "SDL_VideoInfo";
 const char LunaTraits< SDL_VideoInfo >::fullName[] = "SDL_VideoInfo";
 const char LunaTraits< SDL_VideoInfo >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_VideoInfo >::parents[] = {0};
+const int LunaTraits< SDL_VideoInfo >::hash = 65126038;
 const int LunaTraits< SDL_VideoInfo >::uniqueIDs[] = {65126038,0};
 
 luna_RegType LunaTraits< SDL_VideoInfo >::methods[] = {

@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Thread >::className[] = "SDL_Thread";
 const char LunaTraits< SDL_Thread >::fullName[] = "SDL_Thread";
 const char LunaTraits< SDL_Thread >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Thread >::parents[] = {0};
+const int LunaTraits< SDL_Thread >::hash = 70107873;
 const int LunaTraits< SDL_Thread >::uniqueIDs[] = {70107873,0};
 
 luna_RegType LunaTraits< SDL_Thread >::methods[] = {

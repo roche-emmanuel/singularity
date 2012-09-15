@@ -58,6 +58,7 @@ const char LunaTraits< SDL_JoyButtonEvent >::className[] = "SDL_JoyButtonEvent";
 const char LunaTraits< SDL_JoyButtonEvent >::fullName[] = "SDL_JoyButtonEvent";
 const char LunaTraits< SDL_JoyButtonEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_JoyButtonEvent >::parents[] = {0};
+const int LunaTraits< SDL_JoyButtonEvent >::hash = 94708358;
 const int LunaTraits< SDL_JoyButtonEvent >::uniqueIDs[] = {94708358,0};
 
 luna_RegType LunaTraits< SDL_JoyButtonEvent >::methods[] = {

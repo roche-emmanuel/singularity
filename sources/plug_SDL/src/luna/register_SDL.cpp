@@ -8,12 +8,16 @@ extern void register_defines(lua_State* L);
 extern void register_enums(lua_State* L);
 extern void register_global_functions(lua_State* L);
 
+	
+	
 int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 	luna_open(L);
 
-	lua_newtable(L); // container class
-
+	luna_pushModule(L,"luna");
 	Luna< void >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"SDL");
 	Luna< SDL_ActiveEvent >::Register(L);
 	Luna< SDL_AudioCVT >::Register(L);
 	Luna< SDL_AudioSpec >::Register(L);
@@ -48,6 +52,9 @@ int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 	Luna< SDL_UserEvent >::Register(L);
 	Luna< SDL_version >::Register(L);
 	Luna< SDL_VideoInfo >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"SDL");
 
 	register_defines(L);
 
@@ -55,11 +62,11 @@ int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 
 	register_global_functions(L);
 
-	lua_setglobal(L,"SDL");
-	lua_getglobal(L,"SDL");
+	luna_popModule(L);
 
 	luna_copyParents(L,"SDL");
 
+	luna_pushModule(L,"SDL");
 	return 1;
 }
 

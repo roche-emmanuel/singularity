@@ -1234,10 +1234,11 @@ inline static bool _lg_typecheck_SDL_SoftStretch(lua_State *L) {
 
 
 // Function binds:
+// int SDL_Init(unsigned int flags)
 static int _bind_SDL_Init(lua_State *L) {
 	if (!_lg_typecheck_SDL_Init(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Init function, expected prototype:\nSDL_Init(unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_Init(unsigned int flags) function, expected prototype:\nint SDL_Init(unsigned int flags)\nClass arguments details:\n");
 	}
 
 	unsigned int flags=(unsigned int)lua_tointeger(L,1);
@@ -1248,10 +1249,11 @@ static int _bind_SDL_Init(lua_State *L) {
 	return 1;
 }
 
+// int SDL_InitSubSystem(unsigned int flags)
 static int _bind_SDL_InitSubSystem(lua_State *L) {
 	if (!_lg_typecheck_SDL_InitSubSystem(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_InitSubSystem function, expected prototype:\nSDL_InitSubSystem(unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_InitSubSystem(unsigned int flags) function, expected prototype:\nint SDL_InitSubSystem(unsigned int flags)\nClass arguments details:\n");
 	}
 
 	unsigned int flags=(unsigned int)lua_tointeger(L,1);
@@ -1262,10 +1264,11 @@ static int _bind_SDL_InitSubSystem(lua_State *L) {
 	return 1;
 }
 
+// void SDL_QuitSubSystem(unsigned int flags)
 static int _bind_SDL_QuitSubSystem(lua_State *L) {
 	if (!_lg_typecheck_SDL_QuitSubSystem(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_QuitSubSystem function, expected prototype:\nSDL_QuitSubSystem(unsigned int)");
+		luaL_error(L, "luna typecheck failed in void SDL_QuitSubSystem(unsigned int flags) function, expected prototype:\nvoid SDL_QuitSubSystem(unsigned int flags)\nClass arguments details:\n");
 	}
 
 	unsigned int flags=(unsigned int)lua_tointeger(L,1);
@@ -1275,10 +1278,11 @@ static int _bind_SDL_QuitSubSystem(lua_State *L) {
 	return 0;
 }
 
+// unsigned int SDL_WasInit(unsigned int flags)
 static int _bind_SDL_WasInit(lua_State *L) {
 	if (!_lg_typecheck_SDL_WasInit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WasInit function, expected prototype:\nSDL_WasInit(unsigned int)");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_WasInit(unsigned int flags) function, expected prototype:\nunsigned int SDL_WasInit(unsigned int flags)\nClass arguments details:\n");
 	}
 
 	unsigned int flags=(unsigned int)lua_tointeger(L,1);
@@ -1289,10 +1293,11 @@ static int _bind_SDL_WasInit(lua_State *L) {
 	return 1;
 }
 
+// void SDL_Quit()
 static int _bind_SDL_Quit(lua_State *L) {
 	if (!_lg_typecheck_SDL_Quit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Quit function, expected prototype:\nSDL_Quit()");
+		luaL_error(L, "luna typecheck failed in void SDL_Quit() function, expected prototype:\nvoid SDL_Quit()\nClass arguments details:\n");
 	}
 
 
@@ -1301,10 +1306,11 @@ static int _bind_SDL_Quit(lua_State *L) {
 	return 0;
 }
 
+// unsigned char SDL_GetAppState()
 static int _bind_SDL_GetAppState(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetAppState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetAppState function, expected prototype:\nSDL_GetAppState()");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_GetAppState() function, expected prototype:\nunsigned char SDL_GetAppState()\nClass arguments details:\n");
 	}
 
 
@@ -1314,10 +1320,11 @@ static int _bind_SDL_GetAppState(lua_State *L) {
 	return 1;
 }
 
+// int SDL_AudioInit(const char * driver_name)
 static int _bind_SDL_AudioInit(lua_State *L) {
 	if (!_lg_typecheck_SDL_AudioInit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_AudioInit function, expected prototype:\nSDL_AudioInit(const char *)");
+		luaL_error(L, "luna typecheck failed in int SDL_AudioInit(const char * driver_name) function, expected prototype:\nint SDL_AudioInit(const char * driver_name)\nClass arguments details:\n");
 	}
 
 	const char * driver_name=(const char *)lua_tostring(L,1);
@@ -1328,10 +1335,11 @@ static int _bind_SDL_AudioInit(lua_State *L) {
 	return 1;
 }
 
+// void SDL_AudioQuit()
 static int _bind_SDL_AudioQuit(lua_State *L) {
 	if (!_lg_typecheck_SDL_AudioQuit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_AudioQuit function, expected prototype:\nSDL_AudioQuit()");
+		luaL_error(L, "luna typecheck failed in void SDL_AudioQuit() function, expected prototype:\nvoid SDL_AudioQuit()\nClass arguments details:\n");
 	}
 
 
@@ -1340,10 +1348,11 @@ static int _bind_SDL_AudioQuit(lua_State *L) {
 	return 0;
 }
 
+// void SDL_LockAudio()
 static int _bind_SDL_LockAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_LockAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LockAudio function, expected prototype:\nSDL_LockAudio()");
+		luaL_error(L, "luna typecheck failed in void SDL_LockAudio() function, expected prototype:\nvoid SDL_LockAudio()\nClass arguments details:\n");
 	}
 
 
@@ -1352,10 +1361,11 @@ static int _bind_SDL_LockAudio(lua_State *L) {
 	return 0;
 }
 
+// void SDL_UnlockAudio()
 static int _bind_SDL_UnlockAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_UnlockAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UnlockAudio function, expected prototype:\nSDL_UnlockAudio()");
+		luaL_error(L, "luna typecheck failed in void SDL_UnlockAudio() function, expected prototype:\nvoid SDL_UnlockAudio()\nClass arguments details:\n");
 	}
 
 
@@ -1364,10 +1374,11 @@ static int _bind_SDL_UnlockAudio(lua_State *L) {
 	return 0;
 }
 
+// char * SDL_AudioDriverName(char * namebuf, int maxlen)
 static int _bind_SDL_AudioDriverName(lua_State *L) {
 	if (!_lg_typecheck_SDL_AudioDriverName(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_AudioDriverName function, expected prototype:\nSDL_AudioDriverName(char *, int)");
+		luaL_error(L, "luna typecheck failed in char * SDL_AudioDriverName(char * namebuf, int maxlen) function, expected prototype:\nchar * SDL_AudioDriverName(char * namebuf, int maxlen)\nClass arguments details:\n");
 	}
 
 	char namebuf=(char)lua_tointeger(L,1);
@@ -1379,10 +1390,11 @@ static int _bind_SDL_AudioDriverName(lua_State *L) {
 	return 1;
 }
 
+// int SDL_OpenAudio(SDL_AudioSpec * desired, SDL_AudioSpec * obtained)
 static int _bind_SDL_OpenAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_OpenAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_OpenAudio function, expected prototype:\nSDL_OpenAudio(SDL_AudioSpec *, SDL_AudioSpec *)");
+		luaL_error(L, "luna typecheck failed in int SDL_OpenAudio(SDL_AudioSpec * desired, SDL_AudioSpec * obtained) function, expected prototype:\nint SDL_OpenAudio(SDL_AudioSpec * desired, SDL_AudioSpec * obtained)\nClass arguments details:\narg 1 ID = 21280544\narg 2 ID = 21280544\n");
 	}
 
 	SDL_AudioSpec* desired=(Luna< SDL_AudioSpec >::check(L,1));
@@ -1394,10 +1406,11 @@ static int _bind_SDL_OpenAudio(lua_State *L) {
 	return 1;
 }
 
+// SDL_audiostatus SDL_GetAudioStatus()
 static int _bind_SDL_GetAudioStatus(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetAudioStatus(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetAudioStatus function, expected prototype:\nSDL_GetAudioStatus()");
+		luaL_error(L, "luna typecheck failed in SDL_audiostatus SDL_GetAudioStatus() function, expected prototype:\nSDL_audiostatus SDL_GetAudioStatus()\nClass arguments details:\n");
 	}
 
 
@@ -1407,10 +1420,11 @@ static int _bind_SDL_GetAudioStatus(lua_State *L) {
 	return 1;
 }
 
+// void SDL_PauseAudio(int pause_on)
 static int _bind_SDL_PauseAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_PauseAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_PauseAudio function, expected prototype:\nSDL_PauseAudio(int)");
+		luaL_error(L, "luna typecheck failed in void SDL_PauseAudio(int pause_on) function, expected prototype:\nvoid SDL_PauseAudio(int pause_on)\nClass arguments details:\n");
 	}
 
 	int pause_on=(int)lua_tointeger(L,1);
@@ -1420,10 +1434,11 @@ static int _bind_SDL_PauseAudio(lua_State *L) {
 	return 0;
 }
 
+// void SDL_FreeWAV(unsigned char * audio_buf)
 static int _bind_SDL_FreeWAV(lua_State *L) {
 	if (!_lg_typecheck_SDL_FreeWAV(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_FreeWAV function, expected prototype:\nSDL_FreeWAV(unsigned char *)");
+		luaL_error(L, "luna typecheck failed in void SDL_FreeWAV(unsigned char * audio_buf) function, expected prototype:\nvoid SDL_FreeWAV(unsigned char * audio_buf)\nClass arguments details:\n");
 	}
 
 	unsigned char audio_buf = (unsigned char)(lua_tointeger(L,1));
@@ -1433,10 +1448,11 @@ static int _bind_SDL_FreeWAV(lua_State *L) {
 	return 0;
 }
 
+// int SDL_BuildAudioCVT(SDL_AudioCVT * cvt, Uint16 src_format, unsigned char src_channels, int src_rate, Uint16 dst_format, unsigned char dst_channels, int dst_rate)
 static int _bind_SDL_BuildAudioCVT(lua_State *L) {
 	if (!_lg_typecheck_SDL_BuildAudioCVT(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_BuildAudioCVT function, expected prototype:\nSDL_BuildAudioCVT(SDL_AudioCVT *, Uint16, unsigned char, int, Uint16, unsigned char, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_BuildAudioCVT(SDL_AudioCVT * cvt, Uint16 src_format, unsigned char src_channels, int src_rate, Uint16 dst_format, unsigned char dst_channels, int dst_rate) function, expected prototype:\nint SDL_BuildAudioCVT(SDL_AudioCVT * cvt, Uint16 src_format, unsigned char src_channels, int src_rate, Uint16 dst_format, unsigned char dst_channels, int dst_rate)\nClass arguments details:\narg 1 ID = 74863825\n");
 	}
 
 	SDL_AudioCVT* cvt=(Luna< SDL_AudioCVT >::check(L,1));
@@ -1453,10 +1469,11 @@ static int _bind_SDL_BuildAudioCVT(lua_State *L) {
 	return 1;
 }
 
+// int SDL_ConvertAudio(SDL_AudioCVT * cvt)
 static int _bind_SDL_ConvertAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_ConvertAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_ConvertAudio function, expected prototype:\nSDL_ConvertAudio(SDL_AudioCVT *)");
+		luaL_error(L, "luna typecheck failed in int SDL_ConvertAudio(SDL_AudioCVT * cvt) function, expected prototype:\nint SDL_ConvertAudio(SDL_AudioCVT * cvt)\nClass arguments details:\narg 1 ID = 74863825\n");
 	}
 
 	SDL_AudioCVT* cvt=(Luna< SDL_AudioCVT >::check(L,1));
@@ -1467,10 +1484,11 @@ static int _bind_SDL_ConvertAudio(lua_State *L) {
 	return 1;
 }
 
+// void SDL_MixAudio(unsigned char * dst, const unsigned char * src, unsigned int len, int volume)
 static int _bind_SDL_MixAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_MixAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_MixAudio function, expected prototype:\nSDL_MixAudio(unsigned char *, const unsigned char *, unsigned int, int)");
+		luaL_error(L, "luna typecheck failed in void SDL_MixAudio(unsigned char * dst, const unsigned char * src, unsigned int len, int volume) function, expected prototype:\nvoid SDL_MixAudio(unsigned char * dst, const unsigned char * src, unsigned int len, int volume)\nClass arguments details:\n");
 	}
 
 	unsigned char dst = (unsigned char)(lua_tointeger(L,1));
@@ -1483,10 +1501,11 @@ static int _bind_SDL_MixAudio(lua_State *L) {
 	return 0;
 }
 
+// void SDL_CloseAudio()
 static int _bind_SDL_CloseAudio(lua_State *L) {
 	if (!_lg_typecheck_SDL_CloseAudio(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CloseAudio function, expected prototype:\nSDL_CloseAudio()");
+		luaL_error(L, "luna typecheck failed in void SDL_CloseAudio() function, expected prototype:\nvoid SDL_CloseAudio()\nClass arguments details:\n");
 	}
 
 
@@ -1495,10 +1514,11 @@ static int _bind_SDL_CloseAudio(lua_State *L) {
 	return 0;
 }
 
+// int SDL_CDNumDrives()
 static int _bind_SDL_CDNumDrives(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDNumDrives(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDNumDrives function, expected prototype:\nSDL_CDNumDrives()");
+		luaL_error(L, "luna typecheck failed in int SDL_CDNumDrives() function, expected prototype:\nint SDL_CDNumDrives()\nClass arguments details:\n");
 	}
 
 
@@ -1508,10 +1528,11 @@ static int _bind_SDL_CDNumDrives(lua_State *L) {
 	return 1;
 }
 
+// const char * SDL_CDName(int drive)
 static int _bind_SDL_CDName(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDName(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDName function, expected prototype:\nSDL_CDName(int)");
+		luaL_error(L, "luna typecheck failed in const char * SDL_CDName(int drive) function, expected prototype:\nconst char * SDL_CDName(int drive)\nClass arguments details:\n");
 	}
 
 	int drive=(int)lua_tointeger(L,1);
@@ -1522,10 +1543,11 @@ static int _bind_SDL_CDName(lua_State *L) {
 	return 1;
 }
 
+// SDL_CD * SDL_CDOpen(int drive)
 static int _bind_SDL_CDOpen(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDOpen(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDOpen function, expected prototype:\nSDL_CDOpen(int)");
+		luaL_error(L, "luna typecheck failed in SDL_CD * SDL_CDOpen(int drive) function, expected prototype:\nSDL_CD * SDL_CDOpen(int drive)\nClass arguments details:\n");
 	}
 
 	int drive=(int)lua_tointeger(L,1);
@@ -1538,10 +1560,11 @@ static int _bind_SDL_CDOpen(lua_State *L) {
 	return 1;
 }
 
+// CDstatus SDL_CDStatus(SDL_CD * cdrom)
 static int _bind_SDL_CDStatus(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDStatus(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDStatus function, expected prototype:\nSDL_CDStatus(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in CDstatus SDL_CDStatus(SDL_CD * cdrom) function, expected prototype:\nCDstatus SDL_CDStatus(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1552,10 +1575,11 @@ static int _bind_SDL_CDStatus(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDPlayTracks(SDL_CD * cdrom, int start_track, int start_frame, int ntracks, int nframes)
 static int _bind_SDL_CDPlayTracks(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDPlayTracks(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDPlayTracks function, expected prototype:\nSDL_CDPlayTracks(SDL_CD *, int, int, int, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDPlayTracks(SDL_CD * cdrom, int start_track, int start_frame, int ntracks, int nframes) function, expected prototype:\nint SDL_CDPlayTracks(SDL_CD * cdrom, int start_track, int start_frame, int ntracks, int nframes)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1570,10 +1594,11 @@ static int _bind_SDL_CDPlayTracks(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDPlay(SDL_CD * cdrom, int start, int length)
 static int _bind_SDL_CDPlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDPlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDPlay function, expected prototype:\nSDL_CDPlay(SDL_CD *, int, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDPlay(SDL_CD * cdrom, int start, int length) function, expected prototype:\nint SDL_CDPlay(SDL_CD * cdrom, int start, int length)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1586,10 +1611,11 @@ static int _bind_SDL_CDPlay(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDPause(SDL_CD * cdrom)
 static int _bind_SDL_CDPause(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDPause(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDPause function, expected prototype:\nSDL_CDPause(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDPause(SDL_CD * cdrom) function, expected prototype:\nint SDL_CDPause(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1600,10 +1626,11 @@ static int _bind_SDL_CDPause(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDResume(SDL_CD * cdrom)
 static int _bind_SDL_CDResume(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDResume(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDResume function, expected prototype:\nSDL_CDResume(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDResume(SDL_CD * cdrom) function, expected prototype:\nint SDL_CDResume(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1614,10 +1641,11 @@ static int _bind_SDL_CDResume(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDStop(SDL_CD * cdrom)
 static int _bind_SDL_CDStop(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDStop(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDStop function, expected prototype:\nSDL_CDStop(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDStop(SDL_CD * cdrom) function, expected prototype:\nint SDL_CDStop(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1628,10 +1656,11 @@ static int _bind_SDL_CDStop(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CDEject(SDL_CD * cdrom)
 static int _bind_SDL_CDEject(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDEject(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDEject function, expected prototype:\nSDL_CDEject(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CDEject(SDL_CD * cdrom) function, expected prototype:\nint SDL_CDEject(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1642,10 +1671,11 @@ static int _bind_SDL_CDEject(lua_State *L) {
 	return 1;
 }
 
+// void SDL_CDClose(SDL_CD * cdrom)
 static int _bind_SDL_CDClose(lua_State *L) {
 	if (!_lg_typecheck_SDL_CDClose(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CDClose function, expected prototype:\nSDL_CDClose(SDL_CD *)");
+		luaL_error(L, "luna typecheck failed in void SDL_CDClose(SDL_CD * cdrom) function, expected prototype:\nvoid SDL_CDClose(SDL_CD * cdrom)\nClass arguments details:\narg 1 ID = 41376373\n");
 	}
 
 	SDL_CD* cdrom=(Luna< SDL_CD >::check(L,1));
@@ -1655,10 +1685,11 @@ static int _bind_SDL_CDClose(lua_State *L) {
 	return 0;
 }
 
+// int SDL_HasRDTSC()
 static int _bind_SDL_HasRDTSC(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasRDTSC(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasRDTSC function, expected prototype:\nSDL_HasRDTSC()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasRDTSC() function, expected prototype:\nint SDL_HasRDTSC()\nClass arguments details:\n");
 	}
 
 
@@ -1668,10 +1699,11 @@ static int _bind_SDL_HasRDTSC(lua_State *L) {
 	return 1;
 }
 
+// int SDL_HasMMX()
 static int _bind_SDL_HasMMX(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasMMX(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasMMX function, expected prototype:\nSDL_HasMMX()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasMMX() function, expected prototype:\nint SDL_HasMMX()\nClass arguments details:\n");
 	}
 
 
@@ -1681,10 +1713,11 @@ static int _bind_SDL_HasMMX(lua_State *L) {
 	return 1;
 }
 
+// int SDL_HasMMXExt()
 static int _bind_SDL_HasMMXExt(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasMMXExt(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasMMXExt function, expected prototype:\nSDL_HasMMXExt()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasMMXExt() function, expected prototype:\nint SDL_HasMMXExt()\nClass arguments details:\n");
 	}
 
 
@@ -1694,10 +1727,11 @@ static int _bind_SDL_HasMMXExt(lua_State *L) {
 	return 1;
 }
 
+// int SDL_Has3DNow()
 static int _bind_SDL_Has3DNow(lua_State *L) {
 	if (!_lg_typecheck_SDL_Has3DNow(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Has3DNow function, expected prototype:\nSDL_Has3DNow()");
+		luaL_error(L, "luna typecheck failed in int SDL_Has3DNow() function, expected prototype:\nint SDL_Has3DNow()\nClass arguments details:\n");
 	}
 
 
@@ -1707,10 +1741,11 @@ static int _bind_SDL_Has3DNow(lua_State *L) {
 	return 1;
 }
 
+// int SDL_Has3DNowExt()
 static int _bind_SDL_Has3DNowExt(lua_State *L) {
 	if (!_lg_typecheck_SDL_Has3DNowExt(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Has3DNowExt function, expected prototype:\nSDL_Has3DNowExt()");
+		luaL_error(L, "luna typecheck failed in int SDL_Has3DNowExt() function, expected prototype:\nint SDL_Has3DNowExt()\nClass arguments details:\n");
 	}
 
 
@@ -1720,10 +1755,11 @@ static int _bind_SDL_Has3DNowExt(lua_State *L) {
 	return 1;
 }
 
+// int SDL_HasSSE()
 static int _bind_SDL_HasSSE(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasSSE(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasSSE function, expected prototype:\nSDL_HasSSE()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasSSE() function, expected prototype:\nint SDL_HasSSE()\nClass arguments details:\n");
 	}
 
 
@@ -1733,10 +1769,11 @@ static int _bind_SDL_HasSSE(lua_State *L) {
 	return 1;
 }
 
+// int SDL_HasSSE2()
 static int _bind_SDL_HasSSE2(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasSSE2(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasSSE2 function, expected prototype:\nSDL_HasSSE2()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasSSE2() function, expected prototype:\nint SDL_HasSSE2()\nClass arguments details:\n");
 	}
 
 
@@ -1746,10 +1783,11 @@ static int _bind_SDL_HasSSE2(lua_State *L) {
 	return 1;
 }
 
+// int SDL_HasAltiVec()
 static int _bind_SDL_HasAltiVec(lua_State *L) {
 	if (!_lg_typecheck_SDL_HasAltiVec(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_HasAltiVec function, expected prototype:\nSDL_HasAltiVec()");
+		luaL_error(L, "luna typecheck failed in int SDL_HasAltiVec() function, expected prototype:\nint SDL_HasAltiVec()\nClass arguments details:\n");
 	}
 
 
@@ -1759,10 +1797,11 @@ static int _bind_SDL_HasAltiVec(lua_State *L) {
 	return 1;
 }
 
+// static Uint16 SDL_Swap16(Uint16 x)
 static int _bind_SDL_Swap16(lua_State *L) {
 	if (!_lg_typecheck_SDL_Swap16(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Swap16 function, expected prototype:\nSDL_Swap16(Uint16)");
+		luaL_error(L, "luna typecheck failed in static Uint16 SDL_Swap16(Uint16 x) function, expected prototype:\nstatic Uint16 SDL_Swap16(Uint16 x)\nClass arguments details:\n");
 	}
 
 	Uint16 x=(Uint16)lua_tointeger(L,1);
@@ -1773,10 +1812,11 @@ static int _bind_SDL_Swap16(lua_State *L) {
 	return 1;
 }
 
+// static unsigned int SDL_Swap32(unsigned int x)
 static int _bind_SDL_Swap32(lua_State *L) {
 	if (!_lg_typecheck_SDL_Swap32(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Swap32 function, expected prototype:\nSDL_Swap32(unsigned int)");
+		luaL_error(L, "luna typecheck failed in static unsigned int SDL_Swap32(unsigned int x) function, expected prototype:\nstatic unsigned int SDL_Swap32(unsigned int x)\nClass arguments details:\n");
 	}
 
 	unsigned int x=(unsigned int)lua_tointeger(L,1);
@@ -1787,10 +1827,11 @@ static int _bind_SDL_Swap32(lua_State *L) {
 	return 1;
 }
 
+// char * SDL_GetError()
 static int _bind_SDL_GetError(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetError(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetError function, expected prototype:\nSDL_GetError()");
+		luaL_error(L, "luna typecheck failed in char * SDL_GetError() function, expected prototype:\nchar * SDL_GetError()\nClass arguments details:\n");
 	}
 
 
@@ -1800,10 +1841,11 @@ static int _bind_SDL_GetError(lua_State *L) {
 	return 1;
 }
 
+// void SDL_ClearError()
 static int _bind_SDL_ClearError(lua_State *L) {
 	if (!_lg_typecheck_SDL_ClearError(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_ClearError function, expected prototype:\nSDL_ClearError()");
+		luaL_error(L, "luna typecheck failed in void SDL_ClearError() function, expected prototype:\nvoid SDL_ClearError()\nClass arguments details:\n");
 	}
 
 
@@ -1812,10 +1854,11 @@ static int _bind_SDL_ClearError(lua_State *L) {
 	return 0;
 }
 
+// void SDL_Error(SDL_errorcode code)
 static int _bind_SDL_Error(lua_State *L) {
 	if (!_lg_typecheck_SDL_Error(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Error function, expected prototype:\nSDL_Error(SDL_errorcode)");
+		luaL_error(L, "luna typecheck failed in void SDL_Error(SDL_errorcode code) function, expected prototype:\nvoid SDL_Error(SDL_errorcode code)\nClass arguments details:\n");
 	}
 
 	SDL_errorcode code=(SDL_errorcode)lua_tointeger(L,1);
@@ -1825,10 +1868,11 @@ static int _bind_SDL_Error(lua_State *L) {
 	return 0;
 }
 
+// void SDL_SetEventFilter(SDL_EventFilter filter)
 static int _bind_SDL_SetEventFilter(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetEventFilter(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetEventFilter function, expected prototype:\nSDL_SetEventFilter(SDL_EventFilter)");
+		luaL_error(L, "luna typecheck failed in void SDL_SetEventFilter(SDL_EventFilter filter) function, expected prototype:\nvoid SDL_SetEventFilter(SDL_EventFilter filter)\nClass arguments details:\narg 1 ID = 99065423\n");
 	}
 
 	SDL_EventFilter* filter_ptr=(Luna< SDL_EventFilter >::check(L,1));
@@ -1842,10 +1886,11 @@ static int _bind_SDL_SetEventFilter(lua_State *L) {
 	return 0;
 }
 
+// SDL_EventFilter SDL_GetEventFilter()
 static int _bind_SDL_GetEventFilter(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetEventFilter(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetEventFilter function, expected prototype:\nSDL_GetEventFilter()");
+		luaL_error(L, "luna typecheck failed in SDL_EventFilter SDL_GetEventFilter() function, expected prototype:\nSDL_EventFilter SDL_GetEventFilter()\nClass arguments details:\n");
 	}
 
 
@@ -1858,10 +1903,11 @@ static int _bind_SDL_GetEventFilter(lua_State *L) {
 	return 1;
 }
 
+// void SDL_PumpEvents()
 static int _bind_SDL_PumpEvents(lua_State *L) {
 	if (!_lg_typecheck_SDL_PumpEvents(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_PumpEvents function, expected prototype:\nSDL_PumpEvents()");
+		luaL_error(L, "luna typecheck failed in void SDL_PumpEvents() function, expected prototype:\nvoid SDL_PumpEvents()\nClass arguments details:\n");
 	}
 
 
@@ -1870,10 +1916,11 @@ static int _bind_SDL_PumpEvents(lua_State *L) {
 	return 0;
 }
 
+// int SDL_PeepEvents(SDL_Event * events, int numevents, SDL_eventaction action, unsigned int mask)
 static int _bind_SDL_PeepEvents(lua_State *L) {
 	if (!_lg_typecheck_SDL_PeepEvents(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_PeepEvents function, expected prototype:\nSDL_PeepEvents(SDL_Event *, int, SDL_eventaction, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_PeepEvents(SDL_Event * events, int numevents, SDL_eventaction action, unsigned int mask) function, expected prototype:\nint SDL_PeepEvents(SDL_Event * events, int numevents, SDL_eventaction action, unsigned int mask)\nClass arguments details:\narg 1 ID = 46878127\n");
 	}
 
 	SDL_Event* events=(Luna< SDL_Event >::check(L,1));
@@ -1887,10 +1934,11 @@ static int _bind_SDL_PeepEvents(lua_State *L) {
 	return 1;
 }
 
+// int SDL_PollEvent(SDL_Event * event)
 static int _bind_SDL_PollEvent(lua_State *L) {
 	if (!_lg_typecheck_SDL_PollEvent(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_PollEvent function, expected prototype:\nSDL_PollEvent(SDL_Event *)");
+		luaL_error(L, "luna typecheck failed in int SDL_PollEvent(SDL_Event * event) function, expected prototype:\nint SDL_PollEvent(SDL_Event * event)\nClass arguments details:\narg 1 ID = 46878127\n");
 	}
 
 	SDL_Event* event=(Luna< SDL_Event >::check(L,1));
@@ -1901,10 +1949,11 @@ static int _bind_SDL_PollEvent(lua_State *L) {
 	return 1;
 }
 
+// int SDL_WaitEvent(SDL_Event * event)
 static int _bind_SDL_WaitEvent(lua_State *L) {
 	if (!_lg_typecheck_SDL_WaitEvent(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WaitEvent function, expected prototype:\nSDL_WaitEvent(SDL_Event *)");
+		luaL_error(L, "luna typecheck failed in int SDL_WaitEvent(SDL_Event * event) function, expected prototype:\nint SDL_WaitEvent(SDL_Event * event)\nClass arguments details:\narg 1 ID = 46878127\n");
 	}
 
 	SDL_Event* event=(Luna< SDL_Event >::check(L,1));
@@ -1915,10 +1964,11 @@ static int _bind_SDL_WaitEvent(lua_State *L) {
 	return 1;
 }
 
+// int SDL_PushEvent(SDL_Event * event)
 static int _bind_SDL_PushEvent(lua_State *L) {
 	if (!_lg_typecheck_SDL_PushEvent(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_PushEvent function, expected prototype:\nSDL_PushEvent(SDL_Event *)");
+		luaL_error(L, "luna typecheck failed in int SDL_PushEvent(SDL_Event * event) function, expected prototype:\nint SDL_PushEvent(SDL_Event * event)\nClass arguments details:\narg 1 ID = 46878127\n");
 	}
 
 	SDL_Event* event=(Luna< SDL_Event >::check(L,1));
@@ -1929,10 +1979,11 @@ static int _bind_SDL_PushEvent(lua_State *L) {
 	return 1;
 }
 
+// unsigned char SDL_EventState(unsigned char type, int state)
 static int _bind_SDL_EventState(lua_State *L) {
 	if (!_lg_typecheck_SDL_EventState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_EventState function, expected prototype:\nSDL_EventState(unsigned char, int)");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_EventState(unsigned char type, int state) function, expected prototype:\nunsigned char SDL_EventState(unsigned char type, int state)\nClass arguments details:\n");
 	}
 
 	unsigned char type = (unsigned char)(lua_tointeger(L,1));
@@ -1944,10 +1995,11 @@ static int _bind_SDL_EventState(lua_State *L) {
 	return 1;
 }
 
+// int SDL_NumJoysticks()
 static int _bind_SDL_NumJoysticks(lua_State *L) {
 	if (!_lg_typecheck_SDL_NumJoysticks(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_NumJoysticks function, expected prototype:\nSDL_NumJoysticks()");
+		luaL_error(L, "luna typecheck failed in int SDL_NumJoysticks() function, expected prototype:\nint SDL_NumJoysticks()\nClass arguments details:\n");
 	}
 
 
@@ -1957,10 +2009,11 @@ static int _bind_SDL_NumJoysticks(lua_State *L) {
 	return 1;
 }
 
+// const char * SDL_JoystickName(int device_index)
 static int _bind_SDL_JoystickName(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickName(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickName function, expected prototype:\nSDL_JoystickName(int)");
+		luaL_error(L, "luna typecheck failed in const char * SDL_JoystickName(int device_index) function, expected prototype:\nconst char * SDL_JoystickName(int device_index)\nClass arguments details:\n");
 	}
 
 	int device_index=(int)lua_tointeger(L,1);
@@ -1971,10 +2024,11 @@ static int _bind_SDL_JoystickName(lua_State *L) {
 	return 1;
 }
 
+// SDL_Joystick * SDL_JoystickOpen(int device_index)
 static int _bind_SDL_JoystickOpen(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickOpen(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickOpen function, expected prototype:\nSDL_JoystickOpen(int)");
+		luaL_error(L, "luna typecheck failed in SDL_Joystick * SDL_JoystickOpen(int device_index) function, expected prototype:\nSDL_Joystick * SDL_JoystickOpen(int device_index)\nClass arguments details:\n");
 	}
 
 	int device_index=(int)lua_tointeger(L,1);
@@ -1987,10 +2041,11 @@ static int _bind_SDL_JoystickOpen(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickOpened(int device_index)
 static int _bind_SDL_JoystickOpened(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickOpened(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickOpened function, expected prototype:\nSDL_JoystickOpened(int)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickOpened(int device_index) function, expected prototype:\nint SDL_JoystickOpened(int device_index)\nClass arguments details:\n");
 	}
 
 	int device_index=(int)lua_tointeger(L,1);
@@ -2001,10 +2056,11 @@ static int _bind_SDL_JoystickOpened(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickIndex(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickIndex(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickIndex(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickIndex function, expected prototype:\nSDL_JoystickIndex(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickIndex(SDL_Joystick * joystick) function, expected prototype:\nint SDL_JoystickIndex(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2015,10 +2071,11 @@ static int _bind_SDL_JoystickIndex(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickNumAxes(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickNumAxes(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickNumAxes(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickNumAxes function, expected prototype:\nSDL_JoystickNumAxes(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickNumAxes(SDL_Joystick * joystick) function, expected prototype:\nint SDL_JoystickNumAxes(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2029,10 +2086,11 @@ static int _bind_SDL_JoystickNumAxes(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickNumBalls(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickNumBalls(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickNumBalls(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickNumBalls function, expected prototype:\nSDL_JoystickNumBalls(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickNumBalls(SDL_Joystick * joystick) function, expected prototype:\nint SDL_JoystickNumBalls(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2043,10 +2101,11 @@ static int _bind_SDL_JoystickNumBalls(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickNumHats(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickNumHats(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickNumHats(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickNumHats function, expected prototype:\nSDL_JoystickNumHats(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickNumHats(SDL_Joystick * joystick) function, expected prototype:\nint SDL_JoystickNumHats(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2057,10 +2116,11 @@ static int _bind_SDL_JoystickNumHats(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickNumButtons(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickNumButtons(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickNumButtons(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickNumButtons function, expected prototype:\nSDL_JoystickNumButtons(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickNumButtons(SDL_Joystick * joystick) function, expected prototype:\nint SDL_JoystickNumButtons(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2071,10 +2131,11 @@ static int _bind_SDL_JoystickNumButtons(lua_State *L) {
 	return 1;
 }
 
+// void SDL_JoystickUpdate()
 static int _bind_SDL_JoystickUpdate(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickUpdate(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickUpdate function, expected prototype:\nSDL_JoystickUpdate()");
+		luaL_error(L, "luna typecheck failed in void SDL_JoystickUpdate() function, expected prototype:\nvoid SDL_JoystickUpdate()\nClass arguments details:\n");
 	}
 
 
@@ -2083,10 +2144,11 @@ static int _bind_SDL_JoystickUpdate(lua_State *L) {
 	return 0;
 }
 
+// int SDL_JoystickEventState(int state)
 static int _bind_SDL_JoystickEventState(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickEventState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickEventState function, expected prototype:\nSDL_JoystickEventState(int)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickEventState(int state) function, expected prototype:\nint SDL_JoystickEventState(int state)\nClass arguments details:\n");
 	}
 
 	int state=(int)lua_tointeger(L,1);
@@ -2097,10 +2159,11 @@ static int _bind_SDL_JoystickEventState(lua_State *L) {
 	return 1;
 }
 
+// Sint16 SDL_JoystickGetAxis(SDL_Joystick * joystick, int axis)
 static int _bind_SDL_JoystickGetAxis(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickGetAxis(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickGetAxis function, expected prototype:\nSDL_JoystickGetAxis(SDL_Joystick *, int)");
+		luaL_error(L, "luna typecheck failed in Sint16 SDL_JoystickGetAxis(SDL_Joystick * joystick, int axis) function, expected prototype:\nSint16 SDL_JoystickGetAxis(SDL_Joystick * joystick, int axis)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2112,10 +2175,11 @@ static int _bind_SDL_JoystickGetAxis(lua_State *L) {
 	return 1;
 }
 
+// unsigned char SDL_JoystickGetHat(SDL_Joystick * joystick, int hat)
 static int _bind_SDL_JoystickGetHat(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickGetHat(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickGetHat function, expected prototype:\nSDL_JoystickGetHat(SDL_Joystick *, int)");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_JoystickGetHat(SDL_Joystick * joystick, int hat) function, expected prototype:\nunsigned char SDL_JoystickGetHat(SDL_Joystick * joystick, int hat)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2127,10 +2191,11 @@ static int _bind_SDL_JoystickGetHat(lua_State *L) {
 	return 1;
 }
 
+// int SDL_JoystickGetBall(SDL_Joystick * joystick, int ball, int * dx, int * dy)
 static int _bind_SDL_JoystickGetBall(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickGetBall(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickGetBall function, expected prototype:\nSDL_JoystickGetBall(SDL_Joystick *, int, int *, int *)");
+		luaL_error(L, "luna typecheck failed in int SDL_JoystickGetBall(SDL_Joystick * joystick, int ball, int * dx, int * dy) function, expected prototype:\nint SDL_JoystickGetBall(SDL_Joystick * joystick, int ball, int * dx, int * dy)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2144,10 +2209,11 @@ static int _bind_SDL_JoystickGetBall(lua_State *L) {
 	return 1;
 }
 
+// unsigned char SDL_JoystickGetButton(SDL_Joystick * joystick, int button)
 static int _bind_SDL_JoystickGetButton(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickGetButton(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickGetButton function, expected prototype:\nSDL_JoystickGetButton(SDL_Joystick *, int)");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_JoystickGetButton(SDL_Joystick * joystick, int button) function, expected prototype:\nunsigned char SDL_JoystickGetButton(SDL_Joystick * joystick, int button)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2159,10 +2225,11 @@ static int _bind_SDL_JoystickGetButton(lua_State *L) {
 	return 1;
 }
 
+// void SDL_JoystickClose(SDL_Joystick * joystick)
 static int _bind_SDL_JoystickClose(lua_State *L) {
 	if (!_lg_typecheck_SDL_JoystickClose(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_JoystickClose function, expected prototype:\nSDL_JoystickClose(SDL_Joystick *)");
+		luaL_error(L, "luna typecheck failed in void SDL_JoystickClose(SDL_Joystick * joystick) function, expected prototype:\nvoid SDL_JoystickClose(SDL_Joystick * joystick)\nClass arguments details:\narg 1 ID = 73977241\n");
 	}
 
 	SDL_Joystick* joystick=(Luna< SDL_Joystick >::check(L,1));
@@ -2172,10 +2239,11 @@ static int _bind_SDL_JoystickClose(lua_State *L) {
 	return 0;
 }
 
+// int SDL_EnableUNICODE(int enable)
 static int _bind_SDL_EnableUNICODE(lua_State *L) {
 	if (!_lg_typecheck_SDL_EnableUNICODE(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_EnableUNICODE function, expected prototype:\nSDL_EnableUNICODE(int)");
+		luaL_error(L, "luna typecheck failed in int SDL_EnableUNICODE(int enable) function, expected prototype:\nint SDL_EnableUNICODE(int enable)\nClass arguments details:\n");
 	}
 
 	int enable=(int)lua_tointeger(L,1);
@@ -2186,10 +2254,11 @@ static int _bind_SDL_EnableUNICODE(lua_State *L) {
 	return 1;
 }
 
+// int SDL_EnableKeyRepeat(int delay, int interval)
 static int _bind_SDL_EnableKeyRepeat(lua_State *L) {
 	if (!_lg_typecheck_SDL_EnableKeyRepeat(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_EnableKeyRepeat function, expected prototype:\nSDL_EnableKeyRepeat(int, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_EnableKeyRepeat(int delay, int interval) function, expected prototype:\nint SDL_EnableKeyRepeat(int delay, int interval)\nClass arguments details:\n");
 	}
 
 	int delay=(int)lua_tointeger(L,1);
@@ -2201,10 +2270,11 @@ static int _bind_SDL_EnableKeyRepeat(lua_State *L) {
 	return 1;
 }
 
+// void SDL_GetKeyRepeat(int * delay, int * interval)
 static int _bind_SDL_GetKeyRepeat(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetKeyRepeat(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetKeyRepeat function, expected prototype:\nSDL_GetKeyRepeat(int *, int *)");
+		luaL_error(L, "luna typecheck failed in void SDL_GetKeyRepeat(int * delay, int * interval) function, expected prototype:\nvoid SDL_GetKeyRepeat(int * delay, int * interval)\nClass arguments details:\n");
 	}
 
 	int delay=(int)lua_tointeger(L,1);
@@ -2215,10 +2285,11 @@ static int _bind_SDL_GetKeyRepeat(lua_State *L) {
 	return 0;
 }
 
+// unsigned char * SDL_GetKeyState(int * numkeys)
 static int _bind_SDL_GetKeyState(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetKeyState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetKeyState function, expected prototype:\nSDL_GetKeyState(int *)");
+		luaL_error(L, "luna typecheck failed in unsigned char * SDL_GetKeyState(int * numkeys) function, expected prototype:\nunsigned char * SDL_GetKeyState(int * numkeys)\nClass arguments details:\n");
 	}
 
 	int numkeys=(int)lua_tointeger(L,1);
@@ -2229,10 +2300,11 @@ static int _bind_SDL_GetKeyState(lua_State *L) {
 	return 1;
 }
 
+// SDLMod SDL_GetModState()
 static int _bind_SDL_GetModState(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetModState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetModState function, expected prototype:\nSDL_GetModState()");
+		luaL_error(L, "luna typecheck failed in SDLMod SDL_GetModState() function, expected prototype:\nSDLMod SDL_GetModState()\nClass arguments details:\n");
 	}
 
 
@@ -2242,10 +2314,11 @@ static int _bind_SDL_GetModState(lua_State *L) {
 	return 1;
 }
 
+// void SDL_SetModState(SDLMod modstate)
 static int _bind_SDL_SetModState(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetModState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetModState function, expected prototype:\nSDL_SetModState(SDLMod)");
+		luaL_error(L, "luna typecheck failed in void SDL_SetModState(SDLMod modstate) function, expected prototype:\nvoid SDL_SetModState(SDLMod modstate)\nClass arguments details:\n");
 	}
 
 	SDLMod modstate=(SDLMod)lua_tointeger(L,1);
@@ -2255,10 +2328,11 @@ static int _bind_SDL_SetModState(lua_State *L) {
 	return 0;
 }
 
+// char * SDL_GetKeyName(SDLKey key)
 static int _bind_SDL_GetKeyName(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetKeyName(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetKeyName function, expected prototype:\nSDL_GetKeyName(SDLKey)");
+		luaL_error(L, "luna typecheck failed in char * SDL_GetKeyName(SDLKey key) function, expected prototype:\nchar * SDL_GetKeyName(SDLKey key)\nClass arguments details:\n");
 	}
 
 	SDLKey key=(SDLKey)lua_tointeger(L,1);
@@ -2269,10 +2343,11 @@ static int _bind_SDL_GetKeyName(lua_State *L) {
 	return 1;
 }
 
+// void * SDL_LoadObject(const char * sofile)
 static int _bind_SDL_LoadObject(lua_State *L) {
 	if (!_lg_typecheck_SDL_LoadObject(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LoadObject function, expected prototype:\nSDL_LoadObject(const char *)");
+		luaL_error(L, "luna typecheck failed in void * SDL_LoadObject(const char * sofile) function, expected prototype:\nvoid * SDL_LoadObject(const char * sofile)\nClass arguments details:\n");
 	}
 
 	const char * sofile=(const char *)lua_tostring(L,1);
@@ -2285,10 +2360,11 @@ static int _bind_SDL_LoadObject(lua_State *L) {
 	return 1;
 }
 
+// void * SDL_LoadFunction(void * handle, const char * name)
 static int _bind_SDL_LoadFunction(lua_State *L) {
 	if (!_lg_typecheck_SDL_LoadFunction(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LoadFunction function, expected prototype:\nSDL_LoadFunction(void *, const char *)");
+		luaL_error(L, "luna typecheck failed in void * SDL_LoadFunction(void * handle, const char * name) function, expected prototype:\nvoid * SDL_LoadFunction(void * handle, const char * name)\nClass arguments details:\n");
 	}
 
 	void* handle=(Luna< void >::check(L,1));
@@ -2302,10 +2378,11 @@ static int _bind_SDL_LoadFunction(lua_State *L) {
 	return 1;
 }
 
+// void SDL_UnloadObject(void * handle)
 static int _bind_SDL_UnloadObject(lua_State *L) {
 	if (!_lg_typecheck_SDL_UnloadObject(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UnloadObject function, expected prototype:\nSDL_UnloadObject(void *)");
+		luaL_error(L, "luna typecheck failed in void SDL_UnloadObject(void * handle) function, expected prototype:\nvoid SDL_UnloadObject(void * handle)\nClass arguments details:\n");
 	}
 
 	void* handle=(Luna< void >::check(L,1));
@@ -2315,10 +2392,11 @@ static int _bind_SDL_UnloadObject(lua_State *L) {
 	return 0;
 }
 
+// unsigned char SDL_GetMouseState(int * x, int * y)
 static int _bind_SDL_GetMouseState(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetMouseState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetMouseState function, expected prototype:\nSDL_GetMouseState(int *, int *)");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_GetMouseState(int * x, int * y) function, expected prototype:\nunsigned char SDL_GetMouseState(int * x, int * y)\nClass arguments details:\n");
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -2330,10 +2408,11 @@ static int _bind_SDL_GetMouseState(lua_State *L) {
 	return 1;
 }
 
+// unsigned char SDL_GetRelativeMouseState(int * x, int * y)
 static int _bind_SDL_GetRelativeMouseState(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetRelativeMouseState(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetRelativeMouseState function, expected prototype:\nSDL_GetRelativeMouseState(int *, int *)");
+		luaL_error(L, "luna typecheck failed in unsigned char SDL_GetRelativeMouseState(int * x, int * y) function, expected prototype:\nunsigned char SDL_GetRelativeMouseState(int * x, int * y)\nClass arguments details:\n");
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -2345,10 +2424,11 @@ static int _bind_SDL_GetRelativeMouseState(lua_State *L) {
 	return 1;
 }
 
+// void SDL_WarpMouse(Uint16 x, Uint16 y)
 static int _bind_SDL_WarpMouse(lua_State *L) {
 	if (!_lg_typecheck_SDL_WarpMouse(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WarpMouse function, expected prototype:\nSDL_WarpMouse(Uint16, Uint16)");
+		luaL_error(L, "luna typecheck failed in void SDL_WarpMouse(Uint16 x, Uint16 y) function, expected prototype:\nvoid SDL_WarpMouse(Uint16 x, Uint16 y)\nClass arguments details:\n");
 	}
 
 	Uint16 x=(Uint16)lua_tointeger(L,1);
@@ -2359,10 +2439,11 @@ static int _bind_SDL_WarpMouse(lua_State *L) {
 	return 0;
 }
 
+// SDL_Cursor * SDL_CreateCursor(unsigned char * data, unsigned char * mask, int w, int h, int hot_x, int hot_y)
 static int _bind_SDL_CreateCursor(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateCursor(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateCursor function, expected prototype:\nSDL_CreateCursor(unsigned char *, unsigned char *, int, int, int, int)");
+		luaL_error(L, "luna typecheck failed in SDL_Cursor * SDL_CreateCursor(unsigned char * data, unsigned char * mask, int w, int h, int hot_x, int hot_y) function, expected prototype:\nSDL_Cursor * SDL_CreateCursor(unsigned char * data, unsigned char * mask, int w, int h, int hot_x, int hot_y)\nClass arguments details:\n");
 	}
 
 	unsigned char data = (unsigned char)(lua_tointeger(L,1));
@@ -2380,10 +2461,11 @@ static int _bind_SDL_CreateCursor(lua_State *L) {
 	return 1;
 }
 
+// void SDL_SetCursor(SDL_Cursor * cursor)
 static int _bind_SDL_SetCursor(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetCursor(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetCursor function, expected prototype:\nSDL_SetCursor(SDL_Cursor *)");
+		luaL_error(L, "luna typecheck failed in void SDL_SetCursor(SDL_Cursor * cursor) function, expected prototype:\nvoid SDL_SetCursor(SDL_Cursor * cursor)\nClass arguments details:\narg 1 ID = 95432031\n");
 	}
 
 	SDL_Cursor* cursor=(Luna< SDL_Cursor >::check(L,1));
@@ -2393,10 +2475,11 @@ static int _bind_SDL_SetCursor(lua_State *L) {
 	return 0;
 }
 
+// SDL_Cursor * SDL_GetCursor()
 static int _bind_SDL_GetCursor(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetCursor(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetCursor function, expected prototype:\nSDL_GetCursor()");
+		luaL_error(L, "luna typecheck failed in SDL_Cursor * SDL_GetCursor() function, expected prototype:\nSDL_Cursor * SDL_GetCursor()\nClass arguments details:\n");
 	}
 
 
@@ -2408,10 +2491,11 @@ static int _bind_SDL_GetCursor(lua_State *L) {
 	return 1;
 }
 
+// void SDL_FreeCursor(SDL_Cursor * cursor)
 static int _bind_SDL_FreeCursor(lua_State *L) {
 	if (!_lg_typecheck_SDL_FreeCursor(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_FreeCursor function, expected prototype:\nSDL_FreeCursor(SDL_Cursor *)");
+		luaL_error(L, "luna typecheck failed in void SDL_FreeCursor(SDL_Cursor * cursor) function, expected prototype:\nvoid SDL_FreeCursor(SDL_Cursor * cursor)\nClass arguments details:\narg 1 ID = 95432031\n");
 	}
 
 	SDL_Cursor* cursor=(Luna< SDL_Cursor >::check(L,1));
@@ -2421,10 +2505,11 @@ static int _bind_SDL_FreeCursor(lua_State *L) {
 	return 0;
 }
 
+// int SDL_ShowCursor(int toggle)
 static int _bind_SDL_ShowCursor(lua_State *L) {
 	if (!_lg_typecheck_SDL_ShowCursor(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_ShowCursor function, expected prototype:\nSDL_ShowCursor(int)");
+		luaL_error(L, "luna typecheck failed in int SDL_ShowCursor(int toggle) function, expected prototype:\nint SDL_ShowCursor(int toggle)\nClass arguments details:\n");
 	}
 
 	int toggle=(int)lua_tointeger(L,1);
@@ -2435,10 +2520,11 @@ static int _bind_SDL_ShowCursor(lua_State *L) {
 	return 1;
 }
 
+// SDL_mutex * SDL_CreateMutex()
 static int _bind_SDL_CreateMutex(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateMutex(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateMutex function, expected prototype:\nSDL_CreateMutex()");
+		luaL_error(L, "luna typecheck failed in SDL_mutex * SDL_CreateMutex() function, expected prototype:\nSDL_mutex * SDL_CreateMutex()\nClass arguments details:\n");
 	}
 
 
@@ -2450,10 +2536,11 @@ static int _bind_SDL_CreateMutex(lua_State *L) {
 	return 1;
 }
 
+// int SDL_mutexP(SDL_mutex * mutex)
 static int _bind_SDL_mutexP(lua_State *L) {
 	if (!_lg_typecheck_SDL_mutexP(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_mutexP function, expected prototype:\nSDL_mutexP(SDL_mutex *)");
+		luaL_error(L, "luna typecheck failed in int SDL_mutexP(SDL_mutex * mutex) function, expected prototype:\nint SDL_mutexP(SDL_mutex * mutex)\nClass arguments details:\narg 1 ID = 83803316\n");
 	}
 
 	SDL_mutex* mutex=(Luna< SDL_mutex >::check(L,1));
@@ -2464,10 +2551,11 @@ static int _bind_SDL_mutexP(lua_State *L) {
 	return 1;
 }
 
+// int SDL_mutexV(SDL_mutex * mutex)
 static int _bind_SDL_mutexV(lua_State *L) {
 	if (!_lg_typecheck_SDL_mutexV(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_mutexV function, expected prototype:\nSDL_mutexV(SDL_mutex *)");
+		luaL_error(L, "luna typecheck failed in int SDL_mutexV(SDL_mutex * mutex) function, expected prototype:\nint SDL_mutexV(SDL_mutex * mutex)\nClass arguments details:\narg 1 ID = 83803316\n");
 	}
 
 	SDL_mutex* mutex=(Luna< SDL_mutex >::check(L,1));
@@ -2478,10 +2566,11 @@ static int _bind_SDL_mutexV(lua_State *L) {
 	return 1;
 }
 
+// void SDL_DestroyMutex(SDL_mutex * mutex)
 static int _bind_SDL_DestroyMutex(lua_State *L) {
 	if (!_lg_typecheck_SDL_DestroyMutex(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DestroyMutex function, expected prototype:\nSDL_DestroyMutex(SDL_mutex *)");
+		luaL_error(L, "luna typecheck failed in void SDL_DestroyMutex(SDL_mutex * mutex) function, expected prototype:\nvoid SDL_DestroyMutex(SDL_mutex * mutex)\nClass arguments details:\narg 1 ID = 83803316\n");
 	}
 
 	SDL_mutex* mutex=(Luna< SDL_mutex >::check(L,1));
@@ -2491,10 +2580,11 @@ static int _bind_SDL_DestroyMutex(lua_State *L) {
 	return 0;
 }
 
+// SDL_sem * SDL_CreateSemaphore(unsigned int initial_value)
 static int _bind_SDL_CreateSemaphore(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateSemaphore(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateSemaphore function, expected prototype:\nSDL_CreateSemaphore(unsigned int)");
+		luaL_error(L, "luna typecheck failed in SDL_sem * SDL_CreateSemaphore(unsigned int initial_value) function, expected prototype:\nSDL_sem * SDL_CreateSemaphore(unsigned int initial_value)\nClass arguments details:\n");
 	}
 
 	unsigned int initial_value=(unsigned int)lua_tointeger(L,1);
@@ -2507,10 +2597,11 @@ static int _bind_SDL_CreateSemaphore(lua_State *L) {
 	return 1;
 }
 
+// void SDL_DestroySemaphore(SDL_sem * sem)
 static int _bind_SDL_DestroySemaphore(lua_State *L) {
 	if (!_lg_typecheck_SDL_DestroySemaphore(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DestroySemaphore function, expected prototype:\nSDL_DestroySemaphore(SDL_sem *)");
+		luaL_error(L, "luna typecheck failed in void SDL_DestroySemaphore(SDL_sem * sem) function, expected prototype:\nvoid SDL_DestroySemaphore(SDL_sem * sem)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2520,10 +2611,11 @@ static int _bind_SDL_DestroySemaphore(lua_State *L) {
 	return 0;
 }
 
+// int SDL_SemWait(SDL_sem * sem)
 static int _bind_SDL_SemWait(lua_State *L) {
 	if (!_lg_typecheck_SDL_SemWait(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SemWait function, expected prototype:\nSDL_SemWait(SDL_sem *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SemWait(SDL_sem * sem) function, expected prototype:\nint SDL_SemWait(SDL_sem * sem)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2534,10 +2626,11 @@ static int _bind_SDL_SemWait(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SemTryWait(SDL_sem * sem)
 static int _bind_SDL_SemTryWait(lua_State *L) {
 	if (!_lg_typecheck_SDL_SemTryWait(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SemTryWait function, expected prototype:\nSDL_SemTryWait(SDL_sem *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SemTryWait(SDL_sem * sem) function, expected prototype:\nint SDL_SemTryWait(SDL_sem * sem)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2548,10 +2641,11 @@ static int _bind_SDL_SemTryWait(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SemWaitTimeout(SDL_sem * sem, unsigned int ms)
 static int _bind_SDL_SemWaitTimeout(lua_State *L) {
 	if (!_lg_typecheck_SDL_SemWaitTimeout(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SemWaitTimeout function, expected prototype:\nSDL_SemWaitTimeout(SDL_sem *, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_SemWaitTimeout(SDL_sem * sem, unsigned int ms) function, expected prototype:\nint SDL_SemWaitTimeout(SDL_sem * sem, unsigned int ms)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2563,10 +2657,11 @@ static int _bind_SDL_SemWaitTimeout(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SemPost(SDL_sem * sem)
 static int _bind_SDL_SemPost(lua_State *L) {
 	if (!_lg_typecheck_SDL_SemPost(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SemPost function, expected prototype:\nSDL_SemPost(SDL_sem *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SemPost(SDL_sem * sem) function, expected prototype:\nint SDL_SemPost(SDL_sem * sem)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2577,10 +2672,11 @@ static int _bind_SDL_SemPost(lua_State *L) {
 	return 1;
 }
 
+// unsigned int SDL_SemValue(SDL_sem * sem)
 static int _bind_SDL_SemValue(lua_State *L) {
 	if (!_lg_typecheck_SDL_SemValue(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SemValue function, expected prototype:\nSDL_SemValue(SDL_sem *)");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_SemValue(SDL_sem * sem) function, expected prototype:\nunsigned int SDL_SemValue(SDL_sem * sem)\nClass arguments details:\narg 1 ID = 82714739\n");
 	}
 
 	SDL_sem* sem=(Luna< SDL_sem >::check(L,1));
@@ -2591,10 +2687,11 @@ static int _bind_SDL_SemValue(lua_State *L) {
 	return 1;
 }
 
+// SDL_cond * SDL_CreateCond()
 static int _bind_SDL_CreateCond(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateCond(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateCond function, expected prototype:\nSDL_CreateCond()");
+		luaL_error(L, "luna typecheck failed in SDL_cond * SDL_CreateCond() function, expected prototype:\nSDL_cond * SDL_CreateCond()\nClass arguments details:\n");
 	}
 
 
@@ -2606,10 +2703,11 @@ static int _bind_SDL_CreateCond(lua_State *L) {
 	return 1;
 }
 
+// void SDL_DestroyCond(SDL_cond * cond)
 static int _bind_SDL_DestroyCond(lua_State *L) {
 	if (!_lg_typecheck_SDL_DestroyCond(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DestroyCond function, expected prototype:\nSDL_DestroyCond(SDL_cond *)");
+		luaL_error(L, "luna typecheck failed in void SDL_DestroyCond(SDL_cond * cond) function, expected prototype:\nvoid SDL_DestroyCond(SDL_cond * cond)\nClass arguments details:\narg 1 ID = 63689794\n");
 	}
 
 	SDL_cond* cond=(Luna< SDL_cond >::check(L,1));
@@ -2619,10 +2717,11 @@ static int _bind_SDL_DestroyCond(lua_State *L) {
 	return 0;
 }
 
+// int SDL_CondSignal(SDL_cond * cond)
 static int _bind_SDL_CondSignal(lua_State *L) {
 	if (!_lg_typecheck_SDL_CondSignal(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CondSignal function, expected prototype:\nSDL_CondSignal(SDL_cond *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CondSignal(SDL_cond * cond) function, expected prototype:\nint SDL_CondSignal(SDL_cond * cond)\nClass arguments details:\narg 1 ID = 63689794\n");
 	}
 
 	SDL_cond* cond=(Luna< SDL_cond >::check(L,1));
@@ -2633,10 +2732,11 @@ static int _bind_SDL_CondSignal(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CondBroadcast(SDL_cond * cond)
 static int _bind_SDL_CondBroadcast(lua_State *L) {
 	if (!_lg_typecheck_SDL_CondBroadcast(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CondBroadcast function, expected prototype:\nSDL_CondBroadcast(SDL_cond *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CondBroadcast(SDL_cond * cond) function, expected prototype:\nint SDL_CondBroadcast(SDL_cond * cond)\nClass arguments details:\narg 1 ID = 63689794\n");
 	}
 
 	SDL_cond* cond=(Luna< SDL_cond >::check(L,1));
@@ -2647,10 +2747,11 @@ static int _bind_SDL_CondBroadcast(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CondWait(SDL_cond * cond, SDL_mutex * mut)
 static int _bind_SDL_CondWait(lua_State *L) {
 	if (!_lg_typecheck_SDL_CondWait(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CondWait function, expected prototype:\nSDL_CondWait(SDL_cond *, SDL_mutex *)");
+		luaL_error(L, "luna typecheck failed in int SDL_CondWait(SDL_cond * cond, SDL_mutex * mut) function, expected prototype:\nint SDL_CondWait(SDL_cond * cond, SDL_mutex * mut)\nClass arguments details:\narg 1 ID = 63689794\narg 2 ID = 83803316\n");
 	}
 
 	SDL_cond* cond=(Luna< SDL_cond >::check(L,1));
@@ -2662,10 +2763,11 @@ static int _bind_SDL_CondWait(lua_State *L) {
 	return 1;
 }
 
+// int SDL_CondWaitTimeout(SDL_cond * cond, SDL_mutex * mutex, unsigned int ms)
 static int _bind_SDL_CondWaitTimeout(lua_State *L) {
 	if (!_lg_typecheck_SDL_CondWaitTimeout(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CondWaitTimeout function, expected prototype:\nSDL_CondWaitTimeout(SDL_cond *, SDL_mutex *, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_CondWaitTimeout(SDL_cond * cond, SDL_mutex * mutex, unsigned int ms) function, expected prototype:\nint SDL_CondWaitTimeout(SDL_cond * cond, SDL_mutex * mutex, unsigned int ms)\nClass arguments details:\narg 1 ID = 63689794\narg 2 ID = 83803316\n");
 	}
 
 	SDL_cond* cond=(Luna< SDL_cond >::check(L,1));
@@ -2678,10 +2780,11 @@ static int _bind_SDL_CondWaitTimeout(lua_State *L) {
 	return 1;
 }
 
+// unsigned int SDL_ThreadID()
 static int _bind_SDL_ThreadID(lua_State *L) {
 	if (!_lg_typecheck_SDL_ThreadID(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_ThreadID function, expected prototype:\nSDL_ThreadID()");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_ThreadID() function, expected prototype:\nunsigned int SDL_ThreadID()\nClass arguments details:\n");
 	}
 
 
@@ -2691,10 +2794,11 @@ static int _bind_SDL_ThreadID(lua_State *L) {
 	return 1;
 }
 
+// unsigned int SDL_GetThreadID(SDL_Thread * thread)
 static int _bind_SDL_GetThreadID(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetThreadID(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetThreadID function, expected prototype:\nSDL_GetThreadID(SDL_Thread *)");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_GetThreadID(SDL_Thread * thread) function, expected prototype:\nunsigned int SDL_GetThreadID(SDL_Thread * thread)\nClass arguments details:\narg 1 ID = 70107873\n");
 	}
 
 	SDL_Thread* thread=(Luna< SDL_Thread >::check(L,1));
@@ -2705,10 +2809,11 @@ static int _bind_SDL_GetThreadID(lua_State *L) {
 	return 1;
 }
 
+// void SDL_WaitThread(SDL_Thread * thread, int * status)
 static int _bind_SDL_WaitThread(lua_State *L) {
 	if (!_lg_typecheck_SDL_WaitThread(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WaitThread function, expected prototype:\nSDL_WaitThread(SDL_Thread *, int *)");
+		luaL_error(L, "luna typecheck failed in void SDL_WaitThread(SDL_Thread * thread, int * status) function, expected prototype:\nvoid SDL_WaitThread(SDL_Thread * thread, int * status)\nClass arguments details:\narg 1 ID = 70107873\n");
 	}
 
 	SDL_Thread* thread=(Luna< SDL_Thread >::check(L,1));
@@ -2719,10 +2824,11 @@ static int _bind_SDL_WaitThread(lua_State *L) {
 	return 0;
 }
 
+// void SDL_KillThread(SDL_Thread * thread)
 static int _bind_SDL_KillThread(lua_State *L) {
 	if (!_lg_typecheck_SDL_KillThread(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_KillThread function, expected prototype:\nSDL_KillThread(SDL_Thread *)");
+		luaL_error(L, "luna typecheck failed in void SDL_KillThread(SDL_Thread * thread) function, expected prototype:\nvoid SDL_KillThread(SDL_Thread * thread)\nClass arguments details:\narg 1 ID = 70107873\n");
 	}
 
 	SDL_Thread* thread=(Luna< SDL_Thread >::check(L,1));
@@ -2732,10 +2838,11 @@ static int _bind_SDL_KillThread(lua_State *L) {
 	return 0;
 }
 
+// const SDL_version * SDL_Linked_Version()
 static int _bind_SDL_Linked_Version(lua_State *L) {
 	if (!_lg_typecheck_SDL_Linked_Version(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Linked_Version function, expected prototype:\nSDL_Linked_Version()");
+		luaL_error(L, "luna typecheck failed in const SDL_version * SDL_Linked_Version() function, expected prototype:\nconst SDL_version * SDL_Linked_Version()\nClass arguments details:\n");
 	}
 
 
@@ -2747,10 +2854,11 @@ static int _bind_SDL_Linked_Version(lua_State *L) {
 	return 1;
 }
 
+// int SDL_VideoInit(const char * driver_name, unsigned int flags)
 static int _bind_SDL_VideoInit(lua_State *L) {
 	if (!_lg_typecheck_SDL_VideoInit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_VideoInit function, expected prototype:\nSDL_VideoInit(const char *, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_VideoInit(const char * driver_name, unsigned int flags) function, expected prototype:\nint SDL_VideoInit(const char * driver_name, unsigned int flags)\nClass arguments details:\n");
 	}
 
 	const char * driver_name=(const char *)lua_tostring(L,1);
@@ -2762,10 +2870,11 @@ static int _bind_SDL_VideoInit(lua_State *L) {
 	return 1;
 }
 
+// void SDL_VideoQuit()
 static int _bind_SDL_VideoQuit(lua_State *L) {
 	if (!_lg_typecheck_SDL_VideoQuit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_VideoQuit function, expected prototype:\nSDL_VideoQuit()");
+		luaL_error(L, "luna typecheck failed in void SDL_VideoQuit() function, expected prototype:\nvoid SDL_VideoQuit()\nClass arguments details:\n");
 	}
 
 
@@ -2774,10 +2883,11 @@ static int _bind_SDL_VideoQuit(lua_State *L) {
 	return 0;
 }
 
+// void SDL_UpdateRects(SDL_Surface * screen, int numrects, SDL_Rect * rects)
 static int _bind_SDL_UpdateRects(lua_State *L) {
 	if (!_lg_typecheck_SDL_UpdateRects(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UpdateRects function, expected prototype:\nSDL_UpdateRects(SDL_Surface *, int, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in void SDL_UpdateRects(SDL_Surface * screen, int numrects, SDL_Rect * rects) function, expected prototype:\nvoid SDL_UpdateRects(SDL_Surface * screen, int numrects, SDL_Rect * rects)\nClass arguments details:\narg 1 ID = 58049030\narg 3 ID = 63173412\n");
 	}
 
 	SDL_Surface* screen=(Luna< SDL_Surface >::check(L,1));
@@ -2789,10 +2899,11 @@ static int _bind_SDL_UpdateRects(lua_State *L) {
 	return 0;
 }
 
+// void SDL_UpdateRect(SDL_Surface * screen, Sint32 x, Sint32 y, unsigned int w, unsigned int h)
 static int _bind_SDL_UpdateRect(lua_State *L) {
 	if (!_lg_typecheck_SDL_UpdateRect(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UpdateRect function, expected prototype:\nSDL_UpdateRect(SDL_Surface *, Sint32, Sint32, unsigned int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in void SDL_UpdateRect(SDL_Surface * screen, Sint32 x, Sint32 y, unsigned int w, unsigned int h) function, expected prototype:\nvoid SDL_UpdateRect(SDL_Surface * screen, Sint32 x, Sint32 y, unsigned int w, unsigned int h)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* screen=(Luna< SDL_Surface >::check(L,1));
@@ -2806,10 +2917,11 @@ static int _bind_SDL_UpdateRect(lua_State *L) {
 	return 0;
 }
 
+// SDL_Overlay * SDL_CreateYUVOverlay(int width, int height, unsigned int format, SDL_Surface * display)
 static int _bind_SDL_CreateYUVOverlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateYUVOverlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateYUVOverlay function, expected prototype:\nSDL_CreateYUVOverlay(int, int, unsigned int, SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in SDL_Overlay * SDL_CreateYUVOverlay(int width, int height, unsigned int format, SDL_Surface * display) function, expected prototype:\nSDL_Overlay * SDL_CreateYUVOverlay(int width, int height, unsigned int format, SDL_Surface * display)\nClass arguments details:\narg 4 ID = 58049030\n");
 	}
 
 	int width=(int)lua_tointeger(L,1);
@@ -2825,10 +2937,11 @@ static int _bind_SDL_CreateYUVOverlay(lua_State *L) {
 	return 1;
 }
 
+// int SDL_LockYUVOverlay(SDL_Overlay * overlay)
 static int _bind_SDL_LockYUVOverlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_LockYUVOverlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LockYUVOverlay function, expected prototype:\nSDL_LockYUVOverlay(SDL_Overlay *)");
+		luaL_error(L, "luna typecheck failed in int SDL_LockYUVOverlay(SDL_Overlay * overlay) function, expected prototype:\nint SDL_LockYUVOverlay(SDL_Overlay * overlay)\nClass arguments details:\narg 1 ID = 25026059\n");
 	}
 
 	SDL_Overlay* overlay=(Luna< SDL_Overlay >::check(L,1));
@@ -2839,10 +2952,11 @@ static int _bind_SDL_LockYUVOverlay(lua_State *L) {
 	return 1;
 }
 
+// void SDL_UnlockYUVOverlay(SDL_Overlay * overlay)
 static int _bind_SDL_UnlockYUVOverlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_UnlockYUVOverlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UnlockYUVOverlay function, expected prototype:\nSDL_UnlockYUVOverlay(SDL_Overlay *)");
+		luaL_error(L, "luna typecheck failed in void SDL_UnlockYUVOverlay(SDL_Overlay * overlay) function, expected prototype:\nvoid SDL_UnlockYUVOverlay(SDL_Overlay * overlay)\nClass arguments details:\narg 1 ID = 25026059\n");
 	}
 
 	SDL_Overlay* overlay=(Luna< SDL_Overlay >::check(L,1));
@@ -2852,10 +2966,11 @@ static int _bind_SDL_UnlockYUVOverlay(lua_State *L) {
 	return 0;
 }
 
+// int SDL_DisplayYUVOverlay(SDL_Overlay * overlay, SDL_Rect * dstrect)
 static int _bind_SDL_DisplayYUVOverlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_DisplayYUVOverlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DisplayYUVOverlay function, expected prototype:\nSDL_DisplayYUVOverlay(SDL_Overlay *, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in int SDL_DisplayYUVOverlay(SDL_Overlay * overlay, SDL_Rect * dstrect) function, expected prototype:\nint SDL_DisplayYUVOverlay(SDL_Overlay * overlay, SDL_Rect * dstrect)\nClass arguments details:\narg 1 ID = 25026059\narg 2 ID = 63173412\n");
 	}
 
 	SDL_Overlay* overlay=(Luna< SDL_Overlay >::check(L,1));
@@ -2867,10 +2982,11 @@ static int _bind_SDL_DisplayYUVOverlay(lua_State *L) {
 	return 1;
 }
 
+// void SDL_FreeYUVOverlay(SDL_Overlay * overlay)
 static int _bind_SDL_FreeYUVOverlay(lua_State *L) {
 	if (!_lg_typecheck_SDL_FreeYUVOverlay(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_FreeYUVOverlay function, expected prototype:\nSDL_FreeYUVOverlay(SDL_Overlay *)");
+		luaL_error(L, "luna typecheck failed in void SDL_FreeYUVOverlay(SDL_Overlay * overlay) function, expected prototype:\nvoid SDL_FreeYUVOverlay(SDL_Overlay * overlay)\nClass arguments details:\narg 1 ID = 25026059\n");
 	}
 
 	SDL_Overlay* overlay=(Luna< SDL_Overlay >::check(L,1));
@@ -2880,10 +2996,11 @@ static int _bind_SDL_FreeYUVOverlay(lua_State *L) {
 	return 0;
 }
 
+// int SDL_GL_LoadLibrary(const char * path)
 static int _bind_SDL_GL_LoadLibrary(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_LoadLibrary(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_LoadLibrary function, expected prototype:\nSDL_GL_LoadLibrary(const char *)");
+		luaL_error(L, "luna typecheck failed in int SDL_GL_LoadLibrary(const char * path) function, expected prototype:\nint SDL_GL_LoadLibrary(const char * path)\nClass arguments details:\n");
 	}
 
 	const char * path=(const char *)lua_tostring(L,1);
@@ -2894,10 +3011,11 @@ static int _bind_SDL_GL_LoadLibrary(lua_State *L) {
 	return 1;
 }
 
+// void * SDL_GL_GetProcAddress(const char * proc)
 static int _bind_SDL_GL_GetProcAddress(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_GetProcAddress(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_GetProcAddress function, expected prototype:\nSDL_GL_GetProcAddress(const char *)");
+		luaL_error(L, "luna typecheck failed in void * SDL_GL_GetProcAddress(const char * proc) function, expected prototype:\nvoid * SDL_GL_GetProcAddress(const char * proc)\nClass arguments details:\n");
 	}
 
 	const char * proc=(const char *)lua_tostring(L,1);
@@ -2910,10 +3028,11 @@ static int _bind_SDL_GL_GetProcAddress(lua_State *L) {
 	return 1;
 }
 
+// int SDL_GL_SetAttribute(SDL_GLattr attr, int value)
 static int _bind_SDL_GL_SetAttribute(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_SetAttribute(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_SetAttribute function, expected prototype:\nSDL_GL_SetAttribute(SDL_GLattr, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_GL_SetAttribute(SDL_GLattr attr, int value) function, expected prototype:\nint SDL_GL_SetAttribute(SDL_GLattr attr, int value)\nClass arguments details:\n");
 	}
 
 	SDL_GLattr attr=(SDL_GLattr)lua_tointeger(L,1);
@@ -2925,10 +3044,11 @@ static int _bind_SDL_GL_SetAttribute(lua_State *L) {
 	return 1;
 }
 
+// int SDL_GL_GetAttribute(SDL_GLattr attr, int * value)
 static int _bind_SDL_GL_GetAttribute(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_GetAttribute(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_GetAttribute function, expected prototype:\nSDL_GL_GetAttribute(SDL_GLattr, int *)");
+		luaL_error(L, "luna typecheck failed in int SDL_GL_GetAttribute(SDL_GLattr attr, int * value) function, expected prototype:\nint SDL_GL_GetAttribute(SDL_GLattr attr, int * value)\nClass arguments details:\n");
 	}
 
 	SDL_GLattr attr=(SDL_GLattr)lua_tointeger(L,1);
@@ -2940,10 +3060,11 @@ static int _bind_SDL_GL_GetAttribute(lua_State *L) {
 	return 1;
 }
 
+// void SDL_GL_SwapBuffers()
 static int _bind_SDL_GL_SwapBuffers(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_SwapBuffers(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_SwapBuffers function, expected prototype:\nSDL_GL_SwapBuffers()");
+		luaL_error(L, "luna typecheck failed in void SDL_GL_SwapBuffers() function, expected prototype:\nvoid SDL_GL_SwapBuffers()\nClass arguments details:\n");
 	}
 
 
@@ -2952,10 +3073,11 @@ static int _bind_SDL_GL_SwapBuffers(lua_State *L) {
 	return 0;
 }
 
+// void SDL_GL_UpdateRects(int numrects, SDL_Rect * rects)
 static int _bind_SDL_GL_UpdateRects(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_UpdateRects(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_UpdateRects function, expected prototype:\nSDL_GL_UpdateRects(int, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in void SDL_GL_UpdateRects(int numrects, SDL_Rect * rects) function, expected prototype:\nvoid SDL_GL_UpdateRects(int numrects, SDL_Rect * rects)\nClass arguments details:\narg 2 ID = 63173412\n");
 	}
 
 	int numrects=(int)lua_tointeger(L,1);
@@ -2966,10 +3088,11 @@ static int _bind_SDL_GL_UpdateRects(lua_State *L) {
 	return 0;
 }
 
+// void SDL_GL_Lock()
 static int _bind_SDL_GL_Lock(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_Lock(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_Lock function, expected prototype:\nSDL_GL_Lock()");
+		luaL_error(L, "luna typecheck failed in void SDL_GL_Lock() function, expected prototype:\nvoid SDL_GL_Lock()\nClass arguments details:\n");
 	}
 
 
@@ -2978,10 +3101,11 @@ static int _bind_SDL_GL_Lock(lua_State *L) {
 	return 0;
 }
 
+// void SDL_GL_Unlock()
 static int _bind_SDL_GL_Unlock(lua_State *L) {
 	if (!_lg_typecheck_SDL_GL_Unlock(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GL_Unlock function, expected prototype:\nSDL_GL_Unlock()");
+		luaL_error(L, "luna typecheck failed in void SDL_GL_Unlock() function, expected prototype:\nvoid SDL_GL_Unlock()\nClass arguments details:\n");
 	}
 
 
@@ -2990,10 +3114,11 @@ static int _bind_SDL_GL_Unlock(lua_State *L) {
 	return 0;
 }
 
+// void SDL_WM_SetCaption(const char * title, const char * icon)
 static int _bind_SDL_WM_SetCaption(lua_State *L) {
 	if (!_lg_typecheck_SDL_WM_SetCaption(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WM_SetCaption function, expected prototype:\nSDL_WM_SetCaption(const char *, const char *)");
+		luaL_error(L, "luna typecheck failed in void SDL_WM_SetCaption(const char * title, const char * icon) function, expected prototype:\nvoid SDL_WM_SetCaption(const char * title, const char * icon)\nClass arguments details:\n");
 	}
 
 	const char * title=(const char *)lua_tostring(L,1);
@@ -3004,10 +3129,11 @@ static int _bind_SDL_WM_SetCaption(lua_State *L) {
 	return 0;
 }
 
+// void SDL_WM_SetIcon(SDL_Surface * icon, unsigned char * mask)
 static int _bind_SDL_WM_SetIcon(lua_State *L) {
 	if (!_lg_typecheck_SDL_WM_SetIcon(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WM_SetIcon function, expected prototype:\nSDL_WM_SetIcon(SDL_Surface *, unsigned char *)");
+		luaL_error(L, "luna typecheck failed in void SDL_WM_SetIcon(SDL_Surface * icon, unsigned char * mask) function, expected prototype:\nvoid SDL_WM_SetIcon(SDL_Surface * icon, unsigned char * mask)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* icon=(Luna< SDL_Surface >::check(L,1));
@@ -3018,10 +3144,11 @@ static int _bind_SDL_WM_SetIcon(lua_State *L) {
 	return 0;
 }
 
+// int SDL_WM_IconifyWindow()
 static int _bind_SDL_WM_IconifyWindow(lua_State *L) {
 	if (!_lg_typecheck_SDL_WM_IconifyWindow(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WM_IconifyWindow function, expected prototype:\nSDL_WM_IconifyWindow()");
+		luaL_error(L, "luna typecheck failed in int SDL_WM_IconifyWindow() function, expected prototype:\nint SDL_WM_IconifyWindow()\nClass arguments details:\n");
 	}
 
 
@@ -3031,10 +3158,11 @@ static int _bind_SDL_WM_IconifyWindow(lua_State *L) {
 	return 1;
 }
 
+// int SDL_WM_ToggleFullScreen(SDL_Surface * surface)
 static int _bind_SDL_WM_ToggleFullScreen(lua_State *L) {
 	if (!_lg_typecheck_SDL_WM_ToggleFullScreen(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WM_ToggleFullScreen function, expected prototype:\nSDL_WM_ToggleFullScreen(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in int SDL_WM_ToggleFullScreen(SDL_Surface * surface) function, expected prototype:\nint SDL_WM_ToggleFullScreen(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3045,10 +3173,11 @@ static int _bind_SDL_WM_ToggleFullScreen(lua_State *L) {
 	return 1;
 }
 
+// SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode mode)
 static int _bind_SDL_WM_GrabInput(lua_State *L) {
 	if (!_lg_typecheck_SDL_WM_GrabInput(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_WM_GrabInput function, expected prototype:\nSDL_WM_GrabInput(SDL_GrabMode)");
+		luaL_error(L, "luna typecheck failed in SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode mode) function, expected prototype:\nSDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode mode)\nClass arguments details:\n");
 	}
 
 	SDL_GrabMode mode=(SDL_GrabMode)lua_tointeger(L,1);
@@ -3059,10 +3188,11 @@ static int _bind_SDL_WM_GrabInput(lua_State *L) {
 	return 1;
 }
 
+// char * SDL_VideoDriverName(char * namebuf, int maxlen)
 static int _bind_SDL_VideoDriverName(lua_State *L) {
 	if (!_lg_typecheck_SDL_VideoDriverName(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_VideoDriverName function, expected prototype:\nSDL_VideoDriverName(char *, int)");
+		luaL_error(L, "luna typecheck failed in char * SDL_VideoDriverName(char * namebuf, int maxlen) function, expected prototype:\nchar * SDL_VideoDriverName(char * namebuf, int maxlen)\nClass arguments details:\n");
 	}
 
 	char namebuf=(char)lua_tointeger(L,1);
@@ -3074,10 +3204,11 @@ static int _bind_SDL_VideoDriverName(lua_State *L) {
 	return 1;
 }
 
+// SDL_Surface * SDL_GetVideoSurface()
 static int _bind_SDL_GetVideoSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetVideoSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetVideoSurface function, expected prototype:\nSDL_GetVideoSurface()");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_GetVideoSurface() function, expected prototype:\nSDL_Surface * SDL_GetVideoSurface()\nClass arguments details:\n");
 	}
 
 
@@ -3089,10 +3220,11 @@ static int _bind_SDL_GetVideoSurface(lua_State *L) {
 	return 1;
 }
 
+// const SDL_VideoInfo * SDL_GetVideoInfo()
 static int _bind_SDL_GetVideoInfo(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetVideoInfo(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetVideoInfo function, expected prototype:\nSDL_GetVideoInfo()");
+		luaL_error(L, "luna typecheck failed in const SDL_VideoInfo * SDL_GetVideoInfo() function, expected prototype:\nconst SDL_VideoInfo * SDL_GetVideoInfo()\nClass arguments details:\n");
 	}
 
 
@@ -3104,10 +3236,11 @@ static int _bind_SDL_GetVideoInfo(lua_State *L) {
 	return 1;
 }
 
+// int SDL_VideoModeOK(int width, int height, int bpp, unsigned int flags)
 static int _bind_SDL_VideoModeOK(lua_State *L) {
 	if (!_lg_typecheck_SDL_VideoModeOK(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_VideoModeOK function, expected prototype:\nSDL_VideoModeOK(int, int, int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_VideoModeOK(int width, int height, int bpp, unsigned int flags) function, expected prototype:\nint SDL_VideoModeOK(int width, int height, int bpp, unsigned int flags)\nClass arguments details:\n");
 	}
 
 	int width=(int)lua_tointeger(L,1);
@@ -3121,10 +3254,11 @@ static int _bind_SDL_VideoModeOK(lua_State *L) {
 	return 1;
 }
 
+// SDL_Surface * SDL_SetVideoMode(int width, int height, int bpp, unsigned int flags)
 static int _bind_SDL_SetVideoMode(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetVideoMode(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetVideoMode function, expected prototype:\nSDL_SetVideoMode(int, int, int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_SetVideoMode(int width, int height, int bpp, unsigned int flags) function, expected prototype:\nSDL_Surface * SDL_SetVideoMode(int width, int height, int bpp, unsigned int flags)\nClass arguments details:\n");
 	}
 
 	int width=(int)lua_tointeger(L,1);
@@ -3140,10 +3274,11 @@ static int _bind_SDL_SetVideoMode(lua_State *L) {
 	return 1;
 }
 
+// int SDL_Flip(SDL_Surface * screen)
 static int _bind_SDL_Flip(lua_State *L) {
 	if (!_lg_typecheck_SDL_Flip(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_Flip function, expected prototype:\nSDL_Flip(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in int SDL_Flip(SDL_Surface * screen) function, expected prototype:\nint SDL_Flip(SDL_Surface * screen)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* screen=(Luna< SDL_Surface >::check(L,1));
@@ -3154,10 +3289,11 @@ static int _bind_SDL_Flip(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetGamma(float red, float green, float blue)
 static int _bind_SDL_SetGamma(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetGamma(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetGamma function, expected prototype:\nSDL_SetGamma(float, float, float)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetGamma(float red, float green, float blue) function, expected prototype:\nint SDL_SetGamma(float red, float green, float blue)\nClass arguments details:\n");
 	}
 
 	float red=(float)lua_tonumber(L,1);
@@ -3170,10 +3306,11 @@ static int _bind_SDL_SetGamma(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetGammaRamp(const Uint16 * red, const Uint16 * green, const Uint16 * blue)
 static int _bind_SDL_SetGammaRamp(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetGammaRamp(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetGammaRamp function, expected prototype:\nSDL_SetGammaRamp(const Uint16 *, const Uint16 *, const Uint16 *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetGammaRamp(const Uint16 * red, const Uint16 * green, const Uint16 * blue) function, expected prototype:\nint SDL_SetGammaRamp(const Uint16 * red, const Uint16 * green, const Uint16 * blue)\nClass arguments details:\n");
 	}
 
 	Uint16 red=(Uint16)lua_tointeger(L,1);
@@ -3186,10 +3323,11 @@ static int _bind_SDL_SetGammaRamp(lua_State *L) {
 	return 1;
 }
 
+// int SDL_GetGammaRamp(Uint16 * red, Uint16 * green, Uint16 * blue)
 static int _bind_SDL_GetGammaRamp(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetGammaRamp(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetGammaRamp function, expected prototype:\nSDL_GetGammaRamp(Uint16 *, Uint16 *, Uint16 *)");
+		luaL_error(L, "luna typecheck failed in int SDL_GetGammaRamp(Uint16 * red, Uint16 * green, Uint16 * blue) function, expected prototype:\nint SDL_GetGammaRamp(Uint16 * red, Uint16 * green, Uint16 * blue)\nClass arguments details:\n");
 	}
 
 	Uint16 red=(Uint16)lua_tointeger(L,1);
@@ -3202,10 +3340,11 @@ static int _bind_SDL_GetGammaRamp(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetColors(SDL_Surface * surface, SDL_Color * colors, int firstcolor, int ncolors)
 static int _bind_SDL_SetColors(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetColors(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetColors function, expected prototype:\nSDL_SetColors(SDL_Surface *, SDL_Color *, int, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetColors(SDL_Surface * surface, SDL_Color * colors, int firstcolor, int ncolors) function, expected prototype:\nint SDL_SetColors(SDL_Surface * surface, SDL_Color * colors, int firstcolor, int ncolors)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 44829304\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3219,10 +3358,11 @@ static int _bind_SDL_SetColors(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetPalette(SDL_Surface * surface, int flags, SDL_Color * colors, int firstcolor, int ncolors)
 static int _bind_SDL_SetPalette(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetPalette(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetPalette function, expected prototype:\nSDL_SetPalette(SDL_Surface *, int, SDL_Color *, int, int)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetPalette(SDL_Surface * surface, int flags, SDL_Color * colors, int firstcolor, int ncolors) function, expected prototype:\nint SDL_SetPalette(SDL_Surface * surface, int flags, SDL_Color * colors, int firstcolor, int ncolors)\nClass arguments details:\narg 1 ID = 58049030\narg 3 ID = 44829304\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3237,10 +3377,11 @@ static int _bind_SDL_SetPalette(lua_State *L) {
 	return 1;
 }
 
+// unsigned int SDL_MapRGB(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b)
 static int _bind_SDL_MapRGB(lua_State *L) {
 	if (!_lg_typecheck_SDL_MapRGB(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_MapRGB function, expected prototype:\nSDL_MapRGB(const SDL_PixelFormat *const, const unsigned char, const unsigned char, const unsigned char)");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_MapRGB(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b) function, expected prototype:\nunsigned int SDL_MapRGB(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b)\nClass arguments details:\narg 1 ID = 19743188\n");
 	}
 
 	const SDL_PixelFormat* format=(Luna< SDL_PixelFormat >::check(L,1));
@@ -3254,10 +3395,11 @@ static int _bind_SDL_MapRGB(lua_State *L) {
 	return 1;
 }
 
+// unsigned int SDL_MapRGBA(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a)
 static int _bind_SDL_MapRGBA(lua_State *L) {
 	if (!_lg_typecheck_SDL_MapRGBA(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_MapRGBA function, expected prototype:\nSDL_MapRGBA(const SDL_PixelFormat *const, const unsigned char, const unsigned char, const unsigned char, const unsigned char)");
+		luaL_error(L, "luna typecheck failed in unsigned int SDL_MapRGBA(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a) function, expected prototype:\nunsigned int SDL_MapRGBA(const SDL_PixelFormat *const format, const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a)\nClass arguments details:\narg 1 ID = 19743188\n");
 	}
 
 	const SDL_PixelFormat* format=(Luna< SDL_PixelFormat >::check(L,1));
@@ -3272,10 +3414,11 @@ static int _bind_SDL_MapRGBA(lua_State *L) {
 	return 1;
 }
 
+// void SDL_GetRGB(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b)
 static int _bind_SDL_GetRGB(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetRGB(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetRGB function, expected prototype:\nSDL_GetRGB(unsigned int, const SDL_PixelFormat *const, unsigned char *, unsigned char *, unsigned char *)");
+		luaL_error(L, "luna typecheck failed in void SDL_GetRGB(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b) function, expected prototype:\nvoid SDL_GetRGB(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b)\nClass arguments details:\narg 2 ID = 19743188\n");
 	}
 
 	unsigned int pixel=(unsigned int)lua_tointeger(L,1);
@@ -3289,10 +3432,11 @@ static int _bind_SDL_GetRGB(lua_State *L) {
 	return 0;
 }
 
+// void SDL_GetRGBA(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b, unsigned char * a)
 static int _bind_SDL_GetRGBA(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetRGBA(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetRGBA function, expected prototype:\nSDL_GetRGBA(unsigned int, const SDL_PixelFormat *const, unsigned char *, unsigned char *, unsigned char *, unsigned char *)");
+		luaL_error(L, "luna typecheck failed in void SDL_GetRGBA(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b, unsigned char * a) function, expected prototype:\nvoid SDL_GetRGBA(unsigned int pixel, const SDL_PixelFormat *const fmt, unsigned char * r, unsigned char * g, unsigned char * b, unsigned char * a)\nClass arguments details:\narg 2 ID = 19743188\n");
 	}
 
 	unsigned int pixel=(unsigned int)lua_tointeger(L,1);
@@ -3307,10 +3451,11 @@ static int _bind_SDL_GetRGBA(lua_State *L) {
 	return 0;
 }
 
+// SDL_Surface * SDL_CreateRGBSurface(unsigned int flags, int width, int height, int depth, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask)
 static int _bind_SDL_CreateRGBSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateRGBSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateRGBSurface function, expected prototype:\nSDL_CreateRGBSurface(unsigned int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_CreateRGBSurface(unsigned int flags, int width, int height, int depth, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask) function, expected prototype:\nSDL_Surface * SDL_CreateRGBSurface(unsigned int flags, int width, int height, int depth, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask)\nClass arguments details:\n");
 	}
 
 	unsigned int flags=(unsigned int)lua_tointeger(L,1);
@@ -3330,10 +3475,11 @@ static int _bind_SDL_CreateRGBSurface(lua_State *L) {
 	return 1;
 }
 
+// SDL_Surface * SDL_CreateRGBSurfaceFrom(void * pixels, int width, int height, int depth, int pitch, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask)
 static int _bind_SDL_CreateRGBSurfaceFrom(lua_State *L) {
 	if (!_lg_typecheck_SDL_CreateRGBSurfaceFrom(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_CreateRGBSurfaceFrom function, expected prototype:\nSDL_CreateRGBSurfaceFrom(void *, int, int, int, int, unsigned int, unsigned int, unsigned int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_CreateRGBSurfaceFrom(void * pixels, int width, int height, int depth, int pitch, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask) function, expected prototype:\nSDL_Surface * SDL_CreateRGBSurfaceFrom(void * pixels, int width, int height, int depth, int pitch, unsigned int Rmask, unsigned int Gmask, unsigned int Bmask, unsigned int Amask)\nClass arguments details:\n");
 	}
 
 	void* pixels=(Luna< void >::check(L,1));
@@ -3354,10 +3500,11 @@ static int _bind_SDL_CreateRGBSurfaceFrom(lua_State *L) {
 	return 1;
 }
 
+// void SDL_FreeSurface(SDL_Surface * surface)
 static int _bind_SDL_FreeSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_FreeSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_FreeSurface function, expected prototype:\nSDL_FreeSurface(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in void SDL_FreeSurface(SDL_Surface * surface) function, expected prototype:\nvoid SDL_FreeSurface(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3367,10 +3514,11 @@ static int _bind_SDL_FreeSurface(lua_State *L) {
 	return 0;
 }
 
+// int SDL_LockSurface(SDL_Surface * surface)
 static int _bind_SDL_LockSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_LockSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LockSurface function, expected prototype:\nSDL_LockSurface(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in int SDL_LockSurface(SDL_Surface * surface) function, expected prototype:\nint SDL_LockSurface(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3381,10 +3529,11 @@ static int _bind_SDL_LockSurface(lua_State *L) {
 	return 1;
 }
 
+// void SDL_UnlockSurface(SDL_Surface * surface)
 static int _bind_SDL_UnlockSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_UnlockSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UnlockSurface function, expected prototype:\nSDL_UnlockSurface(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in void SDL_UnlockSurface(SDL_Surface * surface) function, expected prototype:\nvoid SDL_UnlockSurface(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3394,10 +3543,11 @@ static int _bind_SDL_UnlockSurface(lua_State *L) {
 	return 0;
 }
 
+// int SDL_SetColorKey(SDL_Surface * surface, unsigned int flag, unsigned int key)
 static int _bind_SDL_SetColorKey(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetColorKey(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetColorKey function, expected prototype:\nSDL_SetColorKey(SDL_Surface *, unsigned int, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetColorKey(SDL_Surface * surface, unsigned int flag, unsigned int key) function, expected prototype:\nint SDL_SetColorKey(SDL_Surface * surface, unsigned int flag, unsigned int key)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3410,10 +3560,11 @@ static int _bind_SDL_SetColorKey(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetAlpha(SDL_Surface * surface, unsigned int flag, unsigned char alpha)
 static int _bind_SDL_SetAlpha(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetAlpha(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetAlpha function, expected prototype:\nSDL_SetAlpha(SDL_Surface *, unsigned int, unsigned char)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetAlpha(SDL_Surface * surface, unsigned int flag, unsigned char alpha) function, expected prototype:\nint SDL_SetAlpha(SDL_Surface * surface, unsigned int flag, unsigned char alpha)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3426,10 +3577,11 @@ static int _bind_SDL_SetAlpha(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SetClipRect(SDL_Surface * surface, const SDL_Rect * rect)
 static int _bind_SDL_SetClipRect(lua_State *L) {
 	if (!_lg_typecheck_SDL_SetClipRect(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SetClipRect function, expected prototype:\nSDL_SetClipRect(SDL_Surface *, const SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SetClipRect(SDL_Surface * surface, const SDL_Rect * rect) function, expected prototype:\nint SDL_SetClipRect(SDL_Surface * surface, const SDL_Rect * rect)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3441,10 +3593,11 @@ static int _bind_SDL_SetClipRect(lua_State *L) {
 	return 1;
 }
 
+// void SDL_GetClipRect(SDL_Surface * surface, SDL_Rect * rect)
 static int _bind_SDL_GetClipRect(lua_State *L) {
 	if (!_lg_typecheck_SDL_GetClipRect(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_GetClipRect function, expected prototype:\nSDL_GetClipRect(SDL_Surface *, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in void SDL_GetClipRect(SDL_Surface * surface, SDL_Rect * rect) function, expected prototype:\nvoid SDL_GetClipRect(SDL_Surface * surface, SDL_Rect * rect)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3455,10 +3608,11 @@ static int _bind_SDL_GetClipRect(lua_State *L) {
 	return 0;
 }
 
+// SDL_Surface * SDL_ConvertSurface(SDL_Surface * src, SDL_PixelFormat * fmt, unsigned int flags)
 static int _bind_SDL_ConvertSurface(lua_State *L) {
 	if (!_lg_typecheck_SDL_ConvertSurface(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_ConvertSurface function, expected prototype:\nSDL_ConvertSurface(SDL_Surface *, SDL_PixelFormat *, unsigned int)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_ConvertSurface(SDL_Surface * src, SDL_PixelFormat * fmt, unsigned int flags) function, expected prototype:\nSDL_Surface * SDL_ConvertSurface(SDL_Surface * src, SDL_PixelFormat * fmt, unsigned int flags)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 19743188\n");
 	}
 
 	SDL_Surface* src=(Luna< SDL_Surface >::check(L,1));
@@ -3473,10 +3627,11 @@ static int _bind_SDL_ConvertSurface(lua_State *L) {
 	return 1;
 }
 
+// int SDL_UpperBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)
 static int _bind_SDL_UpperBlit(lua_State *L) {
 	if (!_lg_typecheck_SDL_UpperBlit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_UpperBlit function, expected prototype:\nSDL_UpperBlit(SDL_Surface *, SDL_Rect *, SDL_Surface *, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in int SDL_UpperBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect) function, expected prototype:\nint SDL_UpperBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\narg 3 ID = 58049030\narg 4 ID = 63173412\n");
 	}
 
 	SDL_Surface* src=(Luna< SDL_Surface >::check(L,1));
@@ -3490,10 +3645,11 @@ static int _bind_SDL_UpperBlit(lua_State *L) {
 	return 1;
 }
 
+// int SDL_LowerBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)
 static int _bind_SDL_LowerBlit(lua_State *L) {
 	if (!_lg_typecheck_SDL_LowerBlit(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_LowerBlit function, expected prototype:\nSDL_LowerBlit(SDL_Surface *, SDL_Rect *, SDL_Surface *, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in int SDL_LowerBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect) function, expected prototype:\nint SDL_LowerBlit(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\narg 3 ID = 58049030\narg 4 ID = 63173412\n");
 	}
 
 	SDL_Surface* src=(Luna< SDL_Surface >::check(L,1));
@@ -3507,10 +3663,11 @@ static int _bind_SDL_LowerBlit(lua_State *L) {
 	return 1;
 }
 
+// int SDL_FillRect(SDL_Surface * dst, SDL_Rect * dstrect, unsigned int color)
 static int _bind_SDL_FillRect(lua_State *L) {
 	if (!_lg_typecheck_SDL_FillRect(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_FillRect function, expected prototype:\nSDL_FillRect(SDL_Surface *, SDL_Rect *, unsigned int)");
+		luaL_error(L, "luna typecheck failed in int SDL_FillRect(SDL_Surface * dst, SDL_Rect * dstrect, unsigned int color) function, expected prototype:\nint SDL_FillRect(SDL_Surface * dst, SDL_Rect * dstrect, unsigned int color)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\n");
 	}
 
 	SDL_Surface* dst=(Luna< SDL_Surface >::check(L,1));
@@ -3523,10 +3680,11 @@ static int _bind_SDL_FillRect(lua_State *L) {
 	return 1;
 }
 
+// SDL_Surface * SDL_DisplayFormat(SDL_Surface * surface)
 static int _bind_SDL_DisplayFormat(lua_State *L) {
 	if (!_lg_typecheck_SDL_DisplayFormat(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DisplayFormat function, expected prototype:\nSDL_DisplayFormat(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_DisplayFormat(SDL_Surface * surface) function, expected prototype:\nSDL_Surface * SDL_DisplayFormat(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3539,10 +3697,11 @@ static int _bind_SDL_DisplayFormat(lua_State *L) {
 	return 1;
 }
 
+// SDL_Surface * SDL_DisplayFormatAlpha(SDL_Surface * surface)
 static int _bind_SDL_DisplayFormatAlpha(lua_State *L) {
 	if (!_lg_typecheck_SDL_DisplayFormatAlpha(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_DisplayFormatAlpha function, expected prototype:\nSDL_DisplayFormatAlpha(SDL_Surface *)");
+		luaL_error(L, "luna typecheck failed in SDL_Surface * SDL_DisplayFormatAlpha(SDL_Surface * surface) function, expected prototype:\nSDL_Surface * SDL_DisplayFormatAlpha(SDL_Surface * surface)\nClass arguments details:\narg 1 ID = 58049030\n");
 	}
 
 	SDL_Surface* surface=(Luna< SDL_Surface >::check(L,1));
@@ -3555,10 +3714,11 @@ static int _bind_SDL_DisplayFormatAlpha(lua_State *L) {
 	return 1;
 }
 
+// int SDL_SoftStretch(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)
 static int _bind_SDL_SoftStretch(lua_State *L) {
 	if (!_lg_typecheck_SDL_SoftStretch(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SDL_SoftStretch function, expected prototype:\nSDL_SoftStretch(SDL_Surface *, SDL_Rect *, SDL_Surface *, SDL_Rect *)");
+		luaL_error(L, "luna typecheck failed in int SDL_SoftStretch(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect) function, expected prototype:\nint SDL_SoftStretch(SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst, SDL_Rect * dstrect)\nClass arguments details:\narg 1 ID = 58049030\narg 2 ID = 63173412\narg 3 ID = 58049030\narg 4 ID = 63173412\n");
 	}
 
 	SDL_Surface* src=(Luna< SDL_Surface >::check(L,1));

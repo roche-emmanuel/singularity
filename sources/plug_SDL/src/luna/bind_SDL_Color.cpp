@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Color >::className[] = "SDL_Color";
 const char LunaTraits< SDL_Color >::fullName[] = "SDL_Color";
 const char LunaTraits< SDL_Color >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Color >::parents[] = {0};
+const int LunaTraits< SDL_Color >::hash = 44829304;
 const int LunaTraits< SDL_Color >::uniqueIDs[] = {44829304,0};
 
 luna_RegType LunaTraits< SDL_Color >::methods[] = {

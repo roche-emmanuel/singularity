@@ -58,6 +58,7 @@ const char LunaTraits< SDL_mutex >::className[] = "SDL_mutex";
 const char LunaTraits< SDL_mutex >::fullName[] = "SDL_mutex";
 const char LunaTraits< SDL_mutex >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_mutex >::parents[] = {0};
+const int LunaTraits< SDL_mutex >::hash = 83803316;
 const int LunaTraits< SDL_mutex >::uniqueIDs[] = {83803316,0};
 
 luna_RegType LunaTraits< SDL_mutex >::methods[] = {

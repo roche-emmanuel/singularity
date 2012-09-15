@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Joystick >::className[] = "SDL_Joystick";
 const char LunaTraits< SDL_Joystick >::fullName[] = "SDL_Joystick";
 const char LunaTraits< SDL_Joystick >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Joystick >::parents[] = {0};
+const int LunaTraits< SDL_Joystick >::hash = 73977241;
 const int LunaTraits< SDL_Joystick >::uniqueIDs[] = {73977241,0};
 
 luna_RegType LunaTraits< SDL_Joystick >::methods[] = {

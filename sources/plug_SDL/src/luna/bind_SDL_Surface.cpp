@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Surface >::className[] = "SDL_Surface";
 const char LunaTraits< SDL_Surface >::fullName[] = "SDL_Surface";
 const char LunaTraits< SDL_Surface >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Surface >::parents[] = {0};
+const int LunaTraits< SDL_Surface >::hash = 58049030;
 const int LunaTraits< SDL_Surface >::uniqueIDs[] = {58049030,0};
 
 luna_RegType LunaTraits< SDL_Surface >::methods[] = {

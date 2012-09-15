@@ -99,7 +99,9 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 	lua_pop(L,1); // remove the string from the stack.
 
 	lpath = path +"lua/libraries/?.lua;"+lpath;
+	lpath = path +"lua/libraries/?/?.lua;"+lpath;
 	lpath = path +"lua/modules/?.lua;" + lpath;
+	lpath = path +"lua/modules/?/?.lua;" + lpath;
 	logINFO_V("Setting package.path="<< lpath);
 
 	lua_pushstring(L,"path");

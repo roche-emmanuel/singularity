@@ -50,10 +50,11 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// SDL_AudioSpec::void(1 * callback)
 	static int _bind_void(lua_State *L) {
 		if (!_lg_typecheck_void(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void function, expected prototype:\nvoid(1 *)");
+			luaL_error(L, "luna typecheck failed in SDL_AudioSpec::void(1 * callback) function, expected prototype:\nSDL_AudioSpec::void(1 * callback)\nClass arguments details:\n");
 		}
 
 		////////////////////////////////////////////////////////////////////
@@ -83,6 +84,7 @@ const char LunaTraits< SDL_AudioSpec >::className[] = "SDL_AudioSpec";
 const char LunaTraits< SDL_AudioSpec >::fullName[] = "SDL_AudioSpec";
 const char LunaTraits< SDL_AudioSpec >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_AudioSpec >::parents[] = {0};
+const int LunaTraits< SDL_AudioSpec >::hash = 21280544;
 const int LunaTraits< SDL_AudioSpec >::uniqueIDs[] = {21280544,0};
 
 luna_RegType LunaTraits< SDL_AudioSpec >::methods[] = {

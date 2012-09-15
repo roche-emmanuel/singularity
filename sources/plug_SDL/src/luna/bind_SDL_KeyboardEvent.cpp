@@ -58,6 +58,7 @@ const char LunaTraits< SDL_KeyboardEvent >::className[] = "SDL_KeyboardEvent";
 const char LunaTraits< SDL_KeyboardEvent >::fullName[] = "SDL_KeyboardEvent";
 const char LunaTraits< SDL_KeyboardEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_KeyboardEvent >::parents[] = {0};
+const int LunaTraits< SDL_KeyboardEvent >::hash = 54883043;
 const int LunaTraits< SDL_KeyboardEvent >::uniqueIDs[] = {54883043,0};
 
 luna_RegType LunaTraits< SDL_KeyboardEvent >::methods[] = {

@@ -58,6 +58,7 @@ const char LunaTraits< SDL_PixelFormat >::className[] = "SDL_PixelFormat";
 const char LunaTraits< SDL_PixelFormat >::fullName[] = "SDL_PixelFormat";
 const char LunaTraits< SDL_PixelFormat >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_PixelFormat >::parents[] = {0};
+const int LunaTraits< SDL_PixelFormat >::hash = 19743188;
 const int LunaTraits< SDL_PixelFormat >::uniqueIDs[] = {19743188,0};
 
 luna_RegType LunaTraits< SDL_PixelFormat >::methods[] = {

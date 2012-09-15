@@ -33,6 +33,13 @@ require "doxmlparser" -- The xml parser.
 
 local dxp = doxmlparser
 
+--[[
+local ReflectionGenerator = require("classBuilder"){
+	name="ReflectionGenerator",
+	bases={"base.Object","reflection.IScopeStack","bindings.IteratorHandler"}
+};
+]]
+
 local ReflectionGenerator = oo.class({},Object,IScopeStack,IteratorHandler)
 
 ReflectionGenerator.CLASS_NAME = "bindings.ReflectionGenerator"
@@ -52,6 +59,17 @@ function ReflectionGenerator:__init(datamap)
     
     return object
 end
+
+--[[
+function ReflectionGenerator:initialize(datamap)
+    self.reflectionMap = datamap
+    self.currentScope = Vector();
+    self.compoundMap = Map();
+    self.ignoreGlobalFuncsPatterns = Set();
+    self.ignoreClassFunctionsPatterns = Map()       
+    self.locationPrefixes = Set()
+end
+]]
 
 function ReflectionGenerator:getLocationPrefixes()
 	return self.locationPrefixes;
@@ -927,6 +945,80 @@ function stdStringToLua(buf,type,argname)
 	buf:writeSubLine("lua_pushlstring(L,${1}${2}data(),${1}${2}size());",argname,access)
 end
 
+function wxStringFromLua(buf,index,type,argname)
+	buf:writeSubLine("wxString ${2}(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
+end
+
+function wxStringToLua(buf,type,argname)
+	local access = type:isPointer() and "->" or "."
+	buf:writeSubLine("lua_pushlstring(L,${1}${2}data(),${1}${2}size());",argname,access)
+end
+
+function ucharFromLua(buf,index,type,argname)
+	buf:writeSubLine("unsigned char ${2} = (unsigned char)(lua_tointeger(L,${1}));",index,argname)
+end
+
+function ucharToLua(buf,type,argname)
+    if type:isPointer() then
+        buf:writeSubLine('luaL_error(L,"Trying to convert pointer on unsigned char ${1} to lua. This usage should be clarifierd.");',argname)
+    else
+        buf:writeSubLine("lua_pushnumber(L,(int)${1});",argname,access)
+    end
+end
+
+function refptrToLua(buf,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::ref_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("Luna< ${1} >::push(L,${2},false);",tname,argname.. (type:isPointer() and "->get()" or ".get()"));
+end
+
+function obsptrToLua(buf,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::observer_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("Luna< ${1} >::push(L,${2},false);",tname,argname.. (type:isPointer() and "->get()" or ".get()"));
+end
+
+function refptrFromLua(buf,index,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::ref_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("osg::ref_ptr< ${1} > ${2} = dynamic_cast< ${1}* >(Luna< osg::Referenced >::check(L,${3}));",tname,argname,index)
+	return false -- this is not a pointer result.
+end
+
+function obsptrFromLua(buf,index,type,argname)
+	local tname = type:getBaseName();
+	--log:warn("Converter","Extracting osg ref from ", tname)
+	tname = tname:gsub("osg::observer_ptr< (.+) >","%1")
+	--log:warn("Converter","Got extracted osg ref ", tname)
+	
+	buf:writeSubLine("osg::observer_ptr< ${1} > ${2} = dynamic_cast< ${1}* >(Luna< osg::Referenced >::check(L,${3}));",tname,argname,index)
+	return false -- this is not a pointer result.
+end
+
+function wxcharFromLua(buf,index,type,argname)
+    buf:writeSubLine("wxString ${2}_str(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
+    buf:writeSubLine("const wxChar* ${1} = ${1}_str.wc_str();",argname)
+end
+
+function wxcharToLua(buf,type,argname)
+	local access = type:isPointer() and "->" or "."
+	buf:writeSubLine("wxString ${1}_str(${1});",argname)
+	buf:writeSubLine("lua_pushlstring(L,${1}_str.data(),${1}_str.size());",argname)
+end
+
+function ucharChecker(buf,index,type,defStr)
+    buf:writeSubLine("if( ${2}(lua_isnumber(L,${1})==0 || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
+end
+
 function ReflectionGenerator.generate(options)
 	local t0 = os.clock()
 	
@@ -952,21 +1044,49 @@ function ReflectionGenerator.generate(options)
 
 	local tc = require "bindings.TypeConverter"
 	
+	tc:setFromLuaConverter("osg::ref_ptr<",refptrFromLua)
+	tc:setFromLuaConverter("osg::observer_ptr<",obsptrFromLua)
+	tc:setFromLuaConverter("wxString",wxStringFromLua)
 	tc:setFromLuaConverter("std::string",stdStringFromLua)
+	tc:setFromLuaConverter("std::string &",stdStringFromLua)
+	tc:setFromLuaConverter("const std::string &",stdStringFromLua)
 	tc:setFromLuaConverter("string",stdStringFromLua)
-	tc:setToLuaConverter("std::string",stdStringToLua)
-	tc:setToLuaConverter("string",stdStringToLua)
+	tc:setFromLuaConverter("unsigned char",ucharFromLua)
+	tc:setFromLuaConverter("const wxChar *",wxcharFromLua)
+	
+	tc:setToLuaConverter("osg::ref_ptr<",refptrToLua)
+	tc:setToLuaConverter("osg::observer_ptr<",obsptrToLua)
+	tc:setToLuaConverter("wxString",wxStringToLua)
+	tc:setToLuaConverter("^std::string$",stdStringToLua)
+	tc:setToLuaConverter("^std::string &$",stdStringToLua)
+	tc:setToLuaConverter("^const std::string &$",stdStringToLua)
+	tc:setToLuaConverter("^string$",stdStringToLua)
+	tc:setToLuaConverter("^unsigned char$",ucharToLua)
+	tc:setToLuaConverter("^const wxChar *$",wxcharToLua)
+
+	tc:setTypeChecker("unsigned char",ucharChecker)
 
     local ReflectionMap = require "bindings.ReflectionMap"
     local LunaWriter = require "bindings.LunaWriter"
 	local im = require "bindings.IgnoreManager"
+	local corr = require "bindings.TextCorrector"
 	
     local datamap = ReflectionMap()
     local rg = ReflectionGenerator(datamap)
     rg:getIgnoreGlobalFunctionsPatterns():fromTable(options.ignoreGlobalFuncs or {})
-
+	
+	for key,values in pairs(options.corrections or {}) do
+		for _,v in ipairs(values) do
+			corr:addCorrector(key,v[1],v[2])
+		end
+	end
+	
 	for k,v in ipairs(options.ignoreFunctions or {}) do
 		im:getIgnoreFunctionsPatterns():push_back(v)
+	end
+	
+	for k,v in ipairs(options.ignoreConverters or {}) do
+		im:addPattern("converter",v)
 	end
 	
 	if options.ignoreClasses then

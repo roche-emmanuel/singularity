@@ -58,6 +58,7 @@ const char LunaTraits< SDL_EventFilter >::className[] = "SDL_EventFilter";
 const char LunaTraits< SDL_EventFilter >::fullName[] = "SDL_EventFilter";
 const char LunaTraits< SDL_EventFilter >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_EventFilter >::parents[] = {0};
+const int LunaTraits< SDL_EventFilter >::hash = 99065423;
 const int LunaTraits< SDL_EventFilter >::uniqueIDs[] = {99065423,0};
 
 luna_RegType LunaTraits< SDL_EventFilter >::methods[] = {

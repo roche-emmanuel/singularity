@@ -58,6 +58,7 @@ const char LunaTraits< SDL_JoyAxisEvent >::className[] = "SDL_JoyAxisEvent";
 const char LunaTraits< SDL_JoyAxisEvent >::fullName[] = "SDL_JoyAxisEvent";
 const char LunaTraits< SDL_JoyAxisEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_JoyAxisEvent >::parents[] = {0};
+const int LunaTraits< SDL_JoyAxisEvent >::hash = 57386537;
 const int LunaTraits< SDL_JoyAxisEvent >::uniqueIDs[] = {57386537,0};
 
 luna_RegType LunaTraits< SDL_JoyAxisEvent >::methods[] = {

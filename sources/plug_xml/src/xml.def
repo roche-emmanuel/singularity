@@ -1,0 +1,3 @@
+LIBRARY LuaXML_lib.dll
+EXPORTS
+luaopen_LuaXML_lib

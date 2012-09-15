@@ -58,6 +58,7 @@ const char LunaTraits< SDL_QuitEvent >::className[] = "SDL_QuitEvent";
 const char LunaTraits< SDL_QuitEvent >::fullName[] = "SDL_QuitEvent";
 const char LunaTraits< SDL_QuitEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_QuitEvent >::parents[] = {0};
+const int LunaTraits< SDL_QuitEvent >::hash = 91180727;
 const int LunaTraits< SDL_QuitEvent >::uniqueIDs[] = {91180727,0};
 
 luna_RegType LunaTraits< SDL_QuitEvent >::methods[] = {

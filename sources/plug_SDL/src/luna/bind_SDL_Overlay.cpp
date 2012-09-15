@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Overlay >::className[] = "SDL_Overlay";
 const char LunaTraits< SDL_Overlay >::fullName[] = "SDL_Overlay";
 const char LunaTraits< SDL_Overlay >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Overlay >::parents[] = {0};
+const int LunaTraits< SDL_Overlay >::hash = 25026059;
 const int LunaTraits< SDL_Overlay >::uniqueIDs[] = {25026059,0};
 
 luna_RegType LunaTraits< SDL_Overlay >::methods[] = {

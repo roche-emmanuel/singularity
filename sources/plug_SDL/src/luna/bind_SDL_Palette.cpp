@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Palette >::className[] = "SDL_Palette";
 const char LunaTraits< SDL_Palette >::fullName[] = "SDL_Palette";
 const char LunaTraits< SDL_Palette >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Palette >::parents[] = {0};
+const int LunaTraits< SDL_Palette >::hash = 17403157;
 const int LunaTraits< SDL_Palette >::uniqueIDs[] = {17403157,0};
 
 luna_RegType LunaTraits< SDL_Palette >::methods[] = {

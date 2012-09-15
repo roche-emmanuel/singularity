@@ -58,6 +58,7 @@ const char LunaTraits< SDL_keysym >::className[] = "SDL_keysym";
 const char LunaTraits< SDL_keysym >::fullName[] = "SDL_keysym";
 const char LunaTraits< SDL_keysym >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_keysym >::parents[] = {0};
+const int LunaTraits< SDL_keysym >::hash = 26030457;
 const int LunaTraits< SDL_keysym >::uniqueIDs[] = {26030457,0};
 
 luna_RegType LunaTraits< SDL_keysym >::methods[] = {

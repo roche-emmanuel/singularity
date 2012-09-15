@@ -58,6 +58,7 @@ const char LunaTraits< SDL_MouseMotionEvent >::className[] = "SDL_MouseMotionEve
 const char LunaTraits< SDL_MouseMotionEvent >::fullName[] = "SDL_MouseMotionEvent";
 const char LunaTraits< SDL_MouseMotionEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_MouseMotionEvent >::parents[] = {0};
+const int LunaTraits< SDL_MouseMotionEvent >::hash = 65570431;
 const int LunaTraits< SDL_MouseMotionEvent >::uniqueIDs[] = {65570431,0};
 
 luna_RegType LunaTraits< SDL_MouseMotionEvent >::methods[] = {

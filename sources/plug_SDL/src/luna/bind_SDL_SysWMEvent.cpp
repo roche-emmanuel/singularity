@@ -58,6 +58,7 @@ const char LunaTraits< SDL_SysWMEvent >::className[] = "SDL_SysWMEvent";
 const char LunaTraits< SDL_SysWMEvent >::fullName[] = "SDL_SysWMEvent";
 const char LunaTraits< SDL_SysWMEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_SysWMEvent >::parents[] = {0};
+const int LunaTraits< SDL_SysWMEvent >::hash = 2590390;
 const int LunaTraits< SDL_SysWMEvent >::uniqueIDs[] = {2590390,0};
 
 luna_RegType LunaTraits< SDL_SysWMEvent >::methods[] = {

@@ -58,6 +58,7 @@ const char LunaTraits< SDL_UserEvent >::className[] = "SDL_UserEvent";
 const char LunaTraits< SDL_UserEvent >::fullName[] = "SDL_UserEvent";
 const char LunaTraits< SDL_UserEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_UserEvent >::parents[] = {0};
+const int LunaTraits< SDL_UserEvent >::hash = 22520081;
 const int LunaTraits< SDL_UserEvent >::uniqueIDs[] = {22520081,0};
 
 luna_RegType LunaTraits< SDL_UserEvent >::methods[] = {

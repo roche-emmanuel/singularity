@@ -58,6 +58,7 @@ const char LunaTraits< SDL_ResizeEvent >::className[] = "SDL_ResizeEvent";
 const char LunaTraits< SDL_ResizeEvent >::fullName[] = "SDL_ResizeEvent";
 const char LunaTraits< SDL_ResizeEvent >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_ResizeEvent >::parents[] = {0};
+const int LunaTraits< SDL_ResizeEvent >::hash = 35035544;
 const int LunaTraits< SDL_ResizeEvent >::uniqueIDs[] = {35035544,0};
 
 luna_RegType LunaTraits< SDL_ResizeEvent >::methods[] = {

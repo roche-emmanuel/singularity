@@ -58,6 +58,7 @@ const char LunaTraits< SDL_Cursor >::className[] = "SDL_Cursor";
 const char LunaTraits< SDL_Cursor >::fullName[] = "SDL_Cursor";
 const char LunaTraits< SDL_Cursor >::moduleName[] = "SDL";
 const char* LunaTraits< SDL_Cursor >::parents[] = {0};
+const int LunaTraits< SDL_Cursor >::hash = 95432031;
 const int LunaTraits< SDL_Cursor >::uniqueIDs[] = {95432031,0};
 
 luna_RegType LunaTraits< SDL_Cursor >::methods[] = {
