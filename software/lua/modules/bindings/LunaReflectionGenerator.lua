@@ -1089,9 +1089,11 @@ function ReflectionGenerator.generate(options)
 		im:addPattern("converter",v)
 	end
 	
-	if options.ignoreClasses then
-    	im:getIgnoreClassesPatterns():fromTable(options.ignoreClasses)
+	for k,v in ipairs(options.ignoreClasses or {}) do
+    	im:addPattern("class",v)
+    	--im:addPattern("class_declaration",v)
     end
+
     if options.ignoreConverter then
     	im:getIgnoreConvertersPatterns():fromTable(options.ignoreConverter)
 	end

@@ -4,7 +4,7 @@
 #include "luna/luna.h"
 #include "base/Container.h"
 
-/** LUNA_CLASS_EXTENSION LUNA_RENAME __tostring2 */
+/** LUNA_CLASS_EXTENSION LUNA_RENAME __tostring */
 int ptime_tostring(boost::posix_time::ptime* val, lua_State* L);
 
 /** LUNA_CLASS_EXTENSION LUNA_RENAME push_back */

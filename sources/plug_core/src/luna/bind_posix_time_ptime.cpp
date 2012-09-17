@@ -34,7 +34,7 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
-	inline static bool _lg_typecheck___tostring2(lua_State *L) {
+	inline static bool _lg_typecheck___tostring(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,12269219)) ) return false;
@@ -49,8 +49,8 @@ public:
 
 	// Function binds:
 	// int posix_time::ptime::ptime_tostring(posix_time::ptime * val, lua_State * L)
-	static int _bind___tostring2(lua_State *L) {
-		if (!_lg_typecheck___tostring2(L)) {
+	static int _bind___tostring(lua_State *L) {
+		if (!_lg_typecheck___tostring(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int posix_time::ptime::ptime_tostring(posix_time::ptime * val, lua_State * L) function, expected prototype:\nint posix_time::ptime::ptime_tostring(posix_time::ptime * val, lua_State * L)\nClass arguments details:\narg 1 ID = 12269219\n");
 		}
@@ -81,7 +81,7 @@ const int LunaTraits< posix_time::ptime >::hash = 12269219;
 const int LunaTraits< posix_time::ptime >::uniqueIDs[] = {12269219,0};
 
 luna_RegType LunaTraits< posix_time::ptime >::methods[] = {
-	{"__tostring2", &luna_wrapper_posix_time_ptime::_bind___tostring2},
+	{"__tostring", &luna_wrapper_posix_time_ptime::_bind___tostring},
 	{"dynCast", &luna_wrapper_posix_time_ptime::_bind_dynCast},
 	{0,0}
 };
