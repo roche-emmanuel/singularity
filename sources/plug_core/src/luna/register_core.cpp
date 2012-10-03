@@ -26,7 +26,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
 	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
-	Luna< SingletonHolder< sgt::TimeProvider > >::Register(L);
 	Luna< sgt::Object >::Register(L);
 	Luna< sgt::TimeProvider >::Register(L);
 	Luna< sgt::LogSink >::Register(L);

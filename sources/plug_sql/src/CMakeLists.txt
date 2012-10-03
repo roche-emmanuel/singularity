@@ -8,8 +8,10 @@ LINK_DIRECTORIES (${LUA_LIB_DIR})
 INCLUDE_DIRECTORIES(${MYSQL_INC_DIR})
 LINK_DIRECTORIES (${MYSQL_LIB_DIR})
 
+IF(MSVC)
 INCLUDE_DIRECTORIES(${FIREBIRD_INC_DIR})
 LINK_DIRECTORIES (${FIREBIRD_LIB_DIR})
+ENDIF()
 
 ADD_DEFINITIONS(-D_CRT_SECURE_NO_DEPRECATE)
 
@@ -38,14 +40,15 @@ SET(LIBS ${MYSQL_LIBS})
 
 BUILD_LUA_PLUGIN()
 
-#firebird plugin
-SET(TARGET_NAME "firebird")
+IF(MSVC)
+	#firebird plugin
+	SET(TARGET_NAME "firebird")
 
-SET(SOURCE_FILES luasql.c
-	ls_firebird.c	
-	firebird.def
-	../include/luasql.h)
-SET(LIBS ${FIREBIRD_LIBS})
+	SET(SOURCE_FILES luasql.c
+		ls_firebird.c	
+		firebird.def
+		../include/luasql.h)
+	SET(LIBS ${FIREBIRD_LIBS})
 
-BUILD_LUA_PLUGIN()
-
+	BUILD_LUA_PLUGIN()
+ENDIF()

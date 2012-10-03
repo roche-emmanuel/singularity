@@ -98,29 +98,45 @@ lunaStack::~lunaStack()
 
 
 /// Implementation of void type:
+template <>
 void* LunaTraits< void >::_bind_ctor(lua_State *L) {
 	return NULL;
 }
 
+template <>
 void LunaTraits< void >::_bind_dtor(void* obj) {
 	// no op
 }
 
+template <>
 const char LunaTraits< void >::className[] = "void";
+
+template <>
 const char LunaTraits< void >::fullName[] = "void";
+
+template <>
 const char LunaTraits< void >::moduleName[] = "luna";
+
+template <>
 const char* LunaTraits< void >::parents[] =  { 0 };
+
+template <>
 const int LunaTraits< void >::hash = 3625364;
+
+template <>
 const int LunaTraits< void >::uniqueIDs[] = { 3625364 , 0 };
 
+template <>
 luna_RegType LunaTraits< void >::methods[] = {
     {0,0}
 };
 
+template <>
 luna_RegEnumType LunaTraits< void >::enumValues[] = {
 	{0,0}
 };
 
+template <>
 luna_ConverterType LunaTraits< void >::converters[] = {
 	{0,0}
 };

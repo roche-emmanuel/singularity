@@ -1,5 +1,5 @@
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Referenced>
+#include <osg/Object>
+#include <osg/Referenced>
 #include <sgtCommon.h>
 
 #include <plug_common.h>

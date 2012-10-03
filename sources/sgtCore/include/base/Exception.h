@@ -19,18 +19,28 @@ public:
 	/** Default constructor.*/
 	Exception() {}; // 
 	/** Copy constructor.*/
-	Exception(const Exception& rhs) : std::exception(rhs) {};
+	Exception(const Exception& rhs) : std::exception(rhs), _message(rhs._message) {};
+
 	/** Construction from a message string.*/
-	Exception(const char* msg) : std::exception(msg) {};
+	Exception(const char* msg) : std::exception(), _message(msg) {};
 	/** Construction from a message string.*/
-	Exception(const std::string& msg) : std::exception(msg.c_str()) {};
+	Exception(const std::string& msg) : std::exception(), _message(msg) {};
+
 	/** Assignment operator.*/
 	Exception& operator= (const Exception& rhs) {
 		std::exception::operator=(rhs);
+		_message = rhs._message;
 		return *this;
 	};
 
-	virtual ~Exception() {};
+	virtual ~Exception() throw() {};
+
+	virtual const char* what() const throw() {
+		return _message.c_str();
+	}
+
+protected:
+	String _message;
 };
 
 } /* namespace scBase */

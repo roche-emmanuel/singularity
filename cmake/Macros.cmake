@@ -288,16 +288,28 @@ MACRO(REMOVE_FILES file_list regex)
 ENDMACRO(REMOVE_FILES)
 
 MACRO(COMPRESS_BINARY)
-    STRING(REPLACE "/" "\\" DOX_TEMPLATE  "${VBSSim_SOURCE_DIR}/scripts/template_doxyfile")
-    STRING(REPLACE "/" "\\" VBSSim_SOURCE_DIR_WIN  "${VBSSim_SOURCE_DIR}")
-    STRING(REPLACE "/" "\\" BINARY_DIR_WIN  "${CMAKE_CURRENT_BINARY_DIR}")
-    
-    ADD_CUSTOM_COMMAND(
-        TARGET ${TARGET_NAME}
-        POST_BUILD
-        COMMAND echo "Compressing binary..."
-        COMMAND ${UPX} --best $<TARGET_FILE:${TARGET_NAME}>
-    )
+	IF(WIN32)
+		# UPX compression only works for windows binaries.
+		STRING(REPLACE "/" "\\" DOX_TEMPLATE  "${VBSSim_SOURCE_DIR}/scripts/template_doxyfile")
+		STRING(REPLACE "/" "\\" VBSSim_SOURCE_DIR_WIN  "${VBSSim_SOURCE_DIR}")
+		STRING(REPLACE "/" "\\" BINARY_DIR_WIN  "${CMAKE_CURRENT_BINARY_DIR}")
+		
+		IF(CYGWIN_BOX)
+			ADD_CUSTOM_COMMAND(
+				TARGET ${TARGET_NAME}
+				POST_BUILD
+				COMMAND echo "Compressing binary..."
+				COMMAND ${UPX} --best `cygpath -w "$<TARGET_FILE:${TARGET_NAME}>"`
+			)
+		ELSE()
+			ADD_CUSTOM_COMMAND(
+				TARGET ${TARGET_NAME}
+				POST_BUILD
+				COMMAND echo "Compressing binary..."
+				COMMAND ${UPX} --best "$<TARGET_FILE:${TARGET_NAME}>"
+			)		
+		ENDIF()
+	ENDIF()
 ENDMACRO(COMPRESS_BINARY)
 
 MACRO(BUILD_LUA_PLUGIN)

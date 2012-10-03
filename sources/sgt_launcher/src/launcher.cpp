@@ -63,6 +63,9 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 #elif defined(LINUX32)
 	platform = "linux32";
 	shared_ext = "so";
+#elif defined(DS411)
+	platform = "ds411";
+	shared_ext = "so";	
 #endif
 
 	lua_pushstring(L,platform.c_str());
@@ -115,7 +118,8 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 }
 
 // The entry point of the complete application:
-#ifdef SGT_WINDOWS
+//#ifdef SGT_WINDOWS
+#ifdef WIN32
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
 #else
 int main(int argc, char *argv[]) {

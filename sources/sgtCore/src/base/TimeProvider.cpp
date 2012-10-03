@@ -35,7 +35,7 @@ REGISTER_OBJECT_WRAPPER( sgtTimeProvider_Wrapper,
 
 namespace sgt {
 
-IMPLEMENT_SINGLETON(TimeManager);
+IMPLEMENT_SINGLETON(TimeProvider, TimeManager);
 
 Time TimeProvider::getCurrentTime() {
 	//! Return the current simulation time in the time manager object.
@@ -51,7 +51,7 @@ Time TimeProvider::getCurrentTime() {
 	else if(_microPrecision) {
 		subs = ((long double)elapsed.total_microseconds())*(long double)_timeSpeed;
 		// extract seconds:
-		long double secs = floorl(subs/1000000.0);
+		long double secs = floor(subs/1000000.0);
 		subs = subs - secs*1000000.0;
 		_simulationTime += boost::posix_time::seconds((unsigned long)secs)+boost::posix_time::microseconds((unsigned long)subs);
 	}
@@ -59,7 +59,7 @@ Time TimeProvider::getCurrentTime() {
 		//subs = ((double)elapsed.total_milliseconds())*_timeSpeed;
 		subs = ((long double)elapsed.total_nanoseconds())*(long double)_timeSpeed;
 		// extract seconds:
-		long double secs = floorl(subs/1000000000.0);
+		long double secs = floor(subs/1000000000.0);
 		subs = subs - secs*1000000000.0;
 		_simulationTime += boost::posix_time::seconds((unsigned long)secs)+boost::posix_time::nanoseconds((unsigned long)subs);
 	}

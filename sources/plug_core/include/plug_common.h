@@ -20,6 +20,7 @@
 
 // include the SimCore library:
 #include "sgtCommon.h"
+#include "log/LogManager.h"
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 #include "base/Container.h"

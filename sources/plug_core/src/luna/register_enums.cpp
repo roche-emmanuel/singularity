@@ -1,7 +1,8 @@
-#include <W:/Shared/Dev/Deps/win32/OpenSceneGraph-3.0.1/include/osg/Object>
+#include <plug_common.h>
+
+#include <osg/Object>
 #include <log/LogManager.h>
 
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

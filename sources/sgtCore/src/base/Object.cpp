@@ -1,4 +1,4 @@
-#include "base/Object.h"
+#include "sgtCommon.h"
 
 #include <osgDB/ObjectWrapper>
 

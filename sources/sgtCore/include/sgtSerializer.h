@@ -27,21 +27,21 @@ using namespace sgt;
 osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Time & pt);
 osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Time & pt);
 
-template <class ValueType, class VariantType>
+template <typename ValueType, typename VariantType>
 void readValue(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
 	ValueType val;
 	is >> val;
 	var = val;
 }
 
-template <class VariantType>
+template <typename VariantType>
 void readStringValue(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
 	sgt::String val;
 	is.readWrappedString(val);
 	var = val;
 }
 
-template <class VariantType>
+template <typename VariantType>
 osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Variant<VariantType> & var) {
 	if(is.isBinary()) {
 		unsigned int type = 0;
@@ -82,7 +82,7 @@ osgDB::InputStream& operator>>(osgDB::InputStream& is, sgt::Variant<VariantType>
 	return is;
 };
 
-template <class ValueType>
+template <typename ValueType>
 osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<ValueType> & var) {
 	unsigned int type = var.getType();
 
@@ -91,13 +91,13 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<Valu
 
 		switch(type) {
 		case sgt::VARIANT_BOOL:
-			os << var.get<sgt::Bool>(); break;
+			os << var.template get<sgt::Bool>(); break;
 		case sgt::VARIANT_DOUBLE:
-			os << var.get<sgt::Double>(); break;
+			os << var.template get<sgt::Double>(); break;
 		case sgt::VARIANT_INT32:
-			os << var.get<sgt::Int32>(); break;
+			os << var.template get<sgt::Int32>(); break;
 		case sgt::VARIANT_STRING:
-			os.writeWrappedString(var.get<sgt::String>()); break;
+			os.writeWrappedString(var.template get<sgt::String>()); break;
 		default:
 			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
 			break;
@@ -106,14 +106,14 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<Valu
 	else {
 		switch(type) {
 		case sgt::VARIANT_BOOL:
-			os << osgDB::PROPERTY("Bool") << var.get<sgt::Bool>() << std::endl; break;
+			os << osgDB::PROPERTY("Bool") << var.template get<sgt::Bool>() << std::endl; break;
 		case sgt::VARIANT_DOUBLE:
-			os << osgDB::PROPERTY("Double") << var.get<sgt::Double>() << std::endl; break;
+			os << osgDB::PROPERTY("Double") << var.template get<sgt::Double>() << std::endl; break;
 		case sgt::VARIANT_INT32:
-			os << osgDB::PROPERTY("Int32") <<var.get<sgt::Int32>() << std::endl; break;
+			os << osgDB::PROPERTY("Int32") <<var.template get<sgt::Int32>() << std::endl; break;
 		case sgt::VARIANT_STRING:
 			os << osgDB::PROPERTY("String");
-			os.writeWrappedString(var.get<sgt::String>());
+			os.writeWrappedString(var.template get<sgt::String>());
 			os << std::endl; break;
 		default:
 			trERROR("Variant serializer","Cannot serialize unknown variant type="<<type);
@@ -125,7 +125,7 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const sgt::Variant<Valu
 	return os;
 };
 
-template <class ValueType>
+template <typename ValueType>
 osgDB::InputStream& operator>>(osgDB::InputStream& is, std::vector<ValueType> & vec) {
 	unsigned int size = 0;
 	if ( is.isBinary() )
@@ -160,13 +160,13 @@ osgDB::InputStream& operator>>(osgDB::InputStream& is, std::vector<ValueType> & 
 	return is;
 };
 
-template <class ValueType>
+template <typename ValueType>
 osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const std::vector<ValueType> & vec) {
 	unsigned int size = (unsigned int)vec.size();
 	if ( os.isBinary() )
 	{
 		os << size;
-		for ( std::vector<ValueType>::const_iterator itr=vec.begin(); itr!=vec.end(); ++itr )
+		for ( typename std::vector<ValueType>::const_iterator itr=vec.begin(); itr!=vec.end(); ++itr )
 		{
 			os << (*itr);
 		}
@@ -174,7 +174,7 @@ osgDB::OutputStream& operator<<(osgDB::OutputStream& os, const std::vector<Value
 	else if ( size>0 )
 	{
 		os << osgDB::PROPERTY("Vector") << size << osgDB::BEGIN_BRACKET << std::endl;
-		for ( std::vector<ValueType>::const_iterator itr=vec.begin(); itr!=vec.end(); ++itr )
+		for ( typename std::vector<ValueType>::const_iterator itr=vec.begin(); itr!=vec.end(); ++itr )
 		{
 			os << (*itr);
 		}

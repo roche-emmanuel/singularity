@@ -1,3 +1,4 @@
+#include "sgtCommon.h"
 #include "base/Container.h"
 
 #include <osgDB/ObjectWrapper>

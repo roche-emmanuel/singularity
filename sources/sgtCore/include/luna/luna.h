@@ -23,12 +23,6 @@ extern "C" {
 #include <iostream>
 #include <sstream>
 
-struct luna_eqstr{
-	bool operator()(const char* s1, const char* s2) const {
-		return strcmp(s1,s2)==0;
-	}
-};
-
 // Dummy struct used to declare a lua function parameter for a function.
 struct lua_Function {};
 
@@ -40,10 +34,31 @@ struct lua_Any {};
 
 typedef int (*luna_mfp)(lua_State *L);
 
+typedef std::map<std::string, luna_mfp> LunaConverterMap;
+typedef std::map<std::string, LunaConverterMap> LunaConverterMapMap;
+
+SGTCORE_EXPORT void luna_open(lua_State* L);
+SGTCORE_EXPORT void luna_copyParents(lua_State* L, const char* modName);
+
+SGTCORE_EXPORT LunaConverterMap& luna_getConverterMap(std::string baseName);
+
+SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, std::string baseName, std::string derivedName);
+SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, std::string baseName, std::string derivedName);
+
+SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname);
+SGTCORE_EXPORT int luna_popModule(lua_State* L);
+
+struct luna_eqstr{
+	bool operator()(const char* s1, const char* s2) const {
+		return strcmp(s1,s2)==0;
+	}
+};
+
 #ifndef CXX_ENABLED
-#include <ext/hash_map> 
-typedef __gnu_cxx::hash<const char*> luna_hash_t;
-typedef __gnu_cxx::hash_map<const char*, luna_mfp, luna_hash_t, luna_eqstr> luna__hashmap;
+#include <unordered_map>
+//#include <ext/hash_map> 
+typedef std::hash<const char*> luna_hash_t; //__gnu_cxx::hash
+typedef std::unordered_map<const char*, luna_mfp, luna_hash_t, luna_eqstr> luna__hashmap; // __gnu_cxx::hash_map
 #else
 #include <unordered_map>
 #include <functional>
@@ -327,8 +342,8 @@ template <typename T> class Luna {
 		lua_gettable(L, LUA_GLOBALSINDEX);
 		int __luna= lua_gettop(L);
 		
-		typedef T_interface::parent_t ParentType;
-		typedef Luna<ParentType>::userdataType UserData;
+		typedef typename T_interface::parent_t ParentType;
+		typedef typename Luna<ParentType>::userdataType UserData;
 		
 		//userdataType *ud = static_cast<userdataType*>(lua_newuserdata(L, sizeof(userdataType)));
 		UserData *ud = static_cast<UserData*>(lua_newuserdata(L, sizeof(UserData)));
@@ -601,21 +616,5 @@ int Luna<T>::new_modified_T(lua_State *L) {
 
 //EXPIMP_TEMPLATE 
 template class SGTCORE_EXPORT LunaTraits< void >;
-
-SGTCORE_EXPORT void luna_open(lua_State* L);
-SGTCORE_EXPORT void luna_copyParents(lua_State* L, const char* modName);
-
-//typedef boost::function<int (lua_State* L)> LunaConverter;
-//typedef std::map<std::string, LunaConverter> LunaConverterMap;
-typedef std::map<std::string, luna_mfp> LunaConverterMap;
-typedef std::map<std::string, LunaConverterMap> LunaConverterMapMap;
-
-SGTCORE_EXPORT LunaConverterMap& luna_getConverterMap(std::string baseName);
-
-SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, std::string baseName, std::string derivedName);
-SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, std::string baseName, std::string derivedName);
-
-SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname);
-SGTCORE_EXPORT int luna_popModule(lua_State* L);
 
 #endif

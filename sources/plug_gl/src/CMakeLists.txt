@@ -17,7 +17,7 @@ SET(SOURCE_FILES luagl.c
 	../include/luagl.h
 	../include/luagl_const.h
 	../include/luagl_util.h)
-SET(LIBS OpenGL32.lib GLU32.lib)
+SET(LIBS ${GL_LIBS})
 
 BUILD_LUA_PLUGIN()
 
@@ -33,7 +33,7 @@ SET(SOURCE_FILES luaglu.c
 	../include/luagl_const.h
 	../include/luagl_util.h
 	../include/luaglu.h)
-SET(LIBS OpenGL32.lib GLU32.lib luagl)
+SET(LIBS ${GL_LIBS} luagl)
 
 BUILD_LUA_PLUGIN()
 

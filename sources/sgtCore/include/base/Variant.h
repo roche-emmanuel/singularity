@@ -117,7 +117,7 @@ public:
 	/** Retrieve a value type from this container
 	with a default value in case the type is incorrect.*/
 	template <typename ValueType>
-	inline ValueType& get(const ValueType& defVal) const {
+	inline ValueType get(const ValueType& defVal) const {
 		ValueType* ptr = boost::get<ValueType>( this );
 		return ptr ? *ptr : defVal;
 	}
@@ -126,21 +126,6 @@ public:
 	inline ValueType get() const {
 		const ValueType* ptr = boost::get<const ValueType>( this );
 		return ptr ? *ptr : ValueType();
-	}
-
-	/** Retrieve double value from this container. */
-	template <>
-	inline Double& get<Double>(const Double& defVal) const {
-		Int32* ptr = boost::get<Int32>( this );
-		Double* ptr2 = boost::get<Double>( this );
-		return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : const_cast<Double&>(defVal);
-	}
-	
-	template <>
-	inline Double get<Double>() const {
-		const Int32* ptr = boost::get<const Int32>( this );
-		const Double* ptr2 = boost::get<const Double>( this );
-		return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : 0.0;
 	}
 
 	/** Retrieve referenced value from this container. */
@@ -155,29 +140,48 @@ public:
 	inline Bool contains() {
 		ValueType* ptr = boost::get<ValueType>( this );
 		return ptr ? true : false;
-	}
-	
-	/** Check if this variant contains a double value. */
-	template <>
-	inline Bool contains<Double>() {
-		Int32* ptr = boost::get<Int32>( this );
-		Double* ptr2 = boost::get<Double>( this );
-		return (ptr || ptr2) ? true : false;
-	}
-	
-	/** Check if this variant contains a referenced value. */
-	template <>
-	inline Bool contains<sgtReferenced*>() {
-		RefPtr* ptr = boost::get<RefPtr>( this );
-		return ptr  ? true : false;
 	}	
 	
 	/** Check if this variant container is empty. */
 	inline Bool empty() {
-		return which()==0; // EmptyType object.
+		return variant_type::which()==0; // EmptyType object.
 	}
 	
 };
+
+/** Retrieve double value from this container. */
+template <>
+template <>
+inline Double Variant<>::get<Double>(const Double& defVal) const {
+	const Int32* ptr = boost::get<const Int32>( this );
+	const Double* ptr2 = boost::get<const Double>( this );
+	return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : const_cast<Double&>(defVal);
+}
+
+template <>
+template <>
+inline Double Variant<>::get<Double>() const {
+	const Int32* ptr = boost::get<const Int32>( this );
+	const Double* ptr2 = boost::get<const Double>( this );
+	return ptr ? (Double)(*ptr) : ptr2 ? *ptr2 : 0.0;
+}
+
+/** Check if this variant contains a double value. */
+template <>
+template <>
+inline Bool Variant<>::contains<Double>() {
+	Int32* ptr = boost::get<Int32>( this );
+	Double* ptr2 = boost::get<Double>( this );
+	return (ptr || ptr2) ? true : false;
+}
+
+/** Check if this variant contains a referenced value. */
+template <>
+template <>
+inline Bool Variant<>::contains<sgtReferenced*>() {
+	RefPtr* ptr = boost::get<RefPtr>( this );
+	return ptr  ? true : false;
+}
 
 /** Class used to retrieve the type of a given variant container. */
 class SGTCORE_EXPORT VariantTypeVisitor : public boost::static_visitor<Int32> {

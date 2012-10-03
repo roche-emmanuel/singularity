@@ -44,7 +44,7 @@ std::ostream& LogRecord::GetStream(int level, std::string filename, int line, st
 		_os << "<" << trace << "> ";
 	}
 
-	_os << "\t" << std::string((level > LogManager::NOTICE ? level - LogManager::NOTICE : 0)*3, '  ');
+	_os << "\t" << std::string((level > LogManager::NOTICE ? level - LogManager::NOTICE : 0)*3, ' ');
 	
 	return _os;
 }

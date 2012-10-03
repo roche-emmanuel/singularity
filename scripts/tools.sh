@@ -389,7 +389,7 @@ setupToolchain()
     addFlavorFlag linux64 -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY
     addFlavorFlag linux64 -DCROSS_LINUX64=TRUE
     
-    addFlag -DCMAKE_FIND_ROOT_PATH="/dummy/path"
+    addFlag -DCMAKE_MODULE_PATH="$CMAKE_MODULE_PATH"
 }
 
 
