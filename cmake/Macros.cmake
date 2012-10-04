@@ -218,10 +218,6 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
 		SET(DOX_TEMPLATE  "${SGT_DIR}/sources/sgtLuna/gen_Doxyfile_template")
 		
 		SET(CAT_EXEC cat)
-		# EXECUTE_PROCESS(COMMAND echo `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}"` 
-			# OUTPUT_VARIABLE CURRENT_SRC_DIR)
-		# EXECUTE_PROCESS(COMMAND echo `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}"` 
-			# OUTPUT_VARIABLE CURRENT_BIN_DIR)
 	ELSE()
 		STRING(REPLACE "/" "\\" DOX_TEMPLATE  "${SGT_DIR}/sources/sgtLuna/gen_Doxyfile_template")
 		STRING(REPLACE "/" "\\" SGT_PATH  "${SGT_DIR}/software/bin/${FLAVOR}")
@@ -340,21 +336,21 @@ MACRO(COMPRESS_BINARY)
 		STRING(REPLACE "/" "\\" VBSSim_SOURCE_DIR_WIN  "${VBSSim_SOURCE_DIR}")
 		STRING(REPLACE "/" "\\" BINARY_DIR_WIN  "${CMAKE_CURRENT_BINARY_DIR}")
 		
-		IF(CYGWIN_BOX)
-			ADD_CUSTOM_COMMAND(
-				TARGET ${TARGET_NAME}
-				POST_BUILD
-				COMMAND echo "Compressing binary..."
-				COMMAND ${UPX} --best `cygpath -w "$<TARGET_FILE:${TARGET_NAME}>"`
-			)
-		ELSE()
+		# IF(CYGWIN_BOX)
+			# ADD_CUSTOM_COMMAND(
+				# TARGET ${TARGET_NAME}
+				# POST_BUILD
+				# COMMAND echo "Compressing binary..."
+				# COMMAND ${UPX} --best `cygpath -w "$<TARGET_FILE:${TARGET_NAME}>"`
+			# )
+		# ELSE()
 			ADD_CUSTOM_COMMAND(
 				TARGET ${TARGET_NAME}
 				POST_BUILD
 				COMMAND echo "Compressing binary..."
 				COMMAND ${UPX} --best "$<TARGET_FILE:${TARGET_NAME}>"
 			)		
-		ENDIF()
+		# ENDIF()
 	ENDIF()
 ENDMACRO(COMPRESS_BINARY)
 

@@ -9,7 +9,7 @@ SET(DOXYGEN "${TOOLS_DIR}/doxygen-1.8.0/doxygen.exe" CACHE STRING "Doxygen execu
 
 SET(DEP_LUABIND ${DEPS_DIR}/${FLAVOR}/luabind-0.9.1 CACHE STRING "luabind path")
 SET(DEP_LUA ${DEPS_DIR}/${FLAVOR}/LuaJIT-2.0.0-beta9 CACHE STRING "lua path")
-SET(DEP_BOOST ${DEPS_DIR}/${FLAVOR}/boost-1.49.0 CACHE STRING "boost path")
+SET(DEP_BOOST ${DEPS_DIR}/${FLAVOR}/boost-1.51.0 CACHE STRING "boost path")
 SET(DEP_WX ${DEPS_DIR}/${FLAVOR}/wxWidgets-2.9.3 CACHE STRING "wx path")
 SET(DEP_OSG ${DEPS_DIR}/${FLAVOR}/OpenSceneGraph-3.0.1 CACHE STRING "osg path")
 SET(DEP_MYSQL ${DEPS_DIR}/${FLAVOR}/mysql-5.5.25 CACHE STRING "mysql path")
