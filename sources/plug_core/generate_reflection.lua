@@ -31,12 +31,14 @@ ReflectionGenerator.generate{
 		"iterator",
 		"std::ostream",
 		"registerKeyObserver",
-		" Any "
+		" Any ",
+		"DECLARE_SINGLETON"
 	},
 	ignoreHeaders={"helpers%.h"},
 	ignoreClassDeclarations={"SingletonHolder"},
 	locationPrefixes={
-		sgt_path.."sources/sgtCore/include/", 
+		sgt_path.."sources/sgtCore/include/",
+		"W:/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/",
 		dest_path.."interface/",
 	}
 }

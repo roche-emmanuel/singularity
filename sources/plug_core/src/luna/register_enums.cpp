@@ -1,8 +1,7 @@
 #include <plug_common.h>
 
-#include <osg/Object>
-#include <log/LogManager.h>
-
+#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Object>
+#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/LogManager.h>
 
 #ifdef __cplusplus
 extern "C" {

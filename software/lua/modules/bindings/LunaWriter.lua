@@ -969,6 +969,9 @@ end
 function LunaWriter:writeEnums()
 	self:clearContent()
 
+	self:writeLine("#include <plug_common.h>")
+	self:newLine()
+	
 	local enums = self.datamap:getAllEnums()
 	
 	local headers = Set();
@@ -985,8 +988,7 @@ function LunaWriter:writeEnums()
 	self:newLine()
 	
 	--- retrieve the list of defines from the reflection map:
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
+
 	self:writeLine("#ifdef __cplusplus")	
 	self:writeLine('extern "C" {')
 	self:writeLine("#endif")

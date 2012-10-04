@@ -211,34 +211,80 @@ ENDMACRO(ADD_RESSOURCE)
 
 MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
     SET(DOXFILE "doxyfile")
-    STRING(REPLACE "/" "\\" DOX_TEMPLATE  "${SGT_DIR}/sources/sgtLuna/gen_Doxyfile_template")
-    STRING(REPLACE "/" "\\" SGT_PATH  "${SGT_DIR}/software/bin/${FLAVOR}")
-    # STRING(REPLACE "/" "\\" DOT_DIR_WIN  "${DOT_DIR}")
-
-    ADD_CUSTOM_COMMAND(
-        TARGET ${TARGET_NAME}
-        PRE_BUILD
+	
+	SET(SGT_PATH  "${SGT_DIR}/software/bin/win32") # needed to find some dependencies.
+	
+	IF(CYGWIN_BOX)
+		SET(DOX_TEMPLATE  "${SGT_DIR}/sources/sgtLuna/gen_Doxyfile_template")
+		
+		SET(CAT_EXEC cat)
+		# EXECUTE_PROCESS(COMMAND echo `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}"` 
+			# OUTPUT_VARIABLE CURRENT_SRC_DIR)
+		# EXECUTE_PROCESS(COMMAND echo `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}"` 
+			# OUTPUT_VARIABLE CURRENT_BIN_DIR)
+	ELSE()
+		STRING(REPLACE "/" "\\" DOX_TEMPLATE  "${SGT_DIR}/sources/sgtLuna/gen_Doxyfile_template")
+		STRING(REPLACE "/" "\\" SGT_PATH  "${SGT_DIR}/software/bin/${FLAVOR}")
+		SET(CAT_EXEC type)
+		# SET(CURRENT_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+		# SET(CURRENT_BIN_DIR ${CMAKE_CURRENT_BINARY_DIR})
+	ENDIF()
+	
+	SET(CFGFILE ../generate.lua)
+	
+    # ADD_CUSTOM_COMMAND(
+    ADD_CUSTOM_TARGET(
+        ${TARGET_NAME}_gen
+        # PRE_BUILD
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../include/luna
         COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/../src/luna
         COMMAND echo "Generating doxygen wrapper docs..."
         COMMAND echo INPUT=${${INTERFACE_FILES}} > ${DOXFILE}
         COMMAND echo FILE_PATTERNS=${FILE_PATTERNS} >> ${DOXFILE}
         COMMAND echo EXPAND_AS_DEFINED=${EXPAND_AS_DEFINED} >> ${DOXFILE}
-        COMMAND echo PREDEFINED=_DOXYGEN=1 __DOXYGEN__=1 VBS2FUSION_API VBS2FUSION_HUD_API ${DOXY_PREDEFINED} >> ${DOXFILE}
+        COMMAND echo PREDEFINED=_DOXYGEN=1 __DOXYGEN__=1 ${DOXY_PREDEFINED} >> ${DOXFILE}
         COMMAND echo INCLUDE_PATH=${${INTERFACE_FILES}} ${INCLUDE_PATH} >> ${DOXFILE}
         COMMAND echo INCLUDE_FILE_PATTERNS= >> ${DOXFILE}
         COMMAND echo EXCLUDE_PATTERNS= >> ${DOXFILE}
         COMMAND echo DOT_PATH=${DOT_DIR} >> ${DOXFILE}
-        COMMAND type "${DOX_TEMPLATE}" >> ${DOXFILE}
+        COMMAND ${CAT_EXEC} "${DOX_TEMPLATE}" >> ${DOXFILE}
         # Call doxygen on this file:
         #COMMAND set PATH=${DOT_DIR_WIN};%PATH% & ${DOXYGEN} ${DOXFILE}
-        COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_SOURCE_DIR}/../doxygen.log 2>&1
+        COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/../doxygen.log 2>&1
+        # COMMAND ${DOXYGEN} ${DOXFILE}
         #COMMAND echo ${DOT_DIR_WIN}
         COMMAND echo "Generating lua reflection..."
-        COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/' sgt_path='${SGT_DIR}/'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+        # COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'\; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/' sgt_path='${SGT_DIR}/'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+        # COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}' xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/' sgt_path='${SGT_DIR}/'" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+        # COMMAND echo "Path is: "
+		# COMMAND echo ${CURRENT_SRC_DIR}
+		# COMMAND ${LUA} `cygpath -w  "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"`
+		# 
+		# -e "project='${MOD_NAME}' xml_path='${CURRENT_BIN_DIR}/xml/' sgt_path='${SGT_DIR}/'"
+        COMMAND echo "project=\'${MOD_NAME}\'" > ${CFGFILE}
+        COMMAND echo -n "xml_path=\'" >> ${CFGFILE}
+		COMMAND echo -n	`cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/xml/"` >> ${CFGFILE}
+		COMMAND echo "\'" >> ${CFGFILE}
+		COMMAND echo -n "sgt_path=\'" >> ${CFGFILE}
+		COMMAND echo -n ${SGT_DIR}/ >> ${CFGFILE}
+		COMMAND echo "\'"  >> ${CFGFILE}
+		COMMAND echo -n "dofile\(\'" >> ${CFGFILE}
+		COMMAND echo -n `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"`  >> ${CFGFILE}
+		COMMAND echo "\'\)" >> ${CFGFILE}
+		COMMAND sed -i 's/\\/\//g' ${CFGFILE}
+		COMMAND cd ${SGT_PATH} && ${LUA} `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/${CFGFILE}"`
+		
+		# COMMAND | sed "s!\\!/!"
+        # 
+		# COMMAND ${LUA} ${CFGFILE} `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"`
+		
+		# COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}' xml_path='`cygpath -w ${CMAKE_CURRENT_BINARY_DIR}`/xml/' sgt_path='${SGT_DIR}/'" `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua"`
         COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
         COMMAND echo "Reflection generation done."
     )
+	
+	ADD_DEPENDENCIES(${TARGET_NAME} ${TARGET_NAME}_gen)
+	
 ENDMACRO(GENERATE_REFLECTION)
 
 MACRO(ADD_LUNA_FILES FILE_LIST)

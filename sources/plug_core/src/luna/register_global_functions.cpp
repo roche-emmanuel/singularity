@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-#include <osg/Referenced>
+#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Referenced>
 
 // Function checkers:
 inline static bool _lg_typecheck_doLog(lua_State *L) {
@@ -147,6 +147,10 @@ static int _bind_intrusive_ptr_release(lua_State *L) {
 	return 0;
 }
 
+
+// Function checkers:
+
+// Function binds:
 
 #ifdef __cplusplus
 extern "C" {

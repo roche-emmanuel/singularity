@@ -1035,6 +1035,9 @@ function ReflectionGenerator.generate(options)
 	logman:setVerbose(true);
 	logman:setNotifyLevel(sgt.LogManager.DEBUG3);
 
+	-- force removing the first unnamed sink (this is the default std output sink):
+	logman:removeSink("")
+	
 	logman:addSink(sgt.FileLogger:new(options.destpath.."reflection.log"));
 	--logman:addSink(sgt.StdLogger:new());
 

@@ -112,7 +112,7 @@ sgt::TimeManager* LunaTraits< sgt::TimeManager >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::TimeManager >::_bind_dtor(sgt::TimeManager* obj) {
-	//delete obj; Do nothing it is protected.
+	//delete obj; // destructor protected.
 }
 
 const char LunaTraits< sgt::TimeManager >::className[] = "TimeManager";

@@ -72,6 +72,8 @@ class ptime {
 namespace sgt {
 
 class TimeManager {
+protected:
+	~TimeManager();
 public:
 	static TimeProvider& instance();
 	static void destroy();
