@@ -39,59 +39,102 @@ THE SOFTWARE.
 ===============================================================================
 ]]--
 
-module( "lanes", package.seeall )
+-- Lua 5.1: module() creates a global variable
+-- Lua 5.2: module() is gone
+-- almost everything module() does is done by require() anyway
+-- -> simply create a table, populate it, return it, and be done
+local lanes = {}
 
-require "lanes_lib"
-assert( type(lanes)=="table" )
+lanes.configure = function( _params)
 
-local mm= lanes
+	-- This check is for sublanes requiring Lanes
+	--
+	-- TBD: We could also have the C level expose 'string.gmatch' for us. But this is simpler.
+	--
+	if not string then
+		error( "To use 'lanes', you will also need to have 'string' available.", 2)
+	end
 
-local linda_id=    assert( mm.linda_id )
+	-- 
+	-- Cache globals for code that might run under sandboxing 
+	--
+	local assert = assert
+	local string_gmatch = assert( string.gmatch)
+	local select = assert( select)
+	local type = assert( type)
+	local pairs = assert( pairs)
+	local tostring = assert( tostring)
+	local error = assert( error)
 
-local thread_new=   assert(mm.thread_new)
-local thread_status= assert(mm.thread_status)
-local thread_join=  assert(mm.thread_join)
-local thread_cancel= assert(mm.thread_cancel)
+	local default_params = { nb_keepers = 1, on_state_create = nil, shutdown_timeout = 0.25, with_timers = true}
+	local param_checkers =
+	{
+		nb_keepers = function( _val)
+			-- nb_keepers should be a number > 0
+			return type( _val) == "number" and _val > 0
+		end,
+		with_timers = function( _val)
+			-- with_timers may be nil or boolean
+			return _val and type( _val) == "boolean" or true
+		end,
+		on_state_create = function( _val)
+			-- on_state_create may be nil or a function
+			return _val and type( _val) == "function" or true
+		end,
+		shutdown_timeout = function( _val)
+			-- nb_keepers should be a number >= 0
+			return type( _val) == "number" and _val >= 0
+		end
+	}
 
-local _single= assert(mm._single)
-local _version= assert(mm._version)
+	local params_checker = function( _params)
+		if not _params then
+			return default_params
+		end
+		if type( _params) ~= "table" then
+			error( "Bad parameter #1 to lanes.configure(), should be a table")
+		end
+		-- any setting not present in the provided parameters takes the default value
+		for key, value in pairs( default_params) do
+			local my_param = _params[key]
+			local param
+			if my_param ~= nil then
+				param = my_param
+			else
+				param = default_params[key]
+			end
+			if not param_checkers[key]( param) then
+				error( "Bad " .. key .. ": " .. tostring( param), 2)
+			end
+			_params[key] = param
+		end
+		return _params
+	end
 
-local _deep_userdata= assert(mm._deep_userdata)
+	_params = params_checker( _params)
 
-local now_secs= assert( mm.now_secs )
-local wakeup_conv= assert( mm.wakeup_conv )
-local timer_gateway= assert( mm.timer_gateway )
+	local core = require "lanes.core"
+	assert( type( core)=="table")
 
-local max_prio= assert( mm.max_prio )
+	-- configure() is available only the first time lanes.core is required process-wide, and we *must* call it to have the other functions in the interface
+	if core.configure then core.configure( _params.nb_keepers, _params.on_state_create, _params.shutdown_timeout) end
 
--- This check is for sublanes requiring Lanes
---
--- TBD: We could also have the C level expose 'string.gmatch' for us. But this is simpler.
---
-if not string then
-    error( "To use 'lanes', you will also need to have 'string' available.", 2 )
-end
+	local thread_new = assert( core.thread_new)
 
--- 
--- Cache globals for code that might run under sandboxing 
---
-local assert= assert
-local string_gmatch= assert( string.gmatch )
-local select= assert( select )
-local type= assert( type )
-local pairs= assert( pairs )
-local tostring= assert( tostring )
-local error= assert( error )
-local setmetatable= assert( setmetatable )
-local rawget= assert( rawget )
+	local set_singlethreaded = assert( core.set_singlethreaded)
 
-ABOUT= 
+	local now_secs = assert( core.now_secs)
+	local wakeup_conv = assert( core.wakeup_conv)
+
+	local max_prio = assert( core.max_prio)
+
+lanes.ABOUT= 
 {
-    author= "Asko Kauppi <akauppi@gmail.com>",
+    author= "Asko Kauppi <akauppi@gmail.com>, Benoit Germain <bnt.germain@gmail.com>",
     description= "Running multiple Lua states in parallel",
     license= "MIT/X11",
-    copyright= "Copyright (c) 2007-10, Asko Kauppi",
-    version= _version,
+    copyright= "Copyright (c) 2007-10, Asko Kauppi; (c) 2011-12, Benoit Germain",
+    version = assert( core.version)
 }
 
 
@@ -132,76 +175,8 @@ end
 --      Or, even better, 'ipairs()' should start valuing '__index' instead
 --      of using raw reads that bypass it.
 --
-local lane_mt= {
-    __index= function( me, k )
-                if type(k) == "number" then
-                    -- 'me[0]=true' marks we've already taken in the results
-                    --
-                    if not rawget( me, 0 ) then
-                        -- Wait indefinately; either propagates an error or
-                        -- returns the return values
-                        --
-                        me[0]= true  -- marker, even on errors
-
-                        local t= { thread_join(me._ud) }   -- wait indefinate
-                            --
-                            -- { ... }      "done": regular return, 0..N results
-                            -- { }          "cancelled"
-                            -- { nil, err_str, stack_tbl } "error"
-                        
-                        local st= thread_status(me._ud)
-                        if st=="done" then
-                            -- Use 'pairs' and not 'ipairs' so that nil holes in
-                            -- the returned values are tolerated.
-                            --
-                            for i,v in pairs(t) do
-                                me[i]= v
-                            end
-                        elseif st=="error" then
-                            assert( t[1]==nil and t[2] and type(t[3])=="table" )
-                            me[-1]= t[2]
-                            -- me[-2] could carry the stack table, but even 
-                            -- me[-1] is rather unnecessary (and undocumented);
-                            -- use ':join()' instead.   --AKa 22-Jan-2009
-                        elseif st=="cancelled" then
-                            -- do nothing
-                        else
-                            error( "Unexpected status: "..st )
-                        end
-                    end
-
-                    -- Check errors even if we'd first peeked them via [-1]
-                    -- and then came for the actual results.
-                    --
-                    local err= rawget(me, -1)
-                    if err~=nil and k~=-1 then
-                        -- Note: Lua 5.1 interpreter is not prepared to show
-                        --       non-string errors, so we use 'tostring()' here
-                        --       to get meaningful output.  --AKa 22-Jan-2009
-                        --
-                        --       Also, the stack dump we get is no good; it only
-                        --       lists our internal Lanes functions. There seems
-                        --       to be no way to switch it off, though.
-                        
-                        -- Level 3 should show the line where 'h[x]' was read
-                        -- but this only seems to work for string messages
-                        -- (Lua 5.1.4). No idea, why.   --AKa 22-Jan-2009
-                        --
-                        error( tostring(err), 3 )   -- level 3 should show the line where 'h[x]' was read
-                    end
-                    return rawget( me, k )
-                    --
-                elseif k=="status" then     -- me.status
-                    return thread_status(me._ud)
-                    --
-                else
-                    error( "Unknown key: "..k )
-                end
-             end
-    }
-
 -----
--- h= lanes.gen( [libs_str|opt_tbl [, ...],] lane_func ) ( [...] )
+-- lanes.gen( [libs_str|opt_tbl [, ...],] lane_func ) ( [...] ) -> h
 --
 -- 'libs': nil:     no libraries available (default)
 --         "":      only base library ('assert', 'print', 'unpack' etc.)
@@ -219,14 +194,13 @@ local lane_mt= {
 --
 --        .globals:  table of globals to set for a new thread (passed by value)
 --
+--        .required:  table of packages to require
 --        ... (more options may be introduced later) ...
 --
 -- Calling with a function parameter ('lane_func') ends the string/table
 -- modifiers, and prepares a lane generator. One can either finish here,
 -- and call the generator later (maybe multiple times, with different parameters) 
 -- or add on actual thread arguments to also ignite the thread on the same call.
---
-local lane_proxy
 
 local valid_libs= {
     ["package"]= true,
@@ -242,7 +216,8 @@ local valid_libs= {
     ["*"]= true
 }
 
-function gen( ... )
+-- PUBLIC LANES API
+local function gen( ... )
     local opt= {}
     local libs= nil
     local lev= 2  -- level for errors
@@ -285,67 +260,53 @@ function gen( ... )
         end
     end
     
-    local prio, cs, g_tbl
+    local prio, cs, g_tbl, package_tbl, required
 
     for k,v in pairs(opt) do
             if k=="priority" then prio= v
-        elseif k=="cancelstep" then cs= (v==true) and 100 or
-                                        (v==false) and 0 or 
-                                        type(v)=="number" and v or
-                                        error( "Bad cancelstep: "..tostring(v), lev )
+        elseif k=="cancelstep" then
+            cs = (v==true) and 100 or
+                (v==false) and 0 or 
+                type(v)=="number" and v or
+                error( "Bad cancelstep: "..tostring(v), lev )
         elseif k=="globals" then g_tbl= v
+        elseif k=="package" then
+            package_tbl = (type( v) == "table") and v or error( "Bad package: " .. tostring( v), lev)
+        elseif k=="required" then
+            required= (type( v) == "table") and v or error( "Bad required: " .. tostring( v), lev)
         --..
         elseif k==1 then error( "unkeyed option: ".. tostring(v), lev )
         else error( "Bad option: ".. tostring(k), lev )
         end
     end
 
+    if not package_tbl then package_tbl = package end
     -- Lane generator
     --
     return function(...)
-              return lane_proxy( thread_new( func, libs, cs, prio, g_tbl,
-                                             ... ) )     -- args
+              return thread_new( func, libs, _params.on_state_create, cs, prio, g_tbl, package_tbl, required, ...)     -- args
            end
 end
-
-lane_proxy= function( ud )
-    local proxy= {
-        _ud= ud,
-        
-        -- true|false= me:cancel()
-        --
-        cancel= function(me, time, force) return thread_cancel(me._ud, time, force) end,
-
-        
-        -- [...] | [nil,err,stack_tbl]= me:join( [wait_secs=-1] )
-        --
-        join= function( me, wait ) 
-                return thread_join( me._ud, wait )
-            end,
-        }
-    assert( proxy._ud )
-    setmetatable( proxy, lane_mt )
-
-    return proxy
-end
-
 
 ---=== Lindas ===---
 
 -- We let the C code attach methods to userdata directly
 
 -----
--- linda_ud= lanes.linda()
+-- lanes.linda(["name"]) -> linda_ud
 --
-function linda()
-    local proxy= _deep_userdata( linda_id )
-    assert( (type(proxy) == "userdata") and getmetatable(proxy) )
-    return proxy
-end
+-- PUBLIC LANES API
+local linda = core.linda
 
 
 ---=== Timers ===---
 
+-- PUBLIC LANES API
+local timer = function() error "timers are not active" end
+
+if _params.with_timers ~= false then
+
+local timer_gateway = assert( core.timer_gateway)
 --
 -- On first 'require "lanes"', a timer lane is spawned that will maintain
 -- timer tables and sleep in between the timer events. All interaction with
@@ -392,7 +353,6 @@ if first_time then
     -- set_timer( linda_h, key [,wakeup_at_secs [,period_secs]] )
     --
     local function set_timer( linda, key, wakeup_at, period )
-
         assert( wakeup_at==nil or wakeup_at>0.0 )
         assert( period==nil or period>0.0 )
 
@@ -506,36 +466,47 @@ if first_time then
     -- We let the timer lane be a "free running" thread; no handle to it
     -- remains.
     --
-    gen( "io", { priority=max_prio, globals={threadName="LanesTimer"} }, function()
+	local timer_body = function()
+		local timer_gateway_batched = timer_gateway.batched
+		set_debug_threadname( "LanesTimer")
+		set_finalizer( function( err, stk)
+			if err and type( err) ~= "userdata" then
+				WR( "LanesTimer error: "..tostring(err))
+			--elseif type( err) == "userdata" then
+			--	WR( "LanesTimer after cancel" )
+			--else
+			--	WR("LanesTimer finalized")
+			end
+		end)
+		while true do
+			local next_wakeup= check_timers()
 
-        while true do
-            local next_wakeup= check_timers()
+			-- Sleep until next timer to wake up, or a set/clear command
+			--
+			local secs
+			if next_wakeup then
+				secs =  next_wakeup - now_secs()
+				if secs < 0 then secs = 0 end
+			end
+			local linda = timer_gateway:receive( secs, TGW_KEY)
 
-            -- Sleep until next timer to wake up, or a set/clear command
-            --
-            local secs
-            if next_wakeup then
-                secs =  next_wakeup - now_secs()
-                if secs < 0 then secs = 0 end
-            end
-            local linda= timer_gateway:receive( secs, TGW_KEY )
-
-            if linda then
-                local key= timer_gateway:receive( 0.0, TGW_KEY )
-                local wakeup_at= timer_gateway:receive( 0.0, TGW_KEY )
-                local period= timer_gateway:receive( 0.0, TGW_KEY )
-                assert( key and wakeup_at and period )
-
-                set_timer( linda, key, wakeup_at, period>0 and period or nil )
-            end
-        end
-    end )()
+			if linda then
+				local key, wakeup_at, period = timer_gateway:receive( 0, timer_gateway_batched, TGW_KEY, 3)
+				assert( key)
+				set_timer( linda, key, wakeup_at, period and period > 0 and period or nil)
+			--elseif secs == nil then -- got no value while block-waiting?
+			--	WR( "timer lane: no linda, aborted?")
+			end
+		end
+	end
+	gen( "*", { priority=max_prio}, timer_body)() -- "*" instead of "io,package" for LuaJIT compatibility...
 end
 
 -----
 -- = timer( linda_h, key_val, date_tbl|first_secs [,period_secs] )
 --
-function timer( linda, key, a, period )
+-- PUBLIC LANES API
+timer = function( linda, key, a, period )
 
     if a==0.0 then
         -- Caller expects to get current time stamp in Linda, on return
@@ -553,12 +524,13 @@ function timer( linda, key, a, period )
     end
 
     local wakeup_at= type(a)=="table" and wakeup_conv(a)    -- given point of time
-                                       or now_secs()+a
+                                       or (a and now_secs()+a or nil)
     -- queue to timer
     --
     timer_gateway:send( TGW_KEY, linda, key, wakeup_at, period )
 end
 
+end -- _params.with_timers
 
 ---=== Lock & atomic generators ===---
 
@@ -575,7 +547,8 @@ end
 -- Returns an access function that allows 'N' simultaneous entries between
 -- acquire (+M) and release (-M). For binary locks, use M==1.
 --
-function genlock( linda, key, N )
+-- PUBLIC LANES API
+local function genlock( linda, key, N )
     linda:limit(key,N)
     linda:set(key,nil)  -- clears existing data
 
@@ -608,7 +581,8 @@ end
 -- Returns an access function that allows atomic increment/decrement of the
 -- number in 'key'.
 --
-function genatomic( linda, key, initial_val )
+-- PUBLIC LANES API
+local function genatomic( linda, key, initial_val )
     linda:limit(key,2)          -- value [,true]
     linda:set(key,initial_val or 0.0)   -- clears existing data (also queue)
 
@@ -622,5 +596,28 @@ function genatomic( linda, key, initial_val )
     end
 end
 
+	-- activate full interface
+	lanes.gen = gen
+	lanes.linda = core.linda
+	lanes.cancel_error = core.cancel_error
+	lanes.nameof = core.nameof
+	lanes.timer = timer
+	lanes.genlock = genlock
+	lanes.now_secs = now_secs
+	lanes.genatomic = genatomic
+	-- from now on, calling configure does nothing but checking that we don't call it with parameters that changed compared to the first invocation
+	lanes.configure = function( _params2)
+		_params2 = params_checker( _params2 or _params)
+		for key, value2 in pairs( _params2) do
+			local value = _params[key]
+			if value2 ~= value then
+				error( "mismatched configuration: " .. key .. " is " .. tostring( value2) .. " instead of " .. tostring( value))
+			end
+		end
+		return lanes
+	end
+	return lanes
+end -- lanes.configure
 
 --the end
+return lanes

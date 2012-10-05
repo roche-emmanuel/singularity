@@ -41,9 +41,9 @@ THE SOFTWARE.
 #include "threading.h"
 #include "lua.h"
 
-#if !((defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC))
+#if !defined( PLATFORM_WIN32) && !defined( PLATFORM_POCKETPC)
 # include <sys/time.h>
-#endif
+#endif // non-WIN32 timing
 
 
 #if defined(PLATFORM_LINUX) || defined(PLATFORM_CYGWIN)
@@ -71,12 +71,15 @@ THE SOFTWARE.
 * FAIL is for unexpected API return values - essentially programming 
 * error in _this_ code. 
 */
-#if (defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC)
+#if defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
 static void FAIL( const char *funcname, int rc ) {
     fprintf( stderr, "%s() failed! (%d)\n", funcname, rc );
+#ifdef _MSC_VER
+    __debugbreak(); // give a chance to the debugger!
+#endif // _MSC_VER
     abort();
 }
-#endif
+#endif // win32 build
 
 
 /*
@@ -87,7 +90,7 @@ static void FAIL( const char *funcname, int rc ) {
 */
 time_d now_secs(void) {
 
-#if (defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC)
+#if defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
     /*
     * Windows FILETIME values are "100-nanosecond intervals since 
     * January 1, 1601 (UTC)" (MSDN). Well, we'd want Unix Epoch as
@@ -121,7 +124,7 @@ time_d now_secs(void) {
     uli.HighPart= ft.dwHighDateTime;
 
     /* 'double' has less accuracy than 64-bit int, but if it were to degrade,
-     * it would do so gracefully. In practise, the integer accuracy is not
+     * it would do so gracefully. In practice, the integer accuracy is not
      * of the 100ns class but just 1ms (Windows XP).
      */
 # if 1
@@ -142,7 +145,7 @@ time_d now_secs(void) {
     // <= 2.0.2 code
     return (double)(uli.QuadPart - uli_epoch.QuadPart) / 10000000.0;
 # endif
-#else
+#else // !(defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC))
     struct timeval tv;
         // {
         //   time_t       tv_sec;   /* seconds since Jan. 1, 1970 */
@@ -153,7 +156,7 @@ time_d now_secs(void) {
     assert( rc==0 );
 
     return ((double)tv.tv_sec) + ((tv.tv_usec)/1000) / 1000.0;
-#endif
+#endif // !(defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC))
 }
 
 
@@ -165,7 +168,7 @@ time_d SIGNAL_TIMEOUT_PREPARE( double secs ) {
 }
 
 
-#if !((defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC))
+#if THREADAPI == THREADAPI_PTHREAD
 /*
 * Prepare 'abs_secs' kind of timeout to 'timespec' format
 */
@@ -176,7 +179,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     if (abs_secs==0.0)
         abs_secs= now_secs();
 
-    ts->tv_sec= floor( abs_secs );
+    ts->tv_sec= (time_t) floor( abs_secs );
     ts->tv_nsec= ((long)((abs_secs - ts->tv_sec) * 1000.0 +0.5)) * 1000000UL;   // 1ms = 1000000ns
     if (ts->tv_nsec == 1000000000UL)
     {
@@ -184,7 +187,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
         ts->tv_sec = ts->tv_sec + 1;
     }
 }
-#endif
+#endif // THREADAPI == THREADAPI_PTHREAD
 
 
 /*---=== Threading ===---*/
@@ -227,7 +230,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
 # endif
 #endif
 
-#if (defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC)
+#if THREADAPI == THREADAPI_WINDOWS
   //
   void MUTEX_INIT( MUTEX_T *ref ) {
      *ref= CreateMutex( NULL /*security attr*/, FALSE /*not locked*/, NULL );
@@ -279,10 +282,11 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     *ref= h;
   }
   //
-  bool_t THREAD_WAIT( THREAD_T *ref, double secs ) {
-    long ms= (long)((secs*1000.0)+0.5);
+bool_t THREAD_WAIT_IMPL( THREAD_T *ref, double secs)
+{
+    DWORD ms = (secs<0.0) ? INFINITE : (DWORD)((secs*1000.0)+0.5);
 
-    DWORD rc= WaitForSingleObject( *ref, ms<0 ? INFINITE:ms /*timeout*/ );
+    DWORD rc= WaitForSingleObject( *ref, ms /*timeout*/ );
         //
         // (WAIT_ABANDONED)
         // WAIT_OBJECT_0    success (0)
@@ -290,7 +294,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
         // WAIT_FAILED      more info via GetLastError()
 
     if (rc == WAIT_TIMEOUT) return FALSE;
-    if (rc != 0) FAIL( "WaitForSingleObject", rc );
+    if( rc !=0) FAIL( "WaitForSingleObject", rc==WAIT_FAILED ? GetLastError() : rc);
     *ref= NULL;     // thread no longer usable
     return TRUE;
   }
@@ -299,6 +303,41 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     if (!TerminateThread( *ref, 0 )) FAIL("TerminateThread", GetLastError());
     *ref= NULL;
   }
+
+#if !defined __GNUC__
+	//see http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
+	#define MS_VC_EXCEPTION 0x406D1388
+	#pragma pack(push,8)
+		typedef struct tagTHREADNAME_INFO
+		{
+			DWORD dwType; // Must be 0x1000.
+			LPCSTR szName; // Pointer to name (in user addr space).
+			DWORD dwThreadID; // Thread ID (-1=caller thread).
+			DWORD dwFlags; // Reserved for future use, must be zero.
+		} THREADNAME_INFO;
+	#pragma pack(pop)
+#endif // !__GNUC__
+
+	void THREAD_SETNAME( char const* _name)
+	{
+#if !defined __GNUC__
+		THREADNAME_INFO info;
+		info.dwType = 0x1000;
+		info.szName = _name;
+		info.dwThreadID = GetCurrentThreadId();
+		info.dwFlags = 0;
+
+		__try
+		{
+			RaiseException( MS_VC_EXCEPTION, 0, sizeof(info)/sizeof(ULONG_PTR), (ULONG_PTR*)&info );
+		}
+		__except(EXCEPTION_EXECUTE_HANDLER)
+		{
+		}
+#endif // !__GNUC__
+	}
+
+
   //
   void SIGNAL_INIT( SIGNAL_T *ref ) {
     // 'manual reset' event type selected, to be able to wake up all the
@@ -370,14 +409,13 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     if (!PulseEvent( *ref ))
         FAIL( "PulseEvent", GetLastError() );
   }
-#else
+#else // THREADAPI == THREADAPI_PTHREAD
   // PThread (Linux, OS X, ...)
   //
   // On OS X, user processes seem to be able to change priorities.
   // On Linux, SCHED_RR and su privileges are required..  !-(
   //
   #include <errno.h>
-  #include <sys/time.h>
   //
   static void _PT_FAIL( int rc, const char *name, const char *file, uint_t line ) {
     const char *why= (rc==EINVAL) ? "EINVAL" : 
@@ -385,8 +423,9 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
                      (rc==EPERM) ? "EPERM" :
                      (rc==ENOMEM) ? "ENOMEM" :
                      (rc==ESRCH) ? "ESRCH" :
+                     (rc==ENOTSUP) ? "ENOTSUP":
                      //...
-                     "";
+                     "<UNKNOWN>";
     fprintf( stderr, "%s %d: %s failed, %d %s\n", file, line, name, rc, why );
     abort();
   }
@@ -436,6 +475,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     pthread_attr_t _a;
     pthread_attr_t *a= &_a;
     struct sched_param sp;
+    bool_t normal;
 
     PT_CALL( pthread_attr_init(a) );
 
@@ -460,7 +500,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     PT_CALL( pthread_attr_setstacksize( a, _THREAD_STACK_SIZE ) );
 #endif
     
-    bool_t normal= 
+    normal= 
 #if defined(PLATFORM_LINUX) && defined(LINUX_SCHED_RR)
         !sudo;          // with sudo, even normal thread must use SCHED_RR
 #else
@@ -570,6 +610,17 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
 	//
 	// TBD: Find right values for Cygwin
 	//
+#elif defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
+        // any other value not supported by win32-pthread as of version 2.9.1
+        #define _PRIO_MODE SCHED_OTHER
+
+        // PTHREAD_SCOPE_PROCESS not supported by win32-pthread as of version 2.9.1
+        //#define _PRIO_SCOPE PTHREAD_SCOPE_SYSTEM // but do we need this at all to start with?
+
+        // win32-pthread seems happy with direct -2..+2 instead of some other remapping
+        #define _PRIO_HI (+2)
+        #define _PRIO_0  (0)
+        #define _PRIO_LO (-2)
 #else
         #error "Unknown OS: not implemented!"
 #endif
@@ -649,7 +700,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     }
   }
   //
-  /*
+ /*
   * Wait for a thread to finish.
   *
   * 'mu_ref' is a lock we should use for the waiting; initially unlocked.
@@ -657,11 +708,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
   *
   * Returns TRUE for succesful wait, FALSE for timed out
   */
-#ifdef PTHREAD_TIMEDJOIN
-  bool_t THREAD_WAIT( THREAD_T *ref, double secs )
-#else
-  bool_t THREAD_WAIT( THREAD_T *ref, SIGNAL_T *signal_ref, MUTEX_T *mu_ref, volatile enum e_status *st_ref, double secs )
-#endif
+bool_t THREAD_WAIT( THREAD_T *ref, double secs , SIGNAL_T *signal_ref, MUTEX_T *mu_ref, volatile enum e_status *st_ref)
 {
     struct timespec ts_store;
     const struct timespec *timeout= NULL;
@@ -669,16 +716,17 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
 
     // Do timeout counting before the locks
     //
-#ifdef PTHREAD_TIMEDJOIN
-    if (secs>=0.0) {
-#else
-    if (secs>0.0) {
-#endif
+#if THREADWAIT_METHOD == THREADWAIT_TIMEOUT
+    if (secs>=0.0)
+#else // THREADWAIT_METHOD == THREADWAIT_CONDVAR
+    if (secs>0.0)
+#endif // THREADWAIT_METHOD == THREADWAIT_CONDVAR
+    {
         prepare_timeout( &ts_store, now_secs()+secs );
         timeout= &ts_store;
     }
 
-#ifdef PTHREAD_TIMEDJOIN
+#if THREADWAIT_METHOD == THREADWAIT_TIMEOUT
     /* Thread is joinable
     */
     if (!timeout) {
@@ -691,10 +739,11 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
         }
         done= rc==0;
     }
-#else
+#else // THREADWAIT_METHOD == THREADWAIT_CONDVAR
     /* Since we've set the thread up as PTHREAD_CREATE_DETACHED, we cannot
      * join with it. Use the cond.var.
     */
+    (void) ref; // unused
     MUTEX_LOCK( mu_ref );
     
         // 'secs'==0.0 does not need to wait, just take the current status
@@ -714,13 +763,26 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
         done= *st_ref >= DONE;  // DONE|ERROR_ST|CANCELLED
 
     MUTEX_UNLOCK( mu_ref );
-#endif
+#endif // THREADWAIT_METHOD == THREADWAIT_CONDVAR
     return done;
-  }    
+  }
   //
   void THREAD_KILL( THREAD_T *ref ) {
     pthread_cancel( *ref );
   }
-#endif
 
-static const lua_Alloc alloc_f= 0;
+	void THREAD_SETNAME( char const* _name)
+	{
+		// exact API to set the thread name is platform-dependant
+		// if you need to fix the build, or if you know how to fill a hole, tell me (bnt.germain@gmail.com) so that I can submit the fix in github.
+#if defined PLATFORM_BSD
+		pthread_set_name_np( pthread_self(), _name);
+#elif defined PLATFORM_LINUX || defined PLATFORM_QNX || defined PLATFORM_CYGWIN
+		pthread_setname_np(pthread_self(), _name);
+#elif defined PLATFORM_OSX
+		pthread_setname_np(_name);
+#elif defined PLATFORM_WIN32 || defined PLATFORM_POCKETPC
+		// no API in win32-pthread yet :-(
+#endif
+	}
+#endif // THREADAPI == THREADAPI_PTHREAD

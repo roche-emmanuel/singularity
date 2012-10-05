@@ -1,14 +1,14 @@
-SET(TARGET_NAME "lanes_lib")
-SET(TARGET_DIR "bin/${FLAVOR}/modules")
+SET(TARGET_NAME "core")
+SET(TARGET_DIR "bin/${FLAVOR}/modules/lanes")
 
 INCLUDE_DIRECTORIES(../include)
 
 INCLUDE_DIRECTORIES(${LUA_INC_DIR})
 LINK_DIRECTORIES (${LUA_LIB_DIR})
 
-ADD_LIBRARY (${TARGET_NAME} SHARED lanes.c threading.c tools.c)
+ADD_LIBRARY (${TARGET_NAME} SHARED lanes.c threading.c tools.c keeper.c)
 
-PRECOMPILE_LUA("keeper.lua")
+# PRECOMPILE_LUA("keeper.lua")
 
 TARGET_LINK_LIBRARIES(${TARGET_NAME} ${LUA_LIBS})  
 

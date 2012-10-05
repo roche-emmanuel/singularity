@@ -4,16 +4,33 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
-#include "lua.h"
+#include "lauxlib.h"
 #include "threading.h"
     // MUTEX_T
 
 #include <assert.h>
 
-// Note: The < -10000 test is to leave registry/global/upvalue indices untouched
-//
-#define /*int*/ STACK_ABS(L,n) \
-	( ((n) >= 0 || (n) <= -10000) ? (n) : lua_gettop(L) +(n) +1 )
+// M$ compiler doesn't support 'inline' keyword in C files...
+#if defined( _MSC_VER)
+#define inline __inline
+#endif
+
+// code is now using Lua 5.2 API
+// add Lua 5.2 API when building for Lua 5.1
+#if LUA_VERSION_NUM == 501
+#define lua_absindex( L, idx) (((idx) >= 0 || (idx) <= LUA_REGISTRYINDEX) ? (idx) : lua_gettop(L) + (idx) +1)
+#define lua_pushglobaltable(L) lua_pushvalue( L, LUA_GLOBALSINDEX)
+#define lua_setuservalue lua_setfenv
+#define lua_getuservalue lua_getfenv
+#define lua_rawlen lua_objlen
+#define luaG_registerlibfuncs( L, _funcs) luaL_register( L, NULL, _funcs)
+#endif // LUA_VERSION_NUM == 501
+
+// wrap Lua 5.2 calls under Lua 5.1 API when it is simpler that way
+#if LUA_VERSION_NUM == 502
+#define lua_equal( L, a, b) lua_compare( L, a, b, LUA_OPEQ)
+#define luaG_registerlibfuncs( L, _funcs) luaL_setfuncs( L, _funcs, 0)
+#endif // LUA_VERSION_NUM == 502
 
 #ifdef NDEBUG
   #define _ASSERT_L(lua,c)  /*nothing*/
@@ -24,7 +41,7 @@
   #define DEBUG()   /*nothing*/
   #define DEBUGEXEC(_code) {}  /*nothing*/
 #else
-  #define _ASSERT_L(lua,c)  { if (!(c)) luaL_error( lua, "ASSERT failed: %s:%d '%s'", __FILE__, __LINE__, #c ); }
+  #define _ASSERT_L(lua,c)  do { if (!(c)) luaL_error( lua, "ASSERT failed: %s:%d '%s'", __FILE__, __LINE__, #c ); } while( 0)
   //
   #define STACK_CHECK(L)     { int _oldtop_##L = lua_gettop(L);
   #define STACK_MID(L,change)  { int a= lua_gettop(L)-_oldtop_##L; int b= (change); \
@@ -37,7 +54,7 @@
 #endif
 #define ASSERT_L(c) _ASSERT_L(L,c)
 
-#define STACK_GROW(L,n) { if (!lua_checkstack(L,n)) luaL_error( L, "Cannot grow stack!" ); }
+#define STACK_GROW(L,n) do { if (!lua_checkstack(L,n)) luaL_error( L, "Cannot grow stack!" ); } while( 0)
 
 #define LUAG_FUNC( func_name ) static int LG_##func_name( lua_State *L )
 
@@ -46,29 +63,35 @@
 
 #define luaG_isany(L,i)  (!lua_isnil(L,i))
 
-#define luaG_typename( L, index ) lua_typename( L, lua_type(L,index) )
+typedef void (*luaG_IdFunction)( lua_State *L, char const * const which);
 
 void luaG_dump( lua_State* L );
 
-const char *luaG_openlibs( lua_State *L, const char *libs );
+lua_State* luaG_newstate( char const* libs, lua_CFunction _on_state_create);
 
-int luaG_deep_userdata( lua_State *L );
-void *luaG_todeep( lua_State *L, lua_CFunction idfunc, int index );
+int luaG_deep_userdata( lua_State *L, luaG_IdFunction idfunc);
+void *luaG_todeep( lua_State *L, luaG_IdFunction idfunc, int index );
 
 typedef struct {
     volatile int refcount;
     void *deep;
 } DEEP_PRELUDE;
 
-void luaG_push_proxy( lua_State *L, lua_CFunction idfunc, DEEP_PRELUDE *deep_userdata );
+void luaG_push_proxy( lua_State *L, luaG_IdFunction idfunc, DEEP_PRELUDE *deep_userdata );
 
-void luaG_inter_copy( lua_State *L, lua_State *L2, uint_t n );
-void luaG_inter_move( lua_State *L, lua_State *L2, uint_t n );
+int luaG_inter_copy( lua_State *L, lua_State *L2, uint_t n);
+int luaG_inter_move( lua_State *L, lua_State *L2, uint_t n);
+
+int luaG_nameof( lua_State* L);
 
 // Lock for reference counter inc/dec locks (to be initialized by outside code)
 //
 extern MUTEX_T deep_lock;
 extern MUTEX_T mtid_lock;
+
+void populate_func_lookup_table( lua_State *L, int _i, char const *_name);
+void serialize_require( lua_State *L);
+extern MUTEX_T require_cs;
 
 #endif
     // TOOLS_H
