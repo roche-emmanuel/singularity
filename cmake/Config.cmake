@@ -24,4 +24,8 @@ SET(DEP_SDL ${DEPS_DIR}/${FLAVOR}/SDL-1.2.15 CACHE STRING "SDL path")
 SET(DEP_SPICE ${DEPS_DIR}/${FLAVOR}/CSpice-N0064 CACHE STRING "cspice path")
 
 SET(LUA "W:/Cloud/Dev/Deps/win32/LuaJIT-2.0.0-beta9/bin/luajit.exe" CACHE STRING "Lua executable")
+SET(LUAC "W:/Cloud/Dev/Tools/win32/lua-5.1.4/luac5.1.exe" CACHE STRING "Luac executable")
+SET(BIN2C_LUA "W:/Cloud/Dev/Tools/win32/lua-5.1.4/bin2c.lua" CACHE STRING "bin2c lua script")
+SET(BIN2C "W:/Cloud/Dev/Tools/win32/lua-5.1.4/bin2c5.1.exe" CACHE STRING "bin2c executable")
+
 SET(UPX "W:/Cloud/Dev/Tools/win32/upx-3.08/upx.exe" CACHE STRING "UPX executable")

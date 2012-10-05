@@ -209,6 +209,32 @@ MACRO(ADD_RESSOURCE RessourceFile SourcesVar)
   ENDIF(WIN32)
 ENDMACRO(ADD_RESSOURCE)
 
+MACRO(PRECOMPILE_LUA luafile)
+	GET_FILENAME_COMPONENT(FileBasename ${luafile} NAME_WE)
+	
+	IF(MSVC)
+		ADD_CUSTOM_TARGET(
+			"${TARGET_NAME}_${FileBasename}_lch"
+			COMMAND ${LUAC} -o ${FileBasename}.tmp "${CMAKE_CURRENT_SOURCE_DIR}/${luafile}"
+			COMMAND ${LUA} ${BIN2C_LUA} ${FileBasename}.tmp -o "${CMAKE_CURRENT_SOURCE_DIR}/${FileBasename}.lch"
+			# COMMAND ${BIN2C} ${FileBasename}.tmp > "${CMAKE_CURRENT_SOURCE_DIR}/${FileBasename}.lch"
+			COMMAND echo "Done generating ${FileBasename}.lch"
+			# OUTPUT ${FileBasename}.lch
+		)
+	ELSE()
+		ADD_CUSTOM_TARGET(
+			"${TARGET_NAME}_${FileBasename}_lch"
+			COMMAND ${LUAC} -o ${FileBasename}.tmp `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/${luafile}"`
+			COMMAND ${LUA} ${BIN2C_LUA} ${FileBasename}.tmp -o `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/${FileBasename}.lch"`
+			# COMMAND ${BIN2C} ${FileBasename}.tmp > `cygpath -w "${CMAKE_CURRENT_SOURCE_DIR}/${FileBasename}.lch"`
+			COMMAND echo "Done generating ${FileBasename}.lch"
+			# OUTPUT ${FileBasename}.lch
+		)
+	ENDIF()
+
+	ADD_DEPENDENCIES(${TARGET_NAME} "${TARGET_NAME}_${FileBasename}_lch")
+ENDMACRO(PRECOMPILE_LUA)
+
 MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
     SET(DOXFILE "doxyfile")
 	
