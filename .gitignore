@@ -30,7 +30,7 @@ upx.exe
 
 software/tests/*
 
-sgtLauncher
+#sgtLauncher
 
 # Ignore luna binding files:
 #luna/bind_*.cpp
