@@ -1,10 +1,10 @@
 module(..., package.seeall)
 
 local log = require "tracer"
-if flavor=="ds411" then
-	log:notice("Tests","Ignoring Yahoo Finance tests on ds411.")
-	return
-end
+--if flavor=="ds411" then
+--	log:notice("Tests","Ignoring Yahoo Finance tests on ds411.")
+--	return
+--end
 
 
 local fs = require "base.FileSystem"
