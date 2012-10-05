@@ -8,6 +8,7 @@ log:debug0("Path is: ".. root_path)
 
 if flavor=="ds411" then
 	log:notice "Script execution done on ds411."
+	return
 end
 
 -- retrieve config:
