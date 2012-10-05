@@ -12,14 +12,14 @@ function test_lane_timer()
 	
 	-- First timer once a second, not synchronized to wall clock
     --
-	local t1 = lanes.timer( linda, "sec", 1, 1 )
+	lanes.timer( linda, "sec", 1, 1 )
 	
 	-- Timer to a future event (next even minute); wall clock synchronized 
 	--
 	local t= os.date( "*t", os.time()+60 )    -- now + 1min
 	t.sec= 0
 	
-	local t2 = lanes.timer( linda, "min", t, 60 )   -- reoccur every minute (sharp)
+	lanes.timer( linda, "min", t, 60 )   -- reoccur every minute (sharp)
 	count = 0
 	
 	while true and count < 10 do
@@ -28,8 +28,8 @@ function test_lane_timer()
 	  count = count+1
 	end
 
-	t1:cancel()
-	t2:cancel()
+	lanes.timer( linda, "sec", 0 )
+	lanes.timer( linda, "min", 0 )
 	
 	log:info("Tests","Done testing Lane timer.")
 end
