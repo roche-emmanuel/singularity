@@ -30,7 +30,10 @@ function test_filesystem()
 	log:debug_v("Checking getAttribute()")
 	assert_equal("file",fs:getAttribute(validFile,"mode"),"Invalid getAttribute result on file.")
 	assert_gt(0,fs:getAttribute(validFile,"size"),"Invalid file size.")
-	assert_equal(0,fs:getAttribute(validFolder,"size"),"Invalid folder size")
+	
+	-- Note that on linux system the size of a folder may not be zero (can by 4096 for instance)
+	-- Thus the following test should be removed.
+	--assert_equal(0,fs:getAttribute(validFolder,"size"),"Invalid folder size")
 	
 	log:debug_v("Checking current working directory")
 	
