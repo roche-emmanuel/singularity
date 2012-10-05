@@ -1,6 +1,11 @@
 module(..., package.seeall)
 
 local log = require "tracer"
+if flavor=="ds411" then
+	log:notice("Tests","Ignoring serialization tests on ds411.")
+	return
+end
+
 local osg = require "osg"
 local fs = require "base.FileSystem"
 
