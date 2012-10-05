@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Referenced>
+#include <osg/Referenced>
 
 // Function checkers:
 inline static bool _lg_typecheck_doLog(lua_State *L) {

@@ -150,6 +150,12 @@ function ReflectionGenerator:getHeaderFileName(location)
 		end
 	end
 	
+	-- remove all paths prefix ending with include/
+	local p1, p2 = location:find("include/")
+	if p2 then
+		return location:sub(p2+1)
+	end
+	
 	return location
 end
 

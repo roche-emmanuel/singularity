@@ -3,7 +3,7 @@
 
 #include <plug_common.h>
 
-#include <W:/Cloud/Projects/singularity/sources/plug_FANN/include/fann_cpp.h>
+#include <fann_cpp.h>
 
 template<>
 class LunaTraits< FANN::training_data > {

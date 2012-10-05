@@ -23,7 +23,7 @@ SET(BOOST_LIBS 		)
 
 SET(CD_INC_DIR 	${DEP_CD}/include)
 SET(CD_LIB_DIR 	${DEP_CD})
-SET(CD_LIBS     cd cdcontextplus cdgl cdlua51 cdluacontextplus51 cdluagl51 cdluaim51 cdluapdf51 cdpdf freetype6 ftgl pdflib zlib1 gdiplus)
+SET(CD_LIBS     cd.lib cdcontextplus.lib cdgl.lib cdlua51.lib cdluacontextplus51.lib cdluagl51.lib cdluaim51.lib cdluapdf51.lib cdpdf.lib freetype6.lib ftgl.lib pdflib.lib zlib1.lib gdiplus.lib)
 SET(CD_FLAGS    )
 
 SET(FIREBIRD_INC_DIR 	${DEP_FIREBIRD}/include)
@@ -32,13 +32,12 @@ SET(FIREBIRD_LIBS 		fbclient_ms)
 
 SET(IM_INC_DIR 	${DEP_IM}/include)
 SET(IM_LIB_DIR 	${DEP_IM})
-SET(IM_LIBS     im im_avi im_capture im_fftw im_jp2 im_process im_process_omp im_wmv imlua_avi51 imlua_capture51 imlua_fftw51 imlua_jp251 imlua_process_omp51 imlua_process51 imlua_wmv51 imlua51)
-# Removed libs: zlib1 !!!
+SET(IM_LIBS     im.lib im_avi.lib im_capture.lib im_fftw.lib im_jp2.lib im_process.lib im_process_omp.lib im_wmv.lib imlua_avi51.lib imlua_capture51.lib imlua_fftw51.lib imlua_jp251.lib imlua_process_omp51.lib imlua_process51.lib imlua_wmv51.lib imlua51.lib zlib1.lib vfw32.lib wmvcore.lib strmiids.lib)
 SET(IM_FLAGS    )
 
 SET(IUP_INC_DIR 	${DEP_IUP}/include)
 SET(IUP_LIB_DIR 	${DEP_IUP})
-SET(IUP_LIBS     iup iup_mglplot iup_pplot iupcd iupcontrols iupgl iupim iupimglib iuplua_mglplot51 iuplua_pplot51 iuplua51 iupluacd51 iupluacontrols51 iupluagl51 iupluaim51 iupluaimglib51 iupluaole51 iupluatuio51 iupluaweb51 iupole iuptuio iupweb gdi32 user32 comdlg32 comctl32 ole32 ws2_32 winmm)
+SET(IUP_LIBS     iup.lib iup_mglplot.lib iup_pplot.lib iupcd.lib iupcontrols.lib iupgl.lib iupim.lib iupimglib.lib iuplua_mglplot51.lib iuplua_pplot51.lib iuplua51.lib iupluacd51.lib iupluacontrols51.lib iupluagl51.lib iupluaim51.lib iupluaimglib51.lib iupluaole51.lib iupluatuio51.lib iupluaweb51.lib iupole.lib iuptuio.lib iupweb.lib gdi32.lib user32.lib comdlg32.lib comctl32.lib ole32.lib ws2_32.lib winmm.lib)
 SET(IUP_FLAGS    )
 
 SET(LUA_INC_DIR 	${DEP_LUA}/include)
@@ -68,7 +67,7 @@ SET(OSG_FLAGS     	) #-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC
 
 SET(SDL_INC_DIR 	${DEP_SDL}/include)
 SET(SDL_LIB_DIR 	${DEP_SDL}/VisualC/SDL/Release)
-SET(SDL_LIBS 		SDL)
+SET(SDL_LIBS 		SDL.lib)
 
 SET(SPICE_INC_DIR 	${DEP_SPICE}/include)
 SET(SPICE_LIB_DIR 	${DEP_SPICE}/lib)
@@ -96,6 +95,7 @@ IF(MSVC)
     SET(WX_LIBS     wxmsw29u.lib wxmsw29u_gl.lib)
     SET(WX_FLAGS    -D__WXMSW__ -DWXUSINGDLL)
 	
+	SET(MYSQL_LIBS 		libmysql)
 ELSE()
 
     SET(LUA_INC_DIR 	${DEP_LUA}/include/luajit-2.0)

@@ -924,6 +924,9 @@ end
 function LunaWriter:writeDefines()
 	self:clearContent()
 
+	self:writeLine("#include <plug_common.h>")
+	self:newLine()
+	
 	local defs = self.datamap:getDefines()
 
 	local headers = Set();
@@ -940,8 +943,6 @@ function LunaWriter:writeDefines()
 	self:newLine()
 	
 	--- retrieve the list of defines from the reflection map:
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
 	self:writeLine("#ifdef __cplusplus")	
 	self:writeLine('extern "C" {')
 	self:writeLine("#endif")

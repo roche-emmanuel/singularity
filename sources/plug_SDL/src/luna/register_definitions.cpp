@@ -1,3 +1,5 @@
+#include <plug_common.h>
+
 #include <SDL.h>
 #include <SDL_active.h>
 #include <SDL_audio.h>
@@ -12,8 +14,6 @@
 #include <SDL_opengl.h>
 #include <SDL_version.h>
 #include <SDL_video.h>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

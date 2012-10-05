@@ -23,5 +23,5 @@ SET(DEP_IUP ${DEPS_DIR}/${FLAVOR}/IUP-3.6_vc9_lib CACHE STRING "iup path")
 SET(DEP_SDL ${DEPS_DIR}/${FLAVOR}/SDL-1.2.15 CACHE STRING "SDL path")
 SET(DEP_SPICE ${DEPS_DIR}/${FLAVOR}/CSpice-N0064 CACHE STRING "cspice path")
 
-SET(LUA "W:/Shared/Dev/Deps/win32/LuaJIT-2.0.0-beta9/bin/luajit.exe" CACHE STRING "Lua executable")
+SET(LUA "W:/Cloud/Dev/Deps/win32/LuaJIT-2.0.0-beta9/bin/luajit.exe" CACHE STRING "Lua executable")
 SET(UPX "W:/Cloud/Dev/Tools/win32/upx-3.08/upx.exe" CACHE STRING "UPX executable")

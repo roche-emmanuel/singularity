@@ -1,11 +1,11 @@
+#include <plug_common.h>
+
 #include <SDL_audio.h>
 #include <SDL_cdrom.h>
 #include <SDL_error.h>
 #include <SDL_events.h>
 #include <SDL_keysym.h>
 #include <SDL_video.h>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

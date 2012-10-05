@@ -2,6 +2,7 @@ SET(TARGET_NAME "doxmlparser")
 SET(TARGET_DIR "bin/${FLAVOR}/modules")
 
 INCLUDE_DIRECTORIES (../include)
+INCLUDE_DIRECTORIES (../../sgtCore/include)
 INCLUDE_DIRECTORIES (qtools)
 
 INCLUDE_DIRECTORIES(${LUA_INC_DIR})
@@ -24,7 +25,7 @@ file(GLOB_RECURSE to_remove "*plug_common.cpp")
 list(REMOVE_ITEM SOURCE_FILES ${to_remove})
 ADD_MSVC_PRECOMPILED_HEADER("plug_common.h" "plug_common.cpp" SOURCE_FILES)
 
-ADD_LUNA_FILES(SOURCE_FILES) # Add the Luna files after adding precompiled header.
+# ADD_LUNA_FILES(SOURCE_FILES) # Add the Luna files after adding precompiled header.
 
 IF(WIN32)
     # file(GLOB_RECURSE to_remove "*unix.cpp")
@@ -38,7 +39,7 @@ ENDIF()
 
 ADD_LIBRARY (${TARGET_NAME} SHARED ${PUBLIC_HEADERS} ${SPECIFIC_SOURCE_FILES} ${SOURCE_FILES})
 
-TARGET_LINK_LIBRARIES(${TARGET_NAME} ${LUA_LIBS})  
+TARGET_LINK_LIBRARIES(${TARGET_NAME} sgtCore ${LUA_LIBS})  
 
 SET_TARGET_PROPERTIES(${TARGET_NAME} PROPERTIES 
 	PREFIX ""

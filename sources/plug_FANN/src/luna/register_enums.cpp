@@ -1,6 +1,6 @@
-#include <W:/Cloud/Projects/singularity/sources/plug_FANN/include/fann_cpp.h>
-
 #include <plug_common.h>
+
+#include <fann_cpp.h>
 
 #ifdef __cplusplus
 extern "C" {

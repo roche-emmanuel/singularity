@@ -6,6 +6,10 @@ log:notice "Executing init script..."
 log:debug0("Flavor is: ".. flavor)
 log:debug0("Path is: ".. root_path)
 
+if flavor=="ds411" then
+	log:notice "Script execution done on ds411."
+end
+
 -- retrieve config:
 local cfg = require "config"
 local core = require "core"

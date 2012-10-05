@@ -1,8 +1,8 @@
-#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Object>
-#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Referenced>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/sgtCommon.h>
-
 #include <plug_common.h>
+
+#include <osg/Object>
+#include <osg/Referenced>
+#include <sgtCommon.h>
 
 #ifdef __cplusplus
 extern "C" {

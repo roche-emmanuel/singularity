@@ -3,16 +3,16 @@
 
 #include <plug_common.h>
 
-#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Referenced>
-#include </cygdrive/w/Cloud/Dev/Deps/ds411/OpenSceneGraph-3.0.1/include/osg/Object>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/sgtCommon.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/base/Object.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/base/TimeProvider.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/LogSink.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/FileLogger.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/LogManager.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/LogRecord.h>
-#include </cygdrive/w/Cloud/Projects/singularity/sources/sgtCore/include/log/StdLogger.h>
+#include <osg/Referenced>
+#include <osg/Object>
+#include <sgtCommon.h>
+#include <base/Object.h>
+#include <base/TimeProvider.h>
+#include <log/LogSink.h>
+#include <log/FileLogger.h>
+#include <log/LogManager.h>
+#include <log/LogRecord.h>
+#include <log/StdLogger.h>
 
 template<>
 class LunaTraits< posix_time::ptime > {
