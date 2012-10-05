@@ -10,7 +10,7 @@ cfg.default_locale = "en"
 --cfg.default_locale = "fr"
 
 -- Start the mainframe:
-cfg.mainframe_enabled = true
+cfg.mainframe_enabled = (flavor~="ds411") and true
 
 -- Enable or disable the unit testing framework:
 cfg.tests_enabled = true;
