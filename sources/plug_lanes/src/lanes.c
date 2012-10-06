@@ -1221,8 +1221,8 @@ static int selfdestruct_gc( lua_State *L)
     // other threads (timer lane) to proceed. Without the yield, there is
     // segfault.
     //
-    //YIELD();
-	sleep(1);
+    YIELD();
+	//sleep(1);
 	
 	DEBUGEXEC(fprintf( stderr, "Yield after signaling.\n"));
 #else
@@ -1273,7 +1273,7 @@ static int selfdestruct_gc( lua_State *L)
 	DEBUGEXEC(fprintf( stderr, "Kill the still free running threads.\n"));
     if ( selfdestruct_first != SELFDESTRUCT_END ) {
         unsigned n=0;
-#if 0
+#if 1
         MUTEX_LOCK( &selfdestruct_cs );
         {
             struct s_lane *s= selfdestruct_first;
