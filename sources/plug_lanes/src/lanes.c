@@ -1331,6 +1331,7 @@ static int selfdestruct_gc( lua_State *L)
         DEBUGEXEC(fprintf( stderr, "Killed %d lane(s) at process end.\n", n ));
 #endif
     }
+	DEBUGEXEC(fprintf( stderr, "Done with selfdestruct_gc().\n" ));
     return 0;
 }
 
