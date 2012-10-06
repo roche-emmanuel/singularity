@@ -1270,6 +1270,7 @@ static int selfdestruct_gc( lua_State *L)
     //---
     // Kill the still free running threads
     //
+	DEBUGEXEC(fprintf( stderr, "Kill the still free running threads.\n"));
     if ( selfdestruct_first != SELFDESTRUCT_END ) {
         unsigned n=0;
 #if 0
