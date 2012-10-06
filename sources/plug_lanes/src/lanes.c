@@ -1294,7 +1294,9 @@ static int selfdestruct_gc( lua_State *L)
         // first thing we did was to raise the linda signals the threads were waiting on (if any)
         // therefore, any well-behaved thread should be in CANCELLED state
         // these are not running, and the state can be closed
-        MUTEX_LOCK( &selfdestruct_cs );
+        DEBUGEXEC(fprintf( stderr, "Locking mutex to kill threads.\n"));
+		
+		MUTEX_LOCK( &selfdestruct_cs );
         {
             struct s_lane *s= selfdestruct_first;
             while( s != SELFDESTRUCT_END)
