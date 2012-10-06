@@ -32,7 +32,7 @@
 #define luaG_registerlibfuncs( L, _funcs) luaL_setfuncs( L, _funcs, 0)
 #endif // LUA_VERSION_NUM == 502
 
-#ifdef NDEBUG
+#ifdef NO_DEBUG
   #define _ASSERT_L(lua,c)  /*nothing*/
   #define STACK_CHECK(L)    /*nothing*/
   #define STACK_MID(L,c)    /*nothing*/
@@ -43,10 +43,12 @@
 #else
   #define _ASSERT_L(lua,c)  do { if (!(c)) luaL_error( lua, "ASSERT failed: %s:%d '%s'", __FILE__, __LINE__, #c ); } while( 0)
   //
-  #define STACK_CHECK(L)     { int _oldtop_##L = lua_gettop(L);
-  #define STACK_MID(L,change)  { int a= lua_gettop(L)-_oldtop_##L; int b= (change); \
-                               if (a != b) luaL_error( L, "STACK ASSERT failed (%d not %d): %s:%d", a, b, __FILE__, __LINE__ ); }
-  #define STACK_END(L,change)  STACK_MID(L,change) }
+  #define STACK_CHECK(L)   /*nothing*/  
+  //{ int _oldtop_##L = lua_gettop(L);
+  #define STACK_MID(L,change)  /*nothing*/
+  //{ int a= lua_gettop(L)-_oldtop_##L; int b= (change); \
+   //                            if (a != b) luaL_error( L, "STACK ASSERT failed (%d not %d): %s:%d", a, b, __FILE__, __LINE__ ); }
+  #define STACK_END(L,change)  STACK_MID(L,change)
 
   #define STACK_DUMP(L)    luaG_dump(L);
   #define DEBUG()   fprintf( stderr, "<<%s %d>>\n", __FILE__, __LINE__ );
