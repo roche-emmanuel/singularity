@@ -1189,6 +1189,8 @@ static int selfdestruct_gc( lua_State *L)
         struct s_lane *s= selfdestruct_first;
         while( s != SELFDESTRUCT_END )
         {
+			DEBUGEXEC(fprintf( stderr, "Signaling thread to stop...\n"));
+		
             // attempt a regular unforced cancel with a small timeout
             bool_t cancelled = THREAD_ISNULL( s->thread) || thread_cancel( s, 0.0001, FALSE);
             // if we failed, and we know the thread is waiting on a linda
@@ -1205,6 +1207,8 @@ static int selfdestruct_gc( lua_State *L)
     }
     MUTEX_UNLOCK( &selfdestruct_cs );
 
+	DEBUGEXEC(fprintf( stderr, "Done signaling threads to stop.\n"));
+
     // When noticing their cancel, the lanes will remove themselves from
     // the selfdestruct chain.
 
@@ -1218,6 +1222,8 @@ static int selfdestruct_gc( lua_State *L)
     // segfault.
     //
     YIELD();
+	
+	DEBUGEXEC(fprintf( stderr, "Yield after signaling.\n"));
 #else
     // OS X 10.5 (Intel) needs more to avoid segfaults.
     //
@@ -1293,6 +1299,8 @@ static int selfdestruct_gc( lua_State *L)
             struct s_lane *s= selfdestruct_first;
             while( s != SELFDESTRUCT_END)
             {
+				DEBUGEXEC(fprintf( stderr, "Force killing thread...\n"));
+			
                 struct s_lane *next_s= s->selfdestruct_next;
                 s->selfdestruct_next= NULL;     // detach from selfdestruct chain
                 if( !THREAD_ISNULL( s->thread)) // can be NULL if previous 'soft' termination succeeded
