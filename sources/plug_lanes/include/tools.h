@@ -32,7 +32,7 @@
 #define luaG_registerlibfuncs( L, _funcs) luaL_setfuncs( L, _funcs, 0)
 #endif // LUA_VERSION_NUM == 502
 
-#ifdef NO_DEBUG
+#ifdef NDEBUG
   #define _ASSERT_L(lua,c)  /*nothing*/
   #define STACK_CHECK(L)    /*nothing*/
   #define STACK_MID(L,c)    /*nothing*/

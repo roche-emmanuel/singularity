@@ -41,9 +41,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#ifndef WIN32
 #include <stdint.h>
-#endif
 #include <ctype.h>
 
 #include "lua.h"

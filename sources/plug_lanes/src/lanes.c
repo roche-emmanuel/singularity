@@ -1177,8 +1177,6 @@ volatile DEEP_PRELUDE *timer_deep;  // = NULL
 */
 static int selfdestruct_gc( lua_State *L)
 {
-	DEBUGEXEC(fprintf( stderr, "Entering selfdestruct_gc()\n"));
-
     (void)L; // unused
     if (selfdestruct_first == SELFDESTRUCT_END) return 0;    // no free-running threads
 
@@ -1189,8 +1187,6 @@ static int selfdestruct_gc( lua_State *L)
         struct s_lane *s= selfdestruct_first;
         while( s != SELFDESTRUCT_END )
         {
-			DEBUGEXEC(fprintf( stderr, "Signaling thread to stop...\n"));
-		
             // attempt a regular unforced cancel with a small timeout
             bool_t cancelled = THREAD_ISNULL( s->thread) || thread_cancel( s, 0.0001, FALSE);
             // if we failed, and we know the thread is waiting on a linda
@@ -1207,8 +1203,6 @@ static int selfdestruct_gc( lua_State *L)
     }
     MUTEX_UNLOCK( &selfdestruct_cs );
 
-	DEBUGEXEC(fprintf( stderr, "Done signaling threads to stop.\n"));
-
     // When noticing their cancel, the lanes will remove themselves from
     // the selfdestruct chain.
 
@@ -1222,9 +1216,6 @@ static int selfdestruct_gc( lua_State *L)
     // segfault.
     //
     YIELD();
-	//sleep(1);
-	
-	DEBUGEXEC(fprintf( stderr, "Yield after signaling.\n"));
 #else
     // OS X 10.5 (Intel) needs more to avoid segfaults.
     //
@@ -1270,10 +1261,9 @@ static int selfdestruct_gc( lua_State *L)
     //---
     // Kill the still free running threads
     //
-	DEBUGEXEC(fprintf( stderr, "Kill the still free running threads.\n"));
     if ( selfdestruct_first != SELFDESTRUCT_END ) {
         unsigned n=0;
-#if 1
+#if 0
         MUTEX_LOCK( &selfdestruct_cs );
         {
             struct s_lane *s= selfdestruct_first;
@@ -1296,15 +1286,11 @@ static int selfdestruct_gc( lua_State *L)
         // first thing we did was to raise the linda signals the threads were waiting on (if any)
         // therefore, any well-behaved thread should be in CANCELLED state
         // these are not running, and the state can be closed
-        DEBUGEXEC(fprintf( stderr, "Locking mutex to kill threads.\n"));
-		
-		MUTEX_LOCK( &selfdestruct_cs );
+        MUTEX_LOCK( &selfdestruct_cs );
         {
             struct s_lane *s= selfdestruct_first;
             while( s != SELFDESTRUCT_END)
             {
-				DEBUGEXEC(fprintf( stderr, "Force killing thread...\n"));
-			
                 struct s_lane *next_s= s->selfdestruct_next;
                 s->selfdestruct_next= NULL;     // detach from selfdestruct chain
                 if( !THREAD_ISNULL( s->thread)) // can be NULL if previous 'soft' termination succeeded
@@ -1331,7 +1317,6 @@ static int selfdestruct_gc( lua_State *L)
         DEBUGEXEC(fprintf( stderr, "Killed %d lane(s) at process end.\n", n ));
 #endif
     }
-	DEBUGEXEC(fprintf( stderr, "Done with selfdestruct_gc().\n" ));
     return 0;
 }
 
