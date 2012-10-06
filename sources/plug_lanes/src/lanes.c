@@ -1221,7 +1221,8 @@ static int selfdestruct_gc( lua_State *L)
     // other threads (timer lane) to proceed. Without the yield, there is
     // segfault.
     //
-    YIELD();
+    //YIELD();
+	sleep(1);
 	
 	DEBUGEXEC(fprintf( stderr, "Yield after signaling.\n"));
 #else
