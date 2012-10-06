@@ -1177,6 +1177,8 @@ volatile DEEP_PRELUDE *timer_deep;  // = NULL
 */
 static int selfdestruct_gc( lua_State *L)
 {
+	DEBUGEXEC(fprintf( stderr, "Entering selfdestruct_gc()\n"));
+
     (void)L; // unused
     if (selfdestruct_first == SELFDESTRUCT_END) return 0;    // no free-running threads
 
