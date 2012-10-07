@@ -22,7 +22,7 @@ IF(MSVC)
 	# ADD_SUBDIRECTORY(plug_SDL)
 ENDIF()
 # ADD_SUBDIRECTORY(plug_xml)
-ADD_SUBDIRECTORY(plug_lanes)
+# ADD_SUBDIRECTORY(plug_lanes)
 
 # ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
@@ -41,7 +41,7 @@ ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_FANN)
 
 
-# ADD_SUBDIRECTORY(sgt_launcher)
+ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)
