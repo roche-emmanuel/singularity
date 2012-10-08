@@ -44,8 +44,8 @@ local modules = {
   --'shm', -- Needs admin rights on windows and fails on both linux/windows
   'signal',
   'str',
-  'thread',
-  'thread_queue',
+  --'thread', -- 'lua' needed
+  --'thread_queue', -- 'lua' needed
   'time',
   'uri',
   'user',
