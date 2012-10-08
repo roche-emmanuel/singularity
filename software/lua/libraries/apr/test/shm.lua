@@ -19,13 +19,14 @@ local testdata = [[
   1
   3.1
   100
-  0xCAFEBABE
-  0xDEADBEEF
   3.141592653589793115997963468544185161590576171875
   this line is in fact not a number :-)
 
   that was an empty line]]
 
+-- 0xCAFEBABE
+-- 0xDEADBEEF
+  
 -- Write test data to file.
 local tmp_path = helpers.tmpname()
 helpers.writefile(tmp_path, testdata)

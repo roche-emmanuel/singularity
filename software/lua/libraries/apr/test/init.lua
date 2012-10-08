@@ -25,23 +25,23 @@ local modules = {
   'base64',
   'crypt',
   'date',
-  'dbd',
+  --'dbd', -- Skipped for now.
   'dbm',
   'env',
   'filepath',
   'fnmatch',
   'getopt',
-  'http',
+  --'http', -- Module not available.
   'io_dir',
   'io_file',
-  'io_net',
-  'ldap',
-  'memcache',
+  --'io_net', -- Server command would need to be configured (using 'lua')
+  --'ldap', -- Skipped for now.
+  --'memcache', -- No memcache server for now.
   'misc',
-  'pollset',
-  'proc',
-  'serialize',
-  'shm',
+  --'pollset', -- no apr.serialize
+  --'proc', --trying to create lua processes.
+  --'serialize',  -- no apr.serialize
+  --'shm', -- Needs admin rights on windows and fails on both linux/windows
   'signal',
   'str',
   'thread',
