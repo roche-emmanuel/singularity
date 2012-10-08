@@ -20,13 +20,17 @@ local testdata = [[
  1
  3.1
  100
- 0xCAFEBABE
- 0xDEADBEEF
  3.141592653589793115997963468544185161590576171875
  this line is in fact not a number :-)
 
  that was an empty line
 ]]
+
+-- Adding the following two lines after the value "100" will cause a
+-- test failure on linux stations:
+-- 0xCAFEBABE
+-- 0xDEADBEEF
+
 
 -- Test the stat() function. {{{1
 local info = apr.stat(selfpath)
