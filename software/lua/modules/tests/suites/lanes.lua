@@ -23,16 +23,36 @@ function test_lane_timer()
 	--ffi.cdef "unsigned int sleep(unsigned int seconds);"
 	--ffi.cdef "unsigned int usleep(unsigned int microseconds);"
 
+	local apr = require "apr"
+
+	log:info("Tests","Performing APR sleep test.")
+
 	count = 0
 	while true and count < 10 do
-	  local key,v= linda:receive( 0.1, "dummy_key")
+	  --local key,v= linda:receive( 0.1, "dummy_key")
 	  --ffi.C.sleep(1)
 	  --ffi.C.usleep(500000)
+	  apr.sleep(1.0)
 	  
 	  --log:info("Tests","Timer "..key..": "..v )
 	  log:info("Tests","Timer : ".. lanes.now_secs() )
 	  count = count+1
 	end
+
+	log:info("Tests","Performing linda sleep test.")
+
+	count = 0
+	while true and count < 10 do
+	  local key,v= linda:receive( 0.1, "dummy_key")
+	  --ffi.C.sleep(1)
+	  --ffi.C.usleep(500000)
+	  --apr.sleep(1.0)
+	  
+	  --log:info("Tests","Timer "..key..": "..v )
+	  log:info("Tests","Timer : ".. lanes.now_secs() )
+	  count = count+1
+	end
+
 	
 	--[[
 	-- First timer once a second, not synchronized to wall clock
