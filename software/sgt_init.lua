@@ -1,3 +1,5 @@
+#!/bin/sgt
+
 require "luna"
  -- needed for the core module.
 local log = require "logger"
