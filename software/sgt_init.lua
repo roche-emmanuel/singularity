@@ -27,11 +27,11 @@ if cfg.init_script then
 end
 
 -- load the finance agent here:
-local agent = require("finance.AgentProto1")();
+--local agent = require("finance.AgentProto1")();
 
-log:info("Running finance agent...")
-agent:run()
-log:info("Finance agent terminated.")
+--log:info("Running finance agent...")
+--agent:run()
+--log:info("Finance agent terminated.")
 
 local mainframe = cfg.mainframe_enabled and require "gui.MainFrame"
 

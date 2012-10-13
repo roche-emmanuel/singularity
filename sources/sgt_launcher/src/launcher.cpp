@@ -14,6 +14,12 @@
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 
+#include <boost/program_options.hpp>
+
+// This simple launcher will use the boost program options library to parse the command line options if any.
+namespace po = boost::program_options;
+
+
 #ifdef WIN32
 #include <direct.h>
 
@@ -118,6 +124,21 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 	return true; // success.
 }
 
+void setupLogging() {
+	// Init the log system.
+	sgtLogManager::instance().setDefaultLevelFlags(sgtLogManager::TIME_STAMP);
+	sgtLogManager::instance().setDefaultTraceFlags(sgtLogManager::TIME_STAMP);
+	sgtLogManager::instance().addLevelFlags(sgtLogManager::FATAL,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
+	sgtLogManager::instance().addLevelFlags(sgtLogManager::ERROR,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
+	sgtLogManager::instance().addLevelFlags(sgtLogManager::WARNING,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
+
+	sgtLogManager::instance().setVerbose(true);
+	sgtLogManager::instance().setNotifyLevel(sgtLogManager::DEBUG0); // Log until DEBUG0 level only.
+
+	sgtLogManager::instance().addSink(new sgtFileLogger("singularity.log"));
+	sgtLogManager::instance().addSink(new sgtStdLogger());
+}
+
 // The entry point of the complete application:
 //#ifdef SGT_WINDOWS
 #ifdef WIN32
@@ -126,18 +147,39 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 int main(int argc, char *argv[]) {
 #endif
 	TRY {
-		// Init the log system.
-		sgtLogManager::instance().setDefaultLevelFlags(sgtLogManager::TIME_STAMP);
-		sgtLogManager::instance().setDefaultTraceFlags(sgtLogManager::TIME_STAMP);
-		sgtLogManager::instance().addLevelFlags(sgtLogManager::FATAL,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
-		sgtLogManager::instance().addLevelFlags(sgtLogManager::ERROR,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
-		sgtLogManager::instance().addLevelFlags(sgtLogManager::WARNING,sgtLogManager::FILE_NAME|sgtLogManager::LINE_NUMBER);
+		// Declare the supported options.
+		po::options_description desc("Allowed options");
+		desc.add_options()
+		    ("help", "produce help message")
+		    ("script", po::value< std::string >(), "input script file")
+		;
 
-		sgtLogManager::instance().setVerbose(true);
-		sgtLogManager::instance().setNotifyLevel(sgtLogManager::DEBUG0); // Log until DEBUG0 level only.
+		po::positional_options_description p;
+		p.add("script", -1);
 
-		sgtLogManager::instance().addSink(new sgtFileLogger("singularity.log"));
-		sgtLogManager::instance().addSink(new sgtStdLogger());
+		po::variables_map vm;
+#ifdef WIN32
+		std::vector<std::string> args = po::split_winmain(lpCmdLine);
+		po::store(po::command_line_parser(args).options(desc).positional(p).run(), vm);
+#else
+		po::store(po::command_line_parser(argc, argv).options(desc).positional(p).run(), vm);
+#endif
+		po::notify(vm);
+
+		if (vm.count("help")) {
+		    std::cout << desc << "\n";
+		    return 1;
+		}
+
+		std::string initScript;
+
+		if (vm.count("script"))
+		{
+			initScript = vm["script"].as< std::string >();
+		}
+
+
+		setupLogging();
 		
 		logDEBUG0_V("Retrieving executable path...");
 		std::string path = getExecutablePath();
@@ -167,7 +209,9 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
-		std::string initScript = path+"sgt_init.lua";
+		if(initScript.empty()) {
+			initScript = path+"sgt_init.lua";
+		}
 
 		logDEBUG0_V("Executing init script " << initScript << "...");
 		if(luaL_dofile(L, initScript.c_str()) != 0) {
