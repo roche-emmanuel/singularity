@@ -50,7 +50,7 @@ SET(LUABIND_LIBS 		luabind)
 
 SET(MYSQL_INC_DIR 	${DEP_MYSQL}/include)
 SET(MYSQL_LIB_DIR 	${DEP_MYSQL}/lib)
-SET(MYSQL_LIBS 		mysqlclient)
+SET(MYSQL_LIBS 		)
 
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
