@@ -124,7 +124,7 @@ bool setupLuaEnv(lua_State* L, const std::string& path) {
 	return true; // success.
 }
 
-void setupLogging() {
+void setupLogging(std::string logFile) {
 	// Init the log system.
 	sgtLogManager::instance().setDefaultLevelFlags(sgtLogManager::TIME_STAMP);
 	sgtLogManager::instance().setDefaultTraceFlags(sgtLogManager::TIME_STAMP);
@@ -135,7 +135,9 @@ void setupLogging() {
 	sgtLogManager::instance().setVerbose(true);
 	sgtLogManager::instance().setNotifyLevel(sgtLogManager::DEBUG0); // Log until DEBUG0 level only.
 
-	sgtLogManager::instance().addSink(new sgtFileLogger("singularity.log"));
+	if(!logFile.empty())
+		sgtLogManager::instance().addSink(new sgtFileLogger(logFile));
+
 	sgtLogManager::instance().addSink(new sgtStdLogger());
 }
 
@@ -152,6 +154,7 @@ int main(int argc, char *argv[]) {
 		desc.add_options()
 		    ("help", "produce help message")
 		    ("script", po::value< std::string >(), "input script file")
+		    ("log", po::value< std::string >(), "log file")
 		;
 
 		po::positional_options_description p;
@@ -178,8 +181,19 @@ int main(int argc, char *argv[]) {
 			initScript = vm["script"].as< std::string >();
 		}
 
+		std::string logFile;
+#ifdef WIN32
+		// On windows we should specify a default log file or the log ouputs could be just lost if no file
+		// is provided here.
+		logFile="singularity.log";
+#endif
 
-		setupLogging();
+		if (vm.count("log"))
+		{
+			logFile = vm["log"].as< std::string >();
+		}
+
+		setupLogging(logFile);
 		
 		logDEBUG0_V("Retrieving executable path...");
 		std::string path = getExecutablePath();
