@@ -6,12 +6,34 @@
 local http = require("socket.http")
 local json = require("json")	
 local apr = require("apr")
+local luasql = require"luasql.mysql"
 	
 local Class = require("classBuilder"){name="AgentProto1",bases="base.Object"};
 	
 --- Perform initialization of the agent:
 function Class:initialize(options)
 	self._url = 'http://query.yahooapis.com/v1/public/yql?q=select%20Bid%2CAsk%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22EURUSD=X%22)&env=store://datatables.org/alltableswithkeys&format=json'
+	
+	-- create the database connection:
+	self._env = luasql.mysql()
+	self:check(self._env,"Invalid MySQL environment.")
+	
+	self._conn = self._env:connect("finance_data", "finance_data","7finance81rD","192.168.0.50",3306);
+	self:check(self._conn,"Invalid connection object")
+	
+	-- check if the table already exists and create it otherwise:
+	local count = self._conn:execute("
+		SELECT COUNT(*)
+		FROM information_schema.tables 
+		WHERE table_schema = 'finance_data' 
+		AND table_name = 'mytest';")
+	self:check(count,"Invalid count value.")
+	if count==0 then
+		-- new to create the table:
+		self:info("Creating the mytest table.")
+		local result = conn:execute("CREATE TABLE mytest (Symbol char(10), Bid real, Ask real, Price real, TradeTime datetime)")
+		self:check(result==0,"Invalid result value while creating table.")
+	end
 	
 	self:debug("Initialized.")
 end
@@ -23,13 +45,23 @@ function Class:run()
 	while(true) do
 		-- Read from internet:
 		local body, res = http.request(self._url)
-		self:check(body,res)
-			
-		-- Non decompose JSON body:
-		local result = json.decode(body)
 		
-		-- display the stock prices:
-		self:info("Stock prices : Ask=",result.query.results.quote.Ask,", Bid=",result.query.results.quote.Bid)
+		if body then
+			--self:check(body,res)
+			-- Non decompose JSON body:
+			local result = json.decode(body)
+			
+			-- display the stock prices:
+			self:info("Stock prices : Ask=",result.query.results.quote.Ask,", Bid=",result.query.results.quote.Bid)
+			
+			-- FIrst check if the table already exists in the database:
+			
+			-- Now write the stock value to the MySQL database:
+			self:info("Should write data to table here.");
+			
+		else
+			self:warn("Error occured while retrieving stock values: ",res)
+		end
 		
 		-- sleep for 60 seconds.
 		apr.sleep(60);
