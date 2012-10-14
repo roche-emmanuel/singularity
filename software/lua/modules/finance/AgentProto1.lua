@@ -12,7 +12,8 @@ local Class = require("classBuilder"){name="AgentProto1",bases="base.Object"};
 	
 --- Perform initialization of the agent:
 function Class:initialize(options)
-	self._url = 'http://query.yahooapis.com/v1/public/yql?q=select%20Bid%2CAsk%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22EURUSD=X%22)&env=store://datatables.org/alltableswithkeys&format=json'
+	--self._url = 'http://query.yahooapis.com/v1/public/yql?q=select%20Bid%2CAsk%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22EURUSD=X%22)&env=store://datatables.org/alltableswithkeys&format=json'
+	self._url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22EURUSD=X%22)&env=store://datatables.org/alltableswithkeys&format=json'
 	
 	-- create the database connection:
 	self._env = luasql.mysql()
@@ -22,16 +23,23 @@ function Class:initialize(options)
 	self:check(self._conn,"Invalid connection object")
 	
 	-- check if the table already exists and create it otherwise:
-	local count = self._conn:execute("
+	local cursor = self._conn:execute([[
 		SELECT COUNT(*)
 		FROM information_schema.tables 
 		WHERE table_schema = 'finance_data' 
-		AND table_name = 'mytest';")
-	self:check(count,"Invalid count value.")
-	if count==0 then
+		AND table_name = 'mytest';]])
+	self:check(cursor,"Invalid cursor value.")
+	self:info("table existence cursor result is: count=",cursor:numrows())
+	self:check(cursor:numrows()==1,"Invalid cursor value.")
+
+	local item = {}
+	cursor:fetch(item,"a")
+	self:debug2("Retrieved item is item=",item)
+	
+	if tonumber(item["COUNT(*)"])==0 then
 		-- new to create the table:
 		self:info("Creating the mytest table.")
-		local result = conn:execute("CREATE TABLE mytest (Symbol char(10), Bid real, Ask real, Price real, TradeTime datetime)")
+		local result = self._conn:execute("CREATE TABLE mytest (Symbol char(10), Bid real, Ask real, Price real, TradeTime datetime)")
 		self:check(result==0,"Invalid result value while creating table.")
 	end
 	
@@ -51,14 +59,20 @@ function Class:run()
 			-- Non decompose JSON body:
 			local result = json.decode(body)
 			
+			--self:info("Received stock quote: ", result)
+			
+			local quote = result.query.results.quote
+			
 			-- display the stock prices:
-			self:info("Stock prices : Ask=",result.query.results.quote.Ask,", Bid=",result.query.results.quote.Bid)
+			self:info("Stock prices : Ask=",quote.Ask,", Bid=",quote.Bid)
 			
 			-- FIrst check if the table already exists in the database:
 			
 			-- Now write the stock value to the MySQL database:
-			self:info("Should write data to table here.");
-			
+			--self:info("Should write data to table here.");
+			local fstr = "insert into mytest (Symbol,Bid,Ask,Price,TradeTime) values ('EURUSD=X',%f,%f,%f,NOW())"
+			result = self._conn:execute(string.format(fstr,quote.Bid, quote.Ask, quote.LastTradePriceOnly));
+			self:check(result==1,"Invalid result value for value insertion :",result)
 		else
 			self:warn("Error occured while retrieving stock values: ",res)
 		end
