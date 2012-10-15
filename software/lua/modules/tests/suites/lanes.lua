@@ -32,7 +32,7 @@ function test_lane_timer()
 	  --local key,v= linda:receive( 0.1, "dummy_key")
 	  --ffi.C.sleep(1)
 	  --ffi.C.usleep(500000)
-	  apr.sleep(1.0)
+	  apr.sleep(0.1)
 	  
 	  --log:info("Tests","Timer "..key..": "..v )
 	  log:info("Tests","Timer : ".. lanes.now_secs() )

@@ -44,7 +44,8 @@ function Class:__call(options)
 	
 	self:debug0_v("Generating class for ",options.name)
 	local result = oo.class({},unpack(bases))
-	result.CLASS_NAME = options.name
+	result.CLASS_NAME = options.name -- kept for backward compatibility (see binding modules for instance)
+	result._CLASSNAME_ = options.name
 	
 	function result:__init(opt,instance)
 		local obj = instance or {}

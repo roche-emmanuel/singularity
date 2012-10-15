@@ -65,11 +65,36 @@ end
 
 -- Split a string into a table based on a defined separator.
 -- See "Splitting a string" example from http://www.inf.puc-rio.br/~roberto/lpeg/lpeg.html#ex
-function utils.splitString (s, sep)
-  sep = lpeg.P(sep)
-  local elem = lpeg.C((1 - sep)^0)
-  local p = lpeg.Ct(elem * (sep * elem)^0)   -- make a table capture
-  return lpeg.match(p, s)
+-- warning this method will not remove empty string by default
+function utils.splitString (s, sep, pruneEmpty)
+  	sep = lpeg.P(sep)
+  	local elem = lpeg.C((1 - sep)^0)
+  	local p = lpeg.Ct(elem * (sep * elem)^0)   -- make a table capture
+  	if pruneEmpty then
+		local res = lpeg.match(p, s)
+		local result = {}
+		for k,v in ipairs(res) do
+			if v and v~="" then
+				table.insert(result,v)
+			end
+		end
+		
+		return result;
+  	else
+  		return lpeg.match(p, s)
+  	end
+end
+
+
+-- Return extended type info on an object when applicable.
+function utils.typeEx(obj)
+	local tObj = type(obj)
+	if tObj == "userdata" and obj._CLASSNAME_ then
+		return obj._CLASSNAME_
+	end
+	
+	-- TODO : extend this function with support for LOOP classes.
+	return tObj;
 end
 
 return utils

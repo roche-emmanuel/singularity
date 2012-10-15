@@ -1,19 +1,11 @@
 local Class = require("classBuilder"){name="Provider",bases="base.Object"};
 
-local cfg = require "config";
+local cfg = require "config"
+local utils = require "utils"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
 	self._container = nil;
-	self._separator = cfg.default_separator or "."
-end
-
-function Class:setSeparator(sep)
-	self._separator = sep
-end
-
-function Class:getSeparator()
-	return self._separator;
 end
 
 function Class:setContainer(cont)
@@ -30,22 +22,14 @@ function Class:getCurrentItem()
     return "dummy"; 
 end
 
-function Class:getValue(entry)
-	-- convert the entry name in a string and parse it with the proper separator
-	
-end
-
-function Class:setValue(entry,val)
-
-end
-
 function Class:get(entry)
-    -- here we retrieve the value depending on the entry type:
-    return self:getValue(entry:getName(),entry:getDefaultValue());
+	self:check(self._container,"Invalid container.")
+	return self._container:get(entry:getName(),entry:getDefaultValue())
 end
 
 function Class:set(entry,val)
-   	return self:setValue(entry:getName(),val)
+	self:check(self._container,"Invalid container.")
+	return self._container:set(entry,val)
 end
         
 return Class
