@@ -1,5 +1,7 @@
 local utils = {}
 
+local lpeg = require "lpeg" -- using lpeg for string splitting.
+
 --- Concatenate vector entries as a string.
 -- Concatenate all the entries in a integer indexed table with a separator value
 -- the default value for the separator is ', '
@@ -58,6 +60,16 @@ function utils.getHash(str)
 		h=math.mod(h,100000000+i)
 	end
 	return h
+end
+
+
+-- Split a string into a table based on a defined separator.
+-- See "Splitting a string" example from http://www.inf.puc-rio.br/~roberto/lpeg/lpeg.html#ex
+function utils.splitString (s, sep)
+  sep = lpeg.P(sep)
+  local elem = lpeg.C((1 - sep)^0)
+  local p = lpeg.Ct(elem * (sep * elem)^0)   -- make a table capture
+  return lpeg.match(p, s)
 end
 
 return utils
