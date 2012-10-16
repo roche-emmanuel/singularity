@@ -8,16 +8,16 @@ extern void register_defines(lua_State* L);
 extern void register_enums(lua_State* L);
 extern void register_global_functions(lua_State* L);
 
+	
+	
 int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	luna_open(L);
 
-	lua_newtable(L); // container class
-
-	register_defines(L);
-
-	register_enums(L);
-
+	luna_pushModule(L,"luna");
 	Luna< void >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"wx");
 	Luna< wxEventFilter >::Register(L);
 	Luna< wxObject >::Register(L);
 	Luna< wxTrackable >::Register(L);
@@ -188,7 +188,11 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxDatePickerCtrl >::Register(L);
 	Luna< wxDateSpan >::Register(L);
 	Luna< wxDateTime >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wxDateTime");
 	Luna< wxDateTime::Tm >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wx");
 	Luna< wxDateTimeHolidayAuthority >::Register(L);
 	Luna< wxDateTimeWorkDays >::Register(L);
 	Luna< wxDCBrushChanger >::Register(L);
@@ -392,8 +396,12 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxIdleEvent >::Register(L);
 	Luna< wxIdManager >::Register(L);
 	Luna< wxImage >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wxImage");
 	Luna< wxImage::HSVValue >::Register(L);
 	Luna< wxImage::RGBValue >::Register(L);
+	luna_popModule(L);
+	luna_pushModule(L,"wx");
 	Luna< wxImageHandler >::Register(L);
 	Luna< wxImageHistogram >::Register(L);
 	Luna< wxImageList >::Register(L);
@@ -762,17 +770,23 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxZlibOutputStream >::Register(L);
 	Luna< wxScrolled< wxWindow > >::Register(L);
 	Luna< wxVector< wxTreeListItem > >::Register(L);
+	luna_popModule(L);
+
+	luna_pushModule(L,"wx");
+
+	register_defines(L);
+
+	register_enums(L);
 
 	register_global_functions(L);
 
-	lua_pushstring(L,"wx");
-	lua_setfield(L,-2,"__NAME__");
-
-	lua_setglobal(L,"wx");
-	lua_getglobal(L,"wx");
+	luna_popModule(L);
 
 	luna_copyParents(L,"wx");
+	luna_copyParents(L,"wxDateTime");
+	luna_copyParents(L,"wxImage");
 
+	luna_pushModule(L,"wx");
 	return 1;
 }
 

@@ -152,9 +152,14 @@ wxString LuaEventHandler::connect(lua_State* L, int lua_func_stack_idx,
     // Note: We use the callback userdata and not the event sink since the event sink
     // requires a wxEvtHandler object which is a fairly large class.
     // The userdata (i.e. this) is also deleted for us which makes our life easier.
-    m_evtHandler->Connect(win_id, last_id, eventType,
-                          (wxObjectEventFunction)&LuaEventHandler::OnAllEvents,
-                          this);
+    //m_evtHandler->Connect(win_id, last_id, eventType,
+    //                      (wxObjectEventFunction)&LuaEventHandler::OnAllEvents,
+    //                      this);
+    m_evtHandler->Bind(eventType,
+					   &LuaEventHandler::OnAllEvents, 
+					   win_id, 
+					   last_id, 
+                       this);
 
 	trINFO("LuaEventHandler","Leaving connect(...)");
 

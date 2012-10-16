@@ -133,6 +133,11 @@ function Object:throw(msg,...)
 	error("Stopping because error occured.")
 end
 
+function Object:soft_no_impl()
+	self:warn("The function called is not implemented yet.")
+	self:backtrace()
+end
+
 function Object:no_impl()
 	self:error("The function called is not implemented yet.")
 	self:backtrace()

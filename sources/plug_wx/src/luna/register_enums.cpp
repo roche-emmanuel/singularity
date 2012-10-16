@@ -1,3 +1,5 @@
+#include <plug_common.h>
+
 #include <wx/accel.h>
 #include <wx/animate.h>
 #include <wx/any.h>
@@ -111,8 +113,6 @@
 #include <wx/msw/registry.h>
 #include <wx/stdpaths.h>
 #include <wx/withimages.h>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

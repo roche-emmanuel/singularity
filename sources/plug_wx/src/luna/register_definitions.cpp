@@ -1,3 +1,5 @@
+#include <plug_common.h>
+
 #include <wx/access.h>
 #include <wx/anybutton.h>
 #include <wx/bitmap.h>
@@ -30,8 +32,6 @@
 #include <wx/statusbr.h>
 #include <wx/textctrl.h>
 #include <wx/timer.h>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

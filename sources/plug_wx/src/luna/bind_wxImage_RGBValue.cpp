@@ -56,7 +56,7 @@ void LunaTraits< wxImage::RGBValue >::_bind_dtor(wxImage::RGBValue* obj) {
 
 const char LunaTraits< wxImage::RGBValue >::className[] = "RGBValue";
 const char LunaTraits< wxImage::RGBValue >::fullName[] = "wxImage::RGBValue";
-const char LunaTraits< wxImage::RGBValue >::moduleName[] = "wx";
+const char LunaTraits< wxImage::RGBValue >::moduleName[] = "wxImage";
 const char* LunaTraits< wxImage::RGBValue >::parents[] = {0};
 const int LunaTraits< wxImage::RGBValue >::hash = 45106465;
 const int LunaTraits< wxImage::RGBValue >::uniqueIDs[] = {45106465,0};

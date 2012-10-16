@@ -18,9 +18,9 @@ local core = require "core"
 
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG4)
 
-if cfg.tests_enabled then
-	require "unittests"
-end
+--if cfg.tests_enabled then
+--	require "unittests"
+--end
 
 if cfg.init_script then
 	local script = root_path.."lua/scripts/".. cfg.init_script

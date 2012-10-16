@@ -51,7 +51,7 @@ public:
     //   LuaEventHandler callback userdata.
     // This function is treated like a static function that all handlers of
     //   this class will call.
-    void OnAllEvents(wxEvent& event);
+    static void OnAllEvents(wxEvent& event);
 
     // Handle the wxEvent by calling the Lua function to handle the event.
     // The Lua function will receive a single parameter, the wxEvent.

@@ -164,13 +164,33 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_connect(lua_State *L) {
+	inline static bool _lg_typecheck_connect_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_isfunction(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_connect_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( lua_isfunction(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_connect_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isfunction(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -605,9 +625,24 @@ public:
 		return 0;
 	}
 
+	// int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)
+	static int _bind_connect_overload_1(lua_State *L) {
+		if (!_lg_typecheck_connect_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1));
+		int id=(int)lua_tointeger(L,2);
+		int id2=(int)lua_tointeger(L,3);
+		int eventType=(int)lua_tointeger(L,4);
+
+		return connect(handler, id, id2, eventType, NULL, L);
+	}
+
 	// int wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L)
-	static int _bind_connect(lua_State *L) {
-		if (!_lg_typecheck_connect(L)) {
+	static int _bind_connect_overload_2(lua_State *L) {
+		if (!_lg_typecheck_connect_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int id, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -617,6 +652,29 @@ public:
 		int eventType=(int)lua_tointeger(L,3);
 
 		return connect(handler, id, eventType, NULL, L);
+	}
+
+	// int wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L)
+	static int _bind_connect_overload_3(lua_State *L) {
+		if (!_lg_typecheck_connect_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L) function, expected prototype:\nint wxEvtHandler::connect(wxEvtHandler * handler, int eventType, lua_Function * dummy, lua_State * L)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1));
+		int eventType=(int)lua_tointeger(L,2);
+
+		return connect(handler, eventType, NULL, L);
+	}
+
+	// Overload binder for wxEvtHandler::connect
+	static int _bind_connect(lua_State *L) {
+		if (_lg_typecheck_connect_overload_1(L)) return _bind_connect_overload_1(L);
+		if (_lg_typecheck_connect_overload_2(L)) return _bind_connect_overload_2(L);
+		if (_lg_typecheck_connect_overload_3(L)) return _bind_connect_overload_3(L);
+
+		luaL_error(L, "error in function connect, cannot match any of the overloads for function connect:\n  connect(wxEvtHandler *, int, int, int, lua_Function *, lua_State *)\n  connect(wxEvtHandler *, int, int, lua_Function *, lua_State *)\n  connect(wxEvtHandler *, int, lua_Function *, lua_State *)\n");
+		return 0;
 	}
 
 

@@ -1094,6 +1094,10 @@ function ReflectionGenerator.generate(options)
 		im:getIgnoreFunctionsPatterns():push_back(v)
 	end
 	
+	for k,v in ipairs(options.ignoreDefines or {}) do
+		im:addPattern("define",v)
+	end
+	
 	for k,v in ipairs(options.ignoreConverters or {}) do
 		im:addPattern("converter",v)
 	end
@@ -1103,6 +1107,10 @@ function ReflectionGenerator.generate(options)
     	--im:addPattern("class_declaration",v)
     end
 
+	for k,v in ipairs(options.ignoreEnumValues or {}) do
+    	im:addPattern("enum_value",v)
+    end
+    
     if options.ignoreConverter then
     	im:getIgnoreConvertersPatterns():fromTable(options.ignoreConverter)
 	end

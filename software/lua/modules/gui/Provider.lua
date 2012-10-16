@@ -1,11 +1,11 @@
-local Class = require("classBuilder"){name="Provider",bases="base.Object"};
+local Class = require("classBuilder"){name="Provider",bases="gui.Container"};
 
 local cfg = require "config"
 local utils = require "utils"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
-	self._container = nil;
+	self._container = self; -- by default a provider is its own container.
 end
 
 function Class:setContainer(cont)
@@ -24,7 +24,7 @@ end
 
 function Class:get(entry)
 	self:check(self._container,"Invalid container.")
-	return self._container:get(entry:getName(),entry:getDefaultValue())
+	return self._container:get(entry)
 end
 
 function Class:set(entry,val)
