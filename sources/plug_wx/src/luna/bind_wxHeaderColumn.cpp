@@ -4,6 +4,28 @@ class luna_wrapper_wxHeaderColumn {
 public:
 	typedef Luna< wxHeaderColumn > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,185523) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHeaderColumn*)");
+		}
+
+		wxHeaderColumn* rhs =(Luna< wxHeaderColumn >::check(L,2));
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -439,6 +461,7 @@ luna_RegType LunaTraits< wxHeaderColumn >::methods[] = {
 	{"IsSortKey", &luna_wrapper_wxHeaderColumn::_bind_IsSortKey},
 	{"IsSortOrderAscending", &luna_wrapper_wxHeaderColumn::_bind_IsSortOrderAscending},
 	{"dynCast", &luna_wrapper_wxHeaderColumn::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxHeaderColumn::_bind___eq},
 	{0,0}
 };
 

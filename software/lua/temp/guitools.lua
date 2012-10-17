@@ -1,86 +1,6 @@
 module("guitools",package.seeall)
 
-function getImage(name,size,path,ext)
-    -- name is mendatory,
-    size = size or 16
-    path = path or giCommon.Engine.getRootDir().."data/icons/"
-    ext = ext or "png"
-    local btype = wx.wxBITMAP_TYPE_PNG;
-    local quality = wx.wxIMAGE_QUALITY_HIGH
-    
-    -- check if the image name contains an "/" symbol:
-    local index = name:find("@")
-    local link = nil;
-    if index then
-        link = name:sub(index+1)
-        name = name:sub(1,index-1)
-        wx.wxLogVerbose("Using link image: ".. link .. " with main image: ".. name);
-    end
-    
-    if ext ~= "png" then
-        wx.wxLogWarning("Support for non PNG images not implemented yet here, need to set the BITMAP_TYPE flag to the appropriate type.")
-        return;
-    end
-    
-    
-    local img = wx.wxImage(path..name.."."..ext,btype)
-    
-    if size > 0 then
-        img:Rescale(size,size,quality);
-    end
 
-    if link then
-        local linkimg = wx.wxImage(path..link.."."..ext,btype)
-        if size > 0 then
-            linkimg:Rescale(size/2,size/2,quality);
-        end
-        
-        local img2;
-        
-        if true then
-            -- With this implementation, the white background issue is fixed when merging two images.
-            img2 = wx.wxImage(img:GetWidth(),img:GetHeight());
-            
-            if not giCommon.Tools.concatenateImages(wx2intro(img),wx2intro(linkimg),wx2intro(img2)) then
-                wx.wxLogError("Cannot concatenate images properly");
-                return
-            end        
-        else
-            -- prepare the rendering bitmap:
-            local tmpbmp = wx.wxBitmap(img:GetWidth(),img:GetHeight(),-1); -- deletethis after usage.
-            local dc = wx.wxMemoryDC();
-            dc:SelectObject(tmpbmp);
-            
-            local bmp1 = wx.wxBitmap(img,-1);
-            local bmp2 = wx.wxBitmap(linkimg,-1);
-            
-            dc:Clear();
-            --dc:SetPen(wx.wxTRANSPARENT_PEN)
-            --dc:SetBrush(wx.wxTRANSPARENT_BRUSH)
-            --dc:DrawRectangle(0,0,img:GetWidth(),img:GetHeight())
-            dc:DrawBitmap(bmp1,0,0,true);
-            dc:DrawBitmap(bmp2,bmp1:GetWidth()/2,bmp1:GetHeight()/2,true);
-            
-            -- create the final image from the resulting bitmap:
-            img2 = tmpbmp:ConvertToImage();
-            
-            -- release temp resources:
-           dc:delete()
-           tmpbmp:delete()
-           bmp1:delete()
-           bmp2:delete()
-        end
-        
-        return img2
-    end
-    
-    return img;
-end
-
-function getBitmap(name,size,path,ext)
-    local img = getImage(name,size,path,ext);
-    return wx.wxBitmap(img,-1);
-end
 
 require("general","guitools.common")
 require("general","general.guimanager")
@@ -201,50 +121,6 @@ function prepareInterface(options)
         end
         
         self.close_cbs[cbname] = func;
-    end
-    
-    function interface:onLicenseChanged() 
-        --wx.wxLogMessage("Executing onLicenseChanged callback");
-        
-        --Handle the book pages:
-        for k,v in ipairs(self.licensedBookPages) do
-            -- hide/show the page if needed:
-            local show = hasFeature(v.right);
-            if show ~= v.visible then
-                -- toggle the visibility status:
-                v.page:Show(show);
-                if show then
-                    v.book:InsertPage(math.min(v.index,v.book:GetPageCount()),v.page,v.caption,v.selected,v.img)
-                else
-                    local pagefound = false;
-                    for i=0,v.book:GetPageCount()-1 do
-                        if giCommon.Tools.areEquals(wx2intro(v.book:GetPage(i)),wx2intro(v.page)) then
-                            v.book:RemovePage(i)
-                            pagefound=true
-                            break;
-                        end
-                    end
-                    
-                    if not pagefound then
-                        wx.wxLogWarning("Could not find page to hide in the license changed process.");
-                    end
-                end
-                
-                v.visible = show;
-            end
-        end
-        
-        -- Handle stand alone controls:
-        for k,v in ipairs(self.licensedControls) do
-            -- hide/show the page if needed:
-            local show = hasFeature(v.right);
-            if show ~= v.visible then
-                -- toggle the visibility status:
-                v.sizer:Show(v.ctrl,show,false);
-                v.sizer:Layout()
-                v.visible = show;
-            end
-        end
     end
     
     local cb = createLuaCallback(function() interface:onLicenseChanged() end)

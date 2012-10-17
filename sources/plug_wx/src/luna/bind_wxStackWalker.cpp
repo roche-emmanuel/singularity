@@ -4,6 +4,28 @@ class luna_wrapper_wxStackWalker {
 public:
 	typedef Luna< wxStackWalker > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,30547185) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStackWalker*)");
+		}
+
+		wxStackWalker* rhs =(Luna< wxStackWalker >::check(L,2));
+		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -125,6 +147,7 @@ luna_RegType LunaTraits< wxStackWalker >::methods[] = {
 	{"Walk", &luna_wrapper_wxStackWalker::_bind_Walk},
 	{"WalkFromException", &luna_wrapper_wxStackWalker::_bind_WalkFromException},
 	{"dynCast", &luna_wrapper_wxStackWalker::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxStackWalker::_bind___eq},
 	{0,0}
 };
 

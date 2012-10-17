@@ -4,6 +4,28 @@ class luna_wrapper_osgDB_ReaderWriter_ReadResult {
 public:
 	typedef Luna< osgDB::ReaderWriter::ReadResult > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,25279089) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::ReaderWriter::ReadResult*)");
+		}
+
+		osgDB::ReaderWriter::ReadResult* rhs =(Luna< osgDB::ReaderWriter::ReadResult >::check(L,2));
+		osgDB::ReaderWriter::ReadResult* self=(Luna< osgDB::ReaderWriter::ReadResult >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -848,6 +870,7 @@ luna_RegType LunaTraits< osgDB::ReaderWriter::ReadResult >::methods[] = {
 	{"notFound", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_notFound},
 	{"notEnoughMemory", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_notEnoughMemory},
 	{"dynCast", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgDB_ReaderWriter_ReadResult::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_osg_CullStack {
 public:
 	typedef Luna< osg::CullStack > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,31435107) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::CullSettings*)");
+		}
+
+		osg::CullSettings* rhs =(Luna< osg::CullSettings >::check(L,2));
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_CullSettings(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -1334,6 +1356,7 @@ luna_RegType LunaTraits< osg::CullStack >::methods[] = {
 	{"getViewPointLocal", &luna_wrapper_osg_CullStack::_bind_getViewPointLocal},
 	{"getUpLocal", &luna_wrapper_osg_CullStack::_bind_getUpLocal},
 	{"getLookVectorLocal", &luna_wrapper_osg_CullStack::_bind_getLookVectorLocal},
+	{"__eq", &luna_wrapper_osg_CullStack::_bind___eq},
 	{0,0}
 };
 

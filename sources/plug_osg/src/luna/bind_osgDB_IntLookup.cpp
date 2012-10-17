@@ -4,6 +4,28 @@ class luna_wrapper_osgDB_IntLookup {
 public:
 	typedef Luna< osgDB::IntLookup > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,10250166) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::IntLookup*)");
+		}
+
+		osgDB::IntLookup* rhs =(Luna< osgDB::IntLookup >::check(L,2));
+		osgDB::IntLookup* self=(Luna< osgDB::IntLookup >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -191,6 +213,7 @@ luna_RegType LunaTraits< osgDB::IntLookup >::methods[] = {
 	{"getValue", &luna_wrapper_osgDB_IntLookup::_bind_getValue},
 	{"getString", &luna_wrapper_osgDB_IntLookup::_bind_getString},
 	{"dynCast", &luna_wrapper_osgDB_IntLookup::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgDB_IntLookup::_bind___eq},
 	{0,0}
 };
 

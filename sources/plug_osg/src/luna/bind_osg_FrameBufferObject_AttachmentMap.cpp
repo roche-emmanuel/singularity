@@ -4,6 +4,28 @@ class luna_wrapper_osg_FrameBufferObject_AttachmentMap {
 public:
 	typedef Luna< osg::FrameBufferObject::AttachmentMap > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,67520441) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::FrameBufferObject::AttachmentMap*)");
+		}
+
+		osg::FrameBufferObject::AttachmentMap* rhs =(Luna< osg::FrameBufferObject::AttachmentMap >::check(L,2));
+		osg::FrameBufferObject::AttachmentMap* self=(Luna< osg::FrameBufferObject::AttachmentMap >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osg::FrameBufferObject::AttachmentMap >::uniqueIDs[] = {67
 
 luna_RegType LunaTraits< osg::FrameBufferObject::AttachmentMap >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_FrameBufferObject_AttachmentMap::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_FrameBufferObject_AttachmentMap::_bind___eq},
 	{0,0}
 };
 

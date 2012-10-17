@@ -4,6 +4,28 @@ class luna_wrapper_wxRendererVersion {
 public:
 	typedef Luna< wxRendererVersion > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,83336883) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRendererVersion*)");
+		}
+
+		wxRendererVersion* rhs =(Luna< wxRendererVersion >::check(L,2));
+		wxRendererVersion* self=(Luna< wxRendererVersion >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -90,6 +112,7 @@ const int LunaTraits< wxRendererVersion >::uniqueIDs[] = {83336883,0};
 luna_RegType LunaTraits< wxRendererVersion >::methods[] = {
 	{"IsCompatible", &luna_wrapper_wxRendererVersion::_bind_IsCompatible},
 	{"dynCast", &luna_wrapper_wxRendererVersion::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxRendererVersion::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_wxFileTranslationsLoader {
 public:
 	typedef Luna< wxFileTranslationsLoader > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,42502497) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTranslationsLoader*)");
+		}
+
+		wxTranslationsLoader* rhs =(Luna< wxTranslationsLoader >::check(L,2));
+		wxTranslationsLoader* self=(Luna< wxTranslationsLoader >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxTranslationsLoader(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -71,6 +93,7 @@ const int LunaTraits< wxFileTranslationsLoader >::uniqueIDs[] = {42502497,0};
 
 luna_RegType LunaTraits< wxFileTranslationsLoader >::methods[] = {
 	{"AddCatalogLookupPathPrefix", &luna_wrapper_wxFileTranslationsLoader::_bind_AddCatalogLookupPathPrefix},
+	{"__eq", &luna_wrapper_wxFileTranslationsLoader::_bind___eq},
 	{0,0}
 };
 

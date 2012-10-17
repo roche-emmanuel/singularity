@@ -4,6 +4,28 @@ class luna_wrapper_wxGridCellChoiceEditor {
 public:
 	typedef Luna< wxGridCellChoiceEditor > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,53399133) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridCellEditor*)");
+		}
+
+		wxGridCellEditor* rhs =(Luna< wxGridCellEditor >::check(L,2));
+		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxGridCellEditor(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -80,6 +102,7 @@ const int LunaTraits< wxGridCellChoiceEditor >::uniqueIDs[] = {53399133,0};
 
 luna_RegType LunaTraits< wxGridCellChoiceEditor >::methods[] = {
 	{"SetParameters", &luna_wrapper_wxGridCellChoiceEditor::_bind_SetParameters},
+	{"__eq", &luna_wrapper_wxGridCellChoiceEditor::_bind___eq},
 	{0,0}
 };
 

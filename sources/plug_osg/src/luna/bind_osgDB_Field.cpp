@@ -4,6 +4,28 @@ class luna_wrapper_osgDB_Field {
 public:
 	typedef Luna< osgDB::Field > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,7546407) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::Field*)");
+		}
+
+		osgDB::Field* rhs =(Luna< osgDB::Field >::check(L,2));
+		osgDB::Field* self=(Luna< osgDB::Field >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -975,6 +997,7 @@ luna_RegType LunaTraits< osgDB::Field >::methods[] = {
 	{"getFloat", &luna_wrapper_osgDB_Field::_bind_getFloat},
 	{"calculateFieldType", &luna_wrapper_osgDB_Field::_bind_calculateFieldType},
 	{"dynCast", &luna_wrapper_osgDB_Field::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgDB_Field::_bind___eq},
 	{0,0}
 };
 

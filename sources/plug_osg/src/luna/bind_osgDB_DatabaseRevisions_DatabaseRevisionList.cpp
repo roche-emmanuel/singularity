@@ -4,6 +4,28 @@ class luna_wrapper_osgDB_DatabaseRevisions_DatabaseRevisionList {
 public:
 	typedef Luna< osgDB::DatabaseRevisions::DatabaseRevisionList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,52474503) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::DatabaseRevisions::DatabaseRevisionList*)");
+		}
+
+		osgDB::DatabaseRevisions::DatabaseRevisionList* rhs =(Luna< osgDB::DatabaseRevisions::DatabaseRevisionList >::check(L,2));
+		osgDB::DatabaseRevisions::DatabaseRevisionList* self=(Luna< osgDB::DatabaseRevisions::DatabaseRevisionList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::uniqueID
 
 luna_RegType LunaTraits< osgDB::DatabaseRevisions::DatabaseRevisionList >::methods[] = {
 	{"dynCast", &luna_wrapper_osgDB_DatabaseRevisions_DatabaseRevisionList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgDB_DatabaseRevisions_DatabaseRevisionList::_bind___eq},
 	{0,0}
 };
 

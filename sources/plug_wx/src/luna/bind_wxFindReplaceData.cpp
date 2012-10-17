@@ -4,6 +4,28 @@ class luna_wrapper_wxFindReplaceData {
 public:
 	typedef Luna< wxFindReplaceData > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
+		}
+
+		wxObject* rhs =(Luna< wxObject >::check(L,2));
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -229,6 +251,7 @@ luna_RegType LunaTraits< wxFindReplaceData >::methods[] = {
 	{"SetFindString", &luna_wrapper_wxFindReplaceData::_bind_SetFindString},
 	{"SetFlags", &luna_wrapper_wxFindReplaceData::_bind_SetFlags},
 	{"SetReplaceString", &luna_wrapper_wxFindReplaceData::_bind_SetReplaceString},
+	{"__eq", &luna_wrapper_wxFindReplaceData::_bind___eq},
 	{0,0}
 };
 

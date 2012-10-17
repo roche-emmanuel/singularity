@@ -4,6 +4,28 @@ class luna_wrapper_wxGridCellAttrProvider {
 public:
 	typedef Luna< wxGridCellAttrProvider > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,96494917) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxClientDataContainer*)");
+		}
+
+		wxClientDataContainer* rhs =(Luna< wxClientDataContainer >::check(L,2));
+		wxClientDataContainer* self=(Luna< wxClientDataContainer >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxClientDataContainer(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -276,6 +298,7 @@ luna_RegType LunaTraits< wxGridCellAttrProvider >::methods[] = {
 	{"GetColumnHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetColumnHeaderRenderer},
 	{"GetRowHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetRowHeaderRenderer},
 	{"GetCornerRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetCornerRenderer},
+	{"__eq", &luna_wrapper_wxGridCellAttrProvider::_bind___eq},
 	{0,0}
 };
 

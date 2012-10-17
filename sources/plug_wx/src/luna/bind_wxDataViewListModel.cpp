@@ -4,6 +4,28 @@ class luna_wrapper_wxDataViewListModel {
 public:
 	typedef Luna< wxDataViewListModel > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,66533182) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataViewModel*)");
+		}
+
+		wxDataViewModel* rhs =(Luna< wxDataViewModel >::check(L,2));
+		wxDataViewModel* self=(Luna< wxDataViewModel >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxDataViewModel(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -56,6 +78,7 @@ const int LunaTraits< wxDataViewListModel >::hash = 31141193;
 const int LunaTraits< wxDataViewListModel >::uniqueIDs[] = {66533182,0};
 
 luna_RegType LunaTraits< wxDataViewListModel >::methods[] = {
+	{"__eq", &luna_wrapper_wxDataViewListModel::_bind___eq},
 	{0,0}
 };
 

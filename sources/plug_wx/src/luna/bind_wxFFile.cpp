@@ -4,6 +4,28 @@ class luna_wrapper_wxFFile {
 public:
 	typedef Luna< wxFFile > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,15266762) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFFile*)");
+		}
+
+		wxFFile* rhs =(Luna< wxFFile >::check(L,2));
+		wxFFile* self=(Luna< wxFFile >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -503,6 +525,7 @@ luna_RegType LunaTraits< wxFFile >::methods[] = {
 	{"Tell", &luna_wrapper_wxFFile::_bind_Tell},
 	{"Write", &luna_wrapper_wxFFile::_bind_Write},
 	{"dynCast", &luna_wrapper_wxFFile::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxFFile::_bind___eq},
 	{0,0}
 };
 

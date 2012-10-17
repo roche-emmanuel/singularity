@@ -1,3 +1,5 @@
+#include <plug_common.h>
+
 #include <osgParticle/AccelOperator>
 #include <osg/AlphaFunc>
 #include <osgParticle/AngularAccelOperator>
@@ -346,8 +348,6 @@
 #include <osg/Viewport>
 #include <osgDB/WriteFile>
 #include <osgDB/XmlParser>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

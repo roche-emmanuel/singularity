@@ -4,6 +4,28 @@ class luna_wrapper_osgUtil_StateToCompile_DrawableSet {
 public:
 	typedef Luna< osgUtil::StateToCompile::DrawableSet > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,70884799) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::StateToCompile::DrawableSet*)");
+		}
+
+		osgUtil::StateToCompile::DrawableSet* rhs =(Luna< osgUtil::StateToCompile::DrawableSet >::check(L,2));
+		osgUtil::StateToCompile::DrawableSet* self=(Luna< osgUtil::StateToCompile::DrawableSet >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgUtil::StateToCompile::DrawableSet >::uniqueIDs[] = {708
 
 luna_RegType LunaTraits< osgUtil::StateToCompile::DrawableSet >::methods[] = {
 	{"dynCast", &luna_wrapper_osgUtil_StateToCompile_DrawableSet::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgUtil_StateToCompile_DrawableSet::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_osg_StateAttribute_ParentList {
 public:
 	typedef Luna< osg::StateAttribute::ParentList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,57890271) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::StateAttribute::ParentList*)");
+		}
+
+		osg::StateAttribute::ParentList* rhs =(Luna< osg::StateAttribute::ParentList >::check(L,2));
+		osg::StateAttribute::ParentList* self=(Luna< osg::StateAttribute::ParentList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osg::StateAttribute::ParentList >::uniqueIDs[] = {57890271
 
 luna_RegType LunaTraits< osg::StateAttribute::ParentList >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_StateAttribute_ParentList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_StateAttribute_ParentList::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_wxObject {
 public:
 	typedef Luna< wxObject > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
+		}
+
+		wxObject* rhs =(Luna< wxObject >::check(L,2));
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -336,6 +358,7 @@ luna_RegType LunaTraits< wxObject >::methods[] = {
 	{"UnRef", &luna_wrapper_wxObject::_bind_UnRef},
 	{"UnShare", &luna_wrapper_wxObject::_bind_UnShare},
 	{"dynCast", &luna_wrapper_wxObject::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxObject::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_wxLog {
 public:
 	typedef Luna< wxLog > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,13550494) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLog*)");
+		}
+
+		wxLog* rhs =(Luna< wxLog >::check(L,2));
+		wxLog* self=(Luna< wxLog >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -680,6 +702,7 @@ luna_RegType LunaTraits< wxLog >::methods[] = {
 	{"Flush", &luna_wrapper_wxLog::_bind_Flush},
 	{"LogRecord", &luna_wrapper_wxLog::_bind_LogRecord},
 	{"dynCast", &luna_wrapper_wxLog::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxLog::_bind___eq},
 	{0,0}
 };
 

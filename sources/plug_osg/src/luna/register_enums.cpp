@@ -1,3 +1,5 @@
+#include <plug_common.h>
+
 #include <osg/Endian>
 #include <osg/Notify>
 #include <osg/AlphaFunc>
@@ -120,8 +122,6 @@
 #include <osgViewer/View>
 #include <osgViewer/ViewerBase>
 #include <osgViewer/ViewerEventHandlers>
-
-#include <plug_common.h>
 
 #ifdef __cplusplus
 extern "C" {

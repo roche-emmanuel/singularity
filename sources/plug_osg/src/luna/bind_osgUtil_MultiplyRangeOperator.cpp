@@ -4,6 +4,28 @@ class luna_wrapper_osgUtil_MultiplyRangeOperator {
 public:
 	typedef Luna< osgUtil::MultiplyRangeOperator > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,72996634) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::MultiplyRangeOperator*)");
+		}
+
+		osgUtil::MultiplyRangeOperator* rhs =(Luna< osgUtil::MultiplyRangeOperator >::check(L,2));
+		osgUtil::MultiplyRangeOperator* self=(Luna< osgUtil::MultiplyRangeOperator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgUtil::MultiplyRangeOperator >::uniqueIDs[] = {72996634,
 
 luna_RegType LunaTraits< osgUtil::MultiplyRangeOperator >::methods[] = {
 	{"dynCast", &luna_wrapper_osgUtil_MultiplyRangeOperator::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgUtil_MultiplyRangeOperator::_bind___eq},
 	{0,0}
 };
 

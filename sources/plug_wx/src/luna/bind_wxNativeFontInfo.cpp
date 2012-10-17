@@ -4,6 +4,28 @@ class luna_wrapper_wxNativeFontInfo {
 public:
 	typedef Luna< wxNativeFontInfo > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,26059272) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxNativeFontInfo*)");
+		}
+
+		wxNativeFontInfo* rhs =(Luna< wxNativeFontInfo >::check(L,2));
+		wxNativeFontInfo* self=(Luna< wxNativeFontInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -747,6 +769,7 @@ luna_RegType LunaTraits< wxNativeFontInfo >::methods[] = {
 	{"FromUserString", &luna_wrapper_wxNativeFontInfo::_bind_FromUserString},
 	{"ToUserString", &luna_wrapper_wxNativeFontInfo::_bind_ToUserString},
 	{"dynCast", &luna_wrapper_wxNativeFontInfo::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxNativeFontInfo::_bind___eq},
 	{0,0}
 };
 

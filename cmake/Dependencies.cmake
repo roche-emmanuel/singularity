@@ -54,7 +54,7 @@ SET(MYSQL_LIBS 		mysqlclient)
 
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
-SET(OSG_LIBS     	OpenThreads 
+SET(OSG_LIBS     	OpenThreads
 					osg
 					osgUtil 
 					osgDB 

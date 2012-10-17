@@ -4,6 +4,28 @@ class luna_wrapper_sgt_TimeManager {
 public:
 	typedef Luna< sgt::TimeManager > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,10949480) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::TimeManager*)");
+		}
+
+		sgt::TimeManager* rhs =(Luna< sgt::TimeManager >::check(L,2));
+		sgt::TimeManager* self=(Luna< sgt::TimeManager >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -127,6 +149,7 @@ luna_RegType LunaTraits< sgt::TimeManager >::methods[] = {
 	{"destroy", &luna_wrapper_sgt_TimeManager::_bind_destroy},
 	{"isInstanciated", &luna_wrapper_sgt_TimeManager::_bind_isInstanciated},
 	{"dynCast", &luna_wrapper_sgt_TimeManager::_bind_dynCast},
+	{"__eq", &luna_wrapper_sgt_TimeManager::_bind___eq},
 	{0,0}
 };
 

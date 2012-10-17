@@ -4,6 +4,28 @@ class luna_wrapper_osgUtil_dereference_clear {
 public:
 	typedef Luna< osgUtil::dereference_clear > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,21815425) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::dereference_clear*)");
+		}
+
+		osgUtil::dereference_clear* rhs =(Luna< osgUtil::dereference_clear >::check(L,2));
+		osgUtil::dereference_clear* self=(Luna< osgUtil::dereference_clear >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgUtil::dereference_clear >::uniqueIDs[] = {21815425,0};
 
 luna_RegType LunaTraits< osgUtil::dereference_clear >::methods[] = {
 	{"dynCast", &luna_wrapper_osgUtil_dereference_clear::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgUtil_dereference_clear::_bind___eq},
 	{0,0}
 };
 

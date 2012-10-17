@@ -4,6 +4,28 @@ class luna_wrapper_osg_KdTree_LineSegmentIntersection_RatioList {
 public:
 	typedef Luna< osg::KdTree::LineSegmentIntersection::RatioList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,14271479) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::LineSegmentIntersection::RatioList*)");
+		}
+
+		osg::KdTree::LineSegmentIntersection::RatioList* rhs =(Luna< osg::KdTree::LineSegmentIntersection::RatioList >::check(L,2));
+		osg::KdTree::LineSegmentIntersection::RatioList* self=(Luna< osg::KdTree::LineSegmentIntersection::RatioList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::uniqueI
 
 luna_RegType LunaTraits< osg::KdTree::LineSegmentIntersection::RatioList >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_KdTree_LineSegmentIntersection_RatioList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_KdTree_LineSegmentIntersection_RatioList::_bind___eq},
 	{0,0}
 };
 

@@ -4,6 +4,28 @@ class luna_wrapper_osgUtil_PlaneIntersector_Intersections {
 public:
 	typedef Luna< osgUtil::PlaneIntersector::Intersections > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,23612133) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::PlaneIntersector::Intersections*)");
+		}
+
+		osgUtil::PlaneIntersector::Intersections* rhs =(Luna< osgUtil::PlaneIntersector::Intersections >::check(L,2));
+		osgUtil::PlaneIntersector::Intersections* self=(Luna< osgUtil::PlaneIntersector::Intersections >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgUtil::PlaneIntersector::Intersections >::uniqueIDs[] = 
 
 luna_RegType LunaTraits< osgUtil::PlaneIntersector::Intersections >::methods[] = {
 	{"dynCast", &luna_wrapper_osgUtil_PlaneIntersector_Intersections::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgUtil_PlaneIntersector_Intersections::_bind___eq},
 	{0,0}
 };
 

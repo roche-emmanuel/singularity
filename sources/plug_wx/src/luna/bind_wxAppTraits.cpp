@@ -4,6 +4,28 @@ class luna_wrapper_wxAppTraits {
 public:
 	typedef Luna< wxAppTraits > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,89440075) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxAppTraits*)");
+		}
+
+		wxAppTraits* rhs =(Luna< wxAppTraits >::check(L,2));
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -407,6 +429,7 @@ luna_RegType LunaTraits< wxAppTraits >::methods[] = {
 	{"IsUsingUniversalWidgets", &luna_wrapper_wxAppTraits::_bind_IsUsingUniversalWidgets},
 	{"ShowAssertDialog", &luna_wrapper_wxAppTraits::_bind_ShowAssertDialog},
 	{"dynCast", &luna_wrapper_wxAppTraits::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxAppTraits::_bind___eq},
 	{0,0}
 };
 

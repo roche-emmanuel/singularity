@@ -4,6 +4,28 @@ class luna_wrapper_wxIdManager {
 public:
 	typedef Luna< wxIdManager > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,71701647) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxIdManager*)");
+		}
+
+		wxIdManager* rhs =(Luna< wxIdManager >::check(L,2));
+		wxIdManager* self=(Luna< wxIdManager >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -116,6 +138,7 @@ luna_RegType LunaTraits< wxIdManager >::methods[] = {
 	{"ReserveId", &luna_wrapper_wxIdManager::_bind_ReserveId},
 	{"UnreserveId", &luna_wrapper_wxIdManager::_bind_UnreserveId},
 	{"dynCast", &luna_wrapper_wxIdManager::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxIdManager::_bind___eq},
 	{0,0}
 };
 

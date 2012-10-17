@@ -4,6 +4,28 @@ class luna_wrapper_wxVarHScrollHelper {
 public:
 	typedef Luna< wxVarHScrollHelper > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,94004845) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxVarScrollHelperBase*)");
+		}
+
+		wxVarScrollHelperBase* rhs =(Luna< wxVarScrollHelperBase >::check(L,2));
+		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -325,6 +347,7 @@ luna_RegType LunaTraits< wxVarHScrollHelper >::methods[] = {
 	{"ScrollColumns", &luna_wrapper_wxVarHScrollHelper::_bind_ScrollColumns},
 	{"ScrollToColumn", &luna_wrapper_wxVarHScrollHelper::_bind_ScrollToColumn},
 	{"SetColumnCount", &luna_wrapper_wxVarHScrollHelper::_bind_SetColumnCount},
+	{"__eq", &luna_wrapper_wxVarHScrollHelper::_bind___eq},
 	{0,0}
 };
 

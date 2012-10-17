@@ -4,6 +4,28 @@ class luna_wrapper_wxTextAttrDimensionConverter {
 public:
 	typedef Luna< wxTextAttrDimensionConverter > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,6148370) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTextAttrDimensionConverter*)");
+		}
+
+		wxTextAttrDimensionConverter* rhs =(Luna< wxTextAttrDimensionConverter >::check(L,2));
+		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -261,6 +283,7 @@ luna_RegType LunaTraits< wxTextAttrDimensionConverter >::methods[] = {
 	{"ConvertTenthsMMToPixels", &luna_wrapper_wxTextAttrDimensionConverter::_bind_ConvertTenthsMMToPixels},
 	{"ConvertPixelsToTenthsMM", &luna_wrapper_wxTextAttrDimensionConverter::_bind_ConvertPixelsToTenthsMM},
 	{"dynCast", &luna_wrapper_wxTextAttrDimensionConverter::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxTextAttrDimensionConverter::_bind___eq},
 	{0,0}
 };
 

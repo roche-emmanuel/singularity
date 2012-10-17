@@ -4,6 +4,28 @@ class luna_wrapper_wxTextDataObject {
 public:
 	typedef Luna< wxTextDataObject > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,55398761) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataObject*)");
+		}
+
+		wxDataObject* rhs =(Luna< wxDataObject >::check(L,2));
+		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -223,6 +245,7 @@ luna_RegType LunaTraits< wxTextDataObject >::methods[] = {
 	{"GetFormat", &luna_wrapper_wxTextDataObject::_bind_GetFormat},
 	{"GetAllFormats", &luna_wrapper_wxTextDataObject::_bind_GetAllFormats},
 	{"SetText", &luna_wrapper_wxTextDataObject::_bind_SetText},
+	{"__eq", &luna_wrapper_wxTextDataObject::_bind___eq},
 	{0,0}
 };
 

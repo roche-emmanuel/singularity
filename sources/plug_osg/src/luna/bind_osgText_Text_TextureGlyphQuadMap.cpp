@@ -4,6 +4,28 @@ class luna_wrapper_osgText_Text_TextureGlyphQuadMap {
 public:
 	typedef Luna< osgText::Text::TextureGlyphQuadMap > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,48619134) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgText::Text::TextureGlyphQuadMap*)");
+		}
+
+		osgText::Text::TextureGlyphQuadMap* rhs =(Luna< osgText::Text::TextureGlyphQuadMap >::check(L,2));
+		osgText::Text::TextureGlyphQuadMap* self=(Luna< osgText::Text::TextureGlyphQuadMap >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgText::Text::TextureGlyphQuadMap >::uniqueIDs[] = {48619
 
 luna_RegType LunaTraits< osgText::Text::TextureGlyphQuadMap >::methods[] = {
 	{"dynCast", &luna_wrapper_osgText_Text_TextureGlyphQuadMap::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgText_Text_TextureGlyphQuadMap::_bind___eq},
 	{0,0}
 };
 

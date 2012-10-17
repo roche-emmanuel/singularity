@@ -4,6 +4,28 @@ class luna_wrapper_osgGA_CameraViewSwitchManipulator_CameraViewList {
 public:
 	typedef Luna< osgGA::CameraViewSwitchManipulator::CameraViewList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,14581426) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgGA::CameraViewSwitchManipulator::CameraViewList*)");
+		}
+
+		osgGA::CameraViewSwitchManipulator::CameraViewList* rhs =(Luna< osgGA::CameraViewSwitchManipulator::CameraViewList >::check(L,2));
+		osgGA::CameraViewSwitchManipulator::CameraViewList* self=(Luna< osgGA::CameraViewSwitchManipulator::CameraViewList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::uniq
 
 luna_RegType LunaTraits< osgGA::CameraViewSwitchManipulator::CameraViewList >::methods[] = {
 	{"dynCast", &luna_wrapper_osgGA_CameraViewSwitchManipulator_CameraViewList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgGA_CameraViewSwitchManipulator_CameraViewList::_bind___eq},
 	{0,0}
 };
 

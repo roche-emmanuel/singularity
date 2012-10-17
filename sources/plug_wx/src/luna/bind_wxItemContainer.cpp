@@ -4,6 +4,28 @@ class luna_wrapper_wxItemContainer {
 public:
 	typedef Luna< wxItemContainer > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,69784830) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxItemContainerImmutable*)");
+		}
+
+		wxItemContainerImmutable* rhs =(Luna< wxItemContainerImmutable >::check(L,2));
+		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxItemContainerImmutable(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -598,6 +620,7 @@ luna_RegType LunaTraits< wxItemContainer >::methods[] = {
 	{"GetClientData", &luna_wrapper_wxItemContainer::_bind_GetClientData},
 	{"GetClientObject", &luna_wrapper_wxItemContainer::_bind_GetClientObject},
 	{"Insert", &luna_wrapper_wxItemContainer::_bind_Insert},
+	{"__eq", &luna_wrapper_wxItemContainer::_bind___eq},
 	{0,0}
 };
 

@@ -90,6 +90,29 @@ local dynamic_caster_template = [[inline static bool _lg_typecheck_dynCast(lua_S
 	}
 ]]
 
+local equality_template = [[inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,${2}) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*)");
+		}
+
+		${1}* rhs =(Luna< ${1} >::check(L,2));
+		${1}* self=(Luna< ${1} >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+]]
+
 -- Helper function for writeForeach traversals:
 local getValueName = function(k,v)
 	return v:getFullName()
@@ -543,13 +566,37 @@ function LunaWriter:writeClass(class)
 	local external = class:isExternal()
 	
 	self:info_v("Writing file for ",not external and "NOT" or ""," external class ",cname)
+
+	-- Check if an equality operator is provided:	
+	local equalityOperatorProvided=false
+	for _,v in class:getValidPublicFunctions():sequence() do
+		local lname = v:getLuaName()
+		if lname == "__eq" then
+			equalityOperatorProvided=true
+			break;
+		end
+	end
 	
+	for _,v in class:getValidPublicOperators():sequence() do
+		local lname = v:getLuaName()
+		if lname == "__eq" then
+			equalityOperatorProvided=true
+			break;
+		end
+	end
+
 	if not external then
 		buf:writeSubLine("class luna_wrapper_${1} {",wname) --cshortname)
 		buf:writeLine("public:")
 		buf:pushIndent()
 		buf:writeSubLine("typedef Luna< ${1} > luna_t;",cname)
 		buf:newLine()
+		
+		if not equalityOperatorProvided then
+			-- provide our own equalityOperator:
+			local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
+			buf:writeSubLine(equality_template,bclass:getFullName(),class:getAbsoluteBaseHash())
+		end
 		
 		if self.implementConverters then
 			if class:getNumBases()==0 then
@@ -696,6 +743,10 @@ function LunaWriter:writeClass(class)
 			
 			if self.implementConverters and class:getNumBases()==0 then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"dynCast")
+			end
+			
+			if not equalityOperatorProvided then
+				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"__eq")			
 			end
 						
 		buf:writeSubLine("{0,0}")

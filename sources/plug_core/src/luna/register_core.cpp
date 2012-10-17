@@ -28,6 +28,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
 	Luna< sgt::Object >::Register(L);
 	Luna< sgt::TimeProvider >::Register(L);
+	Luna< sgt::TimeManager >::Register(L);
 	Luna< sgt::LogSink >::Register(L);
 	Luna< sgt::FileLogger >::Register(L);
 	Luna< sgt::LogManager >::Register(L);
@@ -37,7 +38,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< sgt::LogRecord >::Register(L);
 	Luna< std::set< std::string > >::Register(L);
 	Luna< sgt::StdLogger >::Register(L);
-	Luna< sgt::TimeManager >::Register(L);
 	Luna< sgt::AnyVector >::Register(L);
 	luna_popModule(L);
 

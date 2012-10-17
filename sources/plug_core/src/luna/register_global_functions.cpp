@@ -148,10 +148,6 @@ static int _bind_intrusive_ptr_release(lua_State *L) {
 }
 
 
-// Function checkers:
-
-// Function binds:
-
 #ifdef __cplusplus
 extern "C" {
 #endif

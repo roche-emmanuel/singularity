@@ -10,7 +10,7 @@ local LicensedItem = require "gui.wx.LicensedItem"
 function Class:initialize(options)
 	self._sizerStack = Vector() -- stack of sizers.
 	self._parentStack = Vector() -- stack of parent windows.
-	self._licensedItems = Vector()
+	self._licensedObjects = Vector() 
 end
 
 -- Retrieve the root window for this interface.
@@ -27,8 +27,12 @@ end
 
 function Class:addLicensedItem(item,right)
     if item and right then
-       self._licensedItems:push_back(LicensedItem{item=item,sizer=self:getCurrentSizer(),visible=true,right=right})
+       self._licensedObjects:push_back(LicensedItem{item=item,sizer=self:getCurrentSizer(),visible=true,right=right})
     end
+end
+
+function Class:addLicensedPage(page,right)
+	self:no_impl()
 end
 
 function Class:layout()
@@ -117,10 +121,13 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     self:check(eventType,"Invalid event type in connectHandler")
     self:check(func,"Invalid event handler in connectHandler")
     
-    if id then
-        ctrl:connect(id,eventType,function(event) func(self,event,data) end)
-    else
-        ctrl:connect(eventType,function(event) func(self,event,data) end)
+    ctrl:connect(id or wx.wxID_ANY,eventType,function(event) func(self,event,data) end)
+end
+
+-- Called to update the interface when the current license is changed.
+function Class:onLicenseChanged()     
+    for _,obj in self._licensedObjects:sequence() do
+		obj:checkVisibility()
     end
 end
 

@@ -4,6 +4,28 @@ class luna_wrapper_osg_GLBeginEndAdapter {
 public:
 	typedef Luna< osg::GLBeginEndAdapter > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,22643526) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::GLBeginEndAdapter*)");
+		}
+
+		osg::GLBeginEndAdapter* rhs =(Luna< osg::GLBeginEndAdapter >::check(L,2));
+		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -1527,6 +1549,7 @@ luna_RegType LunaTraits< osg::GLBeginEndAdapter >::methods[] = {
 	{"Begin", &luna_wrapper_osg_GLBeginEndAdapter::_bind_Begin},
 	{"End", &luna_wrapper_osg_GLBeginEndAdapter::_bind_End},
 	{"dynCast", &luna_wrapper_osg_GLBeginEndAdapter::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_GLBeginEndAdapter::_bind___eq},
 	{0,0}
 };
 

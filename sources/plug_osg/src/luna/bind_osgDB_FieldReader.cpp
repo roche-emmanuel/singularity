@@ -4,6 +4,28 @@ class luna_wrapper_osgDB_FieldReader {
 public:
 	typedef Luna< osgDB::FieldReader > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,53806078) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgDB::FieldReader*)");
+		}
+
+		osgDB::FieldReader* rhs =(Luna< osgDB::FieldReader >::check(L,2));
+		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -246,6 +268,7 @@ luna_RegType LunaTraits< osgDB::FieldReader >::methods[] = {
 	{"ignoreField", &luna_wrapper_osgDB_FieldReader::_bind_ignoreField},
 	{"getNoNestedBrackets", &luna_wrapper_osgDB_FieldReader::_bind_getNoNestedBrackets},
 	{"dynCast", &luna_wrapper_osgDB_FieldReader::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgDB_FieldReader::_bind___eq},
 	{0,0}
 };
 

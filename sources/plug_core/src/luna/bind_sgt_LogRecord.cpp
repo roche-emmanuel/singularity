@@ -4,6 +4,28 @@ class luna_wrapper_sgt_LogRecord {
 public:
 	typedef Luna< sgt::LogRecord > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,34788330) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::LogRecord*)");
+		}
+
+		sgt::LogRecord* rhs =(Luna< sgt::LogRecord >::check(L,2));
+		sgt::LogRecord* self=(Luna< sgt::LogRecord >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -80,6 +102,7 @@ const int LunaTraits< sgt::LogRecord >::uniqueIDs[] = {34788330,0};
 
 luna_RegType LunaTraits< sgt::LogRecord >::methods[] = {
 	{"dynCast", &luna_wrapper_sgt_LogRecord::_bind_dynCast},
+	{"__eq", &luna_wrapper_sgt_LogRecord::_bind___eq},
 	{0,0}
 };
 

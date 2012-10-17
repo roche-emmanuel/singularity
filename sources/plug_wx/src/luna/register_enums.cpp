@@ -96,6 +96,7 @@
 #include <wx/volume.h>
 #include <wx/webview.h>
 #include <wx/window.h>
+#include <wx_extensions.h>
 #include <wx/xml/xml.h>
 #include <wx/xrc/xmlres.h>
 #include <wx/zipstrm.h>
@@ -6097,6 +6098,21 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,wxWINDOW_VARIANT_MINI); lua_setfield(L,-2,"wxWINDOW_VARIANT_MINI");
 	lua_pushnumber(L,wxWINDOW_VARIANT_LARGE); lua_setfield(L,-2,"wxWINDOW_VARIANT_LARGE");
 	lua_pushnumber(L,wxWINDOW_VARIANT_MAX); lua_setfield(L,-2,"wxWINDOW_VARIANT_MAX");
+
+
+	lua_newtable(L); // enum ImageCorner
+
+	lua_pushnumber(L,CORNER_BOTTOM_RIGHT); lua_setfield(L,-2,"CORNER_BOTTOM_RIGHT");
+	lua_pushnumber(L,CORNER_BOTTOM_LEFT); lua_setfield(L,-2,"CORNER_BOTTOM_LEFT");
+	lua_pushnumber(L,CORNER_TOP_LEFT); lua_setfield(L,-2,"CORNER_TOP_LEFT");
+	lua_pushnumber(L,CORNER_TOP_RIGHT); lua_setfield(L,-2,"CORNER_TOP_RIGHT");
+
+	lua_setfield(L,-2,"ImageCorner");
+
+	lua_pushnumber(L,CORNER_BOTTOM_RIGHT); lua_setfield(L,-2,"CORNER_BOTTOM_RIGHT");
+	lua_pushnumber(L,CORNER_BOTTOM_LEFT); lua_setfield(L,-2,"CORNER_BOTTOM_LEFT");
+	lua_pushnumber(L,CORNER_TOP_LEFT); lua_setfield(L,-2,"CORNER_TOP_LEFT");
+	lua_pushnumber(L,CORNER_TOP_RIGHT); lua_setfield(L,-2,"CORNER_TOP_RIGHT");
 
 
 	lua_newtable(L); // enum wxXmlNodeType

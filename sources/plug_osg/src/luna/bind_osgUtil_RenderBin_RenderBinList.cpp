@@ -4,6 +4,28 @@ class luna_wrapper_osgUtil_RenderBin_RenderBinList {
 public:
 	typedef Luna< osgUtil::RenderBin::RenderBinList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,38528519) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osgUtil::RenderBin::RenderBinList*)");
+		}
+
+		osgUtil::RenderBin::RenderBinList* rhs =(Luna< osgUtil::RenderBin::RenderBinList >::check(L,2));
+		osgUtil::RenderBin::RenderBinList* self=(Luna< osgUtil::RenderBin::RenderBinList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osgUtil::RenderBin::RenderBinList >::uniqueIDs[] = {385285
 
 luna_RegType LunaTraits< osgUtil::RenderBin::RenderBinList >::methods[] = {
 	{"dynCast", &luna_wrapper_osgUtil_RenderBin_RenderBinList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osgUtil_RenderBin_RenderBinList::_bind___eq},
 	{0,0}
 };
 

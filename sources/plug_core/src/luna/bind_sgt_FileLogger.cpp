@@ -4,6 +4,28 @@ class luna_wrapper_sgt_FileLogger {
 public:
 	typedef Luna< sgt::FileLogger > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,81755923) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::LogSink*)");
+		}
+
+		sgt::LogSink* rhs =(Luna< sgt::LogSink >::check(L,2));
+		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_LogSink(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -216,6 +238,7 @@ luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
 	{"init", &luna_wrapper_sgt_FileLogger::_bind_init},
 	{"getFilename", &luna_wrapper_sgt_FileLogger::_bind_getFilename},
 	{"getAppending", &luna_wrapper_sgt_FileLogger::_bind_getAppending},
+	{"__eq", &luna_wrapper_sgt_FileLogger::_bind___eq},
 	{0,0}
 };
 

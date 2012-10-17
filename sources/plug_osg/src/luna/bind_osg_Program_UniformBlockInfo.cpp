@@ -4,6 +4,28 @@ class luna_wrapper_osg_Program_UniformBlockInfo {
 public:
 	typedef Luna< osg::Program::UniformBlockInfo > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,92598171) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Program::UniformBlockInfo*)");
+		}
+
+		osg::Program::UniformBlockInfo* rhs =(Luna< osg::Program::UniformBlockInfo >::check(L,2));
+		osg::Program::UniformBlockInfo* self=(Luna< osg::Program::UniformBlockInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -110,6 +132,7 @@ const int LunaTraits< osg::Program::UniformBlockInfo >::uniqueIDs[] = {92598171,
 
 luna_RegType LunaTraits< osg::Program::UniformBlockInfo >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_Program_UniformBlockInfo::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_Program_UniformBlockInfo::_bind___eq},
 	{0,0}
 };
 

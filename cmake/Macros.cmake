@@ -235,7 +235,7 @@ MACRO(PRECOMPILE_LUA luafile)
 	ADD_DEPENDENCIES(${TARGET_NAME} "${TARGET_NAME}_${FileBasename}_lch")
 ENDMACRO(PRECOMPILE_LUA)
 
-MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
+MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
     SET(DOXFILE "doxyfile")
 	
 	SET(SGT_PATH  "${SGT_DIR}/software/bin/win32") # needed to find some dependencies.
@@ -272,7 +272,7 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
 			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/../doxygen.log 2>&1
 			# COMMAND ${DOXYGEN} ${DOXFILE}
 			COMMAND echo "Generating lua reflection..."
-			COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+			COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${TARGET_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
 			COMMAND echo "Reflection generation done."
 		)	
@@ -297,7 +297,7 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
 			# COMMAND ${DOXYGEN} ${DOXFILE}
 			COMMAND echo "Generating lua reflection..."
 			# COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
-			COMMAND echo "project=\'${MOD_NAME}\'" > ${CFGFILE}
+			COMMAND echo "project=\'${TARGET_NAME}\'" > ${CFGFILE}
 			COMMAND echo -n "xml_path=\'" >> ${CFGFILE}
 			COMMAND echo -n	`cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/xml/"` >> ${CFGFILE}
 			COMMAND echo "\'" >> ${CFGFILE}
@@ -314,7 +314,7 @@ MACRO(GENERATE_REFLECTION MOD_NAME INTERFACE_FILES)
 		)
 	ENDIF()
 	
-	ADD_DEPENDENCIES(${TARGET_NAME} ${TARGET_NAME}_gen)
+	ADD_DEPENDENCIES(${STUB_NAME} ${TARGET_NAME}_gen)
 	
 ENDMACRO(GENERATE_REFLECTION)
 

@@ -4,6 +4,28 @@ class luna_wrapper_osg_KdTree_Triangle {
 public:
 	typedef Luna< osg::KdTree::Triangle > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,43117328) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::KdTree::Triangle*)");
+		}
+
+		osg::KdTree::Triangle* rhs =(Luna< osg::KdTree::Triangle >::check(L,2));
+		osg::KdTree::Triangle* self=(Luna< osg::KdTree::Triangle >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -144,6 +166,7 @@ const int LunaTraits< osg::KdTree::Triangle >::uniqueIDs[] = {43117328,0};
 luna_RegType LunaTraits< osg::KdTree::Triangle >::methods[] = {
 	{"__lt", &luna_wrapper_osg_KdTree_Triangle::_bind___lt},
 	{"dynCast", &luna_wrapper_osg_KdTree_Triangle::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_KdTree_Triangle::_bind___eq},
 	{0,0}
 };
 

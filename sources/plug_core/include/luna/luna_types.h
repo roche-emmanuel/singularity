@@ -231,6 +231,24 @@ public:
 };
 
 template<>
+class LunaTraits< sgt::TimeManager > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static sgt::TimeManager* _bind_ctor(lua_State *L);
+    static void _bind_dtor(sgt::TimeManager* obj);
+    typedef sgt::TimeManager parent_t;
+    typedef sgt::TimeManager base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< sgt::LogSink > {
 public:
     static const char className[];
@@ -393,24 +411,6 @@ public:
 };
 
 template<>
-class LunaTraits< sgt::TimeManager > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static sgt::TimeManager* _bind_ctor(lua_State *L);
-    static void _bind_dtor(sgt::TimeManager* obj);
-    typedef sgt::TimeManager parent_t;
-    typedef sgt::TimeManager base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< sgt::AnyVector > {
 public:
     static const char className[];
@@ -472,6 +472,13 @@ public:
 };
 
 template<>
+class LunaType< 10949480 > {
+public:
+    typedef sgt::TimeManager type;
+    
+};
+
+template<>
 class LunaType< 81755923 > {
 public:
     typedef sgt::LogSink type;
@@ -517,13 +524,6 @@ template<>
 class LunaType< 59964048 > {
 public:
     typedef sgt::LogSink::StringSet type;
-    
-};
-
-template<>
-class LunaType< 10949480 > {
-public:
-    typedef sgt::TimeManager type;
     
 };
 

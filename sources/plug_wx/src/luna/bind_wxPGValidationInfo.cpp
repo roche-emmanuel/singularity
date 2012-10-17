@@ -4,6 +4,28 @@ class luna_wrapper_wxPGValidationInfo {
 public:
 	typedef Luna< wxPGValidationInfo > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,78254748) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPGValidationInfo*)");
+		}
+
+		wxPGValidationInfo* rhs =(Luna< wxPGValidationInfo >::check(L,2));
+		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -143,6 +165,7 @@ luna_RegType LunaTraits< wxPGValidationInfo >::methods[] = {
 	{"SetFailureBehavior", &luna_wrapper_wxPGValidationInfo::_bind_SetFailureBehavior},
 	{"SetFailureMessage", &luna_wrapper_wxPGValidationInfo::_bind_SetFailureMessage},
 	{"dynCast", &luna_wrapper_wxPGValidationInfo::_bind_dynCast},
+	{"__eq", &luna_wrapper_wxPGValidationInfo::_bind___eq},
 	{0,0}
 };
 

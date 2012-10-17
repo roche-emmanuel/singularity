@@ -4,6 +4,28 @@ class luna_wrapper_wxImage {
 public:
 	typedef Luna< wxImage > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
+		}
+
+		wxObject* rhs =(Luna< wxObject >::check(L,2));
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -546,6 +568,16 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,41631892) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_composeWith(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -2074,6 +2106,24 @@ public:
 		return 1;
 	}
 
+	// void wxImage::composeWith(wxImage * mainImg, wxImage * subImg, int corner = CORNER_BOTTOM_RIGHT)
+	static int _bind_composeWith(lua_State *L) {
+		if (!_lg_typecheck_composeWith(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::composeWith(wxImage * mainImg, wxImage * subImg, int corner = CORNER_BOTTOM_RIGHT) function, expected prototype:\nvoid wxImage::composeWith(wxImage * mainImg, wxImage * subImg, int corner = CORNER_BOTTOM_RIGHT)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxImage* mainImg=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		wxImage* subImg=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
+		int corner=luatop>2 ? (int)lua_tointeger(L,3) : CORNER_BOTTOM_RIGHT;
+
+		composeWith(mainImg, subImg, corner);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -2143,6 +2193,8 @@ luna_RegType LunaTraits< wxImage >::methods[] = {
 	{"GetImageExtWildcard", &luna_wrapper_wxImage::_bind_GetImageExtWildcard},
 	{"RGBtoHSV", &luna_wrapper_wxImage::_bind_RGBtoHSV},
 	{"HSVtoRGB", &luna_wrapper_wxImage::_bind_HSVtoRGB},
+	{"composeWith", &luna_wrapper_wxImage::_bind_composeWith},
+	{"__eq", &luna_wrapper_wxImage::_bind___eq},
 	{0,0}
 };
 

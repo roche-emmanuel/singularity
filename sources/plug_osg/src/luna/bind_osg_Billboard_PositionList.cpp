@@ -4,6 +4,28 @@ class luna_wrapper_osg_Billboard_PositionList {
 public:
 	typedef Luna< osg::Billboard::PositionList > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,75373010) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Billboard::PositionList*)");
+		}
+
+		osg::Billboard::PositionList* rhs =(Luna< osg::Billboard::PositionList >::check(L,2));
+		osg::Billboard::PositionList* self=(Luna< osg::Billboard::PositionList >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -63,6 +85,7 @@ const int LunaTraits< osg::Billboard::PositionList >::uniqueIDs[] = {75373010,0}
 
 luna_RegType LunaTraits< osg::Billboard::PositionList >::methods[] = {
 	{"dynCast", &luna_wrapper_osg_Billboard_PositionList::_bind_dynCast},
+	{"__eq", &luna_wrapper_osg_Billboard_PositionList::_bind___eq},
 	{0,0}
 };
 

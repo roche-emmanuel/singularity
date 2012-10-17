@@ -4,6 +4,28 @@ class luna_wrapper_wxGridColumnHeaderRendererDefault {
 public:
 	typedef Luna< wxGridColumnHeaderRendererDefault > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,29503865) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxGridCornerHeaderRenderer*)");
+		}
+
+		wxGridCornerHeaderRenderer* rhs =(Luna< wxGridCornerHeaderRenderer >::check(L,2));
+		wxGridCornerHeaderRenderer* self=(Luna< wxGridCornerHeaderRenderer >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Derived class converters:
 	static int _cast_from_wxGridCornerHeaderRenderer(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -91,6 +113,7 @@ const int LunaTraits< wxGridColumnHeaderRendererDefault >::uniqueIDs[] = {295038
 
 luna_RegType LunaTraits< wxGridColumnHeaderRendererDefault >::methods[] = {
 	{"DrawBorder", &luna_wrapper_wxGridColumnHeaderRendererDefault::_bind_DrawBorder},
+	{"__eq", &luna_wrapper_wxGridColumnHeaderRendererDefault::_bind___eq},
 	{0,0}
 };
 
