@@ -1,16 +1,55 @@
-local Class = require("classBuilder"){name="BasicInterface",bases="base.Object"};
+local Class = require("classBuilder"){name="BasicInterface",
+  bases={"gui.EventHandler"}};
 
 local wx = require "wx"
-os.setlocale("C","numeric") -- need to restore the locale after loading wx.
+
+local evtman = require "gui.EventManager"
+local winman = require "gui.wx.WindowManager"
 
 local Vector = require "std.Vector"
 local LicensedItem = require "gui.wx.LicensedItem"
+
+wx.wxInitAllImageHandlers() -- init all image handlers.
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
 	self._sizerStack = Vector() -- stack of sizers.
 	self._parentStack = Vector() -- stack of parent windows.
 	self._licensedObjects = Vector() 
+	self._root =  options.root
+	if self._root then
+		local sizer = self._root:GetSizer()
+		if not sizer then
+			self:info("Auto creating sizer for interface root.")
+			sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+			self._root:SetSizer(sizer)
+		end
+		self:pushParent(self._root,sizer)
+	end
+	evtman:addListener("LicenseChanged",self)
+end
+
+function Class:uninitialize()
+	evtman:removeListener("LicenseChanged",self)
+end
+
+-- Called to update the interface when the current license is changed.
+function Class:onLicenseChanged()     
+    for _,obj in self._licensedObjects:sequence() do
+		obj:checkVisibility()
+    end
+end
+
+function Class:show(enabled)
+    --if(enabled) then
+    --    self:updateProviders()
+    --    self:updateEntries()
+    --end
+    winman:togglePane(self,enabled)
+end
+
+function Class:getPaneInfo()
+	self:no_impl()
 end
 
 -- Retrieve the root window for this interface.
@@ -21,7 +60,6 @@ end
 
 -- should return true if this interface is built as a toolbar
 function Class:isToolbar() 
-	self:soft_no_impl();
 	return false;
 end
 
@@ -40,6 +78,9 @@ function Class:layout()
     for _, sizer in self._sizerStack:sequence() do
         sizer:Layout()
     end
+    --for _, parent in self._parentStack:sequence() do
+    --    parent:Layout()
+    --end
 end
 
 -- Retrieve the current sizer on the top of the stack.
@@ -109,7 +150,7 @@ end
 function Class:pushParent(parent,sizer)
     self:check(self._parentStack,"Invalid parent stack.")
     self:check(parent,"Invalid parent object.")
-    self._parentStack:push_back(sizer)
+    self._parentStack:push_back(parent)
     
     if sizer then
         self:pushSizerObject(sizer)
@@ -124,10 +165,17 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     ctrl:connect(id or wx.wxID_ANY,eventType,function(event) func(self,event,data) end)
 end
 
--- Called to update the interface when the current license is changed.
-function Class:onLicenseChanged()     
-    for _,obj in self._licensedObjects:sequence() do
-		obj:checkVisibility()
+function Class:addSpacer(options)
+    -- Has no effect on toolbars:
+    if self:isToolbar() then
+        return;
+    end
+    
+    self:check(options and (options.size or options.prop),"A valid 'size' or 'prop' entry is needed to build a spacer.")
+    if options.prop then
+        self:getCurrentSizer():AddStretchSpacer(options.prop)
+    else
+        self:getCurrentSizer():AddSpacer(options.size)
     end
 end
 

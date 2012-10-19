@@ -152,8 +152,8 @@ function Class:set(key,val)
 	end
 	
 	-- otherwise, retrieve the value locally:
-	self:setValue(key,val)        
+	self:setValue(key,val)
+	return true      
 end
-
 
 return Class

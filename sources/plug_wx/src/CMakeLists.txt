@@ -24,7 +24,11 @@ ADD_MSVC_PRECOMPILED_HEADER("plug_common.h" "plug_common.cpp" SOURCE_FILES)
 
 # ADD_LUNA_FILES(SOURCE_FILES) # Add the Luna files after adding precompiled header.
 
+# IF(WIN32)
+# ADD_LIBRARY (${TARGET_NAME} SHARED ${PUBLIC_HEADERS} ${SOURCE_FILES} wx_ressources.rc)
+# ELSE()
 ADD_LIBRARY (${TARGET_NAME} SHARED ${PUBLIC_HEADERS} ${SOURCE_FILES})
+# ENDIF()
 
 TARGET_LINK_LIBRARIES(${TARGET_NAME} sgtCore ${LUA_LIBS} ${WX_LIBS} ${BOOST_LIBS})  
 

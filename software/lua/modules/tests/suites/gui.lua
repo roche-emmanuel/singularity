@@ -70,3 +70,55 @@ function test_image_manager()
 	logInfo("ImageManager tests done.")
 end
 
+function simpleapp_twice() --test_
+	logInfo("Testing SimpleAppFrame")
+
+	local Frame = require "gui.wx.SimpleApp"
+	
+	local frame = Frame()
+	frame:run()
+	
+	logInfo("Running app again.")
+	
+	local frame = Frame()
+	frame:run()
+		
+	logInfo("SimpleAppFrame tests done.")
+end
+
+function simpleapp_basic_interface() --test_
+	logInfo("Testing SimpleAppFrame")
+
+	local App = require "gui.wx.SimpleApp"
+	local BasicInterface = require "gui.wx.BasicInterface"
+	
+	local app = App()
+	
+	local intf = BasicInterface{root=app:getFrame()}
+	
+	local parent = app:getFrame()
+    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    parent:SetSizer(sizer)
+	
+	local panel = wx.wxPanel(parent,wx.wxID_ANY);
+    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    parent:GetSizer():Add(panel,1,wx.wxALL+wx.wxEXPAND,2)
+    
+    panel:SetSizer(sizer)
+    intf:pushParent(panel,sizer)
+    intf:popParent(true)
+    
+    --[[
+    intf:addSpacer{size=10}
+    
+	local panel = wx.wxPanel(app:getFrame(),wx.wxID_ANY);
+    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    panel:SetSizer(sizer)
+    intf:pushParent(panel,sizer)
+    intf:popParent(true)
+	]]
+	
+	app:run()
+		
+	logInfo("SimpleAppFrame tests done.")
+end
