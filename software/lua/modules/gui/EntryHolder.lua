@@ -7,18 +7,21 @@ function Class:initialize(options)
 	self._entries = Vector();
 end
 
-function Class:addEntry(options)
+function Class:addEntry(entryClass,options)
 	self:check(options,"Invalid options table.")
 	options.provider = options.provider or self:getDefaultProvider()
-
+	options.intf = self;
+	
 	if options.parent and type(options.parent)=="string" then
 		local parent = self:getEntry(options.parent)
 		self:check(parent,"Could not retrieve entry parent with name ",options.parent)
 		options.parent = parent
 	end
 		
-	local entry = Entry(options);
+	local entry = entryClass(options);
 	self._entries:push_back(entry);
+	
+	return entry
 end
 
 function Class:getEntry(name)

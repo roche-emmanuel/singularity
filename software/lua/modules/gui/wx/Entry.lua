@@ -4,17 +4,26 @@ local utils = require "utils"
 local Set = require "std.Set"
 
 function Class:initialize(options)
+	self:check(options and options.intf,"A valid interface is needed to build an entry options=",options)
+	self:check(options and options.name,"A valid name is needed to build an entry options=",options)
+	self._intf = options.intf
 	self._provider = options.provider
 	self._children = Set()
 	self._type = options.type
 	self._name = options.name
+	self._caption = options.caption
 	self._parent = options.parent
 	self._value = options.value
 	self._range = options.range
+	self._defaultValue = options.defaultValue
+	self._prop = options.prop or 0
+	self._flags = options.flags or wx.wxALL
+	self._border = options.border or 2
 	
 	self._enabled = true
-	self._controls = Set()
+	self._controls = {}
 	self._classes = {} -- classes for the controls.
+	
 	if self._parent then
 		self._parent:addChild(self)
 	end
@@ -81,7 +90,7 @@ function Class:handle(val)
 end
 
 function Class:updateChildrenDisplay()
-    for _, child in pairs(self._children or {}) do
+    for _, child in self._children:sequence() do
         child:updateDisplay()
     end 
 end
@@ -115,7 +124,7 @@ function Class:enable(enabled)
 end
 
 function Class:show(visible)
-    for _, ctrl in self._controls:sequence() do
+    for _, ctrl in ipairs(self._controls) do
         ctrl:Show(visible)
     end
 end
@@ -125,7 +134,7 @@ function Class:updateDisplay()
     local activated = self:isEnabled()
  
     -- iterate on the entry controls, and update each of them:
-    for _, ctrl in self._controls:sequence() do
+    for _, ctrl in ipairs(self._controls) do
         -- fix the TimeCtrl issue (cannot use Enable() on those objects);
         local className = self.classes[ctrl]
         local win = ctrl;

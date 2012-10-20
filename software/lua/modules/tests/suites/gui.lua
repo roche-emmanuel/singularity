@@ -70,6 +70,19 @@ function test_image_manager()
 	logInfo("ImageManager tests done.")
 end
 
+function test_entry()
+	logInfo("Testing Entry")
+	local Entry = require "gui.wx.Entry"
+	local Interface = require "gui.wx.EntryInterface"
+	
+	local intf = Interface{};
+	local options = {}
+	options.intf = intf
+	
+	local entry = Entry(options)
+	logInfo("Entry test done")
+end
+
 function simpleapp_twice() --test_
 	logInfo("Testing SimpleAppFrame")
 

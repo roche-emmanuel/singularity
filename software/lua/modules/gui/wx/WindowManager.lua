@@ -1,7 +1,6 @@
 local Class = require("classBuilder"){name="WindowManager",bases="base.Object"};
 
 local wx = require "wx"
-os.setlocale("C","numeric") -- need to restore the locale after loading wx.
 
 local Set = require "std.Set"
 

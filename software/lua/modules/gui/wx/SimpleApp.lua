@@ -25,11 +25,11 @@ function Class:initialize(options)
     wx.wxGetApp():SetExitOnFrameDelete(true)
     
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
-		self:debug4("Destroying mainframe."); 
+		self:debug("Destroying mainframe."); 
 		self._frame:Destroy(); 
 	end)
 
-	self:debug4("Mainframe initialization done.")
+	self:debug("Mainframe initialization done.")
 end
 
 function Class:getFrame()

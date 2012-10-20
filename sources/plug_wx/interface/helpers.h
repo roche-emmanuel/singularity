@@ -350,3 +350,20 @@ sgtApp& wxGetApp();
 #define wxEVT_COMMAND_TEXT_UPDATED 0
 #define wxEVT_COMMAND_TOOL_CLICKED 0
 #define wxEVT_WINDOW_MODAL_DIALOG_CLOSED 0
+
+
+#define wxFLP_OPEN                    0
+#define wxFLP_SAVE                    0
+#define wxFLP_OVERWRITE_PROMPT        0
+#define wxFLP_FILE_MUST_EXIST         0
+#define wxFLP_CHANGE_DIR              0
+#define wxFLP_SMALL                   0
+#define wxDIRP_DIR_MUST_EXIST         0
+#define wxDIRP_CHANGE_DIR             0
+#define wxDIRP_SMALL                  0
+#define wxFLP_USE_TEXTCTRL            0
+#define wxDIRP_USE_TEXTCTRL           0
+
+
+#define wxEVT_COMMAND_FILEPICKER_CHANGED 0
+#define wxEVT_COMMAND_DIRPICKER_CHANGED 0

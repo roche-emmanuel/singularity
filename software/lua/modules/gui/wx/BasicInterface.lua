@@ -162,7 +162,13 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     self:check(eventType,"Invalid event type in connectHandler")
     self:check(func,"Invalid event handler in connectHandler")
     
-    ctrl:connect(id or wx.wxID_ANY,eventType,function(event) func(self,event,data) end)
+    ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 
+    	local className = event:GetClassInfo():GetClassName()
+    	self:info("Casting event to class: ",className)
+    	event = event:dynCast(className)
+    	self:check(event,"Invalid event after cast to ",className)
+    	func(self,event,data) 
+	end)
 end
 
 function Class:addSpacer(options)

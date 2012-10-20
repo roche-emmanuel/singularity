@@ -21,8 +21,10 @@ public:
 
 #if 1
             int num = 0;
-            wxEntryStart(num,(wxChar**)NULL);
+			THROW_IF(!wxEntryStart(num,(wxChar**)NULL),"Catastrophic error in wxEntryStart()");
             logDEBUG0_V("wxApp started.");
+			// restore the locale:
+			setlocale(LC_NUMERIC,"C");			
 			wxTheApp->OnInit();
 #else
 			boost::thread(entry_point);

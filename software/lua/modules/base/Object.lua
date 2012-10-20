@@ -4,6 +4,9 @@ local oo = require "loop.cached"
 
 local log = require "tracer"
 
+local STP = require "StackTracePlus"
+debug.traceback = STP.stacktrace
+
 require("logger"):debug0_v("Generating class ",className)
 
 local Object = oo.class{}

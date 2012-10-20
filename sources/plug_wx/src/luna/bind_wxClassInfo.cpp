@@ -62,6 +62,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_GetBaseClassName1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetBaseClassName2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetClassName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -112,6 +130,66 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxObject >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const wxChar * wxClassInfo::GetBaseClassName1() const
+	static int _bind_GetBaseClassName1(lua_State *L) {
+		if (!_lg_typecheck_GetBaseClassName1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxChar * wxClassInfo::GetBaseClassName1() const function, expected prototype:\nconst wxChar * wxClassInfo::GetBaseClassName1() const\nClass arguments details:\n");
+		}
+
+
+		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName1() const");
+		}
+		const wxChar * lret = self->GetBaseClassName1();
+		wxString lret_str(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
+
+		return 1;
+	}
+
+	// const wxChar * wxClassInfo::GetBaseClassName2() const
+	static int _bind_GetBaseClassName2(lua_State *L) {
+		if (!_lg_typecheck_GetBaseClassName2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxChar * wxClassInfo::GetBaseClassName2() const function, expected prototype:\nconst wxChar * wxClassInfo::GetBaseClassName2() const\nClass arguments details:\n");
+		}
+
+
+		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetBaseClassName2() const");
+		}
+		const wxChar * lret = self->GetBaseClassName2();
+		wxString lret_str(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
+
+		return 1;
+	}
+
+	// const wxChar * wxClassInfo::GetClassName() const
+	static int _bind_GetClassName(lua_State *L) {
+		if (!_lg_typecheck_GetClassName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxChar * wxClassInfo::GetClassName() const function, expected prototype:\nconst wxChar * wxClassInfo::GetClassName() const\nClass arguments details:\n");
+		}
+
+
+		wxClassInfo* self=(Luna< wxClassInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxChar * wxClassInfo::GetClassName() const");
+		}
+		const wxChar * lret = self->GetClassName();
+		wxString lret_str(lret);
+		lua_pushlstring(L,lret_str.data(),lret_str.size());
 
 		return 1;
 	}
@@ -213,6 +291,9 @@ const int LunaTraits< wxClassInfo >::uniqueIDs[] = {96106697,0};
 
 luna_RegType LunaTraits< wxClassInfo >::methods[] = {
 	{"CreateObject", &luna_wrapper_wxClassInfo::_bind_CreateObject},
+	{"GetBaseClassName1", &luna_wrapper_wxClassInfo::_bind_GetBaseClassName1},
+	{"GetBaseClassName2", &luna_wrapper_wxClassInfo::_bind_GetBaseClassName2},
+	{"GetClassName", &luna_wrapper_wxClassInfo::_bind_GetClassName},
 	{"GetSize", &luna_wrapper_wxClassInfo::_bind_GetSize},
 	{"IsDynamic", &luna_wrapper_wxClassInfo::_bind_IsDynamic},
 	{"IsKindOf", &luna_wrapper_wxClassInfo::_bind_IsKindOf},

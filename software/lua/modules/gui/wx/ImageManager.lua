@@ -1,7 +1,6 @@
 local Class = require("classBuilder"){name="ImageManager",bases="base.Object"};
 
 local wx = require "wx"
-os.setlocale("C","numeric") -- need to restore the locale after loading wx.
 
 local Map = require "std.Map"
 local fs = require "base.FileSystem"

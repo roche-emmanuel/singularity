@@ -525,8 +525,7 @@ function prepareInterface(options)
     
     --------------------------------------------------------------------------------------------
  
-
-    function interface:addSingleChoiceEntry(options)
+ function interface:addSingleChoiceEntry(options)
         assert(options and options.caption,"A valid 'caption' is needed to build a SingleChoice entry.");
         assert(options and options.name,"A valid 'name' is needed to build a SingleChoice entry.");
         
@@ -586,135 +585,7 @@ function prepareInterface(options)
         
         return ctrls[2];
     end
-    
-    function interface:addChoiceEntry(options)
-        assert(options and options.name,"A valid 'name' is needed to build a Choice entry.");
-        assert(options and options.choiceBook,"A valid 'choiceBook' is needed to build a Choice entry.");
-            
-        local entry = options;
-        options.choiceCtrl = options.choiceBook:GetChoiceCtrl()
-        local ctrls = {} -- prepare a table to hold the specific controls.
-        entry.type="string"
-        entry.controls = ctrls;
-        entry.defaultValue = entry.defaultValue or (entry.choices and entry.choices[1]) or "" -- empty string by default
-        self:addEntry(entry)
-        
-       
-        
-        -- prepare the handlers we will need here:
-        function cbHandler(intf,event)            
-            local val = options.choiceCtrl:GetStringSelection()
-                            
-            --wx.wxLogMessage("Setting choice value to: " ..val)
-            -- update the new value sending this to the provider:
-            entry:setValue(val);
-        end
-        
-        -- connect this event handler:
-        self:connectHandler(options.choiceBook,wx.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING,cbHandler);
-        
-        -- keep a link to this control:
-        ctrls[1]  = options.choiceBook;
-        
-        --[=[
-         local actions = options.actions or {}
-         
-        function butHandler(intf,event)
-            local actionName = event:GetEventObject():DynamicCast("wxWindow"):GetName();
-            
-            -- prepare the data for the real event handler:
-            local list = entry.controls[2];
-            
-            local val = list:GetStringSelection()
-            local selId = list:GetSelection()            
-            
-            local data = {
-                id=selId, -- here we provide an additional id field to specify the item to be removed.
-                value=val,
-                item=entry.provider:getCurrentItem(),
-                name=entry.name,
-                entry=entry,
-                action=actionName,
-                intf=self
-            }
-            
-            if entry.actionHandler then
-                entry.actionHandler(data) 
-            end       
-        end
-        
-        self:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-        ctrls[1] = self:addStaticText{text=options.caption..": "};
-        ctrls[2] = self:addComboBox{prop=1,handler=cbHandler,choices=entry.choices,style=options.style,eventType=wx.wxEVT_COMMAND_TEXT_UPDATED}
-        
-        -- the bitmap buttons for the available actions:
-        if entry.actionHandler then
-            for k,act in ipairs(actions) do
-                ctrls[k+2] = self:addBitmapButton{src=act.src or act.name,size=options.size,handler=butHandler};
-                ctrls[k+2]:SetName(act.name);
-            end
-        end
-        
-        self:popSizer() 
-        
-        return ctrls[2];
-        ]=]
-    end
-    
-    function interface:addFileEntry(options)
-        assert(options and options.caption,"A valid 'caption' is needed to build a File entry.");
-        assert(options and options.name,"A valid 'name' is needed to build a File entry.");
-        
-        local entry = options;
-        local ctrls = {} -- prepare a table to hold the specific controls.
-        entry.type="string"
-        entry.controls = ctrls;
-        entry.defaultValue = entry.defaultValue or "" -- empty string by default
-        self:addEntry(entry)
-        
-        -- prepare the handlers we will need here:
-        function pickerHandler(intf,event)            
-            local val = event:GetPath();
-                            
-            -- update the new value sending this to the provider:
-            entry:setValue(val);
-        end
-        
-        self:pushSizer{orient=wx.wxHORIZONTAL,prop=options.prop or 0,flags=wx.wxEXPAND}
-        ctrls[1] = self:addStaticText{text=options.caption..": "};
-        ctrls[2] = self:addFilePickerCtrl{prop=1,handler=pickerHandler,
-            style=options.style or wx.wxFLP_OPEN+wx.wxFLP_FILE_MUST_EXIST+wx.wxFLP_USE_TEXTCTRL,
-            message=options.message or "Select a file",
-            wildcard = options.wildcard or "*.*"}
-        self:popSizer()        
-    end
-
-    function interface:addDirEntry(options)
-        assert(options and options.caption,"A valid 'caption' is needed to build a File entry.");
-        assert(options and options.name,"A valid 'name' is needed to build a File entry.");
-        
-        local entry = options;
-        local ctrls = {} -- prepare a table to hold the specific controls.
-        entry.type="string"
-        entry.controls = ctrls;
-        entry.defaultValue = entry.defaultValue or "" -- empty string by default
-        self:addEntry(entry)
-        
-        -- prepare the handlers we will need here:
-        function pickerHandler(intf,event)            
-            local val = event:GetPath();
-                            
-            -- update the new value sending this to the provider:
-            entry:setValue(val);
-        end
-        
-        self:pushSizer{orient=wx.wxHORIZONTAL,prop=options.prop or 0,flags=wx.wxEXPAND}
-        ctrls[1] = self:addStaticText{text=options.caption..": "};
-        ctrls[2] = self:addDirPickerCtrl{prop=1,handler=pickerHandler,
-            style=options.style or wx.wxDIRP_DIR_MUST_EXIST+wx.wxDIRP_USE_TEXTCTRL,
-            message=options.message or "Select a folder"}
-        self:popSizer()        
-    end
+	
     
     function interface:getGroup(name)
         self.groups = self.groups or {}

@@ -1,7 +1,6 @@
 local Class = require("classBuilder"){name="MainFrame",bases="base.Object"};
 
 local wx = require "wx"
-os.setlocale("C","numeric") -- need to restore the locale after loading wx.
 
 local i18n = require "i18n"
 local cfg = require "config"

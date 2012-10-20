@@ -55,6 +55,7 @@ function Class:__call(options)
 		obj =  oo.rawnew(self,obj)
 		obj._TRACE_ = options.name
 		
+		
 		-- Call the initialize function if any:
 		if obj.initialize then
 			obj:initialize(opt)

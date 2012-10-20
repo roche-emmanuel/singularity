@@ -6,6 +6,14 @@ local Provider = require "gui.Provider"
 
 function Class:initialize(options)
 	self._providers = Vector();
+	
+	-- Always create a simple provider as default.
+	local prov = options.defaultProvider 
+	if prov then
+		self:addProvider(prov)
+	else
+		self:createProvider{}
+	end
 end
 
 function Class:createProvider(options)
@@ -28,6 +36,9 @@ end
 function Class:addProvider(prov)
 	self:check(prov,"Invalid provider object")
 	self._providers:push_back(prov)
+	if not self:getDefaultProvider() then
+		self:setDefaultProvider(prov)
+	end
 end
 
 function Class:updateProviders(name)

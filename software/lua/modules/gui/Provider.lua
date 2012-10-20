@@ -19,6 +19,10 @@ function Class:initialize(options)
 	end
 end
 
+function Class:getDataHolder()
+	return self:getContainer():getDataHolder()
+end
+
 function Class:addChild(provider)
 	self:check(provider,"Invalid provider object.")
 	self._children:push_back(provider)
@@ -59,7 +63,7 @@ function Class:get(entry)
         return nil;
     end
     
-	return item:get(entry)
+	return item:get(entry:getName(),entry:getDefaultValue())
 end
 
 function Class:set(entry,val)
@@ -68,7 +72,7 @@ function Class:set(entry,val)
         return false;
     end
     
-	return item:set(entry,val)
+	return item:set(entry:getName(),val)
 end
 
 function Class:update(name)

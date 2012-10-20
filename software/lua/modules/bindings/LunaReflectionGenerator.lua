@@ -1071,7 +1071,7 @@ function ReflectionGenerator.generate(options)
 	tc:setToLuaConverter("^const std::string &$",stdStringToLua)
 	tc:setToLuaConverter("^string$",stdStringToLua)
 	tc:setToLuaConverter("^unsigned char$",ucharToLua)
-	tc:setToLuaConverter("^const wxChar *$",wxcharToLua)
+	tc:setToLuaConverter("const wxChar *",wxcharToLua)
 
 	tc:setTypeChecker("unsigned char",ucharChecker)
 
