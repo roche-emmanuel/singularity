@@ -51,11 +51,15 @@ public:
 		if( luatop<4 || luatop>8 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
 		return true;

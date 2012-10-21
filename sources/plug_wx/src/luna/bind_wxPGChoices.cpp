@@ -64,6 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,69274883) ) return false;
+		if( (!dynamic_cast< wxPGChoices* >(Luna< wxPGChoices >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -72,7 +73,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,47342076) ) return false;
+		if( luatop>1 && (!dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -80,6 +83,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,60960840)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -175,6 +179,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}

@@ -58,6 +58,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81619599)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -65,6 +66,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15778700)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -72,6 +74,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,81619599) ) return false;
+		if( (!dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -79,6 +82,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,15778700) ) return false;
+		if( (!dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -86,6 +90,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81619599)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -93,6 +98,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15778700)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -100,6 +106,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,81619599) ) return false;
+		if( (!dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -107,6 +114,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,15778700) ) return false;
+		if( (!dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2))) ) return false;
 		return true;
 	}
 

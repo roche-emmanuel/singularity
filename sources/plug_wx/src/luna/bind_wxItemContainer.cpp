@@ -60,6 +60,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50457573)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxClientData* >(Luna< wxClientData >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -67,6 +68,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -153,6 +155,7 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50457573)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxClientData* >(Luna< wxClientData >::check(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -160,6 +163,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}

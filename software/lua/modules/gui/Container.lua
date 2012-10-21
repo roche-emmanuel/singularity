@@ -72,7 +72,7 @@ end
 -- name using the local separator.
 function Class:getSubContainerForEntry(entryName)	
 	-- convert the entry name in a string and parse it with the proper separator
-	self:info("entryName=",entryName,", sep=",self._separator)
+	--self:info("entryName=",entryName,", sep=",self._separator)
 	local names = utils.splitString(entryName,self._separator)
 	local num = #names-1 -- number of parent containers.
 	local lastName = names[num+1]

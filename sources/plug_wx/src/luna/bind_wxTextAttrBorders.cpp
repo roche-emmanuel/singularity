@@ -58,6 +58,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -65,6 +66,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25580455) ) return false;
+		if( (!dynamic_cast< wxTextAttrDimension* >(Luna< wxTextAttrDimension >::check(L,2))) ) return false;
 		return true;
 	}
 

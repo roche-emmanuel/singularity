@@ -70,6 +70,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,53530938) ) return false;
+		if( (!dynamic_cast< wxFileName* >(Luna< wxFileName >::check(L,2))) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}

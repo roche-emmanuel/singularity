@@ -59,11 +59,14 @@ public:
 		if( luatop<3 || luatop>7 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,64848530)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,23837631)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !dynamic_cast< wxXmlAttribute* >(Luna< wxXmlAttribute >::check(L,5)) ) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,64848530)) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,6)) ) ) return false;
 		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
@@ -83,6 +86,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,64848530) ) return false;
+		if( (!dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -100,6 +104,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,23837631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxXmlAttribute* >(Luna< wxXmlAttribute >::check(L,2)) ) ) return false;
 		return true;
 	}
 

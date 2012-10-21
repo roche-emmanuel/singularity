@@ -136,7 +136,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -144,6 +146,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -151,6 +154,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 

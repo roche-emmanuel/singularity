@@ -207,22 +207,6 @@ function loadEntries(interface)
         return ctrls[2];
     end
     
-    function interface:addDummyEntry(options)        
-        local entry = options;
-        local ctrls = {} -- prepare a table to hold the specific controls.
-        entry.type="dummy"
-        entry.controls = ctrls;
-        entry.defaultValue = entry.defaultValue -- use the minimum value by default 
-        self:addEntry(entry)      
-        
-        -- add an handler called when updating the selector:
-        local onUpdate = function()
-            entry:handle(entry.provider:getCurrentItem());
-        end
-        
-        self:addCustomUpdate("entries",onUpdate);
-    end
-    
     function interface:addDatetimeEntry(options)
         assert(options and options.caption,"A valid 'caption' is needed to build a Datetime entry.");
         assert(options and options.name,"A valid 'name' is needed to build a Datetme entry.");

@@ -7,6 +7,8 @@ function Class:initialize(options)
     -- overrride some values:
     self._type = "string"
     self._defaultValue = self._defaultValue or ""
+    self._style = options.style or wx.wxDIRP_DIR_MUST_EXIST+wx.wxDIRP_USE_TEXTCTRL
+    self._message = options.message or "Select a folder"
     
     self:create()
 end
@@ -22,11 +24,10 @@ function Class:create()
     
     local intf = self._intf
     
-    intf:pushSizer{orient=wx.wxHORIZONTAL,prop=options.prop or 0,flags=wx.wxEXPAND}
-    self._controls[1] = intf:addStaticText{text=options.caption..": "};
+    intf:pushSizer{orient=wx.wxHORIZONTAL,prop=self._prop or 0,flags=wx.wxEXPAND}
+    self._controls[1] = intf:addStaticText{text=self._caption..": "};
     self._controls[2] = intf:addDirPickerCtrl{prop=1,handler=pickerHandler,
-        style=options.style or wx.wxDIRP_DIR_MUST_EXIST+wx.wxDIRP_USE_TEXTCTRL,
-        message=options.message or "Select a folder"}
+        style=self._style, message= self._message}
     intf:popSizer()
 end
 

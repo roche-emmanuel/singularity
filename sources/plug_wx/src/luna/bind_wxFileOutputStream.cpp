@@ -51,6 +51,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,19881034) ) return false;
+		if( (!dynamic_cast< wxFile* >(Luna< wxFile >::check(L,1))) ) return false;
 		return true;
 	}
 

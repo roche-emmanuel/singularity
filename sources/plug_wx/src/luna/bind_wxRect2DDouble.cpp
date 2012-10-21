@@ -260,6 +260,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,87062627) ) return false;
+		if( (!dynamic_cast< wxPoint2DDouble* >(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -267,6 +268,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -327,6 +329,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -334,8 +337,11 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,2))) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,21099623)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -357,6 +363,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -364,6 +371,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,87062627) ) return false;
+		if( (!dynamic_cast< wxPoint2DDouble* >(Luna< wxPoint2DDouble >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -371,8 +379,11 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,21099623) ) return false;
+		if( (!dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,2))) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,21099623)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxRect2DDouble* >(Luna< wxRect2DDouble >::check(L,3)) ) ) return false;
 		return true;
 	}
 

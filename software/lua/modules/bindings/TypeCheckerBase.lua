@@ -16,7 +16,7 @@ function TypeCheckerBase:__init()
     return object
 end
 
-function TypeCheckerBase:handle(writer,func,name)
+function TypeCheckerBase:handle(writer,func,name, completeCheck)
 	local offset = (func:isGlobal() or func:isConstructor() or func:isStatic() or func:isExtension()) and 0 or 1
 	
 	local defaultOffset = func:getDefaultOffset()
@@ -84,8 +84,16 @@ function TypeCheckerBase:handle(writer,func,name)
 					if pt:isPointer() then
 						-- we can accept a pointer to be nil, but not a reference.
 						writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
+						if completeCheck then
+							-- use dynamic cast here:
+							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1})) ) ) return false;",index,pt:getBase():getFirstAbsoluteBase():getFullName(),defStr,pt:getBase():getFullName())						
+						end
 					else
 						writer:writeSubLine("if( ${3}!Luna<void>::has_uniqueid(L,${1},${2}) ) return false;",index,bhash,defStr)				
+						if completeCheck then
+							-- use dynamic cast here:
+							writer:writeSubLine("if( ${3}(!dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1}))) ) return false;",index,pt:getBase():getFirstAbsoluteBase():getFullName(),defStr,pt:getBase():getFullName())						
+						end
 					end
 				else
 					writer:writeLine("////////////////////////////////////////////////////////////////////")

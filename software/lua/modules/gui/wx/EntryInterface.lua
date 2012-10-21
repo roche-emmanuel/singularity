@@ -90,5 +90,13 @@ end
 function Class:addDirEntry(options)
     return self:addEntry(DirEntry,options);        
 end
-        
+
+function Class:addDummyEntry(options)
+    return self:addEntry(require"gui.wx.entries.DummyEntry",options);        
+end
+ 
+function Class:addStringEntry(options)
+    return self:addEntry(require"gui.wx.entries.StringEntry",options);        
+end
+       
 return Class

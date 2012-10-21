@@ -146,6 +146,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		return true;
 	}
 

@@ -109,6 +109,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,73261869)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxTarEntry* >(Luna< wxTarEntry >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -118,6 +119,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,3))) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}

@@ -158,6 +158,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,66986009) ) return false;
+		if( (!dynamic_cast< wxHtmlTag* >(Luna< wxHtmlTag >::check(L,2))) ) return false;
 		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}

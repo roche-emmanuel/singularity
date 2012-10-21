@@ -544,7 +544,7 @@ function LunaWriter:writeForAll(list,handler,finalHandler)
 				if not overloads_handled:contains(name) then
 					-- iterate on the overloads found:
 					for k, ov in overloads:sequence() do
-						handler:handle(self,ov,name.."_overload_"..k)
+						handler:handle(self,ov,name.."_overload_"..k,true) -- force complete check.
 					end
 					if finalHandler then
 						finalHandler:handle(self,v,overloads)

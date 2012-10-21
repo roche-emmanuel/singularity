@@ -85,8 +85,10 @@ end
 
 -- Retrieve the current sizer on the top of the stack.
 function Class:getCurrentSizer()
-	self:check(self._sizerStack,"Invalid sizer stack.")
-    return self._sizerStack:back()
+    self:check(self._sizerStack,"Invalid sizer stack.")
+    local sizer = self._sizerStack:back()
+    --self:info("Current sizer ", sizer)
+    return sizer
 end
     
 function Class:getCurrentParent()
@@ -94,12 +96,14 @@ function Class:getCurrentParent()
         return self:getRootWindow()
     end
 	
-	self:check(self._parentStack,"Invalid parent stack.")
+    self:check(self._parentStack,"Invalid parent stack.")
     return self._parentStack:back()    
 end
 
 function Class:popSizer()
-    return self._sizerStack:pop_back()  
+    local sizer = self._sizerStack:pop_back()  
+    --self:info("Poping sizer ", sizer)
+    return sizer
 end
 
 function Class:popParent(andSizer)
@@ -144,6 +148,7 @@ end
 function Class:pushSizerObject(sizer)
     self:check(self._sizerStack,"Invalid sizer stack.")
     self:check(sizer,"Invalid sizer object.")
+    --self:info("Pushing sizer ", sizer)
     self._sizerStack:push_back(sizer)
 end
 
@@ -164,7 +169,7 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     
     ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 
     	local className = event:GetClassInfo():GetClassName()
-    	self:info("Casting event to class: ",className)
+    	--self:info("Casting event to class: ",className)
     	event = event:dynCast(className)
     	self:check(event,"Invalid event after cast to ",className)
     	func(self,event,data) 

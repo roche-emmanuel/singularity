@@ -50,6 +50,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,1))) ) return false;
 		return true;
 	}
 

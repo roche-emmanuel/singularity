@@ -59,6 +59,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,2))) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}

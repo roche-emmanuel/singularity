@@ -50,6 +50,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -75,6 +76,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,82682189) ) return false;
+		if( (!dynamic_cast< wxIconLocation* >(Luna< wxIconLocation >::check(L,1))) ) return false;
 		return true;
 	}
 

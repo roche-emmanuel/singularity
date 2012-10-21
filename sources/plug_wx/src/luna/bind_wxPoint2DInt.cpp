@@ -50,6 +50,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,81619599) ) return false;
+		if( (!dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -57,6 +58,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,1))) ) return false;
 		return true;
 	}
 

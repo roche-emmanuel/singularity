@@ -67,6 +67,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -74,6 +75,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92690309)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxTextCompleter* >(Luna< wxTextCompleter >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -277,6 +279,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
 		return true;
 	}
 

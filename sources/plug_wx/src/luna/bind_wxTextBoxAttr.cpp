@@ -42,6 +42,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,860077) ) return false;
+		if( (!dynamic_cast< wxTextBoxAttr* >(Luna< wxTextBoxAttr >::check(L,1))) ) return false;
 		return true;
 	}
 

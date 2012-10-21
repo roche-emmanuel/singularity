@@ -65,6 +65,7 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,47342076) ) return false;
+		if( (!dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,2))) ) return false;
 		return true;
 	}
 

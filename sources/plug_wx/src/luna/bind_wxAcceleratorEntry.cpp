@@ -40,6 +40,7 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -47,6 +48,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,8554277) ) return false;
+		if( (!dynamic_cast< wxAcceleratorEntry* >(Luna< wxAcceleratorEntry >::check(L,1))) ) return false;
 		return true;
 	}
 

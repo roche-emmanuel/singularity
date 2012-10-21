@@ -11,6 +11,8 @@ function Class:initialize(options)
 	self._children = Set()
 	self._type = options.type
 	self._name = options.name
+	self._tip = options.tip
+	self._right = options.right
 	self._caption = options.caption
 	self._parent = options.parent
 	self._value = options.value

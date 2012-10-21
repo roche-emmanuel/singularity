@@ -71,6 +71,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,62727294)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxCmdLineEntryDesc* >(Luna< wxCmdLineEntryDesc >::check(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -78,6 +79,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,62727294)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxCmdLineEntryDesc* >(Luna< wxCmdLineEntryDesc >::check(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
@@ -201,6 +203,7 @@ public:
 
 		if( lua_isstring(L,2)==0 ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,57497519)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,3)) ) ) return false;
 		return true;
 	}
 

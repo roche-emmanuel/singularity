@@ -22,11 +22,13 @@ local parent = app:getFrame()
 
 local intf = Interface{root=app:getFrame()}
 
-intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-intf:addStaticText{text="Hello manu!"}
-
-intf:addStaticLine{}
+local panel = intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+--intf:addStaticText{text="Hello manu!"}
+--intf:addStaticLine{}
 intf:addFileEntry{name="my_file", caption="My file"}
+intf:addDirEntry{name="my_dir", caption="My dir"}
+intf:addDummyEntry{name="my_dummy"}
+intf:addStringEntry{name="my_string",caption="My string"}
 
 --intf:addStaticBitmap{bitmap=im:getBitmap("folder@add")}
 intf:popParent(true)

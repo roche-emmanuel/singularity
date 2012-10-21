@@ -65,9 +65,12 @@ public:
 		if( luatop<2 || luatop>6 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
 		return true;
@@ -400,6 +403,7 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -407,6 +411,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -416,6 +421,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -503,6 +509,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -524,6 +531,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -633,6 +641,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
@@ -994,6 +1003,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1166,6 +1176,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1249,6 +1260,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1318,6 +1330,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1350,7 +1363,9 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,3))) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -1421,6 +1436,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -1437,6 +1453,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1474,6 +1491,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,6476046) ) return false;
+		if( (!dynamic_cast< wxGridCellCoords* >(Luna< wxGridCellCoords >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1505,6 +1523,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
 		return true;
 	}
 
