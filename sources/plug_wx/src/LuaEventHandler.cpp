@@ -115,14 +115,14 @@ wxString LuaEventHandler::connect(lua_State* L, int lua_func_stack_idx,
                                      wxWindowID win_id, wxWindowID last_id,
                                      wxEventType eventType, wxEvtHandler *evtHandler)
 {
-    trINFO("LuaEventHandler","Entering connect(...)");
+    //trINFO("LuaEventHandler","Entering connect(...)");
 
 	// Assert too since these errors are serious and not just bad Lua code.
     wxCHECK_MSG(evtHandler != NULL, wxT("Invalid wxEvtHandler in LuaEventHandler::Connect()"), wxT("Invalid wxEvtHandler in LuaEventHandler::Connect()"));
     wxCHECK_MSG((m_evtHandler == NULL) && (m_luafunc_ref == LUA_NOREF), wxT("Attempting to reconnect a LuaEventHandler"), wxT("Attempting to reconnect a LuaEventHandler"));
     wxCHECK_MSG(L, wxT("Invalid wxLuaState"), wxT("Invalid wxLuaState"));
 
-	trINFO("LuaEventHandler","Checking thread...");
+	//trINFO("LuaEventHandler","Checking thread...");
 
     // We must always be installed into the main lua_State, never a coroutine
     // 1) It will be called only when the lua_State is suspended or dead
@@ -142,26 +142,26 @@ wxString LuaEventHandler::connect(lua_State* L, int lua_func_stack_idx,
 	m_eventType  = eventType;
 
 
-	trINFO("LuaEventHandler","Creating ref...");
+	//trINFO("LuaEventHandler","Creating ref...");
 
     // create a reference to the Lua event handler function
     m_luafunc_ref = wxluaR_ref(L,lua_func_stack_idx, &wx_refs_key);
 
-	trINFO("LuaEventHandler","Performing actual connection...");
+	//trINFO("LuaEventHandler","Performing actual connection...");
 
     // Note: We use the callback userdata and not the event sink since the event sink
     // requires a wxEvtHandler object which is a fairly large class.
     // The userdata (i.e. this) is also deleted for us which makes our life easier.
-    //m_evtHandler->Connect(win_id, last_id, eventType,
-    //                      (wxObjectEventFunction)&LuaEventHandler::OnAllEvents,
-    //                      this);
-    m_evtHandler->Bind(eventType,
-					   &LuaEventHandler::OnAllEvents, 
-					   win_id, 
-					   last_id, 
-                       this);
+    m_evtHandler->Connect(win_id, last_id, eventType,
+                         (wxObjectEventFunction)&LuaEventHandler::OnAllEvents,
+                         this);
+    // m_evtHandler->Bind(eventType,
+					   // &LuaEventHandler::OnAllEvents, 
+					   // win_id, 
+					   // last_id, 
+                       // this);
 
-	trINFO("LuaEventHandler","Leaving connect(...)");
+	//trINFO("LuaEventHandler","Leaving connect(...)");
 
     return wxEmptyString;
 }
@@ -193,6 +193,9 @@ void LuaEventHandler::OnEvent(wxEvent *event)
     {
 		Luna< wxEvent >::push(L,event,false);
         int result = lua_pcall(L,1,0,0); // one input no returns
+        // lua_call(L,1,0); // one input no returns
+		// int result = 0;
+		
 		if(result==LUA_ERRRUN) {
 			trERROR("LuaEventHandler",lua_tostring(L,-1));
 		}

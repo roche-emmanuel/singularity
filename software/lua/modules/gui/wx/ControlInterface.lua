@@ -14,6 +14,12 @@ function Class:initialize(options)
 	 
 end
 
+function Class:close()
+	self:debug("Closing ControlInterface...")
+	
+	require("gui.wx.BasicInterface").close(self)
+end
+
 function Class:addControl(ctrl,options)
     if self:isToolbar() then
         local obj = ctrl:dynCast("wxControl");
@@ -47,11 +53,11 @@ function Class:pushPanel(options)
     self:debug3("Building an panel parent")
     local parent = self:getCurrentParent()
     self:check(parent,"Invalid parent object")
-    local panel = wx.wxPanel(self:getCurrentParent(),options.id or wx.wxID_ANY);
+    local panel = wx.wxPanel:new(self:getCurrentParent(),options.id or wx.wxID_ANY);
     self:addControl(panel,options)
     
     -- assign a sizer to this panel:
-    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    local sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
     panel:SetSizer(sizer)
     self:pushParent(panel,sizer)
     return panel
@@ -60,7 +66,7 @@ end
 function Class:addStaticText(options)
 	--self:info("Adding static text.")
     self:check(options and options.text,"A valid 'text' entry is needed to build a wxStaticText.")
-    local ctrl = wx.wxStaticText(self:getCurrentParent(),wx.wxID_ANY,options.text);
+    local ctrl = wx.wxStaticText:new(self:getCurrentParent(),wx.wxID_ANY,options.text);
     if options.font then
     	ctrl:SetFont(options.font);
     end
@@ -69,21 +75,21 @@ function Class:addStaticText(options)
 end
 
 function Class:addStaticLine(options)
-    local ctrl = wx.wxStaticLine(self:getCurrentParent(),wx.wxID_ANY);       
+    local ctrl = wx.wxStaticLine:new(self:getCurrentParent(),wx.wxID_ANY);       
     options.flags = options.flags or wx.wxALL+wx.wxEXPAND
     return self:addControl(ctrl,options)
 end
 
 function Class:addStaticBitmap(options)
     self:check(options and options.bitmap,"A valid 'bitmap' entry is needed to build a wxStaticBitmap.")
-    local ctrl = wx.wxStaticBitmap(self:getCurrentParent(),wx.wxID_ANY,options.bitmap);       
+    local ctrl = wx.wxStaticBitmap:new(self:getCurrentParent(),wx.wxID_ANY,options.bitmap);       
     options.flags = options.flags or 0
     return self:addControl(ctrl,options)
 end
 
 function Class:addSlider(options)
     options = options or {}
-    local ctrl = wx.wxSlider(self:getCurrentParent(),options.id or wx.wxID_ANY,0,0,options.range or 10000);
+    local ctrl = wx.wxSlider:new(self:getCurrentParent(),options.id or wx.wxID_ANY,0,0,options.range or 10000);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_SCROLL_CHANGED,options.handler)  --THUMBRELEASE
     end     
@@ -92,7 +98,7 @@ end
 
 function Class:addButton(options)
     self:check(options and options.text,"A valid 'text' entry is needed to build a wxButton.")
-    local ctrl = wx.wxButton(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text);
+    local ctrl = wx.wxButton:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_BUTTON_CLICKED,options.handler)
     end        
@@ -100,7 +106,7 @@ function Class:addButton(options)
 end
 
 function Class:addHyperlinkCtrl(options)
-    local ctrl = wx.wxHyperlinkCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text,options.url,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxHL_DEFAULT_STYLE);       
+    local ctrl = wx.wxHyperlinkCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text,options.url,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxHL_DEFAULT_STYLE);       
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_HYPERLINK,options.handler)
@@ -109,13 +115,13 @@ function Class:addHyperlinkCtrl(options)
 end
 
 function Class:addHTMLWindow(options)
-    local ctrl = wx.wxHtmlWindow(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxHW_SCROLLBAR_NEVER);       
+    local ctrl = wx.wxHtmlWindow:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxHW_SCROLLBAR_NEVER);       
     options.flags = options.flags or wx.wxALL
     return self:addControl(ctrl,options)
 end
     
 function Class:addTextCtrl(options)
-    local ctrl = wx.wxTextCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxTE_RICH2,options.validator or wx.wxDefaultValidator);       
+    local ctrl = wx.wxTextCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxTE_RICH2,options.validator or wx.wxDefaultValidator);       
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.font then
     	ctrl:SetFont(options.font);
@@ -127,7 +133,7 @@ function Class:addTextCtrl(options)
 end
 
 function Class:addSpinCtrl(options)
-    local ctrl = wx.wxSpinCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.defaultValue.."",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxSP_ARROW_KEYS,options.range[1],options.range[2]);
+    local ctrl = wx.wxSpinCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.defaultValue.."",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxSP_ARROW_KEYS,options.range[1],options.range[2]);
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_SPINCTRL_UPDATED,options.handler)
@@ -136,7 +142,7 @@ function Class:addSpinCtrl(options)
 end
     
 function Class:addFilePickerCtrl(options)
-    local ctrl = wx.wxFilePickerCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",options.message or "Select a file", options.wildcard or "*.*",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxFLP_DEFAULT_STYLE);       
+    local ctrl = wx.wxFilePickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",options.message or "Select a file", options.wildcard or "*.*",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxFLP_DEFAULT_STYLE);       
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_FILEPICKER_CHANGED,options.handler)
@@ -145,7 +151,7 @@ function Class:addFilePickerCtrl(options)
 end
       
 function Class:addDirPickerCtrl(options)
-    local ctrl = wx.wxDirPickerCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",options.message or "Select a folder",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxDIRP_DEFAULT_STYLE);       
+    local ctrl = wx.wxDirPickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.text or "",options.message or "Select a folder",wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxDIRP_DEFAULT_STYLE);       
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_DIRPICKER_CHANGED,options.handler)
@@ -154,7 +160,7 @@ function Class:addDirPickerCtrl(options)
 end
     
 function Class:addColorCtrl(options)
-    local ctrl = wx.wxColourPickerCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxGREEN,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxCLRP_USE_TEXTCTRL)
+    local ctrl = wx.wxColourPickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxGREEN,wx.wxDefaultPosition,options.size or wx.wxDefaultSize,options.style or wx.wxCLRP_USE_TEXTCTRL)
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_COLOURPICKER_CHANGED,options.handler)
@@ -163,7 +169,7 @@ function Class:addColorCtrl(options)
 end
 
 function Class:addMediaCtrl(options)
-    local ctrl = wx.wxMediaCtrl(self:getCurrentParent(),wx.wxID_ANY);       
+    local ctrl = wx.wxMediaCtrl:new(self:getCurrentParent(),wx.wxID_ANY);       
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_MEDIA_STATECHANGED,options.handler)
     end  
@@ -172,7 +178,7 @@ end
 
 function Class:addListBox(options)
     options = options or {}
-    local ctrl = wx.wxListBox(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},options.style or wx.wxLB_EXTENDED);
+    local ctrl = wx.wxListBox:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},options.style or wx.wxLB_EXTENDED);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_LISTBOX_DOUBLECLICKED,options.handler)
     end
@@ -183,7 +189,7 @@ end
     options = options or {}
     options.prop = options.prop or 1
     options.flags = options.flags or wx.wxEXPAND+wx.wxALL;
-    local ctrl = wx.wxCheckListBox(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},options.style or wx.wxLB_SINGLE);
+    local ctrl = wx.wxCheckListBox:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},options.style or wx.wxLB_SINGLE);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_CHECKLISTBOX_TOGGLED,options.handler)
     end
@@ -192,7 +198,7 @@ end
     
 function Class:addRadioBox(options)
     self:check(options and options.text, "a valid 'text' entry is required to build a wxRadioBox.")
-    local ctrl = wx.wxRadioBox(self:getCurrentParent(),wx.wxID_ANY,options.text,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},0,options.style or wx.wxRA_SPECIFY_ROWS);
+    local ctrl = wx.wxRadioBox:new(self:getCurrentParent(),wx.wxID_ANY,options.text,wx.wxDefaultPosition,wx.wxDefaultSize,options.choices or {},0,options.style or wx.wxRA_SPECIFY_ROWS);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_RADIOBOX_SELECTED,options.handler)
     end
@@ -201,7 +207,7 @@ end
     
 function Class:addComboBox(options)
     options = options or {}
-    local ctrl = wx.wxComboBox(self:getCurrentParent(),options.id or wx.wxID_ANY,options.choices and options.choices[1] or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,20),options.choices or {},options.style or wx.wxCB_DROPDOWN+wx.wxCB_READONLY);
+    local ctrl = wx.wxComboBox:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.choices and options.choices[1] or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,20),options.choices or {},options.style or wx.wxCB_DROPDOWN+wx.wxCB_READONLY);
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_COMBOBOX_SELECTED,options.handler)
     end
@@ -222,7 +228,7 @@ function Class:addListCtrl(options)
         --ctrl = intro2wx(ctrl):DynamicCast("wxListCtrl")
     else
         -- create a regular listctrl directly:
-        ctrl = wx.wxListCtrl(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxLC_REPORT+wx.wxLC_HRULES+wx.wxLC_VRULES);
+        ctrl = wx.wxListCtrl:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxLC_REPORT+wx.wxLC_HRULES+wx.wxLC_VRULES);
     end
     
     -- add the columns if any:
@@ -236,7 +242,7 @@ function Class:addListCtrl(options)
         -- assign the image list to the control.
         local butsize = options and options.butsize or 16
     
-        local imglist = wx.wxImageList(butsize,butsize,true);
+        local imglist = wx.wxImageList:new(butsize,butsize,true);
         for k,v in ipairs(options.images) do
             imglist:Add(im:getBitmap{name=v,size=butsize})
         end
@@ -253,7 +259,7 @@ end
 function Class:pushWizard(options)
     self:debug3("Building a Wizard")
     local parent = options.parent or winman:getMainFrame();
-    local wiz = wx.wxWizard(parent);
+    local wiz = wx.wxWizard:new(parent);
     local title = options.title or ""
     wiz:SetTitle(title);
     wiz:SetPageSize(options.size or wx.wxSize(500,200));
@@ -268,9 +274,9 @@ end
 
 function Class:pushWizardPage(options)
     --wx.wxLogMessage("Building a wizard page")
-    local page = wx.wxWizardPageSimple(self:getCurrentParent());
+    local page = wx.wxWizardPageSimple:new(self:getCurrentParent());
     -- assign a sizer to this panel:
-    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    local sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
     page:SetSizer(sizer)
     self:pushParent(page,sizer)
     
@@ -326,7 +332,7 @@ function Class:pushCollapsiblePanel(options)
     self:popSizer() -- end sizer
     
     -- Now add the panel container:
-    local panel = wx.wxPanel(self:getCurrentParent(),options.id or wx.wxID_ANY);
+    local panel = wx.wxPanel:new(self:getCurrentParent(),options.id or wx.wxID_ANY);
     local oldflags = options.flags
     options.flags = wx.wxALL+wx.wxEXPAND
     options.border=5
@@ -334,7 +340,7 @@ function Class:pushCollapsiblePanel(options)
     options.flags = oldflags
     options.border=nil
     -- assign a sizer to this panel:
-    local sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+    local sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
     panel:SetSizer(sizer)
     
     -- keep an handle on the previous parent:
@@ -385,5 +391,17 @@ function Class:pushCollapsiblePanel(options)
     return panel
 end
 
+function Class:addCheckBox(options)
+    self:check(options and options.text,"A valid 'text' entry is needed to build a wxCheckBox.")
+    local ctrl = wx.wxCheckBox:new(self:getCurrentParent(),wx.wxID_ANY,options.text,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or wx.wxCHK_2STATE);
+    if options.font then
+    	ctrl:SetFont(options.font)
+    end
+    if options.handler then
+        self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_CHECKBOX_CLICKED,options.handler)
+    end        
+    --options.flags = wx.wxALIGN_CENTER_VERTICAL
+    return self:addControl(ctrl,options)
+end
         
 return Class

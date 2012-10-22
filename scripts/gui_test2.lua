@@ -1,7 +1,10 @@
 #!/bin/sgt
 
 require "luna"
- -- needed for the core module.
+ 
+--require("mobdebug").start()
+
+-- needed for the core module.
 local log = require "logger"
 log:notice "Executing init script..."
 
@@ -39,5 +42,8 @@ intf:popParent(true)
 parent:Layout()
 
 app:run()
+
+log:info "Cleaning up"
+collectgarbage('collect')
 	
 log:notice "Script execution done."

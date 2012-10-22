@@ -1,7 +1,11 @@
 #include "wx_extensions.h"
 
+bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType) {
+	return handler->Disconnect(id, id2, (wxEventType)eventType);
+}
+
 int connect(wxEvtHandler* handler, int id, int id2, int eventType, lua_Function* dummy, lua_State* L) {
-	trINFO("Luna","Entering connect extension");
+	trDEBUG4("Luna","Entering connect extension");
 
 	// Create a new lua event handler:
 	LuaEventHandler* luahandler = new LuaEventHandler();
@@ -13,7 +17,7 @@ int connect(wxEvtHandler* handler, int id, int id2, int eventType, lua_Function*
 		luaL_error(L,result.ToStdString().c_str());
 	}
 
-	trINFO("Luna","Leaving connect extension");
+	trDEBUG4("Luna","Leaving connect extension");
 
 	return 0;
 }

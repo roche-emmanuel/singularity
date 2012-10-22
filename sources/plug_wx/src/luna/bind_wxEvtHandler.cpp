@@ -186,6 +186,16 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_disconnect(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_connect_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -650,6 +660,24 @@ public:
 		return 0;
 	}
 
+	// bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType)
+	static int _bind_disconnect(lua_State *L) {
+		if (!_lg_typecheck_disconnect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType) function, expected prototype:\nbool wxEvtHandler::disconnect(wxEvtHandler * handler, int id, int id2, int eventType)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1));
+		int id=(int)lua_tointeger(L,2);
+		int id2=(int)lua_tointeger(L,3);
+		int eventType=(int)lua_tointeger(L,4);
+
+		bool lret = disconnect(handler, id, id2, eventType);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// int wxEvtHandler::connect(wxEvtHandler * handler, int id, int id2, int eventType, lua_Function * dummy, lua_State * L)
 	static int _bind_connect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_connect_overload_1(L)) {
@@ -744,6 +772,7 @@ luna_RegType LunaTraits< wxEvtHandler >::methods[] = {
 	{"IsUnlinked", &luna_wrapper_wxEvtHandler::_bind_IsUnlinked},
 	{"AddFilter", &luna_wrapper_wxEvtHandler::_bind_AddFilter},
 	{"RemoveFilter", &luna_wrapper_wxEvtHandler::_bind_RemoveFilter},
+	{"disconnect", &luna_wrapper_wxEvtHandler::_bind_disconnect},
 	{"connect", &luna_wrapper_wxEvtHandler::_bind_connect},
 	{"__eq", &luna_wrapper_wxEvtHandler::_bind___eq},
 	{0,0}

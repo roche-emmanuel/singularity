@@ -77,6 +77,7 @@ function test_entry()
 	
 	local intf = Interface{};
 	local options = {}
+	options.name="my_entry"
 	options.intf = intf
 	
 	local entry = Entry(options)

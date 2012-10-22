@@ -17,20 +17,45 @@ function Class:initialize(options)
 	self._parentStack = Vector() -- stack of parent windows.
 	self._licensedObjects = Vector() 
 	self._root =  options.root
+	self._connectedHandlers = Vector()
+	
 	if self._root then
 		local sizer = self._root:GetSizer()
 		if not sizer then
 			self:info("Auto creating sizer for interface root.")
-			sizer = wx.wxBoxSizer(wx.wxVERTICAL)
+			sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
 			self._root:SetSizer(sizer)
 		end
 		self:pushParent(self._root,sizer)
 	end
+	
+	evtman:addListener("AppClosing",self)
 	evtman:addListener("LicenseChanged",self)
 end
 
 function Class:uninitialize()
-	evtman:removeListener("LicenseChanged",self)
+	evtman:removeListener("",self)
+	--evtman:removeListener("AppClosing",self)
+	--evtman:removeListener("LicenseChanged",self)
+end
+
+function Class:onAppClosing()
+	self:close();
+end
+
+function Class:disconnectHandlers()
+	for _,connection in self._connectedHandlers:sequence() do
+		self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
+		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
+	end
+end
+
+function Class:close()
+	self:debug("Closing BasicInterface...")
+	self:disconnectHandlers()
+	--self._root:DestroyChildren()
+	
+	self:uninitialize()
 end
 
 -- Called to update the interface when the current license is changed.
@@ -126,9 +151,9 @@ function Class:pushSizer(options)
     if options.text then
         self:check(options.orient,"Invalid orientation")
         -- create a statictext box sizer:
-        sizer = wx.wxStaticBoxSizer(orient,self:getCurrentParent(),options.text);
+        sizer = wx.wxStaticBoxSizer:new(orient,self:getCurrentParent(),options.text);
     elseif options.nrows and options.ncols then
-        sizer = wx.wxFlexGridSizer(options.nrows, options.ncols, options.vgap or 0, options.hgap or 0)
+        sizer = wx.wxFlexGridSizer:new(options.nrows, options.ncols, options.vgap or 0, options.hgap or 0)
         if options.growables then
             for k,v in ipairs(options.growables) do
                 sizer:AddGrowableCol(v[1],v[2])
@@ -136,7 +161,7 @@ function Class:pushSizer(options)
         end
     else
         self:check(options.orient,"Invalid orientation")
-        sizer = wx.wxBoxSizer(orient)
+        sizer = wx.wxBoxSizer:new(orient)
     end
     
     self:addLicensedItem(sizer,options.right) -- it's OK to consider the sizer as a regular control here.
@@ -167,6 +192,8 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     self:check(eventType,"Invalid event type in connectHandler")
     self:check(func,"Invalid event handler in connectHandler")
     
+    --self:warn("Connecting event handler...")
+    
     ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 
     	local className = event:GetClassInfo():GetClassName()
     	--self:info("Casting event to class: ",className)
@@ -174,6 +201,10 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     	self:check(event,"Invalid event after cast to ",className)
     	func(self,event,data) 
 	end)
+	
+	-- register a connection item:
+	local connection = {ctrl=ctrl,id=id or wx.wxID_ANY,eventType=eventType}
+	self._connectedHandlers:push_back(connection)
 end
 
 function Class:addSpacer(options)

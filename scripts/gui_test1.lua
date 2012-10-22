@@ -43,5 +43,8 @@ intf:popParent(true)
 parent:Layout()
 
 app:run()
+
+log:info "Cleaning up"
+collectgarbage('collect')
 	
 log:notice "Script execution done."

@@ -4,6 +4,7 @@ local wx = require "wx"
 
 local Map = require "std.Map"
 local fs = require "base.FileSystem"
+local evtman = require "gui.EventManager"
 
 function Class:initialize(options)
 	-- The images are saved locally in a map.
@@ -15,6 +16,16 @@ function Class:initialize(options)
 	self._defaultPath = fs:getRootPath(true).."data/icons/"
 	self._defaultQuality = wx.wxIMAGE_QUALITY_HIGH
 	self._defaultLinkProp = 0.5 -- link taking half of the size of the image.
+	
+	evtman:addListener("AppClosing",self)
+end
+
+function Class:onAppClosing()
+	-- release all the images:
+	self:info("Destroying cached images.")
+	for k,img in self._images:sequence() do
+		img:Destroy()
+	end
 end
 
 function Class:createImage(options)

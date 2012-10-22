@@ -22,6 +22,10 @@ function Object:__init(options,instance)
 	return obj
 end
 
+function Object:supers()
+	return oo.supers(oo.classof(self))
+end
+
 function Object:isString(var)
 	return type(var)=="string"
 end

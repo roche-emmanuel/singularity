@@ -11,6 +11,7 @@ function Class:initialize(options)
 	self._children = Set()
 	self._type = options.type
 	self._name = options.name
+	self._groupName = options.group
 	self._tip = options.tip
 	self._right = options.right
 	self._caption = options.caption
@@ -30,7 +31,11 @@ function Class:initialize(options)
 		self._parent:addChild(self)
 	end
 end
-        
+
+function Class:getGroupName()
+	return self._groupName
+end
+  
 function Class:getName()
 	return self._name
 end

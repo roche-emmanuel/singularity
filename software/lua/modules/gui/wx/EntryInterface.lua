@@ -6,12 +6,14 @@ local utils = require "utils"
 local wx = require "wx"
 local winman = require "gui.wx.WindowManager"
 
-local DirEntry = require "gui.wx.entries.DirEntry"
-local FileEntry = require "gui.wx.entries.FileEntry"
-local ChoiceEntry = require "gui.wx.entries.ChoiceEntry"
-
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
+end
+
+function Class:close()
+	self:debug("Closing EntryInterface...")
+	
+	require("gui.wx.ControlInterface").close(self)
 end
 
 function Class:addComboBoxSelector(options)
@@ -80,15 +82,15 @@ function Class:addComboBoxSelector(options)
 end
 
 function Class:addChoiceEntry(options)
-    return self:addEntry(ChoiceEntry,options);                    
+    return self:addEntry(require"gui.wx.entries.ChoiceEntry",options);                   
 end
     
 function Class:addFileEntry(options)
-    return self:addEntry(FileEntry,options);        
+    return self:addEntry(require"gui.wx.entries.FileEntry",options);       
 end
 
 function Class:addDirEntry(options)
-    return self:addEntry(DirEntry,options);        
+    return self:addEntry(require"gui.wx.entries.DirEntry",options);  
 end
 
 function Class:addDummyEntry(options)
@@ -97,6 +99,10 @@ end
  
 function Class:addStringEntry(options)
     return self:addEntry(require"gui.wx.entries.StringEntry",options);        
+end
+
+function Class:addBoolEntry(options)
+    return self:addEntry(require"gui.wx.entries.BoolEntry",options);        
 end
        
 return Class

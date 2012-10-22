@@ -257,18 +257,7 @@ function loadControls(interface)
         end  
         return self:addControl(ctrl,options)
     end
-    
-    function interface:addCheckBox(options)
-        assert(options and options.text,"A valid 'text' entry is needed to build a wxCheckBox.")
-        local ctrl = wx.wxCheckBox(self:getCurrentParent(),wx.wxID_ANY,options.text,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or wx.wxCHK_2STATE);
-        ctrl:SetFont(options.font or checkFont)
-        if options.handler then
-            self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_CHECKBOX_CLICKED,options.handler)
-        end        
-        --options.flags = wx.wxALIGN_CENTER_VERTICAL
-        return self:addControl(ctrl,options)
-    end
-    
+ 
     function interface:addSTCCtrl(options)
         local ctrl = wxstc.wxStyledTextCtrl(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);
         return self:addControl(ctrl,options)

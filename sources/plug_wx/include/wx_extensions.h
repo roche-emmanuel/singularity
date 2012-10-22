@@ -5,6 +5,9 @@
 #include "LuaEventHandler.h"
 
 /** LUNA_CLASS_EXTENSION */
+bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType);
+
+/** LUNA_CLASS_EXTENSION */
 int connect(wxEvtHandler* handler, int id, int id2, int eventType, lua_Function* dummy, lua_State* L);
 
 /** LUNA_CLASS_EXTENSION */
