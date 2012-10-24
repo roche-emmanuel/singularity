@@ -16,6 +16,7 @@ function TypeManager:__init()
     object = oo.rawnew(self,object)
 	object._types = Set()
     object._externals = Map()
+    object._baseTypeMappings = Map()
     object._externalParents = Map()
     object._externalFuncs = Map()
     object._deleters = Map()
@@ -182,5 +183,12 @@ function TypeManager:getDeleter(class)
 	-- return nothing.
 end
 
+function TypeManager:addBaseTypeMapping(srcType, destType)
+	self._baseTypeMappings:set(srcType,destType)
+end
+
+function TypeManager:getBaseTypeMapping(srcType)
+	return self._baseTypeMappings:get(srcType) or srcType
+end
 
 return TypeManager()

@@ -7,18 +7,18 @@ public:
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,92036952) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxKeyboardState*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
 		}
 
-		wxKeyboardState* rhs =(Luna< wxKeyboardState >::check(L,2));
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxObject* rhs =(Luna< wxObject >::check(L,2));
+		wxObject* self=(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -182,7 +182,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxKeyboardState::GetModifiers() const");
@@ -201,7 +201,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::HasModifiers() const");
@@ -220,7 +220,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ControlDown() const");
@@ -239,7 +239,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::RawControlDown() const");
@@ -258,7 +258,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ShiftDown() const");
@@ -277,7 +277,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::MetaDown() const");
@@ -296,7 +296,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::AltDown() const");
@@ -315,7 +315,7 @@ public:
 		}
 
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyboardState::CmdDown() const");
@@ -335,7 +335,7 @@ public:
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetControlDown(bool)");
@@ -354,7 +354,7 @@ public:
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetRawControlDown(bool)");
@@ -373,7 +373,7 @@ public:
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetShiftDown(bool)");
@@ -392,7 +392,7 @@ public:
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetAltDown(bool)");
@@ -411,7 +411,7 @@ public:
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
-		wxKeyboardState* self=(Luna< wxKeyboardState >::check(L,1));
+		wxKeyboardState* self=dynamic_cast< wxKeyboardState* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetMetaDown(bool)");

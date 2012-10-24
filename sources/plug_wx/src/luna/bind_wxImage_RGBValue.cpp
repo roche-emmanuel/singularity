@@ -54,6 +54,16 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>3 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -61,6 +71,22 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// wxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0)
+	static wxImage::RGBValue* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0) function, expected prototype:\nwxImage::RGBValue::RGBValue(unsigned char r = 0, unsigned char g = 0, unsigned char b = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+
+		return new wxImage::RGBValue(r, g, b);
+	}
+
 
 	// Function binds:
 
@@ -69,7 +95,7 @@ public:
 };
 
 wxImage::RGBValue* LunaTraits< wxImage::RGBValue >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_wxImage_RGBValue::_bind_ctor(L);
 }
 
 void LunaTraits< wxImage::RGBValue >::_bind_dtor(wxImage::RGBValue* obj) {

@@ -67,13 +67,59 @@ public:
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,1))) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
@@ -83,7 +129,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
@@ -93,7 +139,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
@@ -104,7 +150,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
@@ -140,6 +186,60 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
 		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Create_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Create_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Create_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Create_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Clear(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -190,6 +290,18 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Replace(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
 
@@ -269,6 +381,25 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ConvertAlphaToMask_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ConvertAlphaToMask_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_ConvertToGreyscale_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -284,10 +415,102 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ConvertToMono(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ConvertToDisabled(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_ComputeHistogram(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,75442299) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_FindFirstUnusedColour(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetAlpha_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetAlpha_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetData(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetRed(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetGreen(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetBlue(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetMaskRed(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetMaskGreen(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetMaskBlue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -320,6 +543,15 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetOrFindMaskColour(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -364,6 +596,16 @@ public:
 	inline static bool _lg_typecheck_IsOk(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_IsTransparent(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -450,9 +692,47 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_SetAlpha_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetAlpha_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_ClearAlpha(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetData_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetData_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -461,6 +741,25 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetMaskColour(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetMaskFromImage(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -484,6 +783,16 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetRGB(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -642,9 +951,85 @@ public:
 		return new wxImage(sz, clear);
 	}
 
-	// wxImage::wxImage(const char *const * xpmData)
+	// wxImage::wxImage(int width, int height, unsigned char * data, bool static_data = false)
 	static wxImage* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage::wxImage(int width, int height, unsigned char * data, bool static_data = false) function, expected prototype:\nwxImage::wxImage(int width, int height, unsigned char * data, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,1);
+		int height=(int)lua_tointeger(L,2);
+		unsigned char data = (unsigned char)(lua_tointeger(L,3));
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		return new wxImage(width, height, &data, static_data);
+	}
+
+	// wxImage::wxImage(const wxSize & sz, unsigned char * data, bool static_data = false)
+	static wxImage* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage::wxImage(const wxSize & sz, unsigned char * data, bool static_data = false) function, expected prototype:\nwxImage::wxImage(const wxSize & sz, unsigned char * data, bool static_data = false)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSize* sz_ptr=(Luna< wxSize >::check(L,1));
+		if( !sz_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::wxImage function");
+		}
+		const wxSize & sz=*sz_ptr;
+		unsigned char data = (unsigned char)(lua_tointeger(L,2));
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		return new wxImage(sz, &data, static_data);
+	}
+
+	// wxImage::wxImage(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false)
+	static wxImage* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage::wxImage(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false) function, expected prototype:\nwxImage::wxImage(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,1);
+		int height=(int)lua_tointeger(L,2);
+		unsigned char data = (unsigned char)(lua_tointeger(L,3));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+
+		return new wxImage(width, height, &data, &alpha, static_data);
+	}
+
+	// wxImage::wxImage(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false)
+	static wxImage* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage::wxImage(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false) function, expected prototype:\nwxImage::wxImage(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSize* sz_ptr=(Luna< wxSize >::check(L,1));
+		if( !sz_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::wxImage function");
+		}
+		const wxSize & sz=*sz_ptr;
+		unsigned char data = (unsigned char)(lua_tointeger(L,2));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,3));
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		return new wxImage(sz, &data, &alpha, static_data);
+	}
+
+	// wxImage::wxImage(const char *const * xpmData)
+	static wxImage* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxImage::wxImage(const char *const * xpmData) function, expected prototype:\nwxImage::wxImage(const char *const * xpmData)\nClass arguments details:\n");
 		}
@@ -655,8 +1040,8 @@ public:
 	}
 
 	// wxImage::wxImage(const wxString & name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1)
-	static wxImage* _bind_ctor_overload_5(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_5(L)) {
+	static wxImage* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxImage::wxImage(const wxString & name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1) function, expected prototype:\nwxImage::wxImage(const wxString & name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -671,8 +1056,8 @@ public:
 	}
 
 	// wxImage::wxImage(const wxString & name, const wxString & mimetype, int index = -1)
-	static wxImage* _bind_ctor_overload_6(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_6(L)) {
+	static wxImage* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxImage::wxImage(const wxString & name, const wxString & mimetype, int index = -1) function, expected prototype:\nwxImage::wxImage(const wxString & name, const wxString & mimetype, int index = -1)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
@@ -687,8 +1072,8 @@ public:
 	}
 
 	// wxImage::wxImage(wxInputStream & stream, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1)
-	static wxImage* _bind_ctor_overload_7(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_7(L)) {
+	static wxImage* _bind_ctor_overload_11(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_11(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxImage::wxImage(wxInputStream & stream, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1) function, expected prototype:\nwxImage::wxImage(wxInputStream & stream, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -707,8 +1092,8 @@ public:
 	}
 
 	// wxImage::wxImage(wxInputStream & stream, const wxString & mimetype, int index = -1)
-	static wxImage* _bind_ctor_overload_8(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_8(L)) {
+	static wxImage* _bind_ctor_overload_12(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_12(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxImage::wxImage(wxInputStream & stream, const wxString & mimetype, int index = -1) function, expected prototype:\nwxImage::wxImage(wxInputStream & stream, const wxString & mimetype, int index = -1)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
@@ -736,8 +1121,12 @@ public:
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
 		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
+		if (_lg_typecheck_ctor_overload_11(L)) return _bind_ctor_overload_11(L);
+		if (_lg_typecheck_ctor_overload_12(L)) return _bind_ctor_overload_12(L);
 
-		luaL_error(L, "error in function wxImage, cannot match any of the overloads for function wxImage:\n  wxImage()\n  wxImage(int, int, bool)\n  wxImage(const wxSize &, bool)\n  wxImage(const char *const *)\n  wxImage(const wxString &, wxBitmapType, int)\n  wxImage(const wxString &, const wxString &, int)\n  wxImage(wxInputStream &, wxBitmapType, int)\n  wxImage(wxInputStream &, const wxString &, int)\n");
+		luaL_error(L, "error in function wxImage, cannot match any of the overloads for function wxImage:\n  wxImage()\n  wxImage(int, int, bool)\n  wxImage(const wxSize &, bool)\n  wxImage(int, int, unsigned char *, bool)\n  wxImage(const wxSize &, unsigned char *, bool)\n  wxImage(int, int, unsigned char *, unsigned char *, bool)\n  wxImage(const wxSize &, unsigned char *, unsigned char *, bool)\n  wxImage(const char *const *)\n  wxImage(const wxString &, wxBitmapType, int)\n  wxImage(const wxString &, const wxString &, int)\n  wxImage(wxInputStream &, wxBitmapType, int)\n  wxImage(wxInputStream &, const wxString &, int)\n");
 		return NULL;
 	}
 
@@ -816,12 +1205,145 @@ public:
 		return 1;
 	}
 
+	// bool wxImage::Create(int width, int height, unsigned char * data, bool static_data = false)
+	static int _bind_Create_overload_3(lua_State *L) {
+		if (!_lg_typecheck_Create_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::Create(int width, int height, unsigned char * data, bool static_data = false) function, expected prototype:\nbool wxImage::Create(int width, int height, unsigned char * data, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+		unsigned char data = (unsigned char)(lua_tointeger(L,4));
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::Create(int, int, unsigned char *, bool)");
+		}
+		bool lret = self->Create(width, height, &data, static_data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImage::Create(const wxSize & sz, unsigned char * data, bool static_data = false)
+	static int _bind_Create_overload_4(lua_State *L) {
+		if (!_lg_typecheck_Create_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::Create(const wxSize & sz, unsigned char * data, bool static_data = false) function, expected prototype:\nbool wxImage::Create(const wxSize & sz, unsigned char * data, bool static_data = false)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSize* sz_ptr=(Luna< wxSize >::check(L,2));
+		if( !sz_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::Create function");
+		}
+		const wxSize & sz=*sz_ptr;
+		unsigned char data = (unsigned char)(lua_tointeger(L,3));
+		bool static_data=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::Create(const wxSize &, unsigned char *, bool)");
+		}
+		bool lret = self->Create(sz, &data, static_data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImage::Create(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false)
+	static int _bind_Create_overload_5(lua_State *L) {
+		if (!_lg_typecheck_Create_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::Create(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false) function, expected prototype:\nbool wxImage::Create(int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+		unsigned char data = (unsigned char)(lua_tointeger(L,4));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,5));
+		bool static_data=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::Create(int, int, unsigned char *, unsigned char *, bool)");
+		}
+		bool lret = self->Create(width, height, &data, &alpha, static_data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImage::Create(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false)
+	static int _bind_Create_overload_6(lua_State *L) {
+		if (!_lg_typecheck_Create_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::Create(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false) function, expected prototype:\nbool wxImage::Create(const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSize* sz_ptr=(Luna< wxSize >::check(L,2));
+		if( !sz_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxImage::Create function");
+		}
+		const wxSize & sz=*sz_ptr;
+		unsigned char data = (unsigned char)(lua_tointeger(L,3));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::Create(const wxSize &, unsigned char *, unsigned char *, bool)");
+		}
+		bool lret = self->Create(sz, &data, &alpha, static_data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// Overload binder for wxImage::Create
 	static int _bind_Create(lua_State *L) {
 		if (_lg_typecheck_Create_overload_1(L)) return _bind_Create_overload_1(L);
 		if (_lg_typecheck_Create_overload_2(L)) return _bind_Create_overload_2(L);
+		if (_lg_typecheck_Create_overload_3(L)) return _bind_Create_overload_3(L);
+		if (_lg_typecheck_Create_overload_4(L)) return _bind_Create_overload_4(L);
+		if (_lg_typecheck_Create_overload_5(L)) return _bind_Create_overload_5(L);
+		if (_lg_typecheck_Create_overload_6(L)) return _bind_Create_overload_6(L);
 
-		luaL_error(L, "error in function Create, cannot match any of the overloads for function Create:\n  Create(int, int, bool)\n  Create(const wxSize &, bool)\n");
+		luaL_error(L, "error in function Create, cannot match any of the overloads for function Create:\n  Create(int, int, bool)\n  Create(const wxSize &, bool)\n  Create(int, int, unsigned char *, bool)\n  Create(const wxSize &, unsigned char *, bool)\n  Create(int, int, unsigned char *, unsigned char *, bool)\n  Create(const wxSize &, unsigned char *, unsigned char *, bool)\n");
+		return 0;
+	}
+
+	// void wxImage::Clear(unsigned char value = 0)
+	static int _bind_Clear(lua_State *L) {
+		if (!_lg_typecheck_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::Clear(unsigned char value = 0) function, expected prototype:\nvoid wxImage::Clear(unsigned char value = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char value = (unsigned char)(lua_tointeger(L,2));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::Clear(unsigned char)");
+		}
+		self->Clear(value);
+
 		return 0;
 	}
 
@@ -976,6 +1498,30 @@ public:
 			luaL_error(L, "Invalid object in function call void wxImage::Paste(const wxImage &, int, int)");
 		}
 		self->Paste(image, x, y);
+
+		return 0;
+	}
+
+	// void wxImage::Replace(unsigned char r1, unsigned char g1, unsigned char b1, unsigned char r2, unsigned char g2, unsigned char b2)
+	static int _bind_Replace(lua_State *L) {
+		if (!_lg_typecheck_Replace(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::Replace(unsigned char r1, unsigned char g1, unsigned char b1, unsigned char r2, unsigned char g2, unsigned char b2) function, expected prototype:\nvoid wxImage::Replace(unsigned char r1, unsigned char g1, unsigned char b1, unsigned char r2, unsigned char g2, unsigned char b2)\nClass arguments details:\n");
+		}
+
+		unsigned char r1 = (unsigned char)(lua_tointeger(L,2));
+		unsigned char g1 = (unsigned char)(lua_tointeger(L,3));
+		unsigned char b1 = (unsigned char)(lua_tointeger(L,4));
+		unsigned char r2 = (unsigned char)(lua_tointeger(L,5));
+		unsigned char g2 = (unsigned char)(lua_tointeger(L,6));
+		unsigned char b2 = (unsigned char)(lua_tointeger(L,7));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::Replace(unsigned char, unsigned char, unsigned char, unsigned char, unsigned char, unsigned char)");
+		}
+		self->Replace(r1, g1, b1, r2, g2, b2);
 
 		return 0;
 	}
@@ -1204,6 +1750,62 @@ public:
 		return 1;
 	}
 
+	// bool wxImage::ConvertAlphaToMask(unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD)
+	static int _bind_ConvertAlphaToMask_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ConvertAlphaToMask_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::ConvertAlphaToMask(unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD) function, expected prototype:\nbool wxImage::ConvertAlphaToMask(unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char threshold = (unsigned char)(lua_tointeger(L,2));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::ConvertAlphaToMask(unsigned char)");
+		}
+		bool lret = self->ConvertAlphaToMask(threshold);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImage::ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD)
+	static int _bind_ConvertAlphaToMask_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ConvertAlphaToMask_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD) function, expected prototype:\nbool wxImage::ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char mr = (unsigned char)(lua_tointeger(L,2));
+		unsigned char mg = (unsigned char)(lua_tointeger(L,3));
+		unsigned char mb = (unsigned char)(lua_tointeger(L,4));
+		unsigned char threshold = (unsigned char)(lua_tointeger(L,5));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::ConvertAlphaToMask(unsigned char, unsigned char, unsigned char, unsigned char)");
+		}
+		bool lret = self->ConvertAlphaToMask(mr, mg, mb, threshold);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxImage::ConvertAlphaToMask
+	static int _bind_ConvertAlphaToMask(lua_State *L) {
+		if (_lg_typecheck_ConvertAlphaToMask_overload_1(L)) return _bind_ConvertAlphaToMask_overload_1(L);
+		if (_lg_typecheck_ConvertAlphaToMask_overload_2(L)) return _bind_ConvertAlphaToMask_overload_2(L);
+
+		luaL_error(L, "error in function ConvertAlphaToMask, cannot match any of the overloads for function ConvertAlphaToMask:\n  ConvertAlphaToMask(unsigned char)\n  ConvertAlphaToMask(unsigned char, unsigned char, unsigned char, unsigned char)\n");
+		return 0;
+	}
+
 	// wxImage wxImage::ConvertToGreyscale(double weight_r, double weight_g, double weight_b) const
 	static int _bind_ConvertToGreyscale_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ConvertToGreyscale_overload_1(L)) {
@@ -1260,6 +1862,56 @@ public:
 		return 0;
 	}
 
+	// wxImage wxImage::ConvertToMono(unsigned char r, unsigned char g, unsigned char b) const
+	static int _bind_ConvertToMono(lua_State *L) {
+		if (!_lg_typecheck_ConvertToMono(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage wxImage::ConvertToMono(unsigned char r, unsigned char g, unsigned char b) const function, expected prototype:\nwxImage wxImage::ConvertToMono(unsigned char r, unsigned char g, unsigned char b) const\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,2));
+		unsigned char g = (unsigned char)(lua_tointeger(L,3));
+		unsigned char b = (unsigned char)(lua_tointeger(L,4));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxImage wxImage::ConvertToMono(unsigned char, unsigned char, unsigned char) const");
+		}
+		wxImage stack_lret = self->ConvertToMono(r, g, b);
+		wxImage* lret = new wxImage(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxImage >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxImage wxImage::ConvertToDisabled(unsigned char brightness = 255) const
+	static int _bind_ConvertToDisabled(lua_State *L) {
+		if (!_lg_typecheck_ConvertToDisabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImage wxImage::ConvertToDisabled(unsigned char brightness = 255) const function, expected prototype:\nwxImage wxImage::ConvertToDisabled(unsigned char brightness = 255) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char brightness = (unsigned char)(lua_tointeger(L,2));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxImage wxImage::ConvertToDisabled(unsigned char) const");
+		}
+		wxImage stack_lret = self->ConvertToDisabled(brightness);
+		wxImage* lret = new wxImage(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxImage >::push(L,lret,true);
+
+		return 1;
+	}
+
 	// unsigned long wxImage::ComputeHistogram(wxImageHistogram & histogram) const
 	static int _bind_ComputeHistogram(lua_State *L) {
 		if (!_lg_typecheck_ComputeHistogram(L)) {
@@ -1280,6 +1932,221 @@ public:
 		}
 		unsigned long lret = self->ComputeHistogram(histogram);
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxImage::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const
+	static int _bind_FindFirstUnusedColour(lua_State *L) {
+		if (!_lg_typecheck_FindFirstUnusedColour(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const function, expected prototype:\nbool wxImage::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,2));
+		unsigned char g = (unsigned char)(lua_tointeger(L,3));
+		unsigned char b = (unsigned char)(lua_tointeger(L,4));
+		unsigned char startR = (unsigned char)(lua_tointeger(L,5));
+		unsigned char startG = (unsigned char)(lua_tointeger(L,6));
+		unsigned char startB = (unsigned char)(lua_tointeger(L,7));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::FindFirstUnusedColour(unsigned char *, unsigned char *, unsigned char *, unsigned char, unsigned char, unsigned char) const");
+		}
+		bool lret = self->FindFirstUnusedColour(&r, &g, &b, startR, startG, startB);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned char * wxImage::GetAlpha() const
+	static int _bind_GetAlpha_overload_1(lua_State *L) {
+		if (!_lg_typecheck_GetAlpha_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char * wxImage::GetAlpha() const function, expected prototype:\nunsigned char * wxImage::GetAlpha() const\nClass arguments details:\n");
+		}
+
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char * wxImage::GetAlpha() const");
+		}
+		unsigned char * lret = self->GetAlpha();
+		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetAlpha(int x, int y) const
+	static int _bind_GetAlpha_overload_2(lua_State *L) {
+		if (!_lg_typecheck_GetAlpha_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetAlpha(int x, int y) const function, expected prototype:\nunsigned char wxImage::GetAlpha(int x, int y) const\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetAlpha(int, int) const");
+		}
+		unsigned char lret = self->GetAlpha(x, y);
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// Overload binder for wxImage::GetAlpha
+	static int _bind_GetAlpha(lua_State *L) {
+		if (_lg_typecheck_GetAlpha_overload_1(L)) return _bind_GetAlpha_overload_1(L);
+		if (_lg_typecheck_GetAlpha_overload_2(L)) return _bind_GetAlpha_overload_2(L);
+
+		luaL_error(L, "error in function GetAlpha, cannot match any of the overloads for function GetAlpha:\n  GetAlpha()\n  GetAlpha(int, int)\n");
+		return 0;
+	}
+
+	// unsigned char * wxImage::GetData() const
+	static int _bind_GetData(lua_State *L) {
+		if (!_lg_typecheck_GetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char * wxImage::GetData() const function, expected prototype:\nunsigned char * wxImage::GetData() const\nClass arguments details:\n");
+		}
+
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char * wxImage::GetData() const");
+		}
+		unsigned char * lret = self->GetData();
+		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetRed(int x, int y) const
+	static int _bind_GetRed(lua_State *L) {
+		if (!_lg_typecheck_GetRed(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetRed(int x, int y) const function, expected prototype:\nunsigned char wxImage::GetRed(int x, int y) const\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetRed(int, int) const");
+		}
+		unsigned char lret = self->GetRed(x, y);
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetGreen(int x, int y) const
+	static int _bind_GetGreen(lua_State *L) {
+		if (!_lg_typecheck_GetGreen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetGreen(int x, int y) const function, expected prototype:\nunsigned char wxImage::GetGreen(int x, int y) const\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetGreen(int, int) const");
+		}
+		unsigned char lret = self->GetGreen(x, y);
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetBlue(int x, int y) const
+	static int _bind_GetBlue(lua_State *L) {
+		if (!_lg_typecheck_GetBlue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetBlue(int x, int y) const function, expected prototype:\nunsigned char wxImage::GetBlue(int x, int y) const\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetBlue(int, int) const");
+		}
+		unsigned char lret = self->GetBlue(x, y);
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetMaskRed() const
+	static int _bind_GetMaskRed(lua_State *L) {
+		if (!_lg_typecheck_GetMaskRed(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetMaskRed() const function, expected prototype:\nunsigned char wxImage::GetMaskRed() const\nClass arguments details:\n");
+		}
+
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetMaskRed() const");
+		}
+		unsigned char lret = self->GetMaskRed();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetMaskGreen() const
+	static int _bind_GetMaskGreen(lua_State *L) {
+		if (!_lg_typecheck_GetMaskGreen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetMaskGreen() const function, expected prototype:\nunsigned char wxImage::GetMaskGreen() const\nClass arguments details:\n");
+		}
+
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetMaskGreen() const");
+		}
+		unsigned char lret = self->GetMaskGreen();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxImage::GetMaskBlue() const
+	static int _bind_GetMaskBlue(lua_State *L) {
+		if (!_lg_typecheck_GetMaskBlue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxImage::GetMaskBlue() const function, expected prototype:\nunsigned char wxImage::GetMaskBlue() const\nClass arguments details:\n");
+		}
+
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxImage::GetMaskBlue() const");
+		}
+		unsigned char lret = self->GetMaskBlue();
+		lua_pushnumber(L,(int)lret);
 
 		return 1;
 	}
@@ -1380,6 +2247,28 @@ public:
 		}
 		int lret = self->GetOptionInt(name);
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxImage::GetOrFindMaskColour(unsigned char * r, unsigned char * g, unsigned char * b) const
+	static int _bind_GetOrFindMaskColour(lua_State *L) {
+		if (!_lg_typecheck_GetOrFindMaskColour(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::GetOrFindMaskColour(unsigned char * r, unsigned char * g, unsigned char * b) const function, expected prototype:\nbool wxImage::GetOrFindMaskColour(unsigned char * r, unsigned char * g, unsigned char * b) const\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,2));
+		unsigned char g = (unsigned char)(lua_tointeger(L,3));
+		unsigned char b = (unsigned char)(lua_tointeger(L,4));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::GetOrFindMaskColour(unsigned char *, unsigned char *, unsigned char *) const");
+		}
+		bool lret = self->GetOrFindMaskColour(&r, &g, &b);
+		lua_pushboolean(L,lret?1:0);
 
 		return 1;
 	}
@@ -1523,6 +2412,30 @@ public:
 			luaL_error(L, "Invalid object in function call bool wxImage::IsOk() const");
 		}
 		bool lret = self->IsOk();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImage::IsTransparent(int x, int y, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD) const
+	static int _bind_IsTransparent(lua_State *L) {
+		if (!_lg_typecheck_IsTransparent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::IsTransparent(int x, int y, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD) const function, expected prototype:\nbool wxImage::IsTransparent(int x, int y, unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		unsigned char threshold = (unsigned char)(lua_tointeger(L,4));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::IsTransparent(int, int, unsigned char) const");
+		}
+		bool lret = self->IsTransparent(x, y, threshold);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1767,6 +2680,58 @@ public:
 		return 0;
 	}
 
+	// void wxImage::SetAlpha(unsigned char * alpha = NULL, bool static_data = false)
+	static int _bind_SetAlpha_overload_1(lua_State *L) {
+		if (!_lg_typecheck_SetAlpha_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetAlpha(unsigned char * alpha = NULL, bool static_data = false) function, expected prototype:\nvoid wxImage::SetAlpha(unsigned char * alpha = NULL, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetAlpha(unsigned char *, bool)");
+		}
+		self->SetAlpha(&alpha, static_data);
+
+		return 0;
+	}
+
+	// void wxImage::SetAlpha(int x, int y, unsigned char alpha)
+	static int _bind_SetAlpha_overload_2(lua_State *L) {
+		if (!_lg_typecheck_SetAlpha_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetAlpha(int x, int y, unsigned char alpha) function, expected prototype:\nvoid wxImage::SetAlpha(int x, int y, unsigned char alpha)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetAlpha(int, int, unsigned char)");
+		}
+		self->SetAlpha(x, y, alpha);
+
+		return 0;
+	}
+
+	// Overload binder for wxImage::SetAlpha
+	static int _bind_SetAlpha(lua_State *L) {
+		if (_lg_typecheck_SetAlpha_overload_1(L)) return _bind_SetAlpha_overload_1(L);
+		if (_lg_typecheck_SetAlpha_overload_2(L)) return _bind_SetAlpha_overload_2(L);
+
+		luaL_error(L, "error in function SetAlpha, cannot match any of the overloads for function SetAlpha:\n  SetAlpha(unsigned char *, bool)\n  SetAlpha(int, int, unsigned char)\n");
+		return 0;
+	}
+
 	// void wxImage::ClearAlpha()
 	static int _bind_ClearAlpha(lua_State *L) {
 		if (!_lg_typecheck_ClearAlpha(L)) {
@@ -1782,6 +2747,61 @@ public:
 		}
 		self->ClearAlpha();
 
+		return 0;
+	}
+
+	// void wxImage::SetData(unsigned char * data, bool static_data = false)
+	static int _bind_SetData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_SetData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetData(unsigned char * data, bool static_data = false) function, expected prototype:\nvoid wxImage::SetData(unsigned char * data, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char data = (unsigned char)(lua_tointeger(L,2));
+		bool static_data=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetData(unsigned char *, bool)");
+		}
+		self->SetData(&data, static_data);
+
+		return 0;
+	}
+
+	// void wxImage::SetData(unsigned char * data, int new_width, int new_height, bool static_data = false)
+	static int _bind_SetData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_SetData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetData(unsigned char * data, int new_width, int new_height, bool static_data = false) function, expected prototype:\nvoid wxImage::SetData(unsigned char * data, int new_width, int new_height, bool static_data = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char data = (unsigned char)(lua_tointeger(L,2));
+		int new_width=(int)lua_tointeger(L,3);
+		int new_height=(int)lua_tointeger(L,4);
+		bool static_data=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetData(unsigned char *, int, int, bool)");
+		}
+		self->SetData(&data, new_width, new_height, static_data);
+
+		return 0;
+	}
+
+	// Overload binder for wxImage::SetData
+	static int _bind_SetData(lua_State *L) {
+		if (_lg_typecheck_SetData_overload_1(L)) return _bind_SetData_overload_1(L);
+		if (_lg_typecheck_SetData_overload_2(L)) return _bind_SetData_overload_2(L);
+
+		luaL_error(L, "error in function SetData, cannot match any of the overloads for function SetData:\n  SetData(unsigned char *, bool)\n  SetData(unsigned char *, int, int, bool)\n");
 		return 0;
 	}
 
@@ -1804,6 +2824,54 @@ public:
 		self->SetMask(hasMask);
 
 		return 0;
+	}
+
+	// void wxImage::SetMaskColour(unsigned char red, unsigned char green, unsigned char blue)
+	static int _bind_SetMaskColour(lua_State *L) {
+		if (!_lg_typecheck_SetMaskColour(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetMaskColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxImage::SetMaskColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n");
+		}
+
+		unsigned char red = (unsigned char)(lua_tointeger(L,2));
+		unsigned char green = (unsigned char)(lua_tointeger(L,3));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,4));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetMaskColour(unsigned char, unsigned char, unsigned char)");
+		}
+		self->SetMaskColour(red, green, blue);
+
+		return 0;
+	}
+
+	// bool wxImage::SetMaskFromImage(const wxImage & mask, unsigned char mr, unsigned char mg, unsigned char mb)
+	static int _bind_SetMaskFromImage(lua_State *L) {
+		if (!_lg_typecheck_SetMaskFromImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImage::SetMaskFromImage(const wxImage & mask, unsigned char mr, unsigned char mg, unsigned char mb) function, expected prototype:\nbool wxImage::SetMaskFromImage(const wxImage & mask, unsigned char mr, unsigned char mg, unsigned char mb)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxImage* mask_ptr=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
+		if( !mask_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mask in wxImage::SetMaskFromImage function");
+		}
+		const wxImage & mask=*mask_ptr;
+		unsigned char mr = (unsigned char)(lua_tointeger(L,3));
+		unsigned char mg = (unsigned char)(lua_tointeger(L,4));
+		unsigned char mb = (unsigned char)(lua_tointeger(L,5));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImage::SetMaskFromImage(const wxImage &, unsigned char, unsigned char, unsigned char)");
+		}
+		bool lret = self->SetMaskFromImage(mask, mr, mg, mb);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 	// void wxImage::SetOption(const wxString & name, const wxString & value)
@@ -1874,6 +2942,32 @@ public:
 			luaL_error(L, "Invalid object in function call void wxImage::SetPalette(const wxPalette &)");
 		}
 		self->SetPalette(palette);
+
+		return 0;
+	}
+
+	// void wxImage::SetRGB(const wxRect & rect, unsigned char red, unsigned char green, unsigned char blue)
+	static int _bind_SetRGB(lua_State *L) {
+		if (!_lg_typecheck_SetRGB(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxImage::SetRGB(const wxRect & rect, unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxImage::SetRGB(const wxRect & rect, unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\narg 1 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxImage::SetRGB function");
+		}
+		const wxRect & rect=*rect_ptr;
+		unsigned char red = (unsigned char)(lua_tointeger(L,3));
+		unsigned char green = (unsigned char)(lua_tointeger(L,4));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,5));
+
+		wxImage* self=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxImage::SetRGB(const wxRect &, unsigned char, unsigned char, unsigned char)");
+		}
+		self->SetRGB(rect, red, green, blue);
 
 		return 0;
 	}
@@ -2157,6 +3251,7 @@ const int LunaTraits< wxImage >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxImage >::methods[] = {
 	{"Copy", &luna_wrapper_wxImage::_bind_Copy},
 	{"Create", &luna_wrapper_wxImage::_bind_Create},
+	{"Clear", &luna_wrapper_wxImage::_bind_Clear},
 	{"Destroy", &luna_wrapper_wxImage::_bind_Destroy},
 	{"InitAlpha", &luna_wrapper_wxImage::_bind_InitAlpha},
 	{"Blur", &luna_wrapper_wxImage::_bind_Blur},
@@ -2164,6 +3259,7 @@ luna_RegType LunaTraits< wxImage >::methods[] = {
 	{"BlurVertical", &luna_wrapper_wxImage::_bind_BlurVertical},
 	{"Mirror", &luna_wrapper_wxImage::_bind_Mirror},
 	{"Paste", &luna_wrapper_wxImage::_bind_Paste},
+	{"Replace", &luna_wrapper_wxImage::_bind_Replace},
 	{"Rescale", &luna_wrapper_wxImage::_bind_Rescale},
 	{"Resize", &luna_wrapper_wxImage::_bind_Resize},
 	{"Rotate", &luna_wrapper_wxImage::_bind_Rotate},
@@ -2172,13 +3268,26 @@ luna_RegType LunaTraits< wxImage >::methods[] = {
 	{"RotateHue", &luna_wrapper_wxImage::_bind_RotateHue},
 	{"Scale", &luna_wrapper_wxImage::_bind_Scale},
 	{"Size", &luna_wrapper_wxImage::_bind_Size},
+	{"ConvertAlphaToMask", &luna_wrapper_wxImage::_bind_ConvertAlphaToMask},
 	{"ConvertToGreyscale", &luna_wrapper_wxImage::_bind_ConvertToGreyscale},
+	{"ConvertToMono", &luna_wrapper_wxImage::_bind_ConvertToMono},
+	{"ConvertToDisabled", &luna_wrapper_wxImage::_bind_ConvertToDisabled},
 	{"ComputeHistogram", &luna_wrapper_wxImage::_bind_ComputeHistogram},
+	{"FindFirstUnusedColour", &luna_wrapper_wxImage::_bind_FindFirstUnusedColour},
+	{"GetAlpha", &luna_wrapper_wxImage::_bind_GetAlpha},
+	{"GetData", &luna_wrapper_wxImage::_bind_GetData},
+	{"GetRed", &luna_wrapper_wxImage::_bind_GetRed},
+	{"GetGreen", &luna_wrapper_wxImage::_bind_GetGreen},
+	{"GetBlue", &luna_wrapper_wxImage::_bind_GetBlue},
+	{"GetMaskRed", &luna_wrapper_wxImage::_bind_GetMaskRed},
+	{"GetMaskGreen", &luna_wrapper_wxImage::_bind_GetMaskGreen},
+	{"GetMaskBlue", &luna_wrapper_wxImage::_bind_GetMaskBlue},
 	{"GetWidth", &luna_wrapper_wxImage::_bind_GetWidth},
 	{"GetHeight", &luna_wrapper_wxImage::_bind_GetHeight},
 	{"GetSize", &luna_wrapper_wxImage::_bind_GetSize},
 	{"GetOption", &luna_wrapper_wxImage::_bind_GetOption},
 	{"GetOptionInt", &luna_wrapper_wxImage::_bind_GetOptionInt},
+	{"GetOrFindMaskColour", &luna_wrapper_wxImage::_bind_GetOrFindMaskColour},
 	{"GetPalette", &luna_wrapper_wxImage::_bind_GetPalette},
 	{"GetSubImage", &luna_wrapper_wxImage::_bind_GetSubImage},
 	{"GetType", &luna_wrapper_wxImage::_bind_GetType},
@@ -2186,12 +3295,18 @@ luna_RegType LunaTraits< wxImage >::methods[] = {
 	{"HasMask", &luna_wrapper_wxImage::_bind_HasMask},
 	{"HasOption", &luna_wrapper_wxImage::_bind_HasOption},
 	{"IsOk", &luna_wrapper_wxImage::_bind_IsOk},
+	{"IsTransparent", &luna_wrapper_wxImage::_bind_IsTransparent},
 	{"LoadFile", &luna_wrapper_wxImage::_bind_LoadFile},
 	{"SaveFile", &luna_wrapper_wxImage::_bind_SaveFile},
+	{"SetAlpha", &luna_wrapper_wxImage::_bind_SetAlpha},
 	{"ClearAlpha", &luna_wrapper_wxImage::_bind_ClearAlpha},
+	{"SetData", &luna_wrapper_wxImage::_bind_SetData},
 	{"SetMask", &luna_wrapper_wxImage::_bind_SetMask},
+	{"SetMaskColour", &luna_wrapper_wxImage::_bind_SetMaskColour},
+	{"SetMaskFromImage", &luna_wrapper_wxImage::_bind_SetMaskFromImage},
 	{"SetOption", &luna_wrapper_wxImage::_bind_SetOption},
 	{"SetPalette", &luna_wrapper_wxImage::_bind_SetPalette},
+	{"SetRGB", &luna_wrapper_wxImage::_bind_SetRGB},
 	{"SetType", &luna_wrapper_wxImage::_bind_SetType},
 	{"AddHandler", &luna_wrapper_wxImage::_bind_AddHandler},
 	{"CleanUpHandlers", &luna_wrapper_wxImage::_bind_CleanUpHandlers},

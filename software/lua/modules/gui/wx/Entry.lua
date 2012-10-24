@@ -32,6 +32,10 @@ function Class:initialize(options)
 	end
 end
 
+function Class:getDefaultValue()
+	return self._defaultValue
+end
+
 function Class:getGroupName()
 	return self._groupName
 end
@@ -55,7 +59,7 @@ function Class:addChild(child)
 end
 
 function Class:updateValue()
-    self:info("Updating value for entry ",self:getName())
+    --self:info("Updating value for entry ",self:getName())
     if self._type == "void" or self._type == "dummy" then
         self._value = self._provider:getCurrentItem();
         return self._value;

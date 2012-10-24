@@ -5,6 +5,7 @@ local wx = require "wx"
 local i18n = require "i18n"
 local cfg = require "config"
 local evtman = require "gui.EventManager"
+local winman = require "gui.wx.WindowManager"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
@@ -32,6 +33,8 @@ function Class:initialize(options)
 		self:debug("Destroying mainframe."); 
 		self._frame:Destroy(); 
 	end)
+	
+	winman:setMainFrame(self._frame)
 	
 	self:debug("Mainframe initialization done.")
 end

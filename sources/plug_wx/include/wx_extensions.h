@@ -5,6 +5,12 @@
 #include "LuaEventHandler.h"
 
 /** LUNA_CLASS_EXTENSION */
+int GetX(wxPoint* point);
+
+/** LUNA_CLASS_EXTENSION */
+int GetY(wxPoint* point);
+
+/** LUNA_CLASS_EXTENSION */
 bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType);
 
 /** LUNA_CLASS_EXTENSION */

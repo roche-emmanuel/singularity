@@ -1133,7 +1133,13 @@ function ReflectionGenerator.generate(options)
         local set = Set(v)
         map:set(k,set)
     end
+
+	local tm = require "bindings.TypeManager"
 	
+    for src,dest in pairs(options.mappedBaseTypes or {}) do
+		tm:addBaseTypeMapping(src,dest)
+    end
+    	
 	log:info("Xml source path: ",options.xmlpath)
 	log:info("Lua module name: ",options.luaOpenName)
 	log:info("Default module name: ",options.modName)

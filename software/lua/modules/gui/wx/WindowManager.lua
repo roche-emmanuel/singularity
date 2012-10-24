@@ -9,8 +9,12 @@ function Class:initialize(options)
 	self._interfaces = Set();
 end
 
+function Class:setMainFrame(frame)
+	self._mainFrame = frame
+end
+
 function Class:getMainFrame()
-	self:no_impl()
+	return self._mainFrame
 end
 
 function Class:getAUIManager()

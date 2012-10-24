@@ -56,6 +56,12 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_GetFailureBehavior(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetFailureMessage(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -83,6 +89,25 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// unsigned char wxPGValidationInfo::GetFailureBehavior()
+	static int _bind_GetFailureBehavior(lua_State *L) {
+		if (!_lg_typecheck_GetFailureBehavior(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxPGValidationInfo::GetFailureBehavior() function, expected prototype:\nunsigned char wxPGValidationInfo::GetFailureBehavior()\nClass arguments details:\n");
+		}
+
+
+		wxPGValidationInfo* self=(Luna< wxPGValidationInfo >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxPGValidationInfo::GetFailureBehavior()");
+		}
+		unsigned char lret = self->GetFailureBehavior();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
 	// const wxString & wxPGValidationInfo::GetFailureMessage() const
 	static int _bind_GetFailureMessage(lua_State *L) {
 		if (!_lg_typecheck_GetFailureMessage(L)) {
@@ -161,6 +186,7 @@ const int LunaTraits< wxPGValidationInfo >::hash = 78254748;
 const int LunaTraits< wxPGValidationInfo >::uniqueIDs[] = {78254748,0};
 
 luna_RegType LunaTraits< wxPGValidationInfo >::methods[] = {
+	{"GetFailureBehavior", &luna_wrapper_wxPGValidationInfo::_bind_GetFailureBehavior},
 	{"GetFailureMessage", &luna_wrapper_wxPGValidationInfo::_bind_GetFailureMessage},
 	{"SetFailureBehavior", &luna_wrapper_wxPGValidationInfo::_bind_SetFailureBehavior},
 	{"SetFailureMessage", &luna_wrapper_wxPGValidationInfo::_bind_SetFailureMessage},

@@ -94,6 +94,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_Read8(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Read8S(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_ReadDouble(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -237,6 +253,50 @@ public:
 		return 1;
 	}
 
+	// unsigned char wxTextInputStream::Read8(int base = 10)
+	static int _bind_Read8(lua_State *L) {
+		if (!_lg_typecheck_Read8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxTextInputStream::Read8(int base = 10) function, expected prototype:\nunsigned char wxTextInputStream::Read8(int base = 10)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+
+		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxTextInputStream::Read8(int)");
+		}
+		unsigned char lret = self->Read8(base);
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// signed char wxTextInputStream::Read8S(int base = 10)
+	static int _bind_Read8S(lua_State *L) {
+		if (!_lg_typecheck_Read8S(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in signed char wxTextInputStream::Read8S(int base = 10) function, expected prototype:\nsigned char wxTextInputStream::Read8S(int base = 10)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int base=luatop>1 ? (int)lua_tointeger(L,2) : 10;
+
+		wxTextInputStream* self=(Luna< wxTextInputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call signed char wxTextInputStream::Read8S(int)");
+		}
+		signed char lret = self->Read8S(base);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// double wxTextInputStream::ReadDouble()
 	static int _bind_ReadDouble(lua_State *L) {
 		if (!_lg_typecheck_ReadDouble(L)) {
@@ -339,6 +399,8 @@ luna_RegType LunaTraits< wxTextInputStream >::methods[] = {
 	{"Read16S", &luna_wrapper_wxTextInputStream::_bind_Read16S},
 	{"Read32", &luna_wrapper_wxTextInputStream::_bind_Read32},
 	{"Read32S", &luna_wrapper_wxTextInputStream::_bind_Read32S},
+	{"Read8", &luna_wrapper_wxTextInputStream::_bind_Read8},
+	{"Read8S", &luna_wrapper_wxTextInputStream::_bind_Read8S},
 	{"ReadDouble", &luna_wrapper_wxTextInputStream::_bind_ReadDouble},
 	{"ReadLine", &luna_wrapper_wxTextInputStream::_bind_ReadLine},
 	{"ReadWord", &luna_wrapper_wxTextInputStream::_bind_ReadWord},

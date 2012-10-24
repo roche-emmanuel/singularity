@@ -296,6 +296,13 @@ template <typename T> class Luna {
         return contains_id(ud->uniqueIDs,id);
 	}
 
+	// This is dangerous, but we may need it sometimes:
+	inline static T* rawPointer(lua_State *L, int narg){
+		userdataType* ud=static_cast<userdataType*>(lua_touserdata(L,narg));
+		if(!ud) { printf("checkRaw: ud==nil\n"); luaL_typerror(L, narg, T_interface::className); }
+		
+		return ud->pT; 
+	}
 	inline static T* checkRaw(lua_State *L, int narg){
 		userdataType* ud=static_cast<userdataType*>(lua_touserdata(L,narg));
 		if(!ud) { printf("checkRaw: ud==nil\n"); luaL_typerror(L, narg, T_interface::className); }

@@ -9,7 +9,7 @@ function Class:initialize(options)
 	options = options or {}
 	self._separator = cfg.default_separator or "."
 	self._dataHolder = options.dataHolder or {}
-	self:info("Created container with dataHolder=",self._dataHolder)
+	--self:info("Created container with dataHolder=",self._dataHolder)
 end
 
 function Class:setDataHolder(holder)
@@ -83,12 +83,12 @@ function Class:getSubContainerForEntry(entryName)
 	
 	local cont = self
 	for i=1,num do
-		cont:info("Retrieving subcontainer '",names[i],"'");
+		--cont:info("Retrieving subcontainer '",names[i],"'");
 		cont = cont:getLocalSubContainer(names[i])
 		self:check(cont,"Invalid sub container for '",names[i],"' in key '",entryName,"'")
 	end 
 
-	self:info("last key name is :",lastName)
+	--self:info("last key name is :",lastName)
 	return cont, lastName;
 end
 

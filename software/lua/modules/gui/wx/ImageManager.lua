@@ -97,4 +97,9 @@ function Class:getBitmap(options)
     return wx.wxBitmap(img,-1);
 end
 
+function Class:getCursor(options)
+    local img = self:getImage(options);
+    return wx.wxCursor(img);
+end
+
 return Class()

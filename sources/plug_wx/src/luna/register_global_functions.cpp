@@ -925,6 +925,12 @@ inline static bool _lg_typecheck_wxGetMousePosition(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_wxGetMouseState(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
 inline static bool _lg_typecheck_wxEnableTopLevelWindows(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>1 ) return false;
@@ -3187,6 +3193,23 @@ static int _bind_wxGetMousePosition(lua_State *L) {
 	return 1;
 }
 
+// wxMouseState wxGetMouseState()
+static int _bind_wxGetMouseState(lua_State *L) {
+	if (!_lg_typecheck_wxGetMouseState(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in wxMouseState wxGetMouseState() function, expected prototype:\nwxMouseState wxGetMouseState()\nClass arguments details:\n");
+	}
+
+
+	wxMouseState stack_lret = wxGetMouseState();
+	wxMouseState* lret = new wxMouseState(stack_lret);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< wxMouseState >::push(L,lret,true);
+
+	return 1;
+}
+
 // void wxEnableTopLevelWindows(bool enable = true)
 static int _bind_wxEnableTopLevelWindows(lua_State *L) {
 	if (!_lg_typecheck_wxEnableTopLevelWindows(L)) {
@@ -4006,6 +4029,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_wxGetPowerType); lua_setfield(L,-2,"wxGetPowerType");
 	lua_pushcfunction(L, _bind_wxGetKeyState); lua_setfield(L,-2,"wxGetKeyState");
 	lua_pushcfunction(L, _bind_wxGetMousePosition); lua_setfield(L,-2,"wxGetMousePosition");
+	lua_pushcfunction(L, _bind_wxGetMouseState); lua_setfield(L,-2,"wxGetMouseState");
 	lua_pushcfunction(L, _bind_wxEnableTopLevelWindows); lua_setfield(L,-2,"wxEnableTopLevelWindows");
 	lua_pushcfunction(L, _bind_wxFindWindowAtPoint); lua_setfield(L,-2,"wxFindWindowAtPoint");
 	lua_pushcfunction(L, _bind_wxFindWindowByLabel); lua_setfield(L,-2,"wxFindWindowByLabel");

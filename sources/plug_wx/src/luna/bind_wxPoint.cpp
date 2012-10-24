@@ -91,6 +91,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_GetX(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,25723480)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetY(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,25723480)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 4 valid operators)
@@ -220,6 +234,36 @@ public:
 		self->SetDefaults(pt);
 
 		return 0;
+	}
+
+	// int wxPoint::GetX(wxPoint * point)
+	static int _bind_GetX(lua_State *L) {
+		if (!_lg_typecheck_GetX(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPoint::GetX(wxPoint * point) function, expected prototype:\nint wxPoint::GetX(wxPoint * point)\nClass arguments details:\narg 1 ID = 25723480\n");
+		}
+
+		wxPoint* point=(Luna< wxPoint >::check(L,1));
+
+		int lret = GetX(point);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxPoint::GetY(wxPoint * point)
+	static int _bind_GetY(lua_State *L) {
+		if (!_lg_typecheck_GetY(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPoint::GetY(wxPoint * point) function, expected prototype:\nint wxPoint::GetY(wxPoint * point)\nClass arguments details:\narg 1 ID = 25723480\n");
+		}
+
+		wxPoint* point=(Luna< wxPoint >::check(L,1));
+
+		int lret = GetY(point);
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -367,6 +411,8 @@ const int LunaTraits< wxPoint >::uniqueIDs[] = {25723480,0};
 luna_RegType LunaTraits< wxPoint >::methods[] = {
 	{"IsFullySpecified", &luna_wrapper_wxPoint::_bind_IsFullySpecified},
 	{"SetDefaults", &luna_wrapper_wxPoint::_bind_SetDefaults},
+	{"GetX", &luna_wrapper_wxPoint::_bind_GetX},
+	{"GetY", &luna_wrapper_wxPoint::_bind_GetY},
 	{"op_add", &luna_wrapper_wxPoint::_bind_op_add},
 	{"op_sub", &luna_wrapper_wxPoint::_bind_op_sub},
 	{"dynCast", &luna_wrapper_wxPoint::_bind_dynCast},

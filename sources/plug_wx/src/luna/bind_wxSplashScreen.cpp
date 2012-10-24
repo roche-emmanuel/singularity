@@ -87,11 +87,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE |wxFRAME_NO_TASKBAR| wxSTAY_ON_TOP)
+	// wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)
 	static wxSplashScreen* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE |wxFRAME_NO_TASKBAR| wxSTAY_ON_TOP) function, expected prototype:\nwxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE |wxFRAME_NO_TASKBAR| wxSTAY_ON_TOP)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 25723480\narg 7 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) function, expected prototype:\nwxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 25723480\narg 7 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -115,7 +115,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplashScreen::wxSplashScreen function");
 		}
 		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxBORDER_SIMPLE |wxFRAME_NO_TASKBAR| wxSTAY_ON_TOP;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP;
 
 		return new wxSplashScreen(bitmap, splashStyle, milliseconds, parent, id, pos, size, style);
 	}

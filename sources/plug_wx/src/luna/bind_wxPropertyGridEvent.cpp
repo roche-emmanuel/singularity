@@ -64,6 +64,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_GetValidationFailureBehavior(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetPropertyName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -193,6 +199,25 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxPGProperty >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// unsigned char wxPropertyGridEvent::GetValidationFailureBehavior() const
+	static int _bind_GetValidationFailureBehavior(lua_State *L) {
+		if (!_lg_typecheck_GetValidationFailureBehavior(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxPropertyGridEvent::GetValidationFailureBehavior() const function, expected prototype:\nunsigned char wxPropertyGridEvent::GetValidationFailureBehavior() const\nClass arguments details:\n");
+		}
+
+
+		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxPropertyGridEvent::GetValidationFailureBehavior() const");
+		}
+		unsigned char lret = self->GetValidationFailureBehavior();
+		lua_pushnumber(L,(int)lret);
 
 		return 1;
 	}
@@ -361,6 +386,7 @@ luna_RegType LunaTraits< wxPropertyGridEvent >::methods[] = {
 	{"GetColumn", &luna_wrapper_wxPropertyGridEvent::_bind_GetColumn},
 	{"GetMainParent", &luna_wrapper_wxPropertyGridEvent::_bind_GetMainParent},
 	{"GetProperty", &luna_wrapper_wxPropertyGridEvent::_bind_GetProperty},
+	{"GetValidationFailureBehavior", &luna_wrapper_wxPropertyGridEvent::_bind_GetValidationFailureBehavior},
 	{"GetPropertyName", &luna_wrapper_wxPropertyGridEvent::_bind_GetPropertyName},
 	{"SetCanVeto", &luna_wrapper_wxPropertyGridEvent::_bind_SetCanVeto},
 	{"SetProperty", &luna_wrapper_wxPropertyGridEvent::_bind_SetProperty},

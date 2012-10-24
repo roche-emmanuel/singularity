@@ -3,11 +3,9 @@ local Class = require("classBuilder"){name="ControlInterface",bases="gui.wx.Basi
 local im = require "gui.wx.ImageManager"
 local utils = require "utils"
 local wx = require "wx"
-local winman = require "gui.wx.WindowManager"
+require "extensions.wx"
 
-wx.wxDefaultPosition = wx.wxPoint(-1,-1);
-wx.wxDefaultSize = wx.wxSize(-1,-1);
-wx.wxDefaultValidator = wx.wxValidator();
+local winman = require "gui.wx.WindowManager"
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)

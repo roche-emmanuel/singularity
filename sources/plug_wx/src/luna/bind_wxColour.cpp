@@ -25,20 +25,31 @@ public:
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isstring(L,1)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
@@ -48,6 +59,18 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_Alpha(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Blue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetAsString(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -88,30 +111,114 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_Green(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_IsOk(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
 	}
 
+	inline static bool _lg_typecheck_Red(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_Set_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Set_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Set_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ChangeLightness(lua_State *L) {
+	inline static bool _lg_typecheck_ChangeLightness_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ChangeLightness_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_MakeMono(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_MakeDisabled(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_MakeGrey_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_MakeGrey_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_AlphaBlend(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -145,9 +252,26 @@ public:
 		return new wxColour();
 	}
 
-	// wxColour::wxColour(const wxString & colourName)
+	// wxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)
 	static wxColour* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nwxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char red = (unsigned char)(lua_tointeger(L,1));
+		unsigned char green = (unsigned char)(lua_tointeger(L,2));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,3));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,4));
+
+		return new wxColour(red, green, blue, alpha);
+	}
+
+	// wxColour::wxColour(const wxString & colourName)
+	static wxColour* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxString & colourName) function, expected prototype:\nwxColour::wxColour(const wxString & colourName)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -158,8 +282,8 @@ public:
 	}
 
 	// wxColour::wxColour(unsigned long colRGB)
-	static wxColour* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
+	static wxColour* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned long colRGB) function, expected prototype:\nwxColour::wxColour(unsigned long colRGB)\nClass arguments details:\n");
 		}
@@ -170,8 +294,8 @@ public:
 	}
 
 	// wxColour::wxColour(const wxColour & colour)
-	static wxColour* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
+	static wxColour* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxColour & colour) function, expected prototype:\nwxColour::wxColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -191,13 +315,52 @@ public:
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
 
-		luaL_error(L, "error in function wxColour, cannot match any of the overloads for function wxColour:\n  wxColour()\n  wxColour(const wxString &)\n  wxColour(unsigned long)\n  wxColour(const wxColour &)\n");
+		luaL_error(L, "error in function wxColour, cannot match any of the overloads for function wxColour:\n  wxColour()\n  wxColour(unsigned char, unsigned char, unsigned char, unsigned char)\n  wxColour(const wxString &)\n  wxColour(unsigned long)\n  wxColour(const wxColour &)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
+	// unsigned char wxColour::Alpha() const
+	static int _bind_Alpha(lua_State *L) {
+		if (!_lg_typecheck_Alpha(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Alpha() const function, expected prototype:\nunsigned char wxColour::Alpha() const\nClass arguments details:\n");
+		}
+
+
+		wxColour* self=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Alpha() const");
+		}
+		unsigned char lret = self->Alpha();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// unsigned char wxColour::Blue() const
+	static int _bind_Blue(lua_State *L) {
+		if (!_lg_typecheck_Blue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Blue() const function, expected prototype:\nunsigned char wxColour::Blue() const\nClass arguments details:\n");
+		}
+
+
+		wxColour* self=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Blue() const");
+		}
+		unsigned char lret = self->Blue();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
 	// wxString wxColour::GetAsString(long flags = wxC2S_NAME | wxC2S_CSS_SYNTAX) const
 	static int _bind_GetAsString(lua_State *L) {
 		if (!_lg_typecheck_GetAsString(L)) {
@@ -315,6 +478,25 @@ public:
 		return 1;
 	}
 
+	// unsigned char wxColour::Green() const
+	static int _bind_Green(lua_State *L) {
+		if (!_lg_typecheck_Green(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Green() const function, expected prototype:\nunsigned char wxColour::Green() const\nClass arguments details:\n");
+		}
+
+
+		wxColour* self=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Green() const");
+		}
+		unsigned char lret = self->Green();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
 	// bool wxColour::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
@@ -334,9 +516,52 @@ public:
 		return 1;
 	}
 
-	// void wxColour::Set(unsigned long RGB)
+	// unsigned char wxColour::Red() const
+	static int _bind_Red(lua_State *L) {
+		if (!_lg_typecheck_Red(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Red() const function, expected prototype:\nunsigned char wxColour::Red() const\nClass arguments details:\n");
+		}
+
+
+		wxColour* self=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Red() const");
+		}
+		unsigned char lret = self->Red();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
+	// void wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)
 	static int _bind_Set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nvoid wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char red = (unsigned char)(lua_tointeger(L,2));
+		unsigned char green = (unsigned char)(lua_tointeger(L,3));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,4));
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,5));
+
+		wxColour* self=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned char, unsigned char, unsigned char, unsigned char)");
+		}
+		self->Set(red, green, blue, alpha);
+
+		return 0;
+	}
+
+	// void wxColour::Set(unsigned long RGB)
+	static int _bind_Set_overload_2(lua_State *L) {
+		if (!_lg_typecheck_Set_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned long RGB) function, expected prototype:\nvoid wxColour::Set(unsigned long RGB)\nClass arguments details:\n");
 		}
@@ -354,8 +579,8 @@ public:
 	}
 
 	// bool wxColour::Set(const wxString & str)
-	static int _bind_Set_overload_2(lua_State *L) {
-		if (!_lg_typecheck_Set_overload_2(L)) {
+	static int _bind_Set_overload_3(lua_State *L) {
+		if (!_lg_typecheck_Set_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in bool wxColour::Set(const wxString & str) function, expected prototype:\nbool wxColour::Set(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -377,14 +602,15 @@ public:
 	static int _bind_Set(lua_State *L) {
 		if (_lg_typecheck_Set_overload_1(L)) return _bind_Set_overload_1(L);
 		if (_lg_typecheck_Set_overload_2(L)) return _bind_Set_overload_2(L);
+		if (_lg_typecheck_Set_overload_3(L)) return _bind_Set_overload_3(L);
 
-		luaL_error(L, "error in function Set, cannot match any of the overloads for function Set:\n  Set(unsigned long)\n  Set(const wxString &)\n");
+		luaL_error(L, "error in function Set, cannot match any of the overloads for function Set:\n  Set(unsigned char, unsigned char, unsigned char, unsigned char)\n  Set(unsigned long)\n  Set(const wxString &)\n");
 		return 0;
 	}
 
 	// wxColour wxColour::ChangeLightness(int ialpha) const
-	static int _bind_ChangeLightness(lua_State *L) {
-		if (!_lg_typecheck_ChangeLightness(L)) {
+	static int _bind_ChangeLightness_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ChangeLightness_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColour wxColour::ChangeLightness(int ialpha) const function, expected prototype:\nwxColour wxColour::ChangeLightness(int ialpha) const\nClass arguments details:\n");
 		}
@@ -401,6 +627,129 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxColour >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// static void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha)
+	static int _bind_ChangeLightness_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ChangeLightness_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha) function, expected prototype:\nstatic void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha)\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+		int ialpha=(int)lua_tointeger(L,4);
+
+		wxColour::ChangeLightness(&r, &g, &b, ialpha);
+
+		return 0;
+	}
+
+	// Overload binder for wxColour::ChangeLightness
+	static int _bind_ChangeLightness(lua_State *L) {
+		if (_lg_typecheck_ChangeLightness_overload_1(L)) return _bind_ChangeLightness_overload_1(L);
+		if (_lg_typecheck_ChangeLightness_overload_2(L)) return _bind_ChangeLightness_overload_2(L);
+
+		luaL_error(L, "error in function ChangeLightness, cannot match any of the overloads for function ChangeLightness:\n  ChangeLightness(int)\n  ChangeLightness(unsigned char *, unsigned char *, unsigned char *, int)\n");
+		return 0;
+	}
+
+	// static void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on)
+	static int _bind_MakeMono(lua_State *L) {
+		if (!_lg_typecheck_MakeMono(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on) function, expected prototype:\nstatic void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on)\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+		bool on=(bool)(lua_toboolean(L,4)==1);
+
+		wxColour::MakeMono(&r, &g, &b, on);
+
+		return 0;
+	}
+
+	// static void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255)
+	static int _bind_MakeDisabled(lua_State *L) {
+		if (!_lg_typecheck_MakeDisabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255) function, expected prototype:\nstatic void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+		unsigned char brightness = (unsigned char)(lua_tointeger(L,4));
+
+		wxColour::MakeDisabled(&r, &g, &b, brightness);
+
+		return 0;
+	}
+
+	// static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b)
+	static int _bind_MakeGrey_overload_1(lua_State *L) {
+		if (!_lg_typecheck_MakeGrey_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b)\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+
+		wxColour::MakeGrey(&r, &g, &b);
+
+		return 0;
+	}
+
+	// static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b)
+	static int _bind_MakeGrey_overload_2(lua_State *L) {
+		if (!_lg_typecheck_MakeGrey_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b)\nClass arguments details:\n");
+		}
+
+		unsigned char r = (unsigned char)(lua_tointeger(L,1));
+		unsigned char g = (unsigned char)(lua_tointeger(L,2));
+		unsigned char b = (unsigned char)(lua_tointeger(L,3));
+		double weight_r=(double)lua_tonumber(L,4);
+		double weight_g=(double)lua_tonumber(L,5);
+		double weight_b=(double)lua_tonumber(L,6);
+
+		wxColour::MakeGrey(&r, &g, &b, weight_r, weight_g, weight_b);
+
+		return 0;
+	}
+
+	// Overload binder for wxColour::MakeGrey
+	static int _bind_MakeGrey(lua_State *L) {
+		if (_lg_typecheck_MakeGrey_overload_1(L)) return _bind_MakeGrey_overload_1(L);
+		if (_lg_typecheck_MakeGrey_overload_2(L)) return _bind_MakeGrey_overload_2(L);
+
+		luaL_error(L, "error in function MakeGrey, cannot match any of the overloads for function MakeGrey:\n  MakeGrey(unsigned char *, unsigned char *, unsigned char *)\n  MakeGrey(unsigned char *, unsigned char *, unsigned char *, double, double, double)\n");
+		return 0;
+	}
+
+	// static unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha)
+	static int _bind_AlphaBlend(lua_State *L) {
+		if (!_lg_typecheck_AlphaBlend(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in static unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha) function, expected prototype:\nstatic unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha)\nClass arguments details:\n");
+		}
+
+		unsigned char fg = (unsigned char)(lua_tointeger(L,1));
+		unsigned char bg = (unsigned char)(lua_tointeger(L,2));
+		double alpha=(double)lua_tonumber(L,3);
+
+		unsigned char lret = wxColour::AlphaBlend(fg, bg, alpha);
+		lua_pushnumber(L,(int)lret);
 
 		return 1;
 	}
@@ -474,15 +823,23 @@ const int LunaTraits< wxColour >::hash = 25339364;
 const int LunaTraits< wxColour >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxColour >::methods[] = {
+	{"Alpha", &luna_wrapper_wxColour::_bind_Alpha},
+	{"Blue", &luna_wrapper_wxColour::_bind_Blue},
 	{"GetAsString", &luna_wrapper_wxColour::_bind_GetAsString},
 	{"SetRGB", &luna_wrapper_wxColour::_bind_SetRGB},
 	{"SetRGBA", &luna_wrapper_wxColour::_bind_SetRGBA},
 	{"GetRGB", &luna_wrapper_wxColour::_bind_GetRGB},
 	{"GetRGBA", &luna_wrapper_wxColour::_bind_GetRGBA},
 	{"GetPixel", &luna_wrapper_wxColour::_bind_GetPixel},
+	{"Green", &luna_wrapper_wxColour::_bind_Green},
 	{"IsOk", &luna_wrapper_wxColour::_bind_IsOk},
+	{"Red", &luna_wrapper_wxColour::_bind_Red},
 	{"Set", &luna_wrapper_wxColour::_bind_Set},
 	{"ChangeLightness", &luna_wrapper_wxColour::_bind_ChangeLightness},
+	{"MakeMono", &luna_wrapper_wxColour::_bind_MakeMono},
+	{"MakeDisabled", &luna_wrapper_wxColour::_bind_MakeDisabled},
+	{"MakeGrey", &luna_wrapper_wxColour::_bind_MakeGrey},
+	{"AlphaBlend", &luna_wrapper_wxColour::_bind_AlphaBlend},
 	{"op_neq", &luna_wrapper_wxColour::_bind_op_neq},
 	{"__eq", &luna_wrapper_wxColour::_bind___eq},
 	{0,0}

@@ -94,10 +94,20 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_SetColour(lua_State *L) {
+	inline static bool _lg_typecheck_SetColour_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetColour_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -348,8 +358,8 @@ public:
 	}
 
 	// void wxBrush::SetColour(const wxColour & colour)
-	static int _bind_SetColour(lua_State *L) {
-		if (!_lg_typecheck_SetColour(L)) {
+	static int _bind_SetColour_overload_1(lua_State *L) {
+		if (!_lg_typecheck_SetColour_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxBrush::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -367,6 +377,36 @@ public:
 		}
 		self->SetColour(colour);
 
+		return 0;
+	}
+
+	// void wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue)
+	static int _bind_SetColour_overload_2(lua_State *L) {
+		if (!_lg_typecheck_SetColour_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue) function, expected prototype:\nvoid wxBrush::SetColour(unsigned char red, unsigned char green, unsigned char blue)\nClass arguments details:\n");
+		}
+
+		unsigned char red = (unsigned char)(lua_tointeger(L,2));
+		unsigned char green = (unsigned char)(lua_tointeger(L,3));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,4));
+
+		wxBrush* self=dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxBrush::SetColour(unsigned char, unsigned char, unsigned char)");
+		}
+		self->SetColour(red, green, blue);
+
+		return 0;
+	}
+
+	// Overload binder for wxBrush::SetColour
+	static int _bind_SetColour(lua_State *L) {
+		if (_lg_typecheck_SetColour_overload_1(L)) return _bind_SetColour_overload_1(L);
+		if (_lg_typecheck_SetColour_overload_2(L)) return _bind_SetColour_overload_2(L);
+
+		luaL_error(L, "error in function SetColour, cannot match any of the overloads for function SetColour:\n  SetColour(const wxColour &)\n  SetColour(unsigned char, unsigned char, unsigned char)\n");
 		return 0;
 	}
 

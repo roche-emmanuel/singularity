@@ -22,6 +22,7 @@ local writeOverloadBind = require("bindings.OverloadBinderBase")()
 local writeBind = require("bindings.BinderBase")()
 
 local tc = require "bindings.TypeConverter"
+local tm = require "bindings.TypeManager"
 
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
@@ -362,7 +363,9 @@ function LunaWriter:retrieveArguments(func)
 			isPointer=true			
 		elseif pt:isClass() then
 			-- get the class absolute parent hash:
-			local fbname = pt:getAbsoluteBaseFullName()
+			local fbname = tm:getBaseTypeMapping(pt:getAbsoluteBaseFullName())
+			local isUnsafe = im:ignore(fbname,"converter")
+			local casttype = isUnsafe and "static" or "dynamic"
 			
 			if pt:isPointer() then
 				-- we just retrieve the pointer here:
@@ -370,7 +373,11 @@ function LunaWriter:retrieveArguments(func)
 					self:writeSubLine("${7}${3}* ${1}=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)				
 				else
 					-- need to dynamic cast:
-					self:writeSubLine("${7}${3}* ${1}=${5}dynamic_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)
+					if isUnsafe then
+						self:writeSubLine("${7}${3}* ${1}=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)					
+					else
+						self:writeSubLine("${7}${3}* ${1}=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)
+					end
 				end
 				
 				isPointer=true			
@@ -380,7 +387,11 @@ function LunaWriter:retrieveArguments(func)
 					self:writeSubLine("${7}${3}* ${1}_ptr=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
 				
 				else
-					self:writeSubLine("${7}${3}* ${1}_ptr=${5}dynamic_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
+					if isUnsafe then
+						self:writeSubLine("${7}${3}* ${1}_ptr=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
+					else
+						self:writeSubLine("${7}${3}* ${1}_ptr=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
+					end
 				end
 				self:writeSubLine("if( ${2}!${1}_ptr ) {",argname,defStrAnd)
 				self:pushIndent()
@@ -449,12 +460,20 @@ function LunaWriter:writeFunctionCall(cname,func,args)
 			bname = func:getParent():getFirstAbsoluteBase():getFullName();
 		end
 		
+		bname = tm:getBaseTypeMapping(bname)
+		local isUnsafe = im:ignore(bname,"converter")
+		local casttype = isUnsafe and "static" or "dynamic"
+		
 		-- the function is a class method, retrieve the object:
 		if cname == bname then
 			self:writeSubLine("${1}* self=(Luna< ${2} >::check(L,1));",cname, bname);
 		else
 			-- need to dynamic cast:
-			self:writeSubLine("${1}* self=dynamic_cast< ${1}* >(Luna< ${2} >::check(L,1));",cname, bname);
+			if isUnsafe then
+				self:writeSubLine("${1}* self=static_cast< ${1}* >(Luna< void >::rawPointer(L,1));",cname);			
+			else
+				self:writeSubLine("${1}* self=${3}_cast< ${1}* >(Luna< ${2} >::check(L,1));",cname, bname, casttype);
+			end
 		end
 		self:writeLine("if(!self) {")
 		self:pushIndent()
@@ -595,7 +614,9 @@ function LunaWriter:writeClass(class)
 		if not equalityOperatorProvided then
 			-- provide our own equalityOperator:
 			local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
-			buf:writeSubLine(equality_template,bclass:getFullName(),class:getAbsoluteBaseHash())
+			local bname = tm:getBaseTypeMapping(bclass:getFullName())
+			local hash = utils.getHash(bname)
+			buf:writeSubLine(equality_template,bname,hash)
 		end
 		
 		if self.implementConverters then
@@ -811,7 +832,7 @@ function LunaWriter:writeClassSources()
 	
 	for _,v in self.classes:sequence() do
 		local tname = v:getTypeName()
-		if not im:ignore("class_declaration",tname) and not written:contains(tname) and not v:isExternal() then
+		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and not v:isExternal() then
 			written:push_back(tname)
 			self:debug0_v("writing reflection for class ", v:getFullName(), " with Typename: ", tname)
 			self:writeClass(v)
@@ -829,7 +850,7 @@ function LunaWriter:writeExternals()
 	
 	for _,v in self.classes:sequence() do
 		local tname = v:getTypeName()
-		if not im:ignore("class_declaration",tname) and not written:contains(tname) and v:isExternal() then
+		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and v:isExternal() then
 			written:push_back(tname)
 			self:debug0_v("writing external decleration for class ", v:getFullName(), " with Typename: ", tname)
 

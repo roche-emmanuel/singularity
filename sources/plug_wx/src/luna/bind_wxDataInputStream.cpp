@@ -63,7 +63,13 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_Read8(lua_State *L) {
+	inline static bool _lg_typecheck_Read8_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Read8_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -145,9 +151,28 @@ public:
 		return 0;
 	}
 
+	// unsigned char wxDataInputStream::Read8()
+	static int _bind_Read8_overload_1(lua_State *L) {
+		if (!_lg_typecheck_Read8_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned char wxDataInputStream::Read8() function, expected prototype:\nunsigned char wxDataInputStream::Read8()\nClass arguments details:\n");
+		}
+
+
+		wxDataInputStream* self=(Luna< wxDataInputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned char wxDataInputStream::Read8()");
+		}
+		unsigned char lret = self->Read8();
+		lua_pushnumber(L,(int)lret);
+
+		return 1;
+	}
+
 	// void wxDataInputStream::Read8(unsigned char * buffer, size_t size)
-	static int _bind_Read8(lua_State *L) {
-		if (!_lg_typecheck_Read8(L)) {
+	static int _bind_Read8_overload_2(lua_State *L) {
+		if (!_lg_typecheck_Read8_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void wxDataInputStream::Read8(unsigned char * buffer, size_t size) function, expected prototype:\nvoid wxDataInputStream::Read8(unsigned char * buffer, size_t size)\nClass arguments details:\n");
 		}
@@ -162,6 +187,15 @@ public:
 		}
 		self->Read8(&buffer, size);
 
+		return 0;
+	}
+
+	// Overload binder for wxDataInputStream::Read8
+	static int _bind_Read8(lua_State *L) {
+		if (_lg_typecheck_Read8_overload_1(L)) return _bind_Read8_overload_1(L);
+		if (_lg_typecheck_Read8_overload_2(L)) return _bind_Read8_overload_2(L);
+
+		luaL_error(L, "error in function Read8, cannot match any of the overloads for function Read8:\n  Read8()\n  Read8(unsigned char *, size_t)\n");
 		return 0;
 	}
 

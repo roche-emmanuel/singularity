@@ -104,5 +104,21 @@ end
 function Class:addBoolEntry(options)
     return self:addEntry(require"gui.wx.entries.BoolEntry",options);        
 end
+
+function Class:addDoubleEntry(options)
+    return self:addEntry(require"gui.wx.entries.NumericalEntry",options,{type="double"});        
+end
+
+function Class:addColorEntry(options)
+    return self:addEntry(require"gui.wx.entries.NumericalEntry",options,{type="color"});        
+end
+
+function Class:addIntegerEntry(options)
+    return self:addEntry(require"gui.wx.entries.NumericalEntry",options,{type="integer"});        
+end
+
+function Class:addVec3dEntry(options)
+    return self:addEntry(require"gui.wx.entries.NumericalEntry",options,{type="vec3d"});        
+end
        
 return Class

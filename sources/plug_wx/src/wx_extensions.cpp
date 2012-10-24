@@ -1,5 +1,13 @@
 #include "wx_extensions.h"
 
+int GetX(wxPoint* point) {
+	return point->x;
+}
+
+int GetY(wxPoint* point) {
+	return point->y;
+}
+
 bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType) {
 	return handler->Disconnect(id, id2, (wxEventType)eventType);
 }

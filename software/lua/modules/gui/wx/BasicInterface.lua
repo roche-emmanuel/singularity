@@ -18,6 +18,7 @@ function Class:initialize(options)
 	self._licensedObjects = Vector() 
 	self._root =  options.root
 	self._connectedHandlers = Vector()
+	self._isToolbar = false;
 	
 	if self._root then
 		local sizer = self._root:GetSizer()
@@ -45,7 +46,7 @@ end
 
 function Class:disconnectHandlers()
 	for _,connection in self._connectedHandlers:sequence() do
-		self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
+		--self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
 		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
 	end
 end
@@ -83,9 +84,13 @@ function Class:getRootWindow()
 	return nil;
 end
 
+function Class:setIsToolbar(istb)
+	self._isToolbar = istb
+end
+
 -- should return true if this interface is built as a toolbar
 function Class:isToolbar() 
-	return false;
+	return self._isToolbar;
 end
 
 function Class:addLicensedItem(item,right)

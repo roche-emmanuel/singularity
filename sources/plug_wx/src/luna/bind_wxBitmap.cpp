@@ -172,6 +172,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ConvertToDisabled(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetWidth(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -635,6 +643,31 @@ public:
 		return 1;
 	}
 
+	// wxBitmap wxBitmap::ConvertToDisabled(unsigned char brightness = 255) const
+	static int _bind_ConvertToDisabled(lua_State *L) {
+		if (!_lg_typecheck_ConvertToDisabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBitmap wxBitmap::ConvertToDisabled(unsigned char brightness = 255) const function, expected prototype:\nwxBitmap wxBitmap::ConvertToDisabled(unsigned char brightness = 255) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned char brightness = (unsigned char)(lua_tointeger(L,2));
+
+		wxBitmap* self=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxBitmap wxBitmap::ConvertToDisabled(unsigned char) const");
+		}
+		wxBitmap stack_lret = self->ConvertToDisabled(brightness);
+		wxBitmap* lret = new wxBitmap(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxBitmap >::push(L,lret,true);
+
+		return 1;
+	}
+
 	// int wxBitmap::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
@@ -918,6 +951,7 @@ luna_RegType LunaTraits< wxBitmap >::methods[] = {
 	{"GetPalette", &luna_wrapper_wxBitmap::_bind_GetPalette},
 	{"GetSubBitmap", &luna_wrapper_wxBitmap::_bind_GetSubBitmap},
 	{"GetSize", &luna_wrapper_wxBitmap::_bind_GetSize},
+	{"ConvertToDisabled", &luna_wrapper_wxBitmap::_bind_ConvertToDisabled},
 	{"GetWidth", &luna_wrapper_wxBitmap::_bind_GetWidth},
 	{"IsOk", &luna_wrapper_wxBitmap::_bind_IsOk},
 	{"LoadFile", &luna_wrapper_wxBitmap::_bind_LoadFile},

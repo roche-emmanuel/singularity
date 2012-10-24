@@ -52,7 +52,7 @@ ReflectionGenerator.generate{
 		"FindHandler",
 		"wxObjectConstructorFn",
 		"wxCalendarCtrl::HitTest",
-		"unsigned char %*",
+		--"unsigned char %*",
 		"wxULongLong_t",
 		"wxUint64",
 		"wxInt64",
@@ -86,7 +86,7 @@ ReflectionGenerator.generate{
 		"ButtonLabel",
 		"wxItemContainer::Set",
 		"wxListBox::Set",
-		"wxMouseState",
+		--"wxMouseState",
 		"Buffer",
 		"wxNotebook::OnSelChange",
 		"wxMultiChoiceDialog::GetSelection",
@@ -154,7 +154,7 @@ ReflectionGenerator.generate{
 		"wxGetDisplayName",
 		"wxGetenv",
 		"wxRichTextObject",
-		"signed char *",
+		"[%s%(]+signed char %*",
 		"va_list",
 		"HINSTANCE",
 		"wxGetTempFileName",
@@ -230,6 +230,8 @@ ReflectionGenerator.generate{
 		"wxStringTokenize",
 		"wxGetEnvMap",
 		"wxHVScrolledWindow::wxHVScrolledWindow",
+		
+		"wxIcon::ConvertToDisabled",
 	},
 	ignoreDefines={"wxACC_"},
 	ignoreConverters={
@@ -275,6 +277,11 @@ ReflectionGenerator.generate{
     },
 	ignoreHeaders={"helpers%.h"},
 	ignoreClassDeclarations={},
+	mappedBaseTypes={
+		wxKeyboardState="wxObject",
+		wxMouseState="wxObject",
+		wxTextEntry="wxObject",
+	},
 	locationPrefixes={
 		dest_path.."interface/",
 	}

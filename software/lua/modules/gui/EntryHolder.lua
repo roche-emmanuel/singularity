@@ -20,7 +20,7 @@ function Class:getEntryGroup(grpname)
 	return grp
 end
 
-function Class:addEntry(entryClass,options)
+function Class:addEntry(entryClass,options,ext)
 	self:check(options,"Invalid options table.")
 	options.provider = options.provider or self:getDefaultProvider()
 	options.intf = self;
@@ -30,7 +30,11 @@ function Class:addEntry(entryClass,options)
 		self:check(parent,"Could not retrieve entry parent with name ",options.parent)
 		options.parent = parent
 	end
-		
+	
+	for k,v in pairs(ext or {}) do
+		options[k] = v
+	end	
+	
 	local entry = entryClass(options);
 	self._entries:push_back(entry);
 

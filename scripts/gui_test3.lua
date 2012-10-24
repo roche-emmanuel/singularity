@@ -31,6 +31,10 @@ function main()
 	intf:addDummyEntry{name="my_dummy"}
 	intf:addStringEntry{name="my_string",caption="My string"}
 	intf:addBoolEntry{name="my_bool",caption="My bool"}
+	intf:addDoubleEntry{name="my_double",caption="My double"}
+	intf:addColorEntry{name="my_color",caption="My color"}
+	intf:addIntegerEntry{name="my_int",caption="My integer"}
+	intf:addVec3dEntry{name="my_data.my_vec3d",caption="My vec3d"}
 
 	--intf:addStaticBitmap{bitmap=im:getBitmap("folder@add")}
 	intf:popParent(true)

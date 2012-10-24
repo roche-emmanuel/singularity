@@ -96,6 +96,7 @@ wxGetBatteryState
 wxGetPowerType
 wxGetKeyState
 wxGetMousePosition
+wxGetMouseState
 wxEnableTopLevelWindows
 wxFindWindowAtPoint
 wxFindWindowByLabel
