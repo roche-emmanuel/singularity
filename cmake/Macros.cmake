@@ -252,6 +252,10 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 	
 	SET(CFGFILE ../generate.lua)
 	
+	# STRING(REPLACE "/" "\\" SGT_PATH_WIN  "${SGT_PATH}")
+	# SET(ENV{PATH} "$ENV{PATH};${SGT_PATH_WIN}")
+	# MESSAGE(STATUS "Current path is: $ENV{PATH}")
+	
 	IF(MSVC)
 		ADD_CUSTOM_TARGET(
 			${TARGET_NAME}_gen
@@ -269,10 +273,11 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			COMMAND echo DOT_PATH=${DOT_DIR} >> ${DOXFILE}
 			COMMAND ${CAT_EXEC} "${DOX_TEMPLATE}" >> ${DOXFILE}
 			# Call doxygen on this file:
-			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/../doxygen.log 2>&1
+			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/doxygen.log 2>&1
 			# COMMAND ${DOXYGEN} ${DOXFILE}
 			COMMAND echo "Generating lua reflection..."
-			COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${TARGET_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
+			# cd ${SGT_PATH} && 
+			COMMAND ${LUA} -e "project='${TARGET_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
 			COMMAND echo "Reflection generation done."
 		)	
@@ -293,7 +298,7 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			COMMAND echo DOT_PATH=${DOT_DIR} >> ${DOXFILE}
 			COMMAND ${CAT_EXEC} "${DOX_TEMPLATE}" >> ${DOXFILE}
 			# Call doxygen on this file:
-			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/../doxygen.log 2>&1
+			COMMAND ${DOXYGEN} ${DOXFILE} > ${CMAKE_CURRENT_BINARY_DIR}/doxygen.log 2>&1
 			# COMMAND ${DOXYGEN} ${DOXFILE}
 			COMMAND echo "Generating lua reflection..."
 			# COMMAND cd ${SGT_PATH} && ${LUA} -e "project='${MOD_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua

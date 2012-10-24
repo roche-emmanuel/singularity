@@ -1044,10 +1044,12 @@ function ReflectionGenerator.generate(options)
 	-- force removing the first unnamed sink (this is the default std output sink):
 	logman:removeSink("")
 	
-	logman:addSink(sgt.FileLogger:new(options.destpath.."reflection.log"));
+	logman:addSink(sgt.FileLogger:new("reflection.log"));
+	--logman:addSink(sgt.FileLogger:new(options.destpath.."reflection.log"));
 	--logman:addSink(sgt.StdLogger:new());
 
-	local issuesLog = sgt.FileLogger:new(options.destpath.."reflection_issues.log");
+	local issuesLog = sgt.FileLogger:new("reflection_issues.log");
+	--local issuesLog = sgt.FileLogger:new(options.destpath.."reflection_issues.log");
 	issuesLog:setLevelRange(sgt.LogManager.FATAL,sgt.LogManager.WARNING);
 	logman:addSink(issuesLog);
 
