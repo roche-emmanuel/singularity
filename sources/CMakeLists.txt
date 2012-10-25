@@ -27,7 +27,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
-	ADD_SUBDIRECTORY(plug_wx)
+	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
