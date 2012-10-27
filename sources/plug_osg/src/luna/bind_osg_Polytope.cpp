@@ -64,6 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26652350) ) return false;
+		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -71,6 +72,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,33161232) ) return false;
+		if( (!dynamic_cast< osg::Polytope::PlaneList* >(Luna< osg::Polytope::PlaneList >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -94,7 +96,7 @@ public:
 	inline static bool _lg_typecheck_setToBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
 		return true;
 	}
 
@@ -216,6 +218,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -223,20 +226,23 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
+		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_contains_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_contains_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -244,20 +250,23 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
+		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_containsAllOf_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_containsAllOf_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -375,23 +384,23 @@ public:
 		return 0;
 	}
 
-	// void osg::Polytope::setToBoundingBox(const osg::BoundingBoxf & bb)
+	// void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)
 	static int _bind_setToBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_setToBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToBoundingBox(const osg::BoundingBoxf & bb) function, expected prototype:\nvoid osg::Polytope::setToBoundingBox(const osg::BoundingBoxf & bb)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb) function, expected prototype:\nvoid osg::Polytope::setToBoundingBox(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::setToBoundingBox function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Polytope::setToBoundingBox(const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call void osg::Polytope::setToBoundingBox(const osg::BoundingBoxd &)");
 		}
 		self->setToBoundingBox(bb);
 
@@ -853,23 +862,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::Polytope::contains(const osg::BoundingSpheref & bs)
+	// bool osg::Polytope::contains(const osg::BoundingSphered & bs)
 	static int _bind_contains_overload_3(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingSpheref & bs) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingSpheref & bs)\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Polytope::contains function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingSpheref &)");
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingSphered &)");
 		}
 		bool lret = self->contains(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -877,23 +886,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::Polytope::contains(const osg::BoundingBoxf & bb)
+	// bool osg::Polytope::contains(const osg::BoundingBoxd & bb)
 	static int _bind_contains_overload_4(lua_State *L) {
 		if (!_lg_typecheck_contains_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingBoxf & bb) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingBoxf & bb)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::contains(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::contains(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::contains function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::contains(const osg::BoundingBoxd &)");
 		}
 		bool lret = self->contains(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -908,7 +917,7 @@ public:
 		if (_lg_typecheck_contains_overload_3(L)) return _bind_contains_overload_3(L);
 		if (_lg_typecheck_contains_overload_4(L)) return _bind_contains_overload_4(L);
 
-		luaL_error(L, "error in function contains, cannot match any of the overloads for function contains:\n  contains(const osg::Vec3f &)\n  contains(const std::vector< osg::Vec3f > &)\n  contains(const osg::BoundingSpheref &)\n  contains(const osg::BoundingBoxf &)\n");
+		luaL_error(L, "error in function contains, cannot match any of the overloads for function contains:\n  contains(const osg::Vec3f &)\n  contains(const std::vector< osg::Vec3f > &)\n  contains(const osg::BoundingSphered &)\n  contains(const osg::BoundingBoxd &)\n");
 		return 0;
 	}
 
@@ -936,23 +945,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::Polytope::containsAllOf(const osg::BoundingSpheref & bs)
+	// bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)
 	static int _bind_containsAllOf_overload_2(lua_State *L) {
 		if (!_lg_typecheck_containsAllOf_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingSpheref & bs) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingSpheref & bs)\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingSphered & bs)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Polytope::containsAllOf function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingSpheref &)");
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingSphered &)");
 		}
 		bool lret = self->containsAllOf(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -960,23 +969,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::Polytope::containsAllOf(const osg::BoundingBoxf & bb)
+	// bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)
 	static int _bind_containsAllOf_overload_3(lua_State *L) {
 		if (!_lg_typecheck_containsAllOf_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingBoxf & bb) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingBoxf & bb)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb) function, expected prototype:\nbool osg::Polytope::containsAllOf(const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Polytope::containsAllOf function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osg::Polytope* self=(Luna< osg::Polytope >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call bool osg::Polytope::containsAllOf(const osg::BoundingBoxd &)");
 		}
 		bool lret = self->containsAllOf(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -990,7 +999,7 @@ public:
 		if (_lg_typecheck_containsAllOf_overload_2(L)) return _bind_containsAllOf_overload_2(L);
 		if (_lg_typecheck_containsAllOf_overload_3(L)) return _bind_containsAllOf_overload_3(L);
 
-		luaL_error(L, "error in function containsAllOf, cannot match any of the overloads for function containsAllOf:\n  containsAllOf(const std::vector< osg::Vec3f > &)\n  containsAllOf(const osg::BoundingSpheref &)\n  containsAllOf(const osg::BoundingBoxf &)\n");
+		luaL_error(L, "error in function containsAllOf, cannot match any of the overloads for function containsAllOf:\n  containsAllOf(const std::vector< osg::Vec3f > &)\n  containsAllOf(const osg::BoundingSphered &)\n  containsAllOf(const osg::BoundingBoxd &)\n");
 		return 0;
 	}
 

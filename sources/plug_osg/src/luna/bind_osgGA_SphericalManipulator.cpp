@@ -115,7 +115,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,85302998) ) return false;
+		if( (!dynamic_cast< osgGA::GUIActionAdapter* >(Luna< osgGA::GUIActionAdapter >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -137,7 +139,7 @@ public:
 	inline static bool _lg_typecheck_zoomOn(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
 		return true;
 	}
 
@@ -158,7 +160,7 @@ public:
 	inline static bool _lg_typecheck_computeViewPosition(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303202) ) return false;
@@ -601,23 +603,23 @@ public:
 		return 0;
 	}
 
-	// void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSpheref & bound)
+	// void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered & bound)
 	static int _bind_zoomOn(lua_State *L) {
 		if (!_lg_typecheck_zoomOn(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSpheref & bound) function, expected prototype:\nvoid osgGA::SphericalManipulator::zoomOn(const osg::BoundingSpheref & bound)\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered & bound) function, expected prototype:\nvoid osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered & bound)\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bound_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bound_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bound in osgGA::SphericalManipulator::zoomOn function");
 		}
-		const osg::BoundingSpheref & bound=*bound_ptr;
+		const osg::BoundingSphered & bound=*bound_ptr;
 
 		osgGA::SphericalManipulator* self=dynamic_cast< osgGA::SphericalManipulator* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSpheref &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::zoomOn(const osg::BoundingSphered &)");
 		}
 		self->zoomOn(bound);
 
@@ -671,18 +673,18 @@ public:
 		return 0;
 	}
 
-	// void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSpheref & bound, double & scale, double & distance, osg::Vec3d & center)
+	// void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered & bound, double & scale, double & distance, osg::Vec3d & center)
 	static int _bind_computeViewPosition(lua_State *L) {
 		if (!_lg_typecheck_computeViewPosition(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSpheref & bound, double & scale, double & distance, osg::Vec3d & center) function, expected prototype:\nvoid osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSpheref & bound, double & scale, double & distance, osg::Vec3d & center)\nClass arguments details:\narg 1 ID = 54337302\narg 4 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered & bound, double & scale, double & distance, osg::Vec3d & center) function, expected prototype:\nvoid osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered & bound, double & scale, double & distance, osg::Vec3d & center)\nClass arguments details:\narg 1 ID = 54337300\narg 4 ID = 92303202\n");
 		}
 
-		const osg::BoundingSpheref* bound_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bound_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bound_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bound in osgGA::SphericalManipulator::computeViewPosition function");
 		}
-		const osg::BoundingSpheref & bound=*bound_ptr;
+		const osg::BoundingSphered & bound=*bound_ptr;
 		double scale=(double)lua_tonumber(L,3);
 		double distance=(double)lua_tonumber(L,4);
 		osg::Vec3d* center_ptr=(Luna< osg::Vec3d >::check(L,5));
@@ -694,7 +696,7 @@ public:
 		osgGA::SphericalManipulator* self=dynamic_cast< osgGA::SphericalManipulator* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSpheref &, double &, double &, osg::Vec3d &)");
+			luaL_error(L, "Invalid object in function call void osgGA::SphericalManipulator::computeViewPosition(const osg::BoundingSphered &, double &, double &, osg::Vec3d &)");
 		}
 		self->computeViewPosition(bound, scale, distance, center);
 

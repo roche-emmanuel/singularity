@@ -145,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_setInitialBound(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
 		return true;
 	}
 
@@ -828,46 +828,46 @@ public:
 		return 1;
 	}
 
-	// void osg::Drawable::setInitialBound(const osg::BoundingBoxf & bbox)
+	// void osg::Drawable::setInitialBound(const osg::BoundingBoxd & bbox)
 	static int _bind_setInitialBound(lua_State *L) {
 		if (!_lg_typecheck_setInitialBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::setInitialBound(const osg::BoundingBoxf & bbox) function, expected prototype:\nvoid osg::Drawable::setInitialBound(const osg::BoundingBoxf & bbox)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::setInitialBound(const osg::BoundingBoxd & bbox) function, expected prototype:\nvoid osg::Drawable::setInitialBound(const osg::BoundingBoxd & bbox)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bbox_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bbox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bbox in osg::Drawable::setInitialBound function");
 		}
-		const osg::BoundingBoxf & bbox=*bbox_ptr;
+		const osg::BoundingBoxd & bbox=*bbox_ptr;
 
 		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Drawable::setInitialBound(const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call void osg::Drawable::setInitialBound(const osg::BoundingBoxd &)");
 		}
 		self->setInitialBound(bbox);
 
 		return 0;
 	}
 
-	// const osg::BoundingBoxf & osg::Drawable::getInitialBound() const
+	// const osg::BoundingBoxd & osg::Drawable::getInitialBound() const
 	static int _bind_getInitialBound(lua_State *L) {
 		if (!_lg_typecheck_getInitialBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxf & osg::Drawable::getInitialBound() const function, expected prototype:\nconst osg::BoundingBoxf & osg::Drawable::getInitialBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxd & osg::Drawable::getInitialBound() const function, expected prototype:\nconst osg::BoundingBoxd & osg::Drawable::getInitialBound() const\nClass arguments details:\n");
 		}
 
 
 		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxf & osg::Drawable::getInitialBound() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osg::Drawable::getInitialBound() const");
 		}
-		const osg::BoundingBoxf* lret = &self->getInitialBound();
+		const osg::BoundingBoxd* lret = &self->getInitialBound();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,false);
+		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
 	}
@@ -890,45 +890,45 @@ public:
 		return 0;
 	}
 
-	// const osg::BoundingBoxf & osg::Drawable::getBound() const
+	// const osg::BoundingBoxd & osg::Drawable::getBound() const
 	static int _bind_getBound(lua_State *L) {
 		if (!_lg_typecheck_getBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxf & osg::Drawable::getBound() const function, expected prototype:\nconst osg::BoundingBoxf & osg::Drawable::getBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxd & osg::Drawable::getBound() const function, expected prototype:\nconst osg::BoundingBoxd & osg::Drawable::getBound() const\nClass arguments details:\n");
 		}
 
 
 		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxf & osg::Drawable::getBound() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osg::Drawable::getBound() const");
 		}
-		const osg::BoundingBoxf* lret = &self->getBound();
+		const osg::BoundingBoxd* lret = &self->getBound();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,false);
+		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// osg::BoundingBoxf osg::Drawable::computeBound() const
+	// osg::BoundingBoxd osg::Drawable::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf osg::Drawable::computeBound() const function, expected prototype:\nosg::BoundingBoxf osg::Drawable::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::Drawable::computeBound() const function, expected prototype:\nosg::BoundingBoxd osg::Drawable::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osg::Drawable* self=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf osg::Drawable::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::Drawable::computeBound() const");
 		}
-		osg::BoundingBoxf stack_lret = self->computeBound();
-		osg::BoundingBoxf* lret = new osg::BoundingBoxf(stack_lret);
+		osg::BoundingBoxd stack_lret = self->computeBound();
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,true);
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
 
 		return 1;
 	}

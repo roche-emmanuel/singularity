@@ -28,6 +28,10 @@ intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 intf:addStaticText{text="Hello manu!"}
 intf:addStaticLine{}
 intf:addStaticBitmap{bitmap=im:getBitmap("folder@add")}
+intf:addDatePickerCtrl{handler=intf.debugShowEvent}
+intf:addFontPickerCtrl{handler=intf.debugShowEvent}
+intf:addOSGCtrl{}
+
 intf:popParent(true)
 
 intf:addSpacer{size=30}
@@ -35,7 +39,7 @@ intf:addSpacer{size=30}
 intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 intf:addSlider{}
 intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-intf:addButton{text="My button"}
+intf:addButton{text="My button",handler=intf.debugShowEvent}
 intf:popParent(true)
 
 

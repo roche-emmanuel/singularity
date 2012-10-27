@@ -953,24 +953,24 @@ public:
 		return 1;
 	}
 
-	// osg::BoundingSpheref osgParticle::ParticleProcessor::computeBound() const
+	// osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSpheref osgParticle::ParticleProcessor::computeBound() const function, expected prototype:\nosg::BoundingSpheref osgParticle::ParticleProcessor::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const function, expected prototype:\nosg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osgParticle::ParticleProcessor* self=dynamic_cast< osgParticle::ParticleProcessor* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSpheref osgParticle::ParticleProcessor::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const");
 		}
-		osg::BoundingSpheref stack_lret = self->computeBound();
-		osg::BoundingSpheref* lret = new osg::BoundingSpheref(stack_lret);
+		osg::BoundingSphered stack_lret = self->computeBound();
+		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingSpheref >::push(L,lret,true);
+		Luna< osg::BoundingSphered >::push(L,lret,true);
 
 		return 1;
 	}

@@ -18,8 +18,15 @@ function Class:close()
 	require("gui.wx.BasicInterface").close(self)
 end
 
+function Class:debugShowEvent(event)
+	local etype = event:GetClassInfo():GetClassName()
+	wx.wxMessageBox("Received event "..etype)
+end
+
 function Class:addControl(ctrl,options)
-    if self:isToolbar() then
+    self:check(ctrl,"Invalid control object")
+	
+	if self:isToolbar() then
         local obj = ctrl:dynCast("wxControl");
         if obj then
             self:getRootWindow():AddControl(obj);
@@ -401,5 +408,34 @@ function Class:addCheckBox(options)
     --options.flags = wx.wxALIGN_CENTER_VERTICAL
     return self:addControl(ctrl,options)
 end
-        
+
+function Class:addDatePickerCtrl(options)
+    local ctrl = wx.wxDatePickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition,wx.wxSize(-1,20),options.style or wx.wxDP_DROPDOWN)
+    options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+    if options.handler then
+        self:connectHandler(ctrl,options.eventType or wx.wxEVT_DATE_CHANGED,options.handler)
+    end  
+    return self:addControl(ctrl,options)
+end
+		
+function Class:addFontPickerCtrl(options)
+	local ctrl = wx.wxFontPickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.font or wx.wxNullFont,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxFNTP_DEFAULT_STYLE);       
+	options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+	if options.handler then
+		self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_FONTPICKER_CHANGED,options.handler)
+	end  
+	return self:addControl(ctrl,options)
+end
+
+function Class:addOSGCtrl(options)
+	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
+	
+	options.intf = options.intf or self
+	local canvas = require("gui.wx.OSGCanvas")(options)
+	--self:check(canvas,"Invalid OSG canvas object.")
+	
+	--options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	--return self:addControl(canvas:getWXCanvas(),options), canvas
+end
+
 return Class

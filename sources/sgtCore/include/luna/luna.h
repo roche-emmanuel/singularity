@@ -54,6 +54,28 @@ struct luna_eqstr{
 	}
 };
 
+template <typename srcType, typename dstType>
+struct caster {
+	static inline dstType* cast(srcType* ptr) {
+		return dynamic_cast<dstType*>(ptr);
+	};
+};
+
+template <typename srcType>
+struct caster<srcType,srcType> {
+	static inline srcType* cast(srcType* ptr) {
+		return ptr;
+	};
+};
+
+// template <>
+// struct caster<void,void> {
+	// static inline void* cast(void* ptr) {
+		// return ptr;
+	// };
+// };
+
+
 #ifndef CXX_ENABLED
 #include <unordered_map>
 //#include <ext/hash_map> 
@@ -381,6 +403,9 @@ template <typename T> class Luna {
 	static int new_T(lua_State *L) {
 		lua_remove(L, 1);   // use classname:new(), instead of classname.new()
 		T *obj = T_interface::_bind_ctor(L);  // call constructor for T objects
+		if(!obj)
+			return 0; // Do not push empty userdata.
+			
 		push(L,obj,true);
 		return 1;  // userdata containing pointer to T object
 	}
@@ -388,6 +413,9 @@ template <typename T> class Luna {
 	static int new_noownership_T(lua_State *L) {
 		lua_remove(L, 1);   // use classname:new(), instead of classname.new()
 		T *obj = T_interface::_bind_ctor(L);  // call constructor for T objects
+		if(!obj)
+			return 0; // Do not push empty userdata.
+			
 		push(L,obj,false);
 		return 1;  // userdata containing pointer to T object
 	}
@@ -395,10 +423,23 @@ template <typename T> class Luna {
 	// garbage collection metamethod
 	static int gc_T(lua_State *L) {
 #ifndef USE_BOOST_SHARED_PTR
-		userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
-		T *obj = (T*)(ud->pT);
+		typedef typename T_interface::parent_t ParentType;
+		typedef typename Luna<ParentType>::userdataType UserData;
+		
+		//userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
+		UserData *ud = static_cast<UserData*>(lua_touserdata(L, 1));
+
 		if (ud->gc)
 		{
+			ParentType* pobj = (ParentType*)(ud->pT);
+			if(!pobj)
+				return 0; // nothing to do in that case.
+				
+			//T *obj = dynamic_cast<T*>(pobj);
+			T *obj = caster<ParentType,T>::cast(pobj);
+			if(!obj) {
+				luaL_error(L, "in gc_T(): could not convert parent pointer type %s to child pointer %s",LunaTraits<ParentType>::className,T_interface::className);
+			}
 			T_interface::_bind_dtor(obj);  // call constructor for T objects
 		}
 		ud->pT = NULL;

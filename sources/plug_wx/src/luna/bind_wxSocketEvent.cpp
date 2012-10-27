@@ -119,9 +119,7 @@ public:
 			luaL_error(L, "Invalid object in function call wxSocketNotify wxSocketEvent::GetSocketEvent() const");
 		}
 		wxSocketNotify lret = self->GetSocketEvent();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxSocketNotify'
-		////////////////////////////////////////////////////////////////////
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}

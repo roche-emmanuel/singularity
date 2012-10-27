@@ -53,7 +53,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::OrbitManipulator* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -121,7 +123,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -129,8 +133,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -138,7 +145,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -146,8 +155,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		return true;
 	}
 

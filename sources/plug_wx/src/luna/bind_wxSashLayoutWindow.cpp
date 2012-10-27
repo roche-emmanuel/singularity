@@ -140,11 +140,11 @@ public:
 		return new wxSashLayoutWindow();
 	}
 
-	// wxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = "layoutWindow")
+	// wxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "layoutWindow")
 	static wxSashLayoutWindow* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"layoutWindow\") function, expected prototype:\nwxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"layoutWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"layoutWindow\") function, expected prototype:\nwxSashLayoutWindow::wxSashLayoutWindow(wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"layoutWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -161,7 +161,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSashLayoutWindow::wxSashLayoutWindow function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxCLIP_CHILDREN |wxSW_3D;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxCLIP_CHILDREN | wxSW_3D;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxSashLayoutWindow(parent, id, pos, size, style, name);
@@ -178,11 +178,11 @@ public:
 
 
 	// Function binds:
-	// bool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = "layoutWindow")
+	// bool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "layoutWindow")
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"layoutWindow\") function, expected prototype:\nbool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"layoutWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"layoutWindow\") function, expected prototype:\nbool wxSashLayoutWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"layoutWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -199,7 +199,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSashLayoutWindow::Create function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxCLIP_CHILDREN |wxSW_3D;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxCLIP_CHILDREN | wxSW_3D;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxSashLayoutWindow* self=dynamic_cast< wxSashLayoutWindow* >(Luna< wxObject >::check(L,1));

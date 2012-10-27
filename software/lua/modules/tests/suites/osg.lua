@@ -44,3 +44,14 @@ function test_function_injection()
 	assert_equal("string",type(res),"Invalid vec4f helloword result.")
 	log:info("Tests","Result from vec4f is: ",res)
 end
+
+function test_viewer_deletion()
+	log:info("Tests","Starting viewer deletion test.")
+	--local viewer = osgViewer.Viewer()
+	local viewer = osgViewer.ViewerBase()
+	
+	log:info("Tests","Deleting...")
+	viewer:delete()
+	
+	log:info("Tests","Viewer deletion done.")
+end

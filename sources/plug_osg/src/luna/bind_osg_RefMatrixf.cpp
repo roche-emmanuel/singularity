@@ -50,6 +50,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -57,6 +58,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -64,6 +66,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::RefMatrixf* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		return true;
 	}
 

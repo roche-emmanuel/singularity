@@ -69,6 +69,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13510606) ) return false;
+		if( (!dynamic_cast< osgParticle::rangef* >(Luna< osgParticle::rangef >::check(L,2))) ) return false;
 		return true;
 	}
 

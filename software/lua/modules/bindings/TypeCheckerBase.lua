@@ -80,19 +80,20 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 				elseif pt:isClass() then
 					-- get the class absolute parent hash:
 					local bhash = pt:getAbsoluteBaseHash()
+					local bfname = pt:getFirstAbsoluteBaseName()
 					log:info("Using hash ".. bhash .. " for type ".. pt:getBaseName())
 					if pt:isPointer() then
 						-- we can accept a pointer to be nil, but not a reference.
 						writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
 						if completeCheck then
 							-- use dynamic cast here:
-							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1})) ) ) return false;",index,pt:getBase():getFirstAbsoluteBase():getFullName(),defStr,pt:getBase():getFullName())						
+							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName())						
 						end
 					else
 						writer:writeSubLine("if( ${3}!Luna<void>::has_uniqueid(L,${1},${2}) ) return false;",index,bhash,defStr)				
 						if completeCheck then
 							-- use dynamic cast here:
-							writer:writeSubLine("if( ${3}(!dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1}))) ) return false;",index,pt:getBase():getFirstAbsoluteBase():getFullName(),defStr,pt:getBase():getFullName())						
+							writer:writeSubLine("if( ${3}(!dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1}))) ) return false;",index,bfname,defStr,pt:getBaseName())						
 						end
 					end
 				else

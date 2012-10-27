@@ -319,6 +319,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -326,7 +327,9 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
@@ -379,9 +382,13 @@ public:
 		if( luatop<5 || luatop>6 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,22643526)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::GLBeginEndAdapter* >(Luna< osg::GLBeginEndAdapter >::check(L,2)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,5))) ) return false;
 		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
@@ -390,8 +397,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		if( (!dynamic_cast< osg::RenderInfo* >(Luna< osg::RenderInfo >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,4))) ) return false;
 		return true;
 	}
 

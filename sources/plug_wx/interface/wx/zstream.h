@@ -68,8 +68,7 @@ public:
     */
     wxZlibOutputStream(wxOutputStream& stream, int level = -1,
                        int flags = wxZLIB_ZLIB);
-    wxZlibOutputStream(wxOutputStream* stream, int level = -1,
-                       int flags = wxZLIB_ZLIB);
+
     // at close curl
 
     /**

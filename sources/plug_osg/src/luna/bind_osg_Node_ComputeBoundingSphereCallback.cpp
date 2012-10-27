@@ -50,7 +50,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::Node::ComputeBoundingSphereCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -248,11 +250,11 @@ public:
 		return 1;
 	}
 
-	// osg::BoundingSpheref osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const
+	// osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSpheref osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const function, expected prototype:\nosg::BoundingSpheref osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const function, expected prototype:\nosg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Node* _arg1_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
@@ -264,13 +266,13 @@ public:
 		osg::Node::ComputeBoundingSphereCallback* self=dynamic_cast< osg::Node::ComputeBoundingSphereCallback* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSpheref osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node &) const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node &) const");
 		}
-		osg::BoundingSpheref stack_lret = self->computeBound(_arg1);
-		osg::BoundingSpheref* lret = new osg::BoundingSpheref(stack_lret);
+		osg::BoundingSphered stack_lret = self->computeBound(_arg1);
+		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingSpheref >::push(L,lret,true);
+		Luna< osg::BoundingSphered >::push(L,lret,true);
 
 		return 1;
 	}

@@ -232,6 +232,8 @@ ReflectionGenerator.generate{
 		"wxHVScrolledWindow::wxHVScrolledWindow",
 		
 		"wxIcon::ConvertToDisabled",
+		"wxXmlResource::wxXmlResource", -- problem with the flags.
+		"wxZlibOutputStream::wxZlibOutputStream", -- problem with the flags.
 	},
 	ignoreDefines={"wxACC_"},
 	ignoreConverters={
@@ -275,7 +277,7 @@ ReflectionGenerator.generate{
         "wxAny$",        
         "wxAnyV",   
     },
-	ignoreHeaders={"helpers%.h"},
+	ignoreHeaders={"helpers%.h","wx_events%.h","wx_defines%.h","wx_enums%.h"},
 	ignoreClassDeclarations={},
 	mappedBaseTypes={
 		wxKeyboardState="wxObject",

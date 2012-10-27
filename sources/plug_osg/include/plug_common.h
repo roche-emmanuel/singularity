@@ -20,6 +20,7 @@
 #include <iostream> 
 
 #include <osg/Vec3d>
+#include <osg/RenderInfo>
 
 #include "plug_extensions.h"
 
@@ -27,6 +28,22 @@
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>
 #include <luna/luna_types.h>
+
+template <typename dstType>
+struct caster<osg::RenderInfo,dstType> {
+	static inline dstType* cast(osg::RenderInfo* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <>
+struct caster<osg::RenderInfo,osg::RenderInfo> {
+	static inline osg::RenderInfo* cast(osg::RenderInfo* ptr) {
+		return ptr;
+	};
+};
+
 #endif
+
 
 #endif

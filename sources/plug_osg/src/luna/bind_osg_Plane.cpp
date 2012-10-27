@@ -42,6 +42,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,86970521) ) return false;
+		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -59,6 +60,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -66,6 +68,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303233) ) return false;
+		if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -73,6 +76,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
 		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
@@ -81,8 +85,11 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -90,7 +97,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -100,6 +109,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
+		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -117,6 +127,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -124,6 +135,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303233) ) return false;
+		if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -131,6 +143,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -139,8 +152,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -148,7 +164,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -210,6 +228,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -217,6 +236,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -224,6 +244,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -231,6 +252,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -238,6 +260,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30220088) ) return false;
+		if( (!dynamic_cast< std::vector< osg::Vec3f >* >(Luna< std::vector< osg::Vec3f > >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -245,20 +268,23 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30218166) ) return false;
+		if( (!dynamic_cast< std::vector< osg::Vec3d >* >(Luna< std::vector< osg::Vec3d > >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -1006,23 +1032,23 @@ public:
 		return 1;
 	}
 
-	// int osg::Plane::intersect(const osg::BoundingSpheref & bs) const
+	// int osg::Plane::intersect(const osg::BoundingSphered & bs) const
 	static int _bind_intersect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSpheref & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSpheref & bs) const\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::Plane::intersect function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSpheref &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingSphered &) const");
 		}
 		int lret = self->intersect(bs);
 		lua_pushnumber(L,lret);
@@ -1030,23 +1056,23 @@ public:
 		return 1;
 	}
 
-	// int osg::Plane::intersect(const osg::BoundingBoxf & bb) const
+	// int osg::Plane::intersect(const osg::BoundingBoxd & bb) const
 	static int _bind_intersect_overload_4(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxf & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxf & bb) const\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in int osg::Plane::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nint osg::Plane::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::Plane::intersect function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osg::Plane* self=(Luna< osg::Plane >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxf &) const");
+			luaL_error(L, "Invalid object in function call int osg::Plane::intersect(const osg::BoundingBoxd &) const");
 		}
 		int lret = self->intersect(bb);
 		lua_pushnumber(L,lret);
@@ -1061,7 +1087,7 @@ public:
 		if (_lg_typecheck_intersect_overload_3(L)) return _bind_intersect_overload_3(L);
 		if (_lg_typecheck_intersect_overload_4(L)) return _bind_intersect_overload_4(L);
 
-		luaL_error(L, "error in function intersect, cannot match any of the overloads for function intersect:\n  intersect(const std::vector< osg::Vec3f > &)\n  intersect(const std::vector< osg::Vec3d > &)\n  intersect(const osg::BoundingSpheref &)\n  intersect(const osg::BoundingBoxf &)\n");
+		luaL_error(L, "error in function intersect, cannot match any of the overloads for function intersect:\n  intersect(const std::vector< osg::Vec3f > &)\n  intersect(const std::vector< osg::Vec3d > &)\n  intersect(const osg::BoundingSphered &)\n  intersect(const osg::BoundingBoxd &)\n");
 		return 0;
 	}
 

@@ -61,6 +61,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -130,6 +131,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -137,6 +139,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -144,6 +147,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Billboard* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -151,6 +155,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::LightSource* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -158,6 +163,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ClipNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -165,6 +171,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::TexGenNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -172,6 +179,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Group* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -179,6 +187,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -186,6 +195,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Projection* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -193,6 +203,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Switch* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -200,6 +211,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::LOD* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -207,6 +219,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ClearNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -214,6 +227,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -221,6 +235,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::OccluderNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -228,6 +243,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::OcclusionQueryNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -340,7 +356,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
-		if( !Luna<void>::has_uniqueid(L,3,82744899) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -349,7 +367,9 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,50169651) ) return false;
+		if( (!dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,3))) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -358,6 +378,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -411,6 +432,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -420,6 +442,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -429,6 +452,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -438,6 +462,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -1429,11 +1454,11 @@ public:
 		return 1;
 	}
 
-	// bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxf & bb)
+	// bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxd & bb)
 	static int _bind_updateCalculatedNearFar_overload_1(lua_State *L) {
 		if (!_lg_typecheck_updateCalculatedNearFar_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxf & bb) function, expected prototype:\nbool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxf & bb)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxd & bb) function, expected prototype:\nbool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd & matrix, const osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 18903838\narg 2 ID = 82744897\n");
 		}
 
 		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -1441,16 +1466,16 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
 		const osg::Matrixd & matrix=*matrix_ptr;
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,3));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,3));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgUtil::CullVisitor::updateCalculatedNearFar function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osgUtil::CullVisitor* self=dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd &, const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call bool osgUtil::CullVisitor::updateCalculatedNearFar(const osg::Matrixd &, const osg::BoundingBoxd &)");
 		}
 		bool lret = self->updateCalculatedNearFar(matrix, bb);
 		lua_pushboolean(L,lret?1:0);
@@ -1519,7 +1544,7 @@ public:
 		if (_lg_typecheck_updateCalculatedNearFar_overload_2(L)) return _bind_updateCalculatedNearFar_overload_2(L);
 		if (_lg_typecheck_updateCalculatedNearFar_overload_3(L)) return _bind_updateCalculatedNearFar_overload_3(L);
 
-		luaL_error(L, "error in function updateCalculatedNearFar, cannot match any of the overloads for function updateCalculatedNearFar:\n  updateCalculatedNearFar(const osg::Matrixd &, const osg::BoundingBoxf &)\n  updateCalculatedNearFar(const osg::Matrixd &, const osg::Drawable &, bool)\n  updateCalculatedNearFar(const osg::Vec3f &)\n");
+		luaL_error(L, "error in function updateCalculatedNearFar, cannot match any of the overloads for function updateCalculatedNearFar:\n  updateCalculatedNearFar(const osg::Matrixd &, const osg::BoundingBoxd &)\n  updateCalculatedNearFar(const osg::Matrixd &, const osg::Drawable &, bool)\n  updateCalculatedNearFar(const osg::Vec3f &)\n");
 		return 0;
 	}
 

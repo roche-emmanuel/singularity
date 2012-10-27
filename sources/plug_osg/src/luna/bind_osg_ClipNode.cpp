@@ -51,7 +51,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::ClipNode* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -113,7 +115,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -129,6 +131,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::ClipPlane* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -416,26 +419,26 @@ public:
 		return 1;
 	}
 
-	// void osg::ClipNode::createClipBox(const osg::BoundingBoxf & bb, unsigned int clipPlaneNumberBase = 0)
+	// void osg::ClipNode::createClipBox(const osg::BoundingBoxd & bb, unsigned int clipPlaneNumberBase = 0)
 	static int _bind_createClipBox(lua_State *L) {
 		if (!_lg_typecheck_createClipBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ClipNode::createClipBox(const osg::BoundingBoxf & bb, unsigned int clipPlaneNumberBase = 0) function, expected prototype:\nvoid osg::ClipNode::createClipBox(const osg::BoundingBoxf & bb, unsigned int clipPlaneNumberBase = 0)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in void osg::ClipNode::createClipBox(const osg::BoundingBoxd & bb, unsigned int clipPlaneNumberBase = 0) function, expected prototype:\nvoid osg::ClipNode::createClipBox(const osg::BoundingBoxd & bb, unsigned int clipPlaneNumberBase = 0)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::ClipNode::createClipBox function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 		unsigned int clipPlaneNumberBase=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
 		osg::ClipNode* self=dynamic_cast< osg::ClipNode* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::ClipNode::createClipBox(const osg::BoundingBoxf &, unsigned int)");
+			luaL_error(L, "Invalid object in function call void osg::ClipNode::createClipBox(const osg::BoundingBoxd &, unsigned int)");
 		}
 		self->createClipBox(bb, clipPlaneNumberBase);
 
@@ -702,24 +705,24 @@ public:
 		return 0;
 	}
 
-	// osg::BoundingSpheref osg::ClipNode::computeBound() const
+	// osg::BoundingSphered osg::ClipNode::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingSpheref osg::ClipNode::computeBound() const function, expected prototype:\nosg::BoundingSpheref osg::ClipNode::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::ClipNode::computeBound() const function, expected prototype:\nosg::BoundingSphered osg::ClipNode::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osg::ClipNode* self=dynamic_cast< osg::ClipNode* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingSpheref osg::ClipNode::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::ClipNode::computeBound() const");
 		}
-		osg::BoundingSpheref stack_lret = self->computeBound();
-		osg::BoundingSpheref* lret = new osg::BoundingSpheref(stack_lret);
+		osg::BoundingSphered stack_lret = self->computeBound();
+		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingSpheref >::push(L,lret,true);
+		Luna< osg::BoundingSphered >::push(L,lret,true);
 
 		return 1;
 	}

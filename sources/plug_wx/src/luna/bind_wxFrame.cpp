@@ -365,16 +365,16 @@ public:
 		return 1;
 	}
 
-	// wxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE |wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr)
+	// wxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE | wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr)
 	static int _bind_CreateToolBar(lua_State *L) {
 		if (!_lg_typecheck_CreateToolBar(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE |wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr) function, expected prototype:\nwxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE |wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE | wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr) function, expected prototype:\nwxToolBar * wxFrame::CreateToolBar(long style = wxBORDER_NONE | wxTB_HORIZONTAL, int id = wxID_ANY, const wxString & name = wxToolBarNameStr)\nClass arguments details:\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long style=luatop>1 ? (long)lua_tointeger(L,2) : wxBORDER_NONE |wxTB_HORIZONTAL;
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : wxBORDER_NONE | wxTB_HORIZONTAL;
 		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 

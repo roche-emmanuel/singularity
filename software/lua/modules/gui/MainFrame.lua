@@ -40,7 +40,7 @@ function Class:initialize(options)
 	self:buildStatusBar()
 
 	-- ad a simple test OSG canvas:
-	local canvas = require("gui.OSGCanvas"){parent=self._frame}
+	local canvas = require("gui.OSGCanvasTest"){parent=self._frame}
 	--self:check(self._frame:GetSizer(),"Invalid sizer")
 	--self._frame:GetSizer():Add(canvas._canvas,1,wx.wxEXPAND+wx.wxALL,2)
 		

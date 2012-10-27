@@ -44,6 +44,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26652350) ) return false;
+		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -52,6 +53,7 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,26652350) ) return false;
+		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,2))) ) return false;
 		return true;
 	}
 

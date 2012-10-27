@@ -10,6 +10,9 @@ end
 wx.wxDefaultPosition = wx.wxPoint(-1,-1);
 wx.wxDefaultSize = wx.wxSize(-1,-1);
 wx.wxDefaultValidator = wx.wxValidator();
+wx.wxDefaultDateTime = wx.wxDateTime()
+wx.wxNullFont = wx.wxFont()
+
 
 wx.wxBLACK_PEN = wx.wxPen(wx.wxColour(0,0,0))
 wx.wxTRANSPARENT_PEN = wx.wxPen(wx.wxColour(255,255,255),1,wx.wxPENSTYLE_TRANSPARENT)

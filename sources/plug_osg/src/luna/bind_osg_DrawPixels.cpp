@@ -51,7 +51,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::DrawPixels* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -577,24 +579,24 @@ public:
 		return 0;
 	}
 
-	// osg::BoundingBoxf osg::DrawPixels::computeBound() const
+	// osg::BoundingBoxd osg::DrawPixels::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf osg::DrawPixels::computeBound() const function, expected prototype:\nosg::BoundingBoxf osg::DrawPixels::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::DrawPixels::computeBound() const function, expected prototype:\nosg::BoundingBoxd osg::DrawPixels::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osg::DrawPixels* self=dynamic_cast< osg::DrawPixels* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf osg::DrawPixels::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::DrawPixels::computeBound() const");
 		}
-		osg::BoundingBoxf stack_lret = self->computeBound();
-		osg::BoundingBoxf* lret = new osg::BoundingBoxf(stack_lret);
+		osg::BoundingBoxd stack_lret = self->computeBound();
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,true);
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
 
 		return 1;
 	}

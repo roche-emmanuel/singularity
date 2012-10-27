@@ -72,11 +72,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE|wxHF_DIALOG|wxHF_MODAL)
+	// wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL)
 	static wxHtmlModalHelp* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE|wxHF_DIALOG|wxHF_MODAL) function, expected prototype:\nwxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE|wxHF_DIALOG|wxHF_MODAL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL) function, expected prototype:\nwxHtmlModalHelp::wxHtmlModalHelp(wxWindow * parent, const wxString & helpFile, const wxString & topic = wxEmptyString, int style = wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -84,7 +84,7 @@ public:
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
 		wxString helpFile(lua_tostring(L,2),lua_objlen(L,2));
 		wxString topic(lua_tostring(L,3),lua_objlen(L,3));
-		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE|wxHF_DIALOG|wxHF_MODAL;
+		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL;
 
 		return new wxHtmlModalHelp(parent, helpFile, topic, style);
 	}

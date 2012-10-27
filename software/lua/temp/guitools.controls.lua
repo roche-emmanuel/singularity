@@ -3,28 +3,8 @@ module("guitools.controls",package.seeall)
 local checkFont = general.tools.mapToFont(giCommon.Config.readAny("config.gui.check.font",giScript.AnyMap()))
 
 function loadControls(interface)
-    function interface:addDatePickerCtrl(options)
-        local ctrl = wx.wxDatePickerCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition,wx.wxSize(-1,20),options.style or wx.wxDP_DROPDOWN)
-        options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
-        if options.handler then
-            self:connectHandler(ctrl,options.eventType or wx.wxEVT_DATE_CHANGED,options.handler)
-        end  
-        return self:addControl(ctrl,options)
-    end
     
-    function interface:addOSGCtrl(options)
-        assert(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
-        --assert(options.project,"a valid 'project' entry is needed to build an OSGCtrl")
-        
-         -- create our own OSGCanvas here:
-        local canvas = giCommon.Tools.createOSGCanvas(wx2intro(self:getCurrentParent()),options.root,options.project or this_env:getProject(),options.sceneName or "")
-        
-        local ctrl = intro2wx(canvas)
-        ctrl:Show(true)
-        --wx.wxLogMessage("Adding OSGCtrl item...")
-        options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-        return self:addControl(ctrl,options),canvas
-    end
+
     
     function interface:addTimeCtrl(options)
         local ctrl = giDisplay.TimeCtrl(wx2intro(self:getCurrentParent()), wx.wxID_ANY,"00:00:00")
@@ -249,14 +229,7 @@ function loadControls(interface)
         return ctrl
     end
     
-    function interface:addFontPickerCtrl(options)
-        local ctrl = wx.wxFontPickerCtrl(self:getCurrentParent(),options.id or wx.wxID_ANY,options.font or wx.wxNullFont,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxFNTP_DEFAULT_STYLE);       
-        options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
-        if options.handler then
-            self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_FONTPICKER_CHANGED,options.handler)
-        end  
-        return self:addControl(ctrl,options)
-    end
+
  
     function interface:addSTCCtrl(options)
         local ctrl = wxstc.wxStyledTextCtrl(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);

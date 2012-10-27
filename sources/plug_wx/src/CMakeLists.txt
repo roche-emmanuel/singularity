@@ -39,6 +39,9 @@ INSTALL(TARGETS ${TARGET_NAME}
 # step needed for the generation of the XML documentation:
 SET(INTF_FILES)
 LIST(APPEND INTF_FILES "${CMAKE_CURRENT_SOURCE_DIR}/../interface/wx")
+ADD_FILES(INTF_FILES "../interface/wx_enums.h")
+ADD_FILES(INTF_FILES "../interface/wx_events.h")
+ADD_FILES(INTF_FILES "../interface/wx_defines.h")
 ADD_FILES(INTF_FILES "../interface/helpers.h")
 ADD_FILES(INTF_FILES "../include/wx_extensions.h")
 

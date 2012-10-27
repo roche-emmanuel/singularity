@@ -354,6 +354,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,48105087) ) return false;
+		if( (!dynamic_cast< osgViewer::ViewerBase::Contexts* >(Luna< osgViewer::ViewerBase::Contexts >::check(L,2))) ) return false;
 		return true;
 	}
 

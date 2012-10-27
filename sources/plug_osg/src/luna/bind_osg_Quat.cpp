@@ -52,6 +52,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -59,6 +60,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303233) ) return false;
+		if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -67,6 +69,7 @@ public:
 
 		if( lua_isnumber(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -75,6 +78,7 @@ public:
 
 		if( lua_isnumber(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -83,10 +87,13 @@ public:
 
 		if( lua_isnumber(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,4))) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -95,10 +102,13 @@ public:
 
 		if( lua_isnumber(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -130,6 +140,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -137,6 +148,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303233) ) return false;
+		if( (!dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -144,6 +156,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -151,6 +164,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -158,6 +172,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -165,6 +180,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -261,6 +277,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -269,6 +286,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -277,10 +295,13 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,5))) ) return false;
 		if( lua_isnumber(L,6)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -289,10 +310,13 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,5))) ) return false;
 		if( lua_isnumber(L,6)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -300,7 +324,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -308,7 +334,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -335,6 +363,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -343,6 +372,7 @@ public:
 
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -404,6 +434,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -411,6 +442,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -418,6 +450,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -432,6 +465,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -446,6 +480,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -460,6 +495,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80263306) ) return false;
+		if( (!dynamic_cast< osg::Quat* >(Luna< osg::Quat >::check(L,2))) ) return false;
 		return true;
 	}
 

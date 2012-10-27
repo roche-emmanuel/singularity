@@ -64,6 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,16095945) ) return false;
+		if( (!dynamic_cast< osgUtil::Hit* >(Luna< osgUtil::Hit >::check(L,1))) ) return false;
 		return true;
 	}
 

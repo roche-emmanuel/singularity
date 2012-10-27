@@ -50,6 +50,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -57,7 +58,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -104,14 +107,16 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -120,7 +125,8 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
+		if( (!dynamic_cast< osg::BoundingBoxd* >(Luna< osg::BoundingBoxd >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -129,14 +135,16 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_intersect_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -145,7 +153,8 @@ public:
 	inline static bool _lg_typecheck_intersect_overload_6(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,54337302) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,54337300) ) return false;
+		if( (!dynamic_cast< osg::BoundingSphered* >(Luna< osg::BoundingSphered >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -155,8 +164,11 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,4))) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
 		return true;
 	}
@@ -165,8 +177,11 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
 		return true;
 	}
@@ -175,7 +190,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -183,7 +200,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,50169651) ) return false;
+		if( (!dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -401,23 +420,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb) const
+	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const
 	static int _bind_intersect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxf & bb) const\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxf &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &) const");
 		}
 		bool lret = self->intersect(bb);
 		lua_pushboolean(L,lret?1:0);
@@ -425,25 +444,25 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, float & r1, float & r2) const
+	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const
 	static int _bind_intersect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 		float r1=(float)lua_tonumber(L,3);
 		float r2=(float)lua_tonumber(L,4);
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxf &, float &, float &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, float &, float &) const");
 		}
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -451,25 +470,25 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, double & r1, double & r2) const
+	// bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const
 	static int _bind_intersect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxf & bb, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingBoxd & bb, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingBoxf & bb=*bb_ptr;
+		const osg::BoundingBoxd & bb=*bb_ptr;
 		double r1=(double)lua_tonumber(L,3);
 		double r2=(double)lua_tonumber(L,4);
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxf &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, double &, double &) const");
 		}
 		bool lret = self->intersect(bb, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -477,23 +496,23 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs) const
+	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const
 	static int _bind_intersect_overload_4(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSpheref & bs) const\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSpheref &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &) const");
 		}
 		bool lret = self->intersect(bs);
 		lua_pushboolean(L,lret?1:0);
@@ -501,25 +520,25 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, float & r1, float & r2) const
+	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const
 	static int _bind_intersect_overload_5(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, float & r1, float & r2) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 		float r1=(float)lua_tonumber(L,3);
 		float r2=(float)lua_tonumber(L,4);
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSpheref &, float &, float &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, float &, float &) const");
 		}
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -527,25 +546,25 @@ public:
 		return 1;
 	}
 
-	// bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, double & r1, double & r2) const
+	// bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const
 	static int _bind_intersect_overload_6(lua_State *L) {
 		if (!_lg_typecheck_intersect_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSpheref & bs, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 54337302\n");
+			luaL_error(L, "luna typecheck failed in bool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const function, expected prototype:\nbool osg::LineSegment::intersect(const osg::BoundingSphered & bs, double & r1, double & r2) const\nClass arguments details:\narg 1 ID = 54337300\n");
 		}
 
-		const osg::BoundingSpheref* bs_ptr=(Luna< osg::BoundingSpheref >::check(L,2));
+		const osg::BoundingSphered* bs_ptr=(Luna< osg::BoundingSphered >::check(L,2));
 		if( !bs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bs in osg::LineSegment::intersect function");
 		}
-		const osg::BoundingSpheref & bs=*bs_ptr;
+		const osg::BoundingSphered & bs=*bs_ptr;
 		double r1=(double)lua_tonumber(L,3);
 		double r2=(double)lua_tonumber(L,4);
 
 		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSpheref &, double &, double &) const");
+			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, double &, double &) const");
 		}
 		bool lret = self->intersect(bs, r1, r2);
 		lua_pushboolean(L,lret?1:0);
@@ -634,7 +653,7 @@ public:
 		if (_lg_typecheck_intersect_overload_7(L)) return _bind_intersect_overload_7(L);
 		if (_lg_typecheck_intersect_overload_8(L)) return _bind_intersect_overload_8(L);
 
-		luaL_error(L, "error in function intersect, cannot match any of the overloads for function intersect:\n  intersect(const osg::BoundingBoxf &)\n  intersect(const osg::BoundingBoxf &, float &, float &)\n  intersect(const osg::BoundingBoxf &, double &, double &)\n  intersect(const osg::BoundingSpheref &)\n  intersect(const osg::BoundingSpheref &, float &, float &)\n  intersect(const osg::BoundingSpheref &, double &, double &)\n  intersect(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float &)\n  intersect(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, double &)\n");
+		luaL_error(L, "error in function intersect, cannot match any of the overloads for function intersect:\n  intersect(const osg::BoundingBoxd &)\n  intersect(const osg::BoundingBoxd &, float &, float &)\n  intersect(const osg::BoundingBoxd &, double &, double &)\n  intersect(const osg::BoundingSphered &)\n  intersect(const osg::BoundingSphered &, float &, float &)\n  intersect(const osg::BoundingSphered &, double &, double &)\n  intersect(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float &)\n  intersect(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, double &)\n");
 		return 0;
 	}
 

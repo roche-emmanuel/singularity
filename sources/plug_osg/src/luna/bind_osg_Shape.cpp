@@ -76,6 +76,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36301858) ) return false;
+		if( (!dynamic_cast< osg::ShapeVisitor* >(Luna< osg::ShapeVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -83,6 +84,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45826538) ) return false;
+		if( (!dynamic_cast< osg::ConstShapeVisitor* >(Luna< osg::ConstShapeVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 

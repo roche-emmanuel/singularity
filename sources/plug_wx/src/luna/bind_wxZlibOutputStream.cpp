@@ -40,28 +40,6 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>3 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
-		if( (!dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1))) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>3 ) return false;
-
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1)) ) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		return true;
-	}
-
 
 	// Function checkers:
 	inline static bool _lg_typecheck_SetDictionary(lua_State *L) {
@@ -83,51 +61,6 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxZlibOutputStream::wxZlibOutputStream(wxOutputStream & stream, int level = -1, int flags = wxZLIB_ZLIB)
-	static wxZlibOutputStream* _bind_ctor_overload_1(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxZlibOutputStream::wxZlibOutputStream(wxOutputStream & stream, int level = -1, int flags = wxZLIB_ZLIB) function, expected prototype:\nwxZlibOutputStream::wxZlibOutputStream(wxOutputStream & stream, int level = -1, int flags = wxZLIB_ZLIB)\nClass arguments details:\narg 1 ID = 56813631\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxOutputStream* stream_ptr=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
-		if( !stream_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxZlibOutputStream::wxZlibOutputStream function");
-		}
-		wxOutputStream & stream=*stream_ptr;
-		int level=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxZLIB_ZLIB;
-
-		return new wxZlibOutputStream(stream, level, flags);
-	}
-
-	// wxZlibOutputStream::wxZlibOutputStream(wxOutputStream * stream, int level = -1, int flags = wxZLIB_ZLIB)
-	static wxZlibOutputStream* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxZlibOutputStream::wxZlibOutputStream(wxOutputStream * stream, int level = -1, int flags = wxZLIB_ZLIB) function, expected prototype:\nwxZlibOutputStream::wxZlibOutputStream(wxOutputStream * stream, int level = -1, int flags = wxZLIB_ZLIB)\nClass arguments details:\narg 1 ID = 56813631\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxOutputStream* stream=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
-		int level=luatop>1 ? (int)lua_tointeger(L,2) : -1;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxZLIB_ZLIB;
-
-		return new wxZlibOutputStream(stream, level, flags);
-	}
-
-	// Overload binder for wxZlibOutputStream::wxZlibOutputStream
-	static wxZlibOutputStream* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-
-		luaL_error(L, "error in function wxZlibOutputStream, cannot match any of the overloads for function wxZlibOutputStream:\n  wxZlibOutputStream(wxOutputStream &, int, int)\n  wxZlibOutputStream(wxOutputStream *, int, int)\n");
-		return NULL;
-	}
-
 
 	// Function binds:
 	// bool wxZlibOutputStream::SetDictionary(const char * data, const size_t datalen)
@@ -171,7 +104,7 @@ public:
 };
 
 wxZlibOutputStream* LunaTraits< wxZlibOutputStream >::_bind_ctor(lua_State *L) {
-	return luna_wrapper_wxZlibOutputStream::_bind_ctor(L);
+	return NULL; // No valid default constructor.
 }
 
 void LunaTraits< wxZlibOutputStream >::_bind_dtor(wxZlibOutputStream* obj) {

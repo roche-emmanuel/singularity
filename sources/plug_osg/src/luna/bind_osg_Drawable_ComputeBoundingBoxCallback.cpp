@@ -50,7 +50,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::Drawable::ComputeBoundingBoxCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -248,11 +250,11 @@ public:
 		return 1;
 	}
 
-	// osg::BoundingBoxf osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const
+	// osg::BoundingBoxd osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const function, expected prototype:\nosg::BoundingBoxf osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const function, expected prototype:\nosg::BoundingBoxd osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Drawable* _arg1_ptr=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
@@ -264,13 +266,13 @@ public:
 		osg::Drawable::ComputeBoundingBoxCallback* self=dynamic_cast< osg::Drawable::ComputeBoundingBoxCallback* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable &) const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::Drawable::ComputeBoundingBoxCallback::computeBound(const osg::Drawable &) const");
 		}
-		osg::BoundingBoxf stack_lret = self->computeBound(_arg1);
-		osg::BoundingBoxf* lret = new osg::BoundingBoxf(stack_lret);
+		osg::BoundingBoxd stack_lret = self->computeBound(_arg1);
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,true);
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
 
 		return 1;
 	}

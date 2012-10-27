@@ -77,17 +77,11 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFont_overload_2(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,2,29036700) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_setFont_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -149,6 +143,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,42086333) ) return false;
+		if( (!dynamic_cast< osgText::String* >(Luna< osgText::String >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -542,28 +537,9 @@ public:
 		return 0;
 	}
 
-	// void osgText::TextBase::setFont(osg::ref_ptr< osgText::Font > font)
+	// void osgText::TextBase::setFont(const std::string & fontfile)
 	static int _bind_setFont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setFont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(osg::ref_ptr< osgText::Font > font) function, expected prototype:\nvoid osgText::TextBase::setFont(osg::ref_ptr< osgText::Font > font)\nClass arguments details:\narg 1 ID = [unknown]\n");
-		}
-
-		osg::ref_ptr< osgText::Font > font = dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2));
-
-		osgText::TextBase* self=dynamic_cast< osgText::TextBase* >(Luna< osg::Referenced >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::TextBase::setFont(osg::ref_ptr< osgText::Font >)");
-		}
-		self->setFont(font);
-
-		return 0;
-	}
-
-	// void osgText::TextBase::setFont(const std::string & fontfile)
-	static int _bind_setFont_overload_3(lua_State *L) {
-		if (!_lg_typecheck_setFont_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in void osgText::TextBase::setFont(const std::string & fontfile) function, expected prototype:\nvoid osgText::TextBase::setFont(const std::string & fontfile)\nClass arguments details:\n");
 		}
@@ -584,9 +560,8 @@ public:
 	static int _bind_setFont(lua_State *L) {
 		if (_lg_typecheck_setFont_overload_1(L)) return _bind_setFont_overload_1(L);
 		if (_lg_typecheck_setFont_overload_2(L)) return _bind_setFont_overload_2(L);
-		if (_lg_typecheck_setFont_overload_3(L)) return _bind_setFont_overload_3(L);
 
-		luaL_error(L, "error in function setFont, cannot match any of the overloads for function setFont:\n  setFont(osgText::Font *)\n  setFont(osg::ref_ptr< osgText::Font >)\n  setFont(const std::string &)\n");
+		luaL_error(L, "error in function setFont, cannot match any of the overloads for function setFont:\n  setFont(osgText::Font *)\n  setFont(const std::string &)\n");
 		return 0;
 	}
 
@@ -1577,24 +1552,24 @@ public:
 		return 0;
 	}
 
-	// osg::BoundingBoxf osgText::TextBase::computeBound() const
+	// osg::BoundingBoxd osgText::TextBase::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf osgText::TextBase::computeBound() const function, expected prototype:\nosg::BoundingBoxf osgText::TextBase::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgText::TextBase::computeBound() const function, expected prototype:\nosg::BoundingBoxd osgText::TextBase::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osgText::TextBase* self=dynamic_cast< osgText::TextBase* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf osgText::TextBase::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgText::TextBase::computeBound() const");
 		}
-		osg::BoundingBoxf stack_lret = self->computeBound();
-		osg::BoundingBoxf* lret = new osg::BoundingBoxf(stack_lret);
+		osg::BoundingBoxd stack_lret = self->computeBound();
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,true);
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
 
 		return 1;
 	}

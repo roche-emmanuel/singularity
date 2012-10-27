@@ -125,7 +125,7 @@ public:
         @return @false if no range limits are currently set, @true if at least
                  one bound is set.
     */
-    virtual bool GetRange(wxDateTime* dt1, wxDateTime* dt2) const = 0;
+    virtual bool GetRange(wxDateTime* dt1, wxDateTime* dt2) const;
 
     /**
         Returns the currently entered date.
@@ -133,7 +133,7 @@ public:
         For a control with @c wxDP_ALLOWNONE style the returned value may be
         invalid if no date is entered, otherwise it is always valid.
     */
-    virtual wxDateTime GetValue() const = 0;
+    virtual wxDateTime GetValue() const;
 
     /**
         Sets the valid range for the date selection. If @a dt1 is valid, it
@@ -143,7 +143,7 @@ public:
         @remarks If the current value of the control is outside of the newly
                  set range bounds, the behaviour is undefined.
     */
-    virtual void SetRange(const wxDateTime& dt1, const wxDateTime& dt2) = 0;
+    virtual void SetRange(const wxDateTime& dt1, const wxDateTime& dt2);
 
     /**
         Changes the current value of the control.
@@ -154,6 +154,6 @@ public:
 
         Calling this method does not result in a date change event.
     */
-    virtual void SetValue(const wxDateTime& dt) = 0;
+    virtual void SetValue(const wxDateTime& dt);
 };
 

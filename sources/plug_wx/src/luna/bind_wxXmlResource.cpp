@@ -40,25 +40,6 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>3 ) return false;
-
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<0 || luatop>2 ) return false;
-
-		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-
 
 	// Function checkers:
 	inline static bool _lg_typecheck_AddHandler(lua_State *L) {
@@ -339,46 +320,6 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxXmlResource::wxXmlResource(const wxString & filemask, int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString)
-	static wxXmlResource* _bind_ctor_overload_1(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlResource::wxXmlResource(const wxString & filemask, int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString) function, expected prototype:\nwxXmlResource::wxXmlResource(const wxString & filemask, int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxString filemask(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxXRC_USE_LOCALE;
-		wxString domain(lua_tostring(L,3),lua_objlen(L,3));
-
-		return new wxXmlResource(filemask, flags, domain);
-	}
-
-	// wxXmlResource::wxXmlResource(int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString)
-	static wxXmlResource* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlResource::wxXmlResource(int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString) function, expected prototype:\nwxXmlResource::wxXmlResource(int flags = wxXRC_USE_LOCALE, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : wxXRC_USE_LOCALE;
-		wxString domain(lua_tostring(L,2),lua_objlen(L,2));
-
-		return new wxXmlResource(flags, domain);
-	}
-
-	// Overload binder for wxXmlResource::wxXmlResource
-	static wxXmlResource* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-
-		luaL_error(L, "error in function wxXmlResource, cannot match any of the overloads for function wxXmlResource:\n  wxXmlResource(const wxString &, int, const wxString &)\n  wxXmlResource(int, const wxString &)\n");
-		return NULL;
-	}
-
 
 	// Function binds:
 	// void wxXmlResource::AddHandler(wxXmlResourceHandler * handler)
@@ -1143,7 +1084,7 @@ public:
 };
 
 wxXmlResource* LunaTraits< wxXmlResource >::_bind_ctor(lua_State *L) {
-	return luna_wrapper_wxXmlResource::_bind_ctor(L);
+	return NULL; // No valid default constructor.
 }
 
 void LunaTraits< wxXmlResource >::_bind_dtor(wxXmlResource* obj) {

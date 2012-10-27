@@ -342,9 +342,7 @@ public:
 			luaL_error(L, "Invalid object in function call wxMediaState wxMediaCtrl::GetState()");
 		}
 		wxMediaState lret = self->GetState();
-		////////////////////////////////////////////////////////////////////
-		// ERROR: Cannot decide the argument type for 'wxMediaState'
-		////////////////////////////////////////////////////////////////////
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}

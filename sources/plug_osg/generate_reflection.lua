@@ -102,6 +102,10 @@ ReflectionGenerator.generate{
 		"GraphicsWindow::makeContextCurrentImplementation",
 		"GraphicsWindow::isSameKindAs",
 		"GraphicsWindowEmbedded::isSameKindAs",
+		
+		"TextBase::.-osg::ref_ptr", -- to avoid missing link on Luna type osg::ref_ptr< osgText::Font >
+		"Text::.-osg::ref_ptr", -- to avoid missing link on Luna type osg::ref_ptr< osgText::Font >
+		"NodeAcceptOp", -- to avoid missing link on Luna type osg::ref_ptr< osg::Node >
 	},
 	ignoreConverters={
 		"ScreenIdentifier",

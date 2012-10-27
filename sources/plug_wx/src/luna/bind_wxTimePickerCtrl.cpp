@@ -73,11 +73,11 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT|wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl")
+	// bool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT | wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl")
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT|wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\") function, expected prototype:\nbool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT|wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 57497519\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT | wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\") function, expected prototype:\nbool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT | wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 57497519\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -99,7 +99,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTimePickerCtrl::Create function");
 		}
 		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxDP_DEFAULT|wxDP_SHOWCENTURY;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxDP_DEFAULT | wxDP_SHOWCENTURY;
 		const wxValidator* validator_ptr=luatop>7 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8)) : NULL;
 		if( luatop>7 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxTimePickerCtrl::Create function");

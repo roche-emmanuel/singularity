@@ -62,7 +62,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osgViewer::View* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -437,6 +439,7 @@ public:
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,19574398) ) return false;
+		if( (!dynamic_cast< osgUtil::LineSegmentIntersector::Intersections* >(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
@@ -448,7 +451,9 @@ public:
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,52841328) ) return false;
+		if( (!dynamic_cast< osg::NodePath* >(Luna< osg::NodePath >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,19574398) ) return false;
+		if( (!dynamic_cast< osgUtil::LineSegmentIntersector::Intersections* >(Luna< osgUtil::LineSegmentIntersector::Intersections >::check(L,5))) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}

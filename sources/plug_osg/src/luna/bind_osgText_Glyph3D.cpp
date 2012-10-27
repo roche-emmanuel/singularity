@@ -149,7 +149,7 @@ public:
 	inline static bool _lg_typecheck_setBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
 		return true;
 	}
 
@@ -515,46 +515,46 @@ public:
 		return 1;
 	}
 
-	// void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxf & bb)
+	// void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd & bb)
 	static int _bind_setBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_setBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxf & bb) function, expected prototype:\nvoid osgText::Glyph3D::setBoundingBox(osg::BoundingBoxf & bb)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd & bb) function, expected prototype:\nvoid osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd & bb)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		osg::BoundingBoxf* bb_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		osg::BoundingBoxd* bb_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bb_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bb in osgText::Glyph3D::setBoundingBox function");
 		}
-		osg::BoundingBoxf & bb=*bb_ptr;
+		osg::BoundingBoxd & bb=*bb_ptr;
 
 		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd &)");
 		}
 		self->setBoundingBox(bb);
 
 		return 0;
 	}
 
-	// const osg::BoundingBoxf & osgText::Glyph3D::getBoundingBox() const
+	// const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const
 	static int _bind_getBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_getBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxf & osgText::Glyph3D::getBoundingBox() const function, expected prototype:\nconst osg::BoundingBoxf & osgText::Glyph3D::getBoundingBox() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const function, expected prototype:\nconst osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const\nClass arguments details:\n");
 		}
 
 
 		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxf & osgText::Glyph3D::getBoundingBox() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const");
 		}
-		const osg::BoundingBoxf* lret = &self->getBoundingBox();
+		const osg::BoundingBoxd* lret = &self->getBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,false);
+		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
 	}

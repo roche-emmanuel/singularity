@@ -342,6 +342,16 @@ function Type:isLuaAny()
 	return false;
 end
 
+function Type:getFirstAbsoluteBaseName()
+	if type(self._base)=="table" then
+		return self._base:getFirstAbsoluteBase():getFullName()
+	elseif type(self._base)=="string" then
+		return self._base
+	else
+		error("Could not retrieve AbsoluteBaseName for type ",self:getName())
+	end	
+end
+
 function Type:getAbsoluteBaseHash()
 	if type(self._base)=="table" then
 		return self._base:getAbsoluteBaseHash()

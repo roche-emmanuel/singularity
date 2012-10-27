@@ -51,7 +51,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::ParticleSystem* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -158,7 +160,7 @@ public:
 	inline static bool _lg_typecheck_setDefaultBoundingBox(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,82744899) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82744897) ) return false;
 		return true;
 	}
 
@@ -746,44 +748,44 @@ public:
 		return 1;
 	}
 
-	// const osg::BoundingBoxf & osgParticle::ParticleSystem::getDefaultBoundingBox() const
+	// const osg::BoundingBoxd & osgParticle::ParticleSystem::getDefaultBoundingBox() const
 	static int _bind_getDefaultBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_getDefaultBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxf & osgParticle::ParticleSystem::getDefaultBoundingBox() const function, expected prototype:\nconst osg::BoundingBoxf & osgParticle::ParticleSystem::getDefaultBoundingBox() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::BoundingBoxd & osgParticle::ParticleSystem::getDefaultBoundingBox() const function, expected prototype:\nconst osg::BoundingBoxd & osgParticle::ParticleSystem::getDefaultBoundingBox() const\nClass arguments details:\n");
 		}
 
 
 		osgParticle::ParticleSystem* self=dynamic_cast< osgParticle::ParticleSystem* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::BoundingBoxf & osgParticle::ParticleSystem::getDefaultBoundingBox() const");
+			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osgParticle::ParticleSystem::getDefaultBoundingBox() const");
 		}
-		const osg::BoundingBoxf* lret = &self->getDefaultBoundingBox();
+		const osg::BoundingBoxd* lret = &self->getDefaultBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,false);
+		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
 	}
 
-	// void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxf & bbox)
+	// void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd & bbox)
 	static int _bind_setDefaultBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_setDefaultBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxf & bbox) function, expected prototype:\nvoid osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxf & bbox)\nClass arguments details:\narg 1 ID = 82744899\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd & bbox) function, expected prototype:\nvoid osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd & bbox)\nClass arguments details:\narg 1 ID = 82744897\n");
 		}
 
-		const osg::BoundingBoxf* bbox_ptr=(Luna< osg::BoundingBoxf >::check(L,2));
+		const osg::BoundingBoxd* bbox_ptr=(Luna< osg::BoundingBoxd >::check(L,2));
 		if( !bbox_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bbox in osgParticle::ParticleSystem::setDefaultBoundingBox function");
 		}
-		const osg::BoundingBoxf & bbox=*bbox_ptr;
+		const osg::BoundingBoxd & bbox=*bbox_ptr;
 
 		osgParticle::ParticleSystem* self=dynamic_cast< osgParticle::ParticleSystem* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxf &)");
+			luaL_error(L, "Invalid object in function call void osgParticle::ParticleSystem::setDefaultBoundingBox(const osg::BoundingBoxd &)");
 		}
 		self->setDefaultBoundingBox(bbox);
 
@@ -1490,24 +1492,24 @@ public:
 		return 0;
 	}
 
-	// osg::BoundingBoxf osgParticle::ParticleSystem::computeBound() const
+	// osg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf osgParticle::ParticleSystem::computeBound() const function, expected prototype:\nosg::BoundingBoxf osgParticle::ParticleSystem::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const function, expected prototype:\nosg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const\nClass arguments details:\n");
 		}
 
 
 		osgParticle::ParticleSystem* self=dynamic_cast< osgParticle::ParticleSystem* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf osgParticle::ParticleSystem::computeBound() const");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const");
 		}
-		osg::BoundingBoxf stack_lret = self->computeBound();
-		osg::BoundingBoxf* lret = new osg::BoundingBoxf(stack_lret);
+		osg::BoundingBoxd stack_lret = self->computeBound();
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,true);
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
 
 		return 1;
 	}

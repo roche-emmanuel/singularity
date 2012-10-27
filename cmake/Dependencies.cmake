@@ -54,15 +54,16 @@ SET(MYSQL_LIBS 		mysqlclient)
 
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
-SET(OSG_LIBS     	OpenThreads
-					osg
-					osgUtil 
-					osgDB 
-					osgGA
-					osgText 
-					osgViewer  
-					osgParticle
+SET(OSG_LIBS     	OpenThreads.lib
+					osg.lib
+					osgUtil.lib 
+					osgDB.lib 
+					osgGA.lib
+					osgText.lib 
+					osgViewer.lib  
+					osgParticle.lib
 					)
+					
 SET(OSG_FLAGS     	) #-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC 
 
 SET(SDL_INC_DIR 	${DEP_SDL}/include)

@@ -147,11 +147,11 @@ public:
 		return new wxSashWindow();
 	}
 
-	// wxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = "sashWindow")
+	// wxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "sashWindow")
 	static wxSashWindow* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"sashWindow\") function, expected prototype:\nwxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN |wxSW_3D, const wxString & name = \"sashWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"sashWindow\") function, expected prototype:\nwxSashWindow::wxSashWindow(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = \"sashWindow\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -168,7 +168,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSashWindow::wxSashWindow function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxCLIP_CHILDREN |wxSW_3D;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxCLIP_CHILDREN | wxSW_3D;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxSashWindow(parent, id, pos, size, style, name);

@@ -72,6 +72,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303186) ) return false;
+		if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -172,6 +173,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303186) ) return false;
+		if( (!dynamic_cast< osg::Vec2s* >(Luna< osg::Vec2s >::check(L,2))) ) return false;
 		return true;
 	}
 

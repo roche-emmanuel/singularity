@@ -71,6 +71,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		return true;
 	}
 

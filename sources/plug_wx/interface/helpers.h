@@ -82,16 +82,6 @@ protected:
     ~wxObjectRefData();
 };
 
-enum wxHelpSearchMode
-{
-    wxHELP_SEARCH_INDEX,
-    wxHELP_SEARCH_ALL
-};
-    
-// class wxColour {
-// public:
-	// wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = 255); 
-// }
 
 typedef double wxDouble;
 typedef int wxCoord;
@@ -226,175 +216,22 @@ public:
     int GetValue() const { return m_value; }
 };
 
+class wxDatePickerCtrl : public wxControl { // prevent abstract definition of that class.
+public:
+	bool wxDatePickerCtrl::GetRange(wxDateTime * dt1, wxDateTime * dt2) const;
+	wxDateTime wxDatePickerCtrl::GetValue() const;
+	void wxDatePickerCtrl::SetRange(const wxDateTime & dt1, const wxDateTime & dt2);
+	void wxDatePickerCtrl::SetValue(const wxDateTime & dt);
+};
 
 class sgtApp : public wxApp {};
 sgtApp& wxGetApp();
 
-// Dummy defines:
-#define wxDEFAULT_FRAME_STYLE 0
+#define wxEVT_COMMAND_TREELIST_SELECTION_CHANGED 0
+#define wxEVT_COMMAND_TREELIST_ITEM_EXPANDING 0
+#define wxEVT_COMMAND_TREELIST_ITEM_EXPANDED 0
+#define wxEVT_COMMAND_TREELIST_ITEM_CHECKED 0
+#define wxEVT_COMMAND_TREELIST_ITEM_ACTIVATED 0
+#define wxEVT_COMMAND_TREELIST_ITEM_CONTEXT_MENU 0
+#define wxEVT_COMMAND_TREELIST_COLUMN_SORTED 0
 
-
-#define wxEVT_COMMAND_BUTTON_CLICKED 0
-#define wxEVT_COMMAND_CHECKBOX_CLICKED 0
-#define wxEVT_COMMAND_CHOICE_SELECTED 0
-#define wxEVT_COMMAND_LISTBOX_SELECTED 0
-#define wxEVT_COMMAND_LISTBOX_DOUBLECLICKED 0
-#define wxEVT_COMMAND_CHECKLISTBOX_TOGGLED 0
-#define wxEVT_COMMAND_MENU_SELECTED 0
-#define wxEVT_COMMAND_SLIDER_UPDATED 0
-#define wxEVT_COMMAND_RADIOBOX_SELECTED 0
-#define wxEVT_COMMAND_RADIOBUTTON_SELECTED 0
-#define wxEVT_COMMAND_SCROLLBAR_UPDATED 0
-#define wxEVT_COMMAND_VLBOX_SELECTED 0
-#define wxEVT_COMMAND_COMBOBOX_SELECTED 0
-#define wxEVT_COMMAND_TOOL_RCLICKED 0
-#define wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED 0
-#define wxEVT_COMMAND_TOOL_ENTER 0
-#define wxEVT_COMMAND_COMBOBOX_DROPDOWN 0
-#define wxEVT_COMMAND_COMBOBOX_CLOSEUP 0
-#define wxEVT_THREAD 0
-#define wxEVT_LEFT_DOWN 0
-#define wxEVT_LEFT_UP 0
-#define wxEVT_MIDDLE_DOWN 0
-#define wxEVT_MIDDLE_UP 0
-#define wxEVT_RIGHT_DOWN 0
-#define wxEVT_RIGHT_UP 0
-#define wxEVT_MOTION 0
-#define wxEVT_ENTER_WINDOW 0
-#define wxEVT_LEAVE_WINDOW 0
-#define wxEVT_LEFT_DCLICK 0
-#define wxEVT_MIDDLE_DCLICK 0
-#define wxEVT_RIGHT_DCLICK 0
-#define wxEVT_SET_FOCUS 0
-#define wxEVT_KILL_FOCUS 0
-#define wxEVT_CHILD_FOCUS 0
-#define wxEVT_MOUSEWHEEL 0
-#define wxEVT_AUX1_DOWN 0
-#define wxEVT_AUX1_UP 0
-#define wxEVT_AUX1_DCLICK 0
-#define wxEVT_AUX2_DOWN 0
-#define wxEVT_AUX2_UP 0
-#define wxEVT_AUX2_DCLICK 0
-#define wxEVT_CHAR 0
-#define wxEVT_CHAR_HOOK 0
-#define wxEVT_NAVIGATION_KEY 0
-#define wxEVT_KEY_DOWN 0
-#define wxEVT_KEY_UP 0
-#define wxEVT_HOTKEY 0
-#define wxEVT_SET_CURSOR 0
-#define wxEVT_SCROLL_TOP 0
-#define wxEVT_SCROLL_BOTTOM 0
-#define wxEVT_SCROLL_LINEUP 0
-#define wxEVT_SCROLL_LINEDOWN 0
-#define wxEVT_SCROLL_PAGEUP 0
-#define wxEVT_SCROLL_PAGEDOWN 0
-#define wxEVT_SCROLL_THUMBTRACK 0
-#define wxEVT_SCROLL_THUMBRELEASE 0
-#define wxEVT_SCROLL_CHANGED 0
-#define wxEVT_SPIN_UP 0
-#define wxEVT_SPIN_DOWN 0
-#define wxEVT_SPIN 0
-#define wxEVT_SCROLLWIN_TOP 0
-#define wxEVT_SCROLLWIN_BOTTOM 0
-#define wxEVT_SCROLLWIN_LINEUP 0
-#define wxEVT_SCROLLWIN_LINEDOWN 0
-#define wxEVT_SCROLLWIN_PAGEUP 0
-#define wxEVT_SCROLLWIN_PAGEDOWN 0
-#define wxEVT_SCROLLWIN_THUMBTRACK 0
-#define wxEVT_SCROLLWIN_THUMBRELEASE 0
-#define wxEVT_SIZE 0
-#define wxEVT_MOVE 0
-#define wxEVT_CLOSE_WINDOW 0
-#define wxEVT_END_SESSION 0
-#define wxEVT_QUERY_END_SESSION 0
-#define wxEVT_ACTIVATE_APP 0
-#define wxEVT_ACTIVATE 0
-#define wxEVT_CREATE 0
-#define wxEVT_DESTROY 0
-#define wxEVT_SHOW 0
-#define wxEVT_ICONIZE 0
-#define wxEVT_MAXIMIZE 0
-#define wxEVT_MOUSE_CAPTURE_CHANGED 0
-#define wxEVT_MOUSE_CAPTURE_LOST 0
-#define wxEVT_PAINT 0
-#define wxEVT_ERASE_BACKGROUND 0
-#define wxEVT_NC_PAINT 0
-#define wxEVT_MENU_OPEN 0
-#define wxEVT_MENU_CLOSE 0
-#define wxEVT_MENU_HIGHLIGHT 0
-#define wxEVT_CONTEXT_MENU 0
-#define wxEVT_SYS_COLOUR_CHANGED 0
-#define wxEVT_DISPLAY_CHANGED 0
-#define wxEVT_QUERY_NEW_PALETTE 0
-#define wxEVT_PALETTE_CHANGED 0
-#define wxEVT_JOY_BUTTON_DOWN 0
-#define wxEVT_JOY_BUTTON_UP 0
-#define wxEVT_JOY_MOVE 0
-#define wxEVT_JOY_ZMOVE 0
-#define wxEVT_DROP_FILES 0
-#define wxEVT_INIT_DIALOG 0
-#define wxEVT_IDLE 0
-#define wxEVT_UPDATE_UI 0
-#define wxEVT_SIZING 0
-#define wxEVT_MOVING 0
-#define wxEVT_MOVE_START 0
-#define wxEVT_MOVE_END 0
-#define wxEVT_HIBERNATE 0
-#define wxEVT_COMMAND_TEXT_COPY 0
-#define wxEVT_COMMAND_TEXT_CUT 0
-#define wxEVT_COMMAND_TEXT_PASTE 0
-#define wxEVT_COMMAND_LEFT_CLICK 0
-#define wxEVT_COMMAND_LEFT_DCLICK 0
-#define wxEVT_COMMAND_RIGHT_CLICK 0
-#define wxEVT_COMMAND_RIGHT_DCLICK 0
-#define wxEVT_COMMAND_SET_FOCUS 0
-#define wxEVT_COMMAND_KILL_FOCUS 0
-#define wxEVT_COMMAND_ENTER 0
-#define wxEVT_HELP 0
-#define wxEVT_DETAILED_HELP 0
-#define wxEVT_COMMAND_TEXT_UPDATED 0
-#define wxEVT_COMMAND_TOOL_CLICKED 0
-#define wxEVT_WINDOW_MODAL_DIALOG_CLOSED 0
-
-
-#define wxFLP_OPEN                    0
-#define wxFLP_SAVE                    0
-#define wxFLP_OVERWRITE_PROMPT        0
-#define wxFLP_FILE_MUST_EXIST         0
-#define wxFLP_CHANGE_DIR              0
-#define wxFLP_SMALL                   0
-#define wxDIRP_DIR_MUST_EXIST         0
-#define wxDIRP_CHANGE_DIR             0
-#define wxDIRP_SMALL                  0
-#define wxFLP_USE_TEXTCTRL            0
-#define wxDIRP_USE_TEXTCTRL           0
-
-
-#define wxEVT_COMMAND_FILEPICKER_CHANGED 0
-#define wxEVT_COMMAND_DIRPICKER_CHANGED 0
-
-// Text ctrl IDs:
-#define wxTE_NO_VSCROLL     0x0002
-#define wxTE_READONLY       0x0010
-#define wxTE_MULTILINE      0x0020
-#define wxTE_PROCESS_TAB    0x0040
-#define wxTE_LEFT           0x0000                    // 0x0000
-#define wxTE_CENTER         0x0100
-#define wxTE_RIGHT          0x0200
-#define wxTE_CENTRE         0x0000
-#define wxTE_RICH           0x0080
-#define wxTE_PROCESS_ENTER  0x0400
-#define wxTE_PASSWORD       0x0800
-#define wxTE_AUTO_URL       0x1000
-#define wxTE_NOHIDESEL      0x2000
-#define wxTE_DONTWRAP       0x0000
-#define wxTE_CHARWRAP       0x4000  // wrap at any position
-#define wxTE_WORDWRAP       0x0001  // wrap only at words boundaries
-#define wxTE_BESTWRAP       0x0000  // this is the default
-#define wxTE_RICH2          0x8000
-
-#define wxFRAME_NO_TASKBAR      0x0002  // No taskbar button (MSW only)
-#define wxFRAME_TOOL_WINDOW     0x0004  // No taskbar button, no system menu
-#define wxFRAME_FLOAT_ON_PARENT 0x0008  // Always above its parent
-
-#define wxMINIMIZE  0

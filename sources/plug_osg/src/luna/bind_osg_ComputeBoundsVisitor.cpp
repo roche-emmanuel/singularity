@@ -96,6 +96,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -103,6 +104,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -110,6 +112,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -210,23 +213,23 @@ public:
 		return 0;
 	}
 
-	// osg::BoundingBoxf & osg::ComputeBoundsVisitor::getBoundingBox()
+	// osg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox()
 	static int _bind_getBoundingBox(lua_State *L) {
 		if (!_lg_typecheck_getBoundingBox(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBoxf & osg::ComputeBoundsVisitor::getBoundingBox() function, expected prototype:\nosg::BoundingBoxf & osg::ComputeBoundsVisitor::getBoundingBox()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox() function, expected prototype:\nosg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox()\nClass arguments details:\n");
 		}
 
 
 		osg::ComputeBoundsVisitor* self=dynamic_cast< osg::ComputeBoundsVisitor* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBoxf & osg::ComputeBoundsVisitor::getBoundingBox()");
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd & osg::ComputeBoundsVisitor::getBoundingBox()");
 		}
-		const osg::BoundingBoxf* lret = &self->getBoundingBox();
+		const osg::BoundingBoxd* lret = &self->getBoundingBox();
 		if(!lret) return 0; // Do not write NULL pointers.
 
-		Luna< osg::BoundingBoxf >::push(L,lret,false);
+		Luna< osg::BoundingBoxd >::push(L,lret,false);
 
 		return 1;
 	}

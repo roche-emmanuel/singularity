@@ -1,5 +1,4 @@
-local Class = require("classBuilder"){name="BasicInterface",
-  bases={"gui.EventHandler"}};
+local Class = require("classBuilder"){name="BasicInterface", bases={"gui.EventHandler"}};
 
 local wx = require "wx"
 
@@ -53,6 +52,7 @@ end
 
 function Class:close()
 	self:debug("Closing BasicInterface...")
+	self:fireEvent("InterfaceClosing")
 	self:disconnectHandlers()
 	--self._root:DestroyChildren()
 	
