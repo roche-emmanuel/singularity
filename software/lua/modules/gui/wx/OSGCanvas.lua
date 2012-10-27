@@ -27,21 +27,20 @@ function Class:initialize(options)
 	
 	self._attribs = options.attribs or {wx.WX_GL_RGBA,wx.WX_GL_DOUBLEBUFFER}
 	
-	self._intf:addListener("InterfaceClosing",self)
+	--self._intf:addListener("InterfaceClosing",self)
 	
 	self:create()
 	
 	self:debug4("OSG Canvas initialization done.")
 end
 
-function Class:onInterfaceClosing()
-	self:info("Deleting viewer...")
-	self._viewer = nil
-end
+--function Class:onInterfaceClosing()
+	--self:info("Deleting viewer...")
+	--self._viewer = nil
+--end
 
 function Class:create()
 	
-	--[[
 	self._canvas = osgWX.createGLCanvas(self._parent,wx.wxID_ANY,self._attribs)
 	self:check(self._canvas,"Invalid wxGLCanvas")
 	
@@ -51,16 +50,17 @@ function Class:create()
 
 	-- create graphicswindow:
 	self._gw = osgWX.GraphicsWindowWX(self._canvas,self._context) -- instance owned by lua
-	]]
 	
 	-- create a viewer:
 	self._viewer = osgViewer.Viewer()
 	
-	--[[
+	
 	self._viewer:setSceneData(self._root);
+	--[[
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
+		
 		
 	self._viewer:frame()
 	
@@ -80,7 +80,6 @@ function Class:create()
 		self._viewer:frame();
 	end)
 	]]
-	
 end
 
 function Class:getWXCanvas()

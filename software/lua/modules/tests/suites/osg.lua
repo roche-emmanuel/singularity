@@ -47,8 +47,8 @@ end
 
 function test_viewer_deletion()
 	log:info("Tests","Starting viewer deletion test.")
-	--local viewer = osgViewer.Viewer()
-	local viewer = osgViewer.ViewerBase()
+	local viewer = osgViewer.Viewer()
+	--local viewer = osgViewer.ViewerBase() -- this one is abstract
 	
 	log:info("Tests","Deleting...")
 	viewer:delete()

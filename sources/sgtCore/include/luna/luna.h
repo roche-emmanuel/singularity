@@ -6,16 +6,11 @@
 // an optimized version of luna by Taesoo Kwon.
 // This luna class is faster than the original luna, lunar. (Faster than OOLUA and luabind too.)
 
-//#define USE_BOOST_SHARED_PTR
 
 extern "C" {
 #include "lua.h"
 #include "lauxlib.h"
 }
-
-#ifdef USE_BOOST_SHARED_PTR
-#include <boost/shared_ptr.hpp>
-#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -54,6 +49,7 @@ struct luna_eqstr{
 	}
 };
 
+// Caster templates used for the convertion of types in gc_T()
 template <typename srcType, typename dstType>
 struct caster {
 	static inline dstType* cast(srcType* ptr) {
@@ -68,12 +64,6 @@ struct caster<srcType,srcType> {
 	};
 };
 
-// template <>
-// struct caster<void,void> {
-	// static inline void* cast(void* ptr) {
-		// return ptr;
-	// };
-// };
 
 
 #ifndef CXX_ENABLED
@@ -177,11 +167,7 @@ class LunaTraits
 template <typename T> class Luna {
 	typedef LunaTraits<T > T_interface;
 	public:
-#ifdef USE_BOOST_SHARED_PTR
-		typedef struct {int* uniqueIDs; boost::shared_ptr<T> pT; bool gc; bool has_env;} userdataType;
-#else
 		typedef struct {int* uniqueIDs; T* pT; bool gc; bool has_env; int hash; } userdataType;
-#endif
 
 	inline static void set(lua_State *L, int table_index, const char *key) {
 		lua_pushstring(L, key);
@@ -344,11 +330,7 @@ template <typename T> class Luna {
 
 		if(ud->uniqueIDs[0] == T_interface::uniqueIDs[0]) {
 			// Direct cast is possible.
-#ifdef USE_BOOST_SHARED_PTR
-			return ud->pT.get();
-#else
 			return ud->pT;
-#endif
 		}
 		else {
 			// Need to cast to the first base class to avoid slicing:
@@ -376,12 +358,10 @@ template <typename T> class Luna {
 		
 		//userdataType *ud = static_cast<userdataType*>(lua_newuserdata(L, sizeof(userdataType)));
 		UserData *ud = static_cast<UserData*>(lua_newuserdata(L, sizeof(UserData)));
-#ifdef USE_BOOST_SHARED_PTR
-		ud->pT = boost::shared_ptr<T>((T*)obj);
-#else
+
 		//ud->pT = (T*)obj;  // store pointer to object in userdata
 		ud->pT = (ParentType*)(const_cast<T*>(obj));  // store pointer to object in userdata
-#endif
+
 		ud->gc=gc;   // collect garbage by default
 		ud->has_env=false; // does this userdata has a table attached to it?
 		ud->uniqueIDs=(int*)T_interface::uniqueIDs;
@@ -422,7 +402,6 @@ template <typename T> class Luna {
 
 	// garbage collection metamethod
 	static int gc_T(lua_State *L) {
-#ifndef USE_BOOST_SHARED_PTR
 		typedef typename T_interface::parent_t ParentType;
 		typedef typename Luna<ParentType>::userdataType UserData;
 		
@@ -443,18 +422,16 @@ template <typename T> class Luna {
 			T_interface::_bind_dtor(obj);  // call constructor for T objects
 		}
 		ud->pT = NULL;
-#endif
+
 		return 0;
 	}
 
 	static int tostring_T (lua_State *L) {
 		char buff[32];
 		userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
-#ifdef USE_BOOST_SHARED_PTR
-		T* obj = (T*)(ud->pT.get());
-#else
+
 		T *obj = (T*)(ud->pT);
-#endif
+
 		sprintf(buff, "%p", obj);
 		lua_pushfstring(L, "%s (%s)", T_interface::className, buff);
 		return 1;
