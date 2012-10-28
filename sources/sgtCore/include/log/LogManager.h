@@ -85,6 +85,8 @@ public:
 		_defaultLevelFlags(0),
 		_verbose(false) {}
 
+	~LogManager(); // destructor should be private.
+	
 	/**
 	Log a given piece of information to the internal sinks.
 	*/

@@ -33,6 +33,7 @@ SET(INCLUDE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../sgtCore/include")
 
 ADD_FILES(INTF_FILES "../../sgtCore/include/sgtCommon.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/base/Object.h")
+ADD_FILES(INTF_FILES "../../sgtCore/include/base/Referenced.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/base/TimeProvider.h")
 #ADD_FILES(INTF_FILES "../../sgtCore/include/base/DataMap.h")
 ADD_FILES(INTF_FILES "../../sgtCore/include/log/*.h")

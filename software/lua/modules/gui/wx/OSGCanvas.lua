@@ -56,13 +56,12 @@ function Class:create()
 	
 	
 	self._viewer:setSceneData(self._root);
-	--[[
 	self._viewer:getCamera():setGraphicsContext(self._gw)
 	self._viewer:getCamera():setClearMask(bit.bor(gl.COLOR_BUFFER_BIT,gl.DEPTH_BUFFER_BIT))
 	self._viewer:getCamera():setClearColor(osg.Vec4f(1.0,0.0,0.0,1.0))
 		
 		
-	self._viewer:frame()
+	--self._viewer:frame()
 	
 	-- connect the event handlers for the canvas:
 	self._intf:connectHandler(self._canvas,wx.wxEVT_SIZE,function(intf,event)
@@ -79,7 +78,6 @@ function Class:create()
 		
 		self._viewer:frame();
 	end)
-	]]
 end
 
 function Class:getWXCanvas()

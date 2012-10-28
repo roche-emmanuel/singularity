@@ -432,10 +432,11 @@ function Class:addOSGCtrl(options)
 	
 	options.intf = options.intf or self
 	local canvas = require("gui.wx.OSGCanvas")(options)
-	--self:check(canvas,"Invalid OSG canvas object.")
+	self:check(canvas,"Invalid OSG canvas object.")
 	
-	--options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	--return self:addControl(canvas:getWXCanvas(),options), canvas
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
+	return self:addControl(canvas:getWXCanvas(),options), canvas
 end
 
 return Class

@@ -1,0 +1,156 @@
+#include <plug_common.h>
+
+class luna_wrapper_sgt_Referenced {
+public:
+	typedef Luna< sgt::Referenced > luna_t;
+
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
+		}
+
+		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
+	// Derived class converters:
+	static int _cast_from_Referenced(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		sgt::Referenced* ptr= dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< sgt::Referenced >::push(L,ptr,false);
+		return 1;
+	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+
+	// Function checkers:
+	inline static bool _lg_typecheck_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+
+	// Operator checkers:
+	// (found 0 valid operators)
+
+	// Constructor binds:
+	// sgt::Referenced::Referenced()
+	static sgt::Referenced* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced() function, expected prototype:\nsgt::Referenced::Referenced()\nClass arguments details:\n");
+		}
+
+
+		return new sgt::Referenced();
+	}
+
+
+	// Function binds:
+	// void sgt::Referenced::setName(const std::string & name)
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::Referenced::setName(const std::string & name) function, expected prototype:\nvoid sgt::Referenced::setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		sgt::Referenced* self=dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &)");
+		}
+		self->setName(name);
+
+		return 0;
+	}
+
+	// std::string sgt::Referenced::getName()
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string sgt::Referenced::getName() function, expected prototype:\nstd::string sgt::Referenced::getName()\nClass arguments details:\n");
+		}
+
+
+		sgt::Referenced* self=dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName()");
+		}
+		std::string lret = self->getName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+
+	// Operator binds:
+
+};
+
+sgt::Referenced* LunaTraits< sgt::Referenced >::_bind_ctor(lua_State *L) {
+	return luna_wrapper_sgt_Referenced::_bind_ctor(L);
+}
+
+void LunaTraits< sgt::Referenced >::_bind_dtor(sgt::Referenced* obj) {
+	osg::ref_ptr<osg::Referenced> refptr = obj;
+}
+
+const char LunaTraits< sgt::Referenced >::className[] = "Referenced";
+const char LunaTraits< sgt::Referenced >::fullName[] = "sgt::Referenced";
+const char LunaTraits< sgt::Referenced >::moduleName[] = "sgt";
+const char* LunaTraits< sgt::Referenced >::parents[] = {"osg.Referenced", 0};
+const int LunaTraits< sgt::Referenced >::hash = 8819118;
+const int LunaTraits< sgt::Referenced >::uniqueIDs[] = {50169651,0};
+
+luna_RegType LunaTraits< sgt::Referenced >::methods[] = {
+	{"setName", &luna_wrapper_sgt_Referenced::_bind_setName},
+	{"getName", &luna_wrapper_sgt_Referenced::_bind_getName},
+	{"__eq", &luna_wrapper_sgt_Referenced::_bind___eq},
+	{0,0}
+};
+
+luna_ConverterType LunaTraits< sgt::Referenced >::converters[] = {
+	{"osg::Referenced", &luna_wrapper_sgt_Referenced::_cast_from_Referenced},
+	{0,0}
+};
+
+luna_RegEnumType LunaTraits< sgt::Referenced >::enumValues[] = {
+	{0,0}
+};
+
+

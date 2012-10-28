@@ -8,6 +8,10 @@ static osg::ref_ptr<sgtLogManager> singleton;
 
 namespace sgt {
 
+LogManager::~LogManager() {
+	//std::cout << "WARNING: destroying LogManager object!" << std::endl;
+}
+	
 /**
 Log a given piece of information to the internal sinks.
 */

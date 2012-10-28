@@ -315,7 +315,7 @@ sgt::Object* LunaTraits< sgt::Object >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::Object >::_bind_dtor(sgt::Object* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::Object >::className[] = "Object";

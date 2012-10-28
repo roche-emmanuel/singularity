@@ -17,6 +17,9 @@ end
 package.cpath = package.cpath..";".. root_path .. "bin/".. flavor .."/modules/?.sgp;".. root_path .. "bin/".. flavor .."/libraries/?.".. shared_ext
 package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path .. "lua/libraries/?.lua"
 
+local tm = require "bindings.TypeManager"
+tm:registerDeleter("osg::Referenced","osg::ref_ptr<osg::Referenced> refptr = ${1};")
+
 local ReflectionGenerator = require "bindings.LunaReflectionGenerator"
 
 ReflectionGenerator.generate{

@@ -51,20 +51,63 @@ struct luna_eqstr{
 
 // Caster templates used for the convertion of types in gc_T()
 template <typename srcType, typename dstType>
-struct caster {
+struct luna_caster {
 	static inline dstType* cast(srcType* ptr) {
 		return dynamic_cast<dstType*>(ptr);
 	};
 };
 
 template <typename srcType>
-struct caster<srcType,srcType> {
+struct luna_caster<srcType,srcType> {
 	static inline srcType* cast(srcType* ptr) {
 		return ptr;
 	};
 };
 
+// template used to specify the container type based on the parent class:
+template <typename parentType>
+struct luna_container {
+	typedef parentType* container_type;
+	
+	static inline parentType* get(const container_type& cont) {
+		return cont;
+	};
 
+	static inline void set(container_type& cont, parentType* ptr) {
+		cont = ptr;
+	};
+	
+	static inline void release(container_type& cont) {
+		cont = NULL;
+	};	
+};
+
+// container specialization for osg::Referenced:
+template <>
+struct luna_container<osg::Referenced> {
+	typedef osg::ref_ptr<osg::Referenced> container_type;
+	
+	static inline osg::Referenced* get(const container_type& cont) {
+		//std::cout << "Retrieving object ptr=" << (const void*)cont.get() << std::endl;
+		return cont.get();
+	};
+
+	static inline void set(container_type& cont, osg::Referenced* ptr) {
+		//std::cout << "Setting object ptr=" << (const void*)ptr << " over previous object: " << (const void*)cont.get() << std::endl;
+		cont = ptr;
+	};
+	
+	static inline void release(container_type& cont) {
+		if(cont.valid()) {
+			//std::cout << "Current ref count = " << cont.get()->referenceCount() << std::endl;
+			cont.release();		
+		}
+		else {
+			//std::cout << "Pointer is invalid." << std::endl;		
+		}
+	};	
+	
+};
 
 #ifndef CXX_ENABLED
 #include <unordered_map>
@@ -129,6 +172,7 @@ template <typename T_interface> class LunaModule {
 		}
 };
 
+
 template <int>
 class LunaType
 {
@@ -165,9 +209,9 @@ class LunaTraits
 };
 
 template <typename T> class Luna {
-	typedef LunaTraits<T > T_interface;
 	public:
-		typedef struct {int* uniqueIDs; T* pT; bool gc; bool has_env; int hash; } userdataType;
+		typedef LunaTraits<T > T_interface;
+		typedef struct {int* uniqueIDs; typename luna_container<T>::container_type pT; bool gc; bool has_env; int hash; } userdataType;
 
 	inline static void set(lua_State *L, int table_index, const char *key) {
 		lua_pushstring(L, key);
@@ -309,7 +353,7 @@ template <typename T> class Luna {
 		userdataType* ud=static_cast<userdataType*>(lua_touserdata(L,narg));
 		if(!ud) { printf("checkRaw: ud==nil\n"); luaL_typerror(L, narg, T_interface::className); }
 		
-		return ud->pT; 
+		return luna_container<T>::get(ud->pT); 
 	}
 	inline static T* checkRaw(lua_State *L, int narg){
 		userdataType* ud=static_cast<userdataType*>(lua_touserdata(L,narg));
@@ -330,7 +374,7 @@ template <typename T> class Luna {
 
 		if(ud->uniqueIDs[0] == T_interface::uniqueIDs[0]) {
 			// Direct cast is possible.
-			return ud->pT;
+			return luna_container<T>::get(ud->pT);
 		}
 		else {
 			// Need to cast to the first base class to avoid slicing:
@@ -358,9 +402,17 @@ template <typename T> class Luna {
 		
 		//userdataType *ud = static_cast<userdataType*>(lua_newuserdata(L, sizeof(userdataType)));
 		UserData *ud = static_cast<UserData*>(lua_newuserdata(L, sizeof(UserData)));
-
+		
+		// create a new container at the proper location:
+		void* res = new(&(ud->pT)) luna_container<ParentType>::container_type();
+		
+		if(res!=&(ud->pT)) {
+			luaL_error(L,"Invalid placement new result : res=%d, pT=%d",res,&(ud->pT));
+		}
+		
 		//ud->pT = (T*)obj;  // store pointer to object in userdata
-		ud->pT = (ParentType*)(const_cast<T*>(obj));  // store pointer to object in userdata
+		//ud->pT = (ParentType*)(const_cast<T*>(obj));  // store pointer to object in userdata
+		luna_container<ParentType>::set(ud->pT,(ParentType*)(const_cast<T*>(obj)));
 
 		ud->gc=gc;   // collect garbage by default
 		ud->has_env=false; // does this userdata has a table attached to it?
@@ -410,27 +462,40 @@ template <typename T> class Luna {
 
 		if (ud->gc)
 		{
-			ParentType* pobj = (ParentType*)(ud->pT);
+			// ParentType* pobj = (ParentType*)(ud->pT);
+			ParentType* pobj = luna_container<ParentType>::get(ud->pT);
 			if(!pobj)
 				return 0; // nothing to do in that case.
 				
 			//T *obj = dynamic_cast<T*>(pobj);
-			T *obj = caster<ParentType,T>::cast(pobj);
+			T *obj = luna_caster<ParentType,T>::cast(pobj);
 			if(!obj) {
 				luaL_error(L, "in gc_T(): could not convert parent pointer type %s to child pointer %s",LunaTraits<ParentType>::className,T_interface::className);
 			}
 			T_interface::_bind_dtor(obj);  // call constructor for T objects
+			//ud->pT = NULL;
+			//luna_container<ParentType>::set(ud->pT,NULL);
+			luna_container<ParentType>::release(ud->pT);
+			//std::cout << "Deleting object of type " << T_interface::className << std::endl;
 		}
-		ud->pT = NULL;
+		else {
+			//std::cout << "Releasing object of type " << T_interface::className << std::endl;
+			luna_container<ParentType>::release(ud->pT);
+		}
 
 		return 0;
 	}
 
 	static int tostring_T (lua_State *L) {
 		char buff[32];
-		userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
+		typedef typename T_interface::parent_t ParentType;
+		typedef typename Luna<ParentType>::userdataType UserData;
+		
+		//userdataType *ud = static_cast<userdataType*>(lua_touserdata(L, 1));
+		UserData *ud = static_cast<UserData*>(lua_touserdata(L, 1));
 
-		T *obj = (T*)(ud->pT);
+		//T *obj = (T*)(ud->pT);
+		ParentType* pobj = luna_container<ParentType>::get(ud->pT);
 
 		sprintf(buff, "%p", obj);
 		lua_pushfstring(L, "%s (%s)", T_interface::className, buff);

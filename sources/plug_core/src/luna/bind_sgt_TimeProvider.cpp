@@ -595,7 +595,7 @@ sgt::TimeProvider* LunaTraits< sgt::TimeProvider >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::TimeProvider >::_bind_dtor(sgt::TimeProvider* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::TimeProvider >::className[] = "TimeProvider";

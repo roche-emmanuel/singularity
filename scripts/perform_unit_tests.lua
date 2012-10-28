@@ -9,6 +9,8 @@ log:notice "Executing init script..."
 local cfg = require "config"
 local core = require "core"
 
+--local man = core.LogManager.instance()
+--man:setNotifyLevel(core.LogManager.DEBUG2)
 core.LogManager.instance():setNotifyLevel(core.LogManager.DEBUG2)
 
 require "unittests"

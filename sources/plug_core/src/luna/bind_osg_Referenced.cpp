@@ -533,7 +533,7 @@ osg::Referenced* LunaTraits< osg::Referenced >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< osg::Referenced >::_bind_dtor(osg::Referenced* obj) {
-	//delete obj; // destructor protected.
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< osg::Referenced >::className[] = "Referenced";

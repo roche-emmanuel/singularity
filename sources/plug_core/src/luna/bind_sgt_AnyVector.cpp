@@ -116,7 +116,7 @@ sgt::AnyVector* LunaTraits< sgt::AnyVector >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::AnyVector >::_bind_dtor(sgt::AnyVector* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::AnyVector >::className[] = "AnyVector";

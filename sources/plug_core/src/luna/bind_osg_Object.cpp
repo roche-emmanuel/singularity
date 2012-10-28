@@ -646,7 +646,7 @@ osg::Object* LunaTraits< osg::Object >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< osg::Object >::_bind_dtor(osg::Object* obj) {
-	//delete obj; // destructor protected.
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< osg::Object >::className[] = "Object";
