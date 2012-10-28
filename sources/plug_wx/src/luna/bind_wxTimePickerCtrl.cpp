@@ -39,6 +39,23 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>8 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
+		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Create(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -71,6 +88,45 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTimePickerCtrl::wxTimePickerCtrl(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTP_DEFAULT, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl")
+	static wxTimePickerCtrl* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTimePickerCtrl::wxTimePickerCtrl(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTP_DEFAULT, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\") function, expected prototype:\nwxTimePickerCtrl::wxTimePickerCtrl(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTP_DEFAULT, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"timectrl\")\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 57497519\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		int id=(int)lua_tointeger(L,2);
+		const wxDateTime* dt_ptr=luatop>2 ? (Luna< wxDateTime >::check(L,3)) : NULL;
+		if( luatop>2 && !dt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTimePickerCtrl::wxTimePickerCtrl function");
+		}
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDefaultDateTime;
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTimePickerCtrl::wxTimePickerCtrl function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTimePickerCtrl::wxTimePickerCtrl function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxTP_DEFAULT;
+		const wxValidator* validator_ptr=luatop>6 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7)) : NULL;
+		if( luatop>6 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxTimePickerCtrl::wxTimePickerCtrl function");
+		}
+		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,8),lua_objlen(L,8));
+
+		return new wxTimePickerCtrl(parent, id, dt, pos, size, style, validator, name);
+	}
+
 
 	// Function binds:
 	// bool wxTimePickerCtrl::Create(wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDP_DEFAULT | wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl")
@@ -169,12 +225,7 @@ public:
 };
 
 wxTimePickerCtrl* LunaTraits< wxTimePickerCtrl >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
-	// Abstract methods:
-	// wxDateTime wxTimePickerCtrl::GetValue() const
-	// void wxTimePickerCtrl::SetValue(const wxDateTime & dt)
-
-	// Abstract operators:
+	return luna_wrapper_wxTimePickerCtrl::_bind_ctor(L);
 }
 
 void LunaTraits< wxTimePickerCtrl >::_bind_dtor(wxTimePickerCtrl* obj) {

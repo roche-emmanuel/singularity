@@ -29,6 +29,7 @@ intf:addStaticText{text="Hello manu!"}
 intf:addStaticLine{}
 intf:addStaticBitmap{bitmap=im:getBitmap("folder@add")}
 intf:addDatePickerCtrl{handler=intf.debugShowEvent}
+intf:addTimePickerCtrl{handler=intf.debugShowEvent,flags=wx.wxALL}
 intf:addFontPickerCtrl{handler=intf.debugShowEvent}
 intf:addOSGCtrl{}
 

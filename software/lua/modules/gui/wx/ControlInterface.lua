@@ -440,17 +440,13 @@ function Class:addOSGCtrl(options)
 	return self:addControl(win,options), canvas
 end
 
-function Class:addTimeCtrl(options)
-	options.intf = options.intf or self
-	local object = require("gui.wx.TimeCtrl")(options)
-	local win = object:getWindow()
-	
-	win:SetSize(wx.wxSize(-1,20))
-	options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
-	if options.handler then
-		self:connectHandler(wxctrl,options.eventType or wx.wxEVT_COMMAND_TEXT_UPDATED,options.handler)
-	end
-	return self:addControl(win,options), object
+function Class:addTimePickerCtrl(options)
+    local ctrl = wx.wxTimePickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition) --,wx.wxSize(-1,20)
+    options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+    if options.handler then
+        self:connectHandler(ctrl,options.eventType or wx.wxEVT_TIME_CHANGED,options.handler)
+    end  
+    return self:addControl(ctrl,options)
 end
 
 return Class

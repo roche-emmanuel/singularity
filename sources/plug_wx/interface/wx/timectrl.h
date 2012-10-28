@@ -94,7 +94,7 @@ public:
         The date part of the returned wxDateTime object is always set to today
         and should be ignored, only the time part is relevant.
     */
-    virtual wxDateTime GetValue() const = 0;
+    virtual wxDateTime GetValue() const;
 
     /**
         Changes the current value of the control.
@@ -104,5 +104,5 @@ public:
 
         Calling this method does not result in a time change event.
     */
-    virtual void SetValue(const wxDateTime& dt) = 0;
+    virtual void SetValue(const wxDateTime& dt);
 };
