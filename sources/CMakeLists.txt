@@ -23,7 +23,7 @@ IF(MSVC)
 ENDIF()
 # ADD_SUBDIRECTORY(plug_xml)
 # ADD_SUBDIRECTORY(plug_lanes)
-ADD_SUBDIRECTORY(plug_ssl)
+# ADD_SUBDIRECTORY(plug_ssl)
 
 # ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)

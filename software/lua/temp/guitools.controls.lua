@@ -3,20 +3,7 @@ module("guitools.controls",package.seeall)
 local checkFont = general.tools.mapToFont(giCommon.Config.readAny("config.gui.check.font",giScript.AnyMap()))
 
 function loadControls(interface)
-    
 
-    
-    function interface:addTimeCtrl(options)
-        local ctrl = giDisplay.TimeCtrl(wx2intro(self:getCurrentParent()), wx.wxID_ANY,"00:00:00")
-        local wxctrl = intro2wx(ctrl)
-        wxctrl:SetSize(wx.wxSize(-1,20))
-        options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
-        if options.handler then
-            self:connectHandler(wxctrl,options.eventType or wx.wxEVT_COMMAND_TEXT_UPDATED,options.handler)
-        end  
-        self:addControl(wxctrl,options)
-        return ctrl;
-    end
 
     function interface:addNodePathTreeCtrl(options)
         local ctrl = giDisplay.NodePathTreeComboBox(wx2intro(self:getCurrentParent()),wx.wxID_ANY);

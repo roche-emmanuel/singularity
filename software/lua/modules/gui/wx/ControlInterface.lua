@@ -432,11 +432,25 @@ function Class:addOSGCtrl(options)
 	
 	options.intf = options.intf or self
 	local canvas = require("gui.wx.OSGCanvas")(options)
-	self:check(canvas,"Invalid OSG canvas object.")
+	local win = canvas:getWindow()
+	self:check(win,"Invalid OSG window object.")
 	
 	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
 	options.prop = options.prop or 1
-	return self:addControl(canvas:getWXCanvas(),options), canvas
+	return self:addControl(win,options), canvas
+end
+
+function Class:addTimeCtrl(options)
+	options.intf = options.intf or self
+	local object = require("gui.wx.TimeCtrl")(options)
+	local win = object:getWindow()
+	
+	win:SetSize(wx.wxSize(-1,20))
+	options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL
+	if options.handler then
+		self:connectHandler(wxctrl,options.eventType or wx.wxEVT_COMMAND_TEXT_UPDATED,options.handler)
+	end
+	return self:addControl(win,options), object
 end
 
 return Class

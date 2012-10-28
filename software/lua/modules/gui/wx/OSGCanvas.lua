@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="OSGCanvas",bases="base.Object"};
+local Class = require("classBuilder"){name="OSGCanvas",bases="gui.wx.BasicWindow"};
 
 local wx = require "wx"
 
@@ -15,8 +15,6 @@ function Class:initialize(options)
 
 	local intf = options.intf
 	
-	self._intf = intf;
-	self._parent = options.parent or intf:getCurrentParent()
 	self._root = options.root or osg.Group()
 	 
 	-- create the canvas:
@@ -41,15 +39,15 @@ end
 
 function Class:create()
 	
-	self._canvas = osgWX.createGLCanvas(self._parent,wx.wxID_ANY,self._attribs)
-	self:check(self._canvas,"Invalid wxGLCanvas")
+	self._window = osgWX.createGLCanvas(self._parent,wx.wxID_ANY,self._attribs)
+	self:check(self._window,"Invalid wxGLCanvas")
 	
 	-- Create the glcontext:
-	self._context = wx.wxGLContext:new(self._canvas)
+	self._context = wx.wxGLContext:new(self._window)
 	self:check(self._context,"Invalid wxGLContext")
 
 	-- create graphicswindow:
-	self._gw = osgWX.GraphicsWindowWX(self._canvas,self._context) -- instance owned by lua
+	self._gw = osgWX.GraphicsWindowWX(self._window,self._context) -- instance owned by lua
 	
 	-- create a viewer:
 	self._viewer = osgViewer.Viewer()
@@ -64,7 +62,7 @@ function Class:create()
 	--self._viewer:frame()
 	
 	-- connect the event handlers for the canvas:
-	self._intf:connectHandler(self._canvas,wx.wxEVT_SIZE,function(intf,event)
+	self._intf:connectHandler(self._window,wx.wxEVT_SIZE,function(intf,event)
     	--local evt = event:dynCast("wxSizeEvent")
     	--self:check(event,"Invalid wxSizeEvent")
     	local size = event:GetSize()
@@ -79,11 +77,6 @@ function Class:create()
 		self._viewer:frame();
 	end)
 end
-
-function Class:getWXCanvas()
-	return self._canvas;
-end
-
 
 -- Function used to load a model from a file.
 function Class:loadModel(filename)
