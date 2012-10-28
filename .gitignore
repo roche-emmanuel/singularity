@@ -1,6 +1,9 @@
 # ignore building folder:
 build/*
 
+# ignore temp folder:
+temp/
+
 # Ignore log files:
 *.log
 
