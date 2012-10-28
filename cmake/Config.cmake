@@ -15,6 +15,7 @@ SET(DEP_OSG ${DEPS_DIR}/${FLAVOR}/OpenSceneGraph-3.0.1 CACHE STRING "osg path")
 SET(DEP_MYSQL ${DEPS_DIR}/${FLAVOR}/mysql-5.5.25 CACHE STRING "mysql path")
 SET(DEP_FIREBIRD ${DEPS_DIR}/${FLAVOR}/Firebird-2.5.1.26351-0 CACHE STRING "firebird path")
 SET(DEP_ZLIB ${DEPS_DIR}/${FLAVOR}/zlib-1.2.7 CACHE STRING "zlib path")
+SET(DEP_OPENSSL ${DEPS_DIR}/${FLAVOR}/openssl-0.9.8x CACHE STRING "openssl path")
 
 SET(DEP_GL "" CACHE STRING "GL path")
 SET(DEP_IM ${DEPS_DIR}/${FLAVOR}/IM-3.8_vc9_lib CACHE STRING "im path")

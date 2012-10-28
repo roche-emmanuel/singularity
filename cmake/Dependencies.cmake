@@ -44,6 +44,10 @@ SET(LUA_INC_DIR 	${DEP_LUA}/include)
 SET(LUA_LIB_DIR 	${DEP_LUA}/lib)
 SET(LUA_LIBS 		lua51)
 
+SET(LUA_INC_DIR 	${DEP_LUA}/include)
+SET(LUA_LIB_DIR 	${DEP_LUA}/lib)
+SET(LUA_LIBS 		lua51)
+
 SET(LUABIND_INC_DIR 	${DEP_LUABIND}/include)
 SET(LUABIND_LIB_DIR 	${DEP_LUABIND}/lib)
 SET(LUABIND_LIBS 		luabind)
@@ -52,16 +56,20 @@ SET(MYSQL_INC_DIR 	${DEP_MYSQL}/include)
 SET(MYSQL_LIB_DIR 	${DEP_MYSQL}/lib)
 SET(MYSQL_LIBS 		mysqlclient)
 
+SET(OPENSSL_INC_DIR 	${DEP_OPENSSL}/include)
+SET(OPENSSL_LIB_DIR 	${DEP_OPENSSL}/lib)
+SET(OPENSSL_LIBS 		libeay32.lib ssleay32.lib)
+
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
-SET(OSG_LIBS     	OpenThreads.lib
-					osg.lib
-					osgUtil.lib 
-					osgDB.lib 
-					osgGA.lib
-					osgText.lib 
-					osgViewer.lib  
-					osgParticle.lib
+SET(OSG_LIBS     	OpenThreads
+					osg
+					osgUtil
+					osgDB
+					osgGA
+					osgText
+					osgViewer
+					osgParticle
 					)
 					
 SET(OSG_FLAGS     	) #-DOSG_LIBRARY_STATIC) #) #-DOT_LIBRARY_STATIC 
@@ -97,6 +105,16 @@ IF(MSVC)
     SET(WX_FLAGS    -D__WXMSW__ -DWXUSINGDLL)
 	
 	SET(MYSQL_LIBS 		libmysql)
+
+	SET(OSG_LIBS     	OpenThreads.lib
+						osg.lib
+						osgUtil.lib 
+						osgDB.lib 
+						osgGA.lib
+						osgText.lib 
+						osgViewer.lib  
+						osgParticle.lib
+						)						
 ELSE()
 
     SET(LUA_INC_DIR 	${DEP_LUA}/include/luajit-2.0)

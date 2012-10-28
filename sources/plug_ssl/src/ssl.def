@@ -1,3 +1,4 @@
-LIBRARY lpeg.sgp
+LIBRARY core.sgp
 EXPORTS
-luaopen_lpeg
+luaopen_ssl_core
+luaopen_ssl_context
