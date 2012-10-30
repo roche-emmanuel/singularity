@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxAuiNotebook* ptr= static_cast< wxAuiNotebook* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxAuiNotebook >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxWithImages(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxAuiNotebook* ptr= dynamic_cast< wxAuiNotebook* >(Luna< wxWithImages >::check(L,1));
@@ -1120,6 +1131,7 @@ luna_RegType LunaTraits< wxAuiNotebook >::methods[] = {
 
 luna_ConverterType LunaTraits< wxAuiNotebook >::converters[] = {
 	{"wxObject", &luna_wrapper_wxAuiNotebook::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxAuiNotebook::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxAuiNotebook::_cast_from_wxWithImages},
 	{0,0}
 };

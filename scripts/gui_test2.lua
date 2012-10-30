@@ -32,6 +32,7 @@ intf:addDatePickerCtrl{handler=intf.debugShowEvent}
 intf:addTimePickerCtrl{handler=intf.debugShowEvent,flags=wx.wxALL}
 intf:addFontPickerCtrl{handler=intf.debugShowEvent}
 intf:addOSGCtrl{}
+intf:addSTCCtrl{flags=wx.wxALL+wx.wxEXPAND,prop=1}
 
 intf:popParent(true)
 
@@ -41,8 +42,8 @@ intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 intf:addSlider{}
 intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 intf:addButton{text="My button",handler=intf.debugShowEvent}
+intf:addBitmapButton{src="add",handler=intf.debugShowEvent}
 intf:popParent(true)
-
 
 parent:Layout()
 

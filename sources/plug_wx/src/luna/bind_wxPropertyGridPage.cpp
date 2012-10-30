@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxPropertyGridPage* ptr= static_cast< wxPropertyGridPage* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxPropertyGridPage >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxPropertyGridInterface(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxPropertyGridPage* ptr= dynamic_cast< wxPropertyGridPage* >(Luna< wxPropertyGridInterface >::check(L,1));
@@ -404,6 +415,7 @@ luna_RegType LunaTraits< wxPropertyGridPage >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPropertyGridPage >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPropertyGridPage::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxPropertyGridPage::_cast_from_wxTrackable},
 	{"wxPropertyGridInterface", &luna_wrapper_wxPropertyGridPage::_cast_from_wxPropertyGridInterface},
 	{0,0}
 };

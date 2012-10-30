@@ -27,6 +27,17 @@ public:
 	}
 
 	// Derived class converters:
+	static int _cast_from_wxKeyboardState(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxMouseState* ptr= static_cast< wxMouseState* >(Luna< wxKeyboardState >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxMouseState >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
@@ -580,6 +591,7 @@ luna_RegType LunaTraits< wxMouseState >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< wxMouseState >::converters[] = {
+	{"wxKeyboardState", &luna_wrapper_wxMouseState::_cast_from_wxKeyboardState},
 	{0,0}
 };
 

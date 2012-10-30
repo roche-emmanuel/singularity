@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxFontPickerCtrl* ptr= static_cast< wxFontPickerCtrl* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxFontPickerCtrl >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
@@ -302,6 +313,7 @@ luna_RegType LunaTraits< wxFontPickerCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxFontPickerCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxFontPickerCtrl::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxFontPickerCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxComboBox* ptr= static_cast< wxComboBox* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxComboBox >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxItemContainerImmutable(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxComboBox* ptr= dynamic_cast< wxComboBox* >(Luna< wxItemContainerImmutable >::check(L,1));
@@ -696,6 +707,7 @@ luna_RegType LunaTraits< wxComboBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxComboBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxComboBox::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxComboBox::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxComboBox::_cast_from_wxItemContainerImmutable},
 	{"wxTextEntry", &luna_wrapper_wxComboBox::_cast_from_wxTextEntry},
 	{0,0}

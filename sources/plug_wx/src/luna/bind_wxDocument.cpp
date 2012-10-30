@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxDocument* ptr= static_cast< wxDocument* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxDocument >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
@@ -1195,6 +1206,7 @@ luna_RegType LunaTraits< wxDocument >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDocument >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDocument::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxDocument::_cast_from_wxTrackable},
 	{0,0}
 };
 

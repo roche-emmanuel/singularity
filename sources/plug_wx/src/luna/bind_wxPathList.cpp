@@ -27,6 +27,17 @@ public:
 	}
 
 	// Derived class converters:
+	static int _cast_from_wxArrayString(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxPathList* ptr= static_cast< wxPathList* >(Luna< wxArrayString >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxPathList >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 
@@ -64,6 +75,7 @@ luna_RegType LunaTraits< wxPathList >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< wxPathList >::converters[] = {
+	{"wxArrayString", &luna_wrapper_wxPathList::_cast_from_wxArrayString},
 	{0,0}
 };
 

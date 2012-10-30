@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxDatePickerCtrl* ptr= static_cast< wxDatePickerCtrl* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxDatePickerCtrl >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
@@ -485,6 +496,7 @@ luna_RegType LunaTraits< wxDatePickerCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDatePickerCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDatePickerCtrl::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxDatePickerCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

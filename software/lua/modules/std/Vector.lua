@@ -1,79 +1,75 @@
+local Class = require("classBuilder"){name="Vector",bases="base.Object"};
 
 -- This module defines a simple vector class encapsulating a lua table.
-local oo = require "loop.base"
-local type = type
-local rawget = rawget
-local table = table
-local ipairs = ipairs
-local next = next
-local print = print
+--local oo = require "loop.base"
+--local type = type
+--local rawget = rawget
+--local table = table
+--local ipairs = ipairs
+--local next = next
+--local print = print
 
-module("std.Vector", oo.class)
-
---- the init function to build a vector:
-function __init(class, object)
-    local result = oo.rawnew(class,{})
-    result.data = {}
-    if object then
-        result:fromTable(object)
-    end
-    return result
+function Class:initialize(options)
+	self._data = {}
+	if options then
+		self:fromTable(options)
+	end
 end
 
 --- Append item at vector back.
 -- Push an item at the end of the vector.
 -- @param item The item to add 
-function push_back(self,item)
-    table.insert(self.data,item);
+function Class:push_back(item)
+    table.insert(self._data,item);
 end
 
 --- Append item at vector front.
 -- Push an item at the front of the vector.
 -- @param item The item to add
-function push_front(self,item)
-    table.insert(self.data,1,item);
+function Class:push_front(item)
+    table.insert(self._data,1,item);
 end
 
 --- Insert item at given position.
 -- Insert an item at the provided position.
 -- @param index 1-based index of insertion
 -- @param item The item to insert
-function insert(self,index,item)
-    table.insert(self.data,index,item)
+function Class:insert(index,item)
+    table.insert(self._data,index,item)
 end
 
 --- Pop the latest item from the vector.
 -- This function will remove the lastest item from the vector and return it.
 -- @return the popped item
-function pop_back(self)
-    return table.remove(self.data)
+function Class:pop_back()
+    return table.remove(self._data)
 end
 
 --- Pop the first item from the vector.
 -- This function will remove the first item from the vector and return it.
 -- @return the popped item
-function pop_front(self)
-    return table.remove(self.data,1)
+function Class:pop_front()
+    return table.remove(self._data,1)
 end
 
 --- Pop the item from the vector.
 -- This function will remove the item at the given index from the vector and return it.
 -- @param index 1-based index
 -- @return the popped item
-function erase(self,index)
-    return table.remove(self.data,index)
+function Class:erase(index)
+    return table.remove(self._data,index)
 end
 
 --- Get the size of the vector.
 -- @return vector size
-function size(self)
-    return #self.data
+function Class:size()
+    return #self._data
 end
 
 --- Check vector emptyness.
 -- @return true if the vector is empty, false otherwise.
-function empty(self)
-    return next(self.data)==nil;
+function Class:empty()
+    return next(self._data)==nil;
 end
 
 --- Iterate on the vector items
@@ -82,66 +78,66 @@ end
 -- @return The iteration function
 -- @return The data table to iterate on.
 -- @return The initial index to start iterating
-function sequence(self)
-    --return next, self.data, 0
-    return ipairs(self.data)
+function Class:sequence()
+    --return next, self._data, 0
+    return ipairs(self._data)
 end
 
 --- Retrieve the back value
 -- @return the value at the back of the vector or nil if there is no data
-function back(self)
-    return self.data[#self.data]
+function Class:back()
+    return self._data[#self._data]
 end
 
 --- Retrieve the front value
 -- @return the value at the front of the vector or nil if there is no data
-function front(self)
-    return self.data[1]
+function Class:front()
+    return self._data[1]
 end
 
 --- Clear the content of the vector
-function clear(self)
-    self.data = {}
+function Class:clear()
+    self._data = {}
 end
 
 --- Return a copy of the vector.
-function clone(self)
-    return oo.classof(self)(self.data)
+function Class:clone()
+    return oo.classof(self)(self._data)
 end
 
 -- Metamethod to map the vector indices.
-function __index(self,field)
-    return ( type(field)=="number" and self.data[field] or _M[field] )
+function Class:__index(field)
+    return ( type(field)=="number" and self._data[field] or Class[field] )
 end
 
 --- Return value at position.
-function at(self,index)
-    return self.data[index]
+function Class:at(index)
+    return self._data[index]
 end
 
 --- Convert retrieve the data from the input table.
 -- copy the data from the input table into the vector.
 -- @param t The table to copy, may be nil.
-function fromTable(self,t)
+function Class:fromTable(t)
     local newdata = {}
     for _,v in ipairs(t or {}) do
         table.insert(newdata,v)
     end
-    self.data = newdata
+    self._data = newdata
 end
 
 --- Convert the vector object into a simple table.
-function toTable(self)
+function Class:toTable()
     local newdata = {}
-    for _,v in ipairs(self.data) do
+    for _,v in ipairs(self._data) do
         table.insert(newdata,v)
     end
     
     return newdata;
 end
 
-last = back
-first = front
-remove = erase
+Class.last = Class.back
+Class.first = Class.front
+Class.remove = Class.erase
 
-
+return Class

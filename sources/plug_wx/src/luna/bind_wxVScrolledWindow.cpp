@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxVScrolledWindow* ptr= static_cast< wxVScrolledWindow* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxVScrolledWindow >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxVScrolledWindow* ptr= dynamic_cast< wxVScrolledWindow* >(Luna< wxVarScrollHelperBase >::check(L,1));
@@ -140,6 +151,7 @@ luna_RegType LunaTraits< wxVScrolledWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxVScrolledWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxVScrolledWindow::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxVScrolledWindow::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxVScrolledWindow::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

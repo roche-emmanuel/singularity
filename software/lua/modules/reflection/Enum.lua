@@ -18,7 +18,7 @@ function Enum:__init(obj)
     obj = Scope:__init(obj or {})
     obj = oo.rawnew(self,obj)
     dbg:assertNil(obj.values,"Object already contains a 'values' field")
-	obj.scopeType = Scope.ENUM
+	obj._scopeType = Scope.ENUM
 	obj.values = Vector()
     return obj
 end

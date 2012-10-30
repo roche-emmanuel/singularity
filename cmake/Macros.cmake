@@ -279,6 +279,7 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			# cd ${SGT_PATH} && 
 			COMMAND ${LUA} -e "project='${TARGET_NAME}'; xml_path='${CMAKE_CURRENT_BINARY_DIR}/xml/'; sgt_path='${SGT_DIR}/';" ${CMAKE_CURRENT_SOURCE_DIR}/../generate_reflection.lua
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
+			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
 			COMMAND echo "Reflection generation done."
 		)	
 	ELSE()
@@ -315,6 +316,7 @@ MACRO(GENERATE_REFLECTION STUB_NAME INTERFACE_FILES)
 			COMMAND sed -i 's/\\/\//g' ${CFGFILE}
 			COMMAND cd ${SGT_PATH} && ${LUA} `cygpath -w "${CMAKE_CURRENT_BINARY_DIR}/${CFGFILE}"`
 			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt # touch the calling file.
+			COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeLists.txt # touch the calling file.
 			COMMAND echo "Reflection generation done."
 		)
 	ENDIF()

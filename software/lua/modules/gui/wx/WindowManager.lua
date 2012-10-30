@@ -7,6 +7,13 @@ local Set = require "std.Set"
 -- Main class to manager all the windows/interfaces.
 function Class:initialize(options)
 	self._interfaces = Set();
+	self._lastID = wx.wxID_HIGHEST+100
+end
+
+-- Return a new ID wxWIdgets ID which is incremented on each call.
+function Class:getNewID()
+	self._lastID = self._lastID+1
+	return self._lastID
 end
 
 function Class:setMainFrame(frame)

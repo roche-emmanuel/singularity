@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxKeyboardState(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxMouseEvent* ptr= static_cast< wxMouseEvent* >(Luna< wxKeyboardState >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxMouseEvent >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Aux1DClick(lua_State *L) {
@@ -960,6 +971,7 @@ luna_RegType LunaTraits< wxMouseEvent >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMouseEvent >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMouseEvent::_cast_from_wxObject},
+	{"wxKeyboardState", &luna_wrapper_wxMouseEvent::_cast_from_wxKeyboardState},
 	{0,0}
 };
 

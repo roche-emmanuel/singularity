@@ -946,9 +946,33 @@ function stdStringFromLua(buf,index,type,argname)
 	buf:writeSubLine("std::string ${2}(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
 end
 
+function stdWStringFromLua(buf,index,type,argname)
+	buf:writeSubLine("std::string ${2}_str(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
+	buf:writeSubLine("std::wstring ${1} = sgt::s2ws(${1}_str);",argname)
+end
+
+function stdAWEStringFromLua(buf,index,type,argname)
+	buf:writeSubLine("std::string ${2}_str(lua_tostring(L,${1}),lua_objlen(L,${1}));",index,argname)
+	buf:writeSubLine("Awesomium::WebString ${1} = Awesomium::ToWebString(${1}_str);",argname)
+end
+
 function stdStringToLua(buf,type,argname)
 	local access = type:isPointer() and "->" or "."
 	buf:writeSubLine("lua_pushlstring(L,${1}${2}data(),${1}${2}size());",argname,access)
+end
+
+function stdWStringToLua(buf,type,argname)
+	local ref = type:isPointer() and "*" or "";
+	
+	buf:writeSubLine("std::string ${1}_str = sgt::ws2s(${2}${1});",argname,ref)
+	buf:writeSubLine("lua_pushlstring(L,${1}_str.data(),${1}_str.size());",argname)
+end
+
+function stdAWEStringToLua(buf,type,argname)
+	local ref = type:isPointer() and "*" or "";
+	
+	buf:writeSubLine("std::string ${1}_str = Awesomium::ToString(${2}${1});",argname,ref)
+	buf:writeSubLine("lua_pushlstring(L,${1}_str.data(),${1}_str.size());",argname)
 end
 
 function wxStringFromLua(buf,index,type,argname)
@@ -1025,6 +1049,10 @@ function ucharChecker(buf,index,type,defStr)
     buf:writeSubLine("if( ${2}(lua_isnumber(L,${1})==0 || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
 end
 
+function webStringChecker(buf,index,type,defStr)
+    buf:writeSubLine("if( ${2}(lua_isstring(L,${1})==0) ) return false;",index,defStr)
+end
+
 function ReflectionGenerator.generate(options)
 	local t0 = os.clock()
 	
@@ -1058,9 +1086,20 @@ function ReflectionGenerator.generate(options)
 	tc:setFromLuaConverter("osg::ref_ptr<",refptrFromLua)
 	tc:setFromLuaConverter("osg::observer_ptr<",obsptrFromLua)
 	tc:setFromLuaConverter("wxString",wxStringFromLua)
+	
 	tc:setFromLuaConverter("std::string",stdStringFromLua)
 	tc:setFromLuaConverter("std::string &",stdStringFromLua)
 	tc:setFromLuaConverter("const std::string &",stdStringFromLua)
+	
+	tc:setFromLuaConverter("std::wstring",stdWStringFromLua)
+	tc:setFromLuaConverter("std::wstring &",stdWStringFromLua)
+	tc:setFromLuaConverter("const std::wstring &",stdWStringFromLua)
+	
+	tc:setFromLuaConverter("WebString %*",stdAWEStringFromLua)
+	tc:setFromLuaConverter("WebString ",stdAWEStringFromLua)
+	tc:setFromLuaConverter("WebString &",stdAWEStringFromLua)
+	tc:setFromLuaConverter("const WebString &",stdAWEStringFromLua)
+	
 	tc:setFromLuaConverter("string",stdStringFromLua)
 	tc:setFromLuaConverter("unsigned char",ucharFromLua)
 	tc:setFromLuaConverter("const wxChar *",wxcharFromLua)
@@ -1068,14 +1107,26 @@ function ReflectionGenerator.generate(options)
 	tc:setToLuaConverter("osg::ref_ptr<",refptrToLua)
 	tc:setToLuaConverter("osg::observer_ptr<",obsptrToLua)
 	tc:setToLuaConverter("wxString",wxStringToLua)
+	
 	tc:setToLuaConverter("^std::string$",stdStringToLua)
 	tc:setToLuaConverter("^std::string &$",stdStringToLua)
 	tc:setToLuaConverter("^const std::string &$",stdStringToLua)
+	
+	tc:setToLuaConverter("^std::wstring$",stdWStringToLua)
+	tc:setToLuaConverter("^std::wstring &$",stdWStringToLua)
+	tc:setToLuaConverter("^const std::wstring &$",stdWStringToLua)
+
+	tc:setToLuaConverter("WebString %*",stdAWEStringToLua)
+	tc:setToLuaConverter("WebString ",stdAWEStringToLua)
+	tc:setToLuaConverter("WebString &$",stdAWEStringToLua)
+	tc:setToLuaConverter("^const WebString &$",stdAWEStringToLua)
+	
 	tc:setToLuaConverter("^string$",stdStringToLua)
 	tc:setToLuaConverter("^unsigned char$",ucharToLua)
 	tc:setToLuaConverter("const wxChar *",wxcharToLua)
 
 	tc:setTypeChecker("unsigned char",ucharChecker)
+	tc:setTypeChecker("WebString ",webStringChecker)
 
     local ReflectionMap = require "bindings.ReflectionMap"
     local LunaWriter = require "bindings.LunaWriter"

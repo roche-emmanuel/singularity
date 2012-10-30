@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxCheckListBox* ptr= static_cast< wxCheckListBox* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxCheckListBox >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxItemContainerImmutable(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxCheckListBox* ptr= dynamic_cast< wxCheckListBox* >(Luna< wxItemContainerImmutable >::check(L,1));
@@ -291,6 +302,7 @@ luna_RegType LunaTraits< wxCheckListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxCheckListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxCheckListBox::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxCheckListBox::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxCheckListBox::_cast_from_wxItemContainerImmutable},
 	{0,0}
 };

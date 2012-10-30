@@ -1,37 +1,16 @@
+local Class = require("classBuilder"){name="Set",bases="std.Vector"}
 
--- This module defines a simple vector class encapsulating a lua table.
-local oo = require "loop.simple"
-local type = type
-local rawget = rawget
-local table = table
-local ipairs = ipairs
-local next = next
 local Vector = require "std.Vector"
-local print = print
-
-module "std.Set"
-
-oo.class(_M , Vector)
-
---- the init function to build a vector:
-function __init(class, object)
-    local result = oo.rawnew(class,{})
-    result.data = {}
-    if object then
-        result:fromTable(object)
-    end
-    return result
-end
 
 --- Check if item is already contained in set.
 -- @return True if the item was found in the set, false otherwise.
 -- @return The index of the item in the Set if found.
-function contains(self,item)
+function Class:contains(item)
     if item==nil then
         return true; -- nil is contained!
     end
     
-    for k,v in ipairs(self.data) do
+    for k,v in ipairs(self._data) do
         if v == item then
             return true, k;
         end
@@ -40,10 +19,10 @@ function contains(self,item)
 end
 
 --- Erase an object from the Set by value.
-function eraseValue(self,item)
-   	for k,v in ipairs(self.data) do
+function Class:eraseValue(item)
+   	for k,v in ipairs(self._data) do
         if v == item then
-            table.remove(self.data,k)
+            table.remove(self._data,k)
             return true;
         end
     end
@@ -54,12 +33,12 @@ end
 -- Push an item at the end of the set but only it the set doesn't contain the item yet.
 -- @param item The item to add 
 -- @return True if the item was added, false otherwise.
-function push_back(self,item)
+function Class:push_back(item)
     if self:contains(item) then
         return false;
     end
     
-    table.insert(self.data,item);
+    table.insert(self._data,item);
     return true;
 end
 
@@ -67,12 +46,12 @@ end
 -- Push an item at the front of the set but only if the set doesn't contain the item yet.
 -- @param item The item to add
 -- @return True if the item was added, false otherwise.
-function push_front(self,item)
+function Class:push_front(item)
     if self:contains(item) then
         return false;
     end
     
-    table.insert(self.data,1,item);
+    table.insert(self._data,1,item);
     return true
 end
 
@@ -80,27 +59,28 @@ end
 -- Insert an item at the provided position.
 -- @param index 1-based index of insertion
 -- @param item The item to insert
-function insert(self,index,item)
+function Class:insert(index,item)
     if self:contains(item) then
         return false;
     end
     
-    table.insert(self.data,index,item)
+    table.insert(self._data,index,item)
     return true;
 end
 
 -- Metamethod to map the vector indices.
-function __index(self,field)
-    return ( type(field)=="number" and self.data[field] or _M[field] or Vector[field])
+function Class:__index(field)
+    return ( type(field)=="number" and self._data[field] or Class[field] or Vector[field])
 end
 
 --- Convert retrieve the data from the input table.
 -- copy the data from the input table into the set, keeping only one copy of each item.
 -- @param t The table to copy, may be nil.
-function fromTable(self,t)
+function Class:fromTable(t)
     self:clear()
     for _,v in ipairs(t or {}) do
         self:push_back(v)
     end
 end
 
+return Class;

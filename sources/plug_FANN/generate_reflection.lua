@@ -44,6 +44,6 @@ ReflectionGenerator.generate{
 			--{"(OSG_EXPORT )",""},
 		},
 	},
-	locationPrefixes={sgt_path.."sources/plug_fann/interface/"}
+	locationPrefixes={dest_path.."interface/"}
 }
 

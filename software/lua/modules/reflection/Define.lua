@@ -1,6 +1,6 @@
 
 local oo = require "loop.cached"
-local Object = require "reflection.Object"
+local Object = require "reflection.Entity"
 local dbg = require "debugger"
 local im = require "bindings.IgnoreManager"
 local ItemLink = require "reflection.ItemLink"

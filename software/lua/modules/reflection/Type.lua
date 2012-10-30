@@ -1,6 +1,6 @@
 
 local oo = require "loop.cached"
-local Object = require "reflection.Object"
+local Object = require "reflection.Entity"
 
 local Scope = require "reflection.Scope"
 local Class = require "reflection.Class"

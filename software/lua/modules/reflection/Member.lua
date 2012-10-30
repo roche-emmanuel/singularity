@@ -1,7 +1,7 @@
 
 local oo = require "loop.cached"
 local IProtection = require "reflection.IProtection"
-local Object = require "reflection.Object"
+local Object = require "reflection.Entity"
 
 -- The object class implements the IName and IParent interfaces
 local Member = oo.class({},Object,IProtection)

@@ -55,7 +55,7 @@ public:
 
 local converter_template = [[static int _cast_from_${3}(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		${2}* ptr= dynamic_cast< ${2}* >(Luna< ${1} >::check(L,1));
+		${2}* ptr= ${4}_cast< ${2}* >(Luna< ${1} >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -627,9 +627,9 @@ function LunaWriter:writeClass(class)
 			else
 				buf:writeLine("// Derived class converters:")
 				for k,bclass in class:getAbsoluteBases():sequence() do
-					if not im:ignoreConverter(bclass) then
-						buf:writeSubLine(converter_template,bclass:getFullName(),cname,bclass:getName())
-					end
+					--if not im:ignoreConverter(bclass) then
+						buf:writeSubLine(converter_template,bclass:getFullName(),cname,bclass:getName(),im:ignoreConverter(bclass) and "static" or "dynamic")
+					--end
 				end
 			end
 			buf:newLine()
@@ -783,9 +783,9 @@ function LunaWriter:writeClass(class)
 				-- Write the absolute base converters:
 				if class:getNumBases() > 0 then
 					for k,bclass in class:getAbsoluteBases():sequence() do
-						if not im:ignoreConverter(bclass) then
+						--if not im:ignoreConverter(bclass) then
 							buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_cast_from_${3}},',wname,bclass:getFullName(),bclass:getName())
-						end
+						--end
 					end
 				end
 				

@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxAppConsole* ptr= static_cast< wxAppConsole* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxAppConsole >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxEventFilter(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxAppConsole* ptr= dynamic_cast< wxAppConsole* >(Luna< wxEventFilter >::check(L,1));
@@ -1130,6 +1141,7 @@ luna_RegType LunaTraits< wxAppConsole >::methods[] = {
 
 luna_ConverterType LunaTraits< wxAppConsole >::converters[] = {
 	{"wxObject", &luna_wrapper_wxAppConsole::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxAppConsole::_cast_from_wxTrackable},
 	{"wxEventFilter", &luna_wrapper_wxAppConsole::_cast_from_wxEventFilter},
 	{0,0}
 };

@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxRichTextStyleListBox* ptr= static_cast< wxRichTextStyleListBox* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxRichTextStyleListBox >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
@@ -93,6 +104,7 @@ luna_RegType LunaTraits< wxRichTextStyleListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRichTextStyleListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

@@ -1,0 +1,7 @@
+module=Awesomium
+Awesomium::CopyBuffers
+Awesomium::WriteDataPak
+Awesomium::ToString
+Awesomium::ToWebString
+Awesomium::WSLit
+

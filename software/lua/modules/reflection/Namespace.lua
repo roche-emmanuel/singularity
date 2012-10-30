@@ -1,4 +1,3 @@
-
 local oo = require "loop.cached"
 local dbg = require "debug"
 
@@ -15,7 +14,7 @@ Namespace.CLASS_NAME = "reflection.Namespace"
 function Namespace:__init(obj)
     obj = Holder:__init(obj or {})
     obj = oo.rawnew(self,obj)
-	obj.scopeType = Scope.NAMESPACE
+	obj._scopeType = Scope.NAMESPACE
     return obj
 end
 

@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxHeaderCtrlSimple* ptr= static_cast< wxHeaderCtrlSimple* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxHeaderCtrlSimple >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_InsertColumn(lua_State *L) {
@@ -283,6 +294,7 @@ luna_RegType LunaTraits< wxHeaderCtrlSimple >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHeaderCtrlSimple >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHeaderCtrlSimple::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxHeaderCtrlSimple::_cast_from_wxTrackable},
 	{0,0}
 };
 

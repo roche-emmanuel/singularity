@@ -449,4 +449,42 @@ function Class:addTimePickerCtrl(options)
     return self:addControl(ctrl,options)
 end
 
+function Class:addSTCCtrl(options)
+	local ctrl = wx.wxStyledTextCtrl:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);
+	return self:addControl(ctrl,options)
+end
+
+function Class:addBitmapButton(options)
+	assert(options and options.src,"A valid 'src' entry is needed to build a wxBitmapButton.")
+	
+	-- prepare the bitmap first:
+	local butSize = options.size or 16;
+	local bmp = im:getBitmap{name=options.src,size=butSize}
+	
+	if self:isToolbar() then
+		
+		-- if this is a toolbar then register a regular tool button instead of a bitmapbutton:
+		local id = winman:getNewID() 
+		if options.name then
+			self.tool_ids[options.name] = id
+		end
+		
+		local tool = self:getRootWindow():AddTool(id, options.caption or "", bmp, options.tip or options.caption or "",options.kind or wx.wxITEM_NORMAL);
+		if options.handler then
+			self:connectHandler(self:getRootWindow(),options.eventType or wx.wxEVT_COMMAND_MENU_SELECTED,options.handler,id,options.name or options.src)
+		end
+		return tool, true -- return true to notify that this is a tool object and not a regular control.
+	else
+		local ctrl = wx.wxBitmapButton:new(self:getCurrentParent(),options.id or wx.wxID_ANY,bmp,wx.wxDefaultPosition,wx.wxSize(butSize+8,butSize+8),options.style or wx.wxBU_AUTODRAW);
+		--ctrl:SetMinSize(wx.wxSize(butSize+8,butSize+8))
+		
+		if options.handler then
+			self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_BUTTON_CLICKED,options.handler,nil,options.name)
+		end
+		-- this refs ticket #316: force a default tip value if non is available:
+		options.tip = options.tip or options.caption or options.name or options.src
+		return self:addControl(ctrl,options)
+	end        
+end
+
 return Class

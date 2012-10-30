@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxRichTextStyleComboCtrl* ptr= static_cast< wxRichTextStyleComboCtrl* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxRichTextStyleComboCtrl >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxTextEntry(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxRichTextStyleComboCtrl* ptr= dynamic_cast< wxRichTextStyleComboCtrl* >(Luna< wxTextEntry >::check(L,1));
@@ -87,6 +98,7 @@ luna_RegType LunaTraits< wxRichTextStyleComboCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRichTextStyleComboCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRichTextStyleComboCtrl::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxRichTextStyleComboCtrl::_cast_from_wxTrackable},
 	{"wxTextEntry", &luna_wrapper_wxRichTextStyleComboCtrl::_cast_from_wxTextEntry},
 	{0,0}
 };

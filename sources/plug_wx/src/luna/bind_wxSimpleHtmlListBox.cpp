@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxSimpleHtmlListBox* ptr= static_cast< wxSimpleHtmlListBox* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxSimpleHtmlListBox >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxSimpleHtmlListBox* ptr= dynamic_cast< wxSimpleHtmlListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
@@ -171,6 +182,7 @@ luna_RegType LunaTraits< wxSimpleHtmlListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSimpleHtmlListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxVarScrollHelperBase},
 	{"wxItemContainerImmutable", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxItemContainerImmutable},
 	{0,0}

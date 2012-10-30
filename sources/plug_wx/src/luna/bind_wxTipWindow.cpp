@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxTipWindow* ptr= static_cast< wxTipWindow* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxTipWindow >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Constructor checkers:
 
@@ -107,6 +118,7 @@ luna_RegType LunaTraits< wxTipWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxTipWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxTipWindow::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxTipWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

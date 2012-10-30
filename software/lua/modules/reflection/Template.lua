@@ -18,7 +18,7 @@ function Template:__init(obj)
     obj = oo.rawnew(self,obj)
     dbg:assertNil(obj.bases,"Object already contains a 'bases' field")
     dbg:assertNil(obj.derivations,"Object already contains a 'derivations' field")
-	obj.scopeType = Scope.TEMPLATE
+	obj._scopeType = Scope.TEMPLATE
 	obj.templateParameters = Vector()
     return obj
 end

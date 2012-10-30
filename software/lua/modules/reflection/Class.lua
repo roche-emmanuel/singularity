@@ -30,7 +30,7 @@ function Class:__init()
     dbg:assertNil(obj.derivations,"Object already contains a 'derivations' field")
     dbg:assertNil(obj.sourceTemplate,"Object already contains a 'templates' field")
     dbg:assertNil(obj.concreteTypes,"Object already contains a 'concreteTypes' field")
-    obj.scopeType = Scope.CLASS
+    obj._scopeType = Scope.CLASS
     obj.bases = Set()
     obj.derivations = Set()
     obj.constructors = Set()

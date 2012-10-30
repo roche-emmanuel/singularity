@@ -4,8 +4,6 @@ require "core"
 
 --local sgt = require "core" -- load the core library.
 
-local Set = require "std.Set"
-
 -- Default logger class
 local LoggerBase = oo.class{}
 
@@ -29,7 +27,8 @@ function LoggerBase:__init()
 	local obj = oo.rawnew(self,{})
 	obj.indent = 0
 	obj.indentStr = "   "
-	obj.writtenTables = Set(); -- used to ensure each table is written only once in a table hierarchy.
+	--obj.writtenTables = require("std.Set")(); -- used to ensure each table is written only once in a table hierarchy.
+	obj.writtenTables = {}
 	obj.currentLevel = 0
 	obj.maxLevel = 5
 	return obj
@@ -59,13 +58,13 @@ function LoggerBase:writeTable(t)
 	
 	local id = tostring(t);
 	
-	if self.writtenTables:contains(t) then
+	if self.writtenTables[t] then
 		msg = id .. " (already written)"
 	else
 		msg = id .. " {\n"
 		
 		-- add the table into the set:
-		self.writtenTables:push_back(t)
+		self.writtenTables[t] = true
 		
 		self:pushIndent()
 		if self:incrementLevel() then
@@ -101,7 +100,7 @@ end
 
 --- Write input arguments as a string.
 function LoggerBase:write(...)
-	self.writtenTables:clear();
+	self.writtenTables = {};
 	self.currentLevel = 0
 	
 	local msg = string.rep(self.indentStr,self.indent);	

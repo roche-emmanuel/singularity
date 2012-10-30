@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxChoicebook* ptr= static_cast< wxChoicebook* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxChoicebook >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxWithImages(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxChoicebook* ptr= dynamic_cast< wxChoicebook* >(Luna< wxWithImages >::check(L,1));
@@ -122,6 +133,7 @@ luna_RegType LunaTraits< wxChoicebook >::methods[] = {
 
 luna_ConverterType LunaTraits< wxChoicebook >::converters[] = {
 	{"wxObject", &luna_wrapper_wxChoicebook::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxChoicebook::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxChoicebook::_cast_from_wxWithImages},
 	{0,0}
 };

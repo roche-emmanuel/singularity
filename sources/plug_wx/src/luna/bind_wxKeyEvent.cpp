@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxKeyboardState(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxKeyEvent* ptr= static_cast< wxKeyEvent* >(Luna< wxKeyboardState >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxKeyEvent >::push(L,ptr,false);
+		return 1;
+	};
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetKeyCode(lua_State *L) {
@@ -351,6 +362,7 @@ luna_RegType LunaTraits< wxKeyEvent >::methods[] = {
 
 luna_ConverterType LunaTraits< wxKeyEvent >::converters[] = {
 	{"wxObject", &luna_wrapper_wxKeyEvent::_cast_from_wxObject},
+	{"wxKeyboardState", &luna_wrapper_wxKeyEvent::_cast_from_wxKeyboardState},
 	{0,0}
 };
 

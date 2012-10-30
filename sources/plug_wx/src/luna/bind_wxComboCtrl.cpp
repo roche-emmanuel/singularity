@@ -38,6 +38,17 @@ public:
 		return 1;
 	};
 
+	static int _cast_from_wxTrackable(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		wxComboCtrl* ptr= static_cast< wxComboCtrl* >(Luna< wxTrackable >::check(L,1));
+		if(!ptr)
+			return 0;
+		
+		// Otherwise push the pointer:
+		Luna< wxComboCtrl >::push(L,ptr,false);
+		return 1;
+	};
+
 	static int _cast_from_wxTextEntry(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxComboCtrl* ptr= dynamic_cast< wxComboCtrl* >(Luna< wxTextEntry >::check(L,1));
@@ -1661,6 +1672,7 @@ luna_RegType LunaTraits< wxComboCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxComboCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxComboCtrl::_cast_from_wxObject},
+	{"wxTrackable", &luna_wrapper_wxComboCtrl::_cast_from_wxTrackable},
 	{"wxTextEntry", &luna_wrapper_wxComboCtrl::_cast_from_wxTextEntry},
 	{0,0}
 };

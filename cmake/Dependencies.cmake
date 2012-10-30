@@ -60,6 +60,10 @@ SET(OPENSSL_INC_DIR 	${DEP_OPENSSL}/include)
 SET(OPENSSL_LIB_DIR 	${DEP_OPENSSL}/lib)
 SET(OPENSSL_LIBS 		libeay32.lib ssleay32.lib)
 
+SET(AWESOMIUM_INC_DIR 	${DEP_AWESOMIUM}/include)
+SET(AWESOMIUM_LIB_DIR 	${DEP_AWESOMIUM}/lib)
+SET(AWESOMIUM_LIBS 		awesomium.lib)
+
 SET(OSG_INC_DIR 	${DEP_OSG}/include)
 SET(OSG_LIB_DIR 	${DEP_OSG}/lib ${DEP_OSG}/lib/osgPlugins-3.0.1)
 SET(OSG_LIBS     	OpenThreads
