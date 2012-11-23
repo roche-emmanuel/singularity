@@ -102,12 +102,12 @@ end
 
 --- Return a copy of the vector.
 function Class:clone()
-    return oo.classof(self)(self._data)
+    return self:getClassOf()(self._data)
 end
 
 -- Metamethod to map the vector indices.
 function Class:__index(field)
-    return ( type(field)=="number" and self._data[field] or Class[field] )
+    return ( (type(field)=="number" and self._data[field]) or Class[field] )
 end
 
 --- Return value at position.

@@ -1,7 +1,7 @@
 local Class = require("classBuilder"){name="Entity",bases={"base.Object"}};
 
 function Class:initialize(options)
-	self._name = options.name or ""
+	self._name = (options and options.name) or ""
 end
 
 function Class:getName()

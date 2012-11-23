@@ -70,7 +70,7 @@ end
 
 -- Metamethod to map the vector indices.
 function Class:__index(field)
-    return ( type(field)=="number" and self._data[field] or Class[field] or Vector[field])
+   return (type(field)~="number" and Class[field]) or Vector.__index(self,field)
 end
 
 --- Convert retrieve the data from the input table.

@@ -17,10 +17,14 @@ end
 
 --- Get an item from the map:
 function Class:get(key)
-    if key then
-        return self._data[key]
-    end
+	return key and self._data[key]
 end
+
+--- Check if we have a given item in the map:
+function Class:has(key)
+    return key and self._data[key]~=nil
+end
+
 
 --- Erase a value from the map by key
 function Class:erase(key)
