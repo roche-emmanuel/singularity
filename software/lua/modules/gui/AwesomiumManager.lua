@@ -14,7 +14,7 @@ function Class:initialize(options)
 end
 
 function Class:uninitialize()
-	evtman:removeListener("",self)
+	evtman:removeListener(self)
 		
 end
 

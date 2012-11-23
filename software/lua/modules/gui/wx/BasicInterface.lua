@@ -34,9 +34,7 @@ function Class:initialize(options)
 end
 
 function Class:uninitialize()
-	evtman:removeListener("",self)
-	--evtman:removeListener("AppClosing",self)
-	--evtman:removeListener("LicenseChanged",self)
+	evtman:removeListener(self)
 end
 
 function Class:onAppClosing()

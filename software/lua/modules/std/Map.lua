@@ -25,6 +25,17 @@ function Class:has(key)
     return key and self._data[key]~=nil
 end
 
+function Class:getOrCreate(key,subclass)
+	self:check(key~=nil,"Invalid key.")
+	self:check(subclass~=nil,"Invalid key.")
+	
+	local val = self._data[key]
+	if not val then
+		val = subclass();
+		self._data[key] = val;
+	end
+	return val;
+end
 
 --- Erase a value from the map by key
 function Class:erase(key)
