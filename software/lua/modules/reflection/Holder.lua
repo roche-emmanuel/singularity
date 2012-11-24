@@ -23,23 +23,15 @@ function Holder:__init(obj)
     obj = IEnumHolder:__init(obj)
     obj = oo.rawnew(self,obj)
     obj._TRACE_ = "reflection.Holder"
-    
-    -- obj.children = Set()
+
     return obj
 end
 
---- Retrieve the set of children in that Scope
--- function Holder:getChildren()
-	-- return self.children
-	-- return self:getSubScopes()
--- end
-
-function Holder:removeChild(child)
-	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
-
+-- function Holder:removeChild(child)
+	-- self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
 	-- return self.children:eraseValue(child)
-	return self:removeSubScope(child)
-end
+	-- return self:removeSubScope(child)
+-- end
 
 function Holder:addChild(child)
 	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")	

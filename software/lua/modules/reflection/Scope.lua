@@ -36,10 +36,11 @@ function Class:addSubScope(scope)
 	self:check(self._scopeType~=Class.ENUM,"Enum scope may not contain sub scopes.")
 	self:checkType(scope,require"reflection.Scope")
 
-	local prev_parent = scope:setParent(self,true) -- force setting of new parent.
-	if prev_parent then
-		prev_parent:removeSubScope(scope)
-	end
+	scope:setParent(self,true) -- force setting of new parent.
+	-- local prev_parent = scope:setParent(self,true) -- force setting of new parent.
+	-- if prev_parent then
+		-- prev_parent:removeSubScope(scope)
+	-- end
 	
 	-- self:info("Subscopes: ",self._subScopes)
 	--self:check(self._subScopes,"Invalid sub scopes");

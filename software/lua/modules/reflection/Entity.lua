@@ -65,7 +65,7 @@ function Class:setParent(parent,force)
 		self:warn("Forcing parent change for object '",self:getFullName(),"' to parent '",parent:getFullName(),"'");
 
 		-- remove the child from the previous parent:
-		local res = prev_parent:removeChild(self);
+		local res = prev_parent:removeSubScope(self);
 		self:check(res,"Child scope was not found in previous parent scope.");
 		
 		self._parent = parent
