@@ -1,42 +1,33 @@
+local Class = require("classBuilder"){name="IVariableHolder",bases="base.Object"};
 
-local oo = require "loop.base"
 local Set = require "std.Set"
-local dbg = require "debugger"
 local Variable = require "reflection.Variable"
 
-local IVariableHolder = oo.class{}
-
--- Define the class name
-IVariableHolder.CLASS_NAME = "reflection.IVariableHolder"
-
-function IVariableHolder:__init(obj)
-    obj = oo.rawnew(self,obj or {})
-    dbg:assert(obj.variables==nil,"Object already contains a 'variables' field")
-    obj.variables = Set()
-    return obj
+function Class:initialize(obj)
+    self._variables = Set()
 end
 
 --- Retrieve the variable Set in that object.
-function IVariableHolder:getVariables()
-    return self.variables
+function Class:getVariables()
+    return self._variables
 end
 
 --- Add a variable to the variable Set.
-function IVariableHolder:addVariable(var)
-	dbg:assert(var,"'var' argument is nil")
-	dbg:assertType(var,Variable)
-	self.variables:push_back(var)
+function Class:addVariable(var)
+	self:check(var and self:isInstanceOf(Variable,var),"Invalid variable");
+	
+	self._variables:push_back(var)
 	
 	if var:getParent() == self then
 		return -- this variable is already added.
 	end
 	
-	dbg:assertNil(var:getParent(),
+	self:check(var:getParent()==nil,
 		"Changing variable parent.",
-		"\nVariable=",var,
-		"\nPrevious parent=",var:getParent(),
-		"\nNew parent=",self)
+		"\nVariable=",var:getName(),
+		"\nPrevious parent=",var:getParent() and var:getParent():getFullName(),
+		"\nNew parent=",self:getFullName())
 	var:setParent(self)	
 end
 
-return IVariableHolder
+return Class

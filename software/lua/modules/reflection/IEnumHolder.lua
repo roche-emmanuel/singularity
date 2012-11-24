@@ -1,31 +1,22 @@
+local Class = require("classBuilder"){name="IEnumHolder",bases="base.Object"};
 
-local oo = require "loop.base"
 local Set = require "std.Set"
-local dbg = require "debugger"
 local Enum = require "reflection.Enum"
 
-local IEnumHolder = oo.class{}
-
--- Define the class name
-IEnumHolder.CLASS_NAME = "reflection.IEnumHolder"
-
-function IEnumHolder:__init(obj)
-    obj = oo.rawnew(self,obj or {})
-    dbg:assert(obj.enums==nil,"Object already contains a 'enums' field")
-    obj.enums = Set()
-    return obj
+function Class:initialize(options)
+    self._enums = Set()
 end
 
 --- Retrieve the variable Set in that object.
-function IEnumHolder:getEnums()
-    return self.enums
+function Class:getEnums()
+    return self._enums
 end
 
 --- Add a variable to the variable Set.
-function IEnumHolder:addEnum(var)
-	dbg:assert(var,"'var' argument is nil")
-	dbg:assertType(var,Enum)
-	self.enums:push_back(var)
+function Class:addEnum(var)
+	self:check(var and self:isInstanceOf(Enum,var),"Invalid enum");
+
+	self._enums:push_back(var)
 	
 	if var:getParent() == self then
 		return -- nothing to do.
@@ -34,12 +25,12 @@ function IEnumHolder:addEnum(var)
 	-- also add the enum as a regular scope:
 	--self:addChild(var)
 	
-	dbg:assertNil(var:getParent(),
+	self:check(var:getParent()==nil,
 		"Changing enum parent.",
-		"\nEnum=",var,
-		"\nPrevious parent=",var:getParent(),
-		"\nNew parent=",self)
+		"\nEnum=",var:getName(),
+		"\nPrevious parent=",var:getParent() and var:getParent():getFullName(),
+		"\nNew parent=",self:getFullName())
 	var:setParent(self)	
 end
 
-return IEnumHolder
+return Class
