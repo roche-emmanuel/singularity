@@ -6,23 +6,13 @@ Class.CLASS = 1
 Class.ENUM = 2
 Class.TEMPLATE = 3
 
-function Class:initialize(options)
+function Class:initialize(options)	
+	local ItemSet = require "reflection.ItemSet"
+	
 	self._scopeType = nil -- this value should be overriden by sub classes.
+	self._subScopes = ItemSet();
 end
 
--- function Class:getHeaderFile()
-	-- return self._headerFile
--- end
-
--- function Class:setHeaderFile(header)
-	-- self:check(header==nil or type(header)=="string","Invalid header argument.")
-	-- self._headerFile = header
--- end
-
---- Retrieve the type of this scope
--- @return the scope type corresponding to the object class
--- can be either Scope.NAMESPACE, Scope.CLASS or Scope.ENUM or Scope.TEMPLATE
--- Will return nil for the base Scope class
 function Class:getScopeType()
 	self:check(self._scopeType,"Invalid scope type.")
 	return self._scopeType;
@@ -35,6 +25,52 @@ function Class:setScopeType(stype)
 	end
 	self:check(not self._scopeType,"scope type was already set to value: ",self._scopeType)
 	self._scopeType = stype;
+end
+
+function Class:getSubScopes(filters,args)
+	return self._subScopes:filterItems(filters,args)
+end
+
+function Class:addSubScope(scope)
+	self:check(scope,"Invalid scope argument.")
+	self:check(self._scopeType~=Class.ENUM,"Enum scope may not contain sub scopes.")
+	self:checkType(scope,require"reflection.Scope")
+
+	local prev_parent = scope:setParent(self,true) -- force setting of new parent.
+	if prev_parent then
+		prev_parent:removeSubScope(scope)
+	end
+	
+	-- self:info("Subscopes: ",self._subScopes)
+	--self:check(self._subScopes,"Invalid sub scopes");
+	--self:checkType(self._subScopes, require"reflection.ItemSet")
+	--self:check(self._subScopes.addItem,"Invalid addItem function");
+	
+	self._subScopes:addItem(scope)
+end
+
+function Class:removeSubScope(scope)
+	self:check(scope,"Invalid scope argument.")
+	self:check(self._scopeType~=Class.ENUM,"Enum scope may not contain sub scopes.")
+	self:checkType(scope,require"reflection.Scope")
+	
+	return self._subScopes:eraseValue(scope)
+end
+
+function Class:isClass()
+	return self._scopeType == Class.CLASS
+end
+
+function Class:isNamespace()
+	return self._scopeType == Class.NAMESPACE
+end
+
+function Class:isEnum()
+	return self._scopeType == Class.ENUM
+end
+
+function Class:isTemplate()
+	return self._scopeType == Class.TEMPLATE
 end
 
 return Class

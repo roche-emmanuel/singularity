@@ -24,31 +24,34 @@ function Holder:__init(obj)
     obj = oo.rawnew(self,obj)
     obj._TRACE_ = "reflection.Holder"
     
-    obj.children = Set()
+    -- obj.children = Set()
     return obj
 end
 
 --- Retrieve the set of children in that Scope
 function Holder:getChildren()
-	return self.children
+	-- return self.children
+	return self:getSubScopes()
 end
 
 function Holder:removeChild(child)
 	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
 
-	return self.children:eraseValue(child)
+	-- return self.children:eraseValue(child)
+	return self:removeSubScope(child)
 end
 
 function Holder:addChild(child)
 	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")	
 
-	self.children:push_back(child) -- This is a set, so safe to add the same object multiple times.
+	return self:addSubScope(child)
+	-- self.children:push_back(child) -- This is a set, so safe to add the same object multiple times.
 	
 	--Add this object as parent of the child:
 	-- we may frce changing the namespace if the object is in the standard
 	-- namespace:
 	-- local stdNS = child:getParent() and child:getParent():getFullName()=="";
-	child:setParent(self,true) --stdNS)	
+	-- child:setParent(self,true) --stdNS)	
 end
 
 return Holder

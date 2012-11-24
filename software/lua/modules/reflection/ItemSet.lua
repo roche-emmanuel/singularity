@@ -1,18 +1,27 @@
 local Class = require("classBuilder"){name="ItemSet",bases="std.Set"};
 
 local ChainValidator = require "reflection.validators.ChainValidator"
+local Set = require "std.Set"
 
 function Class:initialize(options)
 end
 
+function Class:__index(field)
+   return (type(field)~="number" and Class[field]) or Set.__index(self,field)
+end
+
 function Class:filterItems(filters,args)
+	if not filters then
+		return self;
+	end
+	
 	local va = ChainValidator{validators=filters,args=args}
 	return self:getItems(va)
 end
 
 function Class:getItems(validator)
 	if not validator then
-		return self._items
+		return self
 	end
 	
 	-- use the validator for item validation
