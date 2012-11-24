@@ -27,6 +27,7 @@ function Function:__init(name)
     obj._isStatic = false
     obj._isAbstract = false;
     obj._isExtension = false;
+	obj._TRACE_ = "Function"
     return obj
 end
 

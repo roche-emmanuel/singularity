@@ -1,17 +1,21 @@
-local Class = require("classBuilder"){name="Holder",bases=
-	{"reflection.Scope","reflection.IFunctionHolder"}};
+local Class = require("classBuilder"){name="Holder",bases="reflection.Scope"};
 
 local Set = require "std.Set"
 
 function Class:initialize(options)
 	local ItemSet = require "reflection.ItemSet"
 	
+	self._functions = ItemSet()
 	self._variables = ItemSet();
 	self._enums = ItemSet();
 end
 
 function Class:getItems(list,filters,args)
 	return list:filterItems(filters,args)
+end
+
+function Class:getFunctions(filters,args)	
+	return self:getItems(self._functions,filters,args)
 end
 
 function Class:getVariables(filters,args)
@@ -38,6 +42,41 @@ function Class:addEnum(enum)
 	enum:setParent(self)
 	
 	self._enums:addItem(enum)
+end
+
+--- Add a function to the function Set.
+function Class:addFunction(func)
+	self:check(func and self:isInstanceOf(require"reflection.Function",func),"Invalid function: ",func);
+	
+	if (func:getParent() == self) then
+		return -- nothing to do.
+	end
+	
+	self:check(func:getParent()==nil,
+		"Changing function parent.",
+		"\nFunction=",func:getName(),
+		"\nPrevious parent=",func:getParent() and func:getParent():getFullName(),
+		"\nNew parent=",self:getFullName())
+	func:setParent(self)
+
+	if func:isConstructor() then	
+		self:addConstructor(func)
+	elseif func:isDestructor() then
+		self:setDestructor(func)
+	elseif func:isOperator() then
+		if not self.addOperator then
+			self:warn("Discarding non class member operator function '",func:getName(),"' in namespace '",self:getName(),"'") 
+			return
+		end
+		
+		self:addOperator(func)
+	else
+		self._functions:push_back(func)
+	end	
+end
+
+function Class:getValidPublicFunctions()
+	return self:getFunctions{"Public","Valid"}
 end
 
 return Class
