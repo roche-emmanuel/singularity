@@ -95,7 +95,7 @@ function TextCorrector:correct(cat,text)
 	
 	-- retrieve the correctors:
 	local correctors = self:getOrCreateCategory(cat);
-	self:debug3("Testing ", correctors:size(), " patterns for category ",cat)
+	-- self:debug3("Testing ", correctors:size(), " patterns for category ",cat)
 	
 	for pattern,corrector in correctors:sequence() do
 		if text:find(pattern) then

@@ -65,7 +65,7 @@ end
 function IgnoreManager:ignore(text,cat)
 	local patterns = self:getPatterns(cat)
     for _,pattern in patterns:sequence() do
-    	log:info("Testing pattern=", pattern, " from cat=",cat," on text=",text)
+    	--log:info("Testing pattern=", pattern, " from cat=",cat," on text=",text)
         if text:find(pattern) then
         	log:notice("Ignoring ",cat," item '",text,"' because of ignore pattern '",pattern,"'")
             return true;
