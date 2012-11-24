@@ -10,14 +10,14 @@ function Class:initialize(options)
 	self._scopeType = nil -- this value should be overriden by sub classes.
 end
 
-function Class:getHeaderFile()
-	return self._headerFile
-end
+-- function Class:getHeaderFile()
+	-- return self._headerFile
+-- end
 
-function Class:setHeaderFile(header)
-	self:check(header==nil or type(header)=="string","Invalid header argument.")
-	self._headerFile = header
-end
+-- function Class:setHeaderFile(header)
+	-- self:check(header==nil or type(header)=="string","Invalid header argument.")
+	-- self._headerFile = header
+-- end
 
 --- Retrieve the type of this scope
 -- @return the scope type corresponding to the object class

@@ -1,7 +1,20 @@
 local Class = require("classBuilder"){name="Entity",bases={"base.Object"}};
 
+Class.SECTION_PUBLIC = 0
+Class.SECTION_PROTECTED = 1
+Class.SECTION_PRIVATE = 2
+
+local section_str = {}
+section_str.public = Class.SECTION_PUBLIC
+section_str.protected = Class.SECTION_PROTECTED
+section_str.private = Class.SECTION_PRIVATE
+
+local tm = require "bindings.TypeManager";
+local im = require "bindings.IgnoreManager";
+
 function Class:initialize(options)
 	self._name = (options and options.name) or ""
+	self._section = Class.SECTION_PUBLIC
 end
 
 function Class:getName()
@@ -39,10 +52,6 @@ function Class:getParent()
 end
 
 --- Set the parent of that object.
---function Class:setParent(parent)
---	self:checkType(parent,require("reflection.Scope"))
---    self._parent = parent  -- the parent may be nil.
---end
 function Class:setParent(parent,force)
 	self:check(parent,"Invalid parent argument")
 	self:checkType(parent,require("reflection.Scope"))
@@ -78,6 +87,75 @@ function Class:getFullName()
     else
         return self:getName()
     end
+end
+
+function Class:getHeaderFile()
+	return self._headerFile
+end
+
+function Class:setHeaderFile(header)
+	self:checkNonEmptyString(header,"Invalid header argument")
+	if self._headerFile == header then
+		return -- nothing to do.
+	end
+	
+	if(self._headerFile) then
+		self:debug("Replace header file '", self._headerFile, "' with '", header,"' for object ", self:getFullName());	
+	end
+
+	self._headerFile = header
+end
+
+function Class:getLuaName()
+	return self._luaName or self:getName()
+end
+
+function Class:setLuaName(name)
+	self:check(name,"Invalid name argument.")
+	self._luaName = name
+end
+
+function Class:getSection()
+    return self._section
+end
+
+function Class:setSection(section)
+	self:check(section,"Invalid section argument.")
+    self._section = type(section)=="string" and section_str[section] or section;
+	self:check(self._section==Class.SECTION_PUBLIC or self._section==Class.SECTION_PROTECTED or self._section==Class.SECTION_PRIVATE,"Invalid section.")
+end
+
+--- Retrieve the root namespace for this parent
+function Class:getRootNamespace()
+	local prevParent = nil;
+	local parent = self:getParent();
+	while(parent and parent:getName()~="") do
+		prevParent = parent
+		parent = parent:getParent();
+	end
+	
+	return prevParent
+end
+
+function Class:setModule(modname)
+	self:checkNonEmptyString(modname,"Invalid module name");
+	tm:setModule(self,modname)
+end
+
+function Class:getModule()
+	return tm:getModule(self)
+end
+
+function Class:setExternal(external)
+	return tm:setExternal(self,external)
+end
+
+function Class:isExternal()
+	return tm:isExternal(self)
+end
+
+function Class:isIgnored()
+	return im:ignore(self)
 end
 
 return Class

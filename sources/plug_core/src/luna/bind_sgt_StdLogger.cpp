@@ -7,18 +7,18 @@ public:
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,81755923) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::LogSink*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
 		}
 
-		sgt::LogSink* rhs =(Luna< sgt::LogSink >::check(L,2));
-		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
+		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -27,9 +27,9 @@ public:
 	}
 
 	// Derived class converters:
-	static int _cast_from_LogSink(lua_State *L) {
+	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::StdLogger* ptr= dynamic_cast< sgt::StdLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::StdLogger* ptr= dynamic_cast< sgt::StdLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -91,7 +91,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::StdLogger* self=dynamic_cast< sgt::StdLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::StdLogger* self=dynamic_cast< sgt::StdLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::StdLogger::output(int, std::string, std::string)");
@@ -111,7 +111,7 @@ sgt::StdLogger* LunaTraits< sgt::StdLogger >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::StdLogger >::_bind_dtor(sgt::StdLogger* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::StdLogger >::className[] = "StdLogger";
@@ -119,7 +119,7 @@ const char LunaTraits< sgt::StdLogger >::fullName[] = "sgt::StdLogger";
 const char LunaTraits< sgt::StdLogger >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::StdLogger >::parents[] = {"sgt.LogSink", 0};
 const int LunaTraits< sgt::StdLogger >::hash = 9508745;
-const int LunaTraits< sgt::StdLogger >::uniqueIDs[] = {81755923,0};
+const int LunaTraits< sgt::StdLogger >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::StdLogger >::methods[] = {
 	{"output", &luna_wrapper_sgt_StdLogger::_bind_output},
@@ -128,7 +128,7 @@ luna_RegType LunaTraits< sgt::StdLogger >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< sgt::StdLogger >::converters[] = {
-	{"sgt::LogSink", &luna_wrapper_sgt_StdLogger::_cast_from_LogSink},
+	{"osg::Referenced", &luna_wrapper_sgt_StdLogger::_cast_from_Referenced},
 	{0,0}
 };
 

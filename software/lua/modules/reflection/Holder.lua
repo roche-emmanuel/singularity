@@ -40,15 +40,9 @@ function Holder:removeChild(child)
 end
 
 function Holder:addChild(child)
-	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
-	
-	self:debug0_v("Adding child ",child:getName()," to scope ", self:getName())
-	
-	if child:getParent() == self then
-		return -- nothing to do the child is already in the list.
-	end
+	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")	
 
-	self.children:push_back(child)
+	self.children:push_back(child) -- This is a set, so safe to add the same object multiple times.
 	
 	--Add this object as parent of the child:
 	-- we may frce changing the namespace if the object is in the standard
