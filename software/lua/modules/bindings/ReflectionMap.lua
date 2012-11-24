@@ -64,7 +64,7 @@ function RMap:collectClasses(scope,visited)
         
         visited:push_back(scope)
        
-        local children = scope:getChildren()
+        local children = scope:getSubScopes()
 
         for k,v in children:sequence() do
 			--log:warn("Visiting child ".. v:getName() .. " in parent ".. scope:getName())
@@ -87,7 +87,7 @@ function RMap:collectEnums(scope,visited)
     	end
         
         visited:push_back(scope)
-        local children = scope:getChildren()
+        local children = scope:getSubScopes()
 
         for k,v in children:sequence() do
 			--log:warn("Visiting child ".. v:getName() .. " in parent ".. scope:getName())
@@ -109,7 +109,7 @@ function RMap:collectNamespaces(scope,visited)
         end
         
         visited:push_back(scope)
-        local children = scope:getChildren()
+        local children = scope:getSubScopes()
         for k,v in children:sequence() do
             self:collectNamespaces(v,visited)
         end

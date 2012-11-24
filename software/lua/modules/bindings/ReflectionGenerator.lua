@@ -85,7 +85,7 @@ function ReflectionGenerator:processNamespace(comp)
     
     parent:addChild(scope)
     
-    dbg:assert(parent:getChildren():contains(scope),"parent doesn't contain child!")
+    dbg:assert(parent:getSubScopes():contains(scope),"parent doesn't contain child!")
     
     -- now push this class as current scope:
     self:pushScope(scope)

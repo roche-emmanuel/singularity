@@ -29,10 +29,10 @@ function Holder:__init(obj)
 end
 
 --- Retrieve the set of children in that Scope
-function Holder:getChildren()
+-- function Holder:getChildren()
 	-- return self.children
-	return self:getSubScopes()
-end
+	-- return self:getSubScopes()
+-- end
 
 function Holder:removeChild(child)
 	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
