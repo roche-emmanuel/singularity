@@ -39,9 +39,33 @@ function Class:getParent()
 end
 
 --- Set the parent of that object.
-function Class:setParent(parent)
+--function Class:setParent(parent)
+--	self:checkType(parent,require("reflection.Scope"))
+--    self._parent = parent  -- the parent may be nil.
+--end
+function Class:setParent(parent,force)
+	self:check(parent,"Invalid parent argument")
 	self:checkType(parent,require("reflection.Scope"))
-    self._parent = parent  -- the parent may be nil.
+	
+	if (self._parent == parent) then
+		return -- nothing to do.
+	end
+	
+	if force and self._parent then
+		local prev_parent = self._parent;
+		self:warn("Forcing parent change for object '",self:getFullName(),"' to parent '",parent:getFullName(),"'");
+
+		-- remove the child from the previous parent:
+		local res = prev_parent:removeChild(self);
+		self:check(res,"Child scope was not found in previous parent scope.");
+		
+		self._parent = parent
+		return prev_parent
+	end
+	
+	-- The child should not already be parented to another parent:
+	self:check(self._parent==nil,"Trying to reparent object '",self:getFullName(),"' to parent '",parent:getFullName(),"' previous parent is: '",self._parent and self._parent:getFullName(),"' and change is not enforced.")
+	self._parent = parent
 end
 
 --- Retrieve the full name of that entity.

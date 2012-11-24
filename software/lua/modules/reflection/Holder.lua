@@ -33,6 +33,12 @@ function Holder:getChildren()
 	return self.children
 end
 
+function Holder:removeChild(child)
+	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
+
+	return self.children:eraseValue(child)
+end
+
 function Holder:addChild(child)
 	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
 	
@@ -45,17 +51,10 @@ function Holder:addChild(child)
 	self.children:push_back(child)
 	
 	--Add this object as parent of the child:
-	if (child:getParent() and child:getParent():getName()~="") then
-		self:warn("changing scope parent from ".. child:getParent():getFullName() .. " to ".. self:getName())
-	end
-	
-
-	-- if this class was in the global namespace so far, remove it:		
-	if child:getParent() then
-		child:getParent():getChildren():eraseValue(child)
-	end
-		
-	child:setParent(self)	
+	-- we may frce changing the namespace if the object is in the standard
+	-- namespace:
+	-- local stdNS = child:getParent() and child:getParent():getFullName()=="";
+	child:setParent(self,true) --stdNS)	
 end
 
 return Holder
