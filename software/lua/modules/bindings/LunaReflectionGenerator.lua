@@ -113,7 +113,7 @@ function ReflectionGenerator:processNamespace(comp)
     local parent = self:getCurrentScope()
     --log:warn("Adding namesapce ".. scope:getFullName() .. " to parent ".. parent:getFullName())
     
-    parent:addChild(scope)
+    parent:addSubScope(scope)
     
     dbg:assert(parent:getSubScopes():contains(scope),"parent doesn't contain child!")
     
@@ -190,7 +190,7 @@ function ReflectionGenerator:processClass(comp)
 	
     local parent = self:getCurrentScope()
     
-	parent:addChild(class)
+	parent:addSubScope(class)
 	
 	-- retrieve the location of that class:
 	local location = self:getHeaderFileName(comp:locationFile():latin1()) 
@@ -765,7 +765,7 @@ function ReflectionGenerator:processMembers(sec)
     		
     		class:setMappedType(Type(typevec))
 
-        	scope:addChild(class)
+        	scope:addSubScope(class)
     		
         elseif(mem:kind()==dxp.IMember.Define and self:isPublic(mem)) then
             

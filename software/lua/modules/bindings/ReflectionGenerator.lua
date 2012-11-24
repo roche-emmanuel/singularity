@@ -83,7 +83,7 @@ function ReflectionGenerator:processNamespace(comp)
     local parent = self:getCurrentScope()
     --log:warn("Adding namesapce ".. scope:getFullName() .. " to parent ".. parent:getFullName())
     
-    parent:addChild(scope)
+    parent:addSubScope(scope)
     
     dbg:assert(parent:getSubScopes():contains(scope),"parent doesn't contain child!")
     
@@ -124,7 +124,7 @@ function ReflectionGenerator:processClass(comp)
 
     local parent = self:getCurrentScope()
     
-	parent:addChild(class)
+	parent:addSubScope(class)
 
     -- now push this class as current scope:
     self:pushScope(class)

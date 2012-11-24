@@ -27,23 +27,4 @@ function Holder:__init(obj)
     return obj
 end
 
--- function Holder:removeChild(child)
-	-- self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
-	-- return self.children:eraseValue(child)
-	-- return self:removeSubScope(child)
--- end
-
-function Holder:addChild(child)
-	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")	
-
-	return self:addSubScope(child)
-	-- self.children:push_back(child) -- This is a set, so safe to add the same object multiple times.
-	
-	--Add this object as parent of the child:
-	-- we may frce changing the namespace if the object is in the standard
-	-- namespace:
-	-- local stdNS = child:getParent() and child:getParent():getFullName()=="";
-	-- child:setParent(self,true) --stdNS)	
-end
-
 return Holder
