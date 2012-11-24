@@ -648,7 +648,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     func:setConstness(mem:isConst())
     func:setStatic(mem:isStatic())
     func:setAbstract(mem:argsstring():latin1():find("=0$")~=nil)
-    func:setProtectionFromString(mem:protection():latin1())
+    func:setSection(mem:protection():latin1())
     func:setArgsString(mem:argsstring():latin1())
     
     func:getParameters():clear();

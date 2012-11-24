@@ -3,7 +3,7 @@ local dbg = require "debugger"
 
 local Holder = require "reflection.Holder"
 local Function = require "reflection.Function"
-local IProtection = require "reflection.IProtection"
+local Entity = require "reflection.Entity"
 local Scope = require "reflection.Scope"
 local Vector = require "std.Vector"
 local Set = require "std.Set"
@@ -141,14 +141,14 @@ end
 -- Default constructors will not appear here if not declared in
 -- the doxygen interface files.
 -- @param prot The protection of the constructors to retrieve. Can be either:
--- IProtection.PUBLIC, IProtection.PROTECTED or IProtection.PRIVATE or nil.
+-- or nil.
 -- @return The Set of constructors matching the given protection requested, or all
 -- constructors if prot == nil 
 function Class:getConstructors(prot,validOnly)
 	if prot then
 		local result = Set()
 		for _,v in self.constructors:sequence() do
-			if v:getProtection() == prot and (not validOnly or v:isValidForWrapping()) then
+			if v:getSection() == prot and (not validOnly or v:isValidForWrapping()) then
 				result:push_back(v)
 			end
 		end
@@ -164,7 +164,7 @@ end
 -- function with func:isOverloaded())
 -- @return The Set of public constructors with all overloads or only the first constructor found.
 function Class:getPublicConstructors(nooverloads)
-	local funcs = self:getConstructors(IProtection.PUBLIC) 
+	local funcs = self:getConstructors(Entity.SECTION_PUBLIC) 
 	if nooverloads then
 		-- remove the overloads from the set:
 		local handled = Set()
@@ -187,7 +187,7 @@ function Class:getPublicConstructors(nooverloads)
 end
 
 function Class:getValidPublicConstructors()
-	local funcs = self:getConstructors(IProtection.PUBLIC,true) 
+	local funcs = self:getConstructors(Entity.SECTION_PUBLIC,true) 
 	return funcs
 end
 
@@ -198,7 +198,7 @@ function Class:getOperators(prot)
 	if prot then
 		local result = Set()
 		for _,v in self.operators:sequence() do
-			if v:getProtection() == prot then
+			if v:getSection() == prot then
 				result:push_back(v)
 			end
 		end
@@ -209,7 +209,7 @@ function Class:getOperators(prot)
 end
 
 function Class:getPublicOperators(nooverloads)
-	local funcs = self:getOperators(IProtection.PUBLIC) 
+	local funcs = self:getOperators(Entity.SECTION_PUBLIC) 
 	--[=[if nooverloads then
 		-- remove the overloads from the set:
 		local handled = Set()

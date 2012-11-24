@@ -3,7 +3,6 @@ local oo = require "loop.cached"
 
 local ReflectionWriter = require "bindings.ReflectionWriter"
 local BaseWriter = require "bindings.BaseWriter"
-local IProtection = require "reflection.IProtection"
 local Enum = require "reflection.Enum"
 local table = table
 

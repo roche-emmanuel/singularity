@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="Member",bases={"reflection.Entity","reflection.IProtection"}}
+local Class = require("classBuilder"){name="Member",bases="reflection.Entity"}
 
 -- Note that a member type might be nil for instance when this member describes
 -- the type returned from a class constructor function.

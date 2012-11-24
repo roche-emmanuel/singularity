@@ -125,6 +125,18 @@ function Class:setSection(section)
 	self:check(self._section==Class.SECTION_PUBLIC or self._section==Class.SECTION_PROTECTED or self._section==Class.SECTION_PRIVATE,"Invalid section.")
 end
 
+function Class:isPublic()
+	return self._section == Class.SECTION_PUBLIC
+end
+
+function Class:isProtected()
+	return self._section == Class.SECTION_PROTECTED
+end
+
+function Class:isPrivate()
+	return self._section == Class.SECTION_PRIVATE
+end
+
 --- Retrieve the root namespace for this parent
 function Class:getRootNamespace()
 	local prevParent = nil;
