@@ -73,7 +73,10 @@ function Class:setParent(parent,force)
 	end
 	
 	-- The child should not already be parented to another parent:
-	self:check(self._parent==nil,"Trying to reparent object '",self:getFullName(),"' to parent '",parent:getFullName(),"' previous parent is: '",self._parent and self._parent:getFullName(),"' and change is not enforced.")
+	
+	if self._parent then
+		self:error("Trying to reparent object '",self:getFullName(),"' to parent '",parent:getFullName(),"' previous parent is: '",self._parent:getFullName(),"' and change is not enforced.")
+	end
 	self._parent = parent
 end
 
