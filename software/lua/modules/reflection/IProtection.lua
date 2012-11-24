@@ -1,45 +1,35 @@
+local Class = require("classBuilder"){name="IProtection",bases="base.Object"}
 
-local oo = require "loop.base"
-local dbg = require "debugger"
+Class.PUBLIC = 0
+Class.PROTECTED = 1
+Class.PRIVATE = 2
 
-local IProtection = oo.class{}
-
-IProtection.PUBLIC = 0
-IProtection.PROTECTED = 1
-IProtection.PRIVATE = 2
-
--- Define the class name
-IProtection.CLASS_NAME = "reflection.IProtection"
-
-function IProtection:__init(obj)
-    obj = oo.rawnew(self,obj or {})
-    dbg:assertNil(obj.protection,"Object already contains a 'protection' field")
-    obj.protection = IProtection.PUBLIC
-    return obj
+function Class:initialize(options)
+    self.protection = Class.PUBLIC
 end
 
 --- Retrieve the protection state of that object.
-function IProtection:getProtection()
+function Class:getProtection()
     return self.protection
 end
 
 --- Set the protection of that object.
-function IProtection:setProtectionFromString(prot)
+function Class:setProtectionFromString(prot)
     if prot == "public" then
-		self:setProtection(IProtection.PUBLIC)    
+		self:setProtection(Class.PUBLIC)    
     elseif prot == "protected" then
-    	self:setProtection(IProtection.PROTECTED)
+    	self:setProtection(Class.PROTECTED)
     elseif prot == "private" then
-    	self:setProtection(IProtection.PRIVATE)
+    	self:setProtection(Class.PRIVATE)
     else
-    	dbg:error("Invalid protection string: ".. prot)
+    	self:error("Invalid protection string: ".. prot)
     end
 end
 
-function IProtection:getProtectionString()
-    if self.protection == IProtection.PUBLIC then
+function Class:getProtectionString()
+    if self.protection == Class.PUBLIC then
 		return "public"
-    elseif self.protection == IProtection.PROTECTED then
+    elseif self.protection == Class.PROTECTED then
 		return "protected"
     else
 		return "private"
@@ -47,24 +37,24 @@ function IProtection:getProtectionString()
 end
 
 --- Set the protection state on that object.
-function IProtection:setProtection(prot)
-	dbg:assert(prot==IProtection.PUBLIC
-		or prot==IProtection.PROTECTED
-		or prot==IProtection.PRIVATE,
+function Class:setProtection(prot)
+	self:check(prot==Class.PUBLIC
+		or prot==Class.PROTECTED
+		or prot==Class.PRIVATE,
 		"Invalid protection value")
 	self.protection = prot
 end
 
-function IProtection:isPublic()
-	return self.protection==IProtection.PUBLIC
+function Class:isPublic()
+	return self.protection==Class.PUBLIC
 end
 
-function IProtection:isProtected()
-	return self.protection==IProtection.PROTECTED
+function Class:isProtected()
+	return self.protection==Class.PROTECTED
 end
 
-function IProtection:isPrivate()
-	return self.protection==IProtection.PRIVATE
+function Class:isPrivate()
+	return self.protection==Class.PRIVATE
 end
 
-return IProtection
+return Class

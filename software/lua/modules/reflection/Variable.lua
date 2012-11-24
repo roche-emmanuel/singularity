@@ -1,24 +1,8 @@
+local Class = require("classBuilder"){name="Class",bases="reflection.Member"}
 
-local oo = require "loop.cached"
-local dbg = require "debugger"
-
-local Member = require "reflection.Member"
-
-local Variable = oo.class({},Member)
-
--- Define the class name
-Variable.CLASS_NAME = "reflection.Variable"
-
-function Variable:__init(name)
-    obj = Member:__init({})
-    obj = oo.rawnew(self,obj)
-    obj:setName(name or "")
-    return obj
-end
-
---- Retrieve the full name of that Variable.
+--- Retrieve the full name of that Class.
 -- The full name will take into account the parent scopes if any.
-function Variable:getFullName()
+function Class:getFullName()
     if self:getParent() then
         -- Assume the parent as a getFullName() function:
         local pname = self:getParent():getFullName()
@@ -28,4 +12,4 @@ function Variable:getFullName()
     end
 end
 
-return Variable
+return Class
