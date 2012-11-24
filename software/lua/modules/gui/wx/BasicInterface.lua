@@ -1,8 +1,8 @@
-local Class = require("classBuilder"){name="BasicInterface", bases={"gui.EventHandler"}};
+local Class = require("classBuilder"){name="BasicInterface", bases={"base.EventHandler"}};
 
 local wx = require "wx"
 
-local evtman = require "gui.EventManager"
+local evtman = require "base.EventManager"
 local winman = require "gui.wx.WindowManager"
 
 local Vector = require "std.Vector"

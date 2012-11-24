@@ -4,7 +4,7 @@ local wx = require "wx"
 
 local i18n = require "i18n"
 local cfg = require "config"
-local evtman = require "gui.EventManager"
+local evtman = require "base.EventManager"
 local winman = require "gui.wx.WindowManager"
 
 --- Initialize the mainframe display:

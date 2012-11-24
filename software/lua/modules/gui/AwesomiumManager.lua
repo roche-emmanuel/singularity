@@ -1,8 +1,8 @@
-local Class = require("classBuilder"){name="AwesomiumManager",bases="gui.EventHandler"};
+local Class = require("classBuilder"){name="AwesomiumManager",bases="base.EventHandler"};
 
 -- This is the singleton class that will be used to manage
 -- Awesomium shared ressources.
-local evtman = require "gui.EventManager"
+local evtman = require "base.EventManager"
 
 local awe = require "Awesomium"
 

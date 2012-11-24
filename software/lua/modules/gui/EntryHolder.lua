@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="EntryHolder",bases="gui.EventHandler"};
+local Class = require("classBuilder"){name="EntryHolder",bases="base.EventHandler"};
 
 local Vector = require "std.Vector"
 local Entry = require "gui.wx.Entry"

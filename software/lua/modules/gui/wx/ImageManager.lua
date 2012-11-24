@@ -4,7 +4,7 @@ local wx = require "wx"
 
 local Map = require "std.Map"
 local fs = require "base.FileSystem"
-local evtman = require "gui.EventManager"
+local evtman = require "base.EventManager"
 
 function Class:initialize(options)
 	-- The images are saved locally in a map.
