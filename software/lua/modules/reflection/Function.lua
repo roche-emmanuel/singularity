@@ -203,6 +203,10 @@ function Function:isOperator()
     return self:getName():find("^operator")~=nil
 end
 
+function Function:isMethod()
+	return not self:isConstructor() and not self:isDestructor() and not self:isOperator()
+end
+
 --- Assign the doxygen argsstring to this function.
 -- The doxygen argsstring can be used to easy extract information
 -- on this function.

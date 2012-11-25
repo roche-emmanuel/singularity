@@ -76,7 +76,7 @@ function Class:addFunction(func)
 end
 
 function Class:getValidPublicFunctions()
-	return self:getFunctions{"Public","Valid"}
+	return self:getFunctions{"Public","Valid","Method"}
 end
 
 return Class
