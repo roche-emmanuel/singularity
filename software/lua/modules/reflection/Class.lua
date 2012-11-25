@@ -19,18 +19,6 @@ function Class:initialize(options)
     self.templateParameters = Vector()
 end
 
---- Retrieve the root namespace for this parent
-function Class:getRootNamespace()
-	local prevParent = nil;
-	local parent = self:getParent();
-	while(parent:getName()~="") do
-		prevParent = parent
-		parent = parent:getParent();
-	end
-	
-	return prevParent
-end
-
 function Class:getMappedType()
 	return self.mappedType
 end
