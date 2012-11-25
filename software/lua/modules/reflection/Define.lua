@@ -1,43 +1,21 @@
+local Class = require("classBuilder"){name="Define",bases="reflection.Entity"};
 
-local oo = require "loop.cached"
-local Object = require "reflection.Entity"
-local dbg = require "debugger"
 local im = require "bindings.IgnoreManager"
 local ItemLink = require "reflection.ItemLink"
 
-local Define = oo.class({},Object)
-
--- Define the class name
-Define.CLASS_NAME = "reflection.Define"
-
-function Define:__init(name,initializers)
-    obj = Object:__init({})
-    obj = oo.rawnew(self,obj)
-	if name then
-		obj:setName(name)
-	end
-	obj.initializers = initializers
-	obj.headerFile = nil
-    return obj
+function Class:initialize(options)
+	self.initializers = options and options.initializers
 end
 
-function Define:getHeaderFile()
-	return self.headerFile
-end
-
-function Define:setHeaderFile(header)
-	self.headerFile = header
-end
-
-function Define:setInitializers(init)
+function Class:setInitializers(init)
 	self.initializers = init;
 end
 
-function Define:getInitializers()
+function Class:getInitializers()
 	return self.initializers
 end
 
-function Define:getInitStr()
+function Class:getInitStr()
 	if not self.initializers then
 		return;
 	end
@@ -59,7 +37,7 @@ function Define:getInitStr()
 	return self._initStr;
 end
 
-function Define:isIgnored()
+function Class:isIgnored()
 	local str =  self:getInitStr()
 
 	if im:ignoreDefine(self) then
@@ -83,4 +61,4 @@ function Define:isIgnored()
 	end	
 end
 
-return Define
+return Class
