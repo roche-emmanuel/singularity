@@ -7,18 +7,18 @@ public:
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,81755923) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::LogSink*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
 		}
 
-		sgt::LogSink* rhs =(Luna< sgt::LogSink >::check(L,2));
-		sgt::LogSink* self=(Luna< sgt::LogSink >::check(L,1));
+		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -27,9 +27,9 @@ public:
 	}
 
 	// Derived class converters:
-	static int _cast_from_LogSink(lua_State *L) {
+	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -142,7 +142,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string)");
@@ -164,7 +164,7 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool)");
@@ -183,7 +183,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename()");
@@ -202,7 +202,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< sgt::LogSink >::check(L,1));
+		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending()");
@@ -223,7 +223,7 @@ sgt::FileLogger* LunaTraits< sgt::FileLogger >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::FileLogger >::_bind_dtor(sgt::FileLogger* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::FileLogger >::className[] = "FileLogger";
@@ -231,7 +231,7 @@ const char LunaTraits< sgt::FileLogger >::fullName[] = "sgt::FileLogger";
 const char LunaTraits< sgt::FileLogger >::moduleName[] = "sgt";
 const char* LunaTraits< sgt::FileLogger >::parents[] = {"sgt.LogSink", 0};
 const int LunaTraits< sgt::FileLogger >::hash = 37776665;
-const int LunaTraits< sgt::FileLogger >::uniqueIDs[] = {81755923,0};
+const int LunaTraits< sgt::FileLogger >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
 	{"output", &luna_wrapper_sgt_FileLogger::_bind_output},
@@ -243,7 +243,7 @@ luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< sgt::FileLogger >::converters[] = {
-	{"sgt::LogSink", &luna_wrapper_sgt_FileLogger::_cast_from_LogSink},
+	{"osg::Referenced", &luna_wrapper_sgt_FileLogger::_cast_from_Referenced},
 	{0,0}
 };
 

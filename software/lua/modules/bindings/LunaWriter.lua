@@ -3,7 +3,6 @@ local oo = require "loop.cached"
 
 local ReflectionWriter = require "bindings.ReflectionWriter"
 local BaseWriter = require "bindings.BaseWriter"
-local IProtection = require "reflection.IProtection"
 local Enum = require "reflection.Enum"
 local table = table
 
@@ -1169,7 +1168,7 @@ function LunaWriter:writeGlobalFunctionSources()
 	self:pushIndent()
 		-- Assume the parent container is already on the stack.
 		for _,v in namespaces:sequence() do
-			local funcs = v:getFunctions()
+			local funcs = v:getFunctions{"Method"}
 			local visited = Set();
 			
 			for _,func in funcs:sequence() do

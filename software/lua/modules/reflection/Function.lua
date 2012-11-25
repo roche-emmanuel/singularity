@@ -1,7 +1,5 @@
-local oo = require "loop.cached"
-local dbg = require "debugger"
+local Class = require("classBuilder"){name="Function",bases="reflection.Member"};
 
-local Member = require "reflection.Member"
 local Scope = require "reflection.Scope"
 local Vector = require "std.Vector"
 local Set = require "std.Set"
@@ -9,25 +7,14 @@ local Set = require "std.Set"
 local im = require "bindings.IgnoreManager"
 local tm = require "bindings.TypeManager"
 
-local log = require "logger"
 
-local Function = oo.class({},Member)
-
--- Define the class name
-Function.CLASS_NAME = "reflection.Function"
-
-function Function:__init(name)
-    local obj = Member:__init({})
-    obj = oo.rawnew(self,obj)
-    obj:setName(name or "")
-	obj.returnType = nil
-    obj.parameters = Vector()
-    obj.templateParameters = Vector()
-    obj.isConst = false
-    obj._isStatic = false
-    obj._isAbstract = false;
-    obj._isExtension = false;
-    return obj
+function Class:initialize(name)
+    self.parameters = Vector()
+    self.templateParameters = Vector()
+    self.isConst = false
+    self._isStatic = false
+    self._isAbstract = false;
+    self._isExtension = false;
 end
 
 opmap = {}
@@ -49,7 +36,7 @@ opmap["operator="] = "" -- ignored
 opmap["operator delete"] = "" -- ignored
 opmap["operator new"] = "" -- ignored
 
-function Function:getLuaName()
+function Class:getLuaName()
 	if self._luaName then
 		return self._luaName;
 	elseif self:isOperator() then
@@ -60,7 +47,7 @@ function Function:getLuaName()
 		end
 		
 		if lname == nil then
-			log:warn("Cannot select lua name for operator ".. name)
+			self:warn("Cannot select lua name for operator ".. name)
 		end
 		
 		if lname == "__sub" then
@@ -76,13 +63,13 @@ function Function:getLuaName()
 	end
 end
 
-function Function:setLuaName(name)
+function Class:setLuaName(name)
 	self._luaName = name
 end
 
-function Function:getFullName()
+function Class:getFullName()
     if self:getParent() then
-        -- Assume the parent as a getFullName() function:
+        -- Assume the parent as a getFullName() Class:
         local pname = self:getParent():getFullName()
         return (pname=="" and "" or (pname .. "::")) .. self:getName()
     else
@@ -92,28 +79,28 @@ end
 
 
 --- Get the return type of the function
--- @return The return type for this function. Note that this may be nil in case the
+-- @return The return type for this Class. Note that this may be nil in case the
 -- function is a class constructor/destructor.
-function Function:getReturnType()
+function Class:getReturnType()
     return self.returnType
 end
 
 --- Set the return type of the function
--- Assign a return type to this function.
+-- Assign a return type to this Class.
 -- @param rtype The Type to be assigned. May be nil.
-function Function:setReturnType(rtype)
+function Class:setReturnType(rtype)
     self.returnType = rtype
 end
 
---- Retrieve the vector of parameters for this function.
+--- Retrieve the vector of parameters for this Class.
 -- @return The Vector of parameters. The Vector may be empty if the function
 -- has no parameter.
-function Function:getParameters()
+function Class:getParameters()
     return self.parameters;
 end
 
 --- Retrieve the offset of the first parameter with a default value
-function Function:getDefaultOffset()
+function Class:getDefaultOffset()
 	local offset = 0;
 	for _,v in self.parameters:sequence() do
 		if v:getDefaultValue() then
@@ -127,111 +114,115 @@ end
 
 --- Retrieve the Vector of template parameters.
 -- The vector is normally empty for regular classes.
-function Function:getTemplateParameters()
+function Class:getTemplateParameters()
     return self.templateParameters;
 end
 
 --- Add a parameter to the list.
 -- @param arg The new Parameter to add. Should not be nil.
-function Function:addParameter(arg)
-	dbg:assert(arg,"Parameter argument is nil")
+function Class:addParameter(arg)
+	self:check(arg,"Parameter argument is nil")
     self.parameters:push_back(arg)
 end
 
 --- Add a template parameter to the list.
 -- @param arg The new parameter to add. Should not be nil.
-function Function:addTemplateParameter(arg)
-	dbg:assert(arg,"Template parameter argument is nil")
+function Class:addTemplateParameter(arg)
+	self:check(arg,"Template parameter argument is nil")
     self.templateParameters:push_back(arg)
 end
 
---- Set the constness of the function.
--- @param isconst The constness state of the function.
-function Function:setConst(isconst)
+--- Set the constness of the Class.
+-- @param isconst The constness state of the Class.
+function Class:setConst(isconst)
 	self._isConst = isconst
 end
 
 --- Check if this function is const.
-function Function:isConst()
+function Class:isConst()
 	return self._isConst;
 end
 
-function Function:setAsExtension(ext)
+function Class:setAsExtension(ext)
 	self._isExtension = ext
 end
 
-function Function:isExtension()
+function Class:isExtension()
 	return self._isExtension;
 end
 
---- Set the static state of the function.
-function Function:setStatic(static)
+--- Set the static state of the Class.
+function Class:setStatic(static)
     self._isStatic = static
 end
 
 --- Check if this function is static	retuunr
-function Function:isStatic()
+function Class:isStatic()
 	return self._isStatic;
 end
 
---- Set the abstract state of the function.
-function Function:setAbstract(abstract)
+--- Set the abstract state of the Class.
+function Class:setAbstract(abstract)
     self._isAbstract = abstract
 end
 
 --- Check if this function is abstract
-function Function:isAbstract()
+function Class:isAbstract()
     return self._isAbstract;
 end
 
 --- Check if function is a constructor.
-function Function:isConstructor()
+function Class:isConstructor()
 	return self:getLuaName() == self:getParent():getName()
 end
 
 --- Check if function is a destructor.
-function Function:isDestructor()
-	dbg:assert(self:getParent(),"Invalid parent object.")
-	dbg:assert(self:getParent():getName(), "Invalid parent name")
+function Class:isDestructor()
+	self:check(self:getParent(),"Invalid parent object.")
+	self:check(self:getParent():getName(), "Invalid parent name")
 	
 	return self:getName() == "~".. self:getParent():getName()
 end
 
 --- Check if function is an operator.
-function Function:isOperator()
+function Class:isOperator()
     return self:getName():find("^operator")~=nil
 end
 
---- Assign the doxygen argsstring to this function.
+function Class:isMethod()
+	return not self:isConstructor() and not self:isDestructor() and not self:isOperator()
+end
+
+--- Assign the doxygen argsstring to this Class.
 -- The doxygen argsstring can be used to easy extract information
--- on this function.
+-- on this Class.
 -- @param str the doxygen Argsstring
-function Function:setArgsString(str)
+function Class:setArgsString(str)
     self.argsString = str;
 end
 
---- Retrieve the doxygen argsstring from this function.
-function Function:getArgsString()
+--- Retrieve the doxygen argsstring from this Class.
+function Class:getArgsString()
     return self.argsString
 end
 
 --- Check if this function contains at least one
 -- array declaration.
 -- Only arguments are checked not the returnn type.
-function Function:containsArray()
+function Class:containsArray()
     return self.argsString:find("%[")~=nil --[0-9]*%]
     --local proto = self:getPrototype()
     --return proto:find("%[[0-9]*%]")~=nil
 end
 
 --- Check if function contains at least one pointer on pointer declaration.
-function Function:containsPointerOnPointer()
+function Class:containsPointerOnPointer()
     return self.argsString:find("%*%*")~=nil
     --local proto = self:getPrototype()
     --return proto:find("%[[0-9]*%]")~=nil
 end
 
-function Function:containsFunctionArg()
+function Class:containsFunctionArg()
 	for k,param in self.parameters:sequence() do
 		if param:getType():getName():find("%(") then
 			return true
@@ -244,18 +235,18 @@ function Function:containsFunctionArg()
 end
 
 --- Check if this function has template parameters.
-function Function:isTemplated()
+function Class:isTemplated()
     return not self.templateParameters:empty();
 end
 
---- Return number of parameters for this function.
-function Function:getNumParameters()
+--- Return number of parameters for this Class.
+function Class:getNumParameters()
 	return self.parameters:size()
 end
 
 --- Check if this function is valid for wrapping .
 -- only used for luabind and Swig bindings.
-function Function:isValidForWrapping()
+function Class:isValidForWrapping()
     return (
     	not self:isVariadic()
     	--and self:getNumParameters()<=10 
@@ -269,13 +260,13 @@ function Function:isValidForWrapping()
 end
 
 --- Check if the function is variadic
-function Function:isVariadic()
+function Class:isVariadic()
     return self.argsString:find("%.%.%.")~=nil
 end
 
 --- Retrieve only the arguments prototypes.
 -- The parameters  in the string will be comma separated.
-function Function:getArgumentsPrototype(withNames)
+function Class:getArgumentsPrototype(withNames)
 	local sig = "";
 	local num = self:getParameters():size();
 	
@@ -290,7 +281,7 @@ end
 
 --- Generate function prototype:
 -- @param withNames When set to true the parameter names and default values are added in the prototype.
-function Function:getPrototype(withNames,fullname,noargstring)
+function Class:getPrototype(withNames,fullname,noargstring)
     local sig =  "".. (self:getReturnType() and (self:getReturnType():getName().." ") or "") .. (fullname and self:getFullName() or self:getName()) 
     
     if noargstring then
@@ -312,7 +303,7 @@ end
 
 --- Retrieve the function signature.
 -- (this is different from the function prototype)
-function Function:getSignature()
+function Class:getSignature()
 	local sig = self:getReturnType() and self:getReturnType():getName() or ""
 	if self:getParent():getScopeType() == Scope.CLASS and not self:getStatic() then
 		sig = sig .. "(".. self:getParent():getFullName().. "::*)"
@@ -330,7 +321,7 @@ function Function:getSignature()
 end
 
 --- Check if two functions are exactly the sames.
-function Function:isEqualTo(other)
+function Class:isEqualTo(other)
 	return self:getPrototype(false,false,true)==other:getPrototype(false,false,true)
 end
 
@@ -338,7 +329,7 @@ end
 -- @return The function overload state
 -- @return When the function is overloaded, this function will also
 -- return the Set of all the overloaded functions with that name.
-function Function:isOverloaded()
+function Class:isOverloaded()
 	if self._isOverloaded == nil then
 	-- find the overloads in the parent holder:
 	self._overloads = Set();
@@ -360,20 +351,20 @@ function Function:isOverloaded()
 	return self._isOverloaded, self._overloads
 end
 
---function Function:__eq(op2)
+--function Class:__eq(op2)
 --    return self:isEqualTo(op2)
 --end
 
-function Function:isClassMethod()
+function Class:isClassMethod()
 	return self:getParent():getScopeType() == Scope.CLASS
 end
 
-function Function:isGlobal()
+function Class:isGlobal()
 	return self:getParent():getScopeType() == Scope.NAMESPACE
 end
 
 --- Check if this function contains the lua_State type in its parameter list.
-function Function:hasLuaState()
+function Class:hasLuaState()
 	for _,param in self:getParameters():sequence() do
 		if param:isLuaState() then 
 			return true
@@ -383,14 +374,14 @@ function Function:hasLuaState()
 	return false;
 end
 
-function Function:isExternal()
+function Class:isExternal()
 	return tm:getFunctionModule(self)
 end
 
 -- deprecated, for backward compatibility only
-Function.setConstness = Function.setConst 
-Function.getConstness = Function.isConst
-Function.getStatic = Function.isStatic
-Function.getAbstract = Function.isAbstract
+Class.setConstness = Class.setConst 
+Class.getConstness = Class.isConst
+Class.getStatic = Class.isStatic
+Class.getAbstract = Class.isAbstract
 
-return Function
+return Class

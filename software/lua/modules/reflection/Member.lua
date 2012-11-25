@@ -1,30 +1,17 @@
+local Class = require("classBuilder"){name="Member",bases="reflection.Entity"}
 
-local oo = require "loop.cached"
-local IProtection = require "reflection.IProtection"
-local Object = require "reflection.Entity"
-
--- The object class implements the IName and IParent interfaces
-local Member = oo.class({},Object,IProtection)
-
--- Define the class name
-Member.CLASS_NAME = "reflection.Member"
-
-function Member:__init(obj)
-    obj = Object:__init(obj or {})
-    obj = IProtection:__init(obj)
-    obj = oo.rawnew(self,obj)
-    obj.headerFile = nil
-    return obj
+-- Note that a member type might be nil for instance when this member describes
+-- the type returned from a class constructor function.
+function Class:getType()
+	--self:check(self._type,"Invalid type for member ",self:getFullName())
+	return self._type
 end
 
-function Member:getHeaderFile()
-	return self.headerFile
+function Class:setType(mtype)
+	self:check(mtype,"Invalid type argument.")
+	self._type = mtype
 end
 
-function Member:setHeaderFile(header)
-	self.headerFile = header
-end
-
-return Member
+return Class
 
 

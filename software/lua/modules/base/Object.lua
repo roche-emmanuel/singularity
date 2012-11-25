@@ -167,4 +167,24 @@ for k,v in pairs(log.levels) do
 		return log[k.."_v"](log,self,trace,...); end
 end
 
+function Object:getProperties()
+	if not self._properties then
+		self._properties = require("std.Map")()
+	end
+	
+	return self._properties;
+end
+
+function Object:getProperty(pname)
+	return self:getProperties():get(pname);
+end
+
+function Object:hasProperty(pname)
+	return self:getProperties():has(pname);
+end
+
+function Object:setProperty(pname,val)
+	return self:getProperties():set(pname,val);
+end
+
 return Object

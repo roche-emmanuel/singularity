@@ -113,9 +113,9 @@ function ReflectionGenerator:processNamespace(comp)
     local parent = self:getCurrentScope()
     --log:warn("Adding namesapce ".. scope:getFullName() .. " to parent ".. parent:getFullName())
     
-    parent:addChild(scope)
+    parent:addSubScope(scope)
     
-    dbg:assert(parent:getChildren():contains(scope),"parent doesn't contain child!")
+    dbg:assert(parent:getSubScopes():contains(scope),"parent doesn't contain child!")
     
     -- now push this class as current scope:
     self:pushScope(scope)
@@ -132,12 +132,12 @@ function ReflectionGenerator:readParameter(param)
     local links = self:generateItemLinks(param:defaultValue())
     local pdef = nil
     if links then
-    	pdef = Value(links)
+    	pdef = Value{links=links}
     end
     links = self:generateItemLinks(param:type())
-	local ptype = Type(links)
+	local ptype = Type{links=links}
 	
-	return Parameter(ptype,pname,pdef);
+	return Parameter{type=ptype,name=pname,defVal=pdef};
 end
 
 function ReflectionGenerator:getHeaderFileName(location)
@@ -168,6 +168,8 @@ function ReflectionGenerator:processClass(comp)
         
     local class = self:getOrCreateObject(comp,Class)
     
+	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class object.");
+	
     if class:isIgnored() then
         log:notice("Ignoring class ".. class:getName() .. " on user request.")
         return;
@@ -190,7 +192,7 @@ function ReflectionGenerator:processClass(comp)
 	
     local parent = self:getCurrentScope()
     
-	parent:addChild(class)
+	parent:addSubScope(class)
 	
 	-- retrieve the location of that class:
 	local location = self:getHeaderFileName(comp:locationFile():latin1()) 
@@ -364,7 +366,7 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
         if item:kind() == dxp.ILinkedText.Kind_Text then
             item = dxp.toLinkText(item) --:dynamicCast("ILT_Text")
             local name = item:text():latin1()
-            local link = ItemLink(ItemLink.STRING,name)
+            local link = ItemLink(name)
             result:push_back(link)
         elseif item:kind() == dxp.ILinkedText.Kind_Ref then
             item = dxp.toLinkRef(item) --:dynamicCast("ILT_Ref")
@@ -415,7 +417,7 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
                 		
                 		-- return an int string in the worst case.
                 		subtypes = Vector()
-                		subtypes:push_back(ItemLink(ItemLink.STRING,"int"))
+                		subtypes:push_back(ItemLink("int"))
                 	end
                 	
                 	
@@ -457,14 +459,14 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
             end
             
             if object then
-                result:push_back(ItemLink(ItemLink.OBJECT,object))
+                result:push_back(ItemLink(object))
             elseif subtypes then
             	for _,v in subtypes:sequence() do
             		result:push_back(v)
             	end
             else
                 log:info("Could not create the member corresponding to link ref ".. item:text():latin1())
-                result:push_back(ItemLink(ItemLink.STRING,item:text():latin1()));
+                result:push_back(ItemLink(item:text():latin1()));
             end
         end
         
@@ -636,7 +638,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     -- retrieve the details concerning the function:
     local rtype = self:generateItemLinks(mem:type())
     if rtype then
-        func:setReturnType(Type(rtype))
+        func:setReturnType(Type{links=rtype})
     else
         log:info("Invalid return type for function ".. fname .. " in scope ".. scope:getName())
         --func:setReturnType()
@@ -648,7 +650,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     func:setConstness(mem:isConst())
     func:setStatic(mem:isStatic())
     func:setAbstract(mem:argsstring():latin1():find("=0$")~=nil)
-    func:setProtectionFromString(mem:protection():latin1())
+    func:setSection(mem:protection():latin1())
     func:setArgsString(mem:argsstring():latin1())
     
     func:getParameters():clear();
@@ -763,9 +765,9 @@ function ReflectionGenerator:processMembers(sec)
     		-- Add the mapped type string:
     		local typevec = self:generateItemLinks(mem:type())
     		
-    		class:setMappedType(Type(typevec))
+    		class:setMappedType(Type{links=typevec})
 
-        	scope:addChild(class)
+        	scope:addSubScope(class)
     		
         elseif(mem:kind()==dxp.IMember.Define and self:isPublic(mem)) then
             

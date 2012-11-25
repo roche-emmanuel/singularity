@@ -7,18 +7,18 @@ public:
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,1,36134915) ) return false;
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		return true;
 	}
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(sgt::LogManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(osg::Referenced*)");
 		}
 
-		sgt::LogManager* rhs =(Luna< sgt::LogManager >::check(L,2));
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		osg::Referenced* rhs =(Luna< osg::Referenced >::check(L,2));
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luaL_error(L, "Invalid object in function call __eq(...)");
 		}
@@ -26,31 +26,17 @@ public:
 		return self==rhs;
 	}
 
-	// Base class dynamic cast support:
-	inline static bool _lg_typecheck_dynCast(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-	
-	static int _bind_dynCast(lua_State *L) {
-		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
-		}
-
-		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call dynCast(...)");
-		}
+	// Derived class converters:
+	static int _cast_from_Referenced(lua_State *L) {
+		// all checked are already performed before reaching this point.
+		sgt::LogManager* ptr= dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
+		if(!ptr)
+			return 0;
 		
-		static LunaConverterMap& converters = luna_getConverterMap("sgt::LogManager");
-		
-		return luna_dynamicCast(L,converters,"sgt::LogManager",name);
-	}
+		// Otherwise push the pointer:
+		Luna< sgt::LogManager >::push(L,ptr,false);
+		return 1;
+	};
 
 
 	// Constructor checkers:
@@ -120,7 +106,7 @@ public:
 	inline static bool _lg_typecheck_addSink(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,81755923)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -232,7 +218,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::log(int, std::string, std::string)");
@@ -251,7 +237,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getLevelFlags(int)");
@@ -272,7 +258,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setLevelFlags(int, int)");
@@ -292,7 +278,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::addLevelFlags(int, int)");
@@ -312,7 +298,7 @@ public:
 		int level=(int)lua_tointeger(L,2);
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::removeLevelFlags(int, int)");
@@ -331,7 +317,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getTraceFlags(std::string)");
@@ -352,7 +338,7 @@ public:
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 		int flags=(int)lua_tointeger(L,3);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setTraceFlags(std::string, int)");
@@ -366,12 +352,12 @@ public:
 	static int _bind_addSink(lua_State *L) {
 		if (!_lg_typecheck_addSink(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void sgt::LogManager::addSink(sgt::LogSink * sink) function, expected prototype:\nvoid sgt::LogManager::addSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 81755923\n");
+			luaL_error(L, "luna typecheck failed in void sgt::LogManager::addSink(sgt::LogSink * sink) function, expected prototype:\nvoid sgt::LogManager::addSink(sgt::LogSink * sink)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		sgt::LogSink* sink=(Luna< sgt::LogSink >::check(L,2));
+		sgt::LogSink* sink=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,2));
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::addSink(sgt::LogSink *)");
@@ -390,7 +376,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::LogManager::removeSink(const std::string &)");
@@ -410,7 +396,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call sgt::LogSink * sgt::LogManager::getSink(const std::string &)");
@@ -431,7 +417,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int sgt::LogManager::getNotifyLevel()");
@@ -451,7 +437,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setNotifyLevel(int)");
@@ -469,7 +455,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::LogManager::getVerbose()");
@@ -489,7 +475,7 @@ public:
 
 		bool verbose=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setVerbose(bool)");
@@ -508,7 +494,7 @@ public:
 
 		int level=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getLevelString(int)");
@@ -527,7 +513,7 @@ public:
 		}
 
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::LogManager::getTimeStamp()");
@@ -547,7 +533,7 @@ public:
 
 		int val=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultTraceFlags(int)");
@@ -566,7 +552,7 @@ public:
 
 		int val=(int)lua_tointeger(L,2);
 
-		sgt::LogManager* self=(Luna< sgt::LogManager >::check(L,1));
+		sgt::LogManager* self=dynamic_cast< sgt::LogManager* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogManager::setDefaultLevelFlags(int)");
@@ -615,15 +601,15 @@ sgt::LogManager* LunaTraits< sgt::LogManager >::_bind_ctor(lua_State *L) {
 }
 
 void LunaTraits< sgt::LogManager >::_bind_dtor(sgt::LogManager* obj) {
-	delete obj;
+	osg::ref_ptr<osg::Referenced> refptr = obj;
 }
 
 const char LunaTraits< sgt::LogManager >::className[] = "LogManager";
 const char LunaTraits< sgt::LogManager >::fullName[] = "sgt::LogManager";
 const char LunaTraits< sgt::LogManager >::moduleName[] = "sgt";
-const char* LunaTraits< sgt::LogManager >::parents[] = {0};
+const char* LunaTraits< sgt::LogManager >::parents[] = {"sgt.Referenced", 0};
 const int LunaTraits< sgt::LogManager >::hash = 36134915;
-const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {36134915,0};
+const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"log", &luna_wrapper_sgt_LogManager::_bind_log},
@@ -646,12 +632,12 @@ luna_RegType LunaTraits< sgt::LogManager >::methods[] = {
 	{"setDefaultLevelFlags", &luna_wrapper_sgt_LogManager::_bind_setDefaultLevelFlags},
 	{"instance", &luna_wrapper_sgt_LogManager::_bind_instance},
 	{"destroy", &luna_wrapper_sgt_LogManager::_bind_destroy},
-	{"dynCast", &luna_wrapper_sgt_LogManager::_bind_dynCast},
 	{"__eq", &luna_wrapper_sgt_LogManager::_bind___eq},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< sgt::LogManager >::converters[] = {
+	{"osg::Referenced", &luna_wrapper_sgt_LogManager::_cast_from_Referenced},
 	{0,0}
 };
 

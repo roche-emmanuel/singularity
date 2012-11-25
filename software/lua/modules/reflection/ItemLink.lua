@@ -1,40 +1,24 @@
-local oo = require "loop.base"
-local dbg = require "debugger"
+local Class = require("classBuilder"){name="ItemLink",bases="base.Object"};
 
-local ItemLink = oo.class{}
+Class.STRING = 0
+Class.OBJECT = 1
 
--- Define the class name
-ItemLink.CLASS_NAME = "reflection.ItemLink"
-
-ItemLink.STRING = 0
-ItemLink.OBJECT = 1
-ItemLink.TYPEDEF = 2
-
-function ItemLink:__init(itype,content)
-    obj = oo.rawnew(self, {})
-	if(itype==ItemLink.STRING) then
-		dbg:assert(type(content) == "string", "Invalid content type")
-	elseif(itype==ItemLink.OBJECT) then
-		dbg:assert(type(content) == "table", "Invalid content type")
-	else
-		dbg:assert(false,"Invalid type in ItemLink constructor.")
-	end
-	 
-	--dbg:assert(itype,"type argument is nil")
-	--dbg:assert(content,"content argument is nil")
-	obj._type = itype
-	obj._content_ = content
-    return obj
+function Class:initialize(content)
+	self:check(content,"Invalid content for ItemLink.");
+	self._content = content;
+	self._type = (type(self._content)=="string" and Class.STRING) 
+				or (type(self._content)=="table" and Class.OBJECT)
+	self:check(self._type,"Invalid ItemLink type.");
 end
 
 --- Retrieve the type of that object.
-function ItemLink:getType()
+function Class:getType()
     return self._type
 end
 
 --- Retrieve the content of that object.
-function ItemLink:getContent()
-	return self._content_
+function Class:getContent()
+	return self._content
 end
 
-return ItemLink
+return Class

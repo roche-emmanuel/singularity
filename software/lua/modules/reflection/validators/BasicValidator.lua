@@ -8,6 +8,8 @@ function Class:validate(object)
 end
 
 function Class:__call(object)
+	self:check(object,"Invalid object")
+	
 	return self:validate(object)
 end
 

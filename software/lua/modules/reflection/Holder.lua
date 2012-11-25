@@ -1,61 +1,60 @@
-
-local oo = require "loop.cached"
-
-local IFunctionHolder = require "reflection.IFunctionHolder"
-local IVariableHolder = require "reflection.IVariableHolder"
-local IEnumHolder = require "reflection.IEnumHolder"
-local Scope = require "reflection.Scope"
+local Class = require("classBuilder"){name="Holder",bases="reflection.Scope"};
 
 local Set = require "std.Set"
 
--- The Holder class implements the IFunctionHolder and 
--- IvariableHolder interfaces. This class serves as a parent
--- for scope holding functions and variables: namespaces and classes
-local Holder = oo.class({},Scope,IFunctionHolder,IVariableHolder,IEnumHolder)
-
--- Define the class name
-Holder.CLASS_NAME = "reflection.Holder"
-
-function Holder:__init(obj)
-    obj = Scope:__init(obj or {})
-    obj = IFunctionHolder:__init(obj)
-    obj = IVariableHolder:__init(obj)
-    obj = IEnumHolder:__init(obj)
-    obj = oo.rawnew(self,obj)
-    obj._TRACE_ = "reflection.Holder"
-    
-    obj.children = Set()
-    return obj
+function Class:initialize(options)
+	local ItemSet = require "reflection.ItemSet"
+	
+	self._functions = ItemSet()
+	self._variables = ItemSet();
+	self._enums = ItemSet();
 end
 
---- Retrieve the set of children in that Scope
-function Holder:getChildren()
-	return self.children
+function Class:getItems(list,filters,args)
+	return list:filterItems(filters,args)
 end
 
-function Holder:addChild(child)
-	self:check(child and self:isInstanceOf(Scope,child),"Invalid child argument.")
-	
-	self:debug0_v("Adding child ",child:getName()," to scope ", self:getName())
-	
-	if child:getParent() == self then
-		return -- nothing to do the child is already in the list.
-	end
-
-	self.children:push_back(child)
-	
-	--Add this object as parent of the child:
-	if (child:getParent() and child:getParent():getName()~="") then
-		self:warn("changing scope parent from ".. child:getParent():getFullName() .. " to ".. self:getName())
-	end
-	
-
-	-- if this class was in the global namespace so far, remove it:		
-	if child:getParent() then
-		child:getParent():getChildren():eraseValue(child)
-	end
-		
-	child:setParent(self)	
+function Class:getFunctions(filters,args)	
+	return self:getItems(self._functions,filters,args)
 end
 
-return Holder
+function Class:getVariables(filters,args)
+   return self:getItems(self._variables,filters,args)
+end
+
+function Class:getEnums(filters,args)
+   return self:getItems(self._enums,filters,args)
+end
+
+function Class:addVariable(var)
+	self:check(var,"Invalid var argument.")
+	self:checkType(var,require"reflection.Variable")
+
+	var:setParent(self)
+	
+	self._variables:addItem(var)
+end
+
+function Class:addEnum(enum)
+	self:check(enum,"Invalid enum argument.")
+	self:checkType(enum,require"reflection.Enum")
+
+	enum:setParent(self)
+	
+	self._enums:addItem(enum)
+end
+
+--- Add a function to the function Set.
+function Class:addFunction(func)
+	self:check(func and self:isInstanceOf(require"reflection.Function",func),"Invalid function: ",func);
+	
+	func:setParent(self)
+
+	self._functions:addItem(func)
+end
+
+function Class:getValidPublicFunctions()
+	return self:getFunctions{"Public","Valid","Method"}
+end
+
+return Class

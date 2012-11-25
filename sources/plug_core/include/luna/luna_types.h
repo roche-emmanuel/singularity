@@ -7,6 +7,7 @@
 #include <osg/Object>
 #include <sgtCommon.h>
 #include <base/Object.h>
+#include <base/Referenced.h>
 #include <base/TimeProvider.h>
 #include <log/LogSink.h>
 #include <log/FileLogger.h>
@@ -213,6 +214,24 @@ public:
 };
 
 template<>
+class LunaTraits< sgt::Referenced > {
+public:
+    static const char className[];
+    static const char fullName[];
+    static const char moduleName[];
+    static const char* parents[];
+    static const int uniqueIDs[];
+    static const int hash;
+    static luna_RegType methods[];
+    static luna_RegEnumType enumValues[];
+    static sgt::Referenced* _bind_ctor(lua_State *L);
+    static void _bind_dtor(sgt::Referenced* obj);
+    typedef osg::Referenced parent_t;
+    typedef sgt::Referenced base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< sgt::TimeProvider > {
 public:
     static const char className[];
@@ -261,7 +280,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::LogSink* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::LogSink* obj);
-    typedef sgt::LogSink parent_t;
+    typedef osg::Referenced parent_t;
     typedef sgt::LogSink base_t;
 	static luna_ConverterType converters[];
 };
@@ -279,7 +298,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::FileLogger* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::FileLogger* obj);
-    typedef sgt::LogSink parent_t;
+    typedef osg::Referenced parent_t;
     typedef sgt::FileLogger base_t;
 	static luna_ConverterType converters[];
 };
@@ -297,7 +316,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::LogManager* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::LogManager* obj);
-    typedef sgt::LogManager parent_t;
+    typedef osg::Referenced parent_t;
     typedef sgt::LogManager base_t;
 	static luna_ConverterType converters[];
 };
@@ -405,7 +424,7 @@ public:
     static luna_RegEnumType enumValues[];
     static sgt::StdLogger* _bind_ctor(lua_State *L);
     static void _bind_dtor(sgt::StdLogger* obj);
-    typedef sgt::LogSink parent_t;
+    typedef osg::Referenced parent_t;
     typedef sgt::StdLogger base_t;
 	static luna_ConverterType converters[];
 };
@@ -475,20 +494,6 @@ template<>
 class LunaType< 10949480 > {
 public:
     typedef sgt::TimeManager type;
-    
-};
-
-template<>
-class LunaType< 81755923 > {
-public:
-    typedef sgt::LogSink type;
-    
-};
-
-template<>
-class LunaType< 36134915 > {
-public:
-    typedef sgt::LogManager type;
     
 };
 
