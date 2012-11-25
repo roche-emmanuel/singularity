@@ -133,8 +133,7 @@ function Class:getAbstractFunctions()
 	
 	-- First collect the abstract/non abstract functions in 
 	-- this class.
-	local list = self:getFunctions{"Method"}
-	list:append(self:getFunctions{"Operator"})
+	local list = self:getFunctions{"Method"} + self:getFunctions{"Operator"}
 	
 	for _,v in list:sequence() do
 		if v:isAbstract() then
