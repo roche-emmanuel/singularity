@@ -1,9 +1,6 @@
-
-local oo = require "loop.cached"
-local Object = require "reflection.Entity"
+local Class = require("classBuilder"){name="Type",bases="reflection.Entity"};
 
 local Scope = require "reflection.Scope"
-local Class = require "reflection.Class"
 
 local Enum = require "reflection.Enum"
 
@@ -12,40 +9,28 @@ local corr = require "bindings.TextCorrector"
 
 local utils = require "utils"
 
--- The object class implements the IName and IParent interfaces
-local Type = oo.class({},Object)
-
--- Define the class name
-Type.CLASS_NAME = "reflection.Type"
-
-function Type:__init(linkvec)
-    local obj = Object:__init({})
-    obj = oo.rawnew(self,obj)
-	obj:setItemLinks(linkvec)
+function Class:initialize(options)
+	self:setItemLinks(options and options.links)
 	
-	obj._TRACE_ = "reflection.Type"
-	
-	-- register this new type:
-	tm:registerType(obj)
-    return obj
+	tm:registerType(self)
 end
 
 -- check if a given string is a keyword
-function Type:isKeyWord(str)
+function Class:isKeyWord(str)
 	return (str:find("%*") 
 		or str:find("&")
 		or str:find("const") or str:find("class[%s]+"))
 end
 
-function Type:setItemLinks(vec)
+function Class:setItemLinks(vec)
 	self._itemLinks = vec; 
 end
 
-function Type:getItemLinks()
+function Class:getItemLinks()
 	return self._itemLinks;
 end
 
-function Type:extractBaseType(str)
+function Class:extractBaseType(str)
 	str = str:gsub("^[%s]*const[%s]+","")
 	str = str:gsub("^([^%*]+)%*.*","%1")
 	str = str:gsub("^([^&]+)&.*","%1")
@@ -56,7 +41,7 @@ function Type:extractBaseType(str)
 	return str	
 end
 
-function Type:expandTypedefs(linkvec)
+function Class:expandTypedefs(linkvec)
 	local result = Vector()
 	
 	local typedefFound = false;
@@ -83,7 +68,7 @@ end
 
 --- Parse the input linkedtext vector.
 -- parsing the input linked text will generate the type definition.
-function Type:parse()
+function Class:parse()
 	local linkvec = self:getItemLinks()
 	 
 	-- we need to expand the typedefs if any:
@@ -111,7 +96,7 @@ function Type:parse()
 				base = v:getContent()
 			end
 			
-			if self._firstBase == nil and self:isInstanceOf(Class,v:getContent()) then
+			if self._firstBase == nil and self:isInstanceOf(require"reflection.Class",v:getContent()) then
 				self._firstBase = v:getContent()
 			end
 			
@@ -157,50 +142,49 @@ function Type:parse()
 	self._isPointerOnPointer = (str:find("%*%*")~=nil)
 end
 
-function Type:getFirstBase()
+function Class:getFirstBase()
 	return self._firstBase -- return the first base if any.
 end
 
 --- Retrieve the base of that type if any
-function Type:getBase(parseIfNeeded)
+function Class:getBase(parseIfNeeded)
 	if not self._base and parseIfNeeded then
 		self:parse()
 	end
 	return self._base
 end
 
-function Type:getBaseName(parseIfNeeded)
+function Class:getBaseName(parseIfNeeded)
 	if not self._base and parseIfNeeded then
 		self:parse()
 	end
 	return type(self._base)=="string" and self._base or self._base:getFullName()
 end
 
-function Type:isConst()
+function Class:isConst()
 	return self._isConst
 end
 
-function Type:isReference()
+function Class:isReference()
 	return self._isReference
 end
 
-function Type:isConstReference()
+function Class:isConstReference()
 	return self._isConstReference
 end
 
-function Type:isVoid()
+function Class:isVoid()
 	local str = self:getName()
 	return str:find("void")
 end
 
-function Type:isEnum()
+function Class:isEnum()
 	if type(self._base) ~= "table" then return false; end
 	
-	local obj_class = oo.classof(self._base)
-	return obj_class==Enum or oo.subclassof(obj_class,Enum)	
+	return self:isInstanceOf(Enum,self._base)
 end
 
-function Type:isInteger()
+function Class:isInteger()
 	local str = self:getName()
 	return not self:isClass() and 
 		( self:isEnum() 
@@ -218,7 +202,7 @@ function Type:isInteger()
 		or str == "wxChar") 
 end
 
-function Type:isNumber()
+function Class:isNumber()
 	local str = self:getName()
 	return self:isInteger() 
 		or str:find("^%s*double%s*[%*&]?$") 
@@ -227,7 +211,7 @@ function Type:isNumber()
 		or str:find("^%s*const%s*float%s*[%*&]?$")  
 end
 
-function Type:isString()
+function Class:isString()
 	local str = self:getName()
 	if str:find("<") then
 		return false;
@@ -242,12 +226,12 @@ function Type:isString()
 		or str=="char *"	
 end
 
-function Type:isBoolean()
+function Class:isBoolean()
 	-- check if we can find a boolean pattern:
 	return type(self._base)=="string" and self._base:find("bool")
 end
 
-function Type:getAbsoluteBaseFullName()
+function Class:getAbsoluteBaseFullName()
 	if type(self._base) == "table" then
 		return self._base:getFirstAbsoluteBase():getFullName()
 	else
@@ -255,7 +239,7 @@ function Type:getAbsoluteBaseFullName()
 	end
 end
 
-function Type:isClass()
+function Class:isClass()
 	if type(self._base)=="string" and self._base:find("<") then
 		-- this is a template!
 		return true;
@@ -263,25 +247,24 @@ function Type:isClass()
 	
 	if type(self._base) ~= "table" then return false; end
 	
-	local obj_class = oo.classof(self._base)
-	return obj_class==Class or oo.subclassof(obj_class,Class)
+	return self:isInstanceOf(require"reflection.Class",self._base)
 end
 
-function Type:isPointer()
+function Class:isPointer()
 	return self._isPointer
 end
 
-function Type:isConstPointer()
+function Class:isConstPointer()
 	return self._isConstPointer
 end
 
-function Type:isPointerOnPointer()
+function Class:isPointerOnPointer()
 	return self._isPointerOnPointer
 end
 
 --- Reimplemented getName function.
 -- return the complete name of that type
-function Type:getName()
+function Class:getName()
 	if true then
 		self:check(self._fullName,"Type not parsed yet cannot retrieve its name.")
 		
@@ -314,35 +297,35 @@ function Type:getName()
 	end
 end
 
-function Type:isLuaState()
+function Class:isLuaState()
 	if self:getBaseName(true) == "lua_State" then
 		return true
 	end
 	return false;
 end
 
-function Type:isLuaFunction()
+function Class:isLuaFunction()
 	if self:getName() == "lua_Function *" then
 		return true
 	end
 	return false;
 end
 
-function Type:isLuaTable()
+function Class:isLuaTable()
 	if self:getName() == "lua_Table *" then
 		return true
 	end
 	return false;
 end
 
-function Type:isLuaAny()
+function Class:isLuaAny()
 	if self:getName() == "lua_Any *" then
 		return true
 	end
 	return false;
 end
 
-function Type:getFirstAbsoluteBaseName()
+function Class:getFirstAbsoluteBaseName()
 	if type(self._base)=="table" then
 		return self._base:getFirstAbsoluteBase():getFullName()
 	elseif type(self._base)=="string" then
@@ -352,7 +335,7 @@ function Type:getFirstAbsoluteBaseName()
 	end	
 end
 
-function Type:getAbsoluteBaseHash()
+function Class:getAbsoluteBaseHash()
 	if type(self._base)=="table" then
 		return self._base:getAbsoluteBaseHash()
 	elseif type(self._base)=="string" then
@@ -362,7 +345,7 @@ function Type:getAbsoluteBaseHash()
 	end
 end
 
-function Type:isNothing()
+function Class:isNothing()
 	local linkvec = self:getItemLinks()
 	
 	if linkvec:size()~=1 then
@@ -382,6 +365,6 @@ function Type:isNothing()
 	return false;
 end
 
-return Type
+return Class
 
 

@@ -135,7 +135,7 @@ function ReflectionGenerator:readParameter(param)
     	pdef = Value{links=links}
     end
     links = self:generateItemLinks(param:type())
-	local ptype = Type(links)
+	local ptype = Type{links=links}
 	
 	return Parameter(ptype,pname,pdef);
 end
@@ -168,6 +168,8 @@ function ReflectionGenerator:processClass(comp)
         
     local class = self:getOrCreateObject(comp,Class)
     
+	self:check(class and self:isInstanceOf(require"reflection.Class",class),"Invalid class object.");
+	
     if class:isIgnored() then
         log:notice("Ignoring class ".. class:getName() .. " on user request.")
         return;
@@ -636,7 +638,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     -- retrieve the details concerning the function:
     local rtype = self:generateItemLinks(mem:type())
     if rtype then
-        func:setReturnType(Type(rtype))
+        func:setReturnType(Type{links=rtype})
     else
         log:info("Invalid return type for function ".. fname .. " in scope ".. scope:getName())
         --func:setReturnType()
@@ -763,7 +765,7 @@ function ReflectionGenerator:processMembers(sec)
     		-- Add the mapped type string:
     		local typevec = self:generateItemLinks(mem:type())
     		
-    		class:setMappedType(Type(typevec))
+    		class:setMappedType(Type{links=typevec})
 
         	scope:addSubScope(class)
     		
