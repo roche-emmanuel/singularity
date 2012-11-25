@@ -128,8 +128,6 @@ Awesomium::SurfaceFactory* LunaTraits< Awesomium::SurfaceFactory >::_bind_ctor(l
 	// Abstract methods:
 	// Awesomium::Surface * Awesomium::SurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	// void Awesomium::SurfaceFactory::DestroySurface(Awesomium::Surface * surface)
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::SurfaceFactory >::_bind_dtor(Awesomium::SurfaceFactory* obj) {

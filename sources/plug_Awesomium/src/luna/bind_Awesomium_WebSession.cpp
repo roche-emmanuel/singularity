@@ -268,8 +268,6 @@ Awesomium::WebSession* LunaTraits< Awesomium::WebSession >::_bind_ctor(lua_State
 	// void Awesomium::WebSession::AddDataSource(const Awesomium::WebString & asset_host, Awesomium::DataSource * source)
 	// void Awesomium::WebSession::SetCookie(const Awesomium::WebURL & url, const Awesomium::WebString & cookie_string, bool is_http_only, bool force_session_cookie)
 	// void Awesomium::WebSession::ClearCookies()
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::WebSession >::_bind_dtor(Awesomium::WebSession* obj) {

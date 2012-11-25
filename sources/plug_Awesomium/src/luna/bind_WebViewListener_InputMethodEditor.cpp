@@ -158,8 +158,6 @@ WebViewListener::InputMethodEditor* LunaTraits< WebViewListener::InputMethodEdit
 	// void WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)
 	// void WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller)
 	// void WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::InputMethodEditor >::_bind_dtor(WebViewListener::InputMethodEditor* obj) {

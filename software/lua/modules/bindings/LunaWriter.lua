@@ -686,12 +686,12 @@ function LunaWriter:writeClass(class)
 			for _,func in funcs:sequence() do
 				buf:writeLine("// ".. func:getPrototype(true,true,true))
 			end
-			buf:newLine()
-			local funcs = class:getAbstractOperators()
-			buf:writeLine("// Abstract operators:")
-			for _,func in funcs:sequence() do
-				buf:writeLine("// ".. func:getPrototype(true,true,true))
-			end
+			-- buf:newLine()
+			-- local funcs = class:getAbstractOperators()
+			-- buf:writeLine("// Abstract operators:")
+			-- for _,func in funcs:sequence() do
+				-- buf:writeLine("// ".. func:getPrototype(true,true,true))
+			-- end
 			
 		end
 		buf:popIndent()

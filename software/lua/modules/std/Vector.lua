@@ -30,6 +30,18 @@ function Class:push_front(item)
     table.insert(self._data,1,item);
 end
 
+function Class:append(list)
+	self:check(list,"Invalid sequence.")
+	for _,val in list:sequence() do
+		self:push_back(val)
+	end
+	return self;
+end
+
+function Class:__add(list)
+	return self:append(list)
+end
+
 --- Insert item at given position.
 -- Insert an item at the provided position.
 -- @param index 1-based index of insertion

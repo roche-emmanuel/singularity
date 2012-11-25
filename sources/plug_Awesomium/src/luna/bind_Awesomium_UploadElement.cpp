@@ -200,8 +200,6 @@ Awesomium::UploadElement* LunaTraits< Awesomium::UploadElement >::_bind_ctor(lua
 	// unsigned int Awesomium::UploadElement::num_bytes() const
 	// const unsigned char * Awesomium::UploadElement::bytes() const
 	// Awesomium::WebString Awesomium::UploadElement::file_path() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::UploadElement >::_bind_dtor(Awesomium::UploadElement* obj) {
