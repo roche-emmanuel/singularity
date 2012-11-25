@@ -132,7 +132,7 @@ function ReflectionGenerator:readParameter(param)
     local links = self:generateItemLinks(param:defaultValue())
     local pdef = nil
     if links then
-    	pdef = Value(links)
+    	pdef = Value{links=links}
     end
     links = self:generateItemLinks(param:type())
 	local ptype = Type(links)
