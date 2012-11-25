@@ -1,46 +1,22 @@
-local oo = require "loop.cached"
-local dbg = require "debugger"
+local Class = require("classBuilder"){name="Class",bases="reflection.Holder"};
 
-local Holder = require "reflection.Holder"
 local Function = require "reflection.Function"
 local Entity = require "reflection.Entity"
 local Scope = require "reflection.Scope"
 local Vector = require "std.Vector"
 local Set = require "std.Set"
 local utils = require "utils"
-local table = table
-local tm = require "bindings.TypeManager"
 
+local tm = require "bindings.TypeManager"
 local im = require "bindings.IgnoreManager"
 
-local log = require "logger"
-
--- The Class class represents a regular class
--- which may contain functions and variables.
--- and may also be templated.
-local Class = oo.class({},Holder)
-
--- Define the class name
-Class.CLASS_NAME = "reflection.Class"
-
-function Class:__init()
-    local obj = Holder:__init({})
-    obj = oo.rawnew(self,obj)
-    dbg:assertNil(obj.bases,"Object already contains a 'bases' field")
-    dbg:assertNil(obj.derivations,"Object already contains a 'derivations' field")
-    dbg:assertNil(obj.sourceTemplate,"Object already contains a 'templates' field")
-    dbg:assertNil(obj.concreteTypes,"Object already contains a 'concreteTypes' field")
-    obj._scopeType = Scope.CLASS
-    obj.bases = Set()
-    obj.derivations = Set()
-    obj.constructors = Set()
-    obj.operators = Set()
-    obj.templateParameters = Vector()
-    obj.sourceTemplate = nil
-    obj.concreteTypes = nil
-    obj.externalModule = nil
-    obj.mappedType = nil
-    return obj
+function Class:initialize(options)
+    self._scopeType = Scope.CLASS
+    self.bases = Set()
+    self.derivations = Set()
+    self.constructors = Set()
+    self.operators = Set()
+    self.templateParameters = Vector()
 end
 
 --- Retrieve the root namespace for this parent
@@ -109,7 +85,7 @@ end
 function Class:getFirstAbsoluteBase()
 	local abs = self:getAbsoluteBases()
 	if abs:size()>1 then
-		log:info("Found more that one absolute base for class: ".. self:getName())
+		self:info("Found more that one absolute base for class: ".. self:getName())
 	end
 	return abs:front()
 end
@@ -248,16 +224,16 @@ end
 --- Add a new operator function to this class.
 -- @param func, The operator function to add. Should not be nil or this will trigger an assertion error.
 function Class:addOperator(func)
-	dbg:assert(func,"'func' argument is nil")
-	dbg:assertType(func,Function)
+	self:check(func,"'func' argument is nil")
+	self:checkType(func,Function)
 	self.operators:push_back(func)
 end
 
 --- Add a new constructor function to this class.
 -- @param func The constructor function to add, should not be nil or this will trigger an assertion error. 
 function Class:addConstructor(func)
-	dbg:assert(func,"'func' argument is nil")
-	dbg:assertType(func,Function)
+	self:check(func,"'func' argument is nil")
+	self:checkType(func,Function)
 	self.constructors:push_back(func)
 end
 
@@ -271,10 +247,10 @@ end
 -- @param func The destructor to assign to this class. Should not be nil, and there should be
 -- no destructor previously assigned to the class or an assertion error will be triggered.
 function Class:setDestructor(func)
-	--dbg:assertNil(self.destructor,"Replacing existing destructor")
-	dbg:assert(func,"'func' argument is nil")
-	dbg:assertType(func,Function)
-	dbg:assert(func:getName()=="~"..self:getName(),"Invalid destructor name")
+	--self:checkNil(self.destructor,"Replacing existing destructor")
+	self:check(func,"'func' argument is nil")
+	self:checkType(func,Function)
+	self:check(func:getName()=="~"..self:getName(),"Invalid destructor name")
 	self.destructor = func
 end
 
@@ -283,8 +259,8 @@ end
 -- of the base.
 -- @param base The base class to add. Should not be nil.
 function Class:addBase(base)
-	dbg:assert(base,"base argument is nil");
-	dbg:assertType(base,Class,true);	
+	self:check(base,"base argument is nil");
+	self:checkType(base,Class,true);	
 	self.bases:push_back(base);
 	
 	-- Also add this class as a derivation of "base"
@@ -306,8 +282,8 @@ end
 --- Add a derivation from this class.
 -- This function is called internally when using Class:addBase()
 function Class:addDerivation(deriv)
-	dbg:assert(deriv,"deriv argument is nil");
-	dbg:assertType(deriv,Class);	
+	self:check(deriv,"deriv argument is nil");
+	self:checkType(deriv,Class);	
 	self.derivations:push_back(deriv);	
 end
 
@@ -318,8 +294,8 @@ end
 
 --- Assign source template for this class.
 function Class:setSourceTemplate(temp)
-	dbg:assert(temp,"temp argument is nil");
-	dbg:assertType(temp,require("reflection.Template"));	
+	self:check(temp,"temp argument is nil");
+	self:checkType(temp,require("reflection.Template"));	
 	self.sourceTemplate = temp
 end
 
@@ -334,8 +310,8 @@ end
 -- Assign the concrete types used for the template
 -- instantiation.
 function Class:setConcreteTypes(types)
-	dbg:assert(types,"types argument is nil");
-	dbg:assert(oo.classof(types)==require("std.Vector"));	
+	self:check(types,"types argument is nil");
+	self:check(oo.classof(types)==require("std.Vector"));	
 	self.concreteTypes = types
 end
 
@@ -462,7 +438,7 @@ function Class:isTemplated()
 end
 
 function Class:addTemplateParameter(param)
-	dbg:assert(param,"Invalid template parameter argument");
+	self:check(param,"Invalid template parameter argument");
 	self.templateParameters:push_back(param)
 end
 
