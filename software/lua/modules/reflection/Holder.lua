@@ -48,27 +48,9 @@ end
 function Class:addFunction(func)
 	self:check(func and self:isInstanceOf(require"reflection.Function",func),"Invalid function: ",func);
 	
-	if (func:getParent() == self) then
-		return -- nothing to do.
-	end
-	
-	self:check(func:getParent()==nil,
-		"Changing function parent.",
-		"\nFunction=",func:getName(),
-		"\nPrevious parent=",func:getParent() and func:getParent():getFullName(),
-		"\nNew parent=",self:getFullName())
 	func:setParent(self)
 
-	-- if func:isOperator() then
-		-- if not self.addOperator then
-			-- self:warn("Discarding non class member operator function '",func:getName(),"' in namespace '",self:getName(),"'") 
-			-- return
-		-- end
-		
-		-- self:addOperator(func)
-	-- else
-		self._functions:addItem(func)
-	-- end	
+	self._functions:addItem(func)
 end
 
 function Class:getValidPublicFunctions()

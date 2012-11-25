@@ -1,7 +1,6 @@
 local Class = require("classBuilder"){name="Class",bases="reflection.Holder"};
 
 local Function = require "reflection.Function"
-local Entity = require "reflection.Entity"
 local Scope = require "reflection.Scope"
 local Vector = require "std.Vector"
 local Set = require "std.Set"
@@ -13,9 +12,6 @@ local im = require "bindings.IgnoreManager"
 function Class:initialize(options)
     self._scopeType = Scope.CLASS
     self.bases = Set()
-    self.derivations = Set()
-    self.constructors = Set()
-    self.operators = Set()
     self.templateParameters = Vector()
 end
 
@@ -104,67 +100,9 @@ function Class:getValidPublicConstructors()
 	return self:getFunctions{"Valid","Public","Constructor"}
 end
 
---- Retrieve the operator functions in that class.
--- @return Set of operator functions.
--- function Class:getOperators(prot)
-	-- if prot then
-		-- local result = Set()
-		-- for _,v in self.operators:sequence() do
-			-- if v:getSection() == prot then
-				-- result:push_back(v)
-			-- end
-		-- end
-		-- return result
-	-- else
-		-- return self.operators
-	-- end
--- end
-
--- function Class:getPublicOperators(nooverloads)
-	-- local funcs = self:getOperators(Entity.SECTION_PUBLIC) 
-	--[=[if nooverloads then
-		-- remove the overloads from the set:
-		local handled = Set()
-		local result = Set()
-		for _,v in funcs:sequence() do
-			if v:isOverloaded() then
-				if not handled:contains(v:getName()) then
-					result:push_back(v)
-					handled:push_back(v:getName())
-				end
-			else
-				result:push_back(v)
-			end
-		end
-		
-		return result;
-	else]=]
-		-- return funcs
-	--end
--- end
-
 function Class:getValidPublicOperators()
 	return self:getFunctions{"ValidOperator","Public"}
-	-- if not self._validPublicOperators then
-		-- local ops = self:getPublicOperators(true)
-		-- self._validPublicOperators = Set()
-		-- for _,v in ops:sequence() do
-			-- if v:getLuaName() and v:isValidForWrapping() then
-				-- self._validPublicOperators:push_back(v)
-			-- end
-		-- end
-	-- end
-
-	-- return self._validPublicOperators
 end
-
---- Add a new operator function to this class.
--- @param func, The operator function to add. Should not be nil or this will trigger an assertion error.
--- function Class:addOperator(func)
-	-- self:check(func,"'func' argument is nil")
-	-- self:checkType(func,Function)
-	-- self.operators:push_back(func)
--- end
 
 --- Retrieve the class destructor.
 -- @return The assigned class destructor or nil if no destructor was assigned to that class.
@@ -182,64 +120,12 @@ function Class:addBase(base)
 	self:check(base,"base argument is nil");
 	self:checkType(base,Class,true);	
 	self.bases:push_back(base);
-	
-	-- Also add this class as a derivation of "base"
-	base:addDerivation(self)
 end
 
 --- Check if this class has at least one base class.
 -- @return True if this class has at least one base class, false otherwise.
 function Class:hasBases()
 	return not self.bases:empty()
-end
-
---- Retrieve the list of the derivations from this class.
--- @return the derivation set.
-function Class:getDerivations()
-	return self.derivations
-end
-
---- Add a derivation from this class.
--- This function is called internally when using Class:addBase()
-function Class:addDerivation(deriv)
-	self:check(deriv,"deriv argument is nil");
-	self:checkType(deriv,Class);	
-	self.derivations:push_back(deriv);	
-end
-
---- Check if this class has at least one derivation.
-function Class:hasDerivations()
-	return not self.derivations:empty()
-end
-
---- Assign source template for this class.
-function Class:setSourceTemplate(temp)
-	self:check(temp,"temp argument is nil");
-	self:checkType(temp,require("reflection.Template"));	
-	self.sourceTemplate = temp
-end
-
---- Retrieve the source template for this class.
--- The source template may be nil if this class is not
--- templated.
-function Class:getSourceTemplate()
-	return self.sourceTemplate
-end
-
---- Assign concrete types.
--- Assign the concrete types used for the template
--- instantiation.
-function Class:setConcreteTypes(types)
-	self:check(types,"types argument is nil");
-	self:check(oo.classof(types)==require("std.Vector"));	
-	self.concreteTypes = types
-end
-
---- Retrieve the concrete types.
--- Return the vector of concrete types used for the template
--- instantiation.
-function Class:getConcreteTypes()
-	return self.concreteTypes
 end
 
 --- Return a lua compatible version of the class name.
