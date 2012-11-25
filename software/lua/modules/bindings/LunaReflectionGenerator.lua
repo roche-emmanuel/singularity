@@ -366,7 +366,7 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
         if item:kind() == dxp.ILinkedText.Kind_Text then
             item = dxp.toLinkText(item) --:dynamicCast("ILT_Text")
             local name = item:text():latin1()
-            local link = ItemLink(ItemLink.STRING,name)
+            local link = ItemLink(name)
             result:push_back(link)
         elseif item:kind() == dxp.ILinkedText.Kind_Ref then
             item = dxp.toLinkRef(item) --:dynamicCast("ILT_Ref")
@@ -417,7 +417,7 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
                 		
                 		-- return an int string in the worst case.
                 		subtypes = Vector()
-                		subtypes:push_back(ItemLink(ItemLink.STRING,"int"))
+                		subtypes:push_back(ItemLink("int"))
                 	end
                 	
                 	
@@ -459,14 +459,14 @@ function ReflectionGenerator:generateItemLinks(lti,count,tname)
             end
             
             if object then
-                result:push_back(ItemLink(ItemLink.OBJECT,object))
+                result:push_back(ItemLink(object))
             elseif subtypes then
             	for _,v in subtypes:sequence() do
             		result:push_back(v)
             	end
             else
                 log:info("Could not create the member corresponding to link ref ".. item:text():latin1())
-                result:push_back(ItemLink(ItemLink.STRING,item:text():latin1()));
+                result:push_back(ItemLink(item:text():latin1()));
             end
         end
         

@@ -47,16 +47,16 @@ function Class:expandTypedefs(linkvec)
 	local typedefFound = false;
 	
 	for _,v in linkvec:sequence() do
-		if v:getType() == ItemLink.TYPEDEF then
+		-- if v:getType() == ItemLink.TYPEDEF then
 			-- push the typedef definition elements:
-			for _,v2 in v:getContent():getItemLinks():sequence() do
-				result:push_back(v2)
-			end
-			typedefFound = true
-		else
+			-- for _,v2 in v:getContent():getItemLinks():sequence() do
+				-- result:push_back(v2)
+			-- end
+			-- typedefFound = true
+		-- else
 			-- just push the type:
 			result:push_back(v);
-		end
+		-- end
 	end
 	
 	if typedefFound then
