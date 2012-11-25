@@ -137,7 +137,7 @@ function ReflectionGenerator:readParameter(param)
     links = self:generateItemLinks(param:type())
 	local ptype = Type{links=links}
 	
-	return Parameter(ptype,pname,pdef);
+	return Parameter{type=ptype,name=pname,defVal=pdef};
 end
 
 function ReflectionGenerator:getHeaderFileName(location)

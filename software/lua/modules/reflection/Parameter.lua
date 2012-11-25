@@ -1,62 +1,50 @@
+local Class = require("classBuilder"){name="Parameter",bases="reflection.Entity"};
 
-local oo = require "loop.cached"
-local Object = require "reflection.Entity"
-local dbg = require "debugger"
-
--- The object class implements the IName and IParent interfaces
-local Parameter = oo.class({},Object)
-
--- Define the class name
-Parameter.CLASS_NAME = "reflection.Parameter"
-
-function Parameter:__init(type,name,def)
-    local obj = Object:__init({})
-    obj = oo.rawnew(self,obj)
-    obj:setType(type)
-    obj:setName(name)
-    obj:setDefaultValue(def)
-    return obj
+function Class:initialize(options)
+    self:setType(options.type)
+    self:setName(options.name)
+    self:setDefaultValue(options.defVal)
 end
 
 --- Assign the type of this parameter
-function Parameter:setType(type)
+function Class:setType(type)
     self._type = type
 end
 
 --- Retrieve the type of this parameter
-function Parameter:getType()
+function Class:getType()
     return self._type;
 end
 
 --- Assign the default values for this parameter.
-function Parameter:setDefaultValue(def)
+function Class:setDefaultValue(def)
     self._defaultValue = def
 end
 
 --- Return the assigned default values.
-function Parameter:getDefaultValue()
+function Class:getDefaultValue()
     return self._defaultValue;
 end
 
 --- Check if this parameter is the Lua_state type:
-function Parameter:isLuaState()
+function Class:isLuaState()
 	return self:getType():isLuaState()
 end
 
-function Parameter:isLuaFunction()
+function Class:isLuaFunction()
 	return self:getType():isLuaFunction()
 end
 
-function Parameter:isLuaTable()
+function Class:isLuaTable()
 	return self:getType():isLuaTable()
 end
 
-function Parameter:isLuaAny()
+function Class:isLuaAny()
 	return self:getType():isLuaAny()
 end
 
-function Parameter:isNothing()
+function Class:isNothing()
 	return self:getType():isNothing()
 end
 
-return Parameter
+return Class
