@@ -59,20 +59,16 @@ function Class:addFunction(func)
 		"\nNew parent=",self:getFullName())
 	func:setParent(self)
 
-	if func:isConstructor() then	
-		self:addConstructor(func)
-	elseif func:isDestructor() then
-		self:setDestructor(func)
-	elseif func:isOperator() then
-		if not self.addOperator then
-			self:warn("Discarding non class member operator function '",func:getName(),"' in namespace '",self:getName(),"'") 
-			return
-		end
+	-- if func:isOperator() then
+		-- if not self.addOperator then
+			-- self:warn("Discarding non class member operator function '",func:getName(),"' in namespace '",self:getName(),"'") 
+			-- return
+		-- end
 		
-		self:addOperator(func)
-	else
-		self._functions:push_back(func)
-	end	
+		-- self:addOperator(func)
+	-- else
+		self._functions:addItem(func)
+	-- end	
 end
 
 function Class:getValidPublicFunctions()

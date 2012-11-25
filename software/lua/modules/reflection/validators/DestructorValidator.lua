@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="ConstructorValidator",bases="reflection.validators.BasicValidator"};
+local Class = require("classBuilder"){name="DestructorValidator",bases="reflection.validators.BasicValidator"};
 
 local Function = require "reflection.Function"
 
