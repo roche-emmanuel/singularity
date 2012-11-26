@@ -27,55 +27,6 @@ local tm = require "bindings.TypeManager"
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
 
-local dynamic_caster_template = [[inline static bool _lg_typecheck_dynCast(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		return true;
-	}
-	
-	static int _bind_dynCast(lua_State *L) {
-		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
-		}
-
-		std::string name(lua_tostring(L,2),lua_objlen(L,2));
-
-		${1}* self=(Luna< ${1} >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call dynCast(...)");
-		}
-		
-		static LunaConverterMap& converters = luna_getConverterMap("${1}");
-		
-		return luna_dynamicCast(L,converters,"${1}",name);
-	}
-]]
-
-local equality_template = [[inline static bool _lg_typecheck___eq(lua_State *L) {
-		if( lua_gettop(L)!=2 ) return false;
-
-		if( !Luna<void>::has_uniqueid(L,1,${2}) ) return false;
-		return true;
-	}
-	
-	static int _bind___eq(lua_State *L) {
-		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(${1}*)");
-		}
-
-		${1}* rhs =(Luna< ${1} >::check(L,2));
-		${1}* self=(Luna< ${1} >::check(L,1));
-		if(!self) {
-			luaL_error(L, "Invalid object in function call __eq(...)");
-		}
-		
-		return self==rhs;
-	}
-]]
-
 -- Helper function for writeForeach traversals:
 local getValueName = function(k,v)
 	return v:getFullName()
@@ -576,14 +527,15 @@ function LunaWriter:writeClass(class)
 			local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
 			local bname = tm:getBaseTypeMapping(bclass:getFullName())
 			local hash = utils.getHash(bname)
-			buf:writeSubLine(equality_template,bname,hash)
+			buf:writeLine(snippets:getEqualityCode(bname,hash))
 		end
 		
 		if self.implementConverters then
 			if class:getNumBases()==0 then
 				-- No parents for this class:
 				buf:writeLine("// Base class dynamic cast support:")
-				buf:writeSubLine(dynamic_caster_template,cname)
+				-- buf:writeSubLine(dynamic_caster_template,cname)
+				buf:writeLine(snippets:getDynamicCasterCode(class))
 			else
 				buf:writeLine("// Derived class converters:")
 				for k,bclass in class:getAbsoluteBases():sequence() do
