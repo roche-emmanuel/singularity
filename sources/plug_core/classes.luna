@@ -19,4 +19,3 @@ sgt::LogRecord => sgt::LogRecord
 std::set< std::string > => sgt::LogSink::StringSet
 sgt::StdLogger => osg::Referenced
 sgt::AnyVector => osg::Referenced
-

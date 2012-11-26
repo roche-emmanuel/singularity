@@ -36,6 +36,10 @@ function BufferWriter:setTargetFolder(folder)
     self.targetFolder = folder
 end
 
+function BufferWriter:setTargetFilename(filename)
+    self.targetFilename = filename
+end
+
 --- Push the indentation forward.
 -- Increase the indentation level by one
 function BufferWriter:pushIndent()
@@ -113,7 +117,7 @@ end
 function BufferWriter:writeFile(filename)
     local str = ""
         
-    filename = (self.targetFolder or "").. filename
+    filename = (self.targetFolder or "").. (filename or self.targetFilename)
     log:info("Writing file "..filename)
 
     local f = io.open(filename,"r")

@@ -57,89 +57,6 @@ function LunaWriter:__init(datamap,withConverters)
     return object
 end
 
-function LunaWriter:writeExportFile()
-	-- get a copy of that writer:
-	local buf = self:clone();
-	
-	-- write the module name:
-	--buf:writeLine("module=".. self:getModuleName())
-	
-	local writtenTypes = Set();
-	
-	local currentModule = nil
-	
-	-- write the classes declaration on the buf:
-	for _,v in self.classes:sequence() do
-		local classname = v:getTypeName()
-
-		if not writtenTypes:contains(classname) then
-			writtenTypes:push_back(classname)
-		else
-			classname = nil	
-		end
-		
-		if classname and not im:ignore(classname,"class_declaration") and not v:isExternal() then
-			self:debug0_v("Writing class export for ", v:getFullName(), " (typename=",classname,")")
-			local mod = v:getModule() or self:getModuleName()
-			if currentModule ~= mod then
-				buf:writeLine("module=".. mod)
-				currentModule = mod
-			end
-			
-			local bname = v:getFirstAbsoluteBase():getFullName();
-			
-			buf:writeSubLine("${1} => ${2}",classname,bname)
-		else
-			self:notice("Ignoring class export for ", v:getFullName(), " (typename=",classname,")")
-		end
-	end
-		
-	buf:newLine()
-	
-	self:clearContent()
-	self:appendBuffer(buf)
-	self:writeFile("classes.luna")
-end
-
-function LunaWriter:writeExportFunctionFile()
-	-- get a copy of that writer:
-	local buf = self:clone();
-	
-	-- write the module name:
-	buf:writeLine("module=".. self:getModuleName())
-	
-	local writtenTypes = Set();
-	
-	local namespaces = self.datamap:getAllNamespaces()
-	
-	for _,ns in namespaces:sequence() do
-		local functions = ns:getValidPublicFunctions()
-
-		for _,v in functions:sequence() do
-			local classname = v:getFullName()
-	
-			if not writtenTypes:contains(classname) then
-				writtenTypes:push_back(classname)
-			else
-				classname = nil	
-			end
-			
-			if classname and not im:ignore(classname,"function") and not v:isExternal()  then
-				self:debug0_v("Writing function export for ", v:getFullName())
-				buf:writeSubLine("${1}",classname)
-			else
-				self:notice("Ignoring class export for ", v:getFullName(), " (typename=",classname,")")
-			end
-		end
-	end
-		
-	buf:newLine()
-	
-	self:clearContent()
-	self:appendBuffer(buf)
-	self:writeFile("functions.luna")
-end
-
 function LunaWriter:writeMainHeader()
 
 	-- get a copy of that writer:
@@ -1107,11 +1024,19 @@ end
 
 --- Write the complete reflection
 function LunaWriter:writeBindings(folder)
+	local ClassExporter = require "bindings.ClassListExporter"
+	local FunctionExporter = require "bindings.FunctionListExporter"
+
     self:setTargetFolder(folder)
 
     self:writeMainHeader()
-    self:writeExportFile()
-    self:writeExportFunctionFile()
+	
+	local classExp = ClassExporter();
+	classExp:writeFile()
+	
+	local funcExp = FunctionExporter()
+	funcExp:writeFile()
+	
     self:writeClassSources()
     self:writeExternals()
     self:writeGlobalFunctionSources()
