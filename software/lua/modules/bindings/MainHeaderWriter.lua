@@ -68,7 +68,7 @@ function Class:writeFile()
 		end
 	end
 	
-	rm:writeHeader("luna_types2.h",buf)	
+	rm:writeHeader("luna_types.h",buf)	
 end
 
 return Class

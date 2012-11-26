@@ -52,6 +52,20 @@ function Class:writeHeader(filename,buf)
 	self:writeFile("include/luna/" .. filename,writer) 
 end
 
+function Class:writeSource(filename,buf)
+	local writer = require("io.BufferWriter")()
+	
+	writer:writeLine("#include <plug_common.h>")
+	writer:newLine()
+		
+	-- write the buffer content:
+	writer:appendBuffer(buf)
+	
+	writer:newLine()
+	
+	self:writeFile("src/luna/" .. filename,writer) 
+end
+
 function Class:writeFile(filename,buf)
 	buf:setTargetFolder(self:getDestFolder())
 	buf:writeFile(filename) 

@@ -609,34 +609,6 @@ function LunaWriter:writeClassSources()
 	end
 end
 
-function LunaWriter:writeExternals()
-	
-	local written = Set();
-	
-	local buf = self:clone();
-	
-	for _,v in self.classes:sequence() do
-		local tname = v:getTypeName()
-		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and v:isExternal() then
-			written:push_back(tname)
-			self:debug0_v("writing external decleration for class ", v:getFullName(), " with Typename: ", tname)
-
-			local cname = v:getFullName()
-			buf:writeSubLine('const char LunaTraits< ${1} >::className[] = "${2}";',cname,corr:correct("filename",v:getName()));
-			buf:writeSubLine('const char LunaTraits< ${1} >::fullName[] = "${1}";',cname);
-			buf:writeSubLine('const char LunaTraits< ${1} >::moduleName[] = "${2}";',cname,v:getModule() or self:getModuleName());
-			--buf:writeSubLine('const char* LunaTraits< ${1} >::parents[] = {${2}0};',cname,parentList);
-			buf:writeSubLine('const int LunaTraits< ${1} >::hash = ${2};',cname,utils.getHash(v:getFullName()));
-			buf:writeSubLine('const int LunaTraits< ${1} >::uniqueIDs[] = {${2},0};',cname,table.concat(v:getAllAbsoluteBaseHashes(),", "));
-			buf:newLine()
-		end
-	end
-	
-	local filename = wname 
-	self:debug0_v("Writing file ","register_externals.cpp")
-	self:writeSourceContent(buf,"register_externals.cpp")
-end
-
 
 --- Write the main function to register all classes in a given lua module.
 function LunaWriter:writeModuleFile()
@@ -965,6 +937,7 @@ function LunaWriter:writeBindings(folder)
 	local ClassExporter = require "bindings.ClassListExporter"
 	local FunctionExporter = require "bindings.FunctionListExporter"
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
+	local ExternalWriter = require "bindings.ExternalWriter"
 	
     self:setTargetFolder(folder)
 	
@@ -977,8 +950,10 @@ function LunaWriter:writeBindings(folder)
 	local mainWriter = MainHeaderWriter();
 	mainWriter:writeFile();
 	
+	local extWriter = ExternalWriter();
+	extWriter:writeFile();
+	
     self:writeClassSources()
-    self:writeExternals()
     self:writeGlobalFunctionSources()
     self:writeDefines()
     self:writeEnums()
