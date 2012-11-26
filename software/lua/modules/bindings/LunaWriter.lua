@@ -10,6 +10,7 @@ local dbg = require "debugger"
 
 local log = require "logger"
 local im = require "bindings.IgnoreManager"
+local snippets = require "bindings.SnippetManager"
 
 local Set = require "std.Set"
 local utils = require "utils"
@@ -25,32 +26,6 @@ local tm = require "bindings.TypeManager"
 
 local injector = require "bindings.CodeInjector"
 local corr = require "bindings.TextCorrector"
-
-local class_decl_template = [[template<>
-class LunaTraits< ${1} > {
-public:
-    static const char className[];
-    static const char fullName[];
-    static const char moduleName[];
-    static const char* parents[];
-    static const int uniqueIDs[];
-    static const int hash;
-    static luna_RegType methods[];
-    static luna_RegEnumType enumValues[];
-    static ${1}* _bind_ctor(lua_State *L);
-    static void _bind_dtor(${1}* obj);
-    typedef ${2} parent_t;
-    typedef ${1} base_t;${3}
-};
-]]
-
-local class_type_template = [[template<>
-class LunaType< ${1} > {
-public:
-    typedef ${2} type;
-    
-};
-]]
 
 local converter_template = [[static int _cast_from_${3}(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -262,13 +237,11 @@ function LunaWriter:writeMainHeader()
 		if classname and not im:ignore(classname,"class_declaration") then
 			self:debug0_v("Writing class declaration for ", v:getFullName(), " (typename=",classname,")")
 			local abname = v:getFirstAbsoluteBase():getFullName();
-			buf:writeSubLine(class_decl_template,classname,abname,add)
+			buf:writeLine(snippets:getLunaTraits(classname,abname,add))
 		else
 			self:notice("Ignoring class declaration for ", v:getFullName(), " (typename=",classname,")")
 		end
 	end
-		
-	--buf:writeForeachClass(class_decl_template,getValueName,add)
 	
 	buf:newLine()
 	
@@ -279,7 +252,7 @@ function LunaWriter:writeMainHeader()
 		if v:getBases():empty() then
 			local hash = utils.getHash(v:getFullName())
 			if not writtenTypes:contains(hash) then
-				buf:writeSubLine(class_type_template,hash,v:getFullName())
+				buf:writeLine(snippets:getLunaType(hash,v:getFullName()))
 				writtenTypes:push_back(hash)
 			else
 				self:warn("Luna type already written for hash=",hash," type=",v:getFullName())

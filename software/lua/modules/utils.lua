@@ -97,4 +97,11 @@ function utils.typeEx(obj)
 	return tObj;
 end
 
+function utils.subLine(str,...)
+	for id,v in ipairs({...}) do
+		str = str:gsub("%${"..id.."}",v)
+	end
+	return str
+end
+
 return utils
