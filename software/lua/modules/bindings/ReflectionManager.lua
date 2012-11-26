@@ -19,10 +19,6 @@ function Class:setDestFolder(folder)
 	self._destFolder = folder
 end
 
-function Class:writeFile(filename,buf)
-	buf:setTargetFolder(self:getDestFolder())
-	buf:writeFile(filename) 
-end
 
 function Class:setDataMap(dmap)
 	self._datamap = dmap;
@@ -34,6 +30,31 @@ end
 
 function Class:getNamespaces()
 	return self._datamap:getAllNamespaces()
+end
+
+function Class:writeHeader(filename,buf)
+	local writer = require("io.BufferWriter")()
+	
+	local def = "_".. filename:gsub("^([^%.]+)%.h","%1"):gsub("%A","_"):gsub("_+","_"):upper().."_H_"
+	writer:writeSubLine("#ifndef ${1}",def)
+	writer:writeSubLine("#define ${1}",def)
+	writer:newLine()
+	writer:writeLine("#include <plug_common.h>")
+	writer:newLine()
+	
+	-- write the buffer content:
+	writer:appendBuffer(buf)
+	
+	writer:newLine()
+	writer:writeLine("#endif")
+	writer:newLine()
+	
+	self:writeFile("include/luna/" .. filename,writer) 
+end
+
+function Class:writeFile(filename,buf)
+	buf:setTargetFolder(self:getDestFolder())
+	buf:writeFile(filename) 
 end
 
 return Class()
