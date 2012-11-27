@@ -778,82 +778,6 @@ function LunaWriter:writeDefines()
 	self:writeSource("register_definitions.cpp")	
 end
 
-function LunaWriter:writeEnums()
-	self:clearContent()
-
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
-	
-	local enums = self.datamap:getAllEnums()
-	
-	local headers = Set();
-	for _,enum in enums:sequence() do
-		local header = enum:getHeaderFile()
-		if header and not im:ignoreHeader(header) then
-			headers:push_back(header)
-		end		
-	end
-	
-	for _,v in headers:sequence() do
-		self:writeLine("#include <"..v..">")
-	end
-	self:newLine()
-	
-	--- retrieve the list of defines from the reflection map:
-
-	self:writeLine("#ifdef __cplusplus")	
-	self:writeLine('extern "C" {')
-	self:writeLine("#endif")
-	self:newLine()
-	self:writeSubLine("void register_enums(lua_State* L) {")
-	self:pushIndent()
-		local writtenValues = Set();
-		
-		for _,v in enums:sequence() do
-			-- write the ennumeration content here:
-			
-			-- write a new table:
-			self:writeSubLine("lua_newtable(L); // enum ${1}",v:getName())
-			self:newLine()
-			-- Assume the parent container is already on the stack.
-			for _,val in v:getValues():sequence() do
-				if not im:ignore(val:getFullName(),"enum_value") then
-					self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
-				end
-			end
-			
-			--self:writeForeach(v:getValues(),
-			self:newLine()
-			-- push the table in the module:
-			self:writeSubLine('lua_setfield(L,-2,"${1}");',v:getName());
-			self:newLine()
-			
-			-- Now write the enum values again but in the module table directly:
-			for _,val in v:getValues():sequence() do
-				if not im:ignore(val:getFullName(),"enum_value") then
-					if writtenValues:contains(val:getFullName()) then
-						self:warn("Overriding enum value ",val:getFullName(), " in module context.")
-					end
-					
-					writtenValues:push_back(val:getFullName())
-					self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',val:getFullName(),val:getName())
-				end
-			end
-			
-			self:newLine()
-			self:newLine()
-		end
-	self:popIndent()
-	self:writeLine("}")
-	self:newLine()
-	self:writeLine("#ifdef __cplusplus")
-	self:writeLine("}")
-	self:writeLine("#endif")
-	self:newLine()
-	
-	self:writeSource("register_enums.cpp")	
-end
-
 function LunaWriter:writeNamespaceFunctions(ns)
 	-- write all the global functions found in the given namespace:
 	local funcs = ns:getValidPublicFunctions()
@@ -938,6 +862,7 @@ function LunaWriter:writeBindings(folder)
 	local FunctionExporter = require "bindings.FunctionListExporter"
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
 	local ExternalWriter = require "bindings.ExternalWriter"
+	local EnumWriter = require "bindings.EnumWriter"
 	
     self:setTargetFolder(folder)
 	
@@ -953,10 +878,13 @@ function LunaWriter:writeBindings(folder)
 	local extWriter = ExternalWriter();
 	extWriter:writeFile();
 	
+	local enumWriter = EnumWriter();
+	enumWriter:writeFile();
+	
     self:writeClassSources()
     self:writeGlobalFunctionSources()
     self:writeDefines()
-    self:writeEnums()
+    -- self:writeEnums()
     
     self:writeModuleFile()
 end
