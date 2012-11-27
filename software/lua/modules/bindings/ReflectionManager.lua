@@ -10,6 +10,14 @@ function Class:getDefaultModuleName()
 	return self._defaultModuleName
 end
 
+function Class:setLuaOpenName(oname)
+	self._luaOpenName = oname
+end
+
+function Class:getLuaOpenName(loc)
+	return self._luaOpenName or self:getDefaultModuleName()
+end
+
 function Class:getDestFolder()
 	self:check(self._destFolder,"Invalid dest folder.")
 	return self._destFolder
@@ -38,6 +46,10 @@ end
 
 function Class:getDefines()
 	return self._datamap:getDefines()
+end
+
+function Class:getCodeAddition(loc)
+	return self._datamap:getCodeAddition(loc)
 end
 
 function Class:writeHeader(filename,buf)

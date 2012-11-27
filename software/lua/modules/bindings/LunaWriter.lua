@@ -609,129 +609,6 @@ function LunaWriter:writeClassSources()
 	end
 end
 
-
---- Write the main function to register all classes in a given lua module.
-function LunaWriter:writeModuleFile()
-	local mname = self:getModuleName()
-	self:clearContent()
-	
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
-	self:writeLine("#ifdef __cplusplus")	
-	self:writeLine('extern "C" {')
-	self:writeLine("#endif")
-	self:newLine()
-	self:writeLine("extern void register_defines(lua_State* L);")
-	self:writeLine("extern void register_enums(lua_State* L);")
-	self:writeLine("extern void register_global_functions(lua_State* L);")
-	self:newLine()
-	self:writeLine([[
-	
-	]])
-	self:writeSubLine("int PLUG_EXPORT luaopen_${1}(lua_State* L) {",self:getLuaOpenName())
-	self:pushIndent()
-	
-	-- first open the luna table:
-	self:writeLine("luna_open(L);")
-	self:newLine();
-	
-	-- register the void class:
-	self:writeSubLine('luna_pushModule(L,"${1}");',"luna")
-	self:writeLine("Luna< void >::Register(L);")
-	self:writeSubLine("luna_popModule(L);")
-	self:newLine()
-		
-	-- register the other classes:
-	local written = Set();
-	
-	local currentModule = nil
-	local moduleSet = Set();
-	
-	for _,v in self.classes:sequence() do
-		local tname = v:getTypeName()
-		if not v:isExternal() and not im:ignore("class_declaration",tname) and not written:contains(tname) then
-			written:push_back(tname)
-			
-			-- check if we should change the currentModule:
-			local mod = v:getModule() or self:getModuleName()
-			if currentModule ~= mod then
-				if currentModule then
-					self:writeSubLine("luna_popModule(L);")
-				end
-				self:writeSubLine('luna_pushModule(L,"${1}");',mod)
-				currentModule = mod
-				moduleSet:push_back(mod) -- add the module to the set.
-			end
-			self:info("Would write class ", tname, " in module ", v:getModule())
-			
-			self:writeSubLine("Luna< ${1} >::Register(L);",tname)
-		else
-			self:warn("Ignoring registration for class ", tname)
-		end
-	end
-	self:writeSubLine("luna_popModule(L);") -- pop the module at the end.	
-	--self:writeForeach(self.classes,"Luna< ${1} >::Register(L);",getValueName)
-	self:newLine()
-
-	-- push a new table that will serve as the wx container:
-	--self:writeLine("lua_newtable(L); // container class")
-	self:writeSubLine('luna_pushModule(L,"${1}");',self:getModuleName()) -- load the default module.
-	moduleSet:push_back(self:getModuleName())
-	self:newLine()
-	
-	-- register the definitions:
-	self:writeLine("register_defines(L);")
-	self:newLine()
-	
-	-- register the enums:
-	self:writeLine("register_enums(L);")
-	self:newLine()	
-
-	
-	-- register the global function:
-	self:writeLine("register_global_functions(L);")
-	self:newLine()
-
-	self:writeSubLine("luna_popModule(L);")
-	self:newLine()
-	
-	-- register the module name:
-	--self:writeSubLine('lua_pushstring(L,"${1}");',self:getModuleName())
-	--self:writeSubLine('lua_setfield(L,-2,"__NAME__");')
-	
-	--self:newLine()
-
-
-	-- Now set the table as global:
-	--self:writeSubLine('lua_setglobal(L,"${1}");',self:getModuleName())
-	--self:writeSubLine('lua_getglobal(L,"${1}");',self:getModuleName())
-	--self:newLine()
-	
-	-- register all the parent classes functions in that module:
-	for k,v in moduleSet:sequence() do
-		self:writeSubLine('luna_copyParents(L,"${1}");',v) --self:getModuleName())
-	end
-	self:newLine()
-	
-	-- force starting wxWidgets:
-	if self.datamap:getCodeAddition("module_post_register") then
-		self:writeLine(self.datamap:getCodeAddition("module_post_register"))		
-		self:newLine()
-	end
-	
-	self:writeSubLine('luna_pushModule(L,"${1}");',self:getModuleName()) -- load the default module.
-	self:writeLine("return 1;")
-	self:popIndent()
-	self:writeLine("}")
-	self:newLine()
-	self:writeLine("#ifdef __cplusplus")
-	self:writeLine("}")
-	self:writeLine("#endif")
-	self:newLine()
-	
-	self:writeSource("register_".. self:getLuaOpenName() ..".cpp")
-end
-
 function LunaWriter:writeNamespaceFunctions(ns)
 	-- write all the global functions found in the given namespace:
 	local funcs = ns:getValidPublicFunctions()
@@ -818,6 +695,7 @@ function LunaWriter:writeBindings(folder)
 	local ExternalWriter = require "bindings.ExternalWriter"
 	local EnumWriter = require "bindings.EnumWriter"
 	local DefineWriter = require "bindings.DefineWriter"
+	local ModuleWriter = require "bindings.ModuleWriter"
 	
     self:setTargetFolder(folder)
 	
@@ -839,10 +717,11 @@ function LunaWriter:writeBindings(folder)
 	local defWriter = DefineWriter();
 	defWriter:writeFile();
 	
+	local modWriter = ModuleWriter();
+	modWriter:writeFile();
+	
     self:writeClassSources()
     self:writeGlobalFunctionSources()
-    
-    self:writeModuleFile()
 end
 
 return LunaWriter
