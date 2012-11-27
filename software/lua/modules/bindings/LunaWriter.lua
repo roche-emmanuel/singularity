@@ -732,52 +732,6 @@ function LunaWriter:writeModuleFile()
 	self:writeSource("register_".. self:getLuaOpenName() ..".cpp")
 end
 
-function LunaWriter:writeDefines()
-	self:clearContent()
-
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
-	
-	local defs = self.datamap:getDefines()
-
-	local headers = Set();
-	for _,def in defs:sequence() do
-		local header = def:getHeaderFile()
-		if header and not im:ignoreHeader(header) then
-			headers:push_back(header)
-		end		
-	end
-	
-	for _,v in headers:sequence() do
-		self:writeLine("#include <"..v..">")
-	end
-	self:newLine()
-	
-	--- retrieve the list of defines from the reflection map:
-	self:writeLine("#ifdef __cplusplus")	
-	self:writeLine('extern "C" {')
-	self:writeLine("#endif")
-	self:newLine()
-	self:writeSubLine("void register_defines(lua_State* L) {")
-	self:pushIndent()
-		-- Assume the parent container is already on the stack.
-		for _,v in defs:sequence() do
-			if not v:isIgnored() then
-				self:writeSubLine('lua_pushnumber(L,${1}); lua_setfield(L,-2,"${2}");',v:getName(),v:getName()) --InitStr
-			end
-		end
-		--self:writeForeach(self.datamap:getDefines(),'lua_pushnumber(L,${1}); lua_setfield(L,-2,"${1}");',getValueShortName)	
-	self:popIndent()
-	self:writeLine("}")
-	self:newLine()
-	self:writeLine("#ifdef __cplusplus")
-	self:writeLine("}")
-	self:writeLine("#endif")
-	self:newLine()
-	
-	self:writeSource("register_definitions.cpp")	
-end
-
 function LunaWriter:writeNamespaceFunctions(ns)
 	-- write all the global functions found in the given namespace:
 	local funcs = ns:getValidPublicFunctions()
@@ -863,6 +817,7 @@ function LunaWriter:writeBindings(folder)
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
 	local ExternalWriter = require "bindings.ExternalWriter"
 	local EnumWriter = require "bindings.EnumWriter"
+	local DefineWriter = require "bindings.DefineWriter"
 	
     self:setTargetFolder(folder)
 	
@@ -881,10 +836,11 @@ function LunaWriter:writeBindings(folder)
 	local enumWriter = EnumWriter();
 	enumWriter:writeFile();
 	
+	local defWriter = DefineWriter();
+	defWriter:writeFile();
+	
     self:writeClassSources()
     self:writeGlobalFunctionSources()
-    self:writeDefines()
-    -- self:writeEnums()
     
     self:writeModuleFile()
 end

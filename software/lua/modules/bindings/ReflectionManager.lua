@@ -36,6 +36,10 @@ function Class:getEnums()
 	return self._datamap:getAllEnums()
 end
 
+function Class:getDefines()
+	return self._datamap:getDefines()
+end
+
 function Class:writeHeader(filename,buf)
 	local writer = require("io.BufferWriter")()
 	
