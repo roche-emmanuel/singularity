@@ -1216,8 +1216,12 @@ function ReflectionGenerator.generate(options)
     datamap:getUserHeaders():fromTable(options.headers or {})
     datamap:getUserContents():fromTable(options.userContent or {})
 
-	local writer = LunaWriter(datamap,not options.noConverters)
-    writer:writeBindings(options.destpath)
+	if not datamap:isInitialized() then
+    	datamap:generateClassHierarchy()
+    end
+	
+	local writer = LunaWriter()
+    writer:writeBindings()
 	
 	local dt = os.clock()-t0
 	
