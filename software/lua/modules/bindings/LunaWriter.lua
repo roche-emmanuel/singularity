@@ -2,47 +2,9 @@
 local oo = require "loop.cached"
 
 local ReflectionWriter = require "bindings.ReflectionWriter"
-local BaseWriter = require "bindings.BaseWriter"
-local Enum = require "reflection.Enum"
-local table = table
-
-local dbg = require "debugger"
-
-local log = require "logger"
-local im = require "bindings.IgnoreManager"
-local snippets = require "bindings.SnippetManager"
 
 local Set = require "std.Set"
-local utils = require "utils"
-
--- Default type checker:
-local typeChecker = require("bindings.TypeCheckerBase")()
-
-local writeOverloadBind = require("bindings.OverloadBinderBase")()
-local writeBind = require("bindings.BinderBase")()
-
-local tc = require "bindings.TypeConverter"
-local tm = require "bindings.TypeManager"
-
-local injector = require "bindings.CodeInjector"
-local corr = require "bindings.TextCorrector"
-
--- Helper function for writeForeach traversals:
-local getValueName = function(k,v)
-	return v:getFullName()
-end
-
-local getValueShortName = function(k,v)
-	return v:getName()
-end
-
-local getValueLuaName = function(k,v)
-	return v:getLuaName()
-end
-
-local getKeyName = function(k,v)
-	return k:getName()
-end
+local im = require "bindings.IgnoreManager"
 
 -- This module defines the writer used to generate lunagen bindings.
 local LunaWriter = oo.class({},ReflectionWriter)
@@ -76,7 +38,7 @@ function LunaWriter:writeClassSources()
 end
 
 --- Write the complete reflection
-function LunaWriter:writeBindings(folder)
+function LunaWriter:writeBindings()
 	local ClassExporter = require "bindings.ClassListExporter"
 	local FunctionExporter = require "bindings.FunctionListExporter"
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
@@ -86,7 +48,7 @@ function LunaWriter:writeBindings(folder)
 	local ModuleWriter = require "bindings.ModuleWriter"
 	local GlobalFunctionWriter = require "bindings.GlobalFunctionWriter"
 	
-    self:setTargetFolder(folder)
+    -- self:setTargetFolder(folder)
 	
 	local classExp = ClassExporter();
 	classExp:writeFile()
