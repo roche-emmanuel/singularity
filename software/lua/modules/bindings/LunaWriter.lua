@@ -5,6 +5,7 @@ local ReflectionWriter = require "bindings.ReflectionWriter"
 
 local Set = require "std.Set"
 local im = require "bindings.IgnoreManager"
+local rm = require "bindings.ReflectionManager"
 
 -- This module defines the writer used to generate lunagen bindings.
 local LunaWriter = oo.class({},ReflectionWriter)
@@ -13,7 +14,7 @@ LunaWriter.CLASS_NAME = "bindings.LunaWriter"
 
 function LunaWriter:__init(datamap,withConverters)
     local object = ReflectionWriter:__init(datamap) -- pass the datamap to the ReflectionWriter class.
-    object = oo.rawnew(self,object)
+    object = oo.rawnew(self,object or {})
     object:setBindingFolder("luna")
     object.implementConverters = withConverters
     return object
@@ -23,8 +24,9 @@ function LunaWriter:writeClassSources()
 	local ClassWriter = require "bindings.ClassWriter"
 	
 	local written = Set();
+	local classes = rm:getClasses();
 	
-	for _,v in self.classes:sequence() do
+	for _,v in classes:sequence() do
 		local tname = v:getTypeName()
 		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and not v:isExternal() then
 			written:push_back(tname)
@@ -47,8 +49,6 @@ function LunaWriter:writeBindings()
 	local DefineWriter = require "bindings.DefineWriter"
 	local ModuleWriter = require "bindings.ModuleWriter"
 	local GlobalFunctionWriter = require "bindings.GlobalFunctionWriter"
-	
-    -- self:setTargetFolder(folder)
 	
 	local classExp = ClassExporter();
 	classExp:writeFile()
