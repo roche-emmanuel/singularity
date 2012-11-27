@@ -595,6 +595,8 @@ function LunaWriter:writeClass(class)
 end
 
 function LunaWriter:writeClassSources()
+	local ClassWriter = require "bindings.ClassWriter"
+	
 	local written = Set();
 	
 	for _,v in self.classes:sequence() do
@@ -602,89 +604,12 @@ function LunaWriter:writeClassSources()
 		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and not v:isExternal() then
 			written:push_back(tname)
 			self:debug0_v("writing reflection for class ", v:getFullName(), " with Typename: ", tname)
-			self:writeClass(v)
+			local writer = ClassWriter{class=v}
+			writer:writeFile()
 		else
 			self:notice("Discarding reflection generation for class ", v:getFullName(), " with Typename: ", tname)
 		end
 	end
-end
-
-function LunaWriter:writeNamespaceFunctions(ns)
-	-- write all the global functions found in the given namespace:
-	local funcs = ns:getValidPublicFunctions()
-	
-	-- start with the type checkers:
-	self:writeLine("// Function checkers:")
-	self:writeForAll(funcs, typeChecker)
-	self:newLine()
-	
-	self:writeLine("// Function binds:")
-	self:writeForAll(funcs,writeBind,writeOverloadBind)
-	self:newLine()
-end
-
-function LunaWriter:writeGlobalFunctionSources()
-	self:clearContent()
-
-	--- retrieve the list of defines from the reflection map:
-	self:writeLine("#include <plug_common.h>")
-	self:newLine()
-	
-	-- register all the global functions here:
-	-- just write all the namespaces with content:
-	local namespaces = self.datamap:getAllNamespaces()
-	
-	local headers = Set();
-	for _,ns in namespaces:sequence() do
-		local functions = ns:getValidPublicFunctions()
-		for _,func in functions:sequence() do
-			local header = func:getHeaderFile()
-			if header and func:isValidForWrapping() and not im:ignoreHeader(header) and not func:isExternal() then
-				headers:push_back(header)
-			end		
-		end
-	end
-	
-	for _,v in headers:sequence() do
-		self:writeLine("#include <"..v..">")
-	end
-	self:newLine()
-	
-	for _,v in namespaces:sequence() do
-		self:writeNamespaceFunctions(v)
-	end
-	
-	
-	self:writeLine("#ifdef __cplusplus")	
-	self:writeLine('extern "C" {')
-	self:writeLine("#endif")
-	self:newLine()
-	self:writeSubLine("void register_global_functions(lua_State* L) {")
-	self:pushIndent()
-		-- Assume the parent container is already on the stack.
-		for _,v in namespaces:sequence() do
-			local funcs = v:getFunctions{"Method"}
-			local visited = Set();
-			
-			for _,func in funcs:sequence() do
-				local fname = func:getName()
-				if not visited:contains(fname) and func:isValidForWrapping() and not func:isExternal() then
-					self:writeSubLine('lua_pushcfunction(L, _bind_${1}); lua_setfield(L,-2,"${1}");',fname)
-					visited:push_back(fname)
-				end
-			end
-			 
-			--self:writeForeach(funcs,'lua_pushcfunction(L, _bind_${1}); lua_setfield(L,-2,"${1}");',getValueName)
-		end
-	self:popIndent()
-	self:writeLine("}")
-	self:newLine()
-	self:writeLine("#ifdef __cplusplus")
-	self:writeLine("}")
-	self:writeLine("#endif")
-	self:newLine()
-	
-	self:writeSource("register_global_functions.cpp")	
 end
 
 --- Write the complete reflection
@@ -696,6 +621,7 @@ function LunaWriter:writeBindings(folder)
 	local EnumWriter = require "bindings.EnumWriter"
 	local DefineWriter = require "bindings.DefineWriter"
 	local ModuleWriter = require "bindings.ModuleWriter"
+	local GlobalFunctionWriter = require "bindings.GlobalFunctionWriter"
 	
     self:setTargetFolder(folder)
 	
@@ -720,8 +646,10 @@ function LunaWriter:writeBindings(folder)
 	local modWriter = ModuleWriter();
 	modWriter:writeFile();
 	
+	local gfuncWriter = GlobalFunctionWriter()
+	gfuncWriter:writeFile();
+	
     self:writeClassSources()
-    self:writeGlobalFunctionSources()
 end
 
 return LunaWriter

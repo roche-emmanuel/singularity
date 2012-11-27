@@ -18,7 +18,8 @@ BaseWriter.CLASS_NAME = "bindings.BaseWriter"
 
 function BaseWriter:__init()
     local object = BufferWriter:__init({})
-    object = oo.rawnew(self,object)
+	object = oo.rawnew(self,object)
+	
     return object
 end
 

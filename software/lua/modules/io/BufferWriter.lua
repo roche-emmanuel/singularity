@@ -1,59 +1,45 @@
+local Class = require("classBuilder"){name="BufferWriter",bases="base.Object"};
 
-local oo = require "loop.cached"
-
-local log = require "logger"
-
-local Object = require "base.Object"
-
--- This module contains the base functions needed to support writing library bindings
-local BufferWriter = oo.class({},Object)
-
-BufferWriter.CLASS_NAME = "bindings.BufferWriter"
-
-function BufferWriter:__init()
-	local object = Object:__init({})
-    object = oo.rawnew(self,object)
-    object.content = {} -- The current content of the writer.
-    object.indent = 0 -- base intent value
-    object.tab = "\t" -- default tabulation value
-    object.keepBackup = false
-    object._TRACE_ = "BufferWritter"
-    return object
+function Class:initialize()
+    self.content = {} -- The current content of the writer.
+    self.indent = 0 -- base intent value
+    self.tab = "\t" -- default tabulation value
+    self.keepBackup = false
 end
 
 --- Fix the indent value.
 -- Set the indentation count that will be used for the next calls to the writeLine method.
 -- @param val The new indent value as integer
-function BufferWriter:setIndent(val)
+function Class:setIndent(val)
     self.indent = val
 end
 
-function BufferWriter:setKeepBackup(keep)
+function Class:setKeepBackup(keep)
 	self.keepBackup = keep
 end
 
-function BufferWriter:setTargetFolder(folder)
+function Class:setTargetFolder(folder)
     self.targetFolder = folder
 end
 
-function BufferWriter:setTargetFilename(filename)
+function Class:setTargetFilename(filename)
     self.targetFilename = filename
 end
 
 --- Push the indentation forward.
 -- Increase the indentation level by one
-function BufferWriter:pushIndent()
+function Class:pushIndent()
     self.indent = self.indent+1
 end
 
 --- Push the indentation backward.
 -- Decrease the indentation level by one. This function will ensure that the 
 -- indentation value is always >= 0.
-function BufferWriter:popIndent()
+function Class:popIndent()
     self.indent = math.max(self.indent-1,0)
 end
 
-function BufferWriter:clearContent()
+function Class:clearContent()
     self.content = {}
 end
 
@@ -61,11 +47,11 @@ end
 -- This function will simplyg contcatenate the given message on the output content
 -- with no addition formating stage.
 -- @param msg The message to be appended on the content buffer.
-function BufferWriter:appendContent(msg)
+function Class:appendContent(msg)
     table.insert(self.content,msg)
 end
 
-function BufferWriter:appendBuffer(buf)
+function Class:appendBuffer(buf)
 	for k,v in ipairs(buf.content) do
 		table.insert(self.content,v)
 	end
@@ -74,23 +60,23 @@ end
 --- Write a line on the content buffer.
 -- Write a complete line in the content buffer.
 -- @param msg The message to be written without the final new line character or the indentation prefix.
-function BufferWriter:writeLine(msg,sep)
+function Class:writeLine(msg,sep)
   self:appendContent(string.rep(self.tab,self.indent) .. msg)
   self:appendContent(sep or "\n")
 end
 
 --- Append a newline character on the content buffer.
-function BufferWriter:newLine()
+function Class:newLine()
     self:appendContent("\n")
 end
 
 --- Get writer content.
 -- return the current content buffer of the writer as a single string
-function BufferWriter:getContent()
+function Class:getContent()
     return table.concat(self.content)
 end
 
-function BufferWriter:writeSubLine(msg,...)
+function Class:writeSubLine(msg,...)
 	local str = msg
 	for id,v in ipairs({...}) do
 		str = str:gsub("%${"..id.."}",v)
@@ -98,7 +84,7 @@ function BufferWriter:writeSubLine(msg,...)
 	self:writeLine(str);
 end
 
-function BufferWriter:writeForeach(list,msg,...)
+function Class:writeForeach(list,msg,...)
 	for k,v in list:sequence() do
 		local str = msg
 		for id,func in ipairs({...}) do
@@ -108,17 +94,17 @@ function BufferWriter:writeForeach(list,msg,...)
 	end
 end
 
-function BufferWriter:replaceLastEntry(rep)
+function Class:replaceLastEntry(rep)
 	table.remove(self.content)
 	table.insert(self.content,rep)
 end
 
 --- Write the writer content to file if needed.
-function BufferWriter:writeFile(filename)
+function Class:writeFile(filename)
     local str = ""
         
     filename = (self.targetFolder or "").. (filename or self.targetFilename)
-    log:info("Writing file "..filename)
+    self:info("Writing file "..filename)
 
     local f = io.open(filename,"r")
     if f then
@@ -128,13 +114,13 @@ function BufferWriter:writeFile(filename)
     
     local content = self:getContent()
     if str == content then
-        log:info("No change in file ".. filename)
+        self:info("No change in file ".. filename)
     else
-        log:info("Updating content of ".. filename)
+        self:info("Updating content of ".. filename)
         -- now write the file:
         local f = io.open(filename,"w")
         if not f then
-        	log:error("Cannot open file ",filename," for writing. (file is locked or parent path doesnt exist ?)")
+        	self:error("Cannot open file ",filename," for writing. (file is locked or parent path doesnt exist ?)")
         	return;
         end
         f:write(content)
@@ -148,6 +134,6 @@ function BufferWriter:writeFile(filename)
     end
 end
 
-BufferWriter.append = BufferWriter.appendContent
+Class.append = Class.appendContent
 
-return BufferWriter
+return Class
