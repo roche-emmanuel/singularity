@@ -11,8 +11,8 @@ local im = require "bindings.IgnoreManager"
 
 function Class:initialize(options)
     self._scopeType = Scope.CLASS
-    self.bases = Set()
-    self.templateParameters = Vector()
+    self._bases = Set()
+    self._templateParameters = Vector()
 end
 
 function Class:getMappedType()
@@ -22,25 +22,14 @@ end
 function Class:setMappedType(type)
 	self.mappedType = type
 end
-
---- Retrieve the absolute base classes of that class.
--- The absolute bases are the root classes  with no parent
--- in the current class hierarchy. Note that when the 
--- current class as no parent, this class is considered
--- its own absolute base class. As a result, the returned Set
--- can never be empty.
--- Note that multiple base classes only occurs when using multiple
--- inheritance.
--- @param set The set of bases to extend. Should always be nil on user call (used for internal
--- recursion).
--- @return The Set of the absolute bases.  
+ 
 function Class:getAbsoluteBases(set)
 	set = set or Set()
-	for k,v in self.bases:sequence() do
+	for k,v in self._bases:sequence() do
 		v:getAbsoluteBases(set)
 	end 
 	
-	if self.bases:empty() then
+	if self._bases:empty() then
 		set:push_back(self)
 	end
 	
@@ -48,7 +37,7 @@ function Class:getAbsoluteBases(set)
 end
 
 function Class:getNumBases()
-	return self.bases:size()
+	return self._bases:size()
 end
 
 function Class:getAllAbsoluteBaseHashes()
@@ -93,7 +82,7 @@ end
 --- Retrieve the bases of this class.
 -- @return Set of bases. The Set can be empty but should never be nil.
 function Class:getBases()
-	return self.bases
+	return self._bases
 end
 
 function Class:getValidPublicConstructors()
@@ -119,13 +108,13 @@ end
 function Class:addBase(base)
 	self:check(base,"base argument is nil");
 	self:checkType(base,Class,true);	
-	self.bases:push_back(base);
+	self._bases:push_back(base);
 end
 
 --- Check if this class has at least one base class.
 -- @return True if this class has at least one base class, false otherwise.
 function Class:hasBases()
-	return not self.bases:empty()
+	return not self._bases:empty()
 end
 
 --- Return a lua compatible version of the class name.
@@ -144,7 +133,9 @@ function Class:getAbstractFunctions()
 	
 	-- First collect the abstract/non abstract functions in 
 	-- this class.
-	for _,v in self:getFunctions{"Method"}:sequence() do
+	local list = self:getFunctions{"Method"} + self:getFunctions{"Operator"}
+	
+	for _,v in list:sequence() do
 		if v:isAbstract() then
 			self:notice("Found abstract method: ",v:getFullName())
 			abstractFuncs:push_back(v)
@@ -179,46 +170,6 @@ function Class:getAbstractFunctions()
 	return abstractFuncs
 end
 
-function Class:getAbstractOperators()
-	local abstractFuncs = Set()
-	local concreteFuncs = Set()
-	
-	-- First collect the abstract/non abstract functions in 
-	-- this class.
-	for _,v in self:getFunctions{"Operator"}:sequence() do
-		if v:isAbstract() then
-			self:notice("Found abstract operator: ",v:getFullName())
-			abstractFuncs:push_back(v)
-		else
-			concreteFuncs:push_back(v)
-		end
-	end
-	 
-	-- retrieve the abstract functions inherited from each base
-	-- class:
-	for _,v in self:getBases():sequence() do
-		local baseAbstracts = v:getAbstractOperators()
-		
-		-- remove from that set the functions that have concrete 
-		-- implementation in the current derived class
-		for _,func in baseAbstracts:sequence() do
-			local isConcrete = false;
-			for _,concFunc in concreteFuncs:sequence() do
-				if func:isEqualTo(concFunc) then
-					isConcrete=true;
-					break;
-				end
-			end
-			
-			if not isConcrete then
-				abstractFuncs:push_back(func)
-			end
-		end 
-	end
-	
-	return abstractFuncs
-end
-
 --- Check if this class should be ignored.
 -- Request the IgnoreManager whever this class should be
 -- ignored or not for the bindings generation.
@@ -240,17 +191,18 @@ end
 -- for the derived Template type)
 -- @return false
 function Class:isTemplated()
-	return not self.templateParameters:empty()
+	return not self._templateParameters:empty()
 end
 
 function Class:addTemplateParameter(param)
 	self:check(param,"Invalid template parameter argument");
-	self.templateParameters:push_back(param)
+	self._templateParameters:push_back(param)
 end
 
 --- Function used to check if a class is abstract.
 function Class:isAbstract()
-	return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
+	-- return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
+	return not self:getAbstractFunctions():empty()
 end
 
 function Class:getTypeName()

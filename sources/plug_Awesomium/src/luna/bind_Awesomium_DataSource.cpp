@@ -130,8 +130,6 @@ Awesomium::DataSource* LunaTraits< Awesomium::DataSource >::_bind_ctor(lua_State
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::DataSource >::_bind_dtor(Awesomium::DataSource* obj) {

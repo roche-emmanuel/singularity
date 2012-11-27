@@ -158,8 +158,6 @@ WebViewListener::Print* LunaTraits< WebViewListener::Print >::_bind_ctor(lua_Sta
 	// void WebViewListener::Print::OnRequestPrint(Awesomium::WebView * caller)
 	// void WebViewListener::Print::OnFailPrint(Awesomium::WebView * caller, int request_id)
 	// void WebViewListener::Print::OnFinishPrint(Awesomium::WebView * caller, int request_id, const Awesomium::WebStringArray & file_list)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::Print >::_bind_dtor(WebViewListener::Print* obj) {

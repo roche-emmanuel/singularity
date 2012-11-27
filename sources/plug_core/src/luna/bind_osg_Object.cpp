@@ -641,8 +641,6 @@ osg::Object* LunaTraits< osg::Object >::_bind_ctor(lua_State *L) {
 	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
 	// const char * osg::Object::libraryName() const
 	// const char * osg::Object::className() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::Object >::_bind_dtor(osg::Object* obj) {

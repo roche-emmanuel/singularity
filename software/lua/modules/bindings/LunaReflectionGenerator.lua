@@ -1204,6 +1204,12 @@ function ReflectionGenerator.generate(options)
 
     rg:generateReflection(options.xmlpath)
 
+	local rm = require "bindings.ReflectionManager"
+	rm:setDefaultModuleName(options.modName)
+	rm:setLuaOpenName(options.luaOpenName)
+	rm:setDestFolder(options.destpath)
+	rm:setDataMap(datamap)
+	
     datamap:setModuleName(options.modName)
 	datamap:setLuaOpenName(options.luaOpenName)
 

@@ -41,4 +41,3 @@ WebViewListener::Dialog => WebViewListener::Dialog
 WebViewListener::Print => WebViewListener::Print
 WebViewListener::Download => WebViewListener::Download
 WebViewListener::InputMethodEditor => WebViewListener::InputMethodEditor
-

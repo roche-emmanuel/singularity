@@ -246,8 +246,6 @@ sgt::LogSink* LunaTraits< sgt::LogSink >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void sgt::LogSink::output(int level, std::string trace, std::string msg)
-
-	// Abstract operators:
 }
 
 void LunaTraits< sgt::LogSink >::_bind_dtor(sgt::LogSink* obj) {

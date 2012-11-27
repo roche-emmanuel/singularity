@@ -12,7 +12,7 @@ function BinderBase:__init()
 end
 
 function BinderBase:handle(writer,func,name)
-	local class = writer:getCurrentScope()
+	local class = func:getParent()
 	local cname = func:getParent():getName()
 	local fname = func:getParent():getFullName()
 	local isconstruct = func:isConstructor()

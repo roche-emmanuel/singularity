@@ -373,8 +373,6 @@ Awesomium::WebCore* LunaTraits< Awesomium::WebCore >::_bind_ctor(lua_State *L) {
 	// Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const
 	// void Awesomium::WebCore::Update()
 	// const char * Awesomium::WebCore::version_string() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::WebCore >::_bind_dtor(Awesomium::WebCore* obj) {

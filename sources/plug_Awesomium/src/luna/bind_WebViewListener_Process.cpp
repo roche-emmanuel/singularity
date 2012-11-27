@@ -150,8 +150,6 @@ WebViewListener::Process* LunaTraits< WebViewListener::Process >::_bind_ctor(lua
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
 	// void WebViewListener::Process::OnResponsive(Awesomium::WebView * caller)
 	// void WebViewListener::Process::OnCrashed(Awesomium::WebView * caller, Awesomium::TerminationStatus status)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::Process >::_bind_dtor(WebViewListener::Process* obj) {

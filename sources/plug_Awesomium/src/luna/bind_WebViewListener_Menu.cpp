@@ -133,8 +133,6 @@ WebViewListener::Menu* LunaTraits< WebViewListener::Menu >::_bind_ctor(lua_State
 	// Abstract methods:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	// void WebViewListener::Menu::OnShowContextMenu(Awesomium::WebView * caller, const Awesomium::WebContextMenuInfo & menu_info)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::Menu >::_bind_dtor(WebViewListener::Menu* obj) {

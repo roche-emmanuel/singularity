@@ -487,8 +487,6 @@ Awesomium::ResourceRequest* LunaTraits< Awesomium::ResourceRequest >::_bind_ctor
 	// void Awesomium::ResourceRequest::ClearUploadElements()
 	// void Awesomium::ResourceRequest::AppendUploadFilePath(const Awesomium::WebString & path)
 	// void Awesomium::ResourceRequest::AppendUploadBytes(const char * bytes, unsigned int num_bytes)
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::ResourceRequest >::_bind_dtor(Awesomium::ResourceRequest* obj) {

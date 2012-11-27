@@ -300,8 +300,6 @@ WebViewListener::View* LunaTraits< WebViewListener::View >::_bind_ctor(lua_State
 	// void WebViewListener::View::OnChangeCursor(Awesomium::WebView * caller, Awesomium::Cursor cursor)
 	// void WebViewListener::View::OnChangeFocus(Awesomium::WebView * caller, Awesomium::FocusedElementType focused_type)
 	// void WebViewListener::View::OnShowCreatedWebView(Awesomium::WebView * caller, Awesomium::WebView * new_view, const Awesomium::WebURL & opener_url, const Awesomium::WebURL & target_url, const Awesomium::Rect & initial_pos, bool is_popup)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::View >::_bind_dtor(WebViewListener::View* obj) {

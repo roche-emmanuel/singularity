@@ -218,8 +218,6 @@ WebViewListener::Load* LunaTraits< WebViewListener::Load >::_bind_ctor(lua_State
 	// void WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)
 	// void WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url)
 	// void WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::Load >::_bind_dtor(WebViewListener::Load* obj) {

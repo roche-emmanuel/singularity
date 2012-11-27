@@ -2109,8 +2109,6 @@ Awesomium::WebView* LunaTraits< Awesomium::WebView >::_bind_ctor(lua_State *L) {
 	// void Awesomium::WebView::DidCancelLogin(int request_id)
 	// void Awesomium::WebView::DidChooseDownloadPath(int download_id, const Awesomium::WebString & path)
 	// void Awesomium::WebView::DidCancelDownload(int download_id)
-
-	// Abstract operators:
 }
 
 void LunaTraits< Awesomium::WebView >::_bind_dtor(Awesomium::WebView* obj) {

@@ -133,8 +133,6 @@ WebViewListener::Dialog* LunaTraits< WebViewListener::Dialog >::_bind_ctor(lua_S
 	// Abstract methods:
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	// void WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)
-
-	// Abstract operators:
 }
 
 void LunaTraits< WebViewListener::Dialog >::_bind_dtor(WebViewListener::Dialog* obj) {
