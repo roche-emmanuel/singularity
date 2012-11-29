@@ -650,6 +650,7 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
     func:setConstness(mem:isConst())
     func:setStatic(mem:isStatic())
     func:setAbstract(mem:argsstring():latin1():find("=0$")~=nil)
+    func:setVirtual(mem:virtualness():latin1()~="non-virtual")
     func:setSection(mem:protection():latin1())
     func:setArgsString(mem:argsstring():latin1())
     

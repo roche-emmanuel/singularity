@@ -14,6 +14,7 @@ function Class:initialize(name)
     self.isConst = false
     self._isStatic = false
     self._isAbstract = false;
+	self._isVirtual = false;
     self._isExtension = false;
 end
 
@@ -376,6 +377,14 @@ end
 
 function Class:isExternal()
 	return tm:getFunctionModule(self)
+end
+
+function Class:setVirtual(virtual)
+	self._isVirtual = virtual;
+end
+
+function Class:isVirtual()
+	return self:isAbstract() or self._isVirtual
 end
 
 -- deprecated, for backward compatibility only
