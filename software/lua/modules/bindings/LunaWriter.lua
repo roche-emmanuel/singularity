@@ -1,68 +1,16 @@
-
-local oo = require "loop.cached"
-
-local ReflectionWriter = require "bindings.ReflectionWriter"
-local BaseWriter = require "bindings.BaseWriter"
-local Enum = require "reflection.Enum"
-local table = table
-
-local dbg = require "debugger"
-
-local log = require "logger"
-local im = require "bindings.IgnoreManager"
-local snippets = require "bindings.SnippetManager"
+local Class = require("classBuilder"){name="LunaWriter",bases="base.Object"};
 
 local Set = require "std.Set"
-local utils = require "utils"
+local im = require "bindings.IgnoreManager"
+local rm = require "bindings.ReflectionManager"
 
--- Default type checker:
-local typeChecker = require("bindings.TypeCheckerBase")()
-
-local writeOverloadBind = require("bindings.OverloadBinderBase")()
-local writeBind = require("bindings.BinderBase")()
-
-local tc = require "bindings.TypeConverter"
-local tm = require "bindings.TypeManager"
-
-local injector = require "bindings.CodeInjector"
-local corr = require "bindings.TextCorrector"
-
--- Helper function for writeForeach traversals:
-local getValueName = function(k,v)
-	return v:getFullName()
-end
-
-local getValueShortName = function(k,v)
-	return v:getName()
-end
-
-local getValueLuaName = function(k,v)
-	return v:getLuaName()
-end
-
-local getKeyName = function(k,v)
-	return k:getName()
-end
-
--- This module defines the writer used to generate lunagen bindings.
-local LunaWriter = oo.class({},ReflectionWriter)
-
-LunaWriter.CLASS_NAME = "bindings.LunaWriter"
-
-function LunaWriter:__init(datamap,withConverters)
-    local object = ReflectionWriter:__init(datamap) -- pass the datamap to the ReflectionWriter class.
-    object = oo.rawnew(self,object)
-    object:setBindingFolder("luna")
-    object.implementConverters = withConverters
-    return object
-end
-
-function LunaWriter:writeClassSources()
+function Class:writeClassSources()
 	local ClassWriter = require "bindings.ClassWriter"
 	
 	local written = Set();
+	local classes = rm:getClasses();
 	
-	for _,v in self.classes:sequence() do
+	for _,v in classes:sequence() do
 		local tname = v:getTypeName()
 		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and not v:isExternal() then
 			written:push_back(tname)
@@ -76,7 +24,7 @@ function LunaWriter:writeClassSources()
 end
 
 --- Write the complete reflection
-function LunaWriter:writeBindings(folder)
+function Class:writeBindings()
 	local ClassExporter = require "bindings.ClassListExporter"
 	local FunctionExporter = require "bindings.FunctionListExporter"
 	local MainHeaderWriter = require "bindings.MainHeaderWriter"
@@ -85,8 +33,6 @@ function LunaWriter:writeBindings(folder)
 	local DefineWriter = require "bindings.DefineWriter"
 	local ModuleWriter = require "bindings.ModuleWriter"
 	local GlobalFunctionWriter = require "bindings.GlobalFunctionWriter"
-	
-    self:setTargetFolder(folder)
 	
 	local classExp = ClassExporter();
 	classExp:writeFile()
@@ -115,5 +61,5 @@ function LunaWriter:writeBindings(folder)
     self:writeClassSources()
 end
 
-return LunaWriter
+return Class
 
