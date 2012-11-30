@@ -29,6 +29,8 @@
 #include <sstream>
 #include <fstream>
 
+#include <lua.hpp>
+
 #include <boost/any.hpp>
 #include <boost/serialization/serialization.hpp>
 #include <boost/cstdint.hpp>

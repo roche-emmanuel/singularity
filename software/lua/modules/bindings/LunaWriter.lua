@@ -23,6 +23,25 @@ function Class:writeClassSources()
 	end
 end
 
+function Class:writeClassWrappers()
+	local WrapperWriter = require "bindings.WrapperWriter"
+	
+	local written = Set();
+	local classes = rm:getClasses();
+	
+	for _,v in classes:sequence() do
+		local tname = v:getTypeName()
+		if not im:ignore(tname,"class_declaration") and not written:contains(tname) and not v:isExternal() and v:isVirtual() then
+			written:push_back(tname)
+			self:debug0_v("writing wrapper for class ", v:getFullName(), " with Typename: ", tname)
+			local writer = WrapperWriter{class=v}
+			writer:writeFile()
+		else
+			self:notice("Discarding reflection generation for class ", v:getFullName(), " with Typename: ", tname)
+		end
+	end
+end
+
 --- Write the complete reflection
 function Class:writeBindings()
 	local ClassExporter = require "bindings.ClassListExporter"
@@ -59,6 +78,8 @@ function Class:writeBindings()
 	gfuncWriter:writeFile();
 	
     self:writeClassSources()
+	
+	self:writeClassWrappers()
 end
 
 return Class
