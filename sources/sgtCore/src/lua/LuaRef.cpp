@@ -58,7 +58,7 @@ void LuaRef::unrefLuaItem() {
     lua_pop(L, 1);                    		// pop table
 }
 
-bool LuaRef::pushLuaItem() {
+bool LuaRef::pushLuaItem() const {
 	CHECK_RET(_state,false,"Invalid lua state");
 	lua_State* L = _state;
 

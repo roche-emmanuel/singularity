@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-// virtual functions:
+#include <luna/wrappers/wrapper_Awesomium_ResourceRequest.h>
 
 // void Awesomium::ResourceRequest::Cancel()
 // int Awesomium::ResourceRequest::origin_process_id()
@@ -17,5 +17,4 @@
 // void Awesomium::ResourceRequest::ClearUploadElements()
 // void Awesomium::ResourceRequest::AppendUploadFilePath(const Awesomium::WebString & path)
 // void Awesomium::ResourceRequest::AppendUploadBytes(const char * bytes, unsigned int num_bytes)
-
 

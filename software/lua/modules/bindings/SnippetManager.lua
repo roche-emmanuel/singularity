@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="Class",bases="base.Object"};
 local utils = require "utils"
 local im = require "bindings.IgnoreManager"
+local corr = require "bindings.TextCorrector"
 
 function Class:getLunaTraitsCode(className,absoluteBaseName,addition)
 	local str = [[template<>
@@ -106,6 +107,39 @@ function Class:getEqualityCode(bname,hash)
 ]]
 
 	return utils.subLine(str,bname,hash)
+end
+
+function Class:getWrapperStartCode(class)
+	local str = [[
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+${3}
+
+namespace sgt {
+
+class wrapper_${1} : public ${2} {
+protected:
+	LuaObject _obj;
+	
+public:
+	
+]]
+	
+	local wname = corr:correct("filename",class:getFullName())
+	local header = class:getHeaderFile();
+	
+	return utils.subLine(str,wname,class:getFullName(),(not header or im:ignoreHeader(header)) and "" or "#include <"..header..">")
+end
+
+function Class:getWrapperEndCode()
+	local str = [[
+};
+
+};	
+]]
+	
+	return str
 end
 
 return Class()

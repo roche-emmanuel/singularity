@@ -3,9 +3,39 @@
 
 #include <plug_common.h>
 
-// virtual functions:
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
 
-// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
+#include <Awesomium/ResourceInterceptor.h>
+
+namespace sgt {
+
+class wrapper_Awesomium_ResourceInterceptor : public Awesomium::ResourceInterceptor {
+protected:
+	LuaObject _obj;
+	
+public:
+	
+
+	wrapper_Awesomium_ResourceInterceptor(lua_State* L) : Awesomium::ResourceInterceptor(), _obj(L,-1) {};
+
+	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
+	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
+		if(_obj.pushFunction("OnRequest")) {
+			_obj.pushArg(request);
+			return (_obj.callFunction<Awesomium::ResourceResponse*>());
+		}
+
+		return Awesomium::ResourceInterceptor::OnRequest(request);
+	};
+
+
+
+
+};
+
+};	
+
 
 
 #endif

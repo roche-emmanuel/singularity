@@ -29,7 +29,7 @@ public:
 protected:
 	void refLuaItem(int index);
 	void unrefLuaItem();
-	bool pushLuaItem();
+	bool pushLuaItem() const;
 };
 
 };

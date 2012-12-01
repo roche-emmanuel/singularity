@@ -27,6 +27,7 @@
 
 using namespace boost;
 using namespace sgt;
+using namespace osg;
 
 #include <osg/UserDataContainer>
 #include <osg/State>

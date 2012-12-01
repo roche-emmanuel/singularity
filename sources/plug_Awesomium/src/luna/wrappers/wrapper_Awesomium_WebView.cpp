@@ -1,6 +1,6 @@
 #include <plug_common.h>
 
-// virtual functions:
+#include <luna/wrappers/wrapper_Awesomium_WebView.h>
 
 // void Awesomium::WebView::Destroy()
 // Awesomium::WebViewType Awesomium::WebView::type()
@@ -79,5 +79,4 @@
 // void Awesomium::WebView::DidCancelLogin(int request_id)
 // void Awesomium::WebView::DidChooseDownloadPath(int download_id, const Awesomium::WebString & path)
 // void Awesomium::WebView::DidCancelDownload(int download_id)
-
 

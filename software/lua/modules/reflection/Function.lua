@@ -273,11 +273,29 @@ function Class:getArgumentsPrototype(withNames)
 	
     for k,v in self:getParameters():sequence() do
         local def = v:getDefaultValue() and v:getDefaultValue():getName()
-        local name = v:getName() .. (def and " = "..def or "")
+        local name = v:getName() 
+		name = name=="" and "arg"..k or name
+		name = name .. (def and " = "..def or "")
         sig = sig.. v:getType():getName() .. (withNames and (" ".. name) or "") .. (k<num and ", " or "")
     end
     
     return sig;
+end
+
+function Class:getArgumentNames()
+	local sig = {};
+	local num = self:getParameters():size();
+	
+	if num==0 then
+		return "";
+	end
+	
+    for k,v in self:getParameters():sequence() do
+		local name = v:getName()
+        table.insert(sig,name=="" and "arg"..k or name)
+    end
+    
+    return table.concat(sig,", ");
 end
 
 --- Generate function prototype:

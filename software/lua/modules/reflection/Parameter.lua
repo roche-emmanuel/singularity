@@ -1,9 +1,16 @@
 local Class = require("classBuilder"){name="Parameter",bases="reflection.Entity"};
 
+local Entity = require "reflection.Entity"
+
 function Class:initialize(options)
     self:setType(options.type)
     self:setName(options.name)
     self:setDefaultValue(options.defVal)
+end
+
+function Class:getName()
+	local name = Entity.getName(self)
+	return name=="int" and "" or name -- bug correction for improper parameter name.
 end
 
 --- Assign the type of this parameter

@@ -3,9 +3,37 @@
 
 #include <plug_common.h>
 
-// virtual functions:
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
 
-// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
+#include <Awesomium/DataSource.h>
+
+namespace sgt {
+
+class wrapper_Awesomium_DataSource : public Awesomium::DataSource {
+protected:
+	LuaObject _obj;
+	
+public:
+	
+
+	wrapper_Awesomium_DataSource(lua_State* L) : Awesomium::DataSource(), _obj(L,-1) {};
+
+	// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
+	void OnRequest(int request_id, const Awesomium::WebString & path) {
+		THROW_IF(!_obj.pushFunction("OnRequest"),"No implementation for abstract function Awesomium::DataSource::OnRequest");
+		_obj.pushArg(request_id);
+		_obj.pushArg(&path);
+		return (_obj.callFunction<void>());
+	};
+
+
+
+
+};
+
+};	
+
 
 
 #endif
