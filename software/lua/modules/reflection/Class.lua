@@ -8,6 +8,7 @@ local utils = require "utils"
 
 local tm = require "bindings.TypeManager"
 local im = require "bindings.IgnoreManager"
+local ItemSet = require "reflection.ItemSet"
 
 function Class:initialize(options)
     self._scopeType = Scope.CLASS
@@ -170,6 +171,43 @@ function Class:getAbstractFunctions()
 	return abstractFuncs
 end
 
+function Class:getVirtualFunctions()
+
+	-- find all the non virtual functions in this class:
+	local overrideFuncs = self:getFunctions{"Method"} + self:getFunctions{"Operator"}
+
+	local virtualFuncs = ItemSet(); -- result set.
+	
+	local baseVirtuals = ItemSet();
+	
+	for _,v in self:getBases():sequence() do
+		baseVirtuals:append(v:getVirtualFunctions()) 
+	end
+	
+	-- remove from that set the functions that have an override
+	-- implementation in the current derived class
+	for _,func in baseVirtuals:sequence() do
+		local isOverriden = false;
+		for _,concFunc in overrideFuncs:sequence() do
+			if func:isEqualTo(concFunc) then
+				isOverriden=true;
+				self:notice("Found non override implementation for : ",func:getFullName())
+				break;
+			end
+		end
+		
+		if not isOverriden then
+			virtualFuncs:push_back(func)
+		end
+	end
+	
+	-- Non add the local virtual functions and operators:
+	virtualFuncs:append(self:getFunctions{"Method","Virtual"});
+	virtualFuncs:append(self:getFunctions{"Operator","Virtual"});
+	
+	return virtualFuncs
+end
+
 --- Check if this class should be ignored.
 -- Request the IgnoreManager whever this class should be
 -- ignored or not for the bindings generation.
@@ -205,6 +243,11 @@ function Class:isAbstract()
 	return not self:getAbstractFunctions():empty()
 end
 
+function Class:isVirtual()
+	-- return not self:getAbstractFunctions():empty() or not self:getAbstractOperators():empty()
+	return not self:getVirtualFunctions():empty()
+end
+
 function Class:getTypeName()
 	return self:getMappedType() and self:getMappedType():getName() or self:getFullName()
 end
@@ -228,5 +271,7 @@ end
 function Class:isExternal()
 	return self.externalModule or tm:getModule(self)
 end
+
+
 
 return Class

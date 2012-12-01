@@ -203,11 +203,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Object::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Object::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Object::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -229,11 +229,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::Object::isSameKindAs(const osg::Object * ) const
+	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Object::isSameKindAs(const osg::Object * ) const function, expected prototype:\nbool osg::Object::isSameKindAs(const osg::Object * ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Object::isSameKindAs(const osg::Object * arg1) const function, expected prototype:\nbool osg::Object::isSameKindAs(const osg::Object * arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
@@ -589,30 +589,30 @@ public:
 		return 0;
 	}
 
-	// void osg::Object::resizeGLObjectBuffers(unsigned int)
+	// void osg::Object::resizeGLObjectBuffers(unsigned int arg1)
 	static int _bind_resizeGLObjectBuffers(lua_State *L) {
 		if (!_lg_typecheck_resizeGLObjectBuffers(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Object::resizeGLObjectBuffers(unsigned int) function, expected prototype:\nvoid osg::Object::resizeGLObjectBuffers(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Object::resizeGLObjectBuffers(unsigned int arg1) function, expected prototype:\nvoid osg::Object::resizeGLObjectBuffers(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Object::resizeGLObjectBuffers(unsigned)");
+			luaL_error(L, "Invalid object in function call void osg::Object::resizeGLObjectBuffers(unsigned int)");
 		}
 		self->resizeGLObjectBuffers(_arg1);
 
 		return 0;
 	}
 
-	// void osg::Object::releaseGLObjects(osg::State *  = 0) const
+	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Object::releaseGLObjects(osg::State *  = 0) const function, expected prototype:\nvoid osg::Object::releaseGLObjects(osg::State *  = 0) const\nClass arguments details:\narg 1 ID = 89979598\n");
+			luaL_error(L, "luna typecheck failed in void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Object::releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 89979598\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -638,7 +638,7 @@ osg::Object* LunaTraits< osg::Object >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 	// const char * osg::Object::libraryName() const
 	// const char * osg::Object::className() const
 }

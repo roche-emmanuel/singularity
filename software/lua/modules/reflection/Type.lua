@@ -271,6 +271,9 @@ function Class:getName()
 		--if not self._fullName then
 			--self:parse()
 		--end
+		if self._fullName == "unsigned" then
+			return "unsigned int" -- correction of incorrect type name.
+		end
 		
 		return self._fullName;
 	else

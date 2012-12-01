@@ -268,11 +268,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * sgt::TimeProvider::clone(const osg::CopyOp & ) const
+	// osg::Object * sgt::TimeProvider::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone_overload_2(lua_State *L) {
 		if (!_lg_typecheck_clone_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * sgt::TimeProvider::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * sgt::TimeProvider::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * sgt::TimeProvider::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * sgt::TimeProvider::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

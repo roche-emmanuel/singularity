@@ -206,11 +206,11 @@ public:
 		return new osg::Referenced(threadSafeRefUnref);
 	}
 
-	// osg::Referenced::Referenced(const osg::Referenced & )
+	// osg::Referenced::Referenced(const osg::Referenced & arg1)
 	static osg::Referenced* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Referenced::Referenced(const osg::Referenced & ) function, expected prototype:\nosg::Referenced::Referenced(const osg::Referenced & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Referenced::Referenced(const osg::Referenced & arg1) function, expected prototype:\nosg::Referenced::Referenced(const osg::Referenced & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Referenced* _arg1_ptr=(Luna< osg::Referenced >::check(L,1));

@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="GlobalFunctionWriter",bases="bindings.FunctionWriter"};
+local Class = require("classBuilder"){name="ClassWriter",bases="bindings.FunctionWriter"};
 
 local rm = require "bindings.ReflectionManager"
 local tm = require "bindings.TypeManager"

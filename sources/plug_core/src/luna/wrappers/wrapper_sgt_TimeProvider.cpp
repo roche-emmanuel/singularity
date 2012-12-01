@@ -1,0 +1,19 @@
+#include <plug_common.h>
+
+#include <luna/wrappers/wrapper_sgt_TimeProvider.h>
+
+// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+// void osg::Object::setName(const std::string & name)
+// void osg::Object::computeDataVariance()
+// void osg::Object::setUserData(osg::Referenced * obj)
+// osg::Referenced * osg::Object::getUserData()
+// const osg::Referenced * osg::Object::getUserData() const
+// void osg::Object::resizeGLObjectBuffers(unsigned int arg1)
+// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
+// osg::Object * sgt::TimeProvider::cloneType() const
+// osg::Object * sgt::TimeProvider::clone() const
+// osg::Object * sgt::TimeProvider::clone(const osg::CopyOp & arg1) const
+// bool sgt::TimeProvider::isSameKindAs(const osg::Object * obj) const
+// const char * sgt::TimeProvider::libraryName() const
+// const char * sgt::TimeProvider::className() const
+
