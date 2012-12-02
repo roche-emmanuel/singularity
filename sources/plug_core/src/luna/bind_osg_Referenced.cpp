@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Referenced.h>
+
 class luna_wrapper_osg_Referenced {
 public:
 	typedef Luna< osg::Referenced > luna_t;
@@ -72,6 +74,30 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -222,13 +248,55 @@ public:
 		return new osg::Referenced(_arg1);
 	}
 
+	// osg::Referenced::Referenced(lua_Table * data)
+	static osg::Referenced* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced::Referenced(lua_Table * data) function, expected prototype:\nosg::Referenced::Referenced(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Referenced(L,NULL);
+	}
+
+	// osg::Referenced::Referenced(lua_Table * data, bool threadSafeRefUnref)
+	static osg::Referenced* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced::Referenced(lua_Table * data, bool threadSafeRefUnref) function, expected prototype:\nosg::Referenced::Referenced(lua_Table * data, bool threadSafeRefUnref)\nClass arguments details:\n");
+		}
+
+		bool threadSafeRefUnref=(bool)(lua_toboolean(L,2)==1);
+
+		return new wrapper_osg_Referenced(L,NULL, threadSafeRefUnref);
+	}
+
+	// osg::Referenced::Referenced(lua_Table * data, const osg::Referenced & arg2)
+	static osg::Referenced* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced::Referenced(lua_Table * data, const osg::Referenced & arg2) function, expected prototype:\nosg::Referenced::Referenced(lua_Table * data, const osg::Referenced & arg2)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::Referenced* _arg2_ptr=(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::Referenced::Referenced function");
+		}
+		const osg::Referenced & _arg2=*_arg2_ptr;
+
+		return new wrapper_osg_Referenced(L,NULL, _arg2);
+	}
+
 	// Overload binder for osg::Referenced::Referenced
 	static osg::Referenced* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function Referenced, cannot match any of the overloads for function Referenced:\n  Referenced()\n  Referenced(bool)\n  Referenced(const osg::Referenced &)\n");
+		luaL_error(L, "error in function Referenced, cannot match any of the overloads for function Referenced:\n  Referenced()\n  Referenced(bool)\n  Referenced(const osg::Referenced &)\n  Referenced(lua_Table *)\n  Referenced(lua_Table *, bool)\n  Referenced(lua_Table *, const osg::Referenced &)\n");
 		return NULL;
 	}
 

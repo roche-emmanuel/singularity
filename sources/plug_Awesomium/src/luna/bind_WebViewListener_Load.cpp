@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_WebViewListener_Load.h>
+
 class luna_wrapper_WebViewListener_Load {
 public:
 	typedef Luna< WebViewListener::Load > luna_t;

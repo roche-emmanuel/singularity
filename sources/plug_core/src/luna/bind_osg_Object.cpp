@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Object.h>
+
 class luna_wrapper_osg_Object {
 public:
 	typedef Luna< osg::Object > luna_t;

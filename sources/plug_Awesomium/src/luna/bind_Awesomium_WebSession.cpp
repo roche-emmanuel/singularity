@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_WebSession.h>
+
 class luna_wrapper_Awesomium_WebSession {
 public:
 	typedef Luna< Awesomium::WebSession > luna_t;

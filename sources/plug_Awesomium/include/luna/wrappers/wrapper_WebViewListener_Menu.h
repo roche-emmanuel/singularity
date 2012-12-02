@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_Menu : public WebViewListener::Menu {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_Menu(lua_State* L) : WebViewListener::Menu(), _obj(L,-1) {};
+	wrapper_WebViewListener_Menu(lua_State* L, lua_Table* dum) : WebViewListener::Menu(), _obj(L,-1) {};
 
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	void OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info) {
@@ -40,7 +38,6 @@ public:
 
 };
 
-};	
 
 
 

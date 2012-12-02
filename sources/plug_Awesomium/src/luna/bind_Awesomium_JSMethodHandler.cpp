@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_JSMethodHandler.h>
+
 class luna_wrapper_Awesomium_JSMethodHandler {
 public:
 	typedef Luna< Awesomium::JSMethodHandler > luna_t;

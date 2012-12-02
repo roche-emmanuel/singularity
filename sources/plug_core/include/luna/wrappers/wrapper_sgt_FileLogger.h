@@ -8,17 +8,15 @@
 
 #include <log/FileLogger.h>
 
-namespace sgt {
-
 class wrapper_sgt_FileLogger : public sgt::FileLogger {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_FileLogger(lua_State* L) : sgt::FileLogger(), _obj(L,-1) {};
-	wrapper_sgt_FileLogger(lua_State* L, const std::string & filename, bool append = false, const std::string & name = "") : sgt::FileLogger(filename, append, name), _obj(L,-1) {};
+	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum) : sgt::FileLogger(), _obj(L,-1) {};
+	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum, const std::string & filename, bool append = false, const std::string & name = "") : sgt::FileLogger(filename, append, name), _obj(L,-1) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -59,7 +57,6 @@ public:
 
 };
 
-};	
 
 
 

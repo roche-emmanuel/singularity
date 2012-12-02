@@ -8,16 +8,14 @@
 
 #include <Awesomium/JSObject.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_JSMethodHandler : public Awesomium::JSMethodHandler {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_JSMethodHandler(lua_State* L) : Awesomium::JSMethodHandler(), _obj(L,-1) {};
+	wrapper_Awesomium_JSMethodHandler(lua_State* L, lua_Table* dum) : Awesomium::JSMethodHandler(), _obj(L,-1) {};
 
 	// void Awesomium::JSMethodHandler::OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args)
 	void OnMethodCall(Awesomium::WebView * caller, unsigned int remote_object_id, const Awesomium::WebString & method_name, const Awesomium::JSArray & args) {
@@ -44,7 +42,6 @@ public:
 
 };
 
-};	
 
 
 

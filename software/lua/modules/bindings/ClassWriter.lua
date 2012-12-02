@@ -46,6 +46,13 @@ function Class:writeFile()
 	end
 
 	if not external then
+		if class:isVirtual() then 
+			buf:writeLine("#include <luna/wrappers/wrapper_".. wname ..".h>")
+			buf:newLine()
+			
+			class:addWrapperConstructors()
+		end
+		
 		buf:writeSubLine("class luna_wrapper_${1} {",wname) --cshortname)
 		buf:writeLine("public:")
 		buf:pushIndent()
@@ -78,6 +85,7 @@ function Class:writeFile()
 		local typeChecker = self._typeChecker
 		local writeBind = self._writeBind
 		local writeOverloadBind = self._writeOverloadBind
+		
 		
 		if not class:isAbstract() then
 			buf:writeLine("// Constructor checkers:")

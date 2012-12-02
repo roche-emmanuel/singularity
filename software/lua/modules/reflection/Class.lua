@@ -272,6 +272,42 @@ function Class:isExternal()
 	return self.externalModule or tm:getModule(self)
 end
 
+function Class:addWrapperConstructors()
+	self:check(self._wrappersLoaded==nil,"Wrappers were already loaded.");
+	
+	local Type = require "reflection.Type"
+	local Vector = require "std.Vector"
+	local ItemLink = require "reflection.ItemLink"
+	local Parameter = require "reflection.Parameter"
+	
+	-- Add the new constructors to the list:
+	local cons = self:getValidPublicConstructors()
+	local newCons = Set();
+	
+	local link = ItemLink("lua_Table *")
+	local links = Vector()
+	links:push_back(link)
+			
+	local ptype = Type{links=links}
+	ptype:parse();
+	
+	local param = Parameter{type=ptype,name="data"};
+	
+	for _,func in cons:sequence() do
+		local ncons = func:clone()
+		ncons:setWrapper(true);
+		ncons:getParameters():push_front(param)
+		
+		newCons:push_back(ncons)
+	end
+	
+	for  _,func in newCons:sequence() do 
+		self:addFunction(func)
+	end
+	
+	self._wrappersLoaded = true;
+end
+
 
 
 return Class

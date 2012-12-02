@@ -8,18 +8,16 @@
 
 #include <osg/Object>
 
-namespace sgt {
-
 class wrapper_osg_Object : public osg::Object {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_osg_Object(lua_State* L) : osg::Object(), _obj(L,-1) {};
-	wrapper_osg_Object(lua_State* L, bool threadSafeRefUnref) : osg::Object(threadSafeRefUnref), _obj(L,-1) {};
-	wrapper_osg_Object(lua_State* L, const osg::Object & arg1, const osg::CopyOp & copyop = CopyOp::SHALLOW_COPY) : osg::Object(arg1, copyop), _obj(L,-1) {};
+	wrapper_osg_Object(lua_State* L, lua_Table* dum) : osg::Object(), _obj(L,-1) {};
+	wrapper_osg_Object(lua_State* L, lua_Table* dum, bool threadSafeRefUnref) : osg::Object(threadSafeRefUnref), _obj(L,-1) {};
+	wrapper_osg_Object(lua_State* L, lua_Table* dum, const osg::Object & arg1, const osg::CopyOp & copyop = CopyOp::SHALLOW_COPY) : osg::Object(arg1, copyop), _obj(L,-1) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -47,13 +45,13 @@ public:
 	// const char * osg::Object::libraryName() const
 	const char * libraryName() const {
 		THROW_IF(!_obj.pushFunction("libraryName"),"No implementation for abstract function osg::Object::libraryName");
-		return (_obj.callFunction<char*>());
+		return (_obj.callFunction<const char*>());
 	};
 
 	// const char * osg::Object::className() const
 	const char * className() const {
 		THROW_IF(!_obj.pushFunction("className"),"No implementation for abstract function osg::Object::className");
-		return (_obj.callFunction<char*>());
+		return (_obj.callFunction<const char*>());
 	};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
@@ -69,7 +67,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
-			_obj.pushArg(&name);
+			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
 
@@ -107,7 +105,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
-			return (_obj.callFunction<osg::Referenced*>());
+			return (_obj.callFunction<const osg::Referenced*>());
 		}
 
 		return osg::Object::getUserData();
@@ -138,7 +136,6 @@ public:
 
 };
 
-};	
 
 
 

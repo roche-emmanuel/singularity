@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_FileLogger.h>
+
 class luna_wrapper_sgt_FileLogger {
 public:
 	typedef Luna< sgt::FileLogger > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -120,12 +140,41 @@ public:
 		return new sgt::FileLogger(filename, append, name);
 	}
 
+	// sgt::FileLogger::FileLogger(lua_Table * data)
+	static sgt::FileLogger* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data) function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_sgt_FileLogger(L,NULL);
+	}
+
+	// sgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = "")
+	static sgt::FileLogger* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\") function, expected prototype:\nsgt::FileLogger::FileLogger(lua_Table * data, const std::string & filename, bool append = false, const std::string & name = \"\")\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+		std::string name(lua_tostring(L,4),lua_objlen(L,4));
+
+		return new wrapper_sgt_FileLogger(L,NULL, filename, append, name);
+	}
+
 	// Overload binder for sgt::FileLogger::FileLogger
 	static sgt::FileLogger* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function FileLogger, cannot match any of the overloads for function FileLogger:\n  FileLogger()\n  FileLogger(const std::string &, bool, const std::string &)\n");
+		luaL_error(L, "error in function FileLogger, cannot match any of the overloads for function FileLogger:\n  FileLogger()\n  FileLogger(const std::string &, bool, const std::string &)\n  FileLogger(lua_Table *)\n  FileLogger(lua_Table *, const std::string &, bool, const std::string &)\n");
 		return NULL;
 	}
 

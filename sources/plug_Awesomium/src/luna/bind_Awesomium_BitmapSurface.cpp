@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_BitmapSurface.h>
+
 class luna_wrapper_Awesomium_BitmapSurface {
 public:
 	typedef Luna< Awesomium::BitmapSurface > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -149,8 +160,8 @@ public:
 
 	// Constructor binds:
 	// Awesomium::BitmapSurface::BitmapSurface(int width, int height)
-	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static Awesomium::BitmapSurface* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(int width, int height)\nClass arguments details:\n");
 		}
@@ -159,6 +170,28 @@ public:
 		int height=(int)lua_tointeger(L,2);
 
 		return new Awesomium::BitmapSurface(width, height);
+	}
+
+	// Awesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height)
+	static Awesomium::BitmapSurface* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height)\nClass arguments details:\n");
+		}
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+
+		return new wrapper_Awesomium_BitmapSurface(L,NULL, width, height);
+	}
+
+	// Overload binder for Awesomium::BitmapSurface::BitmapSurface
+	static Awesomium::BitmapSurface* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function BitmapSurface, cannot match any of the overloads for function BitmapSurface:\n  BitmapSurface(int, int)\n  BitmapSurface(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 

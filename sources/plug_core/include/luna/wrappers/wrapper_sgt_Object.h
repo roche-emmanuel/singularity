@@ -8,18 +8,16 @@
 
 #include <base/Object.h>
 
-namespace sgt {
-
 class wrapper_sgt_Object : public sgt::Object {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_Object(lua_State* L) : sgt::Object(), _obj(L,-1) {};
-	wrapper_sgt_Object(lua_State* L, const sgt::Object & rhs) : sgt::Object(rhs), _obj(L,-1) {};
-	wrapper_sgt_Object(lua_State* L, const sgt::Object & rhs, const osg::CopyOp & copyop) : sgt::Object(rhs, copyop), _obj(L,-1) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum) : sgt::Object(), _obj(L,-1) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs) : sgt::Object(rhs), _obj(L,-1) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs, const osg::CopyOp & copyop) : sgt::Object(rhs, copyop), _obj(L,-1) {};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -34,7 +32,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
-			_obj.pushArg(&name);
+			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
 
@@ -72,7 +70,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
-			return (_obj.callFunction<osg::Referenced*>());
+			return (_obj.callFunction<const osg::Referenced*>());
 		}
 
 		return osg::Object::getUserData();
@@ -139,7 +137,7 @@ public:
 	// const char * sgt::Object::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
-			return (_obj.callFunction<char*>());
+			return (_obj.callFunction<const char*>());
 		}
 
 		return sgt::Object::libraryName();
@@ -148,7 +146,7 @@ public:
 	// const char * sgt::Object::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
-			return (_obj.callFunction<char*>());
+			return (_obj.callFunction<const char*>());
 		}
 
 		return sgt::Object::className();
@@ -159,7 +157,6 @@ public:
 
 };
 
-};	
 
 
 

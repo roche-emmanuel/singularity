@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_WebViewListener_Print.h>
+
 class luna_wrapper_WebViewListener_Print {
 public:
 	typedef Luna< WebViewListener::Print > luna_t;

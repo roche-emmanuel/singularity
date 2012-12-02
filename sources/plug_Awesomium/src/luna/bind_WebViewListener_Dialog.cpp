@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_WebViewListener_Dialog.h>
+
 class luna_wrapper_WebViewListener_Dialog {
 public:
 	typedef Luna< WebViewListener::Dialog > luna_t;

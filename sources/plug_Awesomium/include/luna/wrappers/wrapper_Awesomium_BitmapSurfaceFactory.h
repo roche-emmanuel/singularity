@@ -8,16 +8,14 @@
 
 #include <Awesomium/BitmapSurface.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_BitmapSurfaceFactory : public Awesomium::BitmapSurfaceFactory {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_BitmapSurfaceFactory(lua_State* L) : Awesomium::BitmapSurfaceFactory(), _obj(L,-1) {};
+	wrapper_Awesomium_BitmapSurfaceFactory(lua_State* L, lua_Table* dum) : Awesomium::BitmapSurfaceFactory(), _obj(L,-1) {};
 
 	// Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	Awesomium::Surface * CreateSurface(Awesomium::WebView * view, int width, int height) {
@@ -46,7 +44,6 @@ public:
 
 };
 
-};	
 
 
 

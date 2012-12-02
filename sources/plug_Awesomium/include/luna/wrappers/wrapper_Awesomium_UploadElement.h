@@ -8,16 +8,14 @@
 
 #include <Awesomium/ResourceInterceptor.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_UploadElement : public Awesomium::UploadElement {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_UploadElement(lua_State* L) : Awesomium::UploadElement(), _obj(L,-1) {};
+	wrapper_Awesomium_UploadElement(lua_State* L, lua_Table* dum) : Awesomium::UploadElement(), _obj(L,-1) {};
 
 	// bool Awesomium::UploadElement::IsFilePath() const
 	bool IsFilePath() const {
@@ -40,7 +38,7 @@ public:
 	// const unsigned char * Awesomium::UploadElement::bytes() const
 	const unsigned char * bytes() const {
 		THROW_IF(!_obj.pushFunction("bytes"),"No implementation for abstract function Awesomium::UploadElement::bytes");
-		return (_obj.callFunction<unsigned char*>());
+		return (_obj.callFunction<const unsigned char*>());
 	};
 
 	// Awesomium::WebString Awesomium::UploadElement::file_path() const
@@ -54,7 +52,6 @@ public:
 
 };
 
-};	
 
 
 

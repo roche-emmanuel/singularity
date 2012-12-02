@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_DataPakSource.h>
+
 class luna_wrapper_Awesomium_DataPakSource {
 public:
 	typedef Luna< Awesomium::DataPakSource > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isstring(L,1)==0) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isstring(L,2)==0) ) return false;
 		return true;
 	}
 
@@ -63,8 +73,8 @@ public:
 
 	// Constructor binds:
 	// Awesomium::DataPakSource::DataPakSource(const Awesomium::WebString & pak_path)
-	static Awesomium::DataPakSource* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static Awesomium::DataPakSource* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in Awesomium::DataPakSource::DataPakSource(const Awesomium::WebString & pak_path) function, expected prototype:\nAwesomium::DataPakSource::DataPakSource(const Awesomium::WebString & pak_path)\nClass arguments details:\narg 1 ID = 13938525\n");
 		}
@@ -73,6 +83,28 @@ public:
 		Awesomium::WebString pak_path = Awesomium::ToWebString(pak_path_str);
 
 		return new Awesomium::DataPakSource(pak_path);
+	}
+
+	// Awesomium::DataPakSource::DataPakSource(lua_Table * data, const Awesomium::WebString & pak_path)
+	static Awesomium::DataPakSource* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in Awesomium::DataPakSource::DataPakSource(lua_Table * data, const Awesomium::WebString & pak_path) function, expected prototype:\nAwesomium::DataPakSource::DataPakSource(lua_Table * data, const Awesomium::WebString & pak_path)\nClass arguments details:\narg 2 ID = 13938525\n");
+		}
+
+		std::string pak_path_str(lua_tostring(L,2),lua_objlen(L,2));
+		Awesomium::WebString pak_path = Awesomium::ToWebString(pak_path_str);
+
+		return new wrapper_Awesomium_DataPakSource(L,NULL, pak_path);
+	}
+
+	// Overload binder for Awesomium::DataPakSource::DataPakSource
+	static Awesomium::DataPakSource* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function DataPakSource, cannot match any of the overloads for function DataPakSource:\n  DataPakSource(const Awesomium::WebString &)\n  DataPakSource(lua_Table *, const Awesomium::WebString &)\n");
+		return NULL;
 	}
 
 

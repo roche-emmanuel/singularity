@@ -20,26 +20,39 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L) : ${2}(), _obj(L,-1) {};",wname,cname)			
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)			
 	end	
+end
+
+function Class:pushParam(param,k)
+	local rt = param:getType()
+	local name = param:getName()
+	name = name=="" and "arg"..k or name
+	if rt:isString() then
+		-- do nothing.
+	elseif rt:getName() == "unsigned char *" then
+		name = "(void*)"..name
+	else
+		name = (rt:isReference() and "&" or "") .. name
+	end
+	
+	self:writeSubLine("_obj.pushArg(${1});",name)
 end
 
 function Class:writeFunctionCall(func)
 	local params = func:getParameters()
 	
 	for k,param in params:sequence() do
-		local name = param:getName()
-		name = name=="" and "arg"..k or name
-		local rt = param:getType()
-		name = (rt:isReference() and "&" or "") .. name
-		self:writeSubLine("_obj.pushArg(${1});",name)
+		self:pushParam(param,k)
 	end
 	
 	local rt = func:getReturnType()
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
 	local conv = rt:isEnum() and "("..rtype..")" or ""
+	rtype = rt:isConst() and "const "..rtype or rtype
+	
 	rtype = rt:isEnum() and "int" or rtype
 	self:writeSubLine("return ${3}${2}(_obj.callFunction<${1}>());",rtype,(rt:isClass() and not rt:isPointer()) and "*" or "",conv);
 end
@@ -95,10 +108,12 @@ function Class:writeHeader()
 	
 	if constructors:empty() then
 		-- write the default constructor:
-		buf:writeSubLine("wrapper_${1}(lua_State* L) : ${2}(), _obj(L,-1) {};",wname,cname)
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)
 	else
 		for _,cons in constructors:sequence() do
-			self:writeConstructor(cons)
+			if not cons:isWrapper() then
+				self:writeConstructor(cons)
+			end
 		end
 	end
 	buf:newLine();

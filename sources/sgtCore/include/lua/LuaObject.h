@@ -26,7 +26,7 @@ struct remove_pointer<T*>
 };
 
 
-class LuaObject : public sgt::LuaRef {
+class SGTCORE_EXPORT LuaObject : public sgt::LuaRef {
 protected:
 	mutable int _nargs;
 
@@ -60,6 +60,12 @@ public:
 		Luna< ArgType >::push(_state,arg,false);
 	};
 
+	template <typename ArgType>
+	void pushArg(const ArgType* arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg,false);
+	};
+
 	void pushArg(bool arg) const {
 		++_nargs;
 		lua_pushboolean(_state,arg?1:0);
@@ -89,7 +95,6 @@ public:
 		++_nargs;
 		lua_pushlstring(_state,arg.data(),arg.size());
 	}
-
 
 	/*template < typename ResultType >
 	ResultType callFunction() {
@@ -179,6 +184,17 @@ public:
 		String res = lua_tostring(_state,-1);
 		lua_pop(_state,1);
 		return res;
+	}
+
+	template <>
+	const char* callFunction() const {
+		lua_call(_state,_nargs,1);
+		reset();
+
+		// Retrieve the result from the stack:
+		String res = lua_tostring(_state,-1);
+		lua_pop(_state,1);
+		return res.c_str();
 	}
 };
 

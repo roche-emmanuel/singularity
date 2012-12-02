@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_Print : public WebViewListener::Print {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_Print(lua_State* L) : WebViewListener::Print(), _obj(L,-1) {};
+	wrapper_WebViewListener_Print(lua_State* L, lua_Table* dum) : WebViewListener::Print(), _obj(L,-1) {};
 
 	// void WebViewListener::Print::OnRequestPrint(Awesomium::WebView * caller)
 	void OnRequestPrint(Awesomium::WebView * caller) {
@@ -48,7 +46,6 @@ public:
 
 };
 
-};	
 
 
 

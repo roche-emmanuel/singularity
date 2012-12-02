@@ -8,16 +8,14 @@
 
 #include <Awesomium/DataPak.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_DataPakSource : public Awesomium::DataPakSource {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_DataPakSource(lua_State* L, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), _obj(L,-1) {};
+	wrapper_Awesomium_DataPakSource(lua_State* L, lua_Table* dum, const Awesomium::WebString & pak_path) : Awesomium::DataPakSource(pak_path), _obj(L,-1) {};
 
 	// void Awesomium::DataPakSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {
@@ -35,7 +33,6 @@ public:
 
 };
 
-};	
 
 
 

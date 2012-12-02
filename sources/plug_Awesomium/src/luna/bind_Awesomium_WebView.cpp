@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_WebView.h>
+
 class luna_wrapper_Awesomium_WebView {
 public:
 	typedef Luna< Awesomium::WebView > luna_t;

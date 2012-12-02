@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_WebViewListener_InputMethodEditor.h>
+
 class luna_wrapper_WebViewListener_InputMethodEditor {
 public:
 	typedef Luna< WebViewListener::InputMethodEditor > luna_t;

@@ -116,11 +116,9 @@ function Class:getWrapperStartCode(class)
 
 ${3}
 
-namespace sgt {
-
 class wrapper_${1} : public ${2} {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
@@ -136,7 +134,6 @@ function Class:getWrapperEndCode()
 	local str = [[
 };
 
-};	
 ]]
 	
 	return str

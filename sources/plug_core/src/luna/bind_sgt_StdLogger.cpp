@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_StdLogger.h>
+
 class luna_wrapper_sgt_StdLogger {
 public:
 	typedef Luna< sgt::StdLogger > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -65,8 +76,8 @@ public:
 
 	// Constructor binds:
 	// sgt::StdLogger::StdLogger(const std::string & name = "")
-	static sgt::StdLogger* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static sgt::StdLogger* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in sgt::StdLogger::StdLogger(const std::string & name = \"\") function, expected prototype:\nsgt::StdLogger::StdLogger(const std::string & name = \"\")\nClass arguments details:\n");
 		}
@@ -76,6 +87,29 @@ public:
 		std::string name(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new sgt::StdLogger(name);
+	}
+
+	// sgt::StdLogger::StdLogger(lua_Table * data, const std::string & name = "")
+	static sgt::StdLogger* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::StdLogger::StdLogger(lua_Table * data, const std::string & name = \"\") function, expected prototype:\nsgt::StdLogger::StdLogger(lua_Table * data, const std::string & name = \"\")\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_sgt_StdLogger(L,NULL, name);
+	}
+
+	// Overload binder for sgt::StdLogger::StdLogger
+	static sgt::StdLogger* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StdLogger, cannot match any of the overloads for function StdLogger:\n  StdLogger(const std::string &)\n  StdLogger(lua_Table *, const std::string &)\n");
+		return NULL;
 	}
 
 

@@ -8,16 +8,14 @@
 
 #include <log/LogSink.h>
 
-namespace sgt {
-
 class wrapper_sgt_LogSink : public sgt::LogSink {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_LogSink(lua_State* L, const std::string & name = "") : sgt::LogSink(name), _obj(L,-1) {};
+	wrapper_sgt_LogSink(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::LogSink(name), _obj(L,-1) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -55,7 +53,6 @@ public:
 
 };
 
-};	
 
 
 
