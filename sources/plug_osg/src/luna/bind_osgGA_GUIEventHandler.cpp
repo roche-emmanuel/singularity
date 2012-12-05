@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_GUIEventHandler.h>
+
 class luna_wrapper_osgGA_GUIEventHandler {
 public:
 	typedef Luna< osgGA::GUIEventHandler > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (!dynamic_cast< osgGA::GUIEventHandler* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::GUIEventHandler* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -211,12 +231,46 @@ public:
 		return new osgGA::GUIEventHandler(eh, copyop);
 	}
 
+	// osgGA::GUIEventHandler::GUIEventHandler(lua_Table * data)
+	static osgGA::GUIEventHandler* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventHandler::GUIEventHandler(lua_Table * data) function, expected prototype:\nosgGA::GUIEventHandler::GUIEventHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_GUIEventHandler(L,NULL);
+	}
+
+	// osgGA::GUIEventHandler::GUIEventHandler(lua_Table * data, const osgGA::GUIEventHandler & eh, const osg::CopyOp & copyop)
+	static osgGA::GUIEventHandler* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventHandler::GUIEventHandler(lua_Table * data, const osgGA::GUIEventHandler & eh, const osg::CopyOp & copyop) function, expected prototype:\nosgGA::GUIEventHandler::GUIEventHandler(lua_Table * data, const osgGA::GUIEventHandler & eh, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osgGA::GUIEventHandler* eh_ptr=dynamic_cast< osgGA::GUIEventHandler* >(Luna< osg::Referenced >::check(L,2));
+		if( !eh_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg eh in osgGA::GUIEventHandler::GUIEventHandler function");
+		}
+		const osgGA::GUIEventHandler & eh=*eh_ptr;
+		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgGA::GUIEventHandler::GUIEventHandler function");
+		}
+		const osg::CopyOp & copyop=*copyop_ptr;
+
+		return new wrapper_osgGA_GUIEventHandler(L,NULL, eh, copyop);
+	}
+
 	// Overload binder for osgGA::GUIEventHandler::GUIEventHandler
 	static osgGA::GUIEventHandler* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function GUIEventHandler, cannot match any of the overloads for function GUIEventHandler:\n  GUIEventHandler()\n  GUIEventHandler(const osgGA::GUIEventHandler &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function GUIEventHandler, cannot match any of the overloads for function GUIEventHandler:\n  GUIEventHandler()\n  GUIEventHandler(const osgGA::GUIEventHandler &, const osg::CopyOp &)\n  GUIEventHandler(lua_Table *)\n  GUIEventHandler(lua_Table *, const osgGA::GUIEventHandler &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -243,11 +297,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & ) const
+	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -347,11 +401,11 @@ public:
 		return 0;
 	}
 
-	// bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * )
+	// bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)
 	static int _bind_handle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_handle_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * ) function, expected prototype:\nbool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4) function, expected prototype:\nbool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -378,11 +432,11 @@ public:
 		return 1;
 	}
 
-	// bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_handle_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nbool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgGA::GUIEventHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -485,11 +539,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & ) const
+	// void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & ) const function, expected prototype:\nvoid osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2));

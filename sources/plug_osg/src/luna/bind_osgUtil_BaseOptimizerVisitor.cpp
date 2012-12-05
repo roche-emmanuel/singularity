@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_BaseOptimizerVisitor.h>
+
 class luna_wrapper_osgUtil_BaseOptimizerVisitor {
 public:
 	typedef Luna< osgUtil::BaseOptimizerVisitor > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,85233381)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osgUtil::Optimizer* >(Luna< osgUtil::Optimizer >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85233381)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::Optimizer* >(Luna< osgUtil::Optimizer >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -88,8 +101,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation)
-	static osgUtil::BaseOptimizerVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::BaseOptimizerVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 1 ID = 85233381\n");
 		}
@@ -98,6 +111,28 @@ public:
 		unsigned int operation=(unsigned int)lua_tointeger(L,2);
 
 		return new osgUtil::BaseOptimizerVisitor(optimizer, operation);
+	}
+
+	// osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation)
+	static osgUtil::BaseOptimizerVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation) function, expected prototype:\nosgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor(lua_Table * data, osgUtil::Optimizer * optimizer, unsigned int operation)\nClass arguments details:\narg 2 ID = 85233381\n");
+		}
+
+		osgUtil::Optimizer* optimizer=(Luna< osgUtil::Optimizer >::check(L,2));
+		unsigned int operation=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osgUtil_BaseOptimizerVisitor(L,NULL, optimizer, operation);
+	}
+
+	// Overload binder for osgUtil::BaseOptimizerVisitor::BaseOptimizerVisitor
+	static osgUtil::BaseOptimizerVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function BaseOptimizerVisitor, cannot match any of the overloads for function BaseOptimizerVisitor:\n  BaseOptimizerVisitor(osgUtil::Optimizer *, unsigned int)\n  BaseOptimizerVisitor(lua_Table *, osgUtil::Optimizer *, unsigned int)\n");
+		return NULL;
 	}
 
 

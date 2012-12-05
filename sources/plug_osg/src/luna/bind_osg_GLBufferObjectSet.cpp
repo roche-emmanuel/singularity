@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GLBufferObjectSet.h>
+
 class luna_wrapper_osg_GLBufferObjectSet {
 public:
 	typedef Luna< osg::GLBufferObjectSet > luna_t;
@@ -40,11 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::GLBufferObjectManager* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,12032151) ) return false;
+		if( (!dynamic_cast< osg::BufferObjectProfile* >(Luna< osg::BufferObjectProfile >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::GLBufferObjectManager* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,12032151) ) return false;
+		if( (!dynamic_cast< osg::BufferObjectProfile* >(Luna< osg::BufferObjectProfile >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -199,8 +214,8 @@ public:
 
 	// Constructor binds:
 	// osg::GLBufferObjectSet::GLBufferObjectSet(osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile)
-	static osg::GLBufferObjectSet* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::GLBufferObjectSet* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::GLBufferObjectSet::GLBufferObjectSet(osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile) function, expected prototype:\nosg::GLBufferObjectSet::GLBufferObjectSet(osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 12032151\n");
 		}
@@ -213,6 +228,32 @@ public:
 		const osg::BufferObjectProfile & profile=*profile_ptr;
 
 		return new osg::GLBufferObjectSet(parent, profile);
+	}
+
+	// osg::GLBufferObjectSet::GLBufferObjectSet(lua_Table * data, osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile)
+	static osg::GLBufferObjectSet* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::GLBufferObjectSet::GLBufferObjectSet(lua_Table * data, osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile) function, expected prototype:\nosg::GLBufferObjectSet::GLBufferObjectSet(lua_Table * data, osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 12032151\n");
+		}
+
+		osg::GLBufferObjectManager* parent=dynamic_cast< osg::GLBufferObjectManager* >(Luna< osg::Referenced >::check(L,2));
+		const osg::BufferObjectProfile* profile_ptr=(Luna< osg::BufferObjectProfile >::check(L,3));
+		if( !profile_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg profile in osg::GLBufferObjectSet::GLBufferObjectSet function");
+		}
+		const osg::BufferObjectProfile & profile=*profile_ptr;
+
+		return new wrapper_osg_GLBufferObjectSet(L,NULL, parent, profile);
+	}
+
+	// Overload binder for osg::GLBufferObjectSet::GLBufferObjectSet
+	static osg::GLBufferObjectSet* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function GLBufferObjectSet, cannot match any of the overloads for function GLBufferObjectSet:\n  GLBufferObjectSet(osg::GLBufferObjectManager *, const osg::BufferObjectProfile &)\n  GLBufferObjectSet(lua_Table *, osg::GLBufferObjectManager *, const osg::BufferObjectProfile &)\n");
+		return NULL;
 	}
 
 

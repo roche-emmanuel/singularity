@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_StandardManipulator.h>
+
 class luna_wrapper_osgGA_StandardManipulator {
 public:
 	typedef Luna< osgGA::StandardManipulator > luna_t;
@@ -364,11 +366,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::StandardManipulator::setNode(osg::Node * )
+	// void osgGA::StandardManipulator::setNode(osg::Node * arg1)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::setNode(osg::Node * ) function, expected prototype:\nvoid osgGA::StandardManipulator::setNode(osg::Node * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::StandardManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
@@ -585,11 +587,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home_overload_1(lua_State *L) {
 		if (!_lg_typecheck_home_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -613,11 +615,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::StandardManipulator::home(double )
+	// void osgGA::StandardManipulator::home(double arg1)
 	static int _bind_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_home_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::home(double ) function, expected prototype:\nvoid osgGA::StandardManipulator::home(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::home(double arg1) function, expected prototype:\nvoid osgGA::StandardManipulator::home(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -641,11 +643,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -698,11 +700,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & ) const
+	// void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & ) const function, expected prototype:\nvoid osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2));
@@ -737,8 +739,6 @@ osgGA::StandardManipulator* LunaTraits< osgGA::StandardManipulator >::_bind_ctor
 	// void osgGA::CameraManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
 	// osg::Matrixd osgGA::CameraManipulator::getMatrix() const
 	// osg::Matrixd osgGA::CameraManipulator::getInverseMatrix() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgGA::StandardManipulator >::_bind_dtor(osgGA::StandardManipulator* obj) {

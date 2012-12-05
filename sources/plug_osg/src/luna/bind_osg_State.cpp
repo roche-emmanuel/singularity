@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_State.h>
+
 class luna_wrapper_osg_State {
 public:
 	typedef Luna< osg::State > luna_t;
@@ -51,9 +53,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -1397,14 +1406,34 @@ public:
 
 	// Constructor binds:
 	// osg::State::State()
-	static osg::State* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::State* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::State::State() function, expected prototype:\nosg::State::State()\nClass arguments details:\n");
 		}
 
 
 		return new osg::State();
+	}
+
+	// osg::State::State(lua_Table * data)
+	static osg::State* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::State::State(lua_Table * data) function, expected prototype:\nosg::State::State(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_State(L,NULL);
+	}
+
+	// Overload binder for osg::State::State
+	static osg::State* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function State, cannot match any of the overloads for function State:\n  State()\n  State(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -1982,11 +2011,11 @@ public:
 		return 0;
 	}
 
-	// void osg::State::applyModelViewMatrix(const osg::Matrixd & )
+	// void osg::State::applyModelViewMatrix(const osg::Matrixd & arg1)
 	static int _bind_applyModelViewMatrix_overload_2(lua_State *L) {
 		if (!_lg_typecheck_applyModelViewMatrix_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::applyModelViewMatrix(const osg::Matrixd & ) function, expected prototype:\nvoid osg::State::applyModelViewMatrix(const osg::Matrixd & )\nClass arguments details:\narg 1 ID = 18903838\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::applyModelViewMatrix(const osg::Matrixd & arg1) function, expected prototype:\nvoid osg::State::applyModelViewMatrix(const osg::Matrixd & arg1)\nClass arguments details:\narg 1 ID = 18903838\n");
 		}
 
 		const osg::Matrixd* _arg1_ptr=(Luna< osg::Matrixd >::check(L,2));
@@ -5002,11 +5031,11 @@ public:
 		return 0;
 	}
 
-	// void osg::State::objectDeleted(void * )
+	// void osg::State::objectDeleted(void * arg1)
 	static int _bind_objectDeleted(lua_State *L) {
 		if (!_lg_typecheck_objectDeleted(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::objectDeleted(void * ) function, expected prototype:\nvoid osg::State::objectDeleted(void * )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::objectDeleted(void * arg1) function, expected prototype:\nvoid osg::State::objectDeleted(void * arg1)\nClass arguments details:\n");
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));

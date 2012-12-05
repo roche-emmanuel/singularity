@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_RenderBin_SortCallback.h>
+
 class luna_wrapper_osgUtil_RenderBin_SortCallback {
 public:
 	typedef Luna< osgUtil::RenderBin::SortCallback > luna_t;
@@ -52,11 +54,11 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * )
+	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
 	static int _bind_sortImplementation(lua_State *L) {
 		if (!_lg_typecheck_sortImplementation(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * ) function, expected prototype:\nvoid osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1) function, expected prototype:\nvoid osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osgUtil::RenderBin* _arg1=dynamic_cast< osgUtil::RenderBin* >(Luna< osg::Referenced >::check(L,2));
@@ -79,9 +81,7 @@ public:
 osgUtil::RenderBin::SortCallback* LunaTraits< osgUtil::RenderBin::SortCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * )
-
-	// Abstract operators:
+	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
 }
 
 void LunaTraits< osgUtil::RenderBin::SortCallback >::_bind_dtor(osgUtil::RenderBin::SortCallback* obj) {

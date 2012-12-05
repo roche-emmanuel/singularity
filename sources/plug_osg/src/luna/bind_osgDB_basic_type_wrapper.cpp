@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_basic_type_wrapper.h>
+
 class luna_wrapper_osgDB_basic_type_wrapper {
 public:
 	typedef Luna< osgDB::basic_type_wrapper > luna_t;
@@ -95,8 +97,6 @@ osgDB::basic_type_wrapper* LunaTraits< osgDB::basic_type_wrapper >::_bind_ctor(l
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgDB::basic_type_wrapper >::_bind_dtor(osgDB::basic_type_wrapper* obj) {

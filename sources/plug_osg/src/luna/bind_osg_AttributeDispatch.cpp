@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_AttributeDispatch.h>
+
 class luna_wrapper_osg_AttributeDispatch {
 public:
 	typedef Luna< osg::AttributeDispatch > luna_t;
@@ -64,11 +66,11 @@ public:
 	// Constructor binds:
 
 	// Function binds:
-	// void osg::AttributeDispatch::assign(const void * , const osg::IndexArray * )
+	// void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)
 	static int _bind_assign(lua_State *L) {
 		if (!_lg_typecheck_assign(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::assign(const void * , const osg::IndexArray * ) function, expected prototype:\nvoid osg::AttributeDispatch::assign(const void * , const osg::IndexArray * )\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2) function, expected prototype:\nvoid osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));
@@ -86,19 +88,19 @@ public:
 
 
 	// Operator binds:
-	// void osg::AttributeDispatch::operator()(unsigned int)
+	// void osg::AttributeDispatch::operator()(unsigned int arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::operator()(unsigned int) function, expected prototype:\nvoid osg::AttributeDispatch::operator()(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::operator()(unsigned int arg1) function, expected prototype:\nvoid osg::AttributeDispatch::operator()(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::AttributeDispatch* self=dynamic_cast< osg::AttributeDispatch* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::operator()(unsigned)");
+			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::operator()(unsigned int)");
 		}
 		self->operator()(_arg1);
 

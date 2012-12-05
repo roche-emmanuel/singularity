@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FileLocationCallback.h>
+
 class luna_wrapper_osgDB_FileLocationCallback {
 public:
 	typedef Luna< osgDB::FileLocationCallback > luna_t;
@@ -109,8 +111,6 @@ osgDB::FileLocationCallback* LunaTraits< osgDB::FileLocationCallback >::_bind_ct
 	// Abstract methods:
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
 	// bool osgDB::FileLocationCallback::useFileCache() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgDB::FileLocationCallback >::_bind_dtor(osgDB::FileLocationCallback* obj) {

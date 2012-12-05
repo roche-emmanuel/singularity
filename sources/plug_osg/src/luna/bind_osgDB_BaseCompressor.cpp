@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_BaseCompressor.h>
+
 class luna_wrapper_osgDB_BaseCompressor {
 public:
 	typedef Luna< osgDB::BaseCompressor > luna_t;
@@ -104,10 +106,8 @@ public:
 osgDB::BaseCompressor* LunaTraits< osgDB::BaseCompressor >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// bool osgDB::BaseCompressor::compress(std::ostream & , const std::string & )
-	// bool osgDB::BaseCompressor::decompress(std::istream & , std::string & )
-
-	// Abstract operators:
+	// bool osgDB::BaseCompressor::compress(std::ostream & arg1, const std::string & arg2)
+	// bool osgDB::BaseCompressor::decompress(std::istream & arg1, std::string & arg2)
 }
 
 void LunaTraits< osgDB::BaseCompressor >::_bind_dtor(osgDB::BaseCompressor* obj) {

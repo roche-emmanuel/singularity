@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_Glyph.h>
+
 class luna_wrapper_osgText_Glyph {
 public:
 	typedef Luna< osgText::Glyph > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -223,8 +236,8 @@ public:
 
 	// Constructor binds:
 	// osgText::Glyph::Glyph(osgText::Font * font, unsigned int glyphCode)
-	static osgText::Glyph* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgText::Glyph* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgText::Glyph::Glyph(osgText::Font * font, unsigned int glyphCode) function, expected prototype:\nosgText::Glyph::Glyph(osgText::Font * font, unsigned int glyphCode)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -233,6 +246,28 @@ public:
 		unsigned int glyphCode=(unsigned int)lua_tointeger(L,2);
 
 		return new osgText::Glyph(font, glyphCode);
+	}
+
+	// osgText::Glyph::Glyph(lua_Table * data, osgText::Font * font, unsigned int glyphCode)
+	static osgText::Glyph* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Glyph::Glyph(lua_Table * data, osgText::Font * font, unsigned int glyphCode) function, expected prototype:\nosgText::Glyph::Glyph(lua_Table * data, osgText::Font * font, unsigned int glyphCode)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osgText::Font* font=dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int glyphCode=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osgText_Glyph(L,NULL, font, glyphCode);
+	}
+
+	// Overload binder for osgText::Glyph::Glyph
+	static osgText::Glyph* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Glyph, cannot match any of the overloads for function Glyph:\n  Glyph(osgText::Font *, unsigned int)\n  Glyph(lua_Table *, osgText::Font *, unsigned int)\n");
+		return NULL;
 	}
 
 

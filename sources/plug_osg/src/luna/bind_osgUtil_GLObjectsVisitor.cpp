@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_GLObjectsVisitor.h>
+
 class luna_wrapper_osgUtil_GLObjectsVisitor {
 public:
 	typedef Luna< osgUtil::GLObjectsVisitor > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -145,8 +156,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::GLObjectsVisitor::GLObjectsVisitor(unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)
-	static osgUtil::GLObjectsVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::GLObjectsVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::GLObjectsVisitor::GLObjectsVisitor(unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) function, expected prototype:\nosgUtil::GLObjectsVisitor::GLObjectsVisitor(unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)\nClass arguments details:\n");
 		}
@@ -156,6 +167,29 @@ public:
 		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new osgUtil::GLObjectsVisitor(mode);
+	}
+
+	// osgUtil::GLObjectsVisitor::GLObjectsVisitor(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)
+	static osgUtil::GLObjectsVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::GLObjectsVisitor::GLObjectsVisitor(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) function, expected prototype:\nosgUtil::GLObjectsVisitor::GLObjectsVisitor(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+
+		return new wrapper_osgUtil_GLObjectsVisitor(L,NULL, mode);
+	}
+
+	// Overload binder for osgUtil::GLObjectsVisitor::GLObjectsVisitor
+	static osgUtil::GLObjectsVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function GLObjectsVisitor, cannot match any of the overloads for function GLObjectsVisitor:\n  GLObjectsVisitor(unsigned int)\n  GLObjectsVisitor(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

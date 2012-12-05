@@ -763,4 +763,3 @@ osgViewer::ScreenCaptureHandler => osg::Referenced
 osgViewer::ScreenCaptureHandler::CaptureOperation => osg::Referenced
 osgViewer::ScreenCaptureHandler::WriteToFile => osg::Referenced
 osgViewer::InteractiveImageHandler => osg::Referenced
-

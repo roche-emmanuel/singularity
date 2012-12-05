@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BufferData.h>
+
 class luna_wrapper_osg_BufferData {
 public:
 	typedef Luna< osg::BufferData > luna_t;
@@ -576,9 +578,7 @@ osg::BufferData* LunaTraits< osg::BufferData >::_bind_ctor(lua_State *L) {
 	// const void * osg::BufferData::getDataPointer() const
 	// unsigned int osg::BufferData::getTotalDataSize() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::BufferData >::_bind_dtor(osg::BufferData* obj) {

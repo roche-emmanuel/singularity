@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_RecordCameraPathHandler.h>
+
 class luna_wrapper_osgViewer_RecordCameraPathHandler {
 public:
 	typedef Luna< osgViewer::RecordCameraPathHandler > luna_t;
@@ -40,12 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -106,8 +118,8 @@ public:
 
 	// Constructor binds:
 	// osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = "saved_animation.path", float fps = 25.0f)
-	static osgViewer::RecordCameraPathHandler* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::RecordCameraPathHandler* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n");
 		}
@@ -118,6 +130,30 @@ public:
 		float fps=luatop>1 ? (float)lua_tonumber(L,2) : 25.0f;
 
 		return new osgViewer::RecordCameraPathHandler(filename, fps);
+	}
+
+	// osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = "saved_animation.path", float fps = 25.0f)
+	static osgViewer::RecordCameraPathHandler* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f) function, expected prototype:\nosgViewer::RecordCameraPathHandler::RecordCameraPathHandler(lua_Table * data, const std::string & filename = \"saved_animation.path\", float fps = 25.0f)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		float fps=luatop>2 ? (float)lua_tonumber(L,3) : 25.0f;
+
+		return new wrapper_osgViewer_RecordCameraPathHandler(L,NULL, filename, fps);
+	}
+
+	// Overload binder for osgViewer::RecordCameraPathHandler::RecordCameraPathHandler
+	static osgViewer::RecordCameraPathHandler* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function RecordCameraPathHandler, cannot match any of the overloads for function RecordCameraPathHandler:\n  RecordCameraPathHandler(const std::string &, float)\n  RecordCameraPathHandler(lua_Table *, const std::string &, float)\n");
+		return NULL;
 	}
 
 
@@ -219,11 +255,11 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & ) const
+	// void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const
 	static int _bind_getUsage(lua_State *L) {
 		if (!_lg_typecheck_getUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & ) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const function, expected prototype:\nvoid osgViewer::RecordCameraPathHandler::getUsage(osg::ApplicationUsage & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::ApplicationUsage* _arg1_ptr=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2));
@@ -242,11 +278,11 @@ public:
 		return 0;
 	}
 
-	// bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::RecordCameraPathHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

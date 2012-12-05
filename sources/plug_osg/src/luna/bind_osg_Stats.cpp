@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Stats.h>
+
 class luna_wrapper_osg_Stats {
 public:
 	typedef Luna< osg::Stats > luna_t;
@@ -52,6 +54,23 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -188,12 +207,39 @@ public:
 		return new osg::Stats(name, numberOfFrames);
 	}
 
+	// osg::Stats::Stats(lua_Table * data, const std::string & name)
+	static osg::Stats* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Stats::Stats(lua_Table * data, const std::string & name) function, expected prototype:\nosg::Stats::Stats(lua_Table * data, const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_osg_Stats(L,NULL, name);
+	}
+
+	// osg::Stats::Stats(lua_Table * data, const std::string & name, unsigned int numberOfFrames)
+	static osg::Stats* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Stats::Stats(lua_Table * data, const std::string & name, unsigned int numberOfFrames) function, expected prototype:\nosg::Stats::Stats(lua_Table * data, const std::string & name, unsigned int numberOfFrames)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+		unsigned int numberOfFrames=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osg_Stats(L,NULL, name, numberOfFrames);
+	}
+
 	// Overload binder for osg::Stats::Stats
 	static osg::Stats* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Stats, cannot match any of the overloads for function Stats:\n  Stats(const std::string &)\n  Stats(const std::string &, unsigned int)\n");
+		luaL_error(L, "error in function Stats, cannot match any of the overloads for function Stats:\n  Stats(const std::string &)\n  Stats(const std::string &, unsigned int)\n  Stats(lua_Table *, const std::string &)\n  Stats(lua_Table *, const std::string &, unsigned int)\n");
 		return NULL;
 	}
 

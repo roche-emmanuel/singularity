@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NodeVisitor_DatabaseRequestHandler.h>
+
 class luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler {
 public:
 	typedef Luna< osg::NodeVisitor::DatabaseRequestHandler > luna_t;
@@ -97,8 +99,6 @@ osg::NodeVisitor::DatabaseRequestHandler* LunaTraits< osg::NodeVisitor::Database
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::_bind_dtor(osg::NodeVisitor::DatabaseRequestHandler* obj) {

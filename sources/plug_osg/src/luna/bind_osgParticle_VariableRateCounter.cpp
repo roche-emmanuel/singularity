@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_VariableRateCounter.h>
+
 class luna_wrapper_osgParticle_VariableRateCounter {
 public:
 	typedef Luna< osgParticle::VariableRateCounter > luna_t;
@@ -227,9 +229,7 @@ osgParticle::VariableRateCounter* LunaTraits< osgParticle::VariableRateCounter >
 	// Abstract methods:
 	// int osgParticle::Counter::numParticlesToCreate(double dt) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::VariableRateCounter >::_bind_dtor(osgParticle::VariableRateCounter* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture.h>
+
 class luna_wrapper_osg_Texture {
 public:
 	typedef Luna< osg::Texture > luna_t;
@@ -643,11 +645,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Texture::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Texture::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Texture::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -835,11 +837,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & ) const
+	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & ) const function, expected prototype:\nbool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & ) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -2271,7 +2273,7 @@ osg::Texture* LunaTraits< osg::Texture >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::Texture::cloneType() const
-	// osg::Object * osg::Texture::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Texture::clone(const osg::CopyOp & arg1) const
 	// unsigned int osg::Texture::getTextureTarget() const
 	// void osg::Texture::setImage(unsigned int face, osg::Image * image)
 	// osg::Image * osg::Texture::getImage(unsigned int face)
@@ -2281,12 +2283,10 @@ osg::Texture* LunaTraits< osg::Texture >::_bind_ctor(lua_State *L) {
 	// void osg::Texture::computeInternalFormat() const
 	// void osg::Texture::allocateMipmap(osg::State & state) const
 	// osg::Object * osg::StateAttribute::cloneType() const
-	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const
 	// int osg::StateAttribute::compare(const osg::StateAttribute & sa) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::Texture >::_bind_dtor(osg::Texture* obj) {

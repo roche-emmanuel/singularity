@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsContext_SwapCallback.h>
+
 class luna_wrapper_osg_GraphicsContext_SwapCallback {
 public:
 	typedef Luna< osg::GraphicsContext::SwapCallback > luna_t;
@@ -80,8 +82,6 @@ osg::GraphicsContext::SwapCallback* LunaTraits< osg::GraphicsContext::SwapCallba
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext * gc)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::GraphicsContext::SwapCallback >::_bind_dtor(osg::GraphicsContext::SwapCallback* obj) {

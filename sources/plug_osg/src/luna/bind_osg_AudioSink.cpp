@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_AudioSink.h>
+
 class luna_wrapper_osg_AudioSink {
 public:
 	typedef Luna< osg::AudioSink > luna_t;
@@ -256,11 +258,11 @@ public:
 		return 0;
 	}
 
-	// void osg::AudioSink::setVolume(float )
+	// void osg::AudioSink::setVolume(float arg1)
 	static int _bind_setVolume(lua_State *L) {
 		if (!_lg_typecheck_setVolume(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::AudioSink::setVolume(float ) function, expected prototype:\nvoid osg::AudioSink::setVolume(float )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::AudioSink::setVolume(float arg1) function, expected prototype:\nvoid osg::AudioSink::setVolume(float arg1)\nClass arguments details:\n");
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
@@ -307,9 +309,7 @@ osg::AudioSink* LunaTraits< osg::AudioSink >::_bind_ctor(lua_State *L) {
 	// void osg::AudioSink::stop()
 	// bool osg::AudioSink::playing() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::AudioSink >::_bind_dtor(osg::AudioSink* obj) {

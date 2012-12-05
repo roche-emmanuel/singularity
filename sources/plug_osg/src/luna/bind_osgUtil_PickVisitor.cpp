@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_PickVisitor.h>
+
 class luna_wrapper_osgUtil_PickVisitor {
 public:
 	typedef Luna< osgUtil::PickVisitor > luna_t;
@@ -40,14 +42,32 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Viewport* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Viewport* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,4))) ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -87,8 +107,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::PickVisitor::PickVisitor(const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my)
-	static osgUtil::PickVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::PickVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::PickVisitor::PickVisitor(const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my) function, expected prototype:\nosgUtil::PickVisitor::PickVisitor(const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\narg 3 ID = 18903838\n");
 		}
@@ -108,6 +128,39 @@ public:
 		float my=(float)lua_tonumber(L,5);
 
 		return new osgUtil::PickVisitor(viewport, proj, view, mx, my);
+	}
+
+	// osgUtil::PickVisitor::PickVisitor(lua_Table * data, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my)
+	static osgUtil::PickVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PickVisitor::PickVisitor(lua_Table * data, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my) function, expected prototype:\nosgUtil::PickVisitor::PickVisitor(lua_Table * data, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 18903838\narg 4 ID = 18903838\n");
+		}
+
+		const osg::Viewport* viewport=dynamic_cast< osg::Viewport* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Matrixd* proj_ptr=(Luna< osg::Matrixd >::check(L,3));
+		if( !proj_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg proj in osgUtil::PickVisitor::PickVisitor function");
+		}
+		const osg::Matrixd & proj=*proj_ptr;
+		const osg::Matrixd* view_ptr=(Luna< osg::Matrixd >::check(L,4));
+		if( !view_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg view in osgUtil::PickVisitor::PickVisitor function");
+		}
+		const osg::Matrixd & view=*view_ptr;
+		float mx=(float)lua_tonumber(L,5);
+		float my=(float)lua_tonumber(L,6);
+
+		return new wrapper_osgUtil_PickVisitor(L,NULL, viewport, proj, view, mx, my);
+	}
+
+	// Overload binder for osgUtil::PickVisitor::PickVisitor
+	static osgUtil::PickVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function PickVisitor, cannot match any of the overloads for function PickVisitor:\n  PickVisitor(const osg::Viewport *, const osg::Matrixd &, const osg::Matrixd &, float, float)\n  PickVisitor(lua_Table *, const osg::Viewport *, const osg::Matrixd &, const osg::Matrixd &, float, float)\n");
+		return NULL;
 	}
 
 

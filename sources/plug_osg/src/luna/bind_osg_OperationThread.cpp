@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_OperationThread.h>
+
 class luna_wrapper_osg_OperationThread {
 public:
 	typedef Luna< osg::OperationThread > luna_t;

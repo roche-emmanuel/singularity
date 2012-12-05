@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_CullVisitor.h>
+
 class luna_wrapper_osgUtil_CullVisitor {
 public:
 	typedef Luna< osgUtil::CullVisitor > luna_t;
@@ -62,6 +64,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -534,11 +552,11 @@ public:
 		return new osgUtil::CullVisitor();
 	}
 
-	// osgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & )
+	// osgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & arg1)
 	static osgUtil::CullVisitor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & ) function, expected prototype:\nosgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & arg1) function, expected prototype:\nosgUtil::CullVisitor::CullVisitor(const osgUtil::CullVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osgUtil::CullVisitor* _arg1_ptr=dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,1));
@@ -550,12 +568,41 @@ public:
 		return new osgUtil::CullVisitor(_arg1);
 	}
 
+	// osgUtil::CullVisitor::CullVisitor(lua_Table * data)
+	static osgUtil::CullVisitor* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor::CullVisitor(lua_Table * data) function, expected prototype:\nosgUtil::CullVisitor::CullVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_CullVisitor(L,NULL);
+	}
+
+	// osgUtil::CullVisitor::CullVisitor(lua_Table * data, const osgUtil::CullVisitor & arg2)
+	static osgUtil::CullVisitor* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::CullVisitor::CullVisitor(lua_Table * data, const osgUtil::CullVisitor & arg2) function, expected prototype:\nosgUtil::CullVisitor::CullVisitor(lua_Table * data, const osgUtil::CullVisitor & arg2)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osgUtil::CullVisitor* _arg2_ptr=dynamic_cast< osgUtil::CullVisitor* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osgUtil::CullVisitor::CullVisitor function");
+		}
+		const osgUtil::CullVisitor & _arg2=*_arg2_ptr;
+
+		return new wrapper_osgUtil_CullVisitor(L,NULL, _arg2);
+	}
+
 	// Overload binder for osgUtil::CullVisitor::CullVisitor
 	static osgUtil::CullVisitor* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function CullVisitor, cannot match any of the overloads for function CullVisitor:\n  CullVisitor()\n  CullVisitor(const osgUtil::CullVisitor &)\n");
+		luaL_error(L, "error in function CullVisitor, cannot match any of the overloads for function CullVisitor:\n  CullVisitor()\n  CullVisitor(const osgUtil::CullVisitor &)\n  CullVisitor(lua_Table *)\n  CullVisitor(lua_Table *, const osgUtil::CullVisitor &)\n");
 		return NULL;
 	}
 
@@ -682,11 +729,11 @@ public:
 		return 1;
 	}
 
-	// float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const
+	// float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -707,11 +754,11 @@ public:
 		return 1;
 	}
 
-	// float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const
+	// float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceFromEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -732,11 +779,11 @@ public:
 		return 1;
 	}
 
-	// float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const
+	// float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToViewPoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -757,11 +804,11 @@ public:
 		return 1;
 	}
 
-	// void osgUtil::CullVisitor::apply(osg::Node & )
+	// void osgUtil::CullVisitor::apply(osg::Node & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::apply(osg::Node & ) function, expected prototype:\nvoid osgUtil::CullVisitor::apply(osg::Node & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::CullVisitor::apply(osg::Node & arg1) function, expected prototype:\nvoid osgUtil::CullVisitor::apply(osg::Node & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));

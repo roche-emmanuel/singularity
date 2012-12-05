@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Interpolator.h>
+
 class luna_wrapper_osgParticle_Interpolator {
 public:
 	typedef Luna< osgParticle::Interpolator > luna_t;
@@ -306,9 +308,7 @@ osgParticle::Interpolator* LunaTraits< osgParticle::Interpolator >::_bind_ctor(l
 	// Abstract methods:
 	// float osgParticle::Interpolator::interpolate(float t, float y1, float y2) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::Interpolator >::_bind_dtor(osgParticle::Interpolator* obj) {

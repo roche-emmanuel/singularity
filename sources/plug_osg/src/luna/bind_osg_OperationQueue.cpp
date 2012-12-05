@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_OperationQueue.h>
+
 class luna_wrapper_osg_OperationQueue {
 public:
 	typedef Luna< osg::OperationQueue > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -122,14 +131,34 @@ public:
 
 	// Constructor binds:
 	// osg::OperationQueue::OperationQueue()
-	static osg::OperationQueue* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::OperationQueue* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::OperationQueue::OperationQueue() function, expected prototype:\nosg::OperationQueue::OperationQueue()\nClass arguments details:\n");
 		}
 
 
 		return new osg::OperationQueue();
+	}
+
+	// osg::OperationQueue::OperationQueue(lua_Table * data)
+	static osg::OperationQueue* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::OperationQueue::OperationQueue(lua_Table * data) function, expected prototype:\nosg::OperationQueue::OperationQueue(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_OperationQueue(L,NULL);
+	}
+
+	// Overload binder for osg::OperationQueue::OperationQueue
+	static osg::OperationQueue* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function OperationQueue, cannot match any of the overloads for function OperationQueue:\n  OperationQueue()\n  OperationQueue(lua_Table *)\n");
+		return NULL;
 	}
 
 

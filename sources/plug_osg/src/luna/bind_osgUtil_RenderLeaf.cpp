@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_RenderLeaf.h>
+
 class luna_wrapper_osgUtil_RenderLeaf {
 public:
 	typedef Luna< osgUtil::RenderLeaf > luna_t;
@@ -40,15 +42,34 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
 		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,4)) ) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -92,8 +113,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::RenderLeaf::RenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0)
-	static osgUtil::RenderLeaf* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::RenderLeaf* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::RenderLeaf::RenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0) function, expected prototype:\nosgUtil::RenderLeaf::RenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
 		}
@@ -107,6 +128,33 @@ public:
 		unsigned int traversalNumber=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0;
 
 		return new osgUtil::RenderLeaf(drawable, projection, modelview, depth, traversalNumber);
+	}
+
+	// osgUtil::RenderLeaf::RenderLeaf(lua_Table * data, osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0)
+	static osgUtil::RenderLeaf* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::RenderLeaf::RenderLeaf(lua_Table * data, osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0) function, expected prototype:\nosgUtil::RenderLeaf::RenderLeaf(lua_Table * data, osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+		osg::RefMatrixd* projection=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3));
+		osg::RefMatrixd* modelview=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,4));
+		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
+		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
+
+		return new wrapper_osgUtil_RenderLeaf(L,NULL, drawable, projection, modelview, depth, traversalNumber);
+	}
+
+	// Overload binder for osgUtil::RenderLeaf::RenderLeaf
+	static osgUtil::RenderLeaf* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function RenderLeaf, cannot match any of the overloads for function RenderLeaf:\n  RenderLeaf(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float, unsigned int)\n  RenderLeaf(lua_Table *, osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float, unsigned int)\n");
+		return NULL;
 	}
 
 

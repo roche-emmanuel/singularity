@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_HalfWayMapGenerator.h>
+
 class luna_wrapper_osgUtil_HalfWayMapGenerator {
 public:
 	typedef Luna< osgUtil::HalfWayMapGenerator > luna_t;
@@ -60,6 +62,28 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -107,12 +131,54 @@ public:
 		return new osgUtil::HalfWayMapGenerator(copy, copyop);
 	}
 
+	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64)
+	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, int texture_size = 64)\nClass arguments details:\narg 2 ID = 92303204\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Vec3f* light_direction_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !light_direction_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg light_direction in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
+		}
+		const osg::Vec3f & light_direction=*light_direction_ptr;
+		int texture_size=luatop>2 ? (int)lua_tointeger(L,3) : 64;
+
+		return new wrapper_osgUtil_HalfWayMapGenerator(L,NULL, light_direction, texture_size);
+	}
+
+	// osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)
+	static osgUtil::HalfWayMapGenerator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osgUtil::HalfWayMapGenerator* copy_ptr=dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
+		}
+		const osgUtil::HalfWayMapGenerator & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
+		}
+		const osg::CopyOp & copyop=*copyop_ptr;
+
+		return new wrapper_osgUtil_HalfWayMapGenerator(L,NULL, copy, copyop);
+	}
+
 	// Overload binder for osgUtil::HalfWayMapGenerator::HalfWayMapGenerator
 	static osgUtil::HalfWayMapGenerator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function HalfWayMapGenerator, cannot match any of the overloads for function HalfWayMapGenerator:\n  HalfWayMapGenerator(const osg::Vec3f &, int)\n  HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function HalfWayMapGenerator, cannot match any of the overloads for function HalfWayMapGenerator:\n  HalfWayMapGenerator(const osg::Vec3f &, int)\n  HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator &, const osg::CopyOp &)\n  HalfWayMapGenerator(lua_Table *, const osg::Vec3f &, int)\n  HalfWayMapGenerator(lua_Table *, const osgUtil::HalfWayMapGenerator &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

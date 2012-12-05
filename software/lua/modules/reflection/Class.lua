@@ -172,7 +172,6 @@ function Class:getAbstractFunctions()
 end
 
 function Class:getVirtualFunctions()
-
 	-- find all the non virtual functions in this class:
 	local overrideFuncs = self:getFunctions{"Method"} + self:getFunctions{"Operator"}
 
@@ -188,8 +187,17 @@ function Class:getVirtualFunctions()
 	-- implementation in the current derived class
 	for _,func in baseVirtuals:sequence() do
 		local isOverriden = false;
+		local funcArgs = func:getArgumentsPrototype(false)
+		local funcName = func:getName()
+		
 		for _,concFunc in overrideFuncs:sequence() do
-			if func:isEqualTo(concFunc) then
+			-- we do not check the return type here as the concrete return type could be a derived type from the base function return type.
+			-- and otherwise matcing functions would be conflicting.
+			if funcName == concFunc:getName() 
+				and funcArgs == func:getArgumentsPrototype(false) 
+				and func:getConstness()==concFunc:getConstness() 
+				and func:isStatic()==concFunc:isStatic() 
+				then
 				isOverriden=true;
 				self:notice("Found non override implementation for : ",func:getFullName())
 				break;
@@ -198,10 +206,10 @@ function Class:getVirtualFunctions()
 		
 		if not isOverriden then
 			virtualFuncs:push_back(func)
-		end
+		end		
 	end
 	
-	-- Non add the local virtual functions and operators:
+	-- Now add the local virtual functions and operators:
 	virtualFuncs:append(self:getFunctions{"Method","Virtual"});
 	virtualFuncs:append(self:getFunctions{"Operator","Virtual"});
 	
@@ -294,6 +302,7 @@ function Class:addWrapperConstructors()
 	local param = Parameter{type=ptype,name="data"};
 	
 	for _,func in cons:sequence() do
+		self:info("Cloning function ",func:getFullName())
 		local ncons = func:clone()
 		ncons:setWrapper(true);
 		ncons:getParameters():push_front(param)

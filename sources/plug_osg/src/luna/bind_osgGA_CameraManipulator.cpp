@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_CameraManipulator.h>
+
 class luna_wrapper_osgGA_CameraManipulator {
 public:
 	typedef Luna< osgGA::CameraManipulator > luna_t;
@@ -606,11 +608,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::CameraManipulator::setNode(osg::Node * )
+	// void osgGA::CameraManipulator::setNode(osg::Node * arg1)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::setNode(osg::Node * ) function, expected prototype:\nvoid osgGA::CameraManipulator::setNode(osg::Node * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::CameraManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
@@ -783,11 +785,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = ((void *) 0), bool useBoundingBox = false)
+	// void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)
 	static int _bind_computeHomePosition(lua_State *L) {
 		if (!_lg_typecheck_computeHomePosition(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = ((void *) 0), bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = ((void *) 0), bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false) function, expected prototype:\nvoid osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -805,11 +807,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home_overload_1(lua_State *L) {
 		if (!_lg_typecheck_home_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::CameraManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -833,11 +835,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::CameraManipulator::home(double )
+	// void osgGA::CameraManipulator::home(double arg1)
 	static int _bind_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_home_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::home(double ) function, expected prototype:\nvoid osgGA::CameraManipulator::home(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::home(double arg1) function, expected prototype:\nvoid osgGA::CameraManipulator::home(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -861,11 +863,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::CameraManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -930,8 +932,6 @@ osgGA::CameraManipulator* LunaTraits< osgGA::CameraManipulator >::_bind_ctor(lua
 	// void osgGA::CameraManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
 	// osg::Matrixd osgGA::CameraManipulator::getMatrix() const
 	// osg::Matrixd osgGA::CameraManipulator::getInverseMatrix() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgGA::CameraManipulator >::_bind_dtor(osgGA::CameraManipulator* obj) {

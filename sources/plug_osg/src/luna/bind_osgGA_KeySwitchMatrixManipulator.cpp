@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_KeySwitchMatrixManipulator.h>
+
 class luna_wrapper_osgGA_KeySwitchMatrixManipulator {
 public:
 	typedef Luna< osgGA::KeySwitchMatrixManipulator > luna_t;
@@ -707,11 +709,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * )
+	// void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * ) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
@@ -850,11 +852,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home(lua_State *L) {
 		if (!_lg_typecheck_home(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -878,11 +880,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

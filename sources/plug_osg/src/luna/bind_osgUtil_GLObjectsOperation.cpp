@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_GLObjectsOperation.h>
+
 class luna_wrapper_osgUtil_GLObjectsOperation {
 public:
 	typedef Luna< osgUtil::GLObjectsOperation > luna_t;
@@ -58,6 +60,26 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -101,12 +123,43 @@ public:
 		return new osgUtil::GLObjectsOperation(subgraph, mode);
 	}
 
+	// osgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)
+	static osgUtil::GLObjectsOperation* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) function, expected prototype:\nosgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+
+		return new wrapper_osgUtil_GLObjectsOperation(L,NULL, mode);
+	}
+
+	// osgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, osg::Node * subgraph, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)
+	static osgUtil::GLObjectsOperation* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, osg::Node * subgraph, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) function, expected prototype:\nosgUtil::GLObjectsOperation::GLObjectsOperation(lua_Table * data, osg::Node * subgraph, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Node* subgraph=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
+
+		return new wrapper_osgUtil_GLObjectsOperation(L,NULL, subgraph, mode);
+	}
+
 	// Overload binder for osgUtil::GLObjectsOperation::GLObjectsOperation
 	static osgUtil::GLObjectsOperation* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function GLObjectsOperation, cannot match any of the overloads for function GLObjectsOperation:\n  GLObjectsOperation(unsigned int)\n  GLObjectsOperation(osg::Node *, unsigned int)\n");
+		luaL_error(L, "error in function GLObjectsOperation, cannot match any of the overloads for function GLObjectsOperation:\n  GLObjectsOperation(unsigned int)\n  GLObjectsOperation(osg::Node *, unsigned int)\n  GLObjectsOperation(lua_Table *, unsigned int)\n  GLObjectsOperation(lua_Table *, osg::Node *, unsigned int)\n");
 		return NULL;
 	}
 

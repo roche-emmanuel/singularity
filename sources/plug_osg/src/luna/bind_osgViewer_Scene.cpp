@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_Scene.h>
+
 class luna_wrapper_osgViewer_Scene {
 public:
 	typedef Luna< osgViewer::Scene > luna_t;

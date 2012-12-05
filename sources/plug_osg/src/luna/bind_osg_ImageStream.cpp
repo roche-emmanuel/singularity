@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ImageStream.h>
+
 class luna_wrapper_osg_ImageStream {
 public:
 	typedef Luna< osg::ImageStream > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::ImageStream* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ImageStream* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -265,12 +286,48 @@ public:
 		return new osg::ImageStream(image, copyop);
 	}
 
+	// osg::ImageStream::ImageStream(lua_Table * data)
+	static osg::ImageStream* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ImageStream(L,NULL);
+	}
+
+	// osg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::ImageStream* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ImageStream::ImageStream(lua_Table * data, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::ImageStream* image_ptr=dynamic_cast< osg::ImageStream* >(Luna< osg::Referenced >::check(L,2));
+		if( !image_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg image in osg::ImageStream::ImageStream function");
+		}
+		const osg::ImageStream & image=*image_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ImageStream::ImageStream function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_ImageStream(L,NULL, image, copyop);
+	}
+
 	// Overload binder for osg::ImageStream::ImageStream
 	static osg::ImageStream* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ImageStream, cannot match any of the overloads for function ImageStream:\n  ImageStream()\n  ImageStream(const osg::ImageStream &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ImageStream, cannot match any of the overloads for function ImageStream:\n  ImageStream()\n  ImageStream(const osg::ImageStream &, const osg::CopyOp &)\n  ImageStream(lua_Table *)\n  ImageStream(lua_Table *, const osg::ImageStream &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -297,11 +354,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::ImageStream::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::ImageStream::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -405,11 +462,11 @@ public:
 		return 1;
 	}
 
-	// void osg::ImageStream::seek(double )
+	// void osg::ImageStream::seek(double arg1)
 	static int _bind_seek(lua_State *L) {
 		if (!_lg_typecheck_seek(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::seek(double ) function, expected prototype:\nvoid osg::ImageStream::seek(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::seek(double arg1) function, expected prototype:\nvoid osg::ImageStream::seek(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -478,11 +535,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ImageStream::quit(bool  = true)
+	// void osg::ImageStream::quit(bool arg1 = true)
 	static int _bind_quit(lua_State *L) {
 		if (!_lg_typecheck_quit(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::quit(bool  = true) function, expected prototype:\nvoid osg::ImageStream::quit(bool  = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::quit(bool arg1 = true) function, expected prototype:\nvoid osg::ImageStream::quit(bool arg1 = true)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -613,11 +670,11 @@ public:
 		return 1;
 	}
 
-	// void osg::ImageStream::setReferenceTime(double )
+	// void osg::ImageStream::setReferenceTime(double arg1)
 	static int _bind_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_setReferenceTime(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setReferenceTime(double ) function, expected prototype:\nvoid osg::ImageStream::setReferenceTime(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setReferenceTime(double arg1) function, expected prototype:\nvoid osg::ImageStream::setReferenceTime(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -651,11 +708,11 @@ public:
 		return 1;
 	}
 
-	// void osg::ImageStream::setTimeMultiplier(double )
+	// void osg::ImageStream::setTimeMultiplier(double arg1)
 	static int _bind_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setTimeMultiplier(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setTimeMultiplier(double ) function, expected prototype:\nvoid osg::ImageStream::setTimeMultiplier(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setTimeMultiplier(double arg1) function, expected prototype:\nvoid osg::ImageStream::setTimeMultiplier(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -689,11 +746,11 @@ public:
 		return 1;
 	}
 
-	// void osg::ImageStream::setVolume(float )
+	// void osg::ImageStream::setVolume(float arg1)
 	static int _bind_setVolume(lua_State *L) {
 		if (!_lg_typecheck_setVolume(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setVolume(float ) function, expected prototype:\nvoid osg::ImageStream::setVolume(float )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ImageStream::setVolume(float arg1) function, expected prototype:\nvoid osg::ImageStream::setVolume(float arg1)\nClass arguments details:\n");
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);

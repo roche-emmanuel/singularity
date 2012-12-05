@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_ReaderWriter.h>
+
 class luna_wrapper_osgDB_ReaderWriter {
 public:
 	typedef Luna< osgDB::ReaderWriter > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osgDB::ReaderWriter* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgDB::ReaderWriter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -306,12 +327,48 @@ public:
 		return new osgDB::ReaderWriter(rw, copyop);
 	}
 
+	// osgDB::ReaderWriter::ReaderWriter(lua_Table * data)
+	static osgDB::ReaderWriter* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReaderWriter(lua_Table * data) function, expected prototype:\nosgDB::ReaderWriter::ReaderWriter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_ReaderWriter(L,NULL);
+	}
+
+	// osgDB::ReaderWriter::ReaderWriter(lua_Table * data, const osgDB::ReaderWriter & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgDB::ReaderWriter* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReaderWriter(lua_Table * data, const osgDB::ReaderWriter & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::ReaderWriter::ReaderWriter(lua_Table * data, const osgDB::ReaderWriter & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgDB::ReaderWriter* rw_ptr=dynamic_cast< osgDB::ReaderWriter* >(Luna< osg::Referenced >::check(L,2));
+		if( !rw_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rw in osgDB::ReaderWriter::ReaderWriter function");
+		}
+		const osgDB::ReaderWriter & rw=*rw_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::ReaderWriter::ReaderWriter function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgDB_ReaderWriter(L,NULL, rw, copyop);
+	}
+
 	// Overload binder for osgDB::ReaderWriter::ReaderWriter
 	static osgDB::ReaderWriter* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ReaderWriter, cannot match any of the overloads for function ReaderWriter:\n  ReaderWriter()\n  ReaderWriter(const osgDB::ReaderWriter &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ReaderWriter, cannot match any of the overloads for function ReaderWriter:\n  ReaderWriter()\n  ReaderWriter(const osgDB::ReaderWriter &, const osg::CopyOp &)\n  ReaderWriter(lua_Table *)\n  ReaderWriter(lua_Table *, const osgDB::ReaderWriter &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -338,11 +395,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & ) const
+	// osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -485,11 +542,11 @@ public:
 		return 1;
 	}
 
-	// bool osgDB::ReaderWriter::acceptsExtension(const std::string & ) const
+	// bool osgDB::ReaderWriter::acceptsExtension(const std::string & arg1) const
 	static int _bind_acceptsExtension(lua_State *L) {
 		if (!_lg_typecheck_acceptsExtension(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::acceptsExtension(const std::string & ) const function, expected prototype:\nbool osgDB::ReaderWriter::acceptsExtension(const std::string & ) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgDB::ReaderWriter::acceptsExtension(const std::string & arg1) const function, expected prototype:\nbool osgDB::ReaderWriter::acceptsExtension(const std::string & arg1) const\nClass arguments details:\n");
 		}
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
@@ -545,24 +602,24 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & , osgDB::ReaderWriter::ArchiveStatus , unsigned int = 4096, const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const
 	static int _bind_openArchive(lua_State *L) {
 		if (!_lg_typecheck_openArchive(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & , osgDB::ReaderWriter::ArchiveStatus , unsigned int = 4096, const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & , osgDB::ReaderWriter::ArchiveStatus , unsigned int = 4096, const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const\nClass arguments details:\narg 4 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
 		osgDB::ReaderWriter::ArchiveStatus _arg2=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
-		unsigned int _arg3=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 4096;
+		unsigned _arg3=luatop>3 ? (unsigned)lua_tointeger(L,4) : 4096;
 		const osgDB::Options* _arg4=luatop>4 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,5)) : (const osgDB::Options*)((void *) 0);
 
 		osgDB::ReaderWriter* self=dynamic_cast< osgDB::ReaderWriter* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned, const osgDB::Options *) const");
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *) const");
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->openArchive(_arg1, _arg2, _arg3, _arg4);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
@@ -573,11 +630,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	static int _bind_readObject(lua_State *L) {
 		if (!_lg_typecheck_readObject(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -599,11 +656,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	static int _bind_readImage(lua_State *L) {
 		if (!_lg_typecheck_readImage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -625,11 +682,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	static int _bind_readHeightField(lua_State *L) {
 		if (!_lg_typecheck_readHeightField(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -651,11 +708,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	static int _bind_readNode(lua_State *L) {
 		if (!_lg_typecheck_readNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -677,11 +734,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	static int _bind_readShader(lua_State *L) {
 		if (!_lg_typecheck_readShader(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -703,11 +760,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & , const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
 	static int _bind_writeObject(lua_State *L) {
 		if (!_lg_typecheck_writeObject(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & , const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & , const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -734,11 +791,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & , const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
 	static int _bind_writeImage(lua_State *L) {
 		if (!_lg_typecheck_writeImage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & , const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & , const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -765,11 +822,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & , const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
 	static int _bind_writeHeightField(lua_State *L) {
 		if (!_lg_typecheck_writeHeightField(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & , const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & , const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -796,11 +853,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & , const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
 	static int _bind_writeNode(lua_State *L) {
 		if (!_lg_typecheck_writeNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & , const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & , const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -827,11 +884,11 @@ public:
 		return 1;
 	}
 
-	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & , const std::string & , const osgDB::Options *  = ((void *) 0)) const
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
 	static int _bind_writeShader(lua_State *L) {
 		if (!_lg_typecheck_writeShader(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & , const std::string & , const osgDB::Options *  = ((void *) 0)) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & , const std::string & , const osgDB::Options *  = ((void *) 0)) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);

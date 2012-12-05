@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_AudioStream.h>
+
 class luna_wrapper_osg_AudioStream {
 public:
 	typedef Luna< osg::AudioStream > luna_t;
@@ -265,9 +267,7 @@ osg::AudioStream* LunaTraits< osg::AudioStream >::_bind_ctor(lua_State *L) {
 	// int osg::AudioStream::audioNbChannels() const
 	// osg::AudioStream::SampleFormat osg::AudioStream::audioSampleFormat() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::AudioStream >::_bind_dtor(osg::AudioStream* obj) {

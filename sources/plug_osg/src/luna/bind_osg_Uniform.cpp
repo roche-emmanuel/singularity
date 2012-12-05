@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Uniform.h>
+
 class luna_wrapper_osg_Uniform {
 public:
 	typedef Luna< osg::Uniform > luna_t;
@@ -227,6 +229,241 @@ public:
 		if( lua_isboolean(L,3)==0 ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
 		if( lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_24(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_25(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_26(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Uniform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_27(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_28(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_29(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_30(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_31(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303173) ) return false;
+		if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_32(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_33(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_34(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903788) ) return false;
+		if( (!dynamic_cast< osg::Matrix2* >(Luna< osg::Matrix2 >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_35(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903789) ) return false;
+		if( (!dynamic_cast< osg::Matrix3* >(Luna< osg::Matrix3 >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_36(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_37(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_38(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_39(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_40(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_41(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_42(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_43(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_44(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_45(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		if( lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_46(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		if( lua_isboolean(L,5)==0 ) return false;
+		if( lua_isboolean(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -1611,6 +1848,362 @@ public:
 		return new osg::Uniform(name, b0, b1, b2, b3);
 	}
 
+	// osg::Uniform::Uniform(lua_Table * data)
+	static osg::Uniform* _bind_ctor_overload_24(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_24(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Uniform(L,NULL);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, osg::Uniform::Type type, const std::string & name, int numElements = 1)
+	static osg::Uniform* _bind_ctor_overload_25(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_25(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, osg::Uniform::Type type, const std::string & name, int numElements = 1) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, osg::Uniform::Type type, const std::string & name, int numElements = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Uniform::Type type=(osg::Uniform::Type)lua_tointeger(L,2);
+		std::string name(lua_tostring(L,3),lua_objlen(L,3));
+		int numElements=luatop>3 ? (int)lua_tointeger(L,4) : 1;
+
+		return new wrapper_osg_Uniform(L,NULL, type, name, numElements);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Uniform* _bind_ctor_overload_26(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_26(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Uniform* rhs_ptr=dynamic_cast< osg::Uniform* >(Luna< osg::Referenced >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Uniform::Uniform function");
+		}
+		const osg::Uniform & rhs=*rhs_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Uniform::Uniform function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Uniform(L,NULL, rhs, copyop);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, float f)
+	static osg::Uniform* _bind_ctor_overload_27(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_27(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, float f) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, float f)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		float f=(float)lua_tonumber(L,3);
+
+		return new wrapper_osg_Uniform(L,NULL, name, f);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, int i)
+	static osg::Uniform* _bind_ctor_overload_28(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_28(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, int i) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, int i)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		int i=(int)lua_tointeger(L,3);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i)
+	static osg::Uniform* _bind_ctor_overload_29(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_29(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		unsigned int i=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, bool b)
+	static osg::Uniform* _bind_ctor_overload_30(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_30(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, bool b) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, bool b)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		bool b=(bool)(lua_toboolean(L,3)==1);
+
+		return new wrapper_osg_Uniform(L,NULL, name, b);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec2f & v2)
+	static osg::Uniform* _bind_ctor_overload_31(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_31(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec2f & v2) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec2f & v2)\nClass arguments details:\narg 3 ID = 92303173\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Vec2f* v2_ptr=(Luna< osg::Vec2f >::check(L,3));
+		if( !v2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v2 in osg::Uniform::Uniform function");
+		}
+		const osg::Vec2f & v2=*v2_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, v2);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec3f & v3)
+	static osg::Uniform* _bind_ctor_overload_32(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_32(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec3f & v3) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec3f & v3)\nClass arguments details:\narg 3 ID = 92303204\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Vec3f* v3_ptr=(Luna< osg::Vec3f >::check(L,3));
+		if( !v3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v3 in osg::Uniform::Uniform function");
+		}
+		const osg::Vec3f & v3=*v3_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, v3);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec4f & v4)
+	static osg::Uniform* _bind_ctor_overload_33(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_33(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec4f & v4) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Vec4f & v4)\nClass arguments details:\narg 3 ID = 92303235\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Vec4f* v4_ptr=(Luna< osg::Vec4f >::check(L,3));
+		if( !v4_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg v4 in osg::Uniform::Uniform function");
+		}
+		const osg::Vec4f & v4=*v4_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, v4);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix2 & m2)
+	static osg::Uniform* _bind_ctor_overload_34(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_34(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix2 & m2) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix2 & m2)\nClass arguments details:\narg 3 ID = 18903788\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Matrix2* m2_ptr=(Luna< osg::Matrix2 >::check(L,3));
+		if( !m2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg m2 in osg::Uniform::Uniform function");
+		}
+		const osg::Matrix2 & m2=*m2_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, m2);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix3 & m3)
+	static osg::Uniform* _bind_ctor_overload_35(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_35(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix3 & m3) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrix3 & m3)\nClass arguments details:\narg 3 ID = 18903789\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Matrix3* m3_ptr=(Luna< osg::Matrix3 >::check(L,3));
+		if( !m3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg m3 in osg::Uniform::Uniform function");
+		}
+		const osg::Matrix3 & m3=*m3_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, m3);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixf & m4)
+	static osg::Uniform* _bind_ctor_overload_36(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_36(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixf & m4) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixf & m4)\nClass arguments details:\narg 3 ID = 18903840\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Matrixf* m4_ptr=(Luna< osg::Matrixf >::check(L,3));
+		if( !m4_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg m4 in osg::Uniform::Uniform function");
+		}
+		const osg::Matrixf & m4=*m4_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, m4);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixd & m4)
+	static osg::Uniform* _bind_ctor_overload_37(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_37(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixd & m4) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, const osg::Matrixd & m4)\nClass arguments details:\narg 3 ID = 18903838\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		const osg::Matrixd* m4_ptr=(Luna< osg::Matrixd >::check(L,3));
+		if( !m4_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg m4 in osg::Uniform::Uniform function");
+		}
+		const osg::Matrixd & m4=*m4_ptr;
+
+		return new wrapper_osg_Uniform(L,NULL, name, m4);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1)
+	static osg::Uniform* _bind_ctor_overload_38(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_38(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		int i0=(int)lua_tointeger(L,3);
+		int i1=(int)lua_tointeger(L,4);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2)
+	static osg::Uniform* _bind_ctor_overload_39(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_39(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		int i0=(int)lua_tointeger(L,3);
+		int i1=(int)lua_tointeger(L,4);
+		int i2=(int)lua_tointeger(L,5);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1, i2);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2, int i3)
+	static osg::Uniform* _bind_ctor_overload_40(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_40(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2, int i3) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, int i0, int i1, int i2, int i3)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		int i0=(int)lua_tointeger(L,3);
+		int i1=(int)lua_tointeger(L,4);
+		int i2=(int)lua_tointeger(L,5);
+		int i3=(int)lua_tointeger(L,6);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1, i2, i3);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1)
+	static osg::Uniform* _bind_ctor_overload_41(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_41(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		unsigned int i0=(unsigned int)lua_tointeger(L,3);
+		unsigned int i1=(unsigned int)lua_tointeger(L,4);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2)
+	static osg::Uniform* _bind_ctor_overload_42(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_42(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		unsigned int i0=(unsigned int)lua_tointeger(L,3);
+		unsigned int i1=(unsigned int)lua_tointeger(L,4);
+		unsigned int i2=(unsigned int)lua_tointeger(L,5);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1, i2);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3)
+	static osg::Uniform* _bind_ctor_overload_43(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_43(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		unsigned int i0=(unsigned int)lua_tointeger(L,3);
+		unsigned int i1=(unsigned int)lua_tointeger(L,4);
+		unsigned int i2=(unsigned int)lua_tointeger(L,5);
+		unsigned int i3=(unsigned int)lua_tointeger(L,6);
+
+		return new wrapper_osg_Uniform(L,NULL, name, i0, i1, i2, i3);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1)
+	static osg::Uniform* _bind_ctor_overload_44(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_44(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		bool b0=(bool)(lua_toboolean(L,3)==1);
+		bool b1=(bool)(lua_toboolean(L,4)==1);
+
+		return new wrapper_osg_Uniform(L,NULL, name, b0, b1);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2)
+	static osg::Uniform* _bind_ctor_overload_45(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_45(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		bool b0=(bool)(lua_toboolean(L,3)==1);
+		bool b1=(bool)(lua_toboolean(L,4)==1);
+		bool b2=(bool)(lua_toboolean(L,5)==1);
+
+		return new wrapper_osg_Uniform(L,NULL, name, b0, b1, b2);
+	}
+
+	// osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2, bool b3)
+	static osg::Uniform* _bind_ctor_overload_46(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_46(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2, bool b3) function, expected prototype:\nosg::Uniform::Uniform(lua_Table * data, const char * name, bool b0, bool b1, bool b2, bool b3)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+		bool b0=(bool)(lua_toboolean(L,3)==1);
+		bool b1=(bool)(lua_toboolean(L,4)==1);
+		bool b2=(bool)(lua_toboolean(L,5)==1);
+		bool b3=(bool)(lua_toboolean(L,6)==1);
+
+		return new wrapper_osg_Uniform(L,NULL, name, b0, b1, b2, b3);
+	}
+
 	// Overload binder for osg::Uniform::Uniform
 	static osg::Uniform* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -1636,8 +2229,31 @@ public:
 		if (_lg_typecheck_ctor_overload_21(L)) return _bind_ctor_overload_21(L);
 		if (_lg_typecheck_ctor_overload_22(L)) return _bind_ctor_overload_22(L);
 		if (_lg_typecheck_ctor_overload_23(L)) return _bind_ctor_overload_23(L);
+		if (_lg_typecheck_ctor_overload_24(L)) return _bind_ctor_overload_24(L);
+		if (_lg_typecheck_ctor_overload_25(L)) return _bind_ctor_overload_25(L);
+		if (_lg_typecheck_ctor_overload_26(L)) return _bind_ctor_overload_26(L);
+		if (_lg_typecheck_ctor_overload_27(L)) return _bind_ctor_overload_27(L);
+		if (_lg_typecheck_ctor_overload_28(L)) return _bind_ctor_overload_28(L);
+		if (_lg_typecheck_ctor_overload_29(L)) return _bind_ctor_overload_29(L);
+		if (_lg_typecheck_ctor_overload_30(L)) return _bind_ctor_overload_30(L);
+		if (_lg_typecheck_ctor_overload_31(L)) return _bind_ctor_overload_31(L);
+		if (_lg_typecheck_ctor_overload_32(L)) return _bind_ctor_overload_32(L);
+		if (_lg_typecheck_ctor_overload_33(L)) return _bind_ctor_overload_33(L);
+		if (_lg_typecheck_ctor_overload_34(L)) return _bind_ctor_overload_34(L);
+		if (_lg_typecheck_ctor_overload_35(L)) return _bind_ctor_overload_35(L);
+		if (_lg_typecheck_ctor_overload_36(L)) return _bind_ctor_overload_36(L);
+		if (_lg_typecheck_ctor_overload_37(L)) return _bind_ctor_overload_37(L);
+		if (_lg_typecheck_ctor_overload_38(L)) return _bind_ctor_overload_38(L);
+		if (_lg_typecheck_ctor_overload_39(L)) return _bind_ctor_overload_39(L);
+		if (_lg_typecheck_ctor_overload_40(L)) return _bind_ctor_overload_40(L);
+		if (_lg_typecheck_ctor_overload_41(L)) return _bind_ctor_overload_41(L);
+		if (_lg_typecheck_ctor_overload_42(L)) return _bind_ctor_overload_42(L);
+		if (_lg_typecheck_ctor_overload_43(L)) return _bind_ctor_overload_43(L);
+		if (_lg_typecheck_ctor_overload_44(L)) return _bind_ctor_overload_44(L);
+		if (_lg_typecheck_ctor_overload_45(L)) return _bind_ctor_overload_45(L);
+		if (_lg_typecheck_ctor_overload_46(L)) return _bind_ctor_overload_46(L);
 
-		luaL_error(L, "error in function Uniform, cannot match any of the overloads for function Uniform:\n  Uniform()\n  Uniform(osg::Uniform::Type, const std::string &, int)\n  Uniform(const osg::Uniform &, const osg::CopyOp &)\n  Uniform(const char *, float)\n  Uniform(const char *, int)\n  Uniform(const char *, unsigned int)\n  Uniform(const char *, bool)\n  Uniform(const char *, const osg::Vec2f &)\n  Uniform(const char *, const osg::Vec3f &)\n  Uniform(const char *, const osg::Vec4f &)\n  Uniform(const char *, const osg::Matrix2 &)\n  Uniform(const char *, const osg::Matrix3 &)\n  Uniform(const char *, const osg::Matrixf &)\n  Uniform(const char *, const osg::Matrixd &)\n  Uniform(const char *, int, int)\n  Uniform(const char *, int, int, int)\n  Uniform(const char *, int, int, int, int)\n  Uniform(const char *, unsigned int, unsigned int)\n  Uniform(const char *, unsigned int, unsigned int, unsigned int)\n  Uniform(const char *, unsigned int, unsigned int, unsigned int, unsigned int)\n  Uniform(const char *, bool, bool)\n  Uniform(const char *, bool, bool, bool)\n  Uniform(const char *, bool, bool, bool, bool)\n");
+		luaL_error(L, "error in function Uniform, cannot match any of the overloads for function Uniform:\n  Uniform()\n  Uniform(osg::Uniform::Type, const std::string &, int)\n  Uniform(const osg::Uniform &, const osg::CopyOp &)\n  Uniform(const char *, float)\n  Uniform(const char *, int)\n  Uniform(const char *, unsigned int)\n  Uniform(const char *, bool)\n  Uniform(const char *, const osg::Vec2f &)\n  Uniform(const char *, const osg::Vec3f &)\n  Uniform(const char *, const osg::Vec4f &)\n  Uniform(const char *, const osg::Matrix2 &)\n  Uniform(const char *, const osg::Matrix3 &)\n  Uniform(const char *, const osg::Matrixf &)\n  Uniform(const char *, const osg::Matrixd &)\n  Uniform(const char *, int, int)\n  Uniform(const char *, int, int, int)\n  Uniform(const char *, int, int, int, int)\n  Uniform(const char *, unsigned int, unsigned int)\n  Uniform(const char *, unsigned int, unsigned int, unsigned int)\n  Uniform(const char *, unsigned int, unsigned int, unsigned int, unsigned int)\n  Uniform(const char *, bool, bool)\n  Uniform(const char *, bool, bool, bool)\n  Uniform(const char *, bool, bool, bool, bool)\n  Uniform(lua_Table *)\n  Uniform(lua_Table *, osg::Uniform::Type, const std::string &, int)\n  Uniform(lua_Table *, const osg::Uniform &, const osg::CopyOp &)\n  Uniform(lua_Table *, const char *, float)\n  Uniform(lua_Table *, const char *, int)\n  Uniform(lua_Table *, const char *, unsigned int)\n  Uniform(lua_Table *, const char *, bool)\n  Uniform(lua_Table *, const char *, const osg::Vec2f &)\n  Uniform(lua_Table *, const char *, const osg::Vec3f &)\n  Uniform(lua_Table *, const char *, const osg::Vec4f &)\n  Uniform(lua_Table *, const char *, const osg::Matrix2 &)\n  Uniform(lua_Table *, const char *, const osg::Matrix3 &)\n  Uniform(lua_Table *, const char *, const osg::Matrixf &)\n  Uniform(lua_Table *, const char *, const osg::Matrixd &)\n  Uniform(lua_Table *, const char *, int, int)\n  Uniform(lua_Table *, const char *, int, int, int)\n  Uniform(lua_Table *, const char *, int, int, int, int)\n  Uniform(lua_Table *, const char *, unsigned int, unsigned int)\n  Uniform(lua_Table *, const char *, unsigned int, unsigned int, unsigned int)\n  Uniform(lua_Table *, const char *, unsigned int, unsigned int, unsigned int, unsigned int)\n  Uniform(lua_Table *, const char *, bool, bool)\n  Uniform(lua_Table *, const char *, bool, bool, bool)\n  Uniform(lua_Table *, const char *, bool, bool, bool, bool)\n");
 		return NULL;
 	}
 
@@ -1664,11 +2280,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Uniform::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Uniform::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Uniform::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Uniform::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Uniform::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Uniform::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

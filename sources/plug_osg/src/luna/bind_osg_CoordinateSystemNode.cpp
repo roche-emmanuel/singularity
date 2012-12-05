@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CoordinateSystemNode.h>
+
 class luna_wrapper_osg_CoordinateSystemNode {
 public:
 	typedef Luna< osg::CoordinateSystemNode > luna_t;
@@ -62,6 +64,34 @@ public:
 		if( (!dynamic_cast< osg::CoordinateSystemNode* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::CoordinateSystemNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -201,11 +231,11 @@ public:
 		return new osg::CoordinateSystemNode(format, cs);
 	}
 
-	// osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	// osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::CoordinateSystemNode* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -224,13 +254,63 @@ public:
 		return new osg::CoordinateSystemNode(_arg1, copyop);
 	}
 
+	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data)
+	static osg::CoordinateSystemNode* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CoordinateSystemNode(L,NULL);
+	}
+
+	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs)
+	static osg::CoordinateSystemNode* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const std::string & format, const std::string & cs)\nClass arguments details:\n");
+		}
+
+		std::string format(lua_tostring(L,2),lua_objlen(L,2));
+		std::string cs(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_osg_CoordinateSystemNode(L,NULL, format, cs);
+	}
+
+	// osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::CoordinateSystemNode* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CoordinateSystemNode::CoordinateSystemNode(lua_Table * data, const osg::CoordinateSystemNode & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::CoordinateSystemNode* _arg2_ptr=dynamic_cast< osg::CoordinateSystemNode* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::CoordinateSystemNode::CoordinateSystemNode function");
+		}
+		const osg::CoordinateSystemNode & _arg2=*_arg2_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::CoordinateSystemNode::CoordinateSystemNode function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_CoordinateSystemNode(L,NULL, _arg2, copyop);
+	}
+
 	// Overload binder for osg::CoordinateSystemNode::CoordinateSystemNode
 	static osg::CoordinateSystemNode* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function CoordinateSystemNode, cannot match any of the overloads for function CoordinateSystemNode:\n  CoordinateSystemNode()\n  CoordinateSystemNode(const std::string &, const std::string &)\n  CoordinateSystemNode(const osg::CoordinateSystemNode &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function CoordinateSystemNode, cannot match any of the overloads for function CoordinateSystemNode:\n  CoordinateSystemNode()\n  CoordinateSystemNode(const std::string &, const std::string &)\n  CoordinateSystemNode(const osg::CoordinateSystemNode &, const osg::CopyOp &)\n  CoordinateSystemNode(lua_Table *)\n  CoordinateSystemNode(lua_Table *, const std::string &, const std::string &)\n  CoordinateSystemNode(lua_Table *, const osg::CoordinateSystemNode &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

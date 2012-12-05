@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_Viewer.h>
+
 class luna_wrapper_osgViewer_Viewer {
 public:
 	typedef Luna< osgViewer::Viewer > luna_t;
@@ -73,6 +75,34 @@ public:
 		if( (!dynamic_cast< osgViewer::Viewer* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
+		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgViewer::Viewer* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -348,13 +378,66 @@ public:
 		return new osgViewer::Viewer(viewer, copyop);
 	}
 
+	// osgViewer::Viewer::Viewer(lua_Table * data)
+	static osgViewer::Viewer* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::Viewer::Viewer(lua_Table * data) function, expected prototype:\nosgViewer::Viewer::Viewer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgViewer_Viewer(L,NULL);
+	}
+
+	// osgViewer::Viewer::Viewer(lua_Table * data, osg::ArgumentParser & arguments)
+	static osgViewer::Viewer* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::Viewer::Viewer(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosgViewer::Viewer::Viewer(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n");
+		}
+
+		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
+		if( !arguments_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arguments in osgViewer::Viewer::Viewer function");
+		}
+		osg::ArgumentParser & arguments=*arguments_ptr;
+
+		return new wrapper_osgViewer_Viewer(L,NULL, arguments);
+	}
+
+	// osgViewer::Viewer::Viewer(lua_Table * data, const osgViewer::Viewer & viewer, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgViewer::Viewer* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::Viewer::Viewer(lua_Table * data, const osgViewer::Viewer & viewer, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgViewer::Viewer::Viewer(lua_Table * data, const osgViewer::Viewer & viewer, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgViewer::Viewer* viewer_ptr=dynamic_cast< osgViewer::Viewer* >(Luna< osg::Referenced >::check(L,2));
+		if( !viewer_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg viewer in osgViewer::Viewer::Viewer function");
+		}
+		const osgViewer::Viewer & viewer=*viewer_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::Viewer::Viewer function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgViewer_Viewer(L,NULL, viewer, copyop);
+	}
+
 	// Overload binder for osgViewer::Viewer::Viewer
 	static osgViewer::Viewer* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function Viewer, cannot match any of the overloads for function Viewer:\n  Viewer()\n  Viewer(osg::ArgumentParser &)\n  Viewer(const osgViewer::Viewer &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Viewer, cannot match any of the overloads for function Viewer:\n  Viewer()\n  Viewer(osg::ArgumentParser &)\n  Viewer(const osgViewer::Viewer &, const osg::CopyOp &)\n  Viewer(lua_Table *)\n  Viewer(lua_Table *, osg::ArgumentParser &)\n  Viewer(lua_Table *, const osgViewer::Viewer &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -381,11 +464,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgViewer::Viewer::clone(const osg::CopyOp & ) const
+	// osg::Object * osgViewer::Viewer::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::Viewer::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgViewer::Viewer::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::Viewer::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgViewer::Viewer::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

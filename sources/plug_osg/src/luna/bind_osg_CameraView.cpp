@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CameraView.h>
+
 class luna_wrapper_osg_CameraView {
 public:
 	typedef Luna< osg::CameraView > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::CameraView* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::CameraView* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -218,12 +239,48 @@ public:
 		return new osg::CameraView(pat, copyop);
 	}
 
+	// osg::CameraView::CameraView(lua_Table * data)
+	static osg::CameraView* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CameraView::CameraView(lua_Table * data) function, expected prototype:\nosg::CameraView::CameraView(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CameraView(L,NULL);
+	}
+
+	// osg::CameraView::CameraView(lua_Table * data, const osg::CameraView & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::CameraView* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CameraView::CameraView(lua_Table * data, const osg::CameraView & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CameraView::CameraView(lua_Table * data, const osg::CameraView & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::CameraView* pat_ptr=dynamic_cast< osg::CameraView* >(Luna< osg::Referenced >::check(L,2));
+		if( !pat_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pat in osg::CameraView::CameraView function");
+		}
+		const osg::CameraView & pat=*pat_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::CameraView::CameraView function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_CameraView(L,NULL, pat, copyop);
+	}
+
 	// Overload binder for osg::CameraView::CameraView
 	static osg::CameraView* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function CameraView, cannot match any of the overloads for function CameraView:\n  CameraView()\n  CameraView(const osg::CameraView &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function CameraView, cannot match any of the overloads for function CameraView:\n  CameraView()\n  CameraView(const osg::CameraView &, const osg::CopyOp &)\n  CameraView(lua_Table *)\n  CameraView(lua_Table *, const osg::CameraView &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

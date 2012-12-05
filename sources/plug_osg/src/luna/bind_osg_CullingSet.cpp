@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CullingSet.h>
+
 class luna_wrapper_osg_CullingSet {
 public:
 	typedef Luna< osg::CullingSet > luna_t;
@@ -63,6 +65,35 @@ public:
 		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
 		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -338,13 +369,69 @@ public:
 		return new osg::CullingSet(cs, matrix, pixelSizeVector);
 	}
 
+	// osg::CullingSet::CullingSet(lua_Table * data)
+	static osg::CullingSet* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(lua_Table * data) function, expected prototype:\nosg::CullingSet::CullingSet(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CullingSet(L,NULL);
+	}
+
+	// osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs)
+	static osg::CullingSet* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs) function, expected prototype:\nosg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
+		}
+		const osg::CullingSet & cs=*cs_ptr;
+
+		return new wrapper_osg_CullingSet(L,NULL, cs);
+	}
+
+	// osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector)
+	static osg::CullingSet* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector) function, expected prototype:\nosg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 18903838\narg 4 ID = 92303235\n");
+		}
+
+		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
+		}
+		const osg::CullingSet & cs=*cs_ptr;
+		const osg::Matrixd* matrix_ptr=(Luna< osg::Matrixd >::check(L,3));
+		if( !matrix_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg matrix in osg::CullingSet::CullingSet function");
+		}
+		const osg::Matrixd & matrix=*matrix_ptr;
+		const osg::Vec4f* pixelSizeVector_ptr=(Luna< osg::Vec4f >::check(L,4));
+		if( !pixelSizeVector_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pixelSizeVector in osg::CullingSet::CullingSet function");
+		}
+		const osg::Vec4f & pixelSizeVector=*pixelSizeVector_ptr;
+
+		return new wrapper_osg_CullingSet(L,NULL, cs, matrix, pixelSizeVector);
+	}
+
 	// Overload binder for osg::CullingSet::CullingSet
 	static osg::CullingSet* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function CullingSet, cannot match any of the overloads for function CullingSet:\n  CullingSet()\n  CullingSet(const osg::CullingSet &)\n  CullingSet(const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &)\n");
+		luaL_error(L, "error in function CullingSet, cannot match any of the overloads for function CullingSet:\n  CullingSet()\n  CullingSet(const osg::CullingSet &)\n  CullingSet(const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &)\n  CullingSet(lua_Table *)\n  CullingSet(lua_Table *, const osg::CullingSet &)\n  CullingSet(lua_Table *, const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &)\n");
 		return NULL;
 	}
 

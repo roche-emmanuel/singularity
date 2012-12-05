@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Sequence.h>
+
 class luna_wrapper_osg_Sequence {
 public:
 	typedef Luna< osg::Sequence > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -384,11 +405,11 @@ public:
 		return new osg::Sequence();
 	}
 
-	// osg::Sequence::Sequence(const osg::Sequence & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	// osg::Sequence::Sequence(const osg::Sequence & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osg::Sequence* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Sequence::Sequence(const osg::Sequence & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Sequence::Sequence(const osg::Sequence & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Sequence::Sequence(const osg::Sequence & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Sequence::Sequence(const osg::Sequence & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -407,12 +428,48 @@ public:
 		return new osg::Sequence(_arg1, copyop);
 	}
 
+	// osg::Sequence::Sequence(lua_Table * data)
+	static osg::Sequence* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Sequence::Sequence(lua_Table * data) function, expected prototype:\nosg::Sequence::Sequence(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Sequence(L,NULL);
+	}
+
+	// osg::Sequence::Sequence(lua_Table * data, const osg::Sequence & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Sequence* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Sequence::Sequence(lua_Table * data, const osg::Sequence & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Sequence::Sequence(lua_Table * data, const osg::Sequence & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Sequence* _arg2_ptr=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::Sequence::Sequence function");
+		}
+		const osg::Sequence & _arg2=*_arg2_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Sequence::Sequence function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Sequence(L,NULL, _arg2, copyop);
+	}
+
 	// Overload binder for osg::Sequence::Sequence
 	static osg::Sequence* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Sequence, cannot match any of the overloads for function Sequence:\n  Sequence()\n  Sequence(const osg::Sequence &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Sequence, cannot match any of the overloads for function Sequence:\n  Sequence()\n  Sequence(const osg::Sequence &, const osg::CopyOp &)\n  Sequence(lua_Table *)\n  Sequence(lua_Table *, const osg::Sequence &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -546,11 +603,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Sequence::traverse(osg::NodeVisitor & )
+	// void osg::Sequence::traverse(osg::NodeVisitor & arg1)
 	static int _bind_traverse(lua_State *L) {
 		if (!_lg_typecheck_traverse(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Sequence::traverse(osg::NodeVisitor & ) function, expected prototype:\nvoid osg::Sequence::traverse(osg::NodeVisitor & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::Sequence::traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::NodeVisitor* _arg1_ptr=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));

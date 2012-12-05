@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_SharedStateManager.h>
+
 class luna_wrapper_osgDB_SharedStateManager {
 public:
 	typedef Luna< osgDB::SharedStateManager > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -126,8 +137,8 @@ public:
 
 	// Constructor binds:
 	// osgDB::SharedStateManager::SharedStateManager(unsigned int mode = osgDB::SharedStateManager::SHARE_ALL)
-	static osgDB::SharedStateManager* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgDB::SharedStateManager* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::SharedStateManager::SharedStateManager(unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) function, expected prototype:\nosgDB::SharedStateManager::SharedStateManager(unsigned int mode = osgDB::SharedStateManager::SHARE_ALL)\nClass arguments details:\n");
 		}
@@ -137,6 +148,29 @@ public:
 		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osgDB::SharedStateManager::SHARE_ALL;
 
 		return new osgDB::SharedStateManager(mode);
+	}
+
+	// osgDB::SharedStateManager::SharedStateManager(lua_Table * data, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL)
+	static osgDB::SharedStateManager* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::SharedStateManager::SharedStateManager(lua_Table * data, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) function, expected prototype:\nosgDB::SharedStateManager::SharedStateManager(lua_Table * data, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgDB::SharedStateManager::SHARE_ALL;
+
+		return new wrapper_osgDB_SharedStateManager(L,NULL, mode);
+	}
+
+	// Overload binder for osgDB::SharedStateManager::SharedStateManager
+	static osgDB::SharedStateManager* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function SharedStateManager, cannot match any of the overloads for function SharedStateManager:\n  SharedStateManager(unsigned int)\n  SharedStateManager(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_ObjectWrapperManager.h>
+
 class luna_wrapper_osgDB_ObjectWrapperManager {
 public:
 	typedef Luna< osgDB::ObjectWrapperManager > luna_t;

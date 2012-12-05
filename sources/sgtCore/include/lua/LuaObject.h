@@ -66,12 +66,72 @@ public:
 		Luna< ArgType >::push(_state,arg,false);
 	};
 
+	/*template <typename ArgType>
+	void pushArg(const ArgType *& arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg,false);
+	};*/
+
+	template <typename ArgType>
+	void pushArg(const osg::ref_ptr<ArgType>* arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg->get(),false);
+	};
+
+	template <typename ArgType>
+	void pushArg(const osg::observer_ptr<ArgType>* arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg->get(),false);
+	};
+
+	template <typename ArgType>
+	void pushArg(const osg::ref_ptr<ArgType>& arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg.get(),false);
+	};
+
+	template <typename ArgType>
+	void pushArg(const osg::observer_ptr<ArgType>& arg) const {
+		++_nargs;
+		Luna< ArgType >::push(_state,arg.get(),false);
+	};
+
 	void pushArg(bool arg) const {
 		++_nargs;
 		lua_pushboolean(_state,arg?1:0);
 	}
 
+	void pushArg(char arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(unsigned char arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(short arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+	
+	void pushArg(unsigned short arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(long arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+
 	void pushArg(int arg) const {
+		++_nargs;
+		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(unsigned long arg) const {
 		++_nargs;
 		lua_pushinteger(_state,arg);
 	}
@@ -83,7 +143,19 @@ public:
 
 	void pushArg(long long arg) const {
 		++_nargs;
+		logWARN("LuaObject: pushing long long as integer.");
 		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(unsigned long long arg) const {
+		++_nargs;
+		logWARN("LuaObject: pushing unsigned long long as integer.");
+		lua_pushinteger(_state,arg);
+	}
+
+	void pushArg(float arg) const {
+		++_nargs;
+		lua_pushnumber(_state,arg);
 	}
 
 	void pushArg(double arg) const {
@@ -171,6 +243,17 @@ public:
 
 		// Retrieve the result from the stack:
 		double res = lua_tonumber(_state,-1);
+		lua_pop(_state,1);
+		return res;
+	}
+
+	template <>
+	float callFunction() const {
+		lua_call(_state,_nargs,1);
+		reset();
+
+		// Retrieve the result from the stack:
+		float res = (float)lua_tonumber(_state,-1);
 		lua_pop(_state,1);
 		return res;
 	}

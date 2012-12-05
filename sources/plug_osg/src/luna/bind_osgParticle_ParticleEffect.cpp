@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_ParticleEffect.h>
+
 class luna_wrapper_osgParticle_ParticleEffect {
 public:
 	typedef Luna< osgParticle::ParticleEffect > luna_t;
@@ -1056,8 +1058,6 @@ osgParticle::ParticleEffect* LunaTraits< osgParticle::ParticleEffect >::_bind_ct
 	// osgParticle::Program * osgParticle::ParticleEffect::getProgram()
 	// const osgParticle::Program * osgParticle::ParticleEffect::getProgram() const
 	// void osgParticle::ParticleEffect::setUpEmitterAndProgram()
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgParticle::ParticleEffect >::_bind_dtor(osgParticle::ParticleEffect* obj) {

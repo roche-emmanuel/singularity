@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_PolytopeIntersector.h>
+
 class luna_wrapper_osgUtil_PolytopeIntersector {
 public:
 	typedef Luna< osgUtil::PolytopeIntersector > luna_t;
@@ -65,6 +67,37 @@ public:
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,26652350) ) return false;
+		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,26652350) ) return false;
+		if( (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -209,13 +242,65 @@ public:
 		return new osgUtil::PolytopeIntersector(cf, xMin, yMin, xMax, yMax);
 	}
 
+	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope)
+	static osgUtil::PolytopeIntersector* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, const osg::Polytope & polytope)\nClass arguments details:\narg 2 ID = 26652350\n");
+		}
+
+		const osg::Polytope* polytope_ptr=(Luna< osg::Polytope >::check(L,2));
+		if( !polytope_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg polytope in osgUtil::PolytopeIntersector::PolytopeIntersector function");
+		}
+		const osg::Polytope & polytope=*polytope_ptr;
+
+		return new wrapper_osgUtil_PolytopeIntersector(L,NULL, polytope);
+	}
+
+	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)
+	static osgUtil::PolytopeIntersector* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope)\nClass arguments details:\narg 3 ID = 26652350\n");
+		}
+
+		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
+		const osg::Polytope* polytope_ptr=(Luna< osg::Polytope >::check(L,3));
+		if( !polytope_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg polytope in osgUtil::PolytopeIntersector::PolytopeIntersector function");
+		}
+		const osg::Polytope & polytope=*polytope_ptr;
+
+		return new wrapper_osgUtil_PolytopeIntersector(L,NULL, cf, polytope);
+	}
+
+	// osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)
+	static osgUtil::PolytopeIntersector* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) function, expected prototype:\nosgUtil::PolytopeIntersector::PolytopeIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax)\nClass arguments details:\n");
+		}
+
+		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
+		double xMin=(double)lua_tonumber(L,3);
+		double yMin=(double)lua_tonumber(L,4);
+		double xMax=(double)lua_tonumber(L,5);
+		double yMax=(double)lua_tonumber(L,6);
+
+		return new wrapper_osgUtil_PolytopeIntersector(L,NULL, cf, xMin, yMin, xMax, yMax);
+	}
+
 	// Overload binder for osgUtil::PolytopeIntersector::PolytopeIntersector
 	static osgUtil::PolytopeIntersector* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function PolytopeIntersector, cannot match any of the overloads for function PolytopeIntersector:\n  PolytopeIntersector(const osg::Polytope &)\n  PolytopeIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Polytope &)\n  PolytopeIntersector(osgUtil::Intersector::CoordinateFrame, double, double, double, double)\n");
+		luaL_error(L, "error in function PolytopeIntersector, cannot match any of the overloads for function PolytopeIntersector:\n  PolytopeIntersector(const osg::Polytope &)\n  PolytopeIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Polytope &)\n  PolytopeIntersector(osgUtil::Intersector::CoordinateFrame, double, double, double, double)\n  PolytopeIntersector(lua_Table *, const osg::Polytope &)\n  PolytopeIntersector(lua_Table *, osgUtil::Intersector::CoordinateFrame, const osg::Polytope &)\n  PolytopeIntersector(lua_Table *, osgUtil::Intersector::CoordinateFrame, double, double, double, double)\n");
 		return NULL;
 	}
 

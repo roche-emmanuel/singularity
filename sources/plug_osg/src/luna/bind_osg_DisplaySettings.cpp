@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_DisplaySettings.h>
+
 class luna_wrapper_osg_DisplaySettings {
 public:
 	typedef Luna< osg::DisplaySettings > luna_t;
@@ -59,6 +61,31 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
+		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -608,13 +635,59 @@ public:
 		return new osg::DisplaySettings(vs);
 	}
 
+	// osg::DisplaySettings::DisplaySettings(lua_Table * data)
+	static osg::DisplaySettings* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_DisplaySettings(L,NULL);
+	}
+
+	// osg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments)
+	static osg::DisplaySettings* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n");
+		}
+
+		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
+		if( !arguments_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arguments in osg::DisplaySettings::DisplaySettings function");
+		}
+		osg::ArgumentParser & arguments=*arguments_ptr;
+
+		return new wrapper_osg_DisplaySettings(L,NULL, arguments);
+	}
+
+	// osg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs)
+	static osg::DisplaySettings* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs) function, expected prototype:\nosg::DisplaySettings::DisplaySettings(lua_Table * data, const osg::DisplaySettings & vs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::DisplaySettings* vs_ptr=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2));
+		if( !vs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vs in osg::DisplaySettings::DisplaySettings function");
+		}
+		const osg::DisplaySettings & vs=*vs_ptr;
+
+		return new wrapper_osg_DisplaySettings(L,NULL, vs);
+	}
+
 	// Overload binder for osg::DisplaySettings::DisplaySettings
 	static osg::DisplaySettings* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function DisplaySettings, cannot match any of the overloads for function DisplaySettings:\n  DisplaySettings()\n  DisplaySettings(osg::ArgumentParser &)\n  DisplaySettings(const osg::DisplaySettings &)\n");
+		luaL_error(L, "error in function DisplaySettings, cannot match any of the overloads for function DisplaySettings:\n  DisplaySettings()\n  DisplaySettings(osg::ArgumentParser &)\n  DisplaySettings(const osg::DisplaySettings &)\n  DisplaySettings(lua_Table *)\n  DisplaySettings(lua_Table *, osg::ArgumentParser &)\n  DisplaySettings(lua_Table *, const osg::DisplaySettings &)\n");
 		return NULL;
 	}
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_CompositeViewer.h>
+
 class luna_wrapper_osgViewer_CompositeViewer {
 public:
 	typedef Luna< osgViewer::CompositeViewer > luna_t;
@@ -62,6 +64,34 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,99527028) ) return false;
 		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgViewer::CompositeViewer* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
+		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -332,11 +362,11 @@ public:
 		return new osgViewer::CompositeViewer();
 	}
 
-	// osgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	// osgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static osgViewer::CompositeViewer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & , const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgViewer::CompositeViewer::CompositeViewer(const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -371,13 +401,66 @@ public:
 		return new osgViewer::CompositeViewer(arguments);
 	}
 
+	// osgViewer::CompositeViewer::CompositeViewer(lua_Table * data)
+	static osgViewer::CompositeViewer* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::CompositeViewer::CompositeViewer(lua_Table * data) function, expected prototype:\nosgViewer::CompositeViewer::CompositeViewer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgViewer_CompositeViewer(L,NULL);
+	}
+
+	// osgViewer::CompositeViewer::CompositeViewer(lua_Table * data, const osgViewer::CompositeViewer & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgViewer::CompositeViewer* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::CompositeViewer::CompositeViewer(lua_Table * data, const osgViewer::CompositeViewer & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgViewer::CompositeViewer::CompositeViewer(lua_Table * data, const osgViewer::CompositeViewer & arg2, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgViewer::CompositeViewer* _arg2_ptr=dynamic_cast< osgViewer::CompositeViewer* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osgViewer::CompositeViewer::CompositeViewer function");
+		}
+		const osgViewer::CompositeViewer & _arg2=*_arg2_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgViewer::CompositeViewer::CompositeViewer function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgViewer_CompositeViewer(L,NULL, _arg2, copyop);
+	}
+
+	// osgViewer::CompositeViewer::CompositeViewer(lua_Table * data, osg::ArgumentParser & arguments)
+	static osgViewer::CompositeViewer* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::CompositeViewer::CompositeViewer(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosgViewer::CompositeViewer::CompositeViewer(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n");
+		}
+
+		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
+		if( !arguments_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arguments in osgViewer::CompositeViewer::CompositeViewer function");
+		}
+		osg::ArgumentParser & arguments=*arguments_ptr;
+
+		return new wrapper_osgViewer_CompositeViewer(L,NULL, arguments);
+	}
+
 	// Overload binder for osgViewer::CompositeViewer::CompositeViewer
 	static osgViewer::CompositeViewer* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function CompositeViewer, cannot match any of the overloads for function CompositeViewer:\n  CompositeViewer()\n  CompositeViewer(const osgViewer::CompositeViewer &, const osg::CopyOp &)\n  CompositeViewer(osg::ArgumentParser &)\n");
+		luaL_error(L, "error in function CompositeViewer, cannot match any of the overloads for function CompositeViewer:\n  CompositeViewer()\n  CompositeViewer(const osgViewer::CompositeViewer &, const osg::CopyOp &)\n  CompositeViewer(osg::ArgumentParser &)\n  CompositeViewer(lua_Table *)\n  CompositeViewer(lua_Table *, const osgViewer::CompositeViewer &, const osg::CopyOp &)\n  CompositeViewer(lua_Table *, osg::ArgumentParser &)\n");
 		return NULL;
 	}
 
@@ -404,11 +487,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & ) const
+	// osg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgViewer::CompositeViewer::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -616,11 +699,11 @@ public:
 		return 0;
 	}
 
-	// osgViewer::View * osgViewer::CompositeViewer::getView(unsigned i)
+	// osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i)
 	static int _bind_getView_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getView_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgViewer::View * osgViewer::CompositeViewer::getView(unsigned i) function, expected prototype:\nosgViewer::View * osgViewer::CompositeViewer::getView(unsigned i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i) function, expected prototype:\nosgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i)\nClass arguments details:\n");
 		}
 
 		unsigned i=(unsigned)lua_tointeger(L,2);
@@ -628,7 +711,7 @@ public:
 		osgViewer::CompositeViewer* self=dynamic_cast< osgViewer::CompositeViewer* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osgViewer::View * osgViewer::CompositeViewer::getView(unsigned)");
+			luaL_error(L, "Invalid object in function call osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int)");
 		}
 		osgViewer::View * lret = self->getView(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -638,11 +721,11 @@ public:
 		return 1;
 	}
 
-	// const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned i) const
+	// const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i) const
 	static int _bind_getView_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getView_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned i) const function, expected prototype:\nconst osgViewer::View * osgViewer::CompositeViewer::getView(unsigned i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i) const function, expected prototype:\nconst osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int i) const\nClass arguments details:\n");
 		}
 
 		unsigned i=(unsigned)lua_tointeger(L,2);
@@ -650,7 +733,7 @@ public:
 		osgViewer::CompositeViewer* self=dynamic_cast< osgViewer::CompositeViewer* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned) const");
+			luaL_error(L, "Invalid object in function call const osgViewer::View * osgViewer::CompositeViewer::getView(unsigned int) const");
 		}
 		const osgViewer::View * lret = self->getView(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -665,7 +748,7 @@ public:
 		if (_lg_typecheck_getView_overload_1(L)) return _bind_getView_overload_1(L);
 		if (_lg_typecheck_getView_overload_2(L)) return _bind_getView_overload_2(L);
 
-		luaL_error(L, "error in function getView, cannot match any of the overloads for function getView:\n  getView(unsigned)\n  getView(unsigned)\n");
+		luaL_error(L, "error in function getView, cannot match any of the overloads for function getView:\n  getView(unsigned int)\n  getView(unsigned int)\n");
 		return 0;
 	}
 

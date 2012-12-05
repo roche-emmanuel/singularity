@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_Text3D.h>
+
 class luna_wrapper_osgText_Text3D {
 public:
 	typedef Luna< osgText::Text3D > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osgText::Text3D* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgText::Text3D* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -227,12 +248,48 @@ public:
 		return new osgText::Text3D(text, copyop);
 	}
 
+	// osgText::Text3D::Text3D(lua_Table * data)
+	static osgText::Text3D* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text3D::Text3D(lua_Table * data) function, expected prototype:\nosgText::Text3D::Text3D(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgText_Text3D(L,NULL);
+	}
+
+	// osgText::Text3D::Text3D(lua_Table * data, const osgText::Text3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgText::Text3D* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Text3D::Text3D(lua_Table * data, const osgText::Text3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::Text3D::Text3D(lua_Table * data, const osgText::Text3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgText::Text3D* text_ptr=dynamic_cast< osgText::Text3D* >(Luna< osg::Referenced >::check(L,2));
+		if( !text_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg text in osgText::Text3D::Text3D function");
+		}
+		const osgText::Text3D & text=*text_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::Text3D::Text3D function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgText_Text3D(L,NULL, text, copyop);
+	}
+
 	// Overload binder for osgText::Text3D::Text3D
 	static osgText::Text3D* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Text3D, cannot match any of the overloads for function Text3D:\n  Text3D()\n  Text3D(const osgText::Text3D &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Text3D, cannot match any of the overloads for function Text3D:\n  Text3D()\n  Text3D(const osgText::Text3D &, const osg::CopyOp &)\n  Text3D(lua_Table *)\n  Text3D(lua_Table *, const osgText::Text3D &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -259,11 +316,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgText::Text3D::clone(const osg::CopyOp & ) const
+	// osg::Object * osgText::Text3D::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::Text3D::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgText::Text3D::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::Text3D::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::Text3D::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

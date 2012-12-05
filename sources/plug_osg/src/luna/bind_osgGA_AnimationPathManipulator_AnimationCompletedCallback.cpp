@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback.h>
+
 class luna_wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback {
 public:
 	typedef Luna< osgGA::AnimationPathManipulator::AnimationCompletedCallback > luna_t;
@@ -80,8 +82,6 @@ osgGA::AnimationPathManipulator::AnimationCompletedCallback* LunaTraits< osgGA::
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgGA::AnimationPathManipulator::AnimationCompletedCallback >::_bind_dtor(osgGA::AnimationPathManipulator::AnimationCompletedCallback* obj) {

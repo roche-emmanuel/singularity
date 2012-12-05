@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_CenteredPlacer.h>
+
 class luna_wrapper_osgParticle_CenteredPlacer {
 public:
 	typedef Luna< osgParticle::CenteredPlacer > luna_t;
@@ -230,9 +232,7 @@ osgParticle::CenteredPlacer* LunaTraits< osgParticle::CenteredPlacer >::_bind_ct
 	// void osgParticle::Placer::place(osgParticle::Particle * P) const
 	// osg::Vec3f osgParticle::Placer::getControlPosition() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::CenteredPlacer >::_bind_dtor(osgParticle::CenteredPlacer* obj) {

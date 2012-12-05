@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IncrementalCompileOperation_CompileCompletedCallback.h>
+
 class luna_wrapper_osgUtil_IncrementalCompileOperation_CompileCompletedCallback {
 public:
 	typedef Luna< osgUtil::IncrementalCompileOperation::CompileCompletedCallback > luna_t;
@@ -54,8 +56,6 @@ osgUtil::IncrementalCompileOperation::CompileCompletedCallback* LunaTraits< osgU
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted(osgUtil::IncrementalCompileOperation::CompileSet * compileSet)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::IncrementalCompileOperation::CompileCompletedCallback >::_bind_dtor(osgUtil::IncrementalCompileOperation::CompileCompletedCallback* obj) {

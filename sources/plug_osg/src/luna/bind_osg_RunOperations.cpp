@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_RunOperations.h>
+
 class luna_wrapper_osg_RunOperations {
 public:
 	typedef Luna< osg::RunOperations > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -61,14 +70,34 @@ public:
 
 	// Constructor binds:
 	// osg::RunOperations::RunOperations()
-	static osg::RunOperations* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::RunOperations* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::RunOperations::RunOperations() function, expected prototype:\nosg::RunOperations::RunOperations()\nClass arguments details:\n");
 		}
 
 
 		return new osg::RunOperations();
+	}
+
+	// osg::RunOperations::RunOperations(lua_Table * data)
+	static osg::RunOperations* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RunOperations::RunOperations(lua_Table * data) function, expected prototype:\nosg::RunOperations::RunOperations(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_RunOperations(L,NULL);
+	}
+
+	// Overload binder for osg::RunOperations::RunOperations
+	static osg::RunOperations* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function RunOperations, cannot match any of the overloads for function RunOperations:\n  RunOperations()\n  RunOperations(lua_Table *)\n");
+		return NULL;
 	}
 
 

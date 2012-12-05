@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_RefMatrixd.h>
+
 class luna_wrapper_osg_RefMatrixd {
 public:
 	typedef Luna< osg::RefMatrixd > luna_t;
@@ -89,6 +91,63 @@ public:
 		if( lua_isnumber(L,14)==0 ) return false;
 		if( lua_isnumber(L,15)==0 ) return false;
 		if( lua_isnumber(L,16)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
+		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=17 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_isnumber(L,8)==0 ) return false;
+		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_isnumber(L,10)==0 ) return false;
+		if( lua_isnumber(L,11)==0 ) return false;
+		if( lua_isnumber(L,12)==0 ) return false;
+		if( lua_isnumber(L,13)==0 ) return false;
+		if( lua_isnumber(L,14)==0 ) return false;
+		if( lua_isnumber(L,15)==0 ) return false;
+		if( lua_isnumber(L,16)==0 ) return false;
+		if( lua_isnumber(L,17)==0 ) return false;
 		return true;
 	}
 
@@ -217,6 +276,92 @@ public:
 		return new osg::RefMatrixd(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33);
 	}
 
+	// osg::RefMatrixd::RefMatrixd(lua_Table * data)
+	static osg::RefMatrixd* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd::RefMatrixd(lua_Table * data) function, expected prototype:\nosg::RefMatrixd::RefMatrixd(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_RefMatrixd(L,NULL);
+	}
+
+	// osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixd & other)
+	static osg::RefMatrixd* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixd & other) function, expected prototype:\nosg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixd & other)\nClass arguments details:\narg 2 ID = 18903838\n");
+		}
+
+		const osg::Matrixd* other_ptr=(Luna< osg::Matrixd >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in osg::RefMatrixd::RefMatrixd function");
+		}
+		const osg::Matrixd & other=*other_ptr;
+
+		return new wrapper_osg_RefMatrixd(L,NULL, other);
+	}
+
+	// osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixf & other)
+	static osg::RefMatrixd* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixf & other) function, expected prototype:\nosg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::Matrixf & other)\nClass arguments details:\narg 2 ID = 18903840\n");
+		}
+
+		const osg::Matrixf* other_ptr=(Luna< osg::Matrixf >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in osg::RefMatrixd::RefMatrixd function");
+		}
+		const osg::Matrixf & other=*other_ptr;
+
+		return new wrapper_osg_RefMatrixd(L,NULL, other);
+	}
+
+	// osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::RefMatrixd & other)
+	static osg::RefMatrixd* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::RefMatrixd & other) function, expected prototype:\nosg::RefMatrixd::RefMatrixd(lua_Table * data, const osg::RefMatrixd & other)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::RefMatrixd* other_ptr=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in osg::RefMatrixd::RefMatrixd function");
+		}
+		const osg::RefMatrixd & other=*other_ptr;
+
+		return new wrapper_osg_RefMatrixd(L,NULL, other);
+	}
+
+	// osg::RefMatrixd::RefMatrixd(lua_Table * data, double a00, double a01, double a02, double a03, double a10, double a11, double a12, double a13, double a20, double a21, double a22, double a23, double a30, double a31, double a32, double a33)
+	static osg::RefMatrixd* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::RefMatrixd::RefMatrixd(lua_Table * data, double a00, double a01, double a02, double a03, double a10, double a11, double a12, double a13, double a20, double a21, double a22, double a23, double a30, double a31, double a32, double a33) function, expected prototype:\nosg::RefMatrixd::RefMatrixd(lua_Table * data, double a00, double a01, double a02, double a03, double a10, double a11, double a12, double a13, double a20, double a21, double a22, double a23, double a30, double a31, double a32, double a33)\nClass arguments details:\n");
+		}
+
+		double a00=(double)lua_tonumber(L,2);
+		double a01=(double)lua_tonumber(L,3);
+		double a02=(double)lua_tonumber(L,4);
+		double a03=(double)lua_tonumber(L,5);
+		double a10=(double)lua_tonumber(L,6);
+		double a11=(double)lua_tonumber(L,7);
+		double a12=(double)lua_tonumber(L,8);
+		double a13=(double)lua_tonumber(L,9);
+		double a20=(double)lua_tonumber(L,10);
+		double a21=(double)lua_tonumber(L,11);
+		double a22=(double)lua_tonumber(L,12);
+		double a23=(double)lua_tonumber(L,13);
+		double a30=(double)lua_tonumber(L,14);
+		double a31=(double)lua_tonumber(L,15);
+		double a32=(double)lua_tonumber(L,16);
+		double a33=(double)lua_tonumber(L,17);
+
+		return new wrapper_osg_RefMatrixd(L,NULL, a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33);
+	}
+
 	// Overload binder for osg::RefMatrixd::RefMatrixd
 	static osg::RefMatrixd* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -224,8 +369,13 @@ public:
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 
-		luaL_error(L, "error in function RefMatrixd, cannot match any of the overloads for function RefMatrixd:\n  RefMatrixd()\n  RefMatrixd(const osg::Matrixd &)\n  RefMatrixd(const osg::Matrixf &)\n  RefMatrixd(const osg::RefMatrixd &)\n  RefMatrixd(double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double)\n");
+		luaL_error(L, "error in function RefMatrixd, cannot match any of the overloads for function RefMatrixd:\n  RefMatrixd()\n  RefMatrixd(const osg::Matrixd &)\n  RefMatrixd(const osg::Matrixf &)\n  RefMatrixd(const osg::RefMatrixd &)\n  RefMatrixd(double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double)\n  RefMatrixd(lua_Table *)\n  RefMatrixd(lua_Table *, const osg::Matrixd &)\n  RefMatrixd(lua_Table *, const osg::Matrixf &)\n  RefMatrixd(lua_Table *, const osg::RefMatrixd &)\n  RefMatrixd(lua_Table *, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double)\n");
 		return NULL;
 	}
 
@@ -252,11 +402,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::RefMatrixd::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::RefMatrixd::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::RefMatrixd::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::RefMatrixd::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::RefMatrixd::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::RefMatrixd::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_StateGraph.h>
+
 class luna_wrapper_osgUtil_StateGraph {
 public:
 	typedef Luna< osgUtil::StateGraph > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (lua_isnil(L,1)==0 && !dynamic_cast< osgUtil::StateGraph* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::StateGraph* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -204,12 +224,38 @@ public:
 		return new osgUtil::StateGraph(parent, stateset);
 	}
 
+	// osgUtil::StateGraph::StateGraph(lua_Table * data)
+	static osgUtil::StateGraph* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph::StateGraph(lua_Table * data) function, expected prototype:\nosgUtil::StateGraph::StateGraph(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_StateGraph(L,NULL);
+	}
+
+	// osgUtil::StateGraph::StateGraph(lua_Table * data, osgUtil::StateGraph * parent, const osg::StateSet * stateset)
+	static osgUtil::StateGraph* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateGraph::StateGraph(lua_Table * data, osgUtil::StateGraph * parent, const osg::StateSet * stateset) function, expected prototype:\nosgUtil::StateGraph::StateGraph(lua_Table * data, osgUtil::StateGraph * parent, const osg::StateSet * stateset)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+		}
+
+		osgUtil::StateGraph* parent=dynamic_cast< osgUtil::StateGraph* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateSet* stateset=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,3));
+
+		return new wrapper_osgUtil_StateGraph(L,NULL, parent, stateset);
+	}
+
 	// Overload binder for osgUtil::StateGraph::StateGraph
 	static osgUtil::StateGraph* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function StateGraph, cannot match any of the overloads for function StateGraph:\n  StateGraph()\n  StateGraph(osgUtil::StateGraph *, const osg::StateSet *)\n");
+		luaL_error(L, "error in function StateGraph, cannot match any of the overloads for function StateGraph:\n  StateGraph()\n  StateGraph(osgUtil::StateGraph *, const osg::StateSet *)\n  StateGraph(lua_Table *)\n  StateGraph(lua_Table *, osgUtil::StateGraph *, const osg::StateSet *)\n");
 		return NULL;
 	}
 

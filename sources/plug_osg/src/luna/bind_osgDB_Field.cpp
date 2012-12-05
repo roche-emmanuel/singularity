@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_Field.h>
+
 class luna_wrapper_osgDB_Field {
 public:
 	typedef Luna< osgDB::Field > luna_t;
@@ -65,6 +67,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,7546407) ) return false;
 		if( (!dynamic_cast< osgDB::Field* >(Luna< osgDB::Field >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,7546407) ) return false;
+		if( (!dynamic_cast< osgDB::Field* >(Luna< osgDB::Field >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -308,12 +326,41 @@ public:
 		return new osgDB::Field(field);
 	}
 
+	// osgDB::Field::Field(lua_Table * data)
+	static osgDB::Field* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Field::Field(lua_Table * data) function, expected prototype:\nosgDB::Field::Field(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_Field(L,NULL);
+	}
+
+	// osgDB::Field::Field(lua_Table * data, const osgDB::Field & field)
+	static osgDB::Field* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Field::Field(lua_Table * data, const osgDB::Field & field) function, expected prototype:\nosgDB::Field::Field(lua_Table * data, const osgDB::Field & field)\nClass arguments details:\narg 2 ID = 7546407\n");
+		}
+
+		const osgDB::Field* field_ptr=(Luna< osgDB::Field >::check(L,2));
+		if( !field_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg field in osgDB::Field::Field function");
+		}
+		const osgDB::Field & field=*field_ptr;
+
+		return new wrapper_osgDB_Field(L,NULL, field);
+	}
+
 	// Overload binder for osgDB::Field::Field
 	static osgDB::Field* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Field, cannot match any of the overloads for function Field:\n  Field()\n  Field(const osgDB::Field &)\n");
+		luaL_error(L, "error in function Field, cannot match any of the overloads for function Field:\n  Field()\n  Field(const osgDB::Field &)\n  Field(lua_Table *)\n  Field(lua_Table *, const osgDB::Field &)\n");
 		return NULL;
 	}
 

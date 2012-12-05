@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_WriteFileCallback.h>
+
 class luna_wrapper_osgDB_WriteFileCallback {
 public:
 	typedef Luna< osgDB::WriteFileCallback > luna_t;

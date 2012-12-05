@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_DrawElements.h>
+
 class luna_wrapper_osg_DrawElements {
 public:
 	typedef Luna< osg::DrawElements > luna_t;
@@ -245,39 +247,39 @@ public:
 		return 0;
 	}
 
-	// void osg::DrawElements::setElement(unsigned int, unsigned int)
+	// void osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2)
 	static int _bind_setElement(lua_State *L) {
 		if (!_lg_typecheck_setElement(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DrawElements::setElement(unsigned int, unsigned int) function, expected prototype:\nvoid osg::DrawElements::setElement(unsigned int, unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2) function, expected prototype:\nvoid osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
-		unsigned int _arg2=(unsigned int)lua_tointeger(L,3);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
+		unsigned _arg2=(unsigned)lua_tointeger(L,3);
 
 		osg::DrawElements* self=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawElements::setElement(unsigned, unsigned)");
+			luaL_error(L, "Invalid object in function call void osg::DrawElements::setElement(unsigned int, unsigned int)");
 		}
 		self->setElement(_arg1, _arg2);
 
 		return 0;
 	}
 
-	// unsigned int osg::DrawElements::getElement(unsigned int)
+	// unsigned int osg::DrawElements::getElement(unsigned int arg1)
 	static int _bind_getElement(lua_State *L) {
 		if (!_lg_typecheck_getElement(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int osg::DrawElements::getElement(unsigned int) function, expected prototype:\nunsigned int osg::DrawElements::getElement(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::DrawElements::getElement(unsigned int arg1) function, expected prototype:\nunsigned int osg::DrawElements::getElement(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::DrawElements* self=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int osg::DrawElements::getElement(unsigned)");
+			luaL_error(L, "Invalid object in function call unsigned int osg::DrawElements::getElement(unsigned int)");
 		}
 		unsigned int lret = self->getElement(_arg1);
 		lua_pushnumber(L,lret);
@@ -285,19 +287,19 @@ public:
 		return 1;
 	}
 
-	// void osg::DrawElements::addElement(unsigned int)
+	// void osg::DrawElements::addElement(unsigned int arg1)
 	static int _bind_addElement(lua_State *L) {
 		if (!_lg_typecheck_addElement(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::DrawElements::addElement(unsigned int) function, expected prototype:\nvoid osg::DrawElements::addElement(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::DrawElements::addElement(unsigned int arg1) function, expected prototype:\nvoid osg::DrawElements::addElement(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::DrawElements* self=dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::DrawElements::addElement(unsigned)");
+			luaL_error(L, "Invalid object in function call void osg::DrawElements::addElement(unsigned int)");
 		}
 		self->addElement(_arg1);
 
@@ -313,9 +315,9 @@ osg::DrawElements* LunaTraits< osg::DrawElements >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::DrawElements::reserveElements(unsigned int numIndices)
-	// void osg::DrawElements::setElement(unsigned int, unsigned int)
-	// unsigned int osg::DrawElements::getElement(unsigned int)
-	// void osg::DrawElements::addElement(unsigned int)
+	// void osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2)
+	// unsigned int osg::DrawElements::getElement(unsigned int arg1)
+	// void osg::DrawElements::addElement(unsigned int arg1)
 	// void osg::PrimitiveSet::draw(osg::State & state, bool useVertexBufferObjects) const
 	// void osg::PrimitiveSet::accept(PrimitiveFunctor & functor) const
 	// void osg::PrimitiveSet::accept(PrimitiveIndexFunctor & functor) const
@@ -323,9 +325,7 @@ osg::DrawElements* LunaTraits< osg::DrawElements >::_bind_ctor(lua_State *L) {
 	// unsigned int osg::PrimitiveSet::getNumIndices() const
 	// void osg::PrimitiveSet::offsetIndices(int offset)
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::DrawElements >::_bind_dtor(osg::DrawElements* obj) {

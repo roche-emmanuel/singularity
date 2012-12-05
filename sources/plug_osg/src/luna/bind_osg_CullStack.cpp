@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CullStack.h>
+
 class luna_wrapper_osg_CullStack {
 public:
 	typedef Luna< osg::CullStack > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,31435107) ) return false;
 		if( (!dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
+		if( (!dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -366,12 +384,41 @@ public:
 		return new osg::CullStack(cs);
 	}
 
+	// osg::CullStack::CullStack(lua_Table * data)
+	static osg::CullStack* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CullStack(L,NULL);
+	}
+
+	// osg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs)
+	static osg::CullStack* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs) function, expected prototype:\nosg::CullStack::CullStack(lua_Table * data, const osg::CullStack & cs)\nClass arguments details:\narg 2 ID = 31435107\n");
+		}
+
+		const osg::CullStack* cs_ptr=dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullStack::CullStack function");
+		}
+		const osg::CullStack & cs=*cs_ptr;
+
+		return new wrapper_osg_CullStack(L,NULL, cs);
+	}
+
 	// Overload binder for osg::CullStack::CullStack
 	static osg::CullStack* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function CullStack, cannot match any of the overloads for function CullStack:\n  CullStack()\n  CullStack(const osg::CullStack &)\n");
+		luaL_error(L, "error in function CullStack, cannot match any of the overloads for function CullStack:\n  CullStack()\n  CullStack(const osg::CullStack &)\n  CullStack(lua_Table *)\n  CullStack(lua_Table *, const osg::CullStack &)\n");
 		return NULL;
 	}
 

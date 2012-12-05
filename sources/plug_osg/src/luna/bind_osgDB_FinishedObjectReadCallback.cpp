@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FinishedObjectReadCallback.h>
+
 class luna_wrapper_osgDB_FinishedObjectReadCallback {
 public:
 	typedef Luna< osgDB::FinishedObjectReadCallback > luna_t;
@@ -54,8 +56,6 @@ osgDB::FinishedObjectReadCallback* LunaTraits< osgDB::FinishedObjectReadCallback
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgDB::FinishedObjectReadCallback::objectRead(InputStream & is, osg::Object & obj)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgDB::FinishedObjectReadCallback >::_bind_dtor(osgDB::FinishedObjectReadCallback* obj) {

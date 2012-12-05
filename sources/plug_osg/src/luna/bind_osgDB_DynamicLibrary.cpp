@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_DynamicLibrary.h>
+
 class luna_wrapper_osgDB_DynamicLibrary {
 public:
 	typedef Luna< osgDB::DynamicLibrary > luna_t;

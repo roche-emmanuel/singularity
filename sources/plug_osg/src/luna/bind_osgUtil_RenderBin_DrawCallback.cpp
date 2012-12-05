@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_RenderBin_DrawCallback.h>
+
 class luna_wrapper_osgUtil_RenderBin_DrawCallback {
 public:
 	typedef Luna< osgUtil::RenderBin::DrawCallback > luna_t;
@@ -88,8 +90,6 @@ osgUtil::RenderBin::DrawCallback* LunaTraits< osgUtil::RenderBin::DrawCallback >
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::RenderBin::DrawCallback >::_bind_dtor(osgUtil::RenderBin::DrawCallback* obj) {

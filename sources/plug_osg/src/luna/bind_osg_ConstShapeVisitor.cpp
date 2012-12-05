@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ConstShapeVisitor.h>
+
 class luna_wrapper_osg_ConstShapeVisitor {
 public:
 	typedef Luna< osg::ConstShapeVisitor > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -156,8 +165,8 @@ public:
 
 	// Constructor binds:
 	// osg::ConstShapeVisitor::ConstShapeVisitor()
-	static osg::ConstShapeVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ConstShapeVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ConstShapeVisitor::ConstShapeVisitor() function, expected prototype:\nosg::ConstShapeVisitor::ConstShapeVisitor()\nClass arguments details:\n");
 		}
@@ -166,13 +175,33 @@ public:
 		return new osg::ConstShapeVisitor();
 	}
 
+	// osg::ConstShapeVisitor::ConstShapeVisitor(lua_Table * data)
+	static osg::ConstShapeVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ConstShapeVisitor::ConstShapeVisitor(lua_Table * data) function, expected prototype:\nosg::ConstShapeVisitor::ConstShapeVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ConstShapeVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::ConstShapeVisitor::ConstShapeVisitor
+	static osg::ConstShapeVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ConstShapeVisitor, cannot match any of the overloads for function ConstShapeVisitor:\n  ConstShapeVisitor()\n  ConstShapeVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// void osg::ConstShapeVisitor::apply(const osg::Shape & )
+	// void osg::ConstShapeVisitor::apply(const osg::Shape & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Shape & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Shape & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Shape & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Shape & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Shape* _arg1_ptr=dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2));
@@ -191,11 +220,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::Sphere & )
+	// void osg::ConstShapeVisitor::apply(const osg::Sphere & arg1)
 	static int _bind_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Sphere & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Sphere & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Sphere & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Sphere & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Sphere* _arg1_ptr=dynamic_cast< osg::Sphere* >(Luna< osg::Referenced >::check(L,2));
@@ -214,11 +243,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::Box & )
+	// void osg::ConstShapeVisitor::apply(const osg::Box & arg1)
 	static int _bind_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Box & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Box & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Box & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Box & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Box* _arg1_ptr=dynamic_cast< osg::Box* >(Luna< osg::Referenced >::check(L,2));
@@ -237,11 +266,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::Cone & )
+	// void osg::ConstShapeVisitor::apply(const osg::Cone & arg1)
 	static int _bind_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Cone & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Cone & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Cone & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Cone & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Cone* _arg1_ptr=dynamic_cast< osg::Cone* >(Luna< osg::Referenced >::check(L,2));
@@ -260,11 +289,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::Cylinder & )
+	// void osg::ConstShapeVisitor::apply(const osg::Cylinder & arg1)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Cylinder & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Cylinder & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Cylinder & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Cylinder & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Cylinder* _arg1_ptr=dynamic_cast< osg::Cylinder* >(Luna< osg::Referenced >::check(L,2));
@@ -283,11 +312,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::Capsule & )
+	// void osg::ConstShapeVisitor::apply(const osg::Capsule & arg1)
 	static int _bind_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Capsule & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Capsule & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::Capsule & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::Capsule & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Capsule* _arg1_ptr=dynamic_cast< osg::Capsule* >(Luna< osg::Referenced >::check(L,2));
@@ -306,11 +335,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::InfinitePlane & )
+	// void osg::ConstShapeVisitor::apply(const osg::InfinitePlane & arg1)
 	static int _bind_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_7(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::InfinitePlane & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::InfinitePlane & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::InfinitePlane & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::InfinitePlane & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::InfinitePlane* _arg1_ptr=dynamic_cast< osg::InfinitePlane* >(Luna< osg::Referenced >::check(L,2));
@@ -329,11 +358,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::TriangleMesh & )
+	// void osg::ConstShapeVisitor::apply(const osg::TriangleMesh & arg1)
 	static int _bind_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_8(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::TriangleMesh & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::TriangleMesh & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::TriangleMesh & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::TriangleMesh & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::TriangleMesh* _arg1_ptr=dynamic_cast< osg::TriangleMesh* >(Luna< osg::Referenced >::check(L,2));
@@ -352,11 +381,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::ConvexHull & )
+	// void osg::ConstShapeVisitor::apply(const osg::ConvexHull & arg1)
 	static int _bind_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_9(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::ConvexHull & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::ConvexHull & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::ConvexHull & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::ConvexHull & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::ConvexHull* _arg1_ptr=dynamic_cast< osg::ConvexHull* >(Luna< osg::Referenced >::check(L,2));
@@ -375,11 +404,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::HeightField & )
+	// void osg::ConstShapeVisitor::apply(const osg::HeightField & arg1)
 	static int _bind_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_10(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::HeightField & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::HeightField & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::HeightField & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::HeightField & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::HeightField* _arg1_ptr=dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,2));
@@ -398,11 +427,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstShapeVisitor::apply(const osg::CompositeShape & )
+	// void osg::ConstShapeVisitor::apply(const osg::CompositeShape & arg1)
 	static int _bind_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_11(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::CompositeShape & ) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::CompositeShape & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstShapeVisitor::apply(const osg::CompositeShape & arg1) function, expected prototype:\nvoid osg::ConstShapeVisitor::apply(const osg::CompositeShape & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::CompositeShape* _arg1_ptr=dynamic_cast< osg::CompositeShape* >(Luna< osg::Referenced >::check(L,2));

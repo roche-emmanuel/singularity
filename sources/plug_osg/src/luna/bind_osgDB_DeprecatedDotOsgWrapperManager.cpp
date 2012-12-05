@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_DeprecatedDotOsgWrapperManager.h>
+
 class luna_wrapper_osgDB_DeprecatedDotOsgWrapperManager {
 public:
 	typedef Luna< osgDB::DeprecatedDotOsgWrapperManager > luna_t;

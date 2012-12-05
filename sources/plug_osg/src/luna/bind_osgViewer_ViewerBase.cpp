@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_ViewerBase.h>
+
 class luna_wrapper_osgViewer_ViewerBase {
 public:
 	typedef Luna< osgViewer::ViewerBase > luna_t;
@@ -1469,11 +1471,9 @@ osgViewer::ViewerBase* LunaTraits< osgViewer::ViewerBase >::_bind_ctor(lua_State
 	// void osgViewer::ViewerBase::getUsage(osg::ApplicationUsage & usage) const
 	// void osgViewer::ViewerBase::viewerInit()
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 	// const char * osg::Object::libraryName() const
 	// const char * osg::Object::className() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgViewer::ViewerBase >::_bind_dtor(osgViewer::ViewerBase* obj) {

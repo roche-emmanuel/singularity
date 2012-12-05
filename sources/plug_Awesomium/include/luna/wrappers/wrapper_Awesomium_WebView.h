@@ -41,25 +41,6 @@ public:
 		return (_obj.callFunction<ProcessHandle>());
 	};
 
-	// void Awesomium::WebView::set_parent_window(NativeWindow parent)
-	void set_parent_window(NativeWindow parent) {
-		THROW_IF(!_obj.pushFunction("set_parent_window"),"No implementation for abstract function Awesomium::WebView::set_parent_window");
-		_obj.pushArg(parent);
-		return (_obj.callFunction<void>());
-	};
-
-	// NativeWindow Awesomium::WebView::parent_window()
-	NativeWindow parent_window() {
-		THROW_IF(!_obj.pushFunction("parent_window"),"No implementation for abstract function Awesomium::WebView::parent_window");
-		return (_obj.callFunction<NativeWindow>());
-	};
-
-	// NativeWindow Awesomium::WebView::window()
-	NativeWindow window() {
-		THROW_IF(!_obj.pushFunction("window"),"No implementation for abstract function Awesomium::WebView::window");
-		return (_obj.callFunction<NativeWindow>());
-	};
-
 	// void Awesomium::WebView::set_view_listener(WebViewListener::View * listener)
 	void set_view_listener(WebViewListener::View * listener) {
 		THROW_IF(!_obj.pushFunction("set_view_listener"),"No implementation for abstract function Awesomium::WebView::set_view_listener");

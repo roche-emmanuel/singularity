@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_TextureRectangle_SubloadCallback.h>
+
 class luna_wrapper_osg_TextureRectangle_SubloadCallback {
 public:
 	typedef Luna< osg::TextureRectangle::SubloadCallback > luna_t;
@@ -61,11 +63,11 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & , osg::State & ) const
+	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
 	static int _bind_load(lua_State *L) {
 		if (!_lg_typecheck_load(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & , osg::State & ) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & , osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
 		const osg::TextureRectangle* _arg1_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,2));
@@ -89,11 +91,11 @@ public:
 		return 0;
 	}
 
-	// void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & , osg::State & ) const
+	// void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const
 	static int _bind_subload(lua_State *L) {
 		if (!_lg_typecheck_subload(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & , osg::State & ) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & , osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
 		const osg::TextureRectangle* _arg1_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,2));
@@ -125,10 +127,8 @@ public:
 osg::TextureRectangle::SubloadCallback* LunaTraits< osg::TextureRectangle::SubloadCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & , osg::State & ) const
-	// void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & , osg::State & ) const
-
-	// Abstract operators:
+	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
+	// void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const
 }
 
 void LunaTraits< osg::TextureRectangle::SubloadCallback >::_bind_dtor(osg::TextureRectangle::SubloadCallback* obj) {

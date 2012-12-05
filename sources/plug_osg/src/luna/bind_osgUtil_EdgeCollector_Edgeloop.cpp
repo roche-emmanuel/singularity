@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_EdgeCollector_Edgeloop.h>
+
 class luna_wrapper_osgUtil_EdgeCollector_Edgeloop {
 public:
 	typedef Luna< osgUtil::EdgeCollector::Edgeloop > luna_t;

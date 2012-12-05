@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_OrbitManipulator.h>
+
 class luna_wrapper_osgGA_OrbitManipulator {
 public:
 	typedef Luna< osgGA::OrbitManipulator > luna_t;
@@ -56,6 +58,27 @@ public:
 		if( (!dynamic_cast< osgGA::OrbitManipulator* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::OrbitManipulator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -325,12 +348,51 @@ public:
 		return new osgGA::OrbitManipulator(om, copyOp);
 	}
 
+	// osgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
+	static osgGA::OrbitManipulator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+
+		return new wrapper_osgGA_OrbitManipulator(L,NULL, flags);
+	}
+
+	// osgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, const osgGA::OrbitManipulator & om, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
+	static osgGA::OrbitManipulator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, const osgGA::OrbitManipulator & om, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::OrbitManipulator::OrbitManipulator(lua_Table * data, const osgGA::OrbitManipulator & om, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgGA::OrbitManipulator* om_ptr=dynamic_cast< osgGA::OrbitManipulator* >(Luna< osg::Referenced >::check(L,2));
+		if( !om_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg om in osgGA::OrbitManipulator::OrbitManipulator function");
+		}
+		const osgGA::OrbitManipulator & om=*om_ptr;
+		const osg::CopyOp* copyOp_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyOp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::OrbitManipulator::OrbitManipulator function");
+		}
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgGA_OrbitManipulator(L,NULL, om, copyOp);
+	}
+
 	// Overload binder for osgGA::OrbitManipulator::OrbitManipulator
 	static osgGA::OrbitManipulator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function OrbitManipulator, cannot match any of the overloads for function OrbitManipulator:\n  OrbitManipulator(int)\n  OrbitManipulator(const osgGA::OrbitManipulator &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function OrbitManipulator, cannot match any of the overloads for function OrbitManipulator:\n  OrbitManipulator(int)\n  OrbitManipulator(const osgGA::OrbitManipulator &, const osg::CopyOp &)\n  OrbitManipulator(lua_Table *, int)\n  OrbitManipulator(lua_Table *, const osgGA::OrbitManipulator &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -357,11 +419,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & ) const
+	// osg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::OrbitManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -949,11 +1011,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = ((void *) 0))
+	// void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)
 	static int _bind_setMinimumDistance(lua_State *L) {
 		if (!_lg_typecheck_setMinimumDistance(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = ((void *) 0)) function, expected prototype:\nvoid osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = ((void *) 0))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL) function, expected prototype:\nvoid osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -971,11 +1033,11 @@ public:
 		return 0;
 	}
 
-	// double osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = ((void *) 0)) const
+	// double osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = NULL) const
 	static int _bind_getMinimumDistance(lua_State *L) {
 		if (!_lg_typecheck_getMinimumDistance(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = ((void *) 0)) const function, expected prototype:\ndouble osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = ((void *) 0)) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = NULL) const function, expected prototype:\ndouble osgGA::OrbitManipulator::getMinimumDistance(bool * relativeToModelSize = NULL) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);

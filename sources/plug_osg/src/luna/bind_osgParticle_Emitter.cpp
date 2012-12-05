@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Emitter.h>
+
 class luna_wrapper_osgParticle_Emitter {
 public:
 	typedef Luna< osgParticle::Emitter > luna_t;
@@ -269,8 +271,6 @@ osgParticle::Emitter* LunaTraits< osgParticle::Emitter >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgParticle::Emitter::emitParticles(double dt)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgParticle::Emitter >::_bind_dtor(osgParticle::Emitter* obj) {

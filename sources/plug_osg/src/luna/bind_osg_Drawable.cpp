@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Drawable.h>
+
 class luna_wrapper_osg_Drawable {
 public:
 	typedef Luna< osg::Drawable > luna_t;
@@ -1802,9 +1804,7 @@ osg::Drawable* LunaTraits< osg::Drawable >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// void osg::Drawable::drawImplementation(osg::RenderInfo & renderInfo) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::Drawable >::_bind_dtor(osg::Drawable* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_Registry.h>
+
 class luna_wrapper_osgDB_Registry {
 public:
 	typedef Luna< osgDB::Registry > luna_t;

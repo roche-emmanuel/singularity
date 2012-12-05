@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NodeTrackerCallback.h>
+
 class luna_wrapper_osg_NodeTrackerCallback {
 public:
 	typedef Luna< osg::NodeTrackerCallback > luna_t;

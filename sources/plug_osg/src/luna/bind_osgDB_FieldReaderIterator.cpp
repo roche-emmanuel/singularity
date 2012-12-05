@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FieldReaderIterator.h>
+
 class luna_wrapper_osgDB_FieldReaderIterator {
 public:
 	typedef Luna< osgDB::FieldReaderIterator > luna_t;
@@ -65,6 +67,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,2696163) ) return false;
 		if( (!dynamic_cast< osgDB::FieldReaderIterator* >(Luna< osgDB::FieldReaderIterator >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,2696163) ) return false;
+		if( (!dynamic_cast< osgDB::FieldReaderIterator* >(Luna< osgDB::FieldReaderIterator >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -346,12 +364,41 @@ public:
 		return new osgDB::FieldReaderIterator(ic);
 	}
 
+	// osgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data)
+	static osgDB::FieldReaderIterator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data) function, expected prototype:\nosgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_FieldReaderIterator(L,NULL);
+	}
+
+	// osgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data, const osgDB::FieldReaderIterator & ic)
+	static osgDB::FieldReaderIterator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data, const osgDB::FieldReaderIterator & ic) function, expected prototype:\nosgDB::FieldReaderIterator::FieldReaderIterator(lua_Table * data, const osgDB::FieldReaderIterator & ic)\nClass arguments details:\narg 2 ID = 2696163\n");
+		}
+
+		const osgDB::FieldReaderIterator* ic_ptr=(Luna< osgDB::FieldReaderIterator >::check(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in osgDB::FieldReaderIterator::FieldReaderIterator function");
+		}
+		const osgDB::FieldReaderIterator & ic=*ic_ptr;
+
+		return new wrapper_osgDB_FieldReaderIterator(L,NULL, ic);
+	}
+
 	// Overload binder for osgDB::FieldReaderIterator::FieldReaderIterator
 	static osgDB::FieldReaderIterator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function FieldReaderIterator, cannot match any of the overloads for function FieldReaderIterator:\n  FieldReaderIterator()\n  FieldReaderIterator(const osgDB::FieldReaderIterator &)\n");
+		luaL_error(L, "error in function FieldReaderIterator, cannot match any of the overloads for function FieldReaderIterator:\n  FieldReaderIterator()\n  FieldReaderIterator(const osgDB::FieldReaderIterator &)\n  FieldReaderIterator(lua_Table *)\n  FieldReaderIterator(lua_Table *, const osgDB::FieldReaderIterator &)\n");
 		return NULL;
 	}
 

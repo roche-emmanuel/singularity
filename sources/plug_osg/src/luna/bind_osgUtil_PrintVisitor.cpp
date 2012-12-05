@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_PrintVisitor.h>
+
 class luna_wrapper_osgUtil_PrintVisitor {
 public:
 	typedef Luna< osgUtil::PrintVisitor > luna_t;

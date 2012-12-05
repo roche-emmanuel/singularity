@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_ReadFileCallback.h>
+
 class luna_wrapper_osgDB_ReadFileCallback {
 public:
 	typedef Luna< osgDB::ReadFileCallback > luna_t;

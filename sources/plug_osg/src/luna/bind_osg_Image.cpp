@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Image.h>
+
 class luna_wrapper_osg_Image {
 public:
 	typedef Luna< osg::Image > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -663,12 +684,48 @@ public:
 		return new osg::Image(image, copyop);
 	}
 
+	// osg::Image::Image(lua_Table * data)
+	static osg::Image* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image::Image(lua_Table * data) function, expected prototype:\nosg::Image::Image(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Image(L,NULL);
+	}
+
+	// osg::Image::Image(lua_Table * data, const osg::Image & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Image* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image::Image(lua_Table * data, const osg::Image & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Image::Image(lua_Table * data, const osg::Image & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Image* image_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		if( !image_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg image in osg::Image::Image function");
+		}
+		const osg::Image & image=*image_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Image::Image function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Image(L,NULL, image, copyop);
+	}
+
 	// Overload binder for osg::Image::Image
 	static osg::Image* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Image, cannot match any of the overloads for function Image:\n  Image()\n  Image(const osg::Image &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Image, cannot match any of the overloads for function Image:\n  Image()\n  Image(const osg::Image &, const osg::CopyOp &)\n  Image(lua_Table *)\n  Image(lua_Table *, const osg::Image &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -695,11 +752,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Image::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Image::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Image::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Image::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Image::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Image::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1648,11 +1705,11 @@ public:
 		return 0;
 	}
 
-	// osg::Vec4f osg::Image::getColor(unsigned int s, unsigned t = 0, unsigned r = 0) const
+	// osg::Vec4f osg::Image::getColor(unsigned int s, unsigned int t = 0, unsigned int r = 0) const
 	static int _bind_getColor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getColor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Image::getColor(unsigned int s, unsigned t = 0, unsigned r = 0) const function, expected prototype:\nosg::Vec4f osg::Image::getColor(unsigned int s, unsigned t = 0, unsigned r = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Image::getColor(unsigned int s, unsigned int t = 0, unsigned int r = 0) const function, expected prototype:\nosg::Vec4f osg::Image::getColor(unsigned int s, unsigned int t = 0, unsigned int r = 0) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1664,7 +1721,7 @@ public:
 		osg::Image* self=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Image::getColor(unsigned int, unsigned, unsigned) const");
+			luaL_error(L, "Invalid object in function call osg::Vec4f osg::Image::getColor(unsigned int, unsigned int, unsigned int) const");
 		}
 		osg::Vec4f stack_lret = self->getColor(s, t, r);
 		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
@@ -1735,7 +1792,7 @@ public:
 		if (_lg_typecheck_getColor_overload_2(L)) return _bind_getColor_overload_2(L);
 		if (_lg_typecheck_getColor_overload_3(L)) return _bind_getColor_overload_3(L);
 
-		luaL_error(L, "error in function getColor, cannot match any of the overloads for function getColor:\n  getColor(unsigned int, unsigned, unsigned)\n  getColor(const osg::Vec2f &)\n  getColor(const osg::Vec3f &)\n");
+		luaL_error(L, "error in function getColor, cannot match any of the overloads for function getColor:\n  getColor(unsigned int, unsigned int, unsigned int)\n  getColor(const osg::Vec2f &)\n  getColor(const osg::Vec3f &)\n");
 		return 0;
 	}
 
@@ -2053,11 +2110,11 @@ public:
 		return 1;
 	}
 
-	// void osg::Image::update(osg::NodeVisitor * )
+	// void osg::Image::update(osg::NodeVisitor * arg1)
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Image::update(osg::NodeVisitor * ) function, expected prototype:\nvoid osg::Image::update(osg::NodeVisitor * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Image::update(osg::NodeVisitor * arg1) function, expected prototype:\nvoid osg::Image::update(osg::NodeVisitor * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::NodeVisitor* _arg1=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));
@@ -2072,11 +2129,11 @@ public:
 		return 0;
 	}
 
-	// bool osg::Image::sendFocusHint(bool )
+	// bool osg::Image::sendFocusHint(bool arg1)
 	static int _bind_sendFocusHint(lua_State *L) {
 		if (!_lg_typecheck_sendFocusHint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Image::sendFocusHint(bool ) function, expected prototype:\nbool osg::Image::sendFocusHint(bool )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Image::sendFocusHint(bool arg1) function, expected prototype:\nbool osg::Image::sendFocusHint(bool arg1)\nClass arguments details:\n");
 		}
 
 		bool _arg1=(bool)(lua_toboolean(L,2)==1);
@@ -2092,11 +2149,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::Image::sendPointerEvent(int , int , int )
+	// bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)
 	static int _bind_sendPointerEvent(lua_State *L) {
 		if (!_lg_typecheck_sendPointerEvent(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Image::sendPointerEvent(int , int , int ) function, expected prototype:\nbool osg::Image::sendPointerEvent(int , int , int )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3) function, expected prototype:\nbool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)\nClass arguments details:\n");
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -2114,11 +2171,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::Image::sendKeyEvent(int , bool )
+	// bool osg::Image::sendKeyEvent(int arg1, bool arg2)
 	static int _bind_sendKeyEvent(lua_State *L) {
 		if (!_lg_typecheck_sendKeyEvent(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Image::sendKeyEvent(int , bool ) function, expected prototype:\nbool osg::Image::sendKeyEvent(int , bool )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Image::sendKeyEvent(int arg1, bool arg2) function, expected prototype:\nbool osg::Image::sendKeyEvent(int arg1, bool arg2)\nClass arguments details:\n");
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -2135,11 +2192,11 @@ public:
 		return 1;
 	}
 
-	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * )
+	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)
 	static int _bind_setFrameLastRendered(lua_State *L) {
 		if (!_lg_typecheck_setFrameLastRendered(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Image::setFrameLastRendered(const osg::FrameStamp * ) function, expected prototype:\nvoid osg::Image::setFrameLastRendered(const osg::FrameStamp * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1) function, expected prototype:\nvoid osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::FrameStamp* _arg1=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));

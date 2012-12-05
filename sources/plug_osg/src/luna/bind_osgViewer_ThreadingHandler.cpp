@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_ThreadingHandler.h>
+
 class luna_wrapper_osgViewer_ThreadingHandler {
 public:
 	typedef Luna< osgViewer::ThreadingHandler > luna_t;

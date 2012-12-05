@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_AnimationPathManipulator.h>
+
 class luna_wrapper_osgGA_AnimationPathManipulator {
 public:
 	typedef Luna< osgGA::AnimationPathManipulator > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::AnimationPath* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -244,12 +264,40 @@ public:
 		return new osgGA::AnimationPathManipulator(filename);
 	}
 
+	// osgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, osg::AnimationPath * animationPath = 0)
+	static osgGA::AnimationPathManipulator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, osg::AnimationPath * animationPath = 0) function, expected prototype:\nosgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, osg::AnimationPath * animationPath = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::AnimationPath* animationPath=luatop>1 ? dynamic_cast< osg::AnimationPath* >(Luna< osg::Referenced >::check(L,2)) : (osg::AnimationPath*)0;
+
+		return new wrapper_osgGA_AnimationPathManipulator(L,NULL, animationPath);
+	}
+
+	// osgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, const std::string & filename)
+	static osgGA::AnimationPathManipulator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, const std::string & filename) function, expected prototype:\nosgGA::AnimationPathManipulator::AnimationPathManipulator(lua_Table * data, const std::string & filename)\nClass arguments details:\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_osgGA_AnimationPathManipulator(L,NULL, filename);
+	}
+
 	// Overload binder for osgGA::AnimationPathManipulator::AnimationPathManipulator
 	static osgGA::AnimationPathManipulator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function AnimationPathManipulator, cannot match any of the overloads for function AnimationPathManipulator:\n  AnimationPathManipulator(osg::AnimationPath *)\n  AnimationPathManipulator(const std::string &)\n");
+		luaL_error(L, "error in function AnimationPathManipulator, cannot match any of the overloads for function AnimationPathManipulator:\n  AnimationPathManipulator(osg::AnimationPath *)\n  AnimationPathManipulator(const std::string &)\n  AnimationPathManipulator(lua_Table *, osg::AnimationPath *)\n  AnimationPathManipulator(lua_Table *, const std::string &)\n");
 		return NULL;
 	}
 
@@ -637,11 +685,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -665,11 +713,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home_overload_1(lua_State *L) {
 		if (!_lg_typecheck_home_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -693,11 +741,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::AnimationPathManipulator::home(double )
+	// void osgGA::AnimationPathManipulator::home(double arg1)
 	static int _bind_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_home_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::home(double ) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::home(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::home(double arg1) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::home(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);

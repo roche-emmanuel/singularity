@@ -257,9 +257,7 @@ end
 -- only used for luabind and Swig bindings.
 function Class:isValidForWrapping()
     return (
-    	not self:isVariadic()
-    	--and self:getNumParameters()<=10 
-    	--and not self:isOperator() 
+    	not self:isVariadic() 
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:isTemplated()
@@ -281,6 +279,7 @@ function Class:getArgumentsPrototype(withNames)
 	
     for k,v in self:getParameters():sequence() do
         local def = v:getDefaultValue() and v:getDefaultValue():getName()
+		def = def=="((void *) 0)" and "NULL" or def
         local name = v:getName() 
 		name = name=="" and "arg"..k or name
 		name = name .. (def and " = "..def or "")

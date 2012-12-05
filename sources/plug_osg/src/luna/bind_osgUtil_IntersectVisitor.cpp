@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IntersectVisitor.h>
+
 class luna_wrapper_osgUtil_IntersectVisitor {
 public:
 	typedef Luna< osgUtil::IntersectVisitor > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -182,14 +191,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::IntersectVisitor::IntersectVisitor()
-	static osgUtil::IntersectVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::IntersectVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::IntersectVisitor::IntersectVisitor() function, expected prototype:\nosgUtil::IntersectVisitor::IntersectVisitor()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::IntersectVisitor();
+	}
+
+	// osgUtil::IntersectVisitor::IntersectVisitor(lua_Table * data)
+	static osgUtil::IntersectVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::IntersectVisitor::IntersectVisitor(lua_Table * data) function, expected prototype:\nosgUtil::IntersectVisitor::IntersectVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_IntersectVisitor(L,NULL);
+	}
+
+	// Overload binder for osgUtil::IntersectVisitor::IntersectVisitor
+	static osgUtil::IntersectVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function IntersectVisitor, cannot match any of the overloads for function IntersectVisitor:\n  IntersectVisitor()\n  IntersectVisitor(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -416,11 +445,11 @@ public:
 		return 1;
 	}
 
-	// void osgUtil::IntersectVisitor::apply(osg::Node & )
+	// void osgUtil::IntersectVisitor::apply(osg::Node & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectVisitor::apply(osg::Node & ) function, expected prototype:\nvoid osgUtil::IntersectVisitor::apply(osg::Node & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectVisitor::apply(osg::Node & arg1) function, expected prototype:\nvoid osgUtil::IntersectVisitor::apply(osg::Node & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));

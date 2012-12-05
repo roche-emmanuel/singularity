@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_View_Slave.h>
+
 class luna_wrapper_osg_View_Slave {
 public:
 	typedef Luna< osg::View::Slave > luna_t;
@@ -84,6 +86,39 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,18903838) ) return false;
+		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,4))) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,94812983) ) return false;
+		if( (!dynamic_cast< osg::View::Slave* >(Luna< osg::View::Slave >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_updateSlave(lua_State *L) {
@@ -160,13 +195,71 @@ public:
 		return new osg::View::Slave(rhs);
 	}
 
+	// osg::View::Slave::Slave(lua_Table * data, bool useMastersSceneData = true)
+	static osg::View::Slave* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View::Slave::Slave(lua_Table * data, bool useMastersSceneData = true) function, expected prototype:\nosg::View::Slave::Slave(lua_Table * data, bool useMastersSceneData = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool useMastersSceneData=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		return new wrapper_osg_View_Slave(L,NULL, useMastersSceneData);
+	}
+
+	// osg::View::Slave::Slave(lua_Table * data, osg::Camera * camera, const osg::Matrixd & projectionOffset, const osg::Matrixd & viewOffset, bool useMastersSceneData = true)
+	static osg::View::Slave* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View::Slave::Slave(lua_Table * data, osg::Camera * camera, const osg::Matrixd & projectionOffset, const osg::Matrixd & viewOffset, bool useMastersSceneData = true) function, expected prototype:\nosg::View::Slave::Slave(lua_Table * data, osg::Camera * camera, const osg::Matrixd & projectionOffset, const osg::Matrixd & viewOffset, bool useMastersSceneData = true)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 18903838\narg 4 ID = 18903838\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Matrixd* projectionOffset_ptr=(Luna< osg::Matrixd >::check(L,3));
+		if( !projectionOffset_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg projectionOffset in osg::View::Slave::Slave function");
+		}
+		const osg::Matrixd & projectionOffset=*projectionOffset_ptr;
+		const osg::Matrixd* viewOffset_ptr=(Luna< osg::Matrixd >::check(L,4));
+		if( !viewOffset_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg viewOffset in osg::View::Slave::Slave function");
+		}
+		const osg::Matrixd & viewOffset=*viewOffset_ptr;
+		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+
+		return new wrapper_osg_View_Slave(L,NULL, camera, projectionOffset, viewOffset, useMastersSceneData);
+	}
+
+	// osg::View::Slave::Slave(lua_Table * data, const osg::View::Slave & rhs)
+	static osg::View::Slave* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View::Slave::Slave(lua_Table * data, const osg::View::Slave & rhs) function, expected prototype:\nosg::View::Slave::Slave(lua_Table * data, const osg::View::Slave & rhs)\nClass arguments details:\narg 2 ID = 94812983\n");
+		}
+
+		const osg::View::Slave* rhs_ptr=(Luna< osg::View::Slave >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::View::Slave::Slave function");
+		}
+		const osg::View::Slave & rhs=*rhs_ptr;
+
+		return new wrapper_osg_View_Slave(L,NULL, rhs);
+	}
+
 	// Overload binder for osg::View::Slave::Slave
 	static osg::View::Slave* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function Slave, cannot match any of the overloads for function Slave:\n  Slave(bool)\n  Slave(osg::Camera *, const osg::Matrixd &, const osg::Matrixd &, bool)\n  Slave(const osg::View::Slave &)\n");
+		luaL_error(L, "error in function Slave, cannot match any of the overloads for function Slave:\n  Slave(bool)\n  Slave(osg::Camera *, const osg::Matrixd &, const osg::Matrixd &, bool)\n  Slave(const osg::View::Slave &)\n  Slave(lua_Table *, bool)\n  Slave(lua_Table *, osg::Camera *, const osg::Matrixd &, const osg::Matrixd &, bool)\n  Slave(lua_Table *, const osg::View::Slave &)\n");
 		return NULL;
 	}
 

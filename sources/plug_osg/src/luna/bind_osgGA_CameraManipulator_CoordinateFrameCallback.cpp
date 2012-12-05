@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_CameraManipulator_CoordinateFrameCallback.h>
+
 class luna_wrapper_osgGA_CameraManipulator_CoordinateFrameCallback {
 public:
 	typedef Luna< osgGA::CameraManipulator::CoordinateFrameCallback > luna_t;
@@ -88,8 +90,6 @@ osgGA::CameraManipulator::CoordinateFrameCallback* LunaTraits< osgGA::CameraMani
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgGA::CameraManipulator::CoordinateFrameCallback >::_bind_dtor(osgGA::CameraManipulator::CoordinateFrameCallback* obj) {

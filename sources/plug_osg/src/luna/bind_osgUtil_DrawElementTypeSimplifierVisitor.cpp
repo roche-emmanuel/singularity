@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_DrawElementTypeSimplifierVisitor.h>
+
 class luna_wrapper_osgUtil_DrawElementTypeSimplifierVisitor {
 public:
 	typedef Luna< osgUtil::DrawElementTypeSimplifierVisitor > luna_t;

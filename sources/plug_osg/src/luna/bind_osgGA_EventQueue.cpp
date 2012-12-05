@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_EventQueue.h>
+
 class luna_wrapper_osgGA_EventQueue {
 public:
 	typedef Luna< osgGA::EventQueue > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -514,8 +525,8 @@ public:
 
 	// Constructor binds:
 	// osgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)
-	static osgGA::EventQueue* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgGA::EventQueue* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n");
 		}
@@ -525,6 +536,29 @@ public:
 		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>0 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,1) : osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
 
 		return new osgGA::EventQueue(mouseYOrientation);
+	}
+
+	// osgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)
+	static osgGA::EventQueue* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) function, expected prototype:\nosgGA::EventQueue::EventQueue(lua_Table * data, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation=luatop>1 ? (osgGA::GUIEventAdapter::MouseYOrientation)lua_tointeger(L,2) : osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS;
+
+		return new wrapper_osgGA_EventQueue(L,NULL, mouseYOrientation);
+	}
+
+	// Overload binder for osgGA::EventQueue::EventQueue
+	static osgGA::EventQueue* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function EventQueue, cannot match any of the overloads for function EventQueue:\n  EventQueue(osgGA::GUIEventAdapter::MouseYOrientation)\n  EventQueue(lua_Table *, osgGA::GUIEventAdapter::MouseYOrientation)\n");
+		return NULL;
 	}
 
 

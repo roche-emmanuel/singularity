@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_GlyphTexture.h>
+
 class luna_wrapper_osgText_GlyphTexture {
 public:
 	typedef Luna< osgText::GlyphTexture > luna_t;
@@ -37,6 +39,21 @@ public:
 		Luna< osgText::GlyphTexture >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -113,6 +130,39 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgText::GlyphTexture::GlyphTexture()
+	static osgText::GlyphTexture* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture() function, expected prototype:\nosgText::GlyphTexture::GlyphTexture()\nClass arguments details:\n");
+		}
+
+
+		return new osgText::GlyphTexture();
+	}
+
+	// osgText::GlyphTexture::GlyphTexture(lua_Table * data)
+	static osgText::GlyphTexture* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::GlyphTexture::GlyphTexture(lua_Table * data) function, expected prototype:\nosgText::GlyphTexture::GlyphTexture(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgText_GlyphTexture(L,NULL);
+	}
+
+	// Overload binder for osgText::GlyphTexture::GlyphTexture
+	static osgText::GlyphTexture* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function GlyphTexture, cannot match any of the overloads for function GlyphTexture:\n  GlyphTexture()\n  GlyphTexture(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgText::GlyphTexture::className() const
@@ -327,13 +377,7 @@ public:
 };
 
 osgText::GlyphTexture* LunaTraits< osgText::GlyphTexture >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
-	// Abstract methods:
-	// void osg::Texture::setImage(unsigned int face, osg::Image * image)
-	// osg::Image * osg::Texture::getImage(unsigned int face)
-	// const osg::Image * osg::Texture::getImage(unsigned int face) const
-
-	// Abstract operators:
+	return luna_wrapper_osgText_GlyphTexture::_bind_ctor(L);
 }
 
 void LunaTraits< osgText::GlyphTexture >::_bind_dtor(osgText::GlyphTexture* obj) {

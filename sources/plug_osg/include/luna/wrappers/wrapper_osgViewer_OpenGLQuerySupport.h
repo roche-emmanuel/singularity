@@ -1,0 +1,64 @@
+#ifndef _WRAPPERS_WRAPPER_OSGVIEWER_OPENGLQUERYSUPPORT_H_
+#define _WRAPPERS_WRAPPER_OSGVIEWER_OPENGLQUERYSUPPORT_H_
+
+#include <plug_common.h>
+
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+#include <osgViewer/Renderer>
+
+class wrapper_osgViewer_OpenGLQuerySupport : public osgViewer::OpenGLQuerySupport {
+protected:
+	sgt::LuaObject _obj;
+	
+public:
+	
+
+	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), _obj(L,-1) {};
+
+	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, unsigned long long startTick)
+	void checkQuery(osg::Stats * stats, osg::State * state, unsigned long long startTick) {
+		THROW_IF(!_obj.pushFunction("checkQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::checkQuery");
+		_obj.pushArg(stats);
+		_obj.pushArg(state);
+		_obj.pushArg(startTick);
+		return (_obj.callFunction<void>());
+	};
+
+	// void osgViewer::OpenGLQuerySupport::beginQuery(unsigned int frameNumber, osg::State * state)
+	void beginQuery(unsigned int frameNumber, osg::State * state) {
+		THROW_IF(!_obj.pushFunction("beginQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::beginQuery");
+		_obj.pushArg(frameNumber);
+		_obj.pushArg(state);
+		return (_obj.callFunction<void>());
+	};
+
+	// void osgViewer::OpenGLQuerySupport::endQuery(osg::State * state)
+	void endQuery(osg::State * state) {
+		THROW_IF(!_obj.pushFunction("endQuery"),"No implementation for abstract function osgViewer::OpenGLQuerySupport::endQuery");
+		_obj.pushArg(state);
+		return (_obj.callFunction<void>());
+	};
+
+	// void osgViewer::OpenGLQuerySupport::initialize(osg::State * state, unsigned long long startTick)
+	void initialize(osg::State * state, unsigned long long startTick) {
+		if(_obj.pushFunction("initialize")) {
+			_obj.pushArg(state);
+			_obj.pushArg(startTick);
+			return (_obj.callFunction<void>());
+		}
+
+		return osgViewer::OpenGLQuerySupport::initialize(state, startTick);
+	};
+
+
+
+
+};
+
+
+
+
+#endif
+

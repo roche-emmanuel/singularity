@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_LineSegmentIntersector.h>
+
 class luna_wrapper_osgUtil_LineSegmentIntersector {
 public:
 	typedef Luna< osgUtil::LineSegmentIntersector > luna_t;
@@ -67,6 +69,39 @@ public:
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
+		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -219,13 +254,73 @@ public:
 		return new osgUtil::LineSegmentIntersector(cf, x, y);
 	}
 
+	// osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, const osg::Vec3d & start, const osg::Vec3d & end)
+	static osgUtil::LineSegmentIntersector* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, const osg::Vec3d & start, const osg::Vec3d & end) function, expected prototype:\nosgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, const osg::Vec3d & start, const osg::Vec3d & end)\nClass arguments details:\narg 2 ID = 92303202\narg 3 ID = 92303202\n");
+		}
+
+		const osg::Vec3d* start_ptr=(Luna< osg::Vec3d >::check(L,2));
+		if( !start_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg start in osgUtil::LineSegmentIntersector::LineSegmentIntersector function");
+		}
+		const osg::Vec3d & start=*start_ptr;
+		const osg::Vec3d* end_ptr=(Luna< osg::Vec3d >::check(L,3));
+		if( !end_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg end in osgUtil::LineSegmentIntersector::LineSegmentIntersector function");
+		}
+		const osg::Vec3d & end=*end_ptr;
+
+		return new wrapper_osgUtil_LineSegmentIntersector(L,NULL, start, end);
+	}
+
+	// osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end)
+	static osgUtil::LineSegmentIntersector* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) function, expected prototype:\nosgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end)\nClass arguments details:\narg 3 ID = 92303202\narg 4 ID = 92303202\n");
+		}
+
+		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
+		const osg::Vec3d* start_ptr=(Luna< osg::Vec3d >::check(L,3));
+		if( !start_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg start in osgUtil::LineSegmentIntersector::LineSegmentIntersector function");
+		}
+		const osg::Vec3d & start=*start_ptr;
+		const osg::Vec3d* end_ptr=(Luna< osg::Vec3d >::check(L,4));
+		if( !end_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg end in osgUtil::LineSegmentIntersector::LineSegmentIntersector function");
+		}
+		const osg::Vec3d & end=*end_ptr;
+
+		return new wrapper_osgUtil_LineSegmentIntersector(L,NULL, cf, start, end);
+	}
+
+	// osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double x, double y)
+	static osgUtil::LineSegmentIntersector* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double x, double y) function, expected prototype:\nosgUtil::LineSegmentIntersector::LineSegmentIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, double x, double y)\nClass arguments details:\n");
+		}
+
+		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
+		double x=(double)lua_tonumber(L,3);
+		double y=(double)lua_tonumber(L,4);
+
+		return new wrapper_osgUtil_LineSegmentIntersector(L,NULL, cf, x, y);
+	}
+
 	// Overload binder for osgUtil::LineSegmentIntersector::LineSegmentIntersector
 	static osgUtil::LineSegmentIntersector* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function LineSegmentIntersector, cannot match any of the overloads for function LineSegmentIntersector:\n  LineSegmentIntersector(const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(osgUtil::Intersector::CoordinateFrame, double, double)\n");
+		luaL_error(L, "error in function LineSegmentIntersector, cannot match any of the overloads for function LineSegmentIntersector:\n  LineSegmentIntersector(const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(osgUtil::Intersector::CoordinateFrame, double, double)\n  LineSegmentIntersector(lua_Table *, const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(lua_Table *, osgUtil::Intersector::CoordinateFrame, const osg::Vec3d &, const osg::Vec3d &)\n  LineSegmentIntersector(lua_Table *, osgUtil::Intersector::CoordinateFrame, double, double)\n");
 		return NULL;
 	}
 

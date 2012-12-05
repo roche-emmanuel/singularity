@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_StateAttribute_ModeUsage.h>
+
 class luna_wrapper_osg_StateAttribute_ModeUsage {
 public:
 	typedef Luna< osg::StateAttribute::ModeUsage > luna_t;
@@ -121,8 +123,6 @@ osg::StateAttribute::ModeUsage* LunaTraits< osg::StateAttribute::ModeUsage >::_b
 	// Abstract methods:
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
 	// void osg::StateAttribute::ModeUsage::usesTextureMode(unsigned int mode)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::StateAttribute::ModeUsage >::_bind_dtor(osg::StateAttribute::ModeUsage* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Observer.h>
+
 class luna_wrapper_osg_Observer {
 public:
 	typedef Luna< osg::Observer > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -75,8 +84,8 @@ public:
 
 	// Constructor binds:
 	// osg::Observer::Observer()
-	static osg::Observer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::Observer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Observer::Observer() function, expected prototype:\nosg::Observer::Observer()\nClass arguments details:\n");
 		}
@@ -85,13 +94,33 @@ public:
 		return new osg::Observer();
 	}
 
+	// osg::Observer::Observer(lua_Table * data)
+	static osg::Observer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Observer::Observer(lua_Table * data) function, expected prototype:\nosg::Observer::Observer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Observer(L,NULL);
+	}
+
+	// Overload binder for osg::Observer::Observer
+	static osg::Observer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Observer, cannot match any of the overloads for function Observer:\n  Observer()\n  Observer(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// void osg::Observer::objectDeleted(void * )
+	// void osg::Observer::objectDeleted(void * arg1)
 	static int _bind_objectDeleted(lua_State *L) {
 		if (!_lg_typecheck_objectDeleted(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Observer::objectDeleted(void * ) function, expected prototype:\nvoid osg::Observer::objectDeleted(void * )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::Observer::objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::objectDeleted(void * arg1)\nClass arguments details:\n");
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));

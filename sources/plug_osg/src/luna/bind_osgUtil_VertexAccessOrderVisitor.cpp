@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_VertexAccessOrderVisitor.h>
+
 class luna_wrapper_osgUtil_VertexAccessOrderVisitor {
 public:
 	typedef Luna< osgUtil::VertexAccessOrderVisitor > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,85233381)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osgUtil::Optimizer* >(Luna< osgUtil::Optimizer >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85233381)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::Optimizer* >(Luna< osgUtil::Optimizer >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -70,8 +83,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0)
-	static osgUtil::VertexAccessOrderVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::VertexAccessOrderVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 1 ID = 85233381\n");
 		}
@@ -81,6 +94,29 @@ public:
 		osgUtil::Optimizer* optimizer=luatop>0 ? (Luna< osgUtil::Optimizer >::check(L,1)) : (osgUtil::Optimizer*)0;
 
 		return new osgUtil::VertexAccessOrderVisitor(optimizer);
+	}
+
+	// osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)
+	static osgUtil::VertexAccessOrderVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0) function, expected prototype:\nosgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor(lua_Table * data, osgUtil::Optimizer * optimizer = 0)\nClass arguments details:\narg 2 ID = 85233381\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgUtil::Optimizer* optimizer=luatop>1 ? (Luna< osgUtil::Optimizer >::check(L,2)) : (osgUtil::Optimizer*)0;
+
+		return new wrapper_osgUtil_VertexAccessOrderVisitor(L,NULL, optimizer);
+	}
+
+	// Overload binder for osgUtil::VertexAccessOrderVisitor::VertexAccessOrderVisitor
+	static osgUtil::VertexAccessOrderVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function VertexAccessOrderVisitor, cannot match any of the overloads for function VertexAccessOrderVisitor:\n  VertexAccessOrderVisitor(osgUtil::Optimizer *)\n  VertexAccessOrderVisitor(lua_Table *, osgUtil::Optimizer *)\n");
+		return NULL;
 	}
 
 

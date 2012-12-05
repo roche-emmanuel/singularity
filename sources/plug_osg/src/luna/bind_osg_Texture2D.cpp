@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture2D.h>
+
 class luna_wrapper_osg_Texture2D {
 public:
 	typedef Luna< osg::Texture2D > luna_t;
@@ -37,6 +39,61 @@ public:
 		Luna< osg::Texture2D >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -254,6 +311,113 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// osg::Texture2D::Texture2D()
+	static osg::Texture2D* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D() function, expected prototype:\nosg::Texture2D::Texture2D()\nClass arguments details:\n");
+		}
+
+
+		return new osg::Texture2D();
+	}
+
+	// osg::Texture2D::Texture2D(osg::Image * image)
+	static osg::Texture2D* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D(osg::Image * image) function, expected prototype:\nosg::Texture2D::Texture2D(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+
+		return new osg::Texture2D(image);
+	}
+
+	// osg::Texture2D::Texture2D(const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Texture2D* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D(const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2D::Texture2D(const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Texture2D* text_ptr=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1));
+		if( !text_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg text in osg::Texture2D::Texture2D function");
+		}
+		const osg::Texture2D & text=*text_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>1 ? (Luna< osg::CopyOp >::check(L,2)) : NULL;
+		if( luatop>1 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Texture2D::Texture2D function");
+		}
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new osg::Texture2D(text, copyop);
+	}
+
+	// osg::Texture2D::Texture2D(lua_Table * data)
+	static osg::Texture2D* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D(lua_Table * data) function, expected prototype:\nosg::Texture2D::Texture2D(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Texture2D(L,NULL);
+	}
+
+	// osg::Texture2D::Texture2D(lua_Table * data, osg::Image * image)
+	static osg::Texture2D* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D(lua_Table * data, osg::Image * image) function, expected prototype:\nosg::Texture2D::Texture2D(lua_Table * data, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osg_Texture2D(L,NULL, image);
+	}
+
+	// osg::Texture2D::Texture2D(lua_Table * data, const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Texture2D* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2D::Texture2D(lua_Table * data, const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Texture2D::Texture2D(lua_Table * data, const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Texture2D* text_ptr=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,2));
+		if( !text_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg text in osg::Texture2D::Texture2D function");
+		}
+		const osg::Texture2D & text=*text_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Texture2D::Texture2D function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Texture2D(L,NULL, text, copyop);
+	}
+
+	// Overload binder for osg::Texture2D::Texture2D
+	static osg::Texture2D* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+
+		luaL_error(L, "error in function Texture2D, cannot match any of the overloads for function Texture2D:\n  Texture2D()\n  Texture2D(osg::Image *)\n  Texture2D(const osg::Texture2D &, const osg::CopyOp &)\n  Texture2D(lua_Table *)\n  Texture2D(lua_Table *, osg::Image *)\n  Texture2D(lua_Table *, const osg::Texture2D &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
+
 	// Function binds:
 	// osg::Object * osg::Texture2D::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
@@ -276,11 +440,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Texture2D::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Texture2D::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2D::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Texture2D::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Texture2D::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Texture2D::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -441,20 +605,20 @@ public:
 		return 0;
 	}
 
-	// void osg::Texture2D::setImage(unsigned int, osg::Image * image)
+	// void osg::Texture2D::setImage(unsigned int arg1, osg::Image * image)
 	static int _bind_setImage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setImage_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Texture2D::setImage(unsigned int, osg::Image * image) function, expected prototype:\nvoid osg::Texture2D::setImage(unsigned int, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Texture2D::setImage(unsigned int arg1, osg::Image * image) function, expected prototype:\nvoid osg::Texture2D::setImage(unsigned int arg1, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,3));
 
 		osg::Texture2D* self=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osg::Texture2D::setImage(unsigned, osg::Image *)");
+			luaL_error(L, "Invalid object in function call void osg::Texture2D::setImage(unsigned int, osg::Image *)");
 		}
 		self->setImage(_arg1, image);
 
@@ -466,7 +630,7 @@ public:
 		if (_lg_typecheck_setImage_overload_1(L)) return _bind_setImage_overload_1(L);
 		if (_lg_typecheck_setImage_overload_2(L)) return _bind_setImage_overload_2(L);
 
-		luaL_error(L, "error in function setImage, cannot match any of the overloads for function setImage:\n  setImage(osg::Image *)\n  setImage(unsigned, osg::Image *)\n");
+		luaL_error(L, "error in function setImage, cannot match any of the overloads for function setImage:\n  setImage(osg::Image *)\n  setImage(unsigned int, osg::Image *)\n");
 		return 0;
 	}
 
@@ -512,19 +676,19 @@ public:
 		return 1;
 	}
 
-	// osg::Image * osg::Texture2D::getImage(unsigned int)
+	// osg::Image * osg::Texture2D::getImage(unsigned int arg1)
 	static int _bind_getImage_overload_3(lua_State *L) {
 		if (!_lg_typecheck_getImage_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2D::getImage(unsigned int) function, expected prototype:\nosg::Image * osg::Texture2D::getImage(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::Texture2D::getImage(unsigned int arg1) function, expected prototype:\nosg::Image * osg::Texture2D::getImage(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::Texture2D* self=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2D::getImage(unsigned)");
+			luaL_error(L, "Invalid object in function call osg::Image * osg::Texture2D::getImage(unsigned int)");
 		}
 		osg::Image * lret = self->getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -534,19 +698,19 @@ public:
 		return 1;
 	}
 
-	// const osg::Image * osg::Texture2D::getImage(unsigned int) const
+	// const osg::Image * osg::Texture2D::getImage(unsigned int arg1) const
 	static int _bind_getImage_overload_4(lua_State *L) {
 		if (!_lg_typecheck_getImage_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2D::getImage(unsigned int) const function, expected prototype:\nconst osg::Image * osg::Texture2D::getImage(unsigned int) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::Texture2D::getImage(unsigned int arg1) const function, expected prototype:\nconst osg::Image * osg::Texture2D::getImage(unsigned int arg1) const\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
 		osg::Texture2D* self=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2D::getImage(unsigned) const");
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::Texture2D::getImage(unsigned int) const");
 		}
 		const osg::Image * lret = self->getImage(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -563,7 +727,7 @@ public:
 		if (_lg_typecheck_getImage_overload_3(L)) return _bind_getImage_overload_3(L);
 		if (_lg_typecheck_getImage_overload_4(L)) return _bind_getImage_overload_4(L);
 
-		luaL_error(L, "error in function getImage, cannot match any of the overloads for function getImage:\n  getImage()\n  getImage()\n  getImage(unsigned)\n  getImage(unsigned)\n");
+		luaL_error(L, "error in function getImage, cannot match any of the overloads for function getImage:\n  getImage()\n  getImage()\n  getImage(unsigned int)\n  getImage(unsigned int)\n");
 		return 0;
 	}
 
@@ -914,13 +1078,7 @@ public:
 };
 
 osg::Texture2D* LunaTraits< osg::Texture2D >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
-	// Abstract methods:
-	// void osg::Texture::setImage(unsigned int face, osg::Image * image)
-	// osg::Image * osg::Texture::getImage(unsigned int face)
-	// const osg::Image * osg::Texture::getImage(unsigned int face) const
-
-	// Abstract operators:
+	return luna_wrapper_osg_Texture2D::_bind_ctor(L);
 }
 
 void LunaTraits< osg::Texture2D >::_bind_dtor(osg::Texture2D* obj) {

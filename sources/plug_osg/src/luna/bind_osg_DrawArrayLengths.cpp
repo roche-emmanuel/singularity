@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_DrawArrayLengths.h>
+
 class luna_wrapper_osg_DrawArrayLengths {
 public:
 	typedef Luna< osg::DrawArrayLengths > luna_t;
@@ -83,6 +85,57 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::DrawArrayLengths* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -245,6 +298,85 @@ public:
 		return new osg::DrawArrayLengths(mode, first);
 	}
 
+	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode = 0)
+	static osg::DrawArrayLengths* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode = 0) function, expected prototype:\nosg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+
+		return new wrapper_osg_DrawArrayLengths(L,NULL, mode);
+	}
+
+	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, const osg::DrawArrayLengths & dal, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::DrawArrayLengths* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, const osg::DrawArrayLengths & dal, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, const osg::DrawArrayLengths & dal, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::DrawArrayLengths* dal_ptr=dynamic_cast< osg::DrawArrayLengths* >(Luna< osg::Referenced >::check(L,2));
+		if( !dal_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dal in osg::DrawArrayLengths::DrawArrayLengths function");
+		}
+		const osg::DrawArrayLengths & dal=*dal_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawArrayLengths::DrawArrayLengths function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_DrawArrayLengths(L,NULL, dal, copyop);
+	}
+
+	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no, int * ptr)
+	static osg::DrawArrayLengths* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no, int * ptr) function, expected prototype:\nosg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no, int * ptr)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int first=(int)lua_tointeger(L,3);
+		unsigned int no=(unsigned int)lua_tointeger(L,4);
+		int ptr=(int)lua_tointeger(L,5);
+
+		return new wrapper_osg_DrawArrayLengths(L,NULL, mode, first, no, &ptr);
+	}
+
+	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no)
+	static osg::DrawArrayLengths* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no) function, expected prototype:\nosg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first, unsigned int no)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int first=(int)lua_tointeger(L,3);
+		unsigned int no=(unsigned int)lua_tointeger(L,4);
+
+		return new wrapper_osg_DrawArrayLengths(L,NULL, mode, first, no);
+	}
+
+	// osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first)
+	static osg::DrawArrayLengths* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first) function, expected prototype:\nosg::DrawArrayLengths::DrawArrayLengths(lua_Table * data, unsigned int mode, int first)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int first=(int)lua_tointeger(L,3);
+
+		return new wrapper_osg_DrawArrayLengths(L,NULL, mode, first);
+	}
+
 	// Overload binder for osg::DrawArrayLengths::DrawArrayLengths
 	static osg::DrawArrayLengths* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -252,8 +384,13 @@ public:
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 
-		luaL_error(L, "error in function DrawArrayLengths, cannot match any of the overloads for function DrawArrayLengths:\n  DrawArrayLengths(unsigned int)\n  DrawArrayLengths(const osg::DrawArrayLengths &, const osg::CopyOp &)\n  DrawArrayLengths(unsigned int, int, unsigned int, int *)\n  DrawArrayLengths(unsigned int, int, unsigned int)\n  DrawArrayLengths(unsigned int, int)\n");
+		luaL_error(L, "error in function DrawArrayLengths, cannot match any of the overloads for function DrawArrayLengths:\n  DrawArrayLengths(unsigned int)\n  DrawArrayLengths(const osg::DrawArrayLengths &, const osg::CopyOp &)\n  DrawArrayLengths(unsigned int, int, unsigned int, int *)\n  DrawArrayLengths(unsigned int, int, unsigned int)\n  DrawArrayLengths(unsigned int, int)\n  DrawArrayLengths(lua_Table *, unsigned int)\n  DrawArrayLengths(lua_Table *, const osg::DrawArrayLengths &, const osg::CopyOp &)\n  DrawArrayLengths(lua_Table *, unsigned int, int, unsigned int, int *)\n  DrawArrayLengths(lua_Table *, unsigned int, int, unsigned int)\n  DrawArrayLengths(lua_Table *, unsigned int, int)\n");
 		return NULL;
 	}
 
@@ -280,11 +417,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

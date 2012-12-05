@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BufferIndexBinding.h>
+
 class luna_wrapper_osg_BufferIndexBinding {
 public:
 	typedef Luna< osg::BufferIndexBinding > luna_t;
@@ -109,20 +111,20 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// unsigned osg::BufferIndexBinding::getMember() const
+	// unsigned int osg::BufferIndexBinding::getMember() const
 	static int _bind_getMember(lua_State *L) {
 		if (!_lg_typecheck_getMember(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned osg::BufferIndexBinding::getMember() const function, expected prototype:\nunsigned osg::BufferIndexBinding::getMember() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int osg::BufferIndexBinding::getMember() const function, expected prototype:\nunsigned int osg::BufferIndexBinding::getMember() const\nClass arguments details:\n");
 		}
 
 
 		osg::BufferIndexBinding* self=dynamic_cast< osg::BufferIndexBinding* >(Luna< osg::Referenced >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned osg::BufferIndexBinding::getMember() const");
+			luaL_error(L, "Invalid object in function call unsigned int osg::BufferIndexBinding::getMember() const");
 		}
-		unsigned lret = self->getMember();
+		unsigned int lret = self->getMember();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -282,11 +284,11 @@ public:
 		return 1;
 	}
 
-	// void osg::BufferIndexBinding::apply(osg::State & ) const
+	// void osg::BufferIndexBinding::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferIndexBinding::apply(osg::State & ) const function, expected prototype:\nvoid osg::BufferIndexBinding::apply(osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferIndexBinding::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::BufferIndexBinding::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
@@ -314,13 +316,11 @@ osg::BufferIndexBinding* LunaTraits< osg::BufferIndexBinding >::_bind_ctor(lua_S
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::StateAttribute::cloneType() const
-	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const
 	// osg::StateAttribute::Type osg::StateAttribute::getType() const
 	// int osg::StateAttribute::compare(const osg::StateAttribute & sa) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::BufferIndexBinding >::_bind_dtor(osg::BufferIndexBinding* obj) {

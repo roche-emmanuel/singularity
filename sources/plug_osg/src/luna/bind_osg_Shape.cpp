@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Shape.h>
+
 class luna_wrapper_osg_Shape {
 public:
 	typedef Luna< osg::Shape > luna_t;
@@ -114,11 +116,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Shape::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Shape::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shape::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Shape::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shape::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shape::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -198,11 +200,11 @@ public:
 		return 1;
 	}
 
-	// void osg::Shape::accept(osg::ShapeVisitor & )
+	// void osg::Shape::accept(osg::ShapeVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shape::accept(osg::ShapeVisitor & ) function, expected prototype:\nvoid osg::Shape::accept(osg::ShapeVisitor & )\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shape::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::Shape::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -221,11 +223,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Shape::accept(osg::ConstShapeVisitor & ) const
+	// void osg::Shape::accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Shape::accept(osg::ConstShapeVisitor & ) const function, expected prototype:\nvoid osg::Shape::accept(osg::ConstShapeVisitor & ) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::Shape::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::Shape::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));
@@ -262,13 +264,11 @@ osg::Shape* LunaTraits< osg::Shape >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::Shape::cloneType() const
-	// osg::Object * osg::Shape::clone(const osg::CopyOp & ) const
-	// void osg::Shape::accept(osg::ShapeVisitor & )
-	// void osg::Shape::accept(osg::ConstShapeVisitor & ) const
+	// osg::Object * osg::Shape::clone(const osg::CopyOp & arg1) const
+	// void osg::Shape::accept(osg::ShapeVisitor & arg1)
+	// void osg::Shape::accept(osg::ConstShapeVisitor & arg1) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::Shape >::_bind_dtor(osg::Shape* obj) {

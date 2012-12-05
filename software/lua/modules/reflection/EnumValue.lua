@@ -7,10 +7,14 @@ local Class = require("classBuilder"){name="EnumValue",bases="reflection.Member"
 function Class:getFullName()
 	local grand_parent = self:getParent() and self:getParent():getParent()
 	
-	self:check(grand_parent,"Invalid enum value grand parent for enum value ",self:getName())
+	--self:check(grand_parent,"Invalid enum value grand parent for enum value ",self:getName())
 	
-	local pname = grand_parent:getFullName()
-	return (pname .. "::") .. self:getName()
+	-- if grand_parent then
+		local pname = grand_parent and grand_parent:getFullName() or (self:getParent() and self:getParent():getFullName()) or ""
+		return (pname .. "::") .. self:getName()
+	-- else
+		-- return self:getFullName()
+	-- end
 end
 
 return Class

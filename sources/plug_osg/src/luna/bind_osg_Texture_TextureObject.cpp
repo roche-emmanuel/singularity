@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture_TextureObject.h>
+
 class luna_wrapper_osg_Texture_TextureObject {
 public:
 	typedef Luna< osg::Texture::TextureObject > luna_t;
@@ -74,6 +76,46 @@ public:
 		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,69361645) ) return false;
+		if( (!dynamic_cast< osg::Texture::TextureProfile* >(Luna< osg::Texture::TextureProfile >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=10 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		return true;
 	}
 
@@ -231,13 +273,68 @@ public:
 		return new osg::Texture::TextureObject(texture, id, target, numMipmapLevels, internalFormat, width, height, depth, border);
 	}
 
+	// osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target)
+	static osg::Texture::TextureObject* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target) function, expected prototype:\nosg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int id=(unsigned int)lua_tointeger(L,3);
+		unsigned int target=(unsigned int)lua_tointeger(L,4);
+
+		return new wrapper_osg_Texture_TextureObject(L,NULL, texture, id, target);
+	}
+
+	// osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile)
+	static osg::Texture::TextureObject* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile) function, expected prototype:\nosg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, const osg::Texture::TextureProfile & profile)\nClass arguments details:\narg 2 ID = 50169651\narg 4 ID = 69361645\n");
+		}
+
+		osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int id=(unsigned int)lua_tointeger(L,3);
+		const osg::Texture::TextureProfile* profile_ptr=(Luna< osg::Texture::TextureProfile >::check(L,4));
+		if( !profile_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg profile in osg::Texture::TextureObject::TextureObject function");
+		}
+		const osg::Texture::TextureProfile & profile=*profile_ptr;
+
+		return new wrapper_osg_Texture_TextureObject(L,NULL, texture, id, profile);
+	}
+
+	// osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border)
+	static osg::Texture::TextureObject* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border) function, expected prototype:\nosg::Texture::TextureObject::TextureObject(lua_Table * data, osg::Texture * texture, unsigned int id, unsigned int target, int numMipmapLevels, unsigned int internalFormat, int width, int height, int depth, int border)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int id=(unsigned int)lua_tointeger(L,3);
+		unsigned int target=(unsigned int)lua_tointeger(L,4);
+		int numMipmapLevels=(int)lua_tointeger(L,5);
+		unsigned int internalFormat=(unsigned int)lua_tointeger(L,6);
+		int width=(int)lua_tointeger(L,7);
+		int height=(int)lua_tointeger(L,8);
+		int depth=(int)lua_tointeger(L,9);
+		int border=(int)lua_tointeger(L,10);
+
+		return new wrapper_osg_Texture_TextureObject(L,NULL, texture, id, target, numMipmapLevels, internalFormat, width, height, depth, border);
+	}
+
 	// Overload binder for osg::Texture::TextureObject::TextureObject
 	static osg::Texture::TextureObject* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function TextureObject, cannot match any of the overloads for function TextureObject:\n  TextureObject(osg::Texture *, unsigned int, unsigned int)\n  TextureObject(osg::Texture *, unsigned int, const osg::Texture::TextureProfile &)\n  TextureObject(osg::Texture *, unsigned int, unsigned int, int, unsigned int, int, int, int, int)\n");
+		luaL_error(L, "error in function TextureObject, cannot match any of the overloads for function TextureObject:\n  TextureObject(osg::Texture *, unsigned int, unsigned int)\n  TextureObject(osg::Texture *, unsigned int, const osg::Texture::TextureProfile &)\n  TextureObject(osg::Texture *, unsigned int, unsigned int, int, unsigned int, int, int, int, int)\n  TextureObject(lua_Table *, osg::Texture *, unsigned int, unsigned int)\n  TextureObject(lua_Table *, osg::Texture *, unsigned int, const osg::Texture::TextureProfile &)\n  TextureObject(lua_Table *, osg::Texture *, unsigned int, unsigned int, int, unsigned int, int, int, int, int)\n");
 		return NULL;
 	}
 

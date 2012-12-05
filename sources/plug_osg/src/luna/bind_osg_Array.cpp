@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Array.h>
+
 class luna_wrapper_osg_Array {
 public:
 	typedef Luna< osg::Array > luna_t;
@@ -225,11 +227,11 @@ public:
 		return 1;
 	}
 
-	// void osg::Array::accept(osg::ArrayVisitor & )
+	// void osg::Array::accept(osg::ArrayVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Array::accept(osg::ArrayVisitor & ) function, expected prototype:\nvoid osg::Array::accept(osg::ArrayVisitor & )\nClass arguments details:\narg 1 ID = 35264102\n");
+			luaL_error(L, "luna typecheck failed in void osg::Array::accept(osg::ArrayVisitor & arg1) function, expected prototype:\nvoid osg::Array::accept(osg::ArrayVisitor & arg1)\nClass arguments details:\narg 1 ID = 35264102\n");
 		}
 
 		osg::ArrayVisitor* _arg1_ptr=(Luna< osg::ArrayVisitor >::check(L,2));
@@ -248,11 +250,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Array::accept(osg::ConstArrayVisitor & ) const
+	// void osg::Array::accept(osg::ConstArrayVisitor & arg1) const
 	static int _bind_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Array::accept(osg::ConstArrayVisitor & ) const function, expected prototype:\nvoid osg::Array::accept(osg::ConstArrayVisitor & ) const\nClass arguments details:\narg 1 ID = 80735172\n");
+			luaL_error(L, "luna typecheck failed in void osg::Array::accept(osg::ConstArrayVisitor & arg1) const function, expected prototype:\nvoid osg::Array::accept(osg::ConstArrayVisitor & arg1) const\nClass arguments details:\narg 1 ID = 80735172\n");
 		}
 
 		osg::ConstArrayVisitor* _arg1_ptr=(Luna< osg::ConstArrayVisitor >::check(L,2));
@@ -271,11 +273,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & )
+	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & arg2)
 	static int _bind_accept_overload_3(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Array::accept(unsigned int index, osg::ValueVisitor & ) function, expected prototype:\nvoid osg::Array::accept(unsigned int index, osg::ValueVisitor & )\nClass arguments details:\narg 2 ID = 87991103\n");
+			luaL_error(L, "luna typecheck failed in void osg::Array::accept(unsigned int index, osg::ValueVisitor & arg2) function, expected prototype:\nvoid osg::Array::accept(unsigned int index, osg::ValueVisitor & arg2)\nClass arguments details:\narg 2 ID = 87991103\n");
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -295,11 +297,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & ) const
+	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & arg2) const
 	static int _bind_accept_overload_4(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & ) const function, expected prototype:\nvoid osg::Array::accept(unsigned int index, osg::ConstValueVisitor & ) const\nClass arguments details:\narg 2 ID = 86989408\n");
+			luaL_error(L, "luna typecheck failed in void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & arg2) const function, expected prototype:\nvoid osg::Array::accept(unsigned int index, osg::ConstValueVisitor & arg2) const\nClass arguments details:\narg 2 ID = 86989408\n");
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
@@ -563,10 +565,10 @@ public:
 osg::Array* LunaTraits< osg::Array >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// void osg::Array::accept(osg::ArrayVisitor & )
-	// void osg::Array::accept(osg::ConstArrayVisitor & ) const
-	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & )
-	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & ) const
+	// void osg::Array::accept(osg::ArrayVisitor & arg1)
+	// void osg::Array::accept(osg::ConstArrayVisitor & arg1) const
+	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & arg2)
+	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & arg2) const
 	// int osg::Array::compare(unsigned int lhs, unsigned int rhs) const
 	// const void * osg::Array::getDataPointer() const
 	// unsigned int osg::Array::getTotalDataSize() const
@@ -574,9 +576,7 @@ osg::Array* LunaTraits< osg::Array >::_bind_ctor(lua_State *L) {
 	// const void * osg::BufferData::getDataPointer() const
 	// unsigned int osg::BufferData::getTotalDataSize() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::Array >::_bind_dtor(osg::Array* obj) {

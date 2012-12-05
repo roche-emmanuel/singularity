@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Light.h>
+
 class luna_wrapper_osg_Light {
 public:
 	typedef Luna< osg::Light > luna_t;
@@ -61,6 +63,33 @@ public:
 		if( (!dynamic_cast< osg::Light* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Light* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -331,13 +360,62 @@ public:
 		return new osg::Light(light, copyop);
 	}
 
+	// osg::Light::Light(lua_Table * data)
+	static osg::Light* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Light::Light(lua_Table * data) function, expected prototype:\nosg::Light::Light(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Light(L,NULL);
+	}
+
+	// osg::Light::Light(lua_Table * data, unsigned int lightnum)
+	static osg::Light* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Light::Light(lua_Table * data, unsigned int lightnum) function, expected prototype:\nosg::Light::Light(lua_Table * data, unsigned int lightnum)\nClass arguments details:\n");
+		}
+
+		unsigned int lightnum=(unsigned int)lua_tointeger(L,2);
+
+		return new wrapper_osg_Light(L,NULL, lightnum);
+	}
+
+	// osg::Light::Light(lua_Table * data, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Light* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Light::Light(lua_Table * data, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Light::Light(lua_Table * data, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Light* light_ptr=dynamic_cast< osg::Light* >(Luna< osg::Referenced >::check(L,2));
+		if( !light_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg light in osg::Light::Light function");
+		}
+		const osg::Light & light=*light_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Light::Light function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Light(L,NULL, light, copyop);
+	}
+
 	// Overload binder for osg::Light::Light
 	static osg::Light* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function Light, cannot match any of the overloads for function Light:\n  Light()\n  Light(unsigned int)\n  Light(const osg::Light &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Light, cannot match any of the overloads for function Light:\n  Light()\n  Light(unsigned int)\n  Light(const osg::Light &, const osg::CopyOp &)\n  Light(lua_Table *)\n  Light(lua_Table *, unsigned int)\n  Light(lua_Table *, const osg::Light &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -364,11 +442,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Light::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Light::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Light::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Light::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Light::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Light::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -510,11 +588,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & ) const
+	// bool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & ) const function, expected prototype:\nbool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & ) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::Light::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));

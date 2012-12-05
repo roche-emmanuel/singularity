@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IncrementalCompileOperation_CompileOp.h>
+
 class luna_wrapper_osgUtil_IncrementalCompileOperation_CompileOp {
 public:
 	typedef Luna< osgUtil::IncrementalCompileOperation::CompileOp > luna_t;
@@ -55,8 +57,6 @@ osgUtil::IncrementalCompileOperation::CompileOp* LunaTraits< osgUtil::Incrementa
 	// Abstract methods:
 	// double osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo & compileInfo) const
 	// bool osgUtil::IncrementalCompileOperation::CompileOp::compile(osgUtil::IncrementalCompileOperation::CompileInfo & compileInfo)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::IncrementalCompileOperation::CompileOp >::_bind_dtor(osgUtil::IncrementalCompileOperation::CompileOp* obj) {

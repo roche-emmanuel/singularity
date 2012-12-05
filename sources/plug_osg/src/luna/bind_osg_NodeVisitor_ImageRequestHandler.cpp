@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NodeVisitor_ImageRequestHandler.h>
+
 class luna_wrapper_osg_NodeVisitor_ImageRequestHandler {
 public:
 	typedef Luna< osg::NodeVisitor::ImageRequestHandler > luna_t;
@@ -144,8 +146,6 @@ osg::NodeVisitor::ImageRequestHandler* LunaTraits< osg::NodeVisitor::ImageReques
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	// osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string & fileName)
 	// void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::NodeVisitor::ImageRequestHandler >::_bind_dtor(osg::NodeVisitor::ImageRequestHandler* obj) {

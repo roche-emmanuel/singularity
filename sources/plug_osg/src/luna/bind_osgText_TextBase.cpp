@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_TextBase.h>
+
 class luna_wrapper_osgText_TextBase {
 public:
 	typedef Luna< osgText::TextBase > luna_t;
@@ -1586,9 +1588,7 @@ osgText::TextBase* LunaTraits< osgText::TextBase >::_bind_ctor(lua_State *L) {
 	// void osgText::TextBase::computeGlyphRepresentation()
 	// void osg::Drawable::drawImplementation(osg::RenderInfo & renderInfo) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgText::TextBase >::_bind_dtor(osgText::TextBase* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsThread.h>
+
 class luna_wrapper_osg_GraphicsThread {
 public:
 	typedef Luna< osg::GraphicsThread > luna_t;

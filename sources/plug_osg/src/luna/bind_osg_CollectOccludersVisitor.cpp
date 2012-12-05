@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CollectOccludersVisitor.h>
+
 class luna_wrapper_osg_CollectOccludersVisitor {
 public:
 	typedef Luna< osg::CollectOccludersVisitor > luna_t;
@@ -51,9 +53,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -225,14 +234,34 @@ public:
 
 	// Constructor binds:
 	// osg::CollectOccludersVisitor::CollectOccludersVisitor()
-	static osg::CollectOccludersVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::CollectOccludersVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::CollectOccludersVisitor::CollectOccludersVisitor() function, expected prototype:\nosg::CollectOccludersVisitor::CollectOccludersVisitor()\nClass arguments details:\n");
 		}
 
 
 		return new osg::CollectOccludersVisitor();
+	}
+
+	// osg::CollectOccludersVisitor::CollectOccludersVisitor(lua_Table * data)
+	static osg::CollectOccludersVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CollectOccludersVisitor::CollectOccludersVisitor(lua_Table * data) function, expected prototype:\nosg::CollectOccludersVisitor::CollectOccludersVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CollectOccludersVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::CollectOccludersVisitor::CollectOccludersVisitor
+	static osg::CollectOccludersVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function CollectOccludersVisitor, cannot match any of the overloads for function CollectOccludersVisitor:\n  CollectOccludersVisitor()\n  CollectOccludersVisitor(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -314,11 +343,11 @@ public:
 		return 0;
 	}
 
-	// float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const
+	// float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -339,11 +368,11 @@ public:
 		return 1;
 	}
 
-	// float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const
+	// float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToViewPoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -364,11 +393,11 @@ public:
 		return 1;
 	}
 
-	// float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const
+	// float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceFromEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -389,11 +418,11 @@ public:
 		return 1;
 	}
 
-	// void osg::CollectOccludersVisitor::apply(osg::Node & )
+	// void osg::CollectOccludersVisitor::apply(osg::Node & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::CollectOccludersVisitor::apply(osg::Node & ) function, expected prototype:\nvoid osg::CollectOccludersVisitor::apply(osg::Node & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::CollectOccludersVisitor::apply(osg::Node & arg1) function, expected prototype:\nvoid osg::CollectOccludersVisitor::apply(osg::Node & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));

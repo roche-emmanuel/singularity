@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Operator.h>
+
 class luna_wrapper_osgParticle_Operator {
 public:
 	typedef Luna< osgParticle::Operator > luna_t;
@@ -242,11 +244,11 @@ public:
 		return 0;
 	}
 
-	// void osgParticle::Operator::beginOperate(osgParticle::Program * )
+	// void osgParticle::Operator::beginOperate(osgParticle::Program * arg1)
 	static int _bind_beginOperate(lua_State *L) {
 		if (!_lg_typecheck_beginOperate(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::Operator::beginOperate(osgParticle::Program * ) function, expected prototype:\nvoid osgParticle::Operator::beginOperate(osgParticle::Program * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::Operator::beginOperate(osgParticle::Program * arg1) function, expected prototype:\nvoid osgParticle::Operator::beginOperate(osgParticle::Program * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osgParticle::Program* _arg1=dynamic_cast< osgParticle::Program* >(Luna< osg::Referenced >::check(L,2));
@@ -289,9 +291,7 @@ osgParticle::Operator* LunaTraits< osgParticle::Operator >::_bind_ctor(lua_State
 	// Abstract methods:
 	// void osgParticle::Operator::operate(osgParticle::Particle * P, double dt)
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::Operator >::_bind_dtor(osgParticle::Operator* obj) {

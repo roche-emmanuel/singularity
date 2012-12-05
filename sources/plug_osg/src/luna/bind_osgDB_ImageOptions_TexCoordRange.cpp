@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_ImageOptions_TexCoordRange.h>
+
 class luna_wrapper_osgDB_ImageOptions_TexCoordRange {
 public:
 	typedef Luna< osgDB::ImageOptions::TexCoordRange > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -64,14 +73,34 @@ public:
 
 	// Constructor binds:
 	// osgDB::ImageOptions::TexCoordRange::TexCoordRange()
-	static osgDB::ImageOptions::TexCoordRange* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgDB::ImageOptions::TexCoordRange* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::TexCoordRange::TexCoordRange() function, expected prototype:\nosgDB::ImageOptions::TexCoordRange::TexCoordRange()\nClass arguments details:\n");
 		}
 
 
 		return new osgDB::ImageOptions::TexCoordRange();
+	}
+
+	// osgDB::ImageOptions::TexCoordRange::TexCoordRange(lua_Table * data)
+	static osgDB::ImageOptions::TexCoordRange* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageOptions::TexCoordRange::TexCoordRange(lua_Table * data) function, expected prototype:\nosgDB::ImageOptions::TexCoordRange::TexCoordRange(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_ImageOptions_TexCoordRange(L,NULL);
+	}
+
+	// Overload binder for osgDB::ImageOptions::TexCoordRange::TexCoordRange
+	static osgDB::ImageOptions::TexCoordRange* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TexCoordRange, cannot match any of the overloads for function TexCoordRange:\n  TexCoordRange()\n  TexCoordRange(lua_Table *)\n");
+		return NULL;
 	}
 
 

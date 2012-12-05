@@ -70,7 +70,7 @@ public:
 	// const osg::Referenced * osg::Object::getUserData() const
 	const osg::Referenced * getUserData() const {
 		if(_obj.pushFunction("getUserData")) {
-			return (_obj.callFunction<const osg::Referenced*>());
+			return (_obj.callFunction<osg::Referenced*>());
 		}
 
 		return osg::Object::getUserData();
