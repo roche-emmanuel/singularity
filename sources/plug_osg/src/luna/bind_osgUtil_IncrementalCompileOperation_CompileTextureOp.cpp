@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp.h>
+
 class luna_wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp {
 public:
 	typedef Luna< osgUtil::IncrementalCompileOperation::CompileTextureOp > luna_t;

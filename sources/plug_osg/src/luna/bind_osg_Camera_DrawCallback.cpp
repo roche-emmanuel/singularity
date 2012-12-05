@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Camera_DrawCallback.h>
+
 class luna_wrapper_osg_Camera_DrawCallback {
 public:
 	typedef Luna< osg::Camera::DrawCallback > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (!dynamic_cast< osg::Camera::DrawCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Camera::DrawCallback* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -122,11 +142,11 @@ public:
 		return new osg::Camera::DrawCallback();
 	}
 
-	// osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & , const osg::CopyOp & )
+	// osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2)
 	static osg::Camera::DrawCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & , const osg::CopyOp & ) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & , const osg::CopyOp & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(const osg::Camera::DrawCallback & arg1, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		const osg::Camera::DrawCallback* _arg1_ptr=dynamic_cast< osg::Camera::DrawCallback* >(Luna< osg::Referenced >::check(L,1));
@@ -143,12 +163,46 @@ public:
 		return new osg::Camera::DrawCallback(_arg1, _arg2);
 	}
 
+	// osg::Camera::DrawCallback::DrawCallback(lua_Table * data)
+	static osg::Camera::DrawCallback* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Camera_DrawCallback(L,NULL);
+	}
+
+	// osg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3)
+	static osg::Camera::DrawCallback* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3) function, expected prototype:\nosg::Camera::DrawCallback::DrawCallback(lua_Table * data, const osg::Camera::DrawCallback & arg2, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osg::Camera::DrawCallback* _arg2_ptr=dynamic_cast< osg::Camera::DrawCallback* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::Camera::DrawCallback::DrawCallback function");
+		}
+		const osg::Camera::DrawCallback & _arg2=*_arg2_ptr;
+		const osg::CopyOp* _arg3_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !_arg3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg3 in osg::Camera::DrawCallback::DrawCallback function");
+		}
+		const osg::CopyOp & _arg3=*_arg3_ptr;
+
+		return new wrapper_osg_Camera_DrawCallback(L,NULL, _arg2, _arg3);
+	}
+
 	// Overload binder for osg::Camera::DrawCallback::DrawCallback
 	static osg::Camera::DrawCallback* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function DrawCallback, cannot match any of the overloads for function DrawCallback:\n  DrawCallback()\n  DrawCallback(const osg::Camera::DrawCallback &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function DrawCallback, cannot match any of the overloads for function DrawCallback:\n  DrawCallback()\n  DrawCallback(const osg::Camera::DrawCallback &, const osg::CopyOp &)\n  DrawCallback(lua_Table *)\n  DrawCallback(lua_Table *, const osg::Camera::DrawCallback &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -175,11 +229,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Camera::DrawCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -284,11 +338,11 @@ public:
 		return 0;
 	}
 
-	// void osg::Camera::DrawCallback::operator()(const osg::Camera & ) const
+	// void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const
 	static int _bind_op_call_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_call_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(const osg::Camera & ) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(const osg::Camera & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const function, expected prototype:\nvoid osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Camera* _arg1_ptr=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));

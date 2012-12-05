@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IncrementalCompileOperation_CompileDrawableOp.h>
+
 class luna_wrapper_osgUtil_IncrementalCompileOperation_CompileDrawableOp {
 public:
 	typedef Luna< osgUtil::IncrementalCompileOperation::CompileDrawableOp > luna_t;

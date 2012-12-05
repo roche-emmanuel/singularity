@@ -30,6 +30,8 @@ function Class:addValue(value)
 	self:check(value,"Invalid value argument");
 	self:checkType(value,require "reflection.EnumValue")
 	
+	self:check(self:getParent(),"Invalid enum parent for enum '",self:getName(),"'")
+	
 	value:setParent(self)
 	
 	self._values:addItem(value);

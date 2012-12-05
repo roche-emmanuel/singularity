@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Shader_PerContextShader.h>
+
 class luna_wrapper_osg_Shader_PerContextShader {
 public:
 	typedef Luna< osg::Shader::PerContextShader > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -108,8 +121,8 @@ public:
 
 	// Constructor binds:
 	// osg::Shader::PerContextShader::PerContextShader(const osg::Shader * shader, unsigned int contextID)
-	static osg::Shader::PerContextShader* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::Shader::PerContextShader* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader::PerContextShader(const osg::Shader * shader, unsigned int contextID) function, expected prototype:\nosg::Shader::PerContextShader::PerContextShader(const osg::Shader * shader, unsigned int contextID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -118,6 +131,28 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		return new osg::Shader::PerContextShader(shader, contextID);
+	}
+
+	// osg::Shader::PerContextShader::PerContextShader(lua_Table * data, const osg::Shader * shader, unsigned int contextID)
+	static osg::Shader::PerContextShader* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader::PerContextShader(lua_Table * data, const osg::Shader * shader, unsigned int contextID) function, expected prototype:\nosg::Shader::PerContextShader::PerContextShader(lua_Table * data, const osg::Shader * shader, unsigned int contextID)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::Shader* shader=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		unsigned int contextID=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osg_Shader_PerContextShader(L,NULL, shader, contextID);
+	}
+
+	// Overload binder for osg::Shader::PerContextShader::PerContextShader
+	static osg::Shader::PerContextShader* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function PerContextShader, cannot match any of the overloads for function PerContextShader:\n  PerContextShader(const osg::Shader *, unsigned int)\n  PerContextShader(lua_Table *, const osg::Shader *, unsigned int)\n");
+		return NULL;
 	}
 
 

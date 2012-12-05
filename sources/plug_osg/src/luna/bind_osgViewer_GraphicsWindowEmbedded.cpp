@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_GraphicsWindowEmbedded.h>
+
 class luna_wrapper_osgViewer_GraphicsWindowEmbedded {
 public:
 	typedef Luna< osgViewer::GraphicsWindowEmbedded > luna_t;
@@ -384,8 +386,6 @@ osgViewer::GraphicsWindowEmbedded* LunaTraits< osgViewer::GraphicsWindowEmbedded
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool osg::GraphicsContext::makeContextCurrentImplementation(osg::GraphicsContext * readContext)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgViewer::GraphicsWindowEmbedded >::_bind_dtor(osgViewer::GraphicsWindowEmbedded* obj) {

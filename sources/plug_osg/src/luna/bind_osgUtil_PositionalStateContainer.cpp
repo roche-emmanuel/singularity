@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_PositionalStateContainer.h>
+
 class luna_wrapper_osgUtil_PositionalStateContainer {
 public:
 	typedef Luna< osgUtil::PositionalStateContainer > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -131,14 +140,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::PositionalStateContainer::PositionalStateContainer()
-	static osgUtil::PositionalStateContainer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::PositionalStateContainer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer() function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::PositionalStateContainer();
+	}
+
+	// osgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data)
+	static osgUtil::PositionalStateContainer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data) function, expected prototype:\nosgUtil::PositionalStateContainer::PositionalStateContainer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_PositionalStateContainer(L,NULL);
+	}
+
+	// Overload binder for osgUtil::PositionalStateContainer::PositionalStateContainer
+	static osgUtil::PositionalStateContainer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function PositionalStateContainer, cannot match any of the overloads for function PositionalStateContainer:\n  PositionalStateContainer()\n  PositionalStateContainer(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -164,11 +193,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & ) const
+	// osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

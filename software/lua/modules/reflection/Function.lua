@@ -172,6 +172,14 @@ function Class:isAbstract()
     return self._isAbstract;
 end
 
+function Class:setWrapper(wrapper)
+	self._isWrapper = wrapper
+end
+
+function Class:isWrapper()
+	return self._isWrapper
+end
+
 --- Check if function is a constructor.
 function Class:isConstructor()
 	return self:getLuaName() == self:getParent():getName()
@@ -249,9 +257,7 @@ end
 -- only used for luabind and Swig bindings.
 function Class:isValidForWrapping()
     return (
-    	not self:isVariadic()
-    	--and self:getNumParameters()<=10 
-    	--and not self:isOperator() 
+    	not self:isVariadic() 
     	and not self:containsArray() 
     	and not self:containsPointerOnPointer() 
     	and not self:isTemplated()
@@ -273,6 +279,7 @@ function Class:getArgumentsPrototype(withNames)
 	
     for k,v in self:getParameters():sequence() do
         local def = v:getDefaultValue() and v:getDefaultValue():getName()
+		def = def=="((void *) 0)" and "NULL" or def
         local name = v:getName() 
 		name = name=="" and "arg"..k or name
 		name = name .. (def and " = "..def or "")
@@ -403,6 +410,28 @@ end
 
 function Class:isVirtual()
 	return self:isAbstract() or self._isVirtual
+end
+
+function Class:clone()
+	local func = Class()
+	func:setName(self:getName())
+	func._isWrapper = self._isWrapper
+	func._isVirtual = self._isVirtual
+	func.argsString = self.argsString
+	func.templateParameters = self.templateParameters
+	func._isAbstract = self._isAbstract
+	func._isStatic = self._isStatic
+	func._isExtension = self._isExtension
+	func._isConst = self._isConst
+	func._luaName = self._luaName
+	
+	local params = self:getParameters()
+	for _,param in params:sequence() do
+		func:addParameter(param)
+	end
+	
+	-- getParent():addFunction(func)
+	return func
 end
 
 -- deprecated, for backward compatibility only

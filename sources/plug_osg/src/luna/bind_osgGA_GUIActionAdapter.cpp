@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_GUIActionAdapter.h>
+
 class luna_wrapper_osgGA_GUIActionAdapter {
 public:
 	typedef Luna< osgGA::GUIActionAdapter > luna_t;
@@ -178,8 +180,6 @@ osgGA::GUIActionAdapter* LunaTraits< osgGA::GUIActionAdapter >::_bind_ctor(lua_S
 	// void osgGA::GUIActionAdapter::requestRedraw()
 	// void osgGA::GUIActionAdapter::requestContinuousUpdate(bool needed = true)
 	// void osgGA::GUIActionAdapter::requestWarpPointer(float x, float y)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgGA::GUIActionAdapter >::_bind_dtor(osgGA::GUIActionAdapter* obj) {

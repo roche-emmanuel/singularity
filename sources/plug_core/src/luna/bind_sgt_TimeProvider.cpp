@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_TimeProvider.h>
+
 class luna_wrapper_sgt_TimeProvider {
 public:
 	typedef Luna< sgt::TimeProvider > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -215,12 +236,48 @@ public:
 		return new sgt::TimeProvider(tm, co);
 	}
 
+	// sgt::TimeProvider::TimeProvider(lua_Table * data)
+	static sgt::TimeProvider* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::TimeProvider::TimeProvider(lua_Table * data) function, expected prototype:\nsgt::TimeProvider::TimeProvider(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_sgt_TimeProvider(L,NULL);
+	}
+
+	// sgt::TimeProvider::TimeProvider(lua_Table * data, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY)
+	static sgt::TimeProvider* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::TimeProvider::TimeProvider(lua_Table * data, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) function, expected prototype:\nsgt::TimeProvider::TimeProvider(lua_Table * data, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const sgt::TimeProvider* tm_ptr=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,2));
+		if( !tm_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tm in sgt::TimeProvider::TimeProvider function");
+		}
+		const sgt::TimeProvider & tm=*tm_ptr;
+		const osg::CopyOp* co_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !co_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg co in sgt::TimeProvider::TimeProvider function");
+		}
+		const osg::CopyOp & co=luatop>2 ? *co_ptr : sgtCopyOp::SHALLOW_COPY;
+
+		return new wrapper_sgt_TimeProvider(L,NULL, tm, co);
+	}
+
 	// Overload binder for sgt::TimeProvider::TimeProvider
 	static sgt::TimeProvider* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function TimeProvider, cannot match any of the overloads for function TimeProvider:\n  TimeProvider()\n  TimeProvider(const sgt::TimeProvider &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function TimeProvider, cannot match any of the overloads for function TimeProvider:\n  TimeProvider()\n  TimeProvider(const sgt::TimeProvider &, const osg::CopyOp &)\n  TimeProvider(lua_Table *)\n  TimeProvider(lua_Table *, const sgt::TimeProvider &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

@@ -8,16 +8,14 @@
 
 #include <Awesomium/DataSource.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_DataSource : public Awesomium::DataSource {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_DataSource(lua_State* L) : Awesomium::DataSource(), _obj(L,-1) {};
+	wrapper_Awesomium_DataSource(lua_State* L, lua_Table* dum) : Awesomium::DataSource(), _obj(L,-1) {};
 
 	// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {
@@ -32,7 +30,6 @@ public:
 
 };
 
-};	
 
 
 

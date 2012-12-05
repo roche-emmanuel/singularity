@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_StateSetManipulator.h>
+
 class luna_wrapper_osgGA_StateSetManipulator {
 public:
 	typedef Luna< osgGA::StateSetManipulator > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -219,8 +232,8 @@ public:
 
 	// Constructor binds:
 	// osgGA::StateSetManipulator::StateSetManipulator(osg::StateSet * stateset = 0)
-	static osgGA::StateSetManipulator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgGA::StateSetManipulator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgGA::StateSetManipulator::StateSetManipulator(osg::StateSet * stateset = 0) function, expected prototype:\nosgGA::StateSetManipulator::StateSetManipulator(osg::StateSet * stateset = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -230,6 +243,29 @@ public:
 		osg::StateSet* stateset=luatop>0 ? dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,1)) : (osg::StateSet*)0;
 
 		return new osgGA::StateSetManipulator(stateset);
+	}
+
+	// osgGA::StateSetManipulator::StateSetManipulator(lua_Table * data, osg::StateSet * stateset = 0)
+	static osgGA::StateSetManipulator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::StateSetManipulator::StateSetManipulator(lua_Table * data, osg::StateSet * stateset = 0) function, expected prototype:\nosgGA::StateSetManipulator::StateSetManipulator(lua_Table * data, osg::StateSet * stateset = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::StateSet* stateset=luatop>1 ? dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2)) : (osg::StateSet*)0;
+
+		return new wrapper_osgGA_StateSetManipulator(L,NULL, stateset);
+	}
+
+	// Overload binder for osgGA::StateSetManipulator::StateSetManipulator
+	static osgGA::StateSetManipulator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StateSetManipulator, cannot match any of the overloads for function StateSetManipulator:\n  StateSetManipulator(osg::StateSet *)\n  StateSetManipulator(lua_Table *, osg::StateSet *)\n");
+		return NULL;
 	}
 
 
@@ -253,11 +289,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::StateSetManipulator::setStateSet(osg::StateSet * )
+	// void osgGA::StateSetManipulator::setStateSet(osg::StateSet * arg1)
 	static int _bind_setStateSet(lua_State *L) {
 		if (!_lg_typecheck_setStateSet(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::StateSetManipulator::setStateSet(osg::StateSet * ) function, expected prototype:\nvoid osgGA::StateSetManipulator::setStateSet(osg::StateSet * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::StateSetManipulator::setStateSet(osg::StateSet * arg1) function, expected prototype:\nvoid osgGA::StateSetManipulator::setStateSet(osg::StateSet * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::StateSet* _arg1=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));

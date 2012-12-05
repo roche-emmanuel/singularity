@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_DepthPartitionSettings.h>
+
 class luna_wrapper_osgViewer_DepthPartitionSettings {
 public:
 	typedef Luna< osgViewer::DepthPartitionSettings > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -66,8 +77,8 @@ public:
 
 	// Constructor binds:
 	// osgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)
-	static osgViewer::DepthPartitionSettings* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::DepthPartitionSettings* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n");
 		}
@@ -77,6 +88,29 @@ public:
 		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>0 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,1) : osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
 
 		return new osgViewer::DepthPartitionSettings(mode);
+	}
+
+	// osgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)
+	static osgViewer::DepthPartitionSettings* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) function, expected prototype:\nosgViewer::DepthPartitionSettings::DepthPartitionSettings(lua_Table * data, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::DepthPartitionSettings::DepthMode mode=luatop>1 ? (osgViewer::DepthPartitionSettings::DepthMode)lua_tointeger(L,2) : osgViewer::DepthPartitionSettings::BOUNDING_VOLUME;
+
+		return new wrapper_osgViewer_DepthPartitionSettings(L,NULL, mode);
+	}
+
+	// Overload binder for osgViewer::DepthPartitionSettings::DepthPartitionSettings
+	static osgViewer::DepthPartitionSettings* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function DepthPartitionSettings, cannot match any of the overloads for function DepthPartitionSettings:\n  DepthPartitionSettings(osgViewer::DepthPartitionSettings::DepthMode)\n  DepthPartitionSettings(lua_Table *, osgViewer::DepthPartitionSettings::DepthMode)\n");
+		return NULL;
 	}
 
 

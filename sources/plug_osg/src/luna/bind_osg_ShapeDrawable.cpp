@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ShapeDrawable.h>
+
 class luna_wrapper_osg_ShapeDrawable {
 public:
 	typedef Luna< osg::ShapeDrawable > luna_t;
@@ -65,6 +67,37 @@ public:
 		if( (!dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osg::TessellationHints* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -201,13 +234,65 @@ public:
 		return new osg::ShapeDrawable(pg, copyop);
 	}
 
+	// osg::ShapeDrawable::ShapeDrawable(lua_Table * data)
+	static osg::ShapeDrawable* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ShapeDrawable::ShapeDrawable(lua_Table * data) function, expected prototype:\nosg::ShapeDrawable::ShapeDrawable(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ShapeDrawable(L,NULL);
+	}
+
+	// osg::ShapeDrawable::ShapeDrawable(lua_Table * data, osg::Shape * shape, osg::TessellationHints * hints = 0)
+	static osg::ShapeDrawable* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ShapeDrawable::ShapeDrawable(lua_Table * data, osg::Shape * shape, osg::TessellationHints * hints = 0) function, expected prototype:\nosg::ShapeDrawable::ShapeDrawable(lua_Table * data, osg::Shape * shape, osg::TessellationHints * hints = 0)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Shape* shape=dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2));
+		osg::TessellationHints* hints=luatop>2 ? dynamic_cast< osg::TessellationHints* >(Luna< osg::Referenced >::check(L,3)) : (osg::TessellationHints*)0;
+
+		return new wrapper_osg_ShapeDrawable(L,NULL, shape, hints);
+	}
+
+	// osg::ShapeDrawable::ShapeDrawable(lua_Table * data, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::ShapeDrawable* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ShapeDrawable::ShapeDrawable(lua_Table * data, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ShapeDrawable::ShapeDrawable(lua_Table * data, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::ShapeDrawable* pg_ptr=dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,2));
+		if( !pg_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pg in osg::ShapeDrawable::ShapeDrawable function");
+		}
+		const osg::ShapeDrawable & pg=*pg_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ShapeDrawable::ShapeDrawable function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_ShapeDrawable(L,NULL, pg, copyop);
+	}
+
 	// Overload binder for osg::ShapeDrawable::ShapeDrawable
 	static osg::ShapeDrawable* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function ShapeDrawable, cannot match any of the overloads for function ShapeDrawable:\n  ShapeDrawable()\n  ShapeDrawable(osg::Shape *, osg::TessellationHints *)\n  ShapeDrawable(const osg::ShapeDrawable &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ShapeDrawable, cannot match any of the overloads for function ShapeDrawable:\n  ShapeDrawable()\n  ShapeDrawable(osg::Shape *, osg::TessellationHints *)\n  ShapeDrawable(const osg::ShapeDrawable &, const osg::CopyOp &)\n  ShapeDrawable(lua_Table *)\n  ShapeDrawable(lua_Table *, osg::Shape *, osg::TessellationHints *)\n  ShapeDrawable(lua_Table *, const osg::ShapeDrawable &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -234,11 +319,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ShapeDrawable::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

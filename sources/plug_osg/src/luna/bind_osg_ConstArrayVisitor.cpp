@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ConstArrayVisitor.h>
+
 class luna_wrapper_osg_ConstArrayVisitor {
 public:
 	typedef Luna< osg::ConstArrayVisitor > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -252,8 +261,8 @@ public:
 
 	// Constructor binds:
 	// osg::ConstArrayVisitor::ConstArrayVisitor()
-	static osg::ConstArrayVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ConstArrayVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ConstArrayVisitor::ConstArrayVisitor() function, expected prototype:\nosg::ConstArrayVisitor::ConstArrayVisitor()\nClass arguments details:\n");
 		}
@@ -262,13 +271,33 @@ public:
 		return new osg::ConstArrayVisitor();
 	}
 
+	// osg::ConstArrayVisitor::ConstArrayVisitor(lua_Table * data)
+	static osg::ConstArrayVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ConstArrayVisitor::ConstArrayVisitor(lua_Table * data) function, expected prototype:\nosg::ConstArrayVisitor::ConstArrayVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ConstArrayVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::ConstArrayVisitor::ConstArrayVisitor
+	static osg::ConstArrayVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ConstArrayVisitor, cannot match any of the overloads for function ConstArrayVisitor:\n  ConstArrayVisitor()\n  ConstArrayVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// void osg::ConstArrayVisitor::apply(const osg::Array & )
+	// void osg::ConstArrayVisitor::apply(const osg::Array & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Array & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Array & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Array & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Array & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		const osg::Array* _arg1_ptr=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
@@ -287,11 +316,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::ByteArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1)
 	static int _bind_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ByteArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ByteArray & )\nClass arguments details:\narg 1 ID = 59587824\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1)\nClass arguments details:\narg 1 ID = 59587824\n");
 		}
 
 		const osg::ByteArray* _arg1_ptr=(Luna< osg::ByteArray >::check(L,2));
@@ -310,11 +339,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::ShortArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1)
 	static int _bind_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ShortArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ShortArray & )\nClass arguments details:\narg 1 ID = 17157487\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1)\nClass arguments details:\narg 1 ID = 17157487\n");
 		}
 
 		const osg::ShortArray* _arg1_ptr=(Luna< osg::ShortArray >::check(L,2));
@@ -333,11 +362,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::IntArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::IntArray & arg1)
 	static int _bind_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::IntArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::IntArray & )\nClass arguments details:\narg 1 ID = 28130065\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::IntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::IntArray & arg1)\nClass arguments details:\narg 1 ID = 28130065\n");
 		}
 
 		const osg::IntArray* _arg1_ptr=(Luna< osg::IntArray >::check(L,2));
@@ -356,11 +385,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::UByteArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UByteArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UByteArray & )\nClass arguments details:\narg 1 ID = 72202494\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1)\nClass arguments details:\narg 1 ID = 72202494\n");
 		}
 
 		const osg::UByteArray* _arg1_ptr=(Luna< osg::UByteArray >::check(L,2));
@@ -379,11 +408,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::UShortArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1)
 	static int _bind_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UShortArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UShortArray & )\nClass arguments details:\narg 1 ID = 4787198\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1)\nClass arguments details:\narg 1 ID = 4787198\n");
 		}
 
 		const osg::UShortArray* _arg1_ptr=(Luna< osg::UShortArray >::check(L,2));
@@ -402,11 +431,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::UIntArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1)
 	static int _bind_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_7(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UIntArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UIntArray & )\nClass arguments details:\narg 1 ID = 86600648\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1)\nClass arguments details:\narg 1 ID = 86600648\n");
 		}
 
 		const osg::UIntArray* _arg1_ptr=(Luna< osg::UIntArray >::check(L,2));
@@ -425,11 +454,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::FloatArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1)
 	static int _bind_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_8(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::FloatArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::FloatArray & )\nClass arguments details:\narg 1 ID = 43730923\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1)\nClass arguments details:\narg 1 ID = 43730923\n");
 		}
 
 		const osg::FloatArray* _arg1_ptr=(Luna< osg::FloatArray >::check(L,2));
@@ -448,11 +477,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::DoubleArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1)
 	static int _bind_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_9(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::DoubleArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::DoubleArray & )\nClass arguments details:\narg 1 ID = 50192637\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1)\nClass arguments details:\narg 1 ID = 50192637\n");
 		}
 
 		const osg::DoubleArray* _arg1_ptr=(Luna< osg::DoubleArray >::check(L,2));
@@ -471,11 +500,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec2Array & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec2Array & arg1)
 	static int _bind_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_10(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2Array & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2Array & )\nClass arguments details:\narg 1 ID = 78575573\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2Array & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2Array & arg1)\nClass arguments details:\narg 1 ID = 78575573\n");
 		}
 
 		const osg::Vec2Array* _arg1_ptr=(Luna< osg::Vec2Array >::check(L,2));
@@ -494,11 +523,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec3Array & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec3Array & arg1)
 	static int _bind_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_11(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3Array & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3Array & )\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3Array & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3Array & arg1)\nClass arguments details:\narg 1 ID = 7204710\n");
 		}
 
 		const osg::Vec3Array* _arg1_ptr=(Luna< osg::Vec3Array >::check(L,2));
@@ -517,11 +546,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec4Array & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec4Array & arg1)
 	static int _bind_apply_overload_12(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_12(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4Array & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4Array & )\nClass arguments details:\narg 1 ID = 35833861\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4Array & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4Array & arg1)\nClass arguments details:\narg 1 ID = 35833861\n");
 		}
 
 		const osg::Vec4Array* _arg1_ptr=(Luna< osg::Vec4Array >::check(L,2));
@@ -540,11 +569,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1)
 	static int _bind_apply_overload_13(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_13(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & )\nClass arguments details:\narg 1 ID = 83703711\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1)\nClass arguments details:\narg 1 ID = 83703711\n");
 		}
 
 		const osg::Vec4ubArray* _arg1_ptr=(Luna< osg::Vec4ubArray >::check(L,2));
@@ -563,11 +592,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1)
 	static int _bind_apply_overload_14(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_14(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2bArray & )\nClass arguments details:\narg 1 ID = 35367467\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1)\nClass arguments details:\narg 1 ID = 35367467\n");
 		}
 
 		const osg::Vec2bArray* _arg1_ptr=(Luna< osg::Vec2bArray >::check(L,2));
@@ -586,11 +615,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1)
 	static int _bind_apply_overload_15(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_15(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3bArray & )\nClass arguments details:\narg 1 ID = 22871013\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1)\nClass arguments details:\narg 1 ID = 22871013\n");
 		}
 
 		const osg::Vec3bArray* _arg1_ptr=(Luna< osg::Vec3bArray >::check(L,2));
@@ -609,11 +638,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1)
 	static int _bind_apply_overload_16(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_16(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4bArray & )\nClass arguments details:\narg 1 ID = 10374559\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1)\nClass arguments details:\narg 1 ID = 10374559\n");
 		}
 
 		const osg::Vec4bArray* _arg1_ptr=(Luna< osg::Vec4bArray >::check(L,2));
@@ -632,11 +661,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1)
 	static int _bind_apply_overload_17(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_17(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2sArray & )\nClass arguments details:\narg 1 ID = 22062959\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1)\nClass arguments details:\narg 1 ID = 22062959\n");
 		}
 
 		const osg::Vec2sArray* _arg1_ptr=(Luna< osg::Vec2sArray >::check(L,2));
@@ -655,11 +684,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1)
 	static int _bind_apply_overload_18(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_18(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3sArray & )\nClass arguments details:\narg 1 ID = 9566505\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1)\nClass arguments details:\narg 1 ID = 9566505\n");
 		}
 
 		const osg::Vec3sArray* _arg1_ptr=(Luna< osg::Vec3sArray >::check(L,2));
@@ -678,11 +707,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1)
 	static int _bind_apply_overload_19(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_19(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4sArray & )\nClass arguments details:\narg 1 ID = 97070066\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1)\nClass arguments details:\narg 1 ID = 97070066\n");
 		}
 
 		const osg::Vec4sArray* _arg1_ptr=(Luna< osg::Vec4sArray >::check(L,2));
@@ -701,11 +730,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1)
 	static int _bind_apply_overload_20(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_20(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2dArray & )\nClass arguments details:\narg 1 ID = 92625769\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1)\nClass arguments details:\narg 1 ID = 92625769\n");
 		}
 
 		const osg::Vec2dArray* _arg1_ptr=(Luna< osg::Vec2dArray >::check(L,2));
@@ -724,11 +753,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1)
 	static int _bind_apply_overload_21(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_21(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3dArray & )\nClass arguments details:\narg 1 ID = 80129315\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1)\nClass arguments details:\narg 1 ID = 80129315\n");
 		}
 
 		const osg::Vec3dArray* _arg1_ptr=(Luna< osg::Vec3dArray >::check(L,2));
@@ -747,11 +776,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1)
 	static int _bind_apply_overload_22(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_22(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4dArray & )\nClass arguments details:\narg 1 ID = 67632861\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1)\nClass arguments details:\narg 1 ID = 67632861\n");
 		}
 
 		const osg::Vec4dArray* _arg1_ptr=(Luna< osg::Vec4dArray >::check(L,2));
@@ -770,11 +799,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & )
+	// void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1)
 	static int _bind_apply_overload_23(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_23(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & ) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::MatrixfArray & )\nClass arguments details:\narg 1 ID = 82206572\n");
+			luaL_error(L, "luna typecheck failed in void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1) function, expected prototype:\nvoid osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1)\nClass arguments details:\narg 1 ID = 82206572\n");
 		}
 
 		const osg::MatrixfArray* _arg1_ptr=(Luna< osg::MatrixfArray >::check(L,2));

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_WebViewListener_Menu.h>
+
 class luna_wrapper_WebViewListener_Menu {
 public:
 	typedef Luna< WebViewListener::Menu > luna_t;

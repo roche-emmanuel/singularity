@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_UserDataContainer.h>
+
 class luna_wrapper_osg_UserDataContainer {
 public:
 	typedef Luna< osg::UserDataContainer > luna_t;
@@ -697,9 +699,7 @@ osg::UserDataContainer* LunaTraits< osg::UserDataContainer >::_bind_ctor(lua_Sta
 	// unsigned int osg::UserDataContainer::getNumDescriptions() const
 	// void osg::UserDataContainer::addDescription(const std::string & desc)
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::UserDataContainer >::_bind_dtor(osg::UserDataContainer* obj) {

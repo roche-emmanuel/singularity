@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_ParticleProcessor.h>
+
 class luna_wrapper_osgParticle_ParticleProcessor {
 public:
 	typedef Luna< osgParticle::ParticleProcessor > luna_t;
@@ -738,11 +740,11 @@ public:
 		return 1;
 	}
 
-	// void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & )
+	// void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1)
 	static int _bind_traverse(lua_State *L) {
 		if (!_lg_typecheck_traverse(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & ) function, expected prototype:\nvoid osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::NodeVisitor* _arg1_ptr=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));
@@ -984,8 +986,6 @@ osgParticle::ParticleProcessor* LunaTraits< osgParticle::ParticleProcessor >::_b
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgParticle::ParticleProcessor::process(double dt)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgParticle::ParticleProcessor >::_bind_dtor(osgParticle::ParticleProcessor* obj) {

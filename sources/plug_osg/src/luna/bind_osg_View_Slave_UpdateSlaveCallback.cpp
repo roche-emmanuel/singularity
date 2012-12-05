@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_View_Slave_UpdateSlaveCallback.h>
+
 class luna_wrapper_osg_View_Slave_UpdateSlaveCallback {
 public:
 	typedef Luna< osg::View::Slave::UpdateSlaveCallback > luna_t;
@@ -90,8 +92,6 @@ osg::View::Slave::UpdateSlaveCallback* LunaTraits< osg::View::Slave::UpdateSlave
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::View::Slave::UpdateSlaveCallback >::_bind_dtor(osg::View::Slave::UpdateSlaveCallback* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_StatsVisitor.h>
+
 class luna_wrapper_osgUtil_StatsVisitor {
 public:
 	typedef Luna< osgUtil::StatsVisitor > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -134,14 +143,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::StatsVisitor::StatsVisitor()
-	static osgUtil::StatsVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::StatsVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::StatsVisitor() function, expected prototype:\nosgUtil::StatsVisitor::StatsVisitor()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::StatsVisitor();
+	}
+
+	// osgUtil::StatsVisitor::StatsVisitor(lua_Table * data)
+	static osgUtil::StatsVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StatsVisitor::StatsVisitor(lua_Table * data) function, expected prototype:\nosgUtil::StatsVisitor::StatsVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_StatsVisitor(L,NULL);
+	}
+
+	// Overload binder for osgUtil::StatsVisitor::StatsVisitor
+	static osgUtil::StatsVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StatsVisitor, cannot match any of the overloads for function StatsVisitor:\n  StatsVisitor()\n  StatsVisitor(lua_Table *)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_TransformCallback.h>
+
 class luna_wrapper_osgUtil_TransformCallback {
 public:
 	typedef Luna< osgUtil::TransformCallback > luna_t;
@@ -40,12 +42,26 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -72,8 +88,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::TransformCallback::TransformCallback(const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity)
-	static osgUtil::TransformCallback* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::TransformCallback* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::TransformCallback::TransformCallback(const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity) function, expected prototype:\nosgUtil::TransformCallback::TransformCallback(const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity)\nClass arguments details:\narg 1 ID = 92303204\narg 2 ID = 92303204\n");
 		}
@@ -91,6 +107,37 @@ public:
 		float angularVelocity=(float)lua_tonumber(L,3);
 
 		return new osgUtil::TransformCallback(pivot, axis, angularVelocity);
+	}
+
+	// osgUtil::TransformCallback::TransformCallback(lua_Table * data, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity)
+	static osgUtil::TransformCallback* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::TransformCallback::TransformCallback(lua_Table * data, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity) function, expected prototype:\nosgUtil::TransformCallback::TransformCallback(lua_Table * data, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* pivot_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !pivot_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pivot in osgUtil::TransformCallback::TransformCallback function");
+		}
+		const osg::Vec3f & pivot=*pivot_ptr;
+		const osg::Vec3f* axis_ptr=(Luna< osg::Vec3f >::check(L,3));
+		if( !axis_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg axis in osgUtil::TransformCallback::TransformCallback function");
+		}
+		const osg::Vec3f & axis=*axis_ptr;
+		float angularVelocity=(float)lua_tonumber(L,4);
+
+		return new wrapper_osgUtil_TransformCallback(L,NULL, pivot, axis, angularVelocity);
+	}
+
+	// Overload binder for osgUtil::TransformCallback::TransformCallback
+	static osgUtil::TransformCallback* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TransformCallback, cannot match any of the overloads for function TransformCallback:\n  TransformCallback(const osg::Vec3f &, const osg::Vec3f &, float)\n  TransformCallback(lua_Table *, const osg::Vec3f &, const osg::Vec3f &, float)\n");
+		return NULL;
 	}
 
 

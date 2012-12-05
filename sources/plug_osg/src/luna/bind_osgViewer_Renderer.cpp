@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_Renderer.h>
+
 class luna_wrapper_osgViewer_Renderer {
 public:
 	typedef Luna< osgViewer::Renderer > luna_t;
@@ -40,10 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -154,8 +166,8 @@ public:
 
 	// Constructor binds:
 	// osgViewer::Renderer::Renderer(osg::Camera * camera)
-	static osgViewer::Renderer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::Renderer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::Renderer::Renderer(osg::Camera * camera) function, expected prototype:\nosgViewer::Renderer::Renderer(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -163,6 +175,27 @@ public:
 		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
 
 		return new osgViewer::Renderer(camera);
+	}
+
+	// osgViewer::Renderer::Renderer(lua_Table * data, osg::Camera * camera)
+	static osgViewer::Renderer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::Renderer::Renderer(lua_Table * data, osg::Camera * camera) function, expected prototype:\nosgViewer::Renderer::Renderer(lua_Table * data, osg::Camera * camera)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osgViewer_Renderer(L,NULL, camera);
+	}
+
+	// Overload binder for osgViewer::Renderer::Renderer
+	static osgViewer::Renderer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Renderer, cannot match any of the overloads for function Renderer:\n  Renderer(osg::Camera *)\n  Renderer(lua_Table *, osg::Camera *)\n");
+		return NULL;
 	}
 
 

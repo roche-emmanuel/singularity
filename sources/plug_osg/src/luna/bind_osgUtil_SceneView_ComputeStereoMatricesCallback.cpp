@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback.h>
+
 class luna_wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback {
 public:
 	typedef Luna< osgUtil::SceneView::ComputeStereoMatricesCallback > luna_t;
@@ -193,8 +195,6 @@ osgUtil::SceneView::ComputeStereoMatricesCallback* LunaTraits< osgUtil::SceneVie
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView(const osg::Matrixd & view) const
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection(const osg::Matrixd & projection) const
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView(const osg::Matrixd & view) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::SceneView::ComputeStereoMatricesCallback >::_bind_dtor(osgUtil::SceneView::ComputeStereoMatricesCallback* obj) {

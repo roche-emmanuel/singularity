@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_ImageProcessor.h>
+
 class luna_wrapper_osgDB_ImageProcessor {
 public:
 	typedef Luna< osgDB::ImageProcessor > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osgDB::ImageProcessor* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgDB::ImageProcessor* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -151,12 +172,48 @@ public:
 		return new osgDB::ImageProcessor(rw, copyop);
 	}
 
+	// osgDB::ImageProcessor::ImageProcessor(lua_Table * data)
+	static osgDB::ImageProcessor* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageProcessor::ImageProcessor(lua_Table * data) function, expected prototype:\nosgDB::ImageProcessor::ImageProcessor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_ImageProcessor(L,NULL);
+	}
+
+	// osgDB::ImageProcessor::ImageProcessor(lua_Table * data, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgDB::ImageProcessor* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ImageProcessor::ImageProcessor(lua_Table * data, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgDB::ImageProcessor::ImageProcessor(lua_Table * data, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgDB::ImageProcessor* rw_ptr=dynamic_cast< osgDB::ImageProcessor* >(Luna< osg::Referenced >::check(L,2));
+		if( !rw_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rw in osgDB::ImageProcessor::ImageProcessor function");
+		}
+		const osgDB::ImageProcessor & rw=*rw_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgDB::ImageProcessor::ImageProcessor function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgDB_ImageProcessor(L,NULL, rw, copyop);
+	}
+
 	// Overload binder for osgDB::ImageProcessor::ImageProcessor
 	static osgDB::ImageProcessor* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ImageProcessor, cannot match any of the overloads for function ImageProcessor:\n  ImageProcessor()\n  ImageProcessor(const osgDB::ImageProcessor &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ImageProcessor, cannot match any of the overloads for function ImageProcessor:\n  ImageProcessor()\n  ImageProcessor(const osgDB::ImageProcessor &, const osg::CopyOp &)\n  ImageProcessor(lua_Table *)\n  ImageProcessor(lua_Table *, const osgDB::ImageProcessor &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -183,11 +240,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & ) const
+	// osg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -267,11 +324,11 @@ public:
 		return 1;
 	}
 
-	// void osgDB::ImageProcessor::compress(osg::Image & , osg::Texture::InternalFormatMode , bool , bool , osgDB::ImageProcessor::CompressionMethod , osgDB::ImageProcessor::CompressionQuality )
+	// void osgDB::ImageProcessor::compress(osg::Image & arg1, osg::Texture::InternalFormatMode arg2, bool arg3, bool arg4, osgDB::ImageProcessor::CompressionMethod arg5, osgDB::ImageProcessor::CompressionQuality arg6)
 	static int _bind_compress(lua_State *L) {
 		if (!_lg_typecheck_compress(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageProcessor::compress(osg::Image & , osg::Texture::InternalFormatMode , bool , bool , osgDB::ImageProcessor::CompressionMethod , osgDB::ImageProcessor::CompressionQuality ) function, expected prototype:\nvoid osgDB::ImageProcessor::compress(osg::Image & , osg::Texture::InternalFormatMode , bool , bool , osgDB::ImageProcessor::CompressionMethod , osgDB::ImageProcessor::CompressionQuality )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageProcessor::compress(osg::Image & arg1, osg::Texture::InternalFormatMode arg2, bool arg3, bool arg4, osgDB::ImageProcessor::CompressionMethod arg5, osgDB::ImageProcessor::CompressionQuality arg6) function, expected prototype:\nvoid osgDB::ImageProcessor::compress(osg::Image & arg1, osg::Texture::InternalFormatMode arg2, bool arg3, bool arg4, osgDB::ImageProcessor::CompressionMethod arg5, osgDB::ImageProcessor::CompressionQuality arg6)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Image* _arg1_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
@@ -295,11 +352,11 @@ public:
 		return 0;
 	}
 
-	// void osgDB::ImageProcessor::generateMipMap(osg::Image & , bool , osgDB::ImageProcessor::CompressionMethod )
+	// void osgDB::ImageProcessor::generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3)
 	static int _bind_generateMipMap(lua_State *L) {
 		if (!_lg_typecheck_generateMipMap(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgDB::ImageProcessor::generateMipMap(osg::Image & , bool , osgDB::ImageProcessor::CompressionMethod ) function, expected prototype:\nvoid osgDB::ImageProcessor::generateMipMap(osg::Image & , bool , osgDB::ImageProcessor::CompressionMethod )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgDB::ImageProcessor::generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3) function, expected prototype:\nvoid osgDB::ImageProcessor::generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Image* _arg1_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));

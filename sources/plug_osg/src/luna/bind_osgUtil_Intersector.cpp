@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_Intersector.h>
+
 class luna_wrapper_osgUtil_Intersector {
 public:
 	typedef Luna< osgUtil::Intersector > luna_t;
@@ -427,8 +429,6 @@ osgUtil::Intersector* LunaTraits< osgUtil::Intersector >::_bind_ctor(lua_State *
 	// void osgUtil::Intersector::leave()
 	// void osgUtil::Intersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
 	// bool osgUtil::Intersector::containsIntersections()
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::Intersector >::_bind_dtor(osgUtil::Intersector* obj) {

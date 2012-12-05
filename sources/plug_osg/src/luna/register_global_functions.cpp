@@ -4007,11 +4007,11 @@ static int _bind_openArchive(lua_State *L) {
 	return 0;
 }
 
-// std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned sourceLength)
+// std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength)
 static int _bind_convertStringFromCurrentCodePageToUTF8_overload_1(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_1(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned sourceLength)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromCurrentCodePageToUTF8(const char * source, unsigned int sourceLength)\nClass arguments details:\n");
 	}
 
 	const char * source=(const char *)lua_tostring(L,1);
@@ -4059,15 +4059,15 @@ static int _bind_convertStringFromCurrentCodePageToUTF8(lua_State *L) {
 	if (_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_2(L)) return _bind_convertStringFromCurrentCodePageToUTF8_overload_2(L);
 	if (_lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_3(L)) return _bind_convertStringFromCurrentCodePageToUTF8_overload_3(L);
 
-	luaL_error(L, "error in function convertStringFromCurrentCodePageToUTF8, cannot match any of the overloads for function convertStringFromCurrentCodePageToUTF8:\n  convertStringFromCurrentCodePageToUTF8(const char *, unsigned)\n  convertStringFromCurrentCodePageToUTF8(const std::string &)\n  convertStringFromCurrentCodePageToUTF8(const char *)\n");
+	luaL_error(L, "error in function convertStringFromCurrentCodePageToUTF8, cannot match any of the overloads for function convertStringFromCurrentCodePageToUTF8:\n  convertStringFromCurrentCodePageToUTF8(const char *, unsigned int)\n  convertStringFromCurrentCodePageToUTF8(const std::string &)\n  convertStringFromCurrentCodePageToUTF8(const char *)\n");
 	return 0;
 }
 
-// std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned sourceLength)
+// std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength)
 static int _bind_convertStringFromUTF8toCurrentCodePage_overload_1(lua_State *L) {
 	if (!_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_1(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned sourceLength)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in std::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength) function, expected prototype:\nstd::string osgDB::convertStringFromUTF8toCurrentCodePage(const char * source, unsigned int sourceLength)\nClass arguments details:\n");
 	}
 
 	const char * source=(const char *)lua_tostring(L,1);
@@ -4115,7 +4115,7 @@ static int _bind_convertStringFromUTF8toCurrentCodePage(lua_State *L) {
 	if (_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_2(L)) return _bind_convertStringFromUTF8toCurrentCodePage_overload_2(L);
 	if (_lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_3(L)) return _bind_convertStringFromUTF8toCurrentCodePage_overload_3(L);
 
-	luaL_error(L, "error in function convertStringFromUTF8toCurrentCodePage, cannot match any of the overloads for function convertStringFromUTF8toCurrentCodePage:\n  convertStringFromUTF8toCurrentCodePage(const char *, unsigned)\n  convertStringFromUTF8toCurrentCodePage(const std::string &)\n  convertStringFromUTF8toCurrentCodePage(const char *)\n");
+	luaL_error(L, "error in function convertStringFromUTF8toCurrentCodePage, cannot match any of the overloads for function convertStringFromUTF8toCurrentCodePage:\n  convertStringFromUTF8toCurrentCodePage(const char *, unsigned int)\n  convertStringFromUTF8toCurrentCodePage(const std::string &)\n  convertStringFromUTF8toCurrentCodePage(const char *)\n");
 	return 0;
 }
 

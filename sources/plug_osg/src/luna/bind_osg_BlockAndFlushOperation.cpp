@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BlockAndFlushOperation.h>
+
 class luna_wrapper_osg_BlockAndFlushOperation {
 public:
 	typedef Luna< osg::BlockAndFlushOperation > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -67,14 +76,34 @@ public:
 
 	// Constructor binds:
 	// osg::BlockAndFlushOperation::BlockAndFlushOperation()
-	static osg::BlockAndFlushOperation* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::BlockAndFlushOperation* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::BlockAndFlushOperation::BlockAndFlushOperation() function, expected prototype:\nosg::BlockAndFlushOperation::BlockAndFlushOperation()\nClass arguments details:\n");
 		}
 
 
 		return new osg::BlockAndFlushOperation();
+	}
+
+	// osg::BlockAndFlushOperation::BlockAndFlushOperation(lua_Table * data)
+	static osg::BlockAndFlushOperation* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BlockAndFlushOperation::BlockAndFlushOperation(lua_Table * data) function, expected prototype:\nosg::BlockAndFlushOperation::BlockAndFlushOperation(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_BlockAndFlushOperation(L,NULL);
+	}
+
+	// Overload binder for osg::BlockAndFlushOperation::BlockAndFlushOperation
+	static osg::BlockAndFlushOperation* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function BlockAndFlushOperation, cannot match any of the overloads for function BlockAndFlushOperation:\n  BlockAndFlushOperation()\n  BlockAndFlushOperation(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -99,11 +128,11 @@ public:
 
 
 	// Operator binds:
-	// void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * )
+	// void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * ) function, expected prototype:\nvoid osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1) function, expected prototype:\nvoid osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::GraphicsContext* _arg1=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_FrameStamp.h>
+
 class luna_wrapper_osg_FrameStamp {
 public:
 	typedef Luna< osg::FrameStamp > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -127,12 +145,41 @@ public:
 		return new osg::FrameStamp(fs);
 	}
 
+	// osg::FrameStamp::FrameStamp(lua_Table * data)
+	static osg::FrameStamp* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::FrameStamp::FrameStamp(lua_Table * data) function, expected prototype:\nosg::FrameStamp::FrameStamp(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_FrameStamp(L,NULL);
+	}
+
+	// osg::FrameStamp::FrameStamp(lua_Table * data, const osg::FrameStamp & fs)
+	static osg::FrameStamp* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::FrameStamp::FrameStamp(lua_Table * data, const osg::FrameStamp & fs) function, expected prototype:\nosg::FrameStamp::FrameStamp(lua_Table * data, const osg::FrameStamp & fs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::FrameStamp* fs_ptr=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		if( !fs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fs in osg::FrameStamp::FrameStamp function");
+		}
+		const osg::FrameStamp & fs=*fs_ptr;
+
+		return new wrapper_osg_FrameStamp(L,NULL, fs);
+	}
+
 	// Overload binder for osg::FrameStamp::FrameStamp
 	static osg::FrameStamp* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function FrameStamp, cannot match any of the overloads for function FrameStamp:\n  FrameStamp()\n  FrameStamp(const osg::FrameStamp &)\n");
+		luaL_error(L, "error in function FrameStamp, cannot match any of the overloads for function FrameStamp:\n  FrameStamp()\n  FrameStamp(const osg::FrameStamp &)\n  FrameStamp(lua_Table *)\n  FrameStamp(lua_Table *, const osg::FrameStamp &)\n");
 		return NULL;
 	}
 

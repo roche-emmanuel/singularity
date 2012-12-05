@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_IndexArray.h>
+
 class luna_wrapper_osg_IndexArray {
 public:
 	typedef Luna< osg::IndexArray > luna_t;
@@ -108,10 +110,10 @@ osg::IndexArray* LunaTraits< osg::IndexArray >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// unsigned int osg::IndexArray::index(unsigned int pos) const
-	// void osg::Array::accept(osg::ArrayVisitor & )
-	// void osg::Array::accept(osg::ConstArrayVisitor & ) const
-	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & )
-	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & ) const
+	// void osg::Array::accept(osg::ArrayVisitor & arg1)
+	// void osg::Array::accept(osg::ConstArrayVisitor & arg1) const
+	// void osg::Array::accept(unsigned int index, osg::ValueVisitor & arg2)
+	// void osg::Array::accept(unsigned int index, osg::ConstValueVisitor & arg2) const
 	// int osg::Array::compare(unsigned int lhs, unsigned int rhs) const
 	// const void * osg::Array::getDataPointer() const
 	// unsigned int osg::Array::getTotalDataSize() const
@@ -119,9 +121,7 @@ osg::IndexArray* LunaTraits< osg::IndexArray >::_bind_ctor(lua_State *L) {
 	// const void * osg::BufferData::getDataPointer() const
 	// unsigned int osg::BufferData::getTotalDataSize() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::IndexArray >::_bind_dtor(osg::IndexArray* obj) {

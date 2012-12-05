@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ProgramCostEstimator.h>
+
 class luna_wrapper_osg_ProgramCostEstimator {
 public:
 	typedef Luna< osg::ProgramCostEstimator > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -81,14 +90,34 @@ public:
 
 	// Constructor binds:
 	// osg::ProgramCostEstimator::ProgramCostEstimator()
-	static osg::ProgramCostEstimator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ProgramCostEstimator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ProgramCostEstimator::ProgramCostEstimator() function, expected prototype:\nosg::ProgramCostEstimator::ProgramCostEstimator()\nClass arguments details:\n");
 		}
 
 
 		return new osg::ProgramCostEstimator();
+	}
+
+	// osg::ProgramCostEstimator::ProgramCostEstimator(lua_Table * data)
+	static osg::ProgramCostEstimator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ProgramCostEstimator::ProgramCostEstimator(lua_Table * data) function, expected prototype:\nosg::ProgramCostEstimator::ProgramCostEstimator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ProgramCostEstimator(L,NULL);
+	}
+
+	// Overload binder for osg::ProgramCostEstimator::ProgramCostEstimator
+	static osg::ProgramCostEstimator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ProgramCostEstimator, cannot match any of the overloads for function ProgramCostEstimator:\n  ProgramCostEstimator()\n  ProgramCostEstimator(lua_Table *)\n");
+		return NULL;
 	}
 
 

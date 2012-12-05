@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_ScreenCaptureHandler.h>
+
 class luna_wrapper_osgViewer_ScreenCaptureHandler {
 public:
 	typedef Luna< osgViewer::ScreenCaptureHandler > luna_t;
@@ -40,12 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osgViewer::ScreenCaptureHandler::CaptureOperation* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgViewer::ScreenCaptureHandler::CaptureOperation* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -143,8 +157,8 @@ public:
 
 	// Constructor binds:
 	// osgViewer::ScreenCaptureHandler::ScreenCaptureHandler(osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1)
-	static osgViewer::ScreenCaptureHandler* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::ScreenCaptureHandler* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::ScreenCaptureHandler::ScreenCaptureHandler(osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) function, expected prototype:\nosgViewer::ScreenCaptureHandler::ScreenCaptureHandler(osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -155,6 +169,30 @@ public:
 		int numFrames=luatop>1 ? (int)lua_tointeger(L,2) : 1;
 
 		return new osgViewer::ScreenCaptureHandler(defaultOperation, numFrames);
+	}
+
+	// osgViewer::ScreenCaptureHandler::ScreenCaptureHandler(lua_Table * data, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1)
+	static osgViewer::ScreenCaptureHandler* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ScreenCaptureHandler::ScreenCaptureHandler(lua_Table * data, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) function, expected prototype:\nosgViewer::ScreenCaptureHandler::ScreenCaptureHandler(lua_Table * data, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgViewer::ScreenCaptureHandler::CaptureOperation* defaultOperation=luatop>1 ? dynamic_cast< osgViewer::ScreenCaptureHandler::CaptureOperation* >(Luna< osg::Referenced >::check(L,2)) : (osgViewer::ScreenCaptureHandler::CaptureOperation*)0;
+		int numFrames=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+
+		return new wrapper_osgViewer_ScreenCaptureHandler(L,NULL, defaultOperation, numFrames);
+	}
+
+	// Overload binder for osgViewer::ScreenCaptureHandler::ScreenCaptureHandler
+	static osgViewer::ScreenCaptureHandler* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ScreenCaptureHandler, cannot match any of the overloads for function ScreenCaptureHandler:\n  ScreenCaptureHandler(osgViewer::ScreenCaptureHandler::CaptureOperation *, int)\n  ScreenCaptureHandler(lua_Table *, osgViewer::ScreenCaptureHandler::CaptureOperation *, int)\n");
+		return NULL;
 	}
 
 
@@ -275,11 +313,11 @@ public:
 		return 1;
 	}
 
-	// bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nbool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::ScreenCaptureHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

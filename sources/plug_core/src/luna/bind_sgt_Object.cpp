@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_Object.h>
+
 class luna_wrapper_sgt_Object {
 public:
 	typedef Luna< sgt::Object > luna_t;
@@ -61,6 +63,33 @@ public:
 		if( (!dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -158,13 +187,64 @@ public:
 		return new sgt::Object(rhs, copyop);
 	}
 
+	// sgt::Object::Object(lua_Table * data)
+	static sgt::Object* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::Object::Object(lua_Table * data) function, expected prototype:\nsgt::Object::Object(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_sgt_Object(L,NULL);
+	}
+
+	// sgt::Object::Object(lua_Table * data, const sgt::Object & rhs)
+	static sgt::Object* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::Object::Object(lua_Table * data, const sgt::Object & rhs) function, expected prototype:\nsgt::Object::Object(lua_Table * data, const sgt::Object & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
+		}
+		const sgt::Object & rhs=*rhs_ptr;
+
+		return new wrapper_sgt_Object(L,NULL, rhs);
+	}
+
+	// sgt::Object::Object(lua_Table * data, const sgt::Object & rhs, const osg::CopyOp & copyop)
+	static sgt::Object* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::Object::Object(lua_Table * data, const sgt::Object & rhs, const osg::CopyOp & copyop) function, expected prototype:\nsgt::Object::Object(lua_Table * data, const sgt::Object & rhs, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
+		}
+		const sgt::Object & rhs=*rhs_ptr;
+		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in sgt::Object::Object function");
+		}
+		const osg::CopyOp & copyop=*copyop_ptr;
+
+		return new wrapper_sgt_Object(L,NULL, rhs, copyop);
+	}
+
 	// Overload binder for sgt::Object::Object
 	static sgt::Object* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function Object, cannot match any of the overloads for function Object:\n  Object()\n  Object(const sgt::Object &)\n  Object(const sgt::Object &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function Object, cannot match any of the overloads for function Object:\n  Object()\n  Object(const sgt::Object &)\n  Object(const sgt::Object &, const osg::CopyOp &)\n  Object(lua_Table *)\n  Object(lua_Table *, const sgt::Object &)\n  Object(lua_Table *, const sgt::Object &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

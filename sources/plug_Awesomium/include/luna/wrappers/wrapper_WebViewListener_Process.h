@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_Process : public WebViewListener::Process {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_Process(lua_State* L) : WebViewListener::Process(), _obj(L,-1) {};
+	wrapper_WebViewListener_Process(lua_State* L, lua_Table* dum) : WebViewListener::Process(), _obj(L,-1) {};
 
 	// void WebViewListener::Process::OnUnresponsive(Awesomium::WebView * caller)
 	void OnUnresponsive(Awesomium::WebView * caller) {
@@ -46,7 +44,6 @@ public:
 
 };
 
-};	
 
 
 

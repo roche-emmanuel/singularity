@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FileCache.h>
+
 class luna_wrapper_osgDB_FileCache {
 public:
 	typedef Luna< osgDB::FileCache > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -189,8 +199,8 @@ public:
 
 	// Constructor binds:
 	// osgDB::FileCache::FileCache(const std::string & path)
-	static osgDB::FileCache* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgDB::FileCache* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::FileCache::FileCache(const std::string & path) function, expected prototype:\nosgDB::FileCache::FileCache(const std::string & path)\nClass arguments details:\n");
 		}
@@ -198,6 +208,27 @@ public:
 		std::string path(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new osgDB::FileCache(path);
+	}
+
+	// osgDB::FileCache::FileCache(lua_Table * data, const std::string & path)
+	static osgDB::FileCache* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FileCache::FileCache(lua_Table * data, const std::string & path) function, expected prototype:\nosgDB::FileCache::FileCache(lua_Table * data, const std::string & path)\nClass arguments details:\n");
+		}
+
+		std::string path(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_osgDB_FileCache(L,NULL, path);
+	}
+
+	// Overload binder for osgDB::FileCache::FileCache
+	static osgDB::FileCache* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function FileCache, cannot match any of the overloads for function FileCache:\n  FileCache(const std::string &)\n  FileCache(lua_Table *, const std::string &)\n");
+		return NULL;
 	}
 
 

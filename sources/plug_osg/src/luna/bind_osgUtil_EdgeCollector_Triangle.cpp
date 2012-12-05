@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_EdgeCollector_Triangle.h>
+
 class luna_wrapper_osgUtil_EdgeCollector_Triangle {
 public:
 	typedef Luna< osgUtil::EdgeCollector::Triangle > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -89,14 +98,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::EdgeCollector::Triangle::Triangle()
-	static osgUtil::EdgeCollector::Triangle* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::EdgeCollector::Triangle* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle::Triangle() function, expected prototype:\nosgUtil::EdgeCollector::Triangle::Triangle()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::EdgeCollector::Triangle();
+	}
+
+	// osgUtil::EdgeCollector::Triangle::Triangle(lua_Table * data)
+	static osgUtil::EdgeCollector::Triangle* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle::Triangle(lua_Table * data) function, expected prototype:\nosgUtil::EdgeCollector::Triangle::Triangle(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_EdgeCollector_Triangle(L,NULL);
+	}
+
+	// Overload binder for osgUtil::EdgeCollector::Triangle::Triangle
+	static osgUtil::EdgeCollector::Triangle* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Triangle, cannot match any of the overloads for function Triangle:\n  Triangle()\n  Triangle(lua_Table *)\n");
+		return NULL;
 	}
 
 

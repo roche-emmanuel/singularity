@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ValueObject_GetValueVisitor.h>
+
 class luna_wrapper_osg_ValueObject_GetValueVisitor {
 public:
 	typedef Luna< osg::ValueObject::GetValueVisitor > luna_t;

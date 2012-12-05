@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebCore.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_WebCore : public Awesomium::WebCore {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_WebCore(lua_State* L) : Awesomium::WebCore(), _obj(L,-1) {};
+	wrapper_Awesomium_WebCore(lua_State* L, lua_Table* dum) : Awesomium::WebCore(), _obj(L,-1) {};
 
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	Awesomium::WebSession * CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) {
@@ -72,7 +70,7 @@ public:
 	// const char * Awesomium::WebCore::version_string() const
 	const char * version_string() const {
 		THROW_IF(!_obj.pushFunction("version_string"),"No implementation for abstract function Awesomium::WebCore::version_string");
-		return (_obj.callFunction<char*>());
+		return (_obj.callFunction<const char*>());
 	};
 
 
@@ -80,7 +78,6 @@ public:
 
 };
 
-};	
 
 
 

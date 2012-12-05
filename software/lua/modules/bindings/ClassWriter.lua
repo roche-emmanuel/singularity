@@ -37,6 +37,8 @@ function Class:writeFile()
 		end
 	end
 	
+	-- self:info_v("Passed valid public functions...")
+	
 	for _,v in class:getValidPublicOperators():sequence() do
 		local lname = v:getLuaName()
 		if lname == "__eq" then
@@ -45,7 +47,20 @@ function Class:writeFile()
 		end
 	end
 
+	-- self:info_v("Passed valid public operators...")
+
 	if not external then
+		-- self:info_v("Testing virtual class...")
+	
+		if class:isVirtual() then 
+			buf:writeLine("#include <luna/wrappers/wrapper_".. wname ..".h>")
+			buf:newLine()
+			-- self:info_v("Adding wrapper constructors...")
+			class:addWrapperConstructors()
+		end
+		
+		-- self:info_v("Virtual class tested for: ",cname)
+		
 		buf:writeSubLine("class luna_wrapper_${1} {",wname) --cshortname)
 		buf:writeLine("public:")
 		buf:pushIndent()
@@ -68,9 +83,9 @@ function Class:writeFile()
 		else
 			buf:writeLine("// Derived class converters:")
 			for k,bclass in class:getAbsoluteBases():sequence() do
-				--if not im:ignoreConverter(bclass) then
+				if not im:ignoreConverter(bclass) then
 					buf:writeSubLine(snippets:getConverterCode(class,bclass));
-				--end
+				end
 			end
 		end
 		buf:newLine()
@@ -78,6 +93,7 @@ function Class:writeFile()
 		local typeChecker = self._typeChecker
 		local writeBind = self._writeBind
 		local writeOverloadBind = self._writeOverloadBind
+		
 		
 		if not class:isAbstract() then
 			buf:writeLine("// Constructor checkers:")
@@ -164,7 +180,9 @@ function Class:writeFile()
 		buf:writeLine("}")
 		buf:newLine()
 	end
-		
+	
+	-- self:info_v("Done testing external status.")
+	
 	local mname = rm:getDefaultModuleName()
 	
 	-- build the parent list:
@@ -226,9 +244,9 @@ function Class:writeFile()
 			-- Write the absolute base converters:
 			if class:getNumBases() > 0 then
 				for k,bclass in class:getAbsoluteBases():sequence() do
-					--if not im:ignoreConverter(bclass) then
+					if not im:ignoreConverter(bclass) then
 						buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_cast_from_${3}},',wname,bclass:getFullName(),bclass:getName())
-					--end
+					end
 				end
 			end
 			

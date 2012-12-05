@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_CubeMapGenerator.h>
+
 class luna_wrapper_osgUtil_CubeMapGenerator {
 public:
 	typedef Luna< osgUtil::CubeMapGenerator > luna_t;
@@ -150,8 +152,6 @@ osgUtil::CubeMapGenerator* LunaTraits< osgUtil::CubeMapGenerator >::_bind_ctor(l
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Vec4f osgUtil::CubeMapGenerator::compute_color(const osg::Vec3f & R) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::CubeMapGenerator >::_bind_dtor(osgUtil::CubeMapGenerator* obj) {

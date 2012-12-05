@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ProxyNode.h>
+
 class luna_wrapper_osg_ProxyNode {
 public:
 	typedef Luna< osg::ProxyNode > luna_t;

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_PlaneIntersector.h>
+
 class luna_wrapper_osgUtil_PlaneIntersector {
 public:
 	typedef Luna< osgUtil::PlaneIntersector > luna_t;
@@ -60,6 +62,31 @@ public:
 		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,26652350) ) return false;
 		if( luatop>2 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
+		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,26652350) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,86970521) ) return false;
+		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,26652350) ) return false;
+		if( luatop>3 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -196,12 +223,61 @@ public:
 		return new osgUtil::PlaneIntersector(cf, plane, boundingPolytope);
 	}
 
+	// osgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ())
+	static osgUtil::PlaneIntersector* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) function, expected prototype:\nosgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ())\nClass arguments details:\narg 2 ID = 86970521\narg 3 ID = 26652350\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,2));
+		if( !plane_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg plane in osgUtil::PlaneIntersector::PlaneIntersector function");
+		}
+		const osg::Plane & plane=*plane_ptr;
+		const osg::Polytope* boundingPolytope_ptr=luatop>2 ? (Luna< osg::Polytope >::check(L,3)) : NULL;
+		if( luatop>2 && !boundingPolytope_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
+		}
+		const osg::Polytope & boundingPolytope=luatop>2 ? *boundingPolytope_ptr : osg::Polytope ();
+
+		return new wrapper_osgUtil_PlaneIntersector(L,NULL, plane, boundingPolytope);
+	}
+
+	// osgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ())
+	static osgUtil::PlaneIntersector* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) function, expected prototype:\nosgUtil::PlaneIntersector::PlaneIntersector(lua_Table * data, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ())\nClass arguments details:\narg 3 ID = 86970521\narg 4 ID = 26652350\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
+		const osg::Plane* plane_ptr=(Luna< osg::Plane >::check(L,3));
+		if( !plane_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg plane in osgUtil::PlaneIntersector::PlaneIntersector function");
+		}
+		const osg::Plane & plane=*plane_ptr;
+		const osg::Polytope* boundingPolytope_ptr=luatop>3 ? (Luna< osg::Polytope >::check(L,4)) : NULL;
+		if( luatop>3 && !boundingPolytope_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg boundingPolytope in osgUtil::PlaneIntersector::PlaneIntersector function");
+		}
+		const osg::Polytope & boundingPolytope=luatop>3 ? *boundingPolytope_ptr : osg::Polytope ();
+
+		return new wrapper_osgUtil_PlaneIntersector(L,NULL, cf, plane, boundingPolytope);
+	}
+
 	// Overload binder for osgUtil::PlaneIntersector::PlaneIntersector
 	static osgUtil::PlaneIntersector* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function PlaneIntersector, cannot match any of the overloads for function PlaneIntersector:\n  PlaneIntersector(const osg::Plane &, const osg::Polytope &)\n  PlaneIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Plane &, const osg::Polytope &)\n");
+		luaL_error(L, "error in function PlaneIntersector, cannot match any of the overloads for function PlaneIntersector:\n  PlaneIntersector(const osg::Plane &, const osg::Polytope &)\n  PlaneIntersector(osgUtil::Intersector::CoordinateFrame, const osg::Plane &, const osg::Polytope &)\n  PlaneIntersector(lua_Table *, const osg::Plane &, const osg::Polytope &)\n  PlaneIntersector(lua_Table *, osgUtil::Intersector::CoordinateFrame, const osg::Plane &, const osg::Polytope &)\n");
 		return NULL;
 	}
 

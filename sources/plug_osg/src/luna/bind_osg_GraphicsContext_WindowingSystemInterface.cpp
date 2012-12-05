@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsContext_WindowingSystemInterface.h>
+
 class luna_wrapper_osg_GraphicsContext_WindowingSystemInterface {
 public:
 	typedef Luna< osg::GraphicsContext::WindowingSystemInterface > luna_t;
@@ -86,8 +88,6 @@ osg::GraphicsContext::WindowingSystemInterface* LunaTraits< osg::GraphicsContext
 	// void osg::GraphicsContext::WindowingSystemInterface::getScreenSettings(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier, osg::GraphicsContext::ScreenSettings & resolution)
 	// void osg::GraphicsContext::WindowingSystemInterface::enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier, osg::GraphicsContext::ScreenSettingsList & resolutionList)
 	// osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::GraphicsContext::WindowingSystemInterface >::_bind_dtor(osg::GraphicsContext::WindowingSystemInterface* obj) {

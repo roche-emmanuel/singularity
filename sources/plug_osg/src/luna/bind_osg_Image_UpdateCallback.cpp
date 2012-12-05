@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Image_UpdateCallback.h>
+
 class luna_wrapper_osg_Image_UpdateCallback {
 public:
 	typedef Luna< osg::Image::UpdateCallback > luna_t;
@@ -59,11 +61,11 @@ public:
 	// Function binds:
 
 	// Operator binds:
-	// void osg::Image::UpdateCallback::operator()(osg::StateAttribute * , osg::NodeVisitor * )
+	// void osg::Image::UpdateCallback::operator()(osg::StateAttribute * arg1, osg::NodeVisitor * arg2)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Image::UpdateCallback::operator()(osg::StateAttribute * , osg::NodeVisitor * ) function, expected prototype:\nvoid osg::Image::UpdateCallback::operator()(osg::StateAttribute * , osg::NodeVisitor * )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Image::UpdateCallback::operator()(osg::StateAttribute * arg1, osg::NodeVisitor * arg2) function, expected prototype:\nvoid osg::Image::UpdateCallback::operator()(osg::StateAttribute * arg1, osg::NodeVisitor * arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
 		osg::StateAttribute* _arg1=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));

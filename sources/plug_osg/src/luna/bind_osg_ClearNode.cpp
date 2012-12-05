@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ClearNode.h>
+
 class luna_wrapper_osg_ClearNode {
 public:
 	typedef Luna< osg::ClearNode > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::ClearNode* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ClearNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -176,12 +197,48 @@ public:
 		return new osg::ClearNode(cs, copyop);
 	}
 
+	// osg::ClearNode::ClearNode(lua_Table * data)
+	static osg::ClearNode* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClearNode::ClearNode(lua_Table * data) function, expected prototype:\nosg::ClearNode::ClearNode(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ClearNode(L,NULL);
+	}
+
+	// osg::ClearNode::ClearNode(lua_Table * data, const osg::ClearNode & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::ClearNode* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClearNode::ClearNode(lua_Table * data, const osg::ClearNode & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ClearNode::ClearNode(lua_Table * data, const osg::ClearNode & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::ClearNode* cs_ptr=dynamic_cast< osg::ClearNode* >(Luna< osg::Referenced >::check(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::ClearNode::ClearNode function");
+		}
+		const osg::ClearNode & cs=*cs_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ClearNode::ClearNode function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_ClearNode(L,NULL, cs, copyop);
+	}
+
 	// Overload binder for osg::ClearNode::ClearNode
 	static osg::ClearNode* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ClearNode, cannot match any of the overloads for function ClearNode:\n  ClearNode()\n  ClearNode(const osg::ClearNode &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ClearNode, cannot match any of the overloads for function ClearNode:\n  ClearNode()\n  ClearNode(const osg::ClearNode &, const osg::CopyOp &)\n  ClearNode(lua_Table *)\n  ClearNode(lua_Table *, const osg::ClearNode &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

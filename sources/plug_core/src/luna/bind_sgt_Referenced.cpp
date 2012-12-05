@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_Referenced.h>
+
 class luna_wrapper_sgt_Referenced {
 public:
 	typedef Luna< sgt::Referenced > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -67,14 +76,34 @@ public:
 
 	// Constructor binds:
 	// sgt::Referenced::Referenced()
-	static sgt::Referenced* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static sgt::Referenced* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced() function, expected prototype:\nsgt::Referenced::Referenced()\nClass arguments details:\n");
 		}
 
 
 		return new sgt::Referenced();
+	}
+
+	// sgt::Referenced::Referenced(lua_Table * data)
+	static sgt::Referenced* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::Referenced::Referenced(lua_Table * data) function, expected prototype:\nsgt::Referenced::Referenced(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_sgt_Referenced(L,NULL);
+	}
+
+	// Overload binder for sgt::Referenced::Referenced
+	static sgt::Referenced* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Referenced, cannot match any of the overloads for function Referenced:\n  Referenced()\n  Referenced(lua_Table *)\n");
+		return NULL;
 	}
 
 

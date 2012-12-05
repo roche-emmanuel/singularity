@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NodeVisitor.h>
+
 class luna_wrapper_osg_NodeVisitor {
 public:
 	typedef Luna< osg::NodeVisitor > luna_t;
@@ -54,6 +56,25 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -489,12 +510,43 @@ public:
 		return new osg::NodeVisitor(type, tm);
 	}
 
+	// osg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE)
+	static osg::NodeVisitor* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) function, expected prototype:\nosg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::NodeVisitor::TraversalMode tm=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : osg::NodeVisitor::TRAVERSE_NONE;
+
+		return new wrapper_osg_NodeVisitor(L,NULL, tm);
+	}
+
+	// osg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE)
+	static osg::NodeVisitor* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) function, expected prototype:\nosg::NodeVisitor::NodeVisitor(lua_Table * data, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::NodeVisitor::VisitorType type=(osg::NodeVisitor::VisitorType)lua_tointeger(L,2);
+		osg::NodeVisitor::TraversalMode tm=luatop>2 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,3) : osg::NodeVisitor::TRAVERSE_NONE;
+
+		return new wrapper_osg_NodeVisitor(L,NULL, type, tm);
+	}
+
 	// Overload binder for osg::NodeVisitor::NodeVisitor
 	static osg::NodeVisitor* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function NodeVisitor, cannot match any of the overloads for function NodeVisitor:\n  NodeVisitor(osg::NodeVisitor::TraversalMode)\n  NodeVisitor(osg::NodeVisitor::VisitorType, osg::NodeVisitor::TraversalMode)\n");
+		luaL_error(L, "error in function NodeVisitor, cannot match any of the overloads for function NodeVisitor:\n  NodeVisitor(osg::NodeVisitor::TraversalMode)\n  NodeVisitor(osg::NodeVisitor::VisitorType, osg::NodeVisitor::TraversalMode)\n  NodeVisitor(lua_Table *, osg::NodeVisitor::TraversalMode)\n  NodeVisitor(lua_Table *, osg::NodeVisitor::VisitorType, osg::NodeVisitor::TraversalMode)\n");
 		return NULL;
 	}
 
@@ -1035,11 +1087,11 @@ public:
 		return 1;
 	}
 
-	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const
+	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1060,11 +1112,11 @@ public:
 		return 1;
 	}
 
-	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const
+	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceFromEyePoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceFromEyePoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -1085,11 +1137,11 @@ public:
 		return 1;
 	}
 
-	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const
+	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
 	static int _bind_getDistanceToViewPoint(lua_State *L) {
 		if (!_lg_typecheck_getDistanceToViewPoint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & , bool ) const\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));

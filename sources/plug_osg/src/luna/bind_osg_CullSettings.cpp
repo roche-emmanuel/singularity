@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CullSettings.h>
+
 class luna_wrapper_osg_CullSettings {
 public:
 	typedef Luna< osg::CullSettings > luna_t;
@@ -73,6 +75,31 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,31435107) ) return false;
 		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
+		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
+		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -377,13 +404,59 @@ public:
 		return new osg::CullSettings(cs);
 	}
 
+	// osg::CullSettings::CullSettings(lua_Table * data)
+	static osg::CullSettings* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullSettings::CullSettings(lua_Table * data) function, expected prototype:\nosg::CullSettings::CullSettings(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_CullSettings(L,NULL);
+	}
+
+	// osg::CullSettings::CullSettings(lua_Table * data, osg::ArgumentParser & arguments)
+	static osg::CullSettings* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullSettings::CullSettings(lua_Table * data, osg::ArgumentParser & arguments) function, expected prototype:\nosg::CullSettings::CullSettings(lua_Table * data, osg::ArgumentParser & arguments)\nClass arguments details:\narg 2 ID = 99527028\n");
+		}
+
+		osg::ArgumentParser* arguments_ptr=(Luna< osg::ArgumentParser >::check(L,2));
+		if( !arguments_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg arguments in osg::CullSettings::CullSettings function");
+		}
+		osg::ArgumentParser & arguments=*arguments_ptr;
+
+		return new wrapper_osg_CullSettings(L,NULL, arguments);
+	}
+
+	// osg::CullSettings::CullSettings(lua_Table * data, const osg::CullSettings & cs)
+	static osg::CullSettings* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CullSettings::CullSettings(lua_Table * data, const osg::CullSettings & cs) function, expected prototype:\nosg::CullSettings::CullSettings(lua_Table * data, const osg::CullSettings & cs)\nClass arguments details:\narg 2 ID = 31435107\n");
+		}
+
+		const osg::CullSettings* cs_ptr=(Luna< osg::CullSettings >::check(L,2));
+		if( !cs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullSettings::CullSettings function");
+		}
+		const osg::CullSettings & cs=*cs_ptr;
+
+		return new wrapper_osg_CullSettings(L,NULL, cs);
+	}
+
 	// Overload binder for osg::CullSettings::CullSettings
 	static osg::CullSettings* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function CullSettings, cannot match any of the overloads for function CullSettings:\n  CullSettings()\n  CullSettings(osg::ArgumentParser &)\n  CullSettings(const osg::CullSettings &)\n");
+		luaL_error(L, "error in function CullSettings, cannot match any of the overloads for function CullSettings:\n  CullSettings()\n  CullSettings(osg::ArgumentParser &)\n  CullSettings(const osg::CullSettings &)\n  CullSettings(lua_Table *)\n  CullSettings(lua_Table *, osg::ArgumentParser &)\n  CullSettings(lua_Table *, const osg::CullSettings &)\n");
 		return NULL;
 	}
 

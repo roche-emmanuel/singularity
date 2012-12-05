@@ -8,16 +8,14 @@
 
 #include <log/LogManager.h>
 
-namespace sgt {
-
 class wrapper_sgt_LogManager : public sgt::LogManager {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_LogManager(lua_State* L) : sgt::LogManager(), _obj(L,-1) {};
+	wrapper_sgt_LogManager(lua_State* L, lua_Table* dum) : sgt::LogManager(), _obj(L,-1) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -34,7 +32,6 @@ public:
 
 };
 
-};	
 
 
 

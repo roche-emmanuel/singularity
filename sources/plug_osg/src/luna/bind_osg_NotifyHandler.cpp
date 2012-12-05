@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NotifyHandler.h>
+
 class luna_wrapper_osg_NotifyHandler {
 public:
 	typedef Luna< osg::NotifyHandler > luna_t;
@@ -82,8 +84,6 @@ osg::NotifyHandler* LunaTraits< osg::NotifyHandler >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::NotifyHandler::notify(osg::NotifySeverity severity, const char * message)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::NotifyHandler >::_bind_dtor(osg::NotifyHandler* obj) {

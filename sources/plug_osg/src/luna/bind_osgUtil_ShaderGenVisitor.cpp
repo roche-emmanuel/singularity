@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_ShaderGenVisitor.h>
+
 class luna_wrapper_osgUtil_ShaderGenVisitor {
 public:
 	typedef Luna< osgUtil::ShaderGenVisitor > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
 		if( (lua_isnil(L,1)==0 && !dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -132,12 +150,37 @@ public:
 		return new osgUtil::ShaderGenVisitor(stateCache);
 	}
 
+	// osgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data)
+	static osgUtil::ShaderGenVisitor* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data) function, expected prototype:\nosgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_ShaderGenVisitor(L,NULL);
+	}
+
+	// osgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data, osgUtil::ShaderGenCache * stateCache)
+	static osgUtil::ShaderGenVisitor* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data, osgUtil::ShaderGenCache * stateCache) function, expected prototype:\nosgUtil::ShaderGenVisitor::ShaderGenVisitor(lua_Table * data, osgUtil::ShaderGenCache * stateCache)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osgUtil::ShaderGenCache* stateCache=dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osgUtil_ShaderGenVisitor(L,NULL, stateCache);
+	}
+
 	// Overload binder for osgUtil::ShaderGenVisitor::ShaderGenVisitor
 	static osgUtil::ShaderGenVisitor* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ShaderGenVisitor, cannot match any of the overloads for function ShaderGenVisitor:\n  ShaderGenVisitor()\n  ShaderGenVisitor(osgUtil::ShaderGenCache *)\n");
+		luaL_error(L, "error in function ShaderGenVisitor, cannot match any of the overloads for function ShaderGenVisitor:\n  ShaderGenVisitor()\n  ShaderGenVisitor(osgUtil::ShaderGenCache *)\n  ShaderGenVisitor(lua_Table *)\n  ShaderGenVisitor(lua_Table *, osgUtil::ShaderGenCache *)\n");
 		return NULL;
 	}
 

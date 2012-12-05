@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CopyOp.h>
+
 class luna_wrapper_osg_CopyOp {
 public:
 	typedef Luna< osg::CopyOp > luna_t;
@@ -54,11 +56,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -187,8 +198,8 @@ public:
 
 	// Constructor binds:
 	// osg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY)
-	static osg::CopyOp* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::CopyOp* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n");
 		}
@@ -198,6 +209,29 @@ public:
 		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : osg::CopyOp::SHALLOW_COPY;
 
 		return new osg::CopyOp(flags);
+	}
+
+	// osg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY)
+	static osg::CopyOp* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::CopyOp::CopyOp(lua_Table * data, unsigned int flags = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_CopyOp(L,NULL, flags);
+	}
+
+	// Overload binder for osg::CopyOp::CopyOp
+	static osg::CopyOp* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function CopyOp, cannot match any of the overloads for function CopyOp:\n  CopyOp(unsigned int)\n  CopyOp(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

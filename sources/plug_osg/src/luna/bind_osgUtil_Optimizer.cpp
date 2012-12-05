@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_Optimizer.h>
+
 class luna_wrapper_osgUtil_Optimizer {
 public:
 	typedef Luna< osgUtil::Optimizer > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -178,14 +187,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::Optimizer::Optimizer()
-	static osgUtil::Optimizer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::Optimizer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::Optimizer::Optimizer() function, expected prototype:\nosgUtil::Optimizer::Optimizer()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::Optimizer();
+	}
+
+	// osgUtil::Optimizer::Optimizer(lua_Table * data)
+	static osgUtil::Optimizer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Optimizer::Optimizer(lua_Table * data) function, expected prototype:\nosgUtil::Optimizer::Optimizer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_Optimizer(L,NULL);
+	}
+
+	// Overload binder for osgUtil::Optimizer::Optimizer
+	static osgUtil::Optimizer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Optimizer, cannot match any of the overloads for function Optimizer:\n  Optimizer()\n  Optimizer(lua_Table *)\n");
+		return NULL;
 	}
 
 

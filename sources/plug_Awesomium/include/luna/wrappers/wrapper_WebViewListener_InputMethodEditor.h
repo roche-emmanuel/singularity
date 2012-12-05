@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_InputMethodEditor : public WebViewListener::InputMethodEditor {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_InputMethodEditor(lua_State* L) : WebViewListener::InputMethodEditor(), _obj(L,-1) {};
+	wrapper_WebViewListener_InputMethodEditor(lua_State* L, lua_Table* dum) : WebViewListener::InputMethodEditor(), _obj(L,-1) {};
 
 	// void WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)
 	void OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y) {
@@ -50,7 +48,6 @@ public:
 
 };
 
-};	
 
 
 

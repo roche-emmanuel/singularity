@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ColorMask.h>
+
 class luna_wrapper_osg_ColorMask {
 public:
 	typedef Luna< osg::ColorMask > luna_t;
@@ -64,6 +66,36 @@ public:
 		if( (!dynamic_cast< osg::ColorMask* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		if( lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ColorMask* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -237,13 +269,65 @@ public:
 		return new osg::ColorMask(cm, copyop);
 	}
 
+	// osg::ColorMask::ColorMask(lua_Table * data)
+	static osg::ColorMask* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ColorMask::ColorMask(lua_Table * data) function, expected prototype:\nosg::ColorMask::ColorMask(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ColorMask(L,NULL);
+	}
+
+	// osg::ColorMask::ColorMask(lua_Table * data, bool red, bool green, bool blue, bool alpha)
+	static osg::ColorMask* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ColorMask::ColorMask(lua_Table * data, bool red, bool green, bool blue, bool alpha) function, expected prototype:\nosg::ColorMask::ColorMask(lua_Table * data, bool red, bool green, bool blue, bool alpha)\nClass arguments details:\n");
+		}
+
+		bool red=(bool)(lua_toboolean(L,2)==1);
+		bool green=(bool)(lua_toboolean(L,3)==1);
+		bool blue=(bool)(lua_toboolean(L,4)==1);
+		bool alpha=(bool)(lua_toboolean(L,5)==1);
+
+		return new wrapper_osg_ColorMask(L,NULL, red, green, blue, alpha);
+	}
+
+	// osg::ColorMask::ColorMask(lua_Table * data, const osg::ColorMask & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::ColorMask* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ColorMask::ColorMask(lua_Table * data, const osg::ColorMask & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::ColorMask::ColorMask(lua_Table * data, const osg::ColorMask & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::ColorMask* cm_ptr=dynamic_cast< osg::ColorMask* >(Luna< osg::Referenced >::check(L,2));
+		if( !cm_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cm in osg::ColorMask::ColorMask function");
+		}
+		const osg::ColorMask & cm=*cm_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ColorMask::ColorMask function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_ColorMask(L,NULL, cm, copyop);
+	}
+
 	// Overload binder for osg::ColorMask::ColorMask
 	static osg::ColorMask* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function ColorMask, cannot match any of the overloads for function ColorMask:\n  ColorMask()\n  ColorMask(bool, bool, bool, bool)\n  ColorMask(const osg::ColorMask &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ColorMask, cannot match any of the overloads for function ColorMask:\n  ColorMask()\n  ColorMask(bool, bool, bool, bool)\n  ColorMask(const osg::ColorMask &, const osg::CopyOp &)\n  ColorMask(lua_Table *)\n  ColorMask(lua_Table *, bool, bool, bool, bool)\n  ColorMask(lua_Table *, const osg::ColorMask &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -270,11 +354,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::ColorMask::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::ColorMask::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ColorMask::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::ColorMask::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ColorMask::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ColorMask::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -571,11 +655,11 @@ public:
 		return 1;
 	}
 
-	// void osg::ColorMask::apply(osg::State & ) const
+	// void osg::ColorMask::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ColorMask::apply(osg::State & ) const function, expected prototype:\nvoid osg::ColorMask::apply(osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ColorMask::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::ColorMask::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));

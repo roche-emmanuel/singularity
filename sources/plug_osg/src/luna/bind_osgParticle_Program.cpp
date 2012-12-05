@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Program.h>
+
 class luna_wrapper_osgParticle_Program {
 public:
 	typedef Luna< osgParticle::Program > luna_t;
@@ -161,8 +163,6 @@ osgParticle::Program* LunaTraits< osgParticle::Program >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osgParticle::Program::execute(double dt)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgParticle::Program >::_bind_dtor(osgParticle::Program* obj) {

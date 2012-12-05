@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_StateToCompile.h>
+
 class luna_wrapper_osgUtil_StateToCompile {
 public:
 	typedef Luna< osgUtil::StateToCompile > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -101,8 +111,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::StateToCompile::StateToCompile(unsigned int mode)
-	static osgUtil::StateToCompile* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::StateToCompile* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::StateToCompile(unsigned int mode) function, expected prototype:\nosgUtil::StateToCompile::StateToCompile(unsigned int mode)\nClass arguments details:\n");
 		}
@@ -110,6 +120,27 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,1);
 
 		return new osgUtil::StateToCompile(mode);
+	}
+
+	// osgUtil::StateToCompile::StateToCompile(lua_Table * data, unsigned int mode)
+	static osgUtil::StateToCompile* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::StateToCompile::StateToCompile(lua_Table * data, unsigned int mode) function, expected prototype:\nosgUtil::StateToCompile::StateToCompile(lua_Table * data, unsigned int mode)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+
+		return new wrapper_osgUtil_StateToCompile(L,NULL, mode);
+	}
+
+	// Overload binder for osgUtil::StateToCompile::StateToCompile
+	static osgUtil::StateToCompile* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StateToCompile, cannot match any of the overloads for function StateToCompile:\n  StateToCompile(unsigned int)\n  StateToCompile(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

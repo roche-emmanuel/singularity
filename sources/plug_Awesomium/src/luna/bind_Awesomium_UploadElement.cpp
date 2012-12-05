@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_UploadElement.h>
+
 class luna_wrapper_Awesomium_UploadElement {
 public:
 	typedef Luna< Awesomium::UploadElement > luna_t;

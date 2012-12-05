@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_StandardNotifyHandler.h>
+
 class luna_wrapper_osg_StandardNotifyHandler {
 public:
 	typedef Luna< osg::StandardNotifyHandler > luna_t;

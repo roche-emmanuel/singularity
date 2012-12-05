@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_HeightField.h>
+
 class luna_wrapper_osg_HeightField {
 public:
 	typedef Luna< osg::HeightField > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -329,12 +350,48 @@ public:
 		return new osg::HeightField(mesh, copyop);
 	}
 
+	// osg::HeightField::HeightField(lua_Table * data)
+	static osg::HeightField* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_HeightField(L,NULL);
+	}
+
+	// osg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::HeightField* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::HeightField::HeightField(lua_Table * data, const osg::HeightField & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::HeightField* mesh_ptr=dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,2));
+		if( !mesh_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg mesh in osg::HeightField::HeightField function");
+		}
+		const osg::HeightField & mesh=*mesh_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::HeightField::HeightField function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_HeightField(L,NULL, mesh, copyop);
+	}
+
 	// Overload binder for osg::HeightField::HeightField
 	static osg::HeightField* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function HeightField, cannot match any of the overloads for function HeightField:\n  HeightField()\n  HeightField(const osg::HeightField &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function HeightField, cannot match any of the overloads for function HeightField:\n  HeightField()\n  HeightField(const osg::HeightField &, const osg::CopyOp &)\n  HeightField(lua_Table *)\n  HeightField(lua_Table *, const osg::HeightField &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -361,11 +418,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::HeightField::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::HeightField::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::HeightField::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -445,11 +502,11 @@ public:
 		return 1;
 	}
 
-	// void osg::HeightField::accept(osg::ShapeVisitor & )
+	// void osg::HeightField::accept(osg::ShapeVisitor & arg1)
 	static int _bind_accept_overload_1(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ShapeVisitor & ) function, expected prototype:\nvoid osg::HeightField::accept(osg::ShapeVisitor & )\nClass arguments details:\narg 1 ID = 36301858\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ShapeVisitor & arg1) function, expected prototype:\nvoid osg::HeightField::accept(osg::ShapeVisitor & arg1)\nClass arguments details:\narg 1 ID = 36301858\n");
 		}
 
 		osg::ShapeVisitor* _arg1_ptr=(Luna< osg::ShapeVisitor >::check(L,2));
@@ -468,11 +525,11 @@ public:
 		return 0;
 	}
 
-	// void osg::HeightField::accept(osg::ConstShapeVisitor & ) const
+	// void osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const
 	static int _bind_accept_overload_2(lua_State *L) {
 		if (!_lg_typecheck_accept_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ConstShapeVisitor & ) const function, expected prototype:\nvoid osg::HeightField::accept(osg::ConstShapeVisitor & ) const\nClass arguments details:\narg 1 ID = 45826538\n");
+			luaL_error(L, "luna typecheck failed in void osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const function, expected prototype:\nvoid osg::HeightField::accept(osg::ConstShapeVisitor & arg1) const\nClass arguments details:\narg 1 ID = 45826538\n");
 		}
 
 		osg::ConstShapeVisitor* _arg1_ptr=(Luna< osg::ConstShapeVisitor >::check(L,2));

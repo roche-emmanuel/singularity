@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ValueVisitor.h>
+
 class luna_wrapper_osg_ValueVisitor {
 public:
 	typedef Luna< osg::ValueVisitor > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -236,8 +245,8 @@ public:
 
 	// Constructor binds:
 	// osg::ValueVisitor::ValueVisitor()
-	static osg::ValueVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ValueVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ValueVisitor::ValueVisitor() function, expected prototype:\nosg::ValueVisitor::ValueVisitor()\nClass arguments details:\n");
 		}
@@ -246,13 +255,33 @@ public:
 		return new osg::ValueVisitor();
 	}
 
+	// osg::ValueVisitor::ValueVisitor(lua_Table * data)
+	static osg::ValueVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ValueVisitor::ValueVisitor(lua_Table * data) function, expected prototype:\nosg::ValueVisitor::ValueVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ValueVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::ValueVisitor::ValueVisitor
+	static osg::ValueVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ValueVisitor, cannot match any of the overloads for function ValueVisitor:\n  ValueVisitor()\n  ValueVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// void osg::ValueVisitor::apply(signed char & )
+	// void osg::ValueVisitor::apply(signed char & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(signed char & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(signed char & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(signed char & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(signed char & arg1)\nClass arguments details:\n");
 		}
 
 		signed char _arg1=(signed char)lua_tointeger(L,2);
@@ -267,11 +296,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(short & )
+	// void osg::ValueVisitor::apply(short & arg1)
 	static int _bind_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(short & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(short & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(short & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(short & arg1)\nClass arguments details:\n");
 		}
 
 		short _arg1=(short)lua_tointeger(L,2);
@@ -286,11 +315,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(int & )
+	// void osg::ValueVisitor::apply(int & arg1)
 	static int _bind_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(int & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(int & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(int & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(int & arg1)\nClass arguments details:\n");
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -305,11 +334,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(unsigned short & )
+	// void osg::ValueVisitor::apply(unsigned short & arg1)
 	static int _bind_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned short & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned short & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned short & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned short & arg1)\nClass arguments details:\n");
 		}
 
 		unsigned short _arg1=(unsigned short)lua_tointeger(L,2);
@@ -324,11 +353,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(unsigned char & )
+	// void osg::ValueVisitor::apply(unsigned char & arg1)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned char & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned char & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned char & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned char & arg1)\nClass arguments details:\n");
 		}
 
 		unsigned char _arg1 = (unsigned char)(lua_tointeger(L,2));
@@ -343,11 +372,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(unsigned int & )
+	// void osg::ValueVisitor::apply(unsigned int & arg1)
 	static int _bind_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned int & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned int & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(unsigned int & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(unsigned int & arg1)\nClass arguments details:\n");
 		}
 
 		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
@@ -362,11 +391,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(float & )
+	// void osg::ValueVisitor::apply(float & arg1)
 	static int _bind_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_7(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(float & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(float & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(float & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(float & arg1)\nClass arguments details:\n");
 		}
 
 		float _arg1=(float)lua_tonumber(L,2);
@@ -381,11 +410,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(double & )
+	// void osg::ValueVisitor::apply(double & arg1)
 	static int _bind_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_8(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(double & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(double & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(double & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(double & arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -400,11 +429,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec2f & )
+	// void osg::ValueVisitor::apply(osg::Vec2f & arg1)
 	static int _bind_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_9(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2f & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2f & )\nClass arguments details:\narg 1 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2f & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2f & arg1)\nClass arguments details:\narg 1 ID = 92303173\n");
 		}
 
 		osg::Vec2f* _arg1_ptr=(Luna< osg::Vec2f >::check(L,2));
@@ -423,11 +452,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec3f & )
+	// void osg::ValueVisitor::apply(osg::Vec3f & arg1)
 	static int _bind_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_10(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3f & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3f & )\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3f & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3f & arg1)\nClass arguments details:\narg 1 ID = 92303204\n");
 		}
 
 		osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -446,11 +475,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec4f & )
+	// void osg::ValueVisitor::apply(osg::Vec4f & arg1)
 	static int _bind_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_11(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4f & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4f & )\nClass arguments details:\narg 1 ID = 92303235\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4f & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4f & arg1)\nClass arguments details:\narg 1 ID = 92303235\n");
 		}
 
 		osg::Vec4f* _arg1_ptr=(Luna< osg::Vec4f >::check(L,2));
@@ -469,11 +498,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec4ub & )
+	// void osg::ValueVisitor::apply(osg::Vec4ub & arg1)
 	static int _bind_apply_overload_12(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_12(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4ub & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4ub & )\nClass arguments details:\narg 1 ID = 61400540\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4ub & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4ub & arg1)\nClass arguments details:\narg 1 ID = 61400540\n");
 		}
 
 		osg::Vec4ub* _arg1_ptr=(Luna< osg::Vec4ub >::check(L,2));
@@ -492,11 +521,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec2b & )
+	// void osg::ValueVisitor::apply(osg::Vec2b & arg1)
 	static int _bind_apply_overload_13(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_13(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2b & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2b & )\nClass arguments details:\narg 1 ID = 92303169\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2b & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2b & arg1)\nClass arguments details:\narg 1 ID = 92303169\n");
 		}
 
 		osg::Vec2b* _arg1_ptr=(Luna< osg::Vec2b >::check(L,2));
@@ -515,11 +544,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec3b & )
+	// void osg::ValueVisitor::apply(osg::Vec3b & arg1)
 	static int _bind_apply_overload_14(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_14(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3b & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3b & )\nClass arguments details:\narg 1 ID = 92303200\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3b & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3b & arg1)\nClass arguments details:\narg 1 ID = 92303200\n");
 		}
 
 		osg::Vec3b* _arg1_ptr=(Luna< osg::Vec3b >::check(L,2));
@@ -538,11 +567,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec4b & )
+	// void osg::ValueVisitor::apply(osg::Vec4b & arg1)
 	static int _bind_apply_overload_15(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_15(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4b & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4b & )\nClass arguments details:\narg 1 ID = 92303231\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4b & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4b & arg1)\nClass arguments details:\narg 1 ID = 92303231\n");
 		}
 
 		osg::Vec4b* _arg1_ptr=(Luna< osg::Vec4b >::check(L,2));
@@ -561,11 +590,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec2s & )
+	// void osg::ValueVisitor::apply(osg::Vec2s & arg1)
 	static int _bind_apply_overload_16(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_16(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2s & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2s & )\nClass arguments details:\narg 1 ID = 92303186\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2s & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2s & arg1)\nClass arguments details:\narg 1 ID = 92303186\n");
 		}
 
 		osg::Vec2s* _arg1_ptr=(Luna< osg::Vec2s >::check(L,2));
@@ -584,11 +613,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec3s & )
+	// void osg::ValueVisitor::apply(osg::Vec3s & arg1)
 	static int _bind_apply_overload_17(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_17(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3s & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3s & )\nClass arguments details:\narg 1 ID = 92303217\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3s & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3s & arg1)\nClass arguments details:\narg 1 ID = 92303217\n");
 		}
 
 		osg::Vec3s* _arg1_ptr=(Luna< osg::Vec3s >::check(L,2));
@@ -607,11 +636,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec4s & )
+	// void osg::ValueVisitor::apply(osg::Vec4s & arg1)
 	static int _bind_apply_overload_18(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_18(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4s & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4s & )\nClass arguments details:\narg 1 ID = 92303248\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4s & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4s & arg1)\nClass arguments details:\narg 1 ID = 92303248\n");
 		}
 
 		osg::Vec4s* _arg1_ptr=(Luna< osg::Vec4s >::check(L,2));
@@ -630,11 +659,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec2d & )
+	// void osg::ValueVisitor::apply(osg::Vec2d & arg1)
 	static int _bind_apply_overload_19(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_19(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2d & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2d & )\nClass arguments details:\narg 1 ID = 92303171\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec2d & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec2d & arg1)\nClass arguments details:\narg 1 ID = 92303171\n");
 		}
 
 		osg::Vec2d* _arg1_ptr=(Luna< osg::Vec2d >::check(L,2));
@@ -653,11 +682,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec3d & )
+	// void osg::ValueVisitor::apply(osg::Vec3d & arg1)
 	static int _bind_apply_overload_20(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_20(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3d & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3d & )\nClass arguments details:\narg 1 ID = 92303202\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec3d & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec3d & arg1)\nClass arguments details:\narg 1 ID = 92303202\n");
 		}
 
 		osg::Vec3d* _arg1_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -676,11 +705,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Vec4d & )
+	// void osg::ValueVisitor::apply(osg::Vec4d & arg1)
 	static int _bind_apply_overload_21(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_21(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4d & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4d & )\nClass arguments details:\narg 1 ID = 92303233\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Vec4d & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Vec4d & arg1)\nClass arguments details:\narg 1 ID = 92303233\n");
 		}
 
 		osg::Vec4d* _arg1_ptr=(Luna< osg::Vec4d >::check(L,2));
@@ -699,11 +728,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ValueVisitor::apply(osg::Matrixf & )
+	// void osg::ValueVisitor::apply(osg::Matrixf & arg1)
 	static int _bind_apply_overload_22(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_22(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Matrixf & ) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Matrixf & )\nClass arguments details:\narg 1 ID = 18903840\n");
+			luaL_error(L, "luna typecheck failed in void osg::ValueVisitor::apply(osg::Matrixf & arg1) function, expected prototype:\nvoid osg::ValueVisitor::apply(osg::Matrixf & arg1)\nClass arguments details:\narg 1 ID = 18903840\n");
 		}
 
 		osg::Matrixf* _arg1_ptr=(Luna< osg::Matrixf >::check(L,2));

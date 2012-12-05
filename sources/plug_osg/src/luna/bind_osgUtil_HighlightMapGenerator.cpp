@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_HighlightMapGenerator.h>
+
 class luna_wrapper_osgUtil_HighlightMapGenerator {
 public:
 	typedef Luna< osgUtil::HighlightMapGenerator > luna_t;
@@ -64,6 +66,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3))) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -119,12 +147,62 @@ public:
 		return new osgUtil::HighlightMapGenerator(copy, copyop);
 	}
 
+	// osgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, const osg::Vec4f & light_color, float specular_exponent, int texture_size = 64)
+	static osgUtil::HighlightMapGenerator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, const osg::Vec4f & light_color, float specular_exponent, int texture_size = 64) function, expected prototype:\nosgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osg::Vec3f & light_direction, const osg::Vec4f & light_color, float specular_exponent, int texture_size = 64)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303235\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Vec3f* light_direction_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !light_direction_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg light_direction in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
+		}
+		const osg::Vec3f & light_direction=*light_direction_ptr;
+		const osg::Vec4f* light_color_ptr=(Luna< osg::Vec4f >::check(L,3));
+		if( !light_color_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg light_color in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
+		}
+		const osg::Vec4f & light_color=*light_color_ptr;
+		float specular_exponent=(float)lua_tonumber(L,4);
+		int texture_size=luatop>4 ? (int)lua_tointeger(L,5) : 64;
+
+		return new wrapper_osgUtil_HighlightMapGenerator(L,NULL, light_direction, light_color, specular_exponent, texture_size);
+	}
+
+	// osgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osgUtil::HighlightMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgUtil::HighlightMapGenerator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osgUtil::HighlightMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgUtil::HighlightMapGenerator::HighlightMapGenerator(lua_Table * data, const osgUtil::HighlightMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgUtil::HighlightMapGenerator* copy_ptr=dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
+		}
+		const osgUtil::HighlightMapGenerator & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgUtil_HighlightMapGenerator(L,NULL, copy, copyop);
+	}
+
 	// Overload binder for osgUtil::HighlightMapGenerator::HighlightMapGenerator
 	static osgUtil::HighlightMapGenerator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function HighlightMapGenerator, cannot match any of the overloads for function HighlightMapGenerator:\n  HighlightMapGenerator(const osg::Vec3f &, const osg::Vec4f &, float, int)\n  HighlightMapGenerator(const osgUtil::HighlightMapGenerator &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function HighlightMapGenerator, cannot match any of the overloads for function HighlightMapGenerator:\n  HighlightMapGenerator(const osg::Vec3f &, const osg::Vec4f &, float, int)\n  HighlightMapGenerator(const osgUtil::HighlightMapGenerator &, const osg::CopyOp &)\n  HighlightMapGenerator(lua_Table *, const osg::Vec3f &, const osg::Vec4f &, float, int)\n  HighlightMapGenerator(lua_Table *, const osgUtil::HighlightMapGenerator &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

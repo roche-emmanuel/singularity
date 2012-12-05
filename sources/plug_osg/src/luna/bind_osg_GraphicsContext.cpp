@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsContext.h>
+
 class luna_wrapper_osg_GraphicsContext {
 public:
 	typedef Luna< osg::GraphicsContext > luna_t;
@@ -1734,8 +1736,6 @@ osg::GraphicsContext* LunaTraits< osg::GraphicsContext >::_bind_ctor(lua_State *
 	// bool osg::GraphicsContext::releaseContextImplementation()
 	// void osg::GraphicsContext::bindPBufferToTextureImplementation(unsigned int buffer)
 	// void osg::GraphicsContext::swapBuffersImplementation()
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::GraphicsContext >::_bind_dtor(osg::GraphicsContext* obj) {

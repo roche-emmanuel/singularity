@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_NodeCallback.h>
+
 class luna_wrapper_osg_NodeCallback {
 public:
 	typedef Luna< osg::NodeCallback > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (!dynamic_cast< osg::NodeCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::NodeCallback* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -155,11 +175,11 @@ public:
 		return new osg::NodeCallback();
 	}
 
-	// osg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & )
+	// osg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & arg2)
 	static osg::NodeCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & ) function, expected prototype:\nosg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & arg2) function, expected prototype:\nosg::NodeCallback::NodeCallback(const osg::NodeCallback & nc, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		const osg::NodeCallback* nc_ptr=dynamic_cast< osg::NodeCallback* >(Luna< osg::Referenced >::check(L,1));
@@ -176,12 +196,46 @@ public:
 		return new osg::NodeCallback(nc, _arg2);
 	}
 
+	// osg::NodeCallback::NodeCallback(lua_Table * data)
+	static osg::NodeCallback* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodeCallback::NodeCallback(lua_Table * data) function, expected prototype:\nosg::NodeCallback::NodeCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_NodeCallback(L,NULL);
+	}
+
+	// osg::NodeCallback::NodeCallback(lua_Table * data, const osg::NodeCallback & nc, const osg::CopyOp & arg3)
+	static osg::NodeCallback* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodeCallback::NodeCallback(lua_Table * data, const osg::NodeCallback & nc, const osg::CopyOp & arg3) function, expected prototype:\nosg::NodeCallback::NodeCallback(lua_Table * data, const osg::NodeCallback & nc, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osg::NodeCallback* nc_ptr=dynamic_cast< osg::NodeCallback* >(Luna< osg::Referenced >::check(L,2));
+		if( !nc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg nc in osg::NodeCallback::NodeCallback function");
+		}
+		const osg::NodeCallback & nc=*nc_ptr;
+		const osg::CopyOp* _arg3_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !_arg3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg3 in osg::NodeCallback::NodeCallback function");
+		}
+		const osg::CopyOp & _arg3=*_arg3_ptr;
+
+		return new wrapper_osg_NodeCallback(L,NULL, nc, _arg3);
+	}
+
 	// Overload binder for osg::NodeCallback::NodeCallback
 	static osg::NodeCallback* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function NodeCallback, cannot match any of the overloads for function NodeCallback:\n  NodeCallback()\n  NodeCallback(const osg::NodeCallback &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function NodeCallback, cannot match any of the overloads for function NodeCallback:\n  NodeCallback()\n  NodeCallback(const osg::NodeCallback &, const osg::CopyOp &)\n  NodeCallback(lua_Table *)\n  NodeCallback(lua_Table *, const osg::NodeCallback &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -208,11 +262,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::NodeCallback::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::NodeCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::NodeCallback::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::NodeCallback::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::NodeCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::NodeCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

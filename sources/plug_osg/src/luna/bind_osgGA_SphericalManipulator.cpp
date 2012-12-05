@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_SphericalManipulator.h>
+
 class luna_wrapper_osgGA_SphericalManipulator {
 public:
 	typedef Luna< osgGA::SphericalManipulator > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -290,14 +299,34 @@ public:
 
 	// Constructor binds:
 	// osgGA::SphericalManipulator::SphericalManipulator()
-	static osgGA::SphericalManipulator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgGA::SphericalManipulator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgGA::SphericalManipulator::SphericalManipulator() function, expected prototype:\nosgGA::SphericalManipulator::SphericalManipulator()\nClass arguments details:\n");
 		}
 
 
 		return new osgGA::SphericalManipulator();
+	}
+
+	// osgGA::SphericalManipulator::SphericalManipulator(lua_Table * data)
+	static osgGA::SphericalManipulator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::SphericalManipulator::SphericalManipulator(lua_Table * data) function, expected prototype:\nosgGA::SphericalManipulator::SphericalManipulator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_SphericalManipulator(L,NULL);
+	}
+
+	// Overload binder for osgGA::SphericalManipulator::SphericalManipulator
+	static osgGA::SphericalManipulator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function SphericalManipulator, cannot match any of the overloads for function SphericalManipulator:\n  SphericalManipulator()\n  SphericalManipulator(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -449,11 +478,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::SphericalManipulator::setNode(osg::Node * )
+	// void osgGA::SphericalManipulator::setNode(osg::Node * arg1)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::setNode(osg::Node * ) function, expected prototype:\nvoid osgGA::SphericalManipulator::setNode(osg::Node * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::setNode(osg::Node * arg1) function, expected prototype:\nvoid osgGA::SphericalManipulator::setNode(osg::Node * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Node* _arg1=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
@@ -547,11 +576,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::SphericalManipulator::home(double )
+	// void osgGA::SphericalManipulator::home(double arg1)
 	static int _bind_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_home_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::home(double ) function, expected prototype:\nvoid osgGA::SphericalManipulator::home(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::SphericalManipulator::home(double arg1) function, expected prototype:\nvoid osgGA::SphericalManipulator::home(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);

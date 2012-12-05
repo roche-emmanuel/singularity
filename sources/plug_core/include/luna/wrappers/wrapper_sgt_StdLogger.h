@@ -8,16 +8,14 @@
 
 #include <log/StdLogger.h>
 
-namespace sgt {
-
 class wrapper_sgt_StdLogger : public sgt::StdLogger {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_StdLogger(lua_State* L, const std::string & name = "") : sgt::StdLogger(name), _obj(L,-1) {};
+	wrapper_sgt_StdLogger(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::StdLogger(name), _obj(L,-1) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -58,7 +56,6 @@ public:
 
 };
 
-};	
 
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_FirstPersonManipulator.h>
+
 class luna_wrapper_osgGA_FirstPersonManipulator {
 public:
 	typedef Luna< osgGA::FirstPersonManipulator > luna_t;
@@ -56,6 +58,27 @@ public:
 		if( (!dynamic_cast< osgGA::FirstPersonManipulator* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::FirstPersonManipulator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -294,12 +317,51 @@ public:
 		return new osgGA::FirstPersonManipulator(fpm, copyOp);
 	}
 
+	// osgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
+	static osgGA::FirstPersonManipulator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+
+		return new wrapper_osgGA_FirstPersonManipulator(L,NULL, flags);
+	}
+
+	// osgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
+	static osgGA::FirstPersonManipulator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::FirstPersonManipulator::FirstPersonManipulator(lua_Table * data, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgGA::FirstPersonManipulator* fpm_ptr=dynamic_cast< osgGA::FirstPersonManipulator* >(Luna< osg::Referenced >::check(L,2));
+		if( !fpm_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fpm in osgGA::FirstPersonManipulator::FirstPersonManipulator function");
+		}
+		const osgGA::FirstPersonManipulator & fpm=*fpm_ptr;
+		const osg::CopyOp* copyOp_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyOp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::FirstPersonManipulator::FirstPersonManipulator function");
+		}
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgGA_FirstPersonManipulator(L,NULL, fpm, copyOp);
+	}
+
 	// Overload binder for osgGA::FirstPersonManipulator::FirstPersonManipulator
 	static osgGA::FirstPersonManipulator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function FirstPersonManipulator, cannot match any of the overloads for function FirstPersonManipulator:\n  FirstPersonManipulator(int)\n  FirstPersonManipulator(const osgGA::FirstPersonManipulator &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function FirstPersonManipulator, cannot match any of the overloads for function FirstPersonManipulator:\n  FirstPersonManipulator(int)\n  FirstPersonManipulator(const osgGA::FirstPersonManipulator &, const osg::CopyOp &)\n  FirstPersonManipulator(lua_Table *, int)\n  FirstPersonManipulator(lua_Table *, const osgGA::FirstPersonManipulator &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -326,11 +388,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & ) const
+	// osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -700,11 +762,11 @@ public:
 		return 0;
 	}
 
-	// double osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = ((void *) 0)) const
+	// double osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = NULL) const
 	static int _bind_getAcceleration(lua_State *L) {
 		if (!_lg_typecheck_getAcceleration(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = ((void *) 0)) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = ((void *) 0)) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = NULL) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getAcceleration(bool * relativeToModelSize = NULL) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -744,11 +806,11 @@ public:
 		return 0;
 	}
 
-	// double osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = ((void *) 0)) const
+	// double osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = NULL) const
 	static int _bind_getMaxVelocity(lua_State *L) {
 		if (!_lg_typecheck_getMaxVelocity(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = ((void *) 0)) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = ((void *) 0)) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = NULL) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getMaxVelocity(bool * relativeToModelSize = NULL) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -788,11 +850,11 @@ public:
 		return 0;
 	}
 
-	// double osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = ((void *) 0)) const
+	// double osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = NULL) const
 	static int _bind_getWheelMovement(lua_State *L) {
 		if (!_lg_typecheck_getWheelMovement(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = ((void *) 0)) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = ((void *) 0)) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = NULL) const function, expected prototype:\ndouble osgGA::FirstPersonManipulator::getWheelMovement(bool * relativeToModelSize = NULL) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -810,11 +872,11 @@ public:
 		return 1;
 	}
 
-	// void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_home_overload_1(lua_State *L) {
 		if (!_lg_typecheck_home_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
@@ -838,11 +900,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::FirstPersonManipulator::home(double )
+	// void osgGA::FirstPersonManipulator::home(double arg1)
 	static int _bind_home_overload_2(lua_State *L) {
 		if (!_lg_typecheck_home_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::home(double ) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::home(double )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::home(double arg1) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::home(double arg1)\nClass arguments details:\n");
 		}
 
 		double _arg1=(double)lua_tonumber(L,2);
@@ -866,11 +928,11 @@ public:
 		return 0;
 	}
 
-	// void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nvoid osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

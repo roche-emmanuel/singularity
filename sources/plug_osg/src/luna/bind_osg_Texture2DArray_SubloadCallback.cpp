@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture2DArray_SubloadCallback.h>
+
 class luna_wrapper_osg_Texture2DArray_SubloadCallback {
 public:
 	typedef Luna< osg::Texture2DArray::SubloadCallback > luna_t;
@@ -127,8 +129,6 @@ osg::Texture2DArray::SubloadCallback* LunaTraits< osg::Texture2DArray::SubloadCa
 	// Abstract methods:
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
 	// void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray & texture, osg::State & state) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::Texture2DArray::SubloadCallback >::_bind_dtor(osg::Texture2DArray::SubloadCallback* obj) {

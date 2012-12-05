@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ClusterCullingCallback.h>
+
 class luna_wrapper_osg_ClusterCullingCallback {
 public:
 	typedef Luna< osg::ClusterCullingCallback > luna_t;
@@ -72,6 +74,45 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
 		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::ClusterCullingCallback* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3))) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -273,14 +314,84 @@ public:
 		return new osg::ClusterCullingCallback(drawable);
 	}
 
+	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data)
+	static osg::ClusterCullingCallback* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ClusterCullingCallback(L,NULL);
+	}
+
+	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)
+	static osg::ClusterCullingCallback* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osg::ClusterCullingCallback* ccc_ptr=dynamic_cast< osg::ClusterCullingCallback* >(Luna< osg::Referenced >::check(L,2));
+		if( !ccc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ccc in osg::ClusterCullingCallback::ClusterCullingCallback function");
+		}
+		const osg::ClusterCullingCallback & ccc=*ccc_ptr;
+		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::ClusterCullingCallback::ClusterCullingCallback function");
+		}
+		const osg::CopyOp & copyop=*copyop_ptr;
+
+		return new wrapper_osg_ClusterCullingCallback(L,NULL, ccc, copyop);
+	}
+
+	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)
+	static osg::ClusterCullingCallback* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* controlPoint_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !controlPoint_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg controlPoint in osg::ClusterCullingCallback::ClusterCullingCallback function");
+		}
+		const osg::Vec3f & controlPoint=*controlPoint_ptr;
+		const osg::Vec3f* normal_ptr=(Luna< osg::Vec3f >::check(L,3));
+		if( !normal_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg normal in osg::ClusterCullingCallback::ClusterCullingCallback function");
+		}
+		const osg::Vec3f & normal=*normal_ptr;
+		float deviation=(float)lua_tonumber(L,4);
+
+		return new wrapper_osg_ClusterCullingCallback(L,NULL, controlPoint, normal, deviation);
+	}
+
+	// osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable)
+	static osg::ClusterCullingCallback* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable) function, expected prototype:\nosg::ClusterCullingCallback::ClusterCullingCallback(lua_Table * data, const osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osg_ClusterCullingCallback(L,NULL, drawable);
+	}
+
 	// Overload binder for osg::ClusterCullingCallback::ClusterCullingCallback
 	static osg::ClusterCullingCallback* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
 
-		luaL_error(L, "error in function ClusterCullingCallback, cannot match any of the overloads for function ClusterCullingCallback:\n  ClusterCullingCallback()\n  ClusterCullingCallback(const osg::ClusterCullingCallback &, const osg::CopyOp &)\n  ClusterCullingCallback(const osg::Vec3f &, const osg::Vec3f &, float)\n  ClusterCullingCallback(const osg::Drawable *)\n");
+		luaL_error(L, "error in function ClusterCullingCallback, cannot match any of the overloads for function ClusterCullingCallback:\n  ClusterCullingCallback()\n  ClusterCullingCallback(const osg::ClusterCullingCallback &, const osg::CopyOp &)\n  ClusterCullingCallback(const osg::Vec3f &, const osg::Vec3f &, float)\n  ClusterCullingCallback(const osg::Drawable *)\n  ClusterCullingCallback(lua_Table *)\n  ClusterCullingCallback(lua_Table *, const osg::ClusterCullingCallback &, const osg::CopyOp &)\n  ClusterCullingCallback(lua_Table *, const osg::Vec3f &, const osg::Vec3f &, float)\n  ClusterCullingCallback(lua_Table *, const osg::Drawable *)\n");
 		return NULL;
 	}
 
@@ -307,11 +418,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -627,11 +738,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * , osg::Drawable * , osg::State * ) const
+	// bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const
 	static int _bind_cull(lua_State *L) {
 		if (!_lg_typecheck_cull(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * , osg::Drawable * , osg::State * ) const function, expected prototype:\nbool osg::ClusterCullingCallback::cull(osg::NodeVisitor * , osg::Drawable * , osg::State * ) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const function, expected prototype:\nbool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		osg::NodeVisitor* _arg1=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));

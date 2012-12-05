@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_PrimitiveSet.h>
+
 class luna_wrapper_osg_PrimitiveSet {
 public:
 	typedef Luna< osg::PrimitiveSet > luna_t;
@@ -60,9 +62,7 @@ osg::PrimitiveSet* LunaTraits< osg::PrimitiveSet >::_bind_ctor(lua_State *L) {
 	// unsigned int osg::PrimitiveSet::getNumIndices() const
 	// void osg::PrimitiveSet::offsetIndices(int offset)
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::PrimitiveSet >::_bind_dtor(osg::PrimitiveSet* obj) {

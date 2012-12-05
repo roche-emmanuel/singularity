@@ -8,17 +8,15 @@
 
 #include <base/TimeProvider.h>
 
-namespace sgt {
-
 class wrapper_sgt_TimeProvider : public sgt::TimeProvider {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_sgt_TimeProvider(lua_State* L) : sgt::TimeProvider(), _obj(L,-1) {};
-	wrapper_sgt_TimeProvider(lua_State* L, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), _obj(L,-1) {};
+	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum) : sgt::TimeProvider(), _obj(L,-1) {};
+	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), _obj(L,-1) {};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
@@ -33,7 +31,7 @@ public:
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
 		if(_obj.pushFunction("setName")) {
-			_obj.pushArg(&name);
+			_obj.pushArg(name);
 			return (_obj.callFunction<void>());
 		}
 
@@ -138,7 +136,7 @@ public:
 	// const char * sgt::TimeProvider::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
-			return (_obj.callFunction<char*>());
+			return (_obj.callFunction<const char*>());
 		}
 
 		return sgt::TimeProvider::libraryName();
@@ -147,7 +145,7 @@ public:
 	// const char * sgt::TimeProvider::className() const
 	const char * className() const {
 		if(_obj.pushFunction("className")) {
-			return (_obj.callFunction<char*>());
+			return (_obj.callFunction<const char*>());
 		}
 
 		return sgt::TimeProvider::className();
@@ -158,7 +156,6 @@ public:
 
 };
 
-};	
 
 
 

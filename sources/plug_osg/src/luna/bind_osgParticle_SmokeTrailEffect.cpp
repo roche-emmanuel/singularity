@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_SmokeTrailEffect.h>
+
 class luna_wrapper_osgParticle_SmokeTrailEffect {
 public:
 	typedef Luna< osgParticle::SmokeTrailEffect > luna_t;
@@ -67,6 +69,39 @@ public:
 		if( (!dynamic_cast< osgParticle::SmokeTrailEffect* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::SmokeTrailEffect* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -209,13 +244,73 @@ public:
 		return new osgParticle::SmokeTrailEffect(copy, copyop);
 	}
 
+	// osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, bool automaticSetup = true)
+	static osgParticle::SmokeTrailEffect* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, bool automaticSetup = true) function, expected prototype:\nosgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, bool automaticSetup = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool automaticSetup=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		return new wrapper_osgParticle_SmokeTrailEffect(L,NULL, automaticSetup);
+	}
+
+	// osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f)
+	static osgParticle::SmokeTrailEffect* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) function, expected prototype:\nosgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f)\nClass arguments details:\narg 2 ID = 92303204\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Vec3f* position_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !position_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg position in osgParticle::SmokeTrailEffect::SmokeTrailEffect function");
+		}
+		const osg::Vec3f & position=*position_ptr;
+		float scale=luatop>2 ? (float)lua_tonumber(L,3) : 1.0f;
+		float intensity=luatop>3 ? (float)lua_tonumber(L,4) : 1.0f;
+
+		return new wrapper_osgParticle_SmokeTrailEffect(L,NULL, position, scale, intensity);
+	}
+
+	// osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osgParticle::SmokeTrailEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgParticle::SmokeTrailEffect* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osgParticle::SmokeTrailEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::SmokeTrailEffect::SmokeTrailEffect(lua_Table * data, const osgParticle::SmokeTrailEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgParticle::SmokeTrailEffect* copy_ptr=dynamic_cast< osgParticle::SmokeTrailEffect* >(Luna< osg::Referenced >::check(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgParticle::SmokeTrailEffect::SmokeTrailEffect function");
+		}
+		const osgParticle::SmokeTrailEffect & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::SmokeTrailEffect::SmokeTrailEffect function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgParticle_SmokeTrailEffect(L,NULL, copy, copyop);
+	}
+
 	// Overload binder for osgParticle::SmokeTrailEffect::SmokeTrailEffect
 	static osgParticle::SmokeTrailEffect* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function SmokeTrailEffect, cannot match any of the overloads for function SmokeTrailEffect:\n  SmokeTrailEffect(bool)\n  SmokeTrailEffect(const osg::Vec3f &, float, float)\n  SmokeTrailEffect(const osgParticle::SmokeTrailEffect &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function SmokeTrailEffect, cannot match any of the overloads for function SmokeTrailEffect:\n  SmokeTrailEffect(bool)\n  SmokeTrailEffect(const osg::Vec3f &, float, float)\n  SmokeTrailEffect(const osgParticle::SmokeTrailEffect &, const osg::CopyOp &)\n  SmokeTrailEffect(lua_Table *, bool)\n  SmokeTrailEffect(lua_Table *, const osg::Vec3f &, float, float)\n  SmokeTrailEffect(lua_Table *, const osgParticle::SmokeTrailEffect &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 

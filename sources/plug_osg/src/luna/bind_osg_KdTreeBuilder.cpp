@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_KdTreeBuilder.h>
+
 class luna_wrapper_osg_KdTreeBuilder {
 public:
 	typedef Luna< osg::KdTreeBuilder > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osg::KdTreeBuilder* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::KdTreeBuilder* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -113,12 +131,41 @@ public:
 		return new osg::KdTreeBuilder(rhs);
 	}
 
+	// osg::KdTreeBuilder::KdTreeBuilder(lua_Table * data)
+	static osg::KdTreeBuilder* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::KdTreeBuilder::KdTreeBuilder(lua_Table * data) function, expected prototype:\nosg::KdTreeBuilder::KdTreeBuilder(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_KdTreeBuilder(L,NULL);
+	}
+
+	// osg::KdTreeBuilder::KdTreeBuilder(lua_Table * data, const osg::KdTreeBuilder & rhs)
+	static osg::KdTreeBuilder* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::KdTreeBuilder::KdTreeBuilder(lua_Table * data, const osg::KdTreeBuilder & rhs) function, expected prototype:\nosg::KdTreeBuilder::KdTreeBuilder(lua_Table * data, const osg::KdTreeBuilder & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::KdTreeBuilder* rhs_ptr=dynamic_cast< osg::KdTreeBuilder* >(Luna< osg::Referenced >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::KdTreeBuilder::KdTreeBuilder function");
+		}
+		const osg::KdTreeBuilder & rhs=*rhs_ptr;
+
+		return new wrapper_osg_KdTreeBuilder(L,NULL, rhs);
+	}
+
 	// Overload binder for osg::KdTreeBuilder::KdTreeBuilder
 	static osg::KdTreeBuilder* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function KdTreeBuilder, cannot match any of the overloads for function KdTreeBuilder:\n  KdTreeBuilder()\n  KdTreeBuilder(const osg::KdTreeBuilder &)\n");
+		luaL_error(L, "error in function KdTreeBuilder, cannot match any of the overloads for function KdTreeBuilder:\n  KdTreeBuilder()\n  KdTreeBuilder(const osg::KdTreeBuilder &)\n  KdTreeBuilder(lua_Table *)\n  KdTreeBuilder(lua_Table *, const osg::KdTreeBuilder &)\n");
 		return NULL;
 	}
 

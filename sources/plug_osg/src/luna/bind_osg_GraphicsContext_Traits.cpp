@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsContext_Traits.h>
+
 class luna_wrapper_osg_GraphicsContext_Traits {
 public:
 	typedef Luna< osg::GraphicsContext::Traits > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -56,8 +69,8 @@ public:
 
 	// Constructor binds:
 	// osg::GraphicsContext::Traits::Traits(osg::DisplaySettings * ds = 0)
-	static osg::GraphicsContext::Traits* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::GraphicsContext::Traits* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::Traits::Traits(osg::DisplaySettings * ds = 0) function, expected prototype:\nosg::GraphicsContext::Traits::Traits(osg::DisplaySettings * ds = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -67,6 +80,29 @@ public:
 		osg::DisplaySettings* ds=luatop>0 ? dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1)) : (osg::DisplaySettings*)0;
 
 		return new osg::GraphicsContext::Traits(ds);
+	}
+
+	// osg::GraphicsContext::Traits::Traits(lua_Table * data, osg::DisplaySettings * ds = 0)
+	static osg::GraphicsContext::Traits* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::GraphicsContext::Traits::Traits(lua_Table * data, osg::DisplaySettings * ds = 0) function, expected prototype:\nosg::GraphicsContext::Traits::Traits(lua_Table * data, osg::DisplaySettings * ds = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::DisplaySettings* ds=luatop>1 ? dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2)) : (osg::DisplaySettings*)0;
+
+		return new wrapper_osg_GraphicsContext_Traits(L,NULL, ds);
+	}
+
+	// Overload binder for osg::GraphicsContext::Traits::Traits
+	static osg::GraphicsContext::Traits* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Traits, cannot match any of the overloads for function Traits:\n  Traits(osg::DisplaySettings *)\n  Traits(lua_Table *, osg::DisplaySettings *)\n");
+		return NULL;
 	}
 
 

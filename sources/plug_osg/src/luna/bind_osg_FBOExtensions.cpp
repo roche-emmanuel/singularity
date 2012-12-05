@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_FBOExtensions.h>
+
 class luna_wrapper_osg_FBOExtensions {
 public:
 	typedef Luna< osg::FBOExtensions > luna_t;
@@ -81,11 +83,11 @@ public:
 	// Constructor binds:
 
 	// Function binds:
-	// static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned contextID, bool createIfNotInitalized)
+	// static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized)
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FBOExtensions * osg::FBOExtensions::instance(unsigned contextID, bool createIfNotInitalized)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized) function, expected prototype:\nstatic osg::FBOExtensions * osg::FBOExtensions::instance(unsigned int contextID, bool createIfNotInitalized)\nClass arguments details:\n");
 		}
 
 		unsigned contextID=(unsigned)lua_tointeger(L,1);

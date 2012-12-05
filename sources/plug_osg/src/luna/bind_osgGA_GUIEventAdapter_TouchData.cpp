@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_GUIEventAdapter_TouchData.h>
+
 class luna_wrapper_osgGA_GUIEventAdapter_TouchData {
 public:
 	typedef Luna< osgGA::GUIEventAdapter::TouchData > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -67,14 +76,34 @@ public:
 
 	// Constructor binds:
 	// osgGA::GUIEventAdapter::TouchData::TouchData()
-	static osgGA::GUIEventAdapter::TouchData* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData() function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData()\nClass arguments details:\n");
 		}
 
 
 		return new osgGA::GUIEventAdapter::TouchData();
+	}
+
+	// osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data)
+	static osgGA::GUIEventAdapter::TouchData* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data) function, expected prototype:\nosgGA::GUIEventAdapter::TouchData::TouchData(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgGA_GUIEventAdapter_TouchData(L,NULL);
+	}
+
+	// Overload binder for osgGA::GUIEventAdapter::TouchData::TouchData
+	static osgGA::GUIEventAdapter::TouchData* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TouchData, cannot match any of the overloads for function TouchData:\n  TouchData()\n  TouchData(lua_Table *)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Placer.h>
+
 class luna_wrapper_osgParticle_Placer {
 public:
 	typedef Luna< osgParticle::Placer > luna_t;
@@ -212,9 +214,7 @@ osgParticle::Placer* LunaTraits< osgParticle::Placer >::_bind_ctor(lua_State *L)
 	// void osgParticle::Placer::place(osgParticle::Particle * P) const
 	// osg::Vec3f osgParticle::Placer::getControlPosition() const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::Placer >::_bind_dtor(osgParticle::Placer* obj) {

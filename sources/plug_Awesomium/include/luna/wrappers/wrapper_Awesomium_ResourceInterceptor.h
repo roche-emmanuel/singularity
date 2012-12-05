@@ -8,16 +8,14 @@
 
 #include <Awesomium/ResourceInterceptor.h>
 
-namespace sgt {
-
 class wrapper_Awesomium_ResourceInterceptor : public Awesomium::ResourceInterceptor {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_Awesomium_ResourceInterceptor(lua_State* L) : Awesomium::ResourceInterceptor(), _obj(L,-1) {};
+	wrapper_Awesomium_ResourceInterceptor(lua_State* L, lua_Table* dum) : Awesomium::ResourceInterceptor(), _obj(L,-1) {};
 
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
 	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
@@ -34,7 +32,6 @@ public:
 
 };
 
-};	
 
 
 

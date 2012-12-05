@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FieldReader.h>
+
 class luna_wrapper_osgDB_FieldReader {
 public:
 	typedef Luna< osgDB::FieldReader > luna_t;
@@ -68,6 +70,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,53806078) ) return false;
+		if( (!dynamic_cast< osgDB::FieldReader* >(Luna< osgDB::FieldReader >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_detach(lua_State *L) {
@@ -133,12 +151,41 @@ public:
 		return new osgDB::FieldReader(ic);
 	}
 
+	// osgDB::FieldReader::FieldReader(lua_Table * data)
+	static osgDB::FieldReader* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_FieldReader(L,NULL);
+	}
+
+	// osgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic)
+	static osgDB::FieldReader* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic) function, expected prototype:\nosgDB::FieldReader::FieldReader(lua_Table * data, const osgDB::FieldReader & ic)\nClass arguments details:\narg 2 ID = 53806078\n");
+		}
+
+		const osgDB::FieldReader* ic_ptr=(Luna< osgDB::FieldReader >::check(L,2));
+		if( !ic_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ic in osgDB::FieldReader::FieldReader function");
+		}
+		const osgDB::FieldReader & ic=*ic_ptr;
+
+		return new wrapper_osgDB_FieldReader(L,NULL, ic);
+	}
+
 	// Overload binder for osgDB::FieldReader::FieldReader
 	static osgDB::FieldReader* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function FieldReader, cannot match any of the overloads for function FieldReader:\n  FieldReader()\n  FieldReader(const osgDB::FieldReader &)\n");
+		luaL_error(L, "error in function FieldReader, cannot match any of the overloads for function FieldReader:\n  FieldReader()\n  FieldReader(const osgDB::FieldReader &)\n  FieldReader(lua_Table *)\n  FieldReader(lua_Table *, const osgDB::FieldReader &)\n");
 		return NULL;
 	}
 

@@ -13,7 +13,7 @@
 
 namespace sgt {
 
-class LuaRef : public sgt::LuaBase {
+class SGTCORE_EXPORT LuaRef : public sgt::LuaBase {
 protected:
 	 int _ref;
 

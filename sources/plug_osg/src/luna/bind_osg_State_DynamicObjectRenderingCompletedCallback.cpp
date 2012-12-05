@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_State_DynamicObjectRenderingCompletedCallback.h>
+
 class luna_wrapper_osg_State_DynamicObjectRenderingCompletedCallback {
 public:
 	typedef Luna< osg::State::DynamicObjectRenderingCompletedCallback > luna_t;
@@ -52,11 +54,11 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * )
+	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
 	static int _bind_completed(lua_State *L) {
 		if (!_lg_typecheck_completed(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * ) function, expected prototype:\nvoid osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1) function, expected prototype:\nvoid osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
@@ -79,9 +81,7 @@ public:
 osg::State::DynamicObjectRenderingCompletedCallback* LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * )
-
-	// Abstract operators:
+	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
 }
 
 void LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_dtor(osg::State::DynamicObjectRenderingCompletedCallback* obj) {

@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_View : public WebViewListener::View {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_View(lua_State* L) : WebViewListener::View(), _obj(L,-1) {};
+	wrapper_WebViewListener_View(lua_State* L, lua_Table* dum) : WebViewListener::View(), _obj(L,-1) {};
 
 	// void WebViewListener::View::OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title)
 	void OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title) {
@@ -84,7 +82,6 @@ public:
 
 };
 
-};	
 
 
 

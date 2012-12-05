@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_TestResult.h>
+
 class luna_wrapper_osg_TestResult {
 public:
 	typedef Luna< osg::TestResult > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -54,14 +63,34 @@ public:
 
 	// Constructor binds:
 	// osg::TestResult::TestResult()
-	static osg::TestResult* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::TestResult* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::TestResult::TestResult() function, expected prototype:\nosg::TestResult::TestResult()\nClass arguments details:\n");
 		}
 
 
 		return new osg::TestResult();
+	}
+
+	// osg::TestResult::TestResult(lua_Table * data)
+	static osg::TestResult* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::TestResult::TestResult(lua_Table * data) function, expected prototype:\nosg::TestResult::TestResult(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_TestResult(L,NULL);
+	}
+
+	// Overload binder for osg::TestResult::TestResult
+	static osg::TestResult* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TestResult, cannot match any of the overloads for function TestResult:\n  TestResult()\n  TestResult(lua_Table *)\n");
+		return NULL;
 	}
 
 

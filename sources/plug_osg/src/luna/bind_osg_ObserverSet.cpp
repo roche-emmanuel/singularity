@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ObserverSet.h>
+
 class luna_wrapper_osg_ObserverSet {
 public:
 	typedef Luna< osg::ObserverSet > luna_t;
@@ -40,10 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -106,8 +118,8 @@ public:
 
 	// Constructor binds:
 	// osg::ObserverSet::ObserverSet(const osg::Referenced * observedObject)
-	static osg::ObserverSet* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ObserverSet* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ObserverSet::ObserverSet(const osg::Referenced * observedObject) function, expected prototype:\nosg::ObserverSet::ObserverSet(const osg::Referenced * observedObject)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -115,6 +127,27 @@ public:
 		const osg::Referenced* observedObject=(Luna< osg::Referenced >::check(L,1));
 
 		return new osg::ObserverSet(observedObject);
+	}
+
+	// osg::ObserverSet::ObserverSet(lua_Table * data, const osg::Referenced * observedObject)
+	static osg::ObserverSet* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ObserverSet::ObserverSet(lua_Table * data, const osg::Referenced * observedObject) function, expected prototype:\nosg::ObserverSet::ObserverSet(lua_Table * data, const osg::Referenced * observedObject)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osg::Referenced* observedObject=(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osg_ObserverSet(L,NULL, observedObject);
+	}
+
+	// Overload binder for osg::ObserverSet::ObserverSet
+	static osg::ObserverSet* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ObserverSet, cannot match any of the overloads for function ObserverSet:\n  ObserverSet(const osg::Referenced *)\n  ObserverSet(lua_Table *, const osg::Referenced *)\n");
+		return NULL;
 	}
 
 

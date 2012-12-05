@@ -70,11 +70,11 @@ public:
 	// Constructor binds:
 
 	// Function binds:
-	// void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & )
+	// void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)
 	static int _bind_visit(lua_State *L) {
 		if (!_lg_typecheck_visit(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & ) function, expected prototype:\nvoid osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1) function, expected prototype:\nvoid osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osgGA::GUIEventHandler* _arg1_ptr=dynamic_cast< osgGA::GUIEventHandler* >(Luna< osg::Referenced >::check(L,2));

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_ResourceInterceptor.h>
+
 class luna_wrapper_Awesomium_ResourceInterceptor {
 public:
 	typedef Luna< Awesomium::ResourceInterceptor > luna_t;

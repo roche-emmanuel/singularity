@@ -2,6 +2,7 @@
 local oo = require "loop.base"
  
 local BinderBase = oo.class{}
+local corr = require "bindings.TextCorrector"
 
 BinderBase.CLASS_NAME = "bindings.BinderBase"
 
@@ -46,7 +47,11 @@ function BinderBase:handle(writer,func,name)
 	local args = writer:retrieveArguments(func)
 	
 	-- Call the function:
-	if isconstruct then
+	
+	if func:isWrapper() then
+		local wname = corr:correct("filename",fname)	
+		writer:writeSubLine("return new wrapper_${1}(L${2});",wname,args~="" and ","..args or "")
+	elseif isconstruct then
 		writer:writeSubLine("return new ${1}(${2});",fname,args)
 	else
 		writer:writeFunctionCall(fname,func,args)

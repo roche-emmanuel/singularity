@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_Shooter.h>
+
 class luna_wrapper_osgParticle_Shooter {
 public:
 	typedef Luna< osgParticle::Shooter > luna_t;
@@ -158,9 +160,7 @@ osgParticle::Shooter* LunaTraits< osgParticle::Shooter >::_bind_ctor(lua_State *
 	// Abstract methods:
 	// void osgParticle::Shooter::shoot(osgParticle::Particle * P) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osgParticle::Shooter >::_bind_dtor(osgParticle::Shooter* obj) {

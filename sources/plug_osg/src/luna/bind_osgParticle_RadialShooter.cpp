@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgParticle_RadialShooter.h>
+
 class luna_wrapper_osgParticle_RadialShooter {
 public:
 	typedef Luna< osgParticle::RadialShooter > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (!dynamic_cast< osgParticle::RadialShooter* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::RadialShooter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -227,12 +248,48 @@ public:
 		return new osgParticle::RadialShooter(copy, copyop);
 	}
 
+	// osgParticle::RadialShooter::RadialShooter(lua_Table * data)
+	static osgParticle::RadialShooter* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::RadialShooter::RadialShooter(lua_Table * data) function, expected prototype:\nosgParticle::RadialShooter::RadialShooter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgParticle_RadialShooter(L,NULL);
+	}
+
+	// osgParticle::RadialShooter::RadialShooter(lua_Table * data, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgParticle::RadialShooter* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::RadialShooter::RadialShooter(lua_Table * data, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::RadialShooter::RadialShooter(lua_Table * data, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgParticle::RadialShooter* copy_ptr=dynamic_cast< osgParticle::RadialShooter* >(Luna< osg::Referenced >::check(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgParticle::RadialShooter::RadialShooter function");
+		}
+		const osgParticle::RadialShooter & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::RadialShooter::RadialShooter function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgParticle_RadialShooter(L,NULL, copy, copyop);
+	}
+
 	// Overload binder for osgParticle::RadialShooter::RadialShooter
 	static osgParticle::RadialShooter* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function RadialShooter, cannot match any of the overloads for function RadialShooter:\n  RadialShooter()\n  RadialShooter(const osgParticle::RadialShooter &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function RadialShooter, cannot match any of the overloads for function RadialShooter:\n  RadialShooter()\n  RadialShooter(const osgParticle::RadialShooter &, const osg::CopyOp &)\n  RadialShooter(lua_Table *)\n  RadialShooter(lua_Table *, const osgParticle::RadialShooter &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -259,11 +316,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & ) const
+	// osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

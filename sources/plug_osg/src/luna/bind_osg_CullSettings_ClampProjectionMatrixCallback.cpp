@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_CullSettings_ClampProjectionMatrixCallback.h>
+
 class luna_wrapper_osg_CullSettings_ClampProjectionMatrixCallback {
 public:
 	typedef Luna< osg::CullSettings::ClampProjectionMatrixCallback > luna_t;
@@ -136,8 +138,6 @@ osg::CullSettings::ClampProjectionMatrixCallback* LunaTraits< osg::CullSettings:
 	// Abstract methods:
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::CullSettings::ClampProjectionMatrixCallback >::_bind_dtor(osg::CullSettings::ClampProjectionMatrixCallback* obj) {

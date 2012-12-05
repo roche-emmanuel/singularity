@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BarrierOperation.h>
+
 class luna_wrapper_osg_BarrierOperation {
 public:
 	typedef Luna< osg::BarrierOperation > luna_t;
@@ -82,11 +84,11 @@ public:
 
 
 	// Operator binds:
-	// void osg::BarrierOperation::operator()(osg::Object * )
+	// void osg::BarrierOperation::operator()(osg::Object * arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::operator()(osg::Object * ) function, expected prototype:\nvoid osg::BarrierOperation::operator()(osg::Object * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::BarrierOperation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));

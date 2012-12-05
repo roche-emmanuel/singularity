@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_SurfaceFactory.h>
+
 class luna_wrapper_Awesomium_SurfaceFactory {
 public:
 	typedef Luna< Awesomium::SurfaceFactory > luna_t;

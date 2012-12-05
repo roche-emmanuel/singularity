@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_Dialog : public WebViewListener::Dialog {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_Dialog(lua_State* L) : WebViewListener::Dialog(), _obj(L,-1) {};
+	wrapper_WebViewListener_Dialog(lua_State* L, lua_Table* dum) : WebViewListener::Dialog(), _obj(L,-1) {};
 
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	void OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) {
@@ -40,7 +38,6 @@ public:
 
 };
 
-};	
 
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_Font.h>
+
 class luna_wrapper_osgText_Font {
 public:
 	typedef Luna< osgText::Font > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -292,8 +305,8 @@ public:
 
 	// Constructor binds:
 	// osgText::Font::Font(osgText::Font::FontImplementation * implementation = 0)
-	static osgText::Font* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgText::Font* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgText::Font::Font(osgText::Font::FontImplementation * implementation = 0) function, expected prototype:\nosgText::Font::Font(osgText::Font::FontImplementation * implementation = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -303,6 +316,29 @@ public:
 		osgText::Font::FontImplementation* implementation=luatop>0 ? dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1)) : (osgText::Font::FontImplementation*)0;
 
 		return new osgText::Font(implementation);
+	}
+
+	// osgText::Font::Font(lua_Table * data, osgText::Font::FontImplementation * implementation = 0)
+	static osgText::Font* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::Font::Font(lua_Table * data, osgText::Font::FontImplementation * implementation = 0) function, expected prototype:\nosgText::Font::Font(lua_Table * data, osgText::Font::FontImplementation * implementation = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osgText::Font::FontImplementation* implementation=luatop>1 ? dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,2)) : (osgText::Font::FontImplementation*)0;
+
+		return new wrapper_osgText_Font(L,NULL, implementation);
+	}
+
+	// Overload binder for osgText::Font::Font
+	static osgText::Font* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Font, cannot match any of the overloads for function Font:\n  Font(osgText::Font::FontImplementation *)\n  Font(lua_Table *, osgText::Font::FontImplementation *)\n");
+		return NULL;
 	}
 
 
@@ -328,11 +364,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgText::Font::clone(const osg::CopyOp & ) const
+	// osg::Object * osgText::Font::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgText::Font::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgText::Font::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgText::Font::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgText::Font::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

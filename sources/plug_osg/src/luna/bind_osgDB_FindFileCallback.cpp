@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_FindFileCallback.h>
+
 class luna_wrapper_osgDB_FindFileCallback {
 public:
 	typedef Luna< osgDB::FindFileCallback > luna_t;

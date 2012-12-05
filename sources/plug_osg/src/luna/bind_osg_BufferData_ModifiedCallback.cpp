@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BufferData_ModifiedCallback.h>
+
 class luna_wrapper_osg_BufferData_ModifiedCallback {
 public:
 	typedef Luna< osg::BufferData::ModifiedCallback > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (!dynamic_cast< osg::BufferData::ModifiedCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::BufferData::ModifiedCallback* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -113,11 +133,11 @@ public:
 		return new osg::BufferData::ModifiedCallback();
 	}
 
-	// osg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & , const osg::CopyOp & )
+	// osg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2)
 	static osg::BufferData::ModifiedCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & , const osg::CopyOp & ) function, expected prototype:\nosg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & , const osg::CopyOp & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2) function, expected prototype:\nosg::BufferData::ModifiedCallback::ModifiedCallback(const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		const osg::BufferData::ModifiedCallback* _arg1_ptr=dynamic_cast< osg::BufferData::ModifiedCallback* >(Luna< osg::Referenced >::check(L,1));
@@ -134,12 +154,46 @@ public:
 		return new osg::BufferData::ModifiedCallback(_arg1, _arg2);
 	}
 
+	// osg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data)
+	static osg::BufferData::ModifiedCallback* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data) function, expected prototype:\nosg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_BufferData_ModifiedCallback(L,NULL);
+	}
+
+	// osg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data, const osg::BufferData::ModifiedCallback & arg2, const osg::CopyOp & arg3)
+	static osg::BufferData::ModifiedCallback* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data, const osg::BufferData::ModifiedCallback & arg2, const osg::CopyOp & arg3) function, expected prototype:\nosg::BufferData::ModifiedCallback::ModifiedCallback(lua_Table * data, const osg::BufferData::ModifiedCallback & arg2, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osg::BufferData::ModifiedCallback* _arg2_ptr=dynamic_cast< osg::BufferData::ModifiedCallback* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::BufferData::ModifiedCallback::ModifiedCallback function");
+		}
+		const osg::BufferData::ModifiedCallback & _arg2=*_arg2_ptr;
+		const osg::CopyOp* _arg3_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !_arg3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg3 in osg::BufferData::ModifiedCallback::ModifiedCallback function");
+		}
+		const osg::CopyOp & _arg3=*_arg3_ptr;
+
+		return new wrapper_osg_BufferData_ModifiedCallback(L,NULL, _arg2, _arg3);
+	}
+
 	// Overload binder for osg::BufferData::ModifiedCallback::ModifiedCallback
 	static osg::BufferData::ModifiedCallback* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function ModifiedCallback, cannot match any of the overloads for function ModifiedCallback:\n  ModifiedCallback()\n  ModifiedCallback(const osg::BufferData::ModifiedCallback &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function ModifiedCallback, cannot match any of the overloads for function ModifiedCallback:\n  ModifiedCallback()\n  ModifiedCallback(const osg::BufferData::ModifiedCallback &, const osg::CopyOp &)\n  ModifiedCallback(lua_Table *)\n  ModifiedCallback(lua_Table *, const osg::BufferData::ModifiedCallback &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -166,11 +220,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::BufferData::ModifiedCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -250,11 +304,11 @@ public:
 		return 1;
 	}
 
-	// void osg::BufferData::ModifiedCallback::modified(osg::BufferData * ) const
+	// void osg::BufferData::ModifiedCallback::modified(osg::BufferData * arg1) const
 	static int _bind_modified(lua_State *L) {
 		if (!_lg_typecheck_modified(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::BufferData::ModifiedCallback::modified(osg::BufferData * ) const function, expected prototype:\nvoid osg::BufferData::ModifiedCallback::modified(osg::BufferData * ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::BufferData::ModifiedCallback::modified(osg::BufferData * arg1) const function, expected prototype:\nvoid osg::BufferData::ModifiedCallback::modified(osg::BufferData * arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::BufferData* _arg1=dynamic_cast< osg::BufferData* >(Luna< osg::Referenced >::check(L,2));

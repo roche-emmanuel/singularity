@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Drawable_DrawCallback.h>
+
 class luna_wrapper_osg_Drawable_DrawCallback {
 public:
 	typedef Luna< osg::Drawable::DrawCallback > luna_t;
@@ -53,6 +55,24 @@ public:
 		if( (!dynamic_cast< osg::Drawable::DrawCallback* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Drawable::DrawCallback* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -114,11 +134,11 @@ public:
 		return new osg::Drawable::DrawCallback();
 	}
 
-	// osg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & , const osg::CopyOp & )
+	// osg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & arg1, const osg::CopyOp & arg2)
 	static osg::Drawable::DrawCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & , const osg::CopyOp & ) function, expected prototype:\nosg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & , const osg::CopyOp & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & arg1, const osg::CopyOp & arg2) function, expected prototype:\nosg::Drawable::DrawCallback::DrawCallback(const osg::Drawable::DrawCallback & arg1, const osg::CopyOp & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
 		const osg::Drawable::DrawCallback* _arg1_ptr=dynamic_cast< osg::Drawable::DrawCallback* >(Luna< osg::Referenced >::check(L,1));
@@ -135,12 +155,46 @@ public:
 		return new osg::Drawable::DrawCallback(_arg1, _arg2);
 	}
 
+	// osg::Drawable::DrawCallback::DrawCallback(lua_Table * data)
+	static osg::Drawable::DrawCallback* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable::DrawCallback::DrawCallback(lua_Table * data) function, expected prototype:\nosg::Drawable::DrawCallback::DrawCallback(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Drawable_DrawCallback(L,NULL);
+	}
+
+	// osg::Drawable::DrawCallback::DrawCallback(lua_Table * data, const osg::Drawable::DrawCallback & arg2, const osg::CopyOp & arg3)
+	static osg::Drawable::DrawCallback* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable::DrawCallback::DrawCallback(lua_Table * data, const osg::Drawable::DrawCallback & arg2, const osg::CopyOp & arg3) function, expected prototype:\nosg::Drawable::DrawCallback::DrawCallback(lua_Table * data, const osg::Drawable::DrawCallback & arg2, const osg::CopyOp & arg3)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		const osg::Drawable::DrawCallback* _arg2_ptr=dynamic_cast< osg::Drawable::DrawCallback* >(Luna< osg::Referenced >::check(L,2));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::Drawable::DrawCallback::DrawCallback function");
+		}
+		const osg::Drawable::DrawCallback & _arg2=*_arg2_ptr;
+		const osg::CopyOp* _arg3_ptr=(Luna< osg::CopyOp >::check(L,3));
+		if( !_arg3_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg3 in osg::Drawable::DrawCallback::DrawCallback function");
+		}
+		const osg::CopyOp & _arg3=*_arg3_ptr;
+
+		return new wrapper_osg_Drawable_DrawCallback(L,NULL, _arg2, _arg3);
+	}
+
 	// Overload binder for osg::Drawable::DrawCallback::DrawCallback
 	static osg::Drawable::DrawCallback* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function DrawCallback, cannot match any of the overloads for function DrawCallback:\n  DrawCallback()\n  DrawCallback(const osg::Drawable::DrawCallback &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function DrawCallback, cannot match any of the overloads for function DrawCallback:\n  DrawCallback()\n  DrawCallback(const osg::Drawable::DrawCallback &, const osg::CopyOp &)\n  DrawCallback(lua_Table *)\n  DrawCallback(lua_Table *, const osg::Drawable::DrawCallback &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -167,11 +221,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -251,11 +305,11 @@ public:
 		return 1;
 	}
 
-	// void osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & , const osg::Drawable * ) const
+	// void osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & arg1, const osg::Drawable * arg2) const
 	static int _bind_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_drawImplementation(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & , const osg::Drawable * ) const function, expected prototype:\nvoid osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & , const osg::Drawable * ) const\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & arg1, const osg::Drawable * arg2) const function, expected prototype:\nvoid osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & arg1, const osg::Drawable * arg2) const\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
 		}
 
 		osg::RenderInfo* _arg1_ptr=(Luna< osg::RenderInfo >::check(L,2));

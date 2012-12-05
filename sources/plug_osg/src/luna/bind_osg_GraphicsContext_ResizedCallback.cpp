@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsContext_ResizedCallback.h>
+
 class luna_wrapper_osg_GraphicsContext_ResizedCallback {
 public:
 	typedef Luna< osg::GraphicsContext::ResizedCallback > luna_t;
@@ -88,8 +90,6 @@ osg::GraphicsContext::ResizedCallback* LunaTraits< osg::GraphicsContext::Resized
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osg::GraphicsContext::ResizedCallback >::_bind_dtor(osg::GraphicsContext::ResizedCallback* obj) {

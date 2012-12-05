@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_InteractiveImageHandler.h>
+
 class luna_wrapper_osgViewer_InteractiveImageHandler {
 public:
 	typedef Luna< osgViewer::InteractiveImageHandler > luna_t;
@@ -57,6 +59,28 @@ public:
 		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -144,12 +168,40 @@ public:
 		return new osgViewer::InteractiveImageHandler(image, texture, camera);
 	}
 
+	// osgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image)
+	static osgViewer::InteractiveImageHandler* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image) function, expected prototype:\nosgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+
+		return new wrapper_osgViewer_InteractiveImageHandler(L,NULL, image);
+	}
+
+	// osgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera)
+	static osgViewer::InteractiveImageHandler* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) function, expected prototype:\nosgViewer::InteractiveImageHandler::InteractiveImageHandler(lua_Table * data, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+		}
+
+		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture2D* texture=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,3));
+		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,4));
+
+		return new wrapper_osgViewer_InteractiveImageHandler(L,NULL, image, texture, camera);
+	}
+
 	// Overload binder for osgViewer::InteractiveImageHandler::InteractiveImageHandler
 	static osgViewer::InteractiveImageHandler* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function InteractiveImageHandler, cannot match any of the overloads for function InteractiveImageHandler:\n  InteractiveImageHandler(osg::Image *)\n  InteractiveImageHandler(osg::Image *, osg::Texture2D *, osg::Camera *)\n");
+		luaL_error(L, "error in function InteractiveImageHandler, cannot match any of the overloads for function InteractiveImageHandler:\n  InteractiveImageHandler(osg::Image *)\n  InteractiveImageHandler(osg::Image *, osg::Texture2D *, osg::Camera *)\n  InteractiveImageHandler(lua_Table *, osg::Image *)\n  InteractiveImageHandler(lua_Table *, osg::Image *, osg::Texture2D *, osg::Camera *)\n");
 		return NULL;
 	}
 
@@ -176,11 +228,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & ) const
+	// osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -260,11 +312,11 @@ public:
 		return 1;
 	}
 
-	// bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * )
+	// bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * ) function, expected prototype:\nbool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * , osg::NodeVisitor * )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4) function, expected prototype:\nbool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\narg 3 ID = 50169651\narg 4 ID = 50169651\n");
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

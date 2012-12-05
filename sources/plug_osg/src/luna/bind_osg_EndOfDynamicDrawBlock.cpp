@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_EndOfDynamicDrawBlock.h>
+
 class luna_wrapper_osg_EndOfDynamicDrawBlock {
 public:
 	typedef Luna< osg::EndOfDynamicDrawBlock > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -61,16 +71,37 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int)
-	static osg::EndOfDynamicDrawBlock* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1)
+	static osg::EndOfDynamicDrawBlock* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(unsigned int arg1)\nClass arguments details:\n");
 		}
 
-		unsigned int _arg1=(unsigned int)lua_tointeger(L,1);
+		unsigned _arg1=(unsigned)lua_tointeger(L,1);
 
 		return new osg::EndOfDynamicDrawBlock(_arg1);
+	}
+
+	// osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2)
+	static osg::EndOfDynamicDrawBlock* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2) function, expected prototype:\nosg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock(lua_Table * data, unsigned int arg2)\nClass arguments details:\n");
+		}
+
+		unsigned _arg2=(unsigned)lua_tointeger(L,2);
+
+		return new wrapper_osg_EndOfDynamicDrawBlock(L,NULL, _arg2);
+	}
+
+	// Overload binder for osg::EndOfDynamicDrawBlock::EndOfDynamicDrawBlock
+	static osg::EndOfDynamicDrawBlock* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function EndOfDynamicDrawBlock, cannot match any of the overloads for function EndOfDynamicDrawBlock:\n  EndOfDynamicDrawBlock(unsigned int)\n  EndOfDynamicDrawBlock(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

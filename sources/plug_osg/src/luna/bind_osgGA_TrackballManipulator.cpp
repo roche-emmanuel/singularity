@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgGA_TrackballManipulator.h>
+
 class luna_wrapper_osgGA_TrackballManipulator {
 public:
 	typedef Luna< osgGA::TrackballManipulator > luna_t;
@@ -56,6 +58,27 @@ public:
 		if( (!dynamic_cast< osgGA::TrackballManipulator* >(Luna< osg::Referenced >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
 		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::TrackballManipulator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -135,12 +158,51 @@ public:
 		return new osgGA::TrackballManipulator(tm, copyOp);
 	}
 
+	// osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
+	static osgGA::TrackballManipulator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+
+		return new wrapper_osgGA_TrackballManipulator(L,NULL, flags);
+	}
+
+	// osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
+	static osgGA::TrackballManipulator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::TrackballManipulator::TrackballManipulator(lua_Table * data, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgGA::TrackballManipulator* tm_ptr=dynamic_cast< osgGA::TrackballManipulator* >(Luna< osg::Referenced >::check(L,2));
+		if( !tm_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tm in osgGA::TrackballManipulator::TrackballManipulator function");
+		}
+		const osgGA::TrackballManipulator & tm=*tm_ptr;
+		const osg::CopyOp* copyOp_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyOp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::TrackballManipulator::TrackballManipulator function");
+		}
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgGA_TrackballManipulator(L,NULL, tm, copyOp);
+	}
+
 	// Overload binder for osgGA::TrackballManipulator::TrackballManipulator
 	static osgGA::TrackballManipulator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function TrackballManipulator, cannot match any of the overloads for function TrackballManipulator:\n  TrackballManipulator(int)\n  TrackballManipulator(const osgGA::TrackballManipulator &, const osg::CopyOp &)\n");
+		luaL_error(L, "error in function TrackballManipulator, cannot match any of the overloads for function TrackballManipulator:\n  TrackballManipulator(int)\n  TrackballManipulator(const osgGA::TrackballManipulator &, const osg::CopyOp &)\n  TrackballManipulator(lua_Table *, int)\n  TrackballManipulator(lua_Table *, const osgGA::TrackballManipulator &, const osg::CopyOp &)\n");
 		return NULL;
 	}
 
@@ -167,11 +229,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & ) const
+	// osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osgGA::TrackballManipulator::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));

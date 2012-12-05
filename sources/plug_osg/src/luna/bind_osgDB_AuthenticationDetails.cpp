@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_AuthenticationDetails.h>
+
 class luna_wrapper_osgDB_AuthenticationDetails {
 public:
 	typedef Luna< osgDB::AuthenticationDetails > luna_t;
@@ -40,13 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -58,8 +71,8 @@ public:
 
 	// Constructor binds:
 	// osgDB::AuthenticationDetails::AuthenticationDetails(const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC)
-	static osgDB::AuthenticationDetails* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgDB::AuthenticationDetails* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::AuthenticationDetails::AuthenticationDetails(const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC) function, expected prototype:\nosgDB::AuthenticationDetails::AuthenticationDetails(const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC)\nClass arguments details:\n");
 		}
@@ -71,6 +84,31 @@ public:
 		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>2 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,3) : osgDB::AuthenticationDetails::BASIC;
 
 		return new osgDB::AuthenticationDetails(u, p, auth);
+	}
+
+	// osgDB::AuthenticationDetails::AuthenticationDetails(lua_Table * data, const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC)
+	static osgDB::AuthenticationDetails* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::AuthenticationDetails::AuthenticationDetails(lua_Table * data, const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC) function, expected prototype:\nosgDB::AuthenticationDetails::AuthenticationDetails(lua_Table * data, const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::string u(lua_tostring(L,2),lua_objlen(L,2));
+		std::string p(lua_tostring(L,3),lua_objlen(L,3));
+		osgDB::AuthenticationDetails::HttpAuthentication auth=luatop>3 ? (osgDB::AuthenticationDetails::HttpAuthentication)lua_tointeger(L,4) : osgDB::AuthenticationDetails::BASIC;
+
+		return new wrapper_osgDB_AuthenticationDetails(L,NULL, u, p, auth);
+	}
+
+	// Overload binder for osgDB::AuthenticationDetails::AuthenticationDetails
+	static osgDB::AuthenticationDetails* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function AuthenticationDetails, cannot match any of the overloads for function AuthenticationDetails:\n  AuthenticationDetails(const std::string &, const std::string &, osgDB::AuthenticationDetails::HttpAuthentication)\n  AuthenticationDetails(lua_Table *, const std::string &, const std::string &, osgDB::AuthenticationDetails::HttpAuthentication)\n");
+		return NULL;
 	}
 
 

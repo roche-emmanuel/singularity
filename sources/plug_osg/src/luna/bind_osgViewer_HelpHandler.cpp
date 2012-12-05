@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_HelpHandler.h>
+
 class luna_wrapper_osgViewer_HelpHandler {
 public:
 	typedef Luna< osgViewer::HelpHandler > luna_t;
@@ -40,11 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -121,8 +134,8 @@ public:
 
 	// Constructor binds:
 	// osgViewer::HelpHandler::HelpHandler(osg::ApplicationUsage * au = 0)
-	static osgViewer::HelpHandler* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::HelpHandler* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::HelpHandler::HelpHandler(osg::ApplicationUsage * au = 0) function, expected prototype:\nosgViewer::HelpHandler::HelpHandler(osg::ApplicationUsage * au = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
@@ -132,6 +145,29 @@ public:
 		osg::ApplicationUsage* au=luatop>0 ? dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1)) : (osg::ApplicationUsage*)0;
 
 		return new osgViewer::HelpHandler(au);
+	}
+
+	// osgViewer::HelpHandler::HelpHandler(lua_Table * data, osg::ApplicationUsage * au = 0)
+	static osgViewer::HelpHandler* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::HelpHandler::HelpHandler(lua_Table * data, osg::ApplicationUsage * au = 0) function, expected prototype:\nosgViewer::HelpHandler::HelpHandler(lua_Table * data, osg::ApplicationUsage * au = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::ApplicationUsage* au=luatop>1 ? dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2)) : (osg::ApplicationUsage*)0;
+
+		return new wrapper_osgViewer_HelpHandler(L,NULL, au);
+	}
+
+	// Overload binder for osgViewer::HelpHandler::HelpHandler
+	static osgViewer::HelpHandler* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function HelpHandler, cannot match any of the overloads for function HelpHandler:\n  HelpHandler(osg::ApplicationUsage *)\n  HelpHandler(lua_Table *, osg::ApplicationUsage *)\n");
+		return NULL;
 	}
 
 
@@ -313,11 +349,11 @@ public:
 		return 0;
 	}
 
-	// bool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// bool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nbool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

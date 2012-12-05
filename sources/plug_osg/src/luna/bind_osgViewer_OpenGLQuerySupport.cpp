@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_OpenGLQuerySupport.h>
+
 class luna_wrapper_osgViewer_OpenGLQuerySupport {
 public:
 	typedef Luna< osgViewer::OpenGLQuerySupport > luna_t;
@@ -168,8 +170,6 @@ osgViewer::OpenGLQuerySupport* LunaTraits< osgViewer::OpenGLQuerySupport >::_bin
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, unsigned long long startTick)
 	// void osgViewer::OpenGLQuerySupport::beginQuery(unsigned int frameNumber, osg::State * state)
 	// void osgViewer::OpenGLQuerySupport::endQuery(osg::State * state)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgViewer::OpenGLQuerySupport >::_bind_dtor(osgViewer::OpenGLQuerySupport* obj) {

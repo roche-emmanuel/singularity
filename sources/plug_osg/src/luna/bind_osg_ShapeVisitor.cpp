@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ShapeVisitor.h>
+
 class luna_wrapper_osg_ShapeVisitor {
 public:
 	typedef Luna< osg::ShapeVisitor > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -156,8 +165,8 @@ public:
 
 	// Constructor binds:
 	// osg::ShapeVisitor::ShapeVisitor()
-	static osg::ShapeVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ShapeVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ShapeVisitor::ShapeVisitor() function, expected prototype:\nosg::ShapeVisitor::ShapeVisitor()\nClass arguments details:\n");
 		}
@@ -166,13 +175,33 @@ public:
 		return new osg::ShapeVisitor();
 	}
 
+	// osg::ShapeVisitor::ShapeVisitor(lua_Table * data)
+	static osg::ShapeVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ShapeVisitor::ShapeVisitor(lua_Table * data) function, expected prototype:\nosg::ShapeVisitor::ShapeVisitor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_ShapeVisitor(L,NULL);
+	}
+
+	// Overload binder for osg::ShapeVisitor::ShapeVisitor
+	static osg::ShapeVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ShapeVisitor, cannot match any of the overloads for function ShapeVisitor:\n  ShapeVisitor()\n  ShapeVisitor(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// void osg::ShapeVisitor::apply(osg::Shape & )
+	// void osg::ShapeVisitor::apply(osg::Shape & arg1)
 	static int _bind_apply_overload_1(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Shape & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Shape & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Shape & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Shape & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Shape* _arg1_ptr=dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2));
@@ -191,11 +220,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::Sphere & )
+	// void osg::ShapeVisitor::apply(osg::Sphere & arg1)
 	static int _bind_apply_overload_2(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Sphere & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Sphere & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Sphere & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Sphere & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Sphere* _arg1_ptr=dynamic_cast< osg::Sphere* >(Luna< osg::Referenced >::check(L,2));
@@ -214,11 +243,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::Box & )
+	// void osg::ShapeVisitor::apply(osg::Box & arg1)
 	static int _bind_apply_overload_3(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Box & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Box & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Box & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Box & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Box* _arg1_ptr=dynamic_cast< osg::Box* >(Luna< osg::Referenced >::check(L,2));
@@ -237,11 +266,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::Cone & )
+	// void osg::ShapeVisitor::apply(osg::Cone & arg1)
 	static int _bind_apply_overload_4(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Cone & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Cone & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Cone & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Cone & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Cone* _arg1_ptr=dynamic_cast< osg::Cone* >(Luna< osg::Referenced >::check(L,2));
@@ -260,11 +289,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::Cylinder & )
+	// void osg::ShapeVisitor::apply(osg::Cylinder & arg1)
 	static int _bind_apply_overload_5(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Cylinder & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Cylinder & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Cylinder & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Cylinder & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Cylinder* _arg1_ptr=dynamic_cast< osg::Cylinder* >(Luna< osg::Referenced >::check(L,2));
@@ -283,11 +312,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::Capsule & )
+	// void osg::ShapeVisitor::apply(osg::Capsule & arg1)
 	static int _bind_apply_overload_6(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Capsule & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Capsule & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::Capsule & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::Capsule & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Capsule* _arg1_ptr=dynamic_cast< osg::Capsule* >(Luna< osg::Referenced >::check(L,2));
@@ -306,11 +335,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::InfinitePlane & )
+	// void osg::ShapeVisitor::apply(osg::InfinitePlane & arg1)
 	static int _bind_apply_overload_7(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_7(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::InfinitePlane & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::InfinitePlane & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::InfinitePlane & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::InfinitePlane & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::InfinitePlane* _arg1_ptr=dynamic_cast< osg::InfinitePlane* >(Luna< osg::Referenced >::check(L,2));
@@ -329,11 +358,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::TriangleMesh & )
+	// void osg::ShapeVisitor::apply(osg::TriangleMesh & arg1)
 	static int _bind_apply_overload_8(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_8(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::TriangleMesh & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::TriangleMesh & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::TriangleMesh & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::TriangleMesh & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::TriangleMesh* _arg1_ptr=dynamic_cast< osg::TriangleMesh* >(Luna< osg::Referenced >::check(L,2));
@@ -352,11 +381,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::ConvexHull & )
+	// void osg::ShapeVisitor::apply(osg::ConvexHull & arg1)
 	static int _bind_apply_overload_9(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_9(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::ConvexHull & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::ConvexHull & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::ConvexHull & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::ConvexHull & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::ConvexHull* _arg1_ptr=dynamic_cast< osg::ConvexHull* >(Luna< osg::Referenced >::check(L,2));
@@ -375,11 +404,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::HeightField & )
+	// void osg::ShapeVisitor::apply(osg::HeightField & arg1)
 	static int _bind_apply_overload_10(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_10(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::HeightField & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::HeightField & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::HeightField & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::HeightField & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::HeightField* _arg1_ptr=dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,2));
@@ -398,11 +427,11 @@ public:
 		return 0;
 	}
 
-	// void osg::ShapeVisitor::apply(osg::CompositeShape & )
+	// void osg::ShapeVisitor::apply(osg::CompositeShape & arg1)
 	static int _bind_apply_overload_11(lua_State *L) {
 		if (!_lg_typecheck_apply_overload_11(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::CompositeShape & ) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::CompositeShape & )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::ShapeVisitor::apply(osg::CompositeShape & arg1) function, expected prototype:\nvoid osg::ShapeVisitor::apply(osg::CompositeShape & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::CompositeShape* _arg1_ptr=dynamic_cast< osg::CompositeShape* >(Luna< osg::Referenced >::check(L,2));

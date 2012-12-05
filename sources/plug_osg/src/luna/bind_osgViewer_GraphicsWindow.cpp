@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_GraphicsWindow.h>
+
 class luna_wrapper_osgViewer_GraphicsWindow {
 public:
 	typedef Luna< osgViewer::GraphicsWindow > luna_t;
@@ -445,11 +447,11 @@ public:
 		return 0;
 	}
 
-	// bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int , int , int , int )
+	// bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int arg1, int arg2, int arg3, int arg4)
 	static int _bind_setWindowRectangleImplementation(lua_State *L) {
 		if (!_lg_typecheck_setWindowRectangleImplementation(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int , int , int , int ) function, expected prototype:\nbool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int , int , int , int )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int arg1, int arg2, int arg3, int arg4) function, expected prototype:\nbool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int arg1, int arg2, int arg3, int arg4)\nClass arguments details:\n");
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -509,11 +511,11 @@ public:
 		return 0;
 	}
 
-	// bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool )
+	// bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool arg1)
 	static int _bind_setWindowDecorationImplementation(lua_State *L) {
 		if (!_lg_typecheck_setWindowDecorationImplementation(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool ) function, expected prototype:\nbool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool arg1) function, expected prototype:\nbool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool arg1)\nClass arguments details:\n");
 		}
 
 		bool _arg1=(bool)(lua_toboolean(L,2)==1);
@@ -602,11 +604,11 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::GraphicsWindow::setWindowName(const std::string & )
+	// void osgViewer::GraphicsWindow::setWindowName(const std::string & arg1)
 	static int _bind_setWindowName(lua_State *L) {
 		if (!_lg_typecheck_setWindowName(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::setWindowName(const std::string & ) function, expected prototype:\nvoid osgViewer::GraphicsWindow::setWindowName(const std::string & )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::setWindowName(const std::string & arg1) function, expected prototype:\nvoid osgViewer::GraphicsWindow::setWindowName(const std::string & arg1)\nClass arguments details:\n");
 		}
 
 		std::string _arg1(lua_tostring(L,2),lua_objlen(L,2));
@@ -659,11 +661,11 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor )
+	// void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor arg1)
 	static int _bind_setCursor(lua_State *L) {
 		if (!_lg_typecheck_setCursor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor ) function, expected prototype:\nvoid osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor arg1) function, expected prototype:\nvoid osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor arg1)\nClass arguments details:\n");
 		}
 
 		osgViewer::GraphicsWindow::MouseCursor _arg1=(osgViewer::GraphicsWindow::MouseCursor)lua_tointeger(L,2);
@@ -871,11 +873,11 @@ public:
 		return 1;
 	}
 
-	// void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int )
+	// void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int arg1)
 	static int _bind_bindPBufferToTextureImplementation(lua_State *L) {
 		if (!_lg_typecheck_bindPBufferToTextureImplementation(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int ) function, expected prototype:\nvoid osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int )\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int arg1) function, expected prototype:\nvoid osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int arg1)\nClass arguments details:\n");
 		}
 
 		unsigned int _arg1=(unsigned int)lua_tointeger(L,2);
@@ -999,8 +1001,6 @@ osgViewer::GraphicsWindow* LunaTraits< osgViewer::GraphicsWindow >::_bind_ctor(l
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool osg::GraphicsContext::makeContextCurrentImplementation(osg::GraphicsContext * readContext)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgViewer::GraphicsWindow >::_bind_dtor(osgViewer::GraphicsWindow* obj) {

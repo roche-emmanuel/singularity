@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgText_Font_FontImplementation.h>
+
 class luna_wrapper_osgText_Font_FontImplementation {
 public:
 	typedef Luna< osgText::Font::FontImplementation > luna_t;
@@ -266,8 +268,6 @@ osgText::Font::FontImplementation* LunaTraits< osgText::Font::FontImplementation
 	// osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int charcode)
 	// osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)
 	// bool osgText::Font::FontImplementation::hasVertical() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgText::Font::FontImplementation >::_bind_dtor(osgText::Font::FontImplementation* obj) {

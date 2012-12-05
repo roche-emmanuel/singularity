@@ -8,16 +8,14 @@
 
 #include <Awesomium/WebViewListener.h>
 
-namespace sgt {
-
 class wrapper_WebViewListener_Load : public WebViewListener::Load {
 protected:
-	LuaObject _obj;
+	sgt::LuaObject _obj;
 	
 public:
 	
 
-	wrapper_WebViewListener_Load(lua_State* L) : WebViewListener::Load(), _obj(L,-1) {};
+	wrapper_WebViewListener_Load(lua_State* L, lua_Table* dum) : WebViewListener::Load(), _obj(L,-1) {};
 
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
 	void OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page) {
@@ -65,7 +63,6 @@ public:
 
 };
 
-};	
 
 
 

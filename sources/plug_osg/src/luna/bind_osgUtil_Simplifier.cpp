@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_Simplifier.h>
+
 class luna_wrapper_osgUtil_Simplifier {
 public:
 	typedef Luna< osgUtil::Simplifier > luna_t;
@@ -40,13 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>3 ) return false;
 
 		if( luatop>0 && lua_isnumber(L,1)==0 ) return false;
 		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -179,8 +192,8 @@ public:
 
 	// Constructor binds:
 	// osgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)
-	static osgUtil::Simplifier* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::Simplifier* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n");
 		}
@@ -192,6 +205,31 @@ public:
 		double maximumLength=luatop>2 ? (double)lua_tonumber(L,3) : 0.0;
 
 		return new osgUtil::Simplifier(sampleRatio, maximumError, maximumLength);
+	}
+
+	// osgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)
+	static osgUtil::Simplifier* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) function, expected prototype:\nosgUtil::Simplifier::Simplifier(lua_Table * data, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		double sampleRatio=luatop>1 ? (double)lua_tonumber(L,2) : 1.0;
+		double maximumError=luatop>2 ? (double)lua_tonumber(L,3) : FLT_MAX;
+		double maximumLength=luatop>3 ? (double)lua_tonumber(L,4) : 0.0;
+
+		return new wrapper_osgUtil_Simplifier(L,NULL, sampleRatio, maximumError, maximumLength);
+	}
+
+	// Overload binder for osgUtil::Simplifier::Simplifier
+	static osgUtil::Simplifier* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Simplifier, cannot match any of the overloads for function Simplifier:\n  Simplifier(double, double, double)\n  Simplifier(lua_Table *, double, double, double)\n");
+		return NULL;
 	}
 
 

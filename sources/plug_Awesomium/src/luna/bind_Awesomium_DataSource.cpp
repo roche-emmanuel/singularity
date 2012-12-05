@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_DataSource.h>
+
 class luna_wrapper_Awesomium_DataSource {
 public:
 	typedef Luna< Awesomium::DataSource > luna_t;

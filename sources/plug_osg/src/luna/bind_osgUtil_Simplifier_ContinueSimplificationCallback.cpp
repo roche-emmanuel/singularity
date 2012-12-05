@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_Simplifier_ContinueSimplificationCallback.h>
+
 class luna_wrapper_osgUtil_Simplifier_ContinueSimplificationCallback {
 public:
 	typedef Luna< osgUtil::Simplifier::ContinueSimplificationCallback > luna_t;

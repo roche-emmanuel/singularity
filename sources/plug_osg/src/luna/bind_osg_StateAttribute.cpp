@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_StateAttribute.h>
+
 class luna_wrapper_osg_StateAttribute {
 public:
 	typedef Luna< osg::StateAttribute > luna_t;
@@ -259,11 +261,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -660,11 +662,11 @@ public:
 		return 0;
 	}
 
-	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & ) const
+	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
 	static int _bind_getModeUsage(lua_State *L) {
 		if (!_lg_typecheck_getModeUsage(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & ) const function, expected prototype:\nbool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & ) const\nClass arguments details:\narg 1 ID = 48108040\n");
+			luaL_error(L, "luna typecheck failed in bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
 		}
 
 		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
@@ -684,11 +686,11 @@ public:
 		return 1;
 	}
 
-	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & ) const
+	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
 	static int _bind_checkValidityOfAssociatedModes(lua_State *L) {
 		if (!_lg_typecheck_checkValidityOfAssociatedModes(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & ) const function, expected prototype:\nbool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
@@ -848,11 +850,11 @@ public:
 		return 0;
 	}
 
-	// void osg::StateAttribute::apply(osg::State & ) const
+	// void osg::StateAttribute::apply(osg::State & arg1) const
 	static int _bind_apply(lua_State *L) {
 		if (!_lg_typecheck_apply(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::apply(osg::State & ) const function, expected prototype:\nvoid osg::StateAttribute::apply(osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::StateAttribute::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
@@ -871,11 +873,11 @@ public:
 		return 0;
 	}
 
-	// void osg::StateAttribute::compileGLObjects(osg::State & ) const
+	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
 	static int _bind_compileGLObjects(lua_State *L) {
 		if (!_lg_typecheck_compileGLObjects(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::compileGLObjects(osg::State & ) const function, expected prototype:\nvoid osg::StateAttribute::compileGLObjects(osg::State & ) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::StateAttribute::compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
@@ -894,11 +896,11 @@ public:
 		return 0;
 	}
 
-	// void osg::StateAttribute::releaseGLObjects(osg::State *  = 0) const
+	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
 	static int _bind_releaseGLObjects(lua_State *L) {
 		if (!_lg_typecheck_releaseGLObjects(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::releaseGLObjects(osg::State *  = 0) const function, expected prototype:\nvoid osg::StateAttribute::releaseGLObjects(osg::State *  = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -996,13 +998,11 @@ osg::StateAttribute* LunaTraits< osg::StateAttribute >::_bind_ctor(lua_State *L)
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::StateAttribute::cloneType() const
-	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const
 	// osg::StateAttribute::Type osg::StateAttribute::getType() const
 	// int osg::StateAttribute::compare(const osg::StateAttribute & sa) const
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::StateAttribute >::_bind_dtor(osg::StateAttribute* obj) {

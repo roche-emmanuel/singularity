@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_Output.h>
+
 class luna_wrapper_osgDB_Output {
 public:
 	typedef Luna< osgDB::Output > luna_t;
@@ -50,6 +52,21 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -325,12 +342,37 @@ public:
 		return new osgDB::Output(name);
 	}
 
+	// osgDB::Output::Output(lua_Table * data)
+	static osgDB::Output* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Output::Output(lua_Table * data) function, expected prototype:\nosgDB::Output::Output(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_Output(L,NULL);
+	}
+
+	// osgDB::Output::Output(lua_Table * data, const char * name)
+	static osgDB::Output* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Output::Output(lua_Table * data, const char * name) function, expected prototype:\nosgDB::Output::Output(lua_Table * data, const char * name)\nClass arguments details:\n");
+		}
+
+		const char * name=(const char *)lua_tostring(L,2);
+
+		return new wrapper_osgDB_Output(L,NULL, name);
+	}
+
 	// Overload binder for osgDB::Output::Output
 	static osgDB::Output* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function Output, cannot match any of the overloads for function Output:\n  Output()\n  Output(const char *)\n");
+		luaL_error(L, "error in function Output, cannot match any of the overloads for function Output:\n  Output()\n  Output(const char *)\n  Output(lua_Table *)\n  Output(lua_Table *, const char *)\n");
 		return NULL;
 	}
 

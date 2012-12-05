@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Operation.h>
+
 class luna_wrapper_osg_Operation {
 public:
 	typedef Luna< osg::Operation > luna_t;
@@ -180,11 +182,11 @@ public:
 
 
 	// Operator binds:
-	// void osg::Operation::operator()(osg::Object * )
+	// void osg::Operation::operator()(osg::Object * arg1)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osg::Operation::operator()(osg::Object * ) function, expected prototype:\nvoid osg::Operation::operator()(osg::Object * )\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osg::Operation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::Operation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
@@ -205,9 +207,7 @@ public:
 osg::Operation* LunaTraits< osg::Operation >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-
-	// Abstract operators:
-	// void osg::Operation::operator()(osg::Object * )
+	// void osg::Operation::operator()(osg::Object * arg1)
 }
 
 void LunaTraits< osg::Operation >::_bind_dtor(osg::Operation* obj) {

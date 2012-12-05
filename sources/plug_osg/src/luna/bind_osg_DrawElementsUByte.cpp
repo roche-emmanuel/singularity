@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_DrawElementsUByte.h>
+
 class luna_wrapper_osg_DrawElementsUByte {
 public:
 	typedef Luna< osg::DrawElementsUByte > luna_t;
@@ -37,6 +39,88 @@ public:
 		Luna< osg::DrawElementsUByte >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<0 || luatop>1 ) return false;
+
+		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
+		if( (!dynamic_cast< osg::DrawElementsUByte* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::DrawElementsUByte* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -151,6 +235,157 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode = 0)
+	static osg::DrawElementsUByte* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode = 0) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(unsigned int mode = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
+
+		return new osg::DrawElementsUByte(mode);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::DrawElementsUByte* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::DrawElementsUByte* array_ptr=dynamic_cast< osg::DrawElementsUByte* >(Luna< osg::Referenced >::check(L,1));
+		if( !array_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg array in osg::DrawElementsUByte::DrawElementsUByte function");
+		}
+		const osg::DrawElementsUByte & array=*array_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>1 ? (Luna< osg::CopyOp >::check(L,2)) : NULL;
+		if( luatop>1 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUByte::DrawElementsUByte function");
+		}
+		const osg::CopyOp & copyop=luatop>1 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new osg::DrawElementsUByte(array, copyop);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0)
+	static osg::DrawElementsUByte* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,1);
+		unsigned int no=(unsigned int)lua_tointeger(L,2);
+		unsigned char ptr = (unsigned char)(lua_tointeger(L,3));
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new osg::DrawElementsUByte(mode, no, &ptr, numInstances);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no)
+	static osg::DrawElementsUByte* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(unsigned int mode, unsigned int no)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,1);
+		unsigned int no=(unsigned int)lua_tointeger(L,2);
+
+		return new osg::DrawElementsUByte(mode, no);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode = 0)
+	static osg::DrawElementsUByte* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode = 0) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+
+		return new wrapper_osg_DrawElementsUByte(L,NULL, mode);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::DrawElementsUByte* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::DrawElementsUByte* array_ptr=dynamic_cast< osg::DrawElementsUByte* >(Luna< osg::Referenced >::check(L,2));
+		if( !array_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg array in osg::DrawElementsUByte::DrawElementsUByte function");
+		}
+		const osg::DrawElementsUByte & array=*array_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElementsUByte::DrawElementsUByte function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_DrawElementsUByte(L,NULL, array, copyop);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0)
+	static osg::DrawElementsUByte* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		unsigned int no=(unsigned int)lua_tointeger(L,3);
+		unsigned char ptr = (unsigned char)(lua_tointeger(L,4));
+		int numInstances=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+
+		return new wrapper_osg_DrawElementsUByte(L,NULL, mode, no, &ptr, numInstances);
+	}
+
+	// osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no)
+	static osg::DrawElementsUByte* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no) function, expected prototype:\nosg::DrawElementsUByte::DrawElementsUByte(lua_Table * data, unsigned int mode, unsigned int no)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		unsigned int no=(unsigned int)lua_tointeger(L,3);
+
+		return new wrapper_osg_DrawElementsUByte(L,NULL, mode, no);
+	}
+
+	// Overload binder for osg::DrawElementsUByte::DrawElementsUByte
+	static osg::DrawElementsUByte* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+
+		luaL_error(L, "error in function DrawElementsUByte, cannot match any of the overloads for function DrawElementsUByte:\n  DrawElementsUByte(unsigned int)\n  DrawElementsUByte(const osg::DrawElementsUByte &, const osg::CopyOp &)\n  DrawElementsUByte(unsigned int, unsigned int, const unsigned char *, int)\n  DrawElementsUByte(unsigned int, unsigned int)\n  DrawElementsUByte(lua_Table *, unsigned int)\n  DrawElementsUByte(lua_Table *, const osg::DrawElementsUByte &, const osg::CopyOp &)\n  DrawElementsUByte(lua_Table *, unsigned int, unsigned int, const unsigned char *, int)\n  DrawElementsUByte(lua_Table *, unsigned int, unsigned int)\n");
+		return NULL;
+	}
+
+
 	// Function binds:
 	// osg::Object * osg::DrawElementsUByte::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
@@ -173,11 +408,11 @@ public:
 		return 1;
 	}
 
-	// osg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & ) const
+	// osg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & arg1) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & ) const function, expected prototype:\nosg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & ) const\nClass arguments details:\narg 1 ID = 27134364\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
 		}
 
 		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -482,13 +717,7 @@ public:
 };
 
 osg::DrawElementsUByte* LunaTraits< osg::DrawElementsUByte >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
-	// Abstract methods:
-	// void osg::DrawElements::setElement(unsigned int, unsigned int)
-	// unsigned int osg::DrawElements::getElement(unsigned int)
-	// void osg::DrawElements::addElement(unsigned int)
-
-	// Abstract operators:
+	return luna_wrapper_osg_DrawElementsUByte::_bind_ctor(L);
 }
 
 void LunaTraits< osg::DrawElementsUByte >::_bind_dtor(osg::DrawElementsUByte* obj) {

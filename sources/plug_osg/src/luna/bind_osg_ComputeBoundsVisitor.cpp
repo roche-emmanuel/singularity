@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_ComputeBoundsVisitor.h>
+
 class luna_wrapper_osg_ComputeBoundsVisitor {
 public:
 	typedef Luna< osg::ComputeBoundsVisitor > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -142,8 +153,8 @@ public:
 
 	// Constructor binds:
 	// osg::ComputeBoundsVisitor::ComputeBoundsVisitor(osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN)
-	static osg::ComputeBoundsVisitor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::ComputeBoundsVisitor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::ComputeBoundsVisitor::ComputeBoundsVisitor(osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN) function, expected prototype:\nosg::ComputeBoundsVisitor::ComputeBoundsVisitor(osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN)\nClass arguments details:\n");
 		}
@@ -153,6 +164,29 @@ public:
 		osg::NodeVisitor::TraversalMode traversalMode=luatop>0 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,1) : osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
 
 		return new osg::ComputeBoundsVisitor(traversalMode);
+	}
+
+	// osg::ComputeBoundsVisitor::ComputeBoundsVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN)
+	static osg::ComputeBoundsVisitor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ComputeBoundsVisitor::ComputeBoundsVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN) function, expected prototype:\nosg::ComputeBoundsVisitor::ComputeBoundsVisitor(lua_Table * data, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::NodeVisitor::TraversalMode traversalMode=luatop>1 ? (osg::NodeVisitor::TraversalMode)lua_tointeger(L,2) : osg::NodeVisitor::TRAVERSE_ALL_CHILDREN;
+
+		return new wrapper_osg_ComputeBoundsVisitor(L,NULL, traversalMode);
+	}
+
+	// Overload binder for osg::ComputeBoundsVisitor::ComputeBoundsVisitor
+	static osg::ComputeBoundsVisitor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ComputeBoundsVisitor, cannot match any of the overloads for function ComputeBoundsVisitor:\n  ComputeBoundsVisitor(osg::NodeVisitor::TraversalMode)\n  ComputeBoundsVisitor(lua_Table *, osg::NodeVisitor::TraversalMode)\n");
+		return NULL;
 	}
 
 

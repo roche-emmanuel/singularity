@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_GraphicsOperation.h>
+
 class luna_wrapper_osg_GraphicsOperation {
 public:
 	typedef Luna< osg::GraphicsOperation > luna_t;
@@ -116,8 +118,6 @@ public:
 osg::GraphicsOperation* LunaTraits< osg::GraphicsOperation >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-
-	// Abstract operators:
 	// void osg::GraphicsOperation::operator()(osg::GraphicsContext * context)
 }
 

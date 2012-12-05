@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_DelaunayConstraint.h>
+
 class luna_wrapper_osgUtil_DelaunayConstraint {
 public:
 	typedef Luna< osgUtil::DelaunayConstraint > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -129,14 +138,34 @@ public:
 
 	// Constructor binds:
 	// osgUtil::DelaunayConstraint::DelaunayConstraint()
-	static osgUtil::DelaunayConstraint* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgUtil::DelaunayConstraint* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayConstraint::DelaunayConstraint() function, expected prototype:\nosgUtil::DelaunayConstraint::DelaunayConstraint()\nClass arguments details:\n");
 		}
 
 
 		return new osgUtil::DelaunayConstraint();
+	}
+
+	// osgUtil::DelaunayConstraint::DelaunayConstraint(lua_Table * data)
+	static osgUtil::DelaunayConstraint* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayConstraint::DelaunayConstraint(lua_Table * data) function, expected prototype:\nosgUtil::DelaunayConstraint::DelaunayConstraint(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgUtil_DelaunayConstraint(L,NULL);
+	}
+
+	// Overload binder for osgUtil::DelaunayConstraint::DelaunayConstraint
+	static osgUtil::DelaunayConstraint* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function DelaunayConstraint, cannot match any of the overloads for function DelaunayConstraint:\n  DelaunayConstraint()\n  DelaunayConstraint(lua_Table *)\n");
+		return NULL;
 	}
 
 

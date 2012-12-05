@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_OutputIterator.h>
+
 class luna_wrapper_osgDB_OutputIterator {
 public:
 	typedef Luna< osgDB::OutputIterator > luna_t;
@@ -578,8 +580,6 @@ osgDB::OutputIterator* LunaTraits< osgDB::OutputIterator >::_bind_ctor(lua_State
 	// void osgDB::OutputIterator::writeMark(const osgDB::ObjectMark & mark)
 	// void osgDB::OutputIterator::writeCharArray(const char * s, unsigned int size)
 	// void osgDB::OutputIterator::writeWrappedString(const std::string & str)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgDB::OutputIterator >::_bind_dtor(osgDB::OutputIterator* obj) {

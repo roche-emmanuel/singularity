@@ -810,6 +810,7 @@ function ReflectionGenerator:processMembers(sec)
 		    
             -- manually add this enum to the current scope:
             enum:setName(mem:name():latin1())
+			scope:addEnum(enum)
 
             local mit = dxp.toEnum(mem):enumValues()
             local enumvals = {}
@@ -828,8 +829,6 @@ function ReflectionGenerator:processMembers(sec)
             end
             
             mit:release()
-            
-            scope:addEnum(enum)
         end
         
         mli:toNext()

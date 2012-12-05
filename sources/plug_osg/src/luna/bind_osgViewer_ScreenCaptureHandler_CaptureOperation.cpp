@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation.h>
+
 class luna_wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation {
 public:
 	typedef Luna< osgViewer::ScreenCaptureHandler::CaptureOperation > luna_t;
@@ -85,8 +87,6 @@ public:
 osgViewer::ScreenCaptureHandler::CaptureOperation* LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-
-	// Abstract operators:
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 }
 

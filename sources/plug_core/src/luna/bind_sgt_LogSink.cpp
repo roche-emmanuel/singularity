@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_sgt_LogSink.h>
+
 class luna_wrapper_sgt_LogSink {
 public:
 	typedef Luna< sgt::LogSink > luna_t;

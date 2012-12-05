@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_BufferObject.h>
+
 class luna_wrapper_osg_BufferObject {
 public:
 	typedef Luna< osg::BufferObject > luna_t;
@@ -743,9 +745,7 @@ osg::BufferObject* LunaTraits< osg::BufferObject >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Object * osg::Object::cloneType() const
-	// osg::Object * osg::Object::clone(const osg::CopyOp & ) const
-
-	// Abstract operators:
+	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const
 }
 
 void LunaTraits< osg::BufferObject >::_bind_dtor(osg::BufferObject* obj) {

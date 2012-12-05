@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgDB_DatabasePager.h>
+
 class luna_wrapper_osgDB_DatabasePager {
 public:
 	typedef Luna< osgDB::DatabasePager > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 		if( (!dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -328,12 +346,41 @@ public:
 		return new osgDB::DatabasePager(rhs);
 	}
 
+	// osgDB::DatabasePager::DatabasePager(lua_Table * data)
+	static osgDB::DatabasePager* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_DatabasePager(L,NULL);
+	}
+
+	// osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)
+	static osgDB::DatabasePager* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osgDB::DatabasePager* rhs_ptr=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgDB::DatabasePager::DatabasePager function");
+		}
+		const osgDB::DatabasePager & rhs=*rhs_ptr;
+
+		return new wrapper_osgDB_DatabasePager(L,NULL, rhs);
+	}
+
 	// Overload binder for osgDB::DatabasePager::DatabasePager
 	static osgDB::DatabasePager* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function DatabasePager, cannot match any of the overloads for function DatabasePager:\n  DatabasePager()\n  DatabasePager(const osgDB::DatabasePager &)\n");
+		luaL_error(L, "error in function DatabasePager, cannot match any of the overloads for function DatabasePager:\n  DatabasePager()\n  DatabasePager(const osgDB::DatabasePager &)\n  DatabasePager(lua_Table *)\n  DatabasePager(lua_Table *, const osgDB::DatabasePager &)\n");
 		return NULL;
 	}
 

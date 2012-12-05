@@ -20,26 +20,46 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L) : ${2}(), _obj(L,-1) {};",wname,cname)			
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)			
 	end	
+end
+
+function Class:pushParam(param,k)
+	local rt = param:getType()
+	local name = param:getName()
+	name = name=="" and "arg"..k or name
+	local rtname = rt:getName()
+	if rt:isString() then
+		-- do nothing.
+	elseif rtname == "unsigned char *" 
+		or rtname == "const unsigned char *" 
+		or rtname == "const unsigned short *" 
+		or rtname == "const unsigned int *" 
+		then
+		name = "(void*)"..name
+	elseif rtname:find("osg::ref_ptr") then
+		-- do nothing.
+	else
+		name = (rt:isReference() and rt:isClass() and not rt:isPointer() and "&" or "") .. name
+	end
+	
+	self:writeSubLine("_obj.pushArg(${1});",name)
 end
 
 function Class:writeFunctionCall(func)
 	local params = func:getParameters()
 	
 	for k,param in params:sequence() do
-		local name = param:getName()
-		name = name=="" and "arg"..k or name
-		local rt = param:getType()
-		name = (rt:isReference() and "&" or "") .. name
-		self:writeSubLine("_obj.pushArg(${1});",name)
+		self:pushParam(param,k)
 	end
 	
 	local rt = func:getReturnType()
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
 	local conv = rt:isEnum() and "("..rtype..")" or ""
+	rtype = rt:isConst() and rtype=="char*" and "const "..rtype or rtype
+	
 	rtype = rt:isEnum() and "int" or rtype
 	self:writeSubLine("return ${3}${2}(_obj.callFunction<${1}>());",rtype,(rt:isClass() and not rt:isPointer()) and "*" or "",conv);
 end
@@ -83,8 +103,10 @@ function Class:writeHeader()
 	
 	buf:clearContent();
 	
-	local funcs = self._class:getVirtualFunctions()
-	local constructors = self._class:getFunctions{"Constructor","Public"}
+	local funcs = self._class:getVirtualFunctions():filterItems{"Valid"}
+	local allConstructors = self._class:getFunctions{"Constructor","Public"} + self._class:getFunctions{"Constructor","Protected"}
+	
+	local constructors = allConstructors:filterItems{"Valid"}
 	
 	-- buf:writeLine("// virtual functions:")
 	-- buf:newLine();
@@ -95,10 +117,14 @@ function Class:writeHeader()
 	
 	if constructors:empty() then
 		-- write the default constructor:
-		buf:writeSubLine("wrapper_${1}(lua_State* L) : ${2}(), _obj(L,-1) {};",wname,cname)
+		if allConstructors:empty() then
+			buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)
+		end
 	else
 		for _,cons in constructors:sequence() do
-			self:writeConstructor(cons)
+			if not cons:isWrapper() then
+				self:writeConstructor(cons)
+			end
 		end
 	end
 	buf:newLine();
@@ -145,7 +171,7 @@ function Class:writeSource()
 	buf:writeLine("#include <luna/wrappers/wrapper_".. wname ..".h>")
 	buf:newLine();
 	
-	local funcs = self._class:getVirtualFunctions()
+	local funcs = self._class:getVirtualFunctions():filterItems{"Valid"}
 	
 	for _,func in funcs:sequence() do
 		buf:writeLine("// "..func:getPrototype(true,true,true))
@@ -160,7 +186,7 @@ end
 
 function Class:writeFile()
 	self:writeHeader()
-	self:writeSource()
+	-- self:writeSource() -- no need to write any source file.
 end
 
 return Class

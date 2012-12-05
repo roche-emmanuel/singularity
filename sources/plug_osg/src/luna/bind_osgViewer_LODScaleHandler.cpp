@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgViewer_LODScaleHandler.h>
+
 class luna_wrapper_osgViewer_LODScaleHandler {
 public:
 	typedef Luna< osgViewer::LODScaleHandler > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -95,14 +104,34 @@ public:
 
 	// Constructor binds:
 	// osgViewer::LODScaleHandler::LODScaleHandler()
-	static osgViewer::LODScaleHandler* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osgViewer::LODScaleHandler* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgViewer::LODScaleHandler::LODScaleHandler() function, expected prototype:\nosgViewer::LODScaleHandler::LODScaleHandler()\nClass arguments details:\n");
 		}
 
 
 		return new osgViewer::LODScaleHandler();
+	}
+
+	// osgViewer::LODScaleHandler::LODScaleHandler(lua_Table * data)
+	static osgViewer::LODScaleHandler* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::LODScaleHandler::LODScaleHandler(lua_Table * data) function, expected prototype:\nosgViewer::LODScaleHandler::LODScaleHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgViewer_LODScaleHandler(L,NULL);
+	}
+
+	// Overload binder for osgViewer::LODScaleHandler::LODScaleHandler
+	static osgViewer::LODScaleHandler* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function LODScaleHandler, cannot match any of the overloads for function LODScaleHandler:\n  LODScaleHandler()\n  LODScaleHandler(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -183,11 +212,11 @@ public:
 		return 1;
 	}
 
-	// bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )
+	// bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & ) function, expected prototype:\nbool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & , osgGA::GUIActionAdapter & )\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
+			luaL_error(L, "luna typecheck failed in bool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2) function, expected prototype:\nbool osgViewer::LODScaleHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 85302998\n");
 		}
 
 		const osgGA::GUIEventAdapter* _arg1_ptr=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));

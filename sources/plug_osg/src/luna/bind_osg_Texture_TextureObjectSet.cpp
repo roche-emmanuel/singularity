@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture_TextureObjectSet.h>
+
 class luna_wrapper_osg_Texture_TextureObjectSet {
 public:
 	typedef Luna< osg::Texture::TextureObjectSet > luna_t;
@@ -40,11 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Texture::TextureObjectManager* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,69361645) ) return false;
+		if( (!dynamic_cast< osg::Texture::TextureProfile* >(Luna< osg::Texture::TextureProfile >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture::TextureObjectManager* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,69361645) ) return false;
+		if( (!dynamic_cast< osg::Texture::TextureProfile* >(Luna< osg::Texture::TextureProfile >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -199,8 +214,8 @@ public:
 
 	// Constructor binds:
 	// osg::Texture::TextureObjectSet::TextureObjectSet(osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)
-	static osg::Texture::TextureObjectSet* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::Texture::TextureObjectSet* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObjectSet::TextureObjectSet(osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) function, expected prototype:\nosg::Texture::TextureObjectSet::TextureObjectSet(osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 69361645\n");
 		}
@@ -213,6 +228,32 @@ public:
 		const osg::Texture::TextureProfile & profile=*profile_ptr;
 
 		return new osg::Texture::TextureObjectSet(parent, profile);
+	}
+
+	// osg::Texture::TextureObjectSet::TextureObjectSet(lua_Table * data, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)
+	static osg::Texture::TextureObjectSet* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObjectSet::TextureObjectSet(lua_Table * data, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) function, expected prototype:\nosg::Texture::TextureObjectSet::TextureObjectSet(lua_Table * data, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 69361645\n");
+		}
+
+		osg::Texture::TextureObjectManager* parent=dynamic_cast< osg::Texture::TextureObjectManager* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Texture::TextureProfile* profile_ptr=(Luna< osg::Texture::TextureProfile >::check(L,3));
+		if( !profile_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg profile in osg::Texture::TextureObjectSet::TextureObjectSet function");
+		}
+		const osg::Texture::TextureProfile & profile=*profile_ptr;
+
+		return new wrapper_osg_Texture_TextureObjectSet(L,NULL, parent, profile);
+	}
+
+	// Overload binder for osg::Texture::TextureObjectSet::TextureObjectSet
+	static osg::Texture::TextureObjectSet* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TextureObjectSet, cannot match any of the overloads for function TextureObjectSet:\n  TextureObjectSet(osg::Texture::TextureObjectManager *, const osg::Texture::TextureProfile &)\n  TextureObjectSet(lua_Table *, osg::Texture::TextureObjectManager *, const osg::Texture::TextureProfile &)\n");
+		return NULL;
 	}
 
 

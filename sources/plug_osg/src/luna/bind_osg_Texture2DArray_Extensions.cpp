@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osg_Texture2DArray_Extensions.h>
+
 class luna_wrapper_osg_Texture2DArray_Extensions {
 public:
 	typedef Luna< osg::Texture2DArray::Extensions > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -206,8 +216,8 @@ public:
 
 	// Constructor binds:
 	// osg::Texture2DArray::Extensions::Extensions(unsigned int contextID)
-	static osg::Texture2DArray::Extensions* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static osg::Texture2DArray::Extensions* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Extensions::Extensions(unsigned int contextID) function, expected prototype:\nosg::Texture2DArray::Extensions::Extensions(unsigned int contextID)\nClass arguments details:\n");
 		}
@@ -215,6 +225,27 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
 
 		return new osg::Texture2DArray::Extensions(contextID);
+	}
+
+	// osg::Texture2DArray::Extensions::Extensions(lua_Table * data, unsigned int contextID)
+	static osg::Texture2DArray::Extensions* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture2DArray::Extensions::Extensions(lua_Table * data, unsigned int contextID) function, expected prototype:\nosg::Texture2DArray::Extensions::Extensions(lua_Table * data, unsigned int contextID)\nClass arguments details:\n");
+		}
+
+		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
+
+		return new wrapper_osg_Texture2DArray_Extensions(L,NULL, contextID);
+	}
+
+	// Overload binder for osg::Texture2DArray::Extensions::Extensions
+	static osg::Texture2DArray::Extensions* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Extensions, cannot match any of the overloads for function Extensions:\n  Extensions(unsigned int)\n  Extensions(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_osgUtil_IntersectionVisitor_ReadCallback.h>
+
 class luna_wrapper_osgUtil_IntersectionVisitor_ReadCallback {
 public:
 	typedef Luna< osgUtil::IntersectionVisitor::ReadCallback > luna_t;
@@ -83,8 +85,6 @@ osgUtil::IntersectionVisitor::ReadCallback* LunaTraits< osgUtil::IntersectionVis
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string & filename)
-
-	// Abstract operators:
 }
 
 void LunaTraits< osgUtil::IntersectionVisitor::ReadCallback >::_bind_dtor(osgUtil::IntersectionVisitor::ReadCallback* obj) {

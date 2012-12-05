@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_Awesomium_WebCore.h>
+
 class luna_wrapper_Awesomium_WebCore {
 public:
 	typedef Luna< Awesomium::WebCore > luna_t;
