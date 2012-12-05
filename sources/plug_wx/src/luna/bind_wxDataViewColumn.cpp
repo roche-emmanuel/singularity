@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewColumn.h>
+
 class luna_wrapper_wxDataViewColumn {
 public:
 	typedef Luna< wxDataViewColumn > luna_t;
@@ -147,8 +149,6 @@ wxDataViewColumn* LunaTraits< wxDataViewColumn >::_bind_ctor(lua_State *L) {
 	// int wxHeaderColumn::GetFlags() const
 	// bool wxHeaderColumn::IsSortKey() const
 	// bool wxHeaderColumn::IsSortOrderAscending() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewColumn >::_bind_dtor(wxDataViewColumn* obj) {

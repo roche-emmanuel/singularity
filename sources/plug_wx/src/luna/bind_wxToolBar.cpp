@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxToolBar.h>
+
 class luna_wrapper_wxToolBar {
 public:
 	typedef Luna< wxToolBar > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxToolBar* ptr= static_cast< wxToolBar* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxToolBar >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -70,6 +61,30 @@ public:
 		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
 		return true;
 	}
 
@@ -495,11 +510,11 @@ public:
 		return new wxToolBar();
 	}
 
-	// wxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)
+	// wxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)
 	static wxToolBar* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr) function, expected prototype:\nwxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr) function, expected prototype:\nwxToolBar::wxToolBar(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -516,18 +531,58 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxToolBar::wxToolBar function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxTB_HORIZONTAL;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : ::wxTB_HORIZONTAL;
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxToolBar(parent, id, pos, size, style, name);
+	}
+
+	// wxToolBar::wxToolBar(lua_Table * data)
+	static wxToolBar* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxToolBar::wxToolBar(lua_Table * data) function, expected prototype:\nwxToolBar::wxToolBar(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxToolBar(L,NULL);
+	}
+
+	// wxToolBar::wxToolBar(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)
+	static wxToolBar* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxToolBar::wxToolBar(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr) function, expected prototype:\nwxToolBar::wxToolBar(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxToolBar::wxToolBar function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxToolBar::wxToolBar function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : ::wxTB_HORIZONTAL;
+		wxString name(lua_tostring(L,7),lua_objlen(L,7));
+
+		return new wrapper_wxToolBar(L,NULL, parent, id, pos, size, style, name);
 	}
 
 	// Overload binder for wxToolBar::wxToolBar
 	static wxToolBar* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxToolBar, cannot match any of the overloads for function wxToolBar:\n  wxToolBar()\n  wxToolBar(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		luaL_error(L, "error in function wxToolBar, cannot match any of the overloads for function wxToolBar:\n  wxToolBar()\n  wxToolBar(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n  wxToolBar(lua_Table *)\n  wxToolBar(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
 		return NULL;
 	}
 
@@ -698,11 +753,11 @@ public:
 		return 1;
 	}
 
-	// wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)
+	// wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)
 	static int _bind_AddTool_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddTool_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = wxITEM_NORMAL) function, expected prototype:\nwxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL) function, expected prototype:\nwxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxString & shortHelp = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -715,7 +770,7 @@ public:
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 		wxString shortHelp(lua_tostring(L,5),lua_objlen(L,5));
-		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : wxITEM_NORMAL;
+		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
 
 		wxToolBar* self=dynamic_cast< wxToolBar* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -730,11 +785,11 @@ public:
 		return 1;
 	}
 
-	// wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL)
+	// wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = ::wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL)
 	static int _bind_AddTool_overload_3(lua_State *L) {
 		if (!_lg_typecheck_AddTool_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL) function, expected prototype:\nwxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 88196105\narg 8 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = ::wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL) function, expected prototype:\nwxToolBarToolBase * wxToolBar::AddTool(int toolId, const wxString & label, const wxBitmap & bitmap, const wxBitmap & bmpDisabled = wxNullBitmap, wxItemKind kind = ::wxITEM_NORMAL, const wxString & shortHelpString = wxEmptyString, const wxString & longHelpString = wxEmptyString, wxObject * clientData = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 88196105\narg 8 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -751,7 +806,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bmpDisabled in wxToolBar::AddTool function");
 		}
 		const wxBitmap & bmpDisabled=luatop>4 ? *bmpDisabled_ptr : wxNullBitmap;
-		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : wxITEM_NORMAL;
+		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
 		wxString shortHelpString(lua_tostring(L,7),lua_objlen(L,7));
 		wxString longHelpString(lua_tostring(L,8),lua_objlen(L,8));
 		wxObject* clientData=luatop>8 ? (Luna< wxObject >::check(L,9)) : (wxObject*)NULL;
@@ -1769,7 +1824,6 @@ luna_RegType LunaTraits< wxToolBar >::methods[] = {
 
 luna_ConverterType LunaTraits< wxToolBar >::converters[] = {
 	{"wxObject", &luna_wrapper_wxToolBar::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxToolBar::_cast_from_wxTrackable},
 	{0,0}
 };
 

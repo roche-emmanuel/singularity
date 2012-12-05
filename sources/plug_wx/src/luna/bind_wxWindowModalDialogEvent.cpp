@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWindowModalDialogEvent.h>
+
 class luna_wrapper_wxWindowModalDialogEvent {
 public:
 	typedef Luna< wxWindowModalDialogEvent > luna_t;
@@ -40,12 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -75,8 +87,8 @@ public:
 
 	// Constructor binds:
 	// wxWindowModalDialogEvent::wxWindowModalDialogEvent(int commandType = wxEVT_NULL, int id = 0)
-	static wxWindowModalDialogEvent* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxWindowModalDialogEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxWindowModalDialogEvent::wxWindowModalDialogEvent(int commandType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxWindowModalDialogEvent::wxWindowModalDialogEvent(int commandType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
 		}
@@ -87,6 +99,30 @@ public:
 		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
 		return new wxWindowModalDialogEvent(commandType, id);
+	}
+
+	// wxWindowModalDialogEvent::wxWindowModalDialogEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0)
+	static wxWindowModalDialogEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWindowModalDialogEvent::wxWindowModalDialogEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxWindowModalDialogEvent::wxWindowModalDialogEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxWindowModalDialogEvent(L,NULL, commandType, id);
+	}
+
+	// Overload binder for wxWindowModalDialogEvent::wxWindowModalDialogEvent
+	static wxWindowModalDialogEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxWindowModalDialogEvent, cannot match any of the overloads for function wxWindowModalDialogEvent:\n  wxWindowModalDialogEvent(int, int)\n  wxWindowModalDialogEvent(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 

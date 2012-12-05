@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFSFile.h>
+
 class luna_wrapper_wxFSFile {
 public:
 	typedef Luna< wxFSFile > luna_t;
@@ -40,14 +42,30 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,57497519) ) return false;
+		if( (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,5))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,57497519) ) return false;
+		if( (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -95,8 +113,8 @@ public:
 
 	// Constructor binds:
 	// wxFSFile::wxFSFile(wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)
-	static wxFSFile* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxFSFile* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFSFile::wxFSFile(wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif) function, expected prototype:\nwxFSFile::wxFSFile(wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 57497519\n");
 		}
@@ -112,6 +130,35 @@ public:
 		wxDateTime modif=*modif_ptr;
 
 		return new wxFSFile(stream, location, mimetype, anchor, modif);
+	}
+
+	// wxFSFile::wxFSFile(lua_Table * data, wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)
+	static wxFSFile* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFSFile::wxFSFile(lua_Table * data, wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif) function, expected prototype:\nwxFSFile::wxFSFile(lua_Table * data, wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 57497519\n");
+		}
+
+		wxInputStream* stream=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2));
+		wxString location(lua_tostring(L,3),lua_objlen(L,3));
+		wxString mimetype(lua_tostring(L,4),lua_objlen(L,4));
+		wxString anchor(lua_tostring(L,5),lua_objlen(L,5));
+		wxDateTime* modif_ptr=(Luna< wxDateTime >::check(L,6));
+		if( !modif_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg modif in wxFSFile::wxFSFile function");
+		}
+		wxDateTime modif=*modif_ptr;
+
+		return new wrapper_wxFSFile(L,NULL, stream, location, mimetype, anchor, modif);
+	}
+
+	// Overload binder for wxFSFile::wxFSFile
+	static wxFSFile* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxFSFile, cannot match any of the overloads for function wxFSFile:\n  wxFSFile(wxInputStream *, const wxString &, const wxString &, const wxString &, wxDateTime)\n  wxFSFile(lua_Table *, wxInputStream *, const wxString &, const wxString &, const wxString &, wxDateTime)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiToolBarEvent.h>
+
 class luna_wrapper_wxAuiToolBarEvent {
 public:
 	typedef Luna< wxAuiToolBarEvent > luna_t;
@@ -160,8 +162,6 @@ wxAuiToolBarEvent* LunaTraits< wxAuiToolBarEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiToolBarEvent >::_bind_dtor(wxAuiToolBarEvent* obj) {

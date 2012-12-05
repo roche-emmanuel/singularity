@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSimpleHtmlListBox.h>
+
 class luna_wrapper_wxSimpleHtmlListBox {
 public:
 	typedef Luna< wxSimpleHtmlListBox > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxSimpleHtmlListBox* ptr= dynamic_cast< wxSimpleHtmlListBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSimpleHtmlListBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSimpleHtmlListBox* ptr= static_cast< wxSimpleHtmlListBox* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -159,8 +150,6 @@ wxSimpleHtmlListBox* LunaTraits< wxSimpleHtmlListBox >::_bind_ctor(lua_State *L)
 	// void wxItemContainerImmutable::SetString(unsigned int n, const wxString & string)
 	// void wxItemContainerImmutable::SetSelection(int n)
 	// int wxItemContainerImmutable::GetSelection() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSimpleHtmlListBox >::_bind_dtor(wxSimpleHtmlListBox* obj) {
@@ -182,7 +171,6 @@ luna_RegType LunaTraits< wxSimpleHtmlListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSimpleHtmlListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxVarScrollHelperBase},
 	{"wxItemContainerImmutable", &luna_wrapper_wxSimpleHtmlListBox::_cast_from_wxItemContainerImmutable},
 	{0,0}

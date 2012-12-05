@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxClipboardTextEvent.h>
+
 class luna_wrapper_wxClipboardTextEvent {
 public:
 	typedef Luna< wxClipboardTextEvent > luna_t;
@@ -54,8 +56,6 @@ wxClipboardTextEvent* LunaTraits< wxClipboardTextEvent >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxClipboardTextEvent >::_bind_dtor(wxClipboardTextEvent* obj) {

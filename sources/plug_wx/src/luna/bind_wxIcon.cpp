@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxIcon.h>
+
 class luna_wrapper_wxIcon {
 public:
 	typedef Luna< wxIcon > luna_t;
@@ -77,6 +79,51 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,82682189) ) return false;
 		if( (!dynamic_cast< wxIconLocation* >(Luna< wxIconLocation >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,82682189) ) return false;
+		if( (!dynamic_cast< wxIconLocation* >(Luna< wxIconLocation >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -222,6 +269,78 @@ public:
 		return new wxIcon(loc);
 	}
 
+	// wxIcon::wxIcon(lua_Table * data)
+	static wxIcon* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxIcon(L,NULL);
+	}
+
+	// wxIcon::wxIcon(lua_Table * data, const wxIcon & icon)
+	static wxIcon* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxIcon & icon) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		if( !icon_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxIcon::wxIcon function");
+		}
+		const wxIcon & icon=*icon_ptr;
+
+		return new wrapper_wxIcon(L,NULL, icon);
+	}
+
+	// wxIcon::wxIcon(lua_Table * data, const char *const * bits)
+	static wxIcon* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const char *const * bits) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const char *const * bits)\nClass arguments details:\n");
+		}
+
+		const char *const * bits=(const char *const *)lua_tostring(L,2);
+
+		return new wrapper_wxIcon(L,NULL, bits);
+	}
+
+	// wxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)
+	static wxIcon* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxICON_DEFAULT_TYPE;
+		int desiredWidth=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int desiredHeight=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+
+		return new wrapper_wxIcon(L,NULL, name, type, desiredWidth, desiredHeight);
+	}
+
+	// wxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc)
+	static wxIcon* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc) function, expected prototype:\nwxIcon::wxIcon(lua_Table * data, const wxIconLocation & loc)\nClass arguments details:\narg 2 ID = 82682189\n");
+		}
+
+		const wxIconLocation* loc_ptr=(Luna< wxIconLocation >::check(L,2));
+		if( !loc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg loc in wxIcon::wxIcon function");
+		}
+		const wxIconLocation & loc=*loc_ptr;
+
+		return new wrapper_wxIcon(L,NULL, loc);
+	}
+
 	// Overload binder for wxIcon::wxIcon
 	static wxIcon* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -229,8 +348,13 @@ public:
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 
-		luaL_error(L, "error in function wxIcon, cannot match any of the overloads for function wxIcon:\n  wxIcon()\n  wxIcon(const wxIcon &)\n  wxIcon(const char *const *)\n  wxIcon(const wxString &, wxBitmapType, int, int)\n  wxIcon(const wxIconLocation &)\n");
+		luaL_error(L, "error in function wxIcon, cannot match any of the overloads for function wxIcon:\n  wxIcon()\n  wxIcon(const wxIcon &)\n  wxIcon(const char *const *)\n  wxIcon(const wxString &, wxBitmapType, int, int)\n  wxIcon(const wxIconLocation &)\n  wxIcon(lua_Table *)\n  wxIcon(lua_Table *, const wxIcon &)\n  wxIcon(lua_Table *, const char *const *)\n  wxIcon(lua_Table *, const wxString &, wxBitmapType, int, int)\n  wxIcon(lua_Table *, const wxIconLocation &)\n");
 		return NULL;
 	}
 

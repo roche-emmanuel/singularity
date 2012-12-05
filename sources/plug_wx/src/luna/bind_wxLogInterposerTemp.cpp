@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogInterposerTemp.h>
+
 class luna_wrapper_wxLogInterposerTemp {
 public:
 	typedef Luna< wxLogInterposerTemp > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -54,14 +63,34 @@ public:
 
 	// Constructor binds:
 	// wxLogInterposerTemp::wxLogInterposerTemp()
-	static wxLogInterposerTemp* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogInterposerTemp* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogInterposerTemp::wxLogInterposerTemp() function, expected prototype:\nwxLogInterposerTemp::wxLogInterposerTemp()\nClass arguments details:\n");
 		}
 
 
 		return new wxLogInterposerTemp();
+	}
+
+	// wxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data)
+	static wxLogInterposerTemp* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data) function, expected prototype:\nwxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxLogInterposerTemp(L,NULL);
+	}
+
+	// Overload binder for wxLogInterposerTemp::wxLogInterposerTemp
+	static wxLogInterposerTemp* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogInterposerTemp, cannot match any of the overloads for function wxLogInterposerTemp:\n  wxLogInterposerTemp()\n  wxLogInterposerTemp(lua_Table *)\n");
+		return NULL;
 	}
 
 

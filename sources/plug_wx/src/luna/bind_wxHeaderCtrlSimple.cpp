@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderCtrlSimple.h>
+
 class luna_wrapper_wxHeaderCtrlSimple {
 public:
 	typedef Luna< wxHeaderCtrlSimple > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxHeaderCtrlSimple* ptr= dynamic_cast< wxHeaderCtrlSimple* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHeaderCtrlSimple >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHeaderCtrlSimple* ptr= static_cast< wxHeaderCtrlSimple* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -265,8 +256,6 @@ wxHeaderCtrlSimple* LunaTraits< wxHeaderCtrlSimple >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// const wxHeaderColumn & wxHeaderCtrl::GetColumn(unsigned int idx) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHeaderCtrlSimple >::_bind_dtor(wxHeaderCtrlSimple* obj) {
@@ -294,7 +283,6 @@ luna_RegType LunaTraits< wxHeaderCtrlSimple >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHeaderCtrlSimple >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHeaderCtrlSimple::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHeaderCtrlSimple::_cast_from_wxTrackable},
 	{0,0}
 };
 

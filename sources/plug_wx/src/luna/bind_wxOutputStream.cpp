@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxOutputStream.h>
+
 class luna_wrapper_wxOutputStream {
 public:
 	typedef Luna< wxOutputStream > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -104,14 +113,34 @@ public:
 
 	// Constructor binds:
 	// wxOutputStream::wxOutputStream()
-	static wxOutputStream* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxOutputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxOutputStream::wxOutputStream() function, expected prototype:\nwxOutputStream::wxOutputStream()\nClass arguments details:\n");
 		}
 
 
 		return new wxOutputStream();
+	}
+
+	// wxOutputStream::wxOutputStream(lua_Table * data)
+	static wxOutputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxOutputStream::wxOutputStream(lua_Table * data) function, expected prototype:\nwxOutputStream::wxOutputStream(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxOutputStream(L,NULL);
+	}
+
+	// Overload binder for wxOutputStream::wxOutputStream
+	static wxOutputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxOutputStream, cannot match any of the overloads for function wxOutputStream:\n  wxOutputStream()\n  wxOutputStream(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -173,17 +202,17 @@ public:
 		return 0;
 	}
 
-	// long wxOutputStream::SeekO(long pos, wxSeekMode mode = wxFromStart)
+	// long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)
 	static int _bind_SeekO(lua_State *L) {
 		if (!_lg_typecheck_SeekO(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxOutputStream::SeekO(long pos, wxSeekMode mode = wxFromStart) function, expected prototype:\nlong wxOutputStream::SeekO(long pos, wxSeekMode mode = wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long pos=(long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxOutputStream* self=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
 		if(!self) {

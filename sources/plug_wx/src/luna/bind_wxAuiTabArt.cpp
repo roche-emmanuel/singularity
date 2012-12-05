@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiTabArt.h>
+
 class luna_wrapper_wxAuiTabArt {
 public:
 	typedef Luna< wxAuiTabArt > luna_t;
@@ -300,11 +302,11 @@ public:
 		return 0;
 	}
 
-	// int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * , const wxAuiNotebookPageArray & , const wxSize & )
+	// int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)
 	static int _bind_GetBestTabCtrlSize(lua_State *L) {
 		if (!_lg_typecheck_GetBestTabCtrlSize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * , const wxAuiNotebookPageArray & , const wxSize & ) function, expected prototype:\nint wxAuiTabArt::GetBestTabCtrlSize(wxWindow * , const wxAuiNotebookPageArray & , const wxSize & )\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3) function, expected prototype:\nint wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\narg 3 ID = 20268751\n");
 		}
 
 		wxWindow* _arg1=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
@@ -556,7 +558,7 @@ wxAuiTabArt* LunaTraits< wxAuiTabArt >::_bind_ctor(lua_State *L) {
 	// void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)
 	// void wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect)
 	// void wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent)
-	// int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * , const wxAuiNotebookPageArray & , const wxSize & )
+	// int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)
 	// int wxAuiTabArt::GetIndentSize()
 	// wxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent)
 	// void wxAuiTabArt::SetFlags(unsigned int flags)
@@ -566,8 +568,6 @@ wxAuiTabArt* LunaTraits< wxAuiTabArt >::_bind_ctor(lua_State *L) {
 	// void wxAuiTabArt::SetColour(const wxColour & colour)
 	// void wxAuiTabArt::SetActiveColour(const wxColour & colour)
 	// void wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiTabArt >::_bind_dtor(wxAuiTabArt* obj) {

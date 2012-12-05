@@ -501,11 +501,11 @@ public:
 
 
 	// Function binds:
-	// wxRect wxRect::CentreIn(const wxRect & r, int dir = wxBOTH) const
+	// wxRect wxRect::CentreIn(const wxRect & r, int dir = ::wxBOTH) const
 	static int _bind_CentreIn(lua_State *L) {
 		if (!_lg_typecheck_CentreIn(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect wxRect::CentreIn(const wxRect & r, int dir = wxBOTH) const function, expected prototype:\nwxRect wxRect::CentreIn(const wxRect & r, int dir = wxBOTH) const\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in wxRect wxRect::CentreIn(const wxRect & r, int dir = ::wxBOTH) const function, expected prototype:\nwxRect wxRect::CentreIn(const wxRect & r, int dir = ::wxBOTH) const\nClass arguments details:\narg 1 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -515,7 +515,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in wxRect::CentreIn function");
 		}
 		const wxRect & r=*r_ptr;
-		int dir=luatop>2 ? (int)lua_tointeger(L,3) : wxBOTH;
+		int dir=luatop>2 ? (int)lua_tointeger(L,3) : ::wxBOTH;
 
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {
@@ -531,11 +531,11 @@ public:
 		return 1;
 	}
 
-	// wxRect wxRect::CenterIn(const wxRect & r, int dir = wxBOTH) const
+	// wxRect wxRect::CenterIn(const wxRect & r, int dir = ::wxBOTH) const
 	static int _bind_CenterIn(lua_State *L) {
 		if (!_lg_typecheck_CenterIn(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRect wxRect::CenterIn(const wxRect & r, int dir = wxBOTH) const function, expected prototype:\nwxRect wxRect::CenterIn(const wxRect & r, int dir = wxBOTH) const\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in wxRect wxRect::CenterIn(const wxRect & r, int dir = ::wxBOTH) const function, expected prototype:\nwxRect wxRect::CenterIn(const wxRect & r, int dir = ::wxBOTH) const\nClass arguments details:\narg 1 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -545,7 +545,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg r in wxRect::CenterIn function");
 		}
 		const wxRect & r=*r_ptr;
-		int dir=luatop>2 ? (int)lua_tointeger(L,3) : wxBOTH;
+		int dir=luatop>2 ? (int)lua_tointeger(L,3) : ::wxBOTH;
 
 		wxRect* self=(Luna< wxRect >::check(L,1));
 		if(!self) {

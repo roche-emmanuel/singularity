@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiDefaultToolBarArt.h>
+
 class luna_wrapper_wxAuiDefaultToolBarArt {
 public:
 	typedef Luna< wxAuiDefaultToolBarArt > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -217,14 +226,34 @@ public:
 
 	// Constructor binds:
 	// wxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt()
-	static wxAuiDefaultToolBarArt* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxAuiDefaultToolBarArt* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt() function, expected prototype:\nwxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt()\nClass arguments details:\n");
 		}
 
 
 		return new wxAuiDefaultToolBarArt();
+	}
+
+	// wxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt(lua_Table * data)
+	static wxAuiDefaultToolBarArt* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt(lua_Table * data) function, expected prototype:\nwxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAuiDefaultToolBarArt(L,NULL);
+	}
+
+	// Overload binder for wxAuiDefaultToolBarArt::wxAuiDefaultToolBarArt
+	static wxAuiDefaultToolBarArt* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxAuiDefaultToolBarArt, cannot match any of the overloads for function wxAuiDefaultToolBarArt:\n  wxAuiDefaultToolBarArt()\n  wxAuiDefaultToolBarArt(lua_Table *)\n");
+		return NULL;
 	}
 
 

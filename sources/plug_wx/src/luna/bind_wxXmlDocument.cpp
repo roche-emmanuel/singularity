@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlDocument.h>
+
 class luna_wrapper_wxXmlDocument {
 public:
 	typedef Luna< wxXmlDocument > luna_t;

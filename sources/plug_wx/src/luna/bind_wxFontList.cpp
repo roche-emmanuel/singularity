@@ -80,11 +80,11 @@ public:
 
 
 	// Function binds:
-	// wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = wxFONTENCODING_DEFAULT)
+	// wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)
 	static int _bind_FindOrCreateFont(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreateFont(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = wxFONTENCODING_DEFAULT) function, expected prototype:\nwxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -95,7 +95,7 @@ public:
 		wxFontWeight weight=(wxFontWeight)lua_tointeger(L,5);
 		bool underline=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
 		wxString facename(lua_tostring(L,7),lua_objlen(L,7));
-		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
 
 		wxFontList* self=dynamic_cast< wxFontList* >(Luna< wxList >::check(L,1));
 		if(!self) {

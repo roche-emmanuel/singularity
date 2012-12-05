@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPGMultiButton.h>
+
 class luna_wrapper_wxPGMultiButton {
 public:
 	typedef Luna< wxPGMultiButton > luna_t;
@@ -38,24 +40,26 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPGMultiButton* ptr= static_cast< wxPGMultiButton* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPGMultiButton >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -120,8 +124,8 @@ public:
 
 	// Constructor binds:
 	// wxPGMultiButton::wxPGMultiButton(wxPropertyGrid * pg, const wxSize & sz)
-	static wxPGMultiButton* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxPGMultiButton* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxPGMultiButton::wxPGMultiButton(wxPropertyGrid * pg, const wxSize & sz) function, expected prototype:\nwxPGMultiButton::wxPGMultiButton(wxPropertyGrid * pg, const wxSize & sz)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20268751\n");
 		}
@@ -134,6 +138,32 @@ public:
 		const wxSize & sz=*sz_ptr;
 
 		return new wxPGMultiButton(pg, sz);
+	}
+
+	// wxPGMultiButton::wxPGMultiButton(lua_Table * data, wxPropertyGrid * pg, const wxSize & sz)
+	static wxPGMultiButton* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGMultiButton::wxPGMultiButton(lua_Table * data, wxPropertyGrid * pg, const wxSize & sz) function, expected prototype:\nwxPGMultiButton::wxPGMultiButton(lua_Table * data, wxPropertyGrid * pg, const wxSize & sz)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
+		}
+
+		wxPropertyGrid* pg=dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2));
+		const wxSize* sz_ptr=(Luna< wxSize >::check(L,3));
+		if( !sz_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sz in wxPGMultiButton::wxPGMultiButton function");
+		}
+		const wxSize & sz=*sz_ptr;
+
+		return new wrapper_wxPGMultiButton(L,NULL, pg, sz);
+	}
+
+	// Overload binder for wxPGMultiButton::wxPGMultiButton
+	static wxPGMultiButton* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPGMultiButton, cannot match any of the overloads for function wxPGMultiButton:\n  wxPGMultiButton(wxPropertyGrid *, const wxSize &)\n  wxPGMultiButton(lua_Table *, wxPropertyGrid *, const wxSize &)\n");
+		return NULL;
 	}
 
 
@@ -335,7 +365,6 @@ luna_RegType LunaTraits< wxPGMultiButton >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPGMultiButton >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPGMultiButton::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPGMultiButton::_cast_from_wxTrackable},
 	{0,0}
 };
 

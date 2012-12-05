@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRibbonButtonBarEvent.h>
+
 class luna_wrapper_wxRibbonButtonBarEvent {
 public:
 	typedef Luna< wxRibbonButtonBarEvent > luna_t;
@@ -134,8 +136,6 @@ wxRibbonButtonBarEvent* LunaTraits< wxRibbonButtonBarEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRibbonButtonBarEvent >::_bind_dtor(wxRibbonButtonBarEvent* obj) {

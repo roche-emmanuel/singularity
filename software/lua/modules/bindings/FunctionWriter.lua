@@ -190,7 +190,7 @@ function Class:writeFunctionCall(cname,func,args)
 		self:writeLine("// ERROR: Invalid return type object for function '" .. func:getFullName() .. "'")
 		self:writeLine("////////////////////////////////////////////////////////////////////")
 		self:writeLine("return 0;");
-		log:warn("Invalid return type object for function '" .. func:getFullName() .. "'")
+		self:warn("Invalid return type object for function '" .. func:getFullName() .. "'")
 		return
 	end
 	

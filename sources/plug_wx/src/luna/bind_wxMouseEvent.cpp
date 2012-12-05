@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMouseEvent.h>
+
 class luna_wrapper_wxMouseEvent {
 public:
 	typedef Luna< wxMouseEvent > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxMouseEvent* ptr= dynamic_cast< wxMouseEvent* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMouseEvent >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxKeyboardState(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMouseEvent* ptr= static_cast< wxMouseEvent* >(Luna< wxKeyboardState >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -396,16 +387,16 @@ public:
 		return 1;
 	}
 
-	// bool wxMouseEvent::ButtonDClick(wxMouseButton but = wxMOUSE_BTN_ANY) const
+	// bool wxMouseEvent::ButtonDClick(wxMouseButton but = ::wxMOUSE_BTN_ANY) const
 	static int _bind_ButtonDClick(lua_State *L) {
 		if (!_lg_typecheck_ButtonDClick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonDClick(wxMouseButton but = wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonDClick(wxMouseButton but = wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonDClick(wxMouseButton but = ::wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonDClick(wxMouseButton but = ::wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=dynamic_cast< wxMouseEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -418,16 +409,16 @@ public:
 		return 1;
 	}
 
-	// bool wxMouseEvent::ButtonDown(wxMouseButton but = wxMOUSE_BTN_ANY) const
+	// bool wxMouseEvent::ButtonDown(wxMouseButton but = ::wxMOUSE_BTN_ANY) const
 	static int _bind_ButtonDown(lua_State *L) {
 		if (!_lg_typecheck_ButtonDown(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonDown(wxMouseButton but = wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonDown(wxMouseButton but = wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonDown(wxMouseButton but = ::wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonDown(wxMouseButton but = ::wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=dynamic_cast< wxMouseEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -440,16 +431,16 @@ public:
 		return 1;
 	}
 
-	// bool wxMouseEvent::ButtonUp(wxMouseButton but = wxMOUSE_BTN_ANY) const
+	// bool wxMouseEvent::ButtonUp(wxMouseButton but = ::wxMOUSE_BTN_ANY) const
 	static int _bind_ButtonUp(lua_State *L) {
 		if (!_lg_typecheck_ButtonUp(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonUp(wxMouseButton but = wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonUp(wxMouseButton but = wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseEvent::ButtonUp(wxMouseButton but = ::wxMOUSE_BTN_ANY) const function, expected prototype:\nbool wxMouseEvent::ButtonUp(wxMouseButton but = ::wxMOUSE_BTN_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : wxMOUSE_BTN_ANY;
+		wxMouseButton but=luatop>1 ? (wxMouseButton)lua_tointeger(L,2) : ::wxMOUSE_BTN_ANY;
 
 		wxMouseEvent* self=dynamic_cast< wxMouseEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -916,8 +907,6 @@ wxMouseEvent* LunaTraits< wxMouseEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMouseEvent >::_bind_dtor(wxMouseEvent* obj) {
@@ -971,7 +960,6 @@ luna_RegType LunaTraits< wxMouseEvent >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMouseEvent >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMouseEvent::_cast_from_wxObject},
-	{"wxKeyboardState", &luna_wrapper_wxMouseEvent::_cast_from_wxKeyboardState},
 	{0,0}
 };
 

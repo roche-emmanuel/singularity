@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSettableHeaderColumn.h>
+
 class luna_wrapper_wxSettableHeaderColumn {
 public:
 	typedef Luna< wxSettableHeaderColumn > luna_t;
@@ -512,8 +514,6 @@ wxSettableHeaderColumn* LunaTraits< wxSettableHeaderColumn >::_bind_ctor(lua_Sta
 	// int wxHeaderColumn::GetFlags() const
 	// bool wxHeaderColumn::IsSortKey() const
 	// bool wxHeaderColumn::IsSortOrderAscending() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSettableHeaderColumn >::_bind_dtor(wxSettableHeaderColumn* obj) {

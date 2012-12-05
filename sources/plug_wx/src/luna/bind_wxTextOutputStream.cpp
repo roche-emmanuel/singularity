@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextOutputStream.h>
+
 class luna_wrapper_wxTextOutputStream {
 public:
 	typedef Luna< wxTextOutputStream > luna_t;
@@ -182,16 +184,16 @@ public:
 		return 1;
 	}
 
-	// void wxTextOutputStream::SetMode(wxEOL mode = wxEOL_NATIVE)
+	// void wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE)
 	static int _bind_SetMode(lua_State *L) {
 		if (!_lg_typecheck_SetMode(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::SetMode(wxEOL mode = wxEOL_NATIVE) function, expected prototype:\nvoid wxTextOutputStream::SetMode(wxEOL mode = wxEOL_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE) function, expected prototype:\nvoid wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxEOL mode=luatop>1 ? (wxEOL)lua_tointeger(L,2) : wxEOL_NATIVE;
+		wxEOL mode=luatop>1 ? (wxEOL)lua_tointeger(L,2) : ::wxEOL_NATIVE;
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {

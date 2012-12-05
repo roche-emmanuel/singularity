@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiManagerEvent.h>
+
 class luna_wrapper_wxAuiManagerEvent {
 public:
 	typedef Luna< wxAuiManagerEvent > luna_t;
@@ -369,8 +371,6 @@ wxAuiManagerEvent* LunaTraits< wxAuiManagerEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiManagerEvent >::_bind_dtor(wxAuiManagerEvent* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStyledTextCtrl.h>
+
 class luna_wrapper_wxStyledTextCtrl {
 public:
 	typedef Luna< wxStyledTextCtrl > luna_t;
@@ -38,29 +40,38 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxStyledTextCtrl* ptr= static_cast< wxStyledTextCtrl* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxStyledTextCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>6 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
 		return true;
 	}
 
@@ -3705,17 +3716,17 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
-	static wxStyledTextCtrl* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
+	static wxStyledTextCtrl* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStyledTextCtrl::wxStyledTextCtrl function");
@@ -3730,6 +3741,42 @@ public:
 		wxString name(lua_tostring(L,6),lua_objlen(L,6));
 
 		return new wxStyledTextCtrl(parent, id, pos, size, style, name);
+	}
+
+	// wxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
+	static wxStyledTextCtrl* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nwxStyledTextCtrl::wxStyledTextCtrl(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStyledTextCtrl::wxStyledTextCtrl function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxStyledTextCtrl::wxStyledTextCtrl function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		wxString name(lua_tostring(L,7),lua_objlen(L,7));
+
+		return new wrapper_wxStyledTextCtrl(L,NULL, parent, id, pos, size, style, name);
+	}
+
+	// Overload binder for wxStyledTextCtrl::wxStyledTextCtrl
+	static wxStyledTextCtrl* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxStyledTextCtrl, cannot match any of the overloads for function wxStyledTextCtrl:\n  wxStyledTextCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n  wxStyledTextCtrl(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		return NULL;
 	}
 
 
@@ -5087,17 +5134,17 @@ public:
 		return 0;
 	}
 
-	// bool wxStyledTextCtrl::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
+	// bool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nbool wxStyledTextCtrl::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) function, expected prototype:\nbool wxStyledTextCtrl::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStyledTextCtrl::Create function");
@@ -11703,11 +11750,11 @@ public:
 		return 0;
 	}
 
-	// void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = wxFONTENCODING_DEFAULT)
+	// void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)
 	static int _bind_StyleSetFontAttr(lua_State *L) {
 		if (!_lg_typecheck_StyleSetFontAttr(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = wxFONTENCODING_DEFAULT) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nvoid wxStyledTextCtrl::StyleSetFontAttr(int styleNum, int size, const wxString & faceName, bool bold, bool italic, bool underline, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -11718,7 +11765,7 @@ public:
 		bool bold=(bool)(lua_toboolean(L,5)==1);
 		bool italic=(bool)(lua_toboolean(L,6)==1);
 		bool underline=(bool)(lua_toboolean(L,7)==1);
-		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : wxFONTENCODING_DEFAULT;
+		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
 
 		wxStyledTextCtrl* self=dynamic_cast< wxStyledTextCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -14689,7 +14736,6 @@ luna_RegType LunaTraits< wxStyledTextCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxStyledTextCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxStyledTextCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxStyledTextCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

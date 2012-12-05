@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDialUpEvent.h>
+
 class luna_wrapper_wxDialUpEvent {
 public:
 	typedef Luna< wxDialUpEvent > luna_t;
@@ -104,8 +106,6 @@ wxDialUpEvent* LunaTraits< wxDialUpEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDialUpEvent >::_bind_dtor(wxDialUpEvent* obj) {

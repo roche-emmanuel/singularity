@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogWindow.h>
+
 class luna_wrapper_wxLogWindow {
 public:
 	typedef Luna< wxLogWindow > luna_t;
@@ -40,14 +42,28 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -94,8 +110,8 @@ public:
 
 	// Constructor binds:
 	// wxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)
-	static wxLogWindow* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogWindow* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
@@ -108,6 +124,32 @@ public:
 		bool passToOld=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 
 		return new wxLogWindow(pParent, szTitle, show, passToOld);
+	}
+
+	// wxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)
+	static wxLogWindow* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* pParent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxString szTitle(lua_tostring(L,3),lua_objlen(L,3));
+		bool show=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		bool passToOld=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+
+		return new wrapper_wxLogWindow(L,NULL, pParent, szTitle, show, passToOld);
+	}
+
+	// Overload binder for wxLogWindow::wxLogWindow
+	static wxLogWindow* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogWindow, cannot match any of the overloads for function wxLogWindow:\n  wxLogWindow(wxWindow *, const wxString &, bool, bool)\n  wxLogWindow(lua_Table *, wxWindow *, const wxString &, bool, bool)\n");
+		return NULL;
 	}
 
 

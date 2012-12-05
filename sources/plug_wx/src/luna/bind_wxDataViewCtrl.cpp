@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewCtrl.h>
+
 class luna_wrapper_wxDataViewCtrl {
 public:
 	typedef Luna< wxDataViewCtrl > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDataViewCtrl* ptr= static_cast< wxDataViewCtrl* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDataViewCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -72,6 +63,32 @@ public:
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
 		if( luatop>5 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,6))) ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7))) ) return false;
+		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -563,12 +580,57 @@ public:
 		return new wxDataViewCtrl(parent, id, pos, size, style, validator, name);
 	}
 
+	// wxDataViewCtrl::wxDataViewCtrl(lua_Table * data)
+	static wxDataViewCtrl* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewCtrl::wxDataViewCtrl(lua_Table * data) function, expected prototype:\nwxDataViewCtrl::wxDataViewCtrl(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDataViewCtrl(L,NULL);
+	}
+
+	// wxDataViewCtrl::wxDataViewCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxDataViewCtrlNameStr)
+	static wxDataViewCtrl* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewCtrl::wxDataViewCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxDataViewCtrlNameStr) function, expected prototype:\nwxDataViewCtrl::wxDataViewCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxDataViewCtrlNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDataViewCtrl::wxDataViewCtrl function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxDataViewCtrl::wxDataViewCtrl function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+		const wxValidator* validator_ptr=luatop>6 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7)) : NULL;
+		if( luatop>6 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxDataViewCtrl::wxDataViewCtrl function");
+		}
+		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,8),lua_objlen(L,8));
+
+		return new wrapper_wxDataViewCtrl(L,NULL, parent, id, pos, size, style, validator, name);
+	}
+
 	// Overload binder for wxDataViewCtrl::wxDataViewCtrl
 	static wxDataViewCtrl* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxDataViewCtrl, cannot match any of the overloads for function wxDataViewCtrl:\n  wxDataViewCtrl()\n  wxDataViewCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxDataViewCtrl, cannot match any of the overloads for function wxDataViewCtrl:\n  wxDataViewCtrl()\n  wxDataViewCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n  wxDataViewCtrl(lua_Table *)\n  wxDataViewCtrl(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -635,21 +697,21 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendBitmapColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendBitmapColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -664,11 +726,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendBitmapColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendBitmapColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendBitmapColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -679,10 +741,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -706,21 +768,21 @@ public:
 		return 0;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendDateColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendDateColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_ACTIVATABLE;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_ACTIVATABLE;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -735,11 +797,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendDateColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendDateColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendDateColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -750,10 +812,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_ACTIVATABLE;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_ACTIVATABLE;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -777,21 +839,21 @@ public:
 		return 0;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendIconTextColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendIconTextColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -806,11 +868,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendIconTextColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendIconTextColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendIconTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -821,10 +883,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -848,21 +910,21 @@ public:
 		return 0;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendProgressColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendProgressColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -877,11 +939,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendProgressColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendProgressColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendProgressColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -892,10 +954,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -919,21 +981,21 @@ public:
 		return 0;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendTextColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendTextColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -948,11 +1010,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendTextColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendTextColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = wxALIGN_NOT, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendTextColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = -1, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -963,10 +1025,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_NOT;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_NOT;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -990,21 +1052,21 @@ public:
 		return 0;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendToggleColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendToggleColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxString & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : 30;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1019,11 +1081,11 @@ public:
 		return 1;
 	}
 
-	// wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)
+	// wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
 	static int _bind_AppendToggleColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AppendToggleColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = wxALIGN_CENTER, int flags = wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn * wxDataViewCtrl::AppendToggleColumn(const wxBitmap & label, unsigned int model_column, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int width = 30, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1034,10 +1096,10 @@ public:
 		}
 		const wxBitmap & label=*label_ptr;
 		unsigned int model_column=(unsigned int)lua_tointeger(L,3);
-		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : wxDATAVIEW_CELL_INERT;
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : 30;
-		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : wxALIGN_CENTER;
-		int flags=luatop>6 ? (int)lua_tointeger(L,7) : wxDATAVIEW_COL_RESIZABLE;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
 
 		wxDataViewCtrl* self=dynamic_cast< wxDataViewCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1941,7 +2003,6 @@ luna_RegType LunaTraits< wxDataViewCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDataViewCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDataViewCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDataViewCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxListCtrl.h>
+
 class luna_wrapper_wxListCtrl {
 public:
 	typedef Luna< wxListCtrl > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxListCtrl* ptr= static_cast< wxListCtrl* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxListCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -72,6 +63,32 @@ public:
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
 		if( luatop>5 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,6))) ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7))) ) return false;
+		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -676,27 +693,72 @@ public:
 		return new wxListCtrl(parent, id, pos, size, style, validator, name);
 	}
 
+	// wxListCtrl::wxListCtrl(lua_Table * data)
+	static wxListCtrl* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxListCtrl::wxListCtrl(lua_Table * data) function, expected prototype:\nwxListCtrl::wxListCtrl(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxListCtrl(L,NULL);
+	}
+
+	// wxListCtrl::wxListCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr)
+	static wxListCtrl* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxListCtrl::wxListCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) function, expected prototype:\nwxListCtrl::wxListCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\narg 8 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxListCtrl::wxListCtrl function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxListCtrl::wxListCtrl function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxLC_ICON;
+		const wxValidator* validator_ptr=luatop>6 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7)) : NULL;
+		if( luatop>6 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxListCtrl::wxListCtrl function");
+		}
+		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,8),lua_objlen(L,8));
+
+		return new wrapper_wxListCtrl(L,NULL, parent, id, pos, size, style, validator, name);
+	}
+
 	// Overload binder for wxListCtrl::wxListCtrl
 	static wxListCtrl* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxListCtrl, cannot match any of the overloads for function wxListCtrl:\n  wxListCtrl()\n  wxListCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxListCtrl, cannot match any of the overloads for function wxListCtrl:\n  wxListCtrl()\n  wxListCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n  wxListCtrl(lua_Table *)\n  wxListCtrl(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// bool wxListCtrl::Arrange(int flag = wxLIST_ALIGN_DEFAULT)
+	// bool wxListCtrl::Arrange(int flag = ::wxLIST_ALIGN_DEFAULT)
 	static int _bind_Arrange(lua_State *L) {
 		if (!_lg_typecheck_Arrange(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxListCtrl::Arrange(int flag = wxLIST_ALIGN_DEFAULT) function, expected prototype:\nbool wxListCtrl::Arrange(int flag = wxLIST_ALIGN_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxListCtrl::Arrange(int flag = ::wxLIST_ALIGN_DEFAULT) function, expected prototype:\nbool wxListCtrl::Arrange(int flag = ::wxLIST_ALIGN_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flag=luatop>1 ? (int)lua_tointeger(L,2) : wxLIST_ALIGN_DEFAULT;
+		int flag=luatop>1 ? (int)lua_tointeger(L,2) : ::wxLIST_ALIGN_DEFAULT;
 
 		wxListCtrl* self=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1314,11 +1376,11 @@ public:
 		return 1;
 	}
 
-	// bool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const
+	// bool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const
 	static int _bind_GetItemRect(lua_State *L) {
 		if (!_lg_typecheck_GetItemRect(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const function, expected prototype:\nbool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in bool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const function, expected prototype:\nbool wxListCtrl::GetItemRect(long item, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const\nClass arguments details:\narg 2 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1329,7 +1391,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxListCtrl::GetItemRect function");
 		}
 		wxRect & rect=*rect_ptr;
-		int code=luatop>3 ? (int)lua_tointeger(L,4) : wxLIST_RECT_BOUNDS;
+		int code=luatop>3 ? (int)lua_tointeger(L,4) : ::wxLIST_RECT_BOUNDS;
 
 		wxListCtrl* self=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1431,17 +1493,17 @@ public:
 		return 1;
 	}
 
-	// long wxListCtrl::GetNextItem(long item, int geometry = wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const
+	// long wxListCtrl::GetNextItem(long item, int geometry = ::wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const
 	static int _bind_GetNextItem(lua_State *L) {
 		if (!_lg_typecheck_GetNextItem(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxListCtrl::GetNextItem(long item, int geometry = wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const function, expected prototype:\nlong wxListCtrl::GetNextItem(long item, int geometry = wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxListCtrl::GetNextItem(long item, int geometry = ::wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const function, expected prototype:\nlong wxListCtrl::GetNextItem(long item, int geometry = ::wxLIST_NEXT_ALL, int state = wxLIST_STATE_DONTCARE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long item=(long)lua_tointeger(L,2);
-		int geometry=luatop>2 ? (int)lua_tointeger(L,3) : wxLIST_NEXT_ALL;
+		int geometry=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLIST_NEXT_ALL;
 		int state=luatop>3 ? (int)lua_tointeger(L,4) : wxLIST_STATE_DONTCARE;
 
 		wxListCtrl* self=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1));
@@ -1474,11 +1536,11 @@ public:
 		return 1;
 	}
 
-	// bool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const
+	// bool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const
 	static int _bind_GetSubItemRect(lua_State *L) {
 		if (!_lg_typecheck_GetSubItemRect(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const function, expected prototype:\nbool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = wxLIST_RECT_BOUNDS) const\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in bool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const function, expected prototype:\nbool wxListCtrl::GetSubItemRect(long item, long subItem, wxRect & rect, int code = ::wxLIST_RECT_BOUNDS) const\nClass arguments details:\narg 3 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1490,7 +1552,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxListCtrl::GetSubItemRect function");
 		}
 		wxRect & rect=*rect_ptr;
-		int code=luatop>4 ? (int)lua_tointeger(L,5) : wxLIST_RECT_BOUNDS;
+		int code=luatop>4 ? (int)lua_tointeger(L,5) : ::wxLIST_RECT_BOUNDS;
 
 		wxListCtrl* self=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1619,18 +1681,18 @@ public:
 		return 1;
 	}
 
-	// long wxListCtrl::InsertColumn(long col, const wxString & heading, int format = wxLIST_FORMAT_LEFT, int width = -1)
+	// long wxListCtrl::InsertColumn(long col, const wxString & heading, int format = ::wxLIST_FORMAT_LEFT, int width = -1)
 	static int _bind_InsertColumn_overload_2(lua_State *L) {
 		if (!_lg_typecheck_InsertColumn_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxListCtrl::InsertColumn(long col, const wxString & heading, int format = wxLIST_FORMAT_LEFT, int width = -1) function, expected prototype:\nlong wxListCtrl::InsertColumn(long col, const wxString & heading, int format = wxLIST_FORMAT_LEFT, int width = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in long wxListCtrl::InsertColumn(long col, const wxString & heading, int format = ::wxLIST_FORMAT_LEFT, int width = -1) function, expected prototype:\nlong wxListCtrl::InsertColumn(long col, const wxString & heading, int format = ::wxLIST_FORMAT_LEFT, int width = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long col=(long)lua_tointeger(L,2);
 		wxString heading(lua_tostring(L,3),lua_objlen(L,3));
-		int format=luatop>3 ? (int)lua_tointeger(L,4) : wxLIST_FORMAT_LEFT;
+		int format=luatop>3 ? (int)lua_tointeger(L,4) : ::wxLIST_FORMAT_LEFT;
 		int width=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 
 		wxListCtrl* self=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1));
@@ -2384,7 +2446,6 @@ luna_RegType LunaTraits< wxListCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxListCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxListCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxListCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

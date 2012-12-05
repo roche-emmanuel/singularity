@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDropTarget.h>
+
 class luna_wrapper_wxDropTarget {
 public:
 	typedef Luna< wxDropTarget > luna_t;
@@ -265,8 +267,6 @@ wxDropTarget* LunaTraits< wxDropTarget >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxDropTarget::GetData()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDropTarget >::_bind_dtor(wxDropTarget* obj) {

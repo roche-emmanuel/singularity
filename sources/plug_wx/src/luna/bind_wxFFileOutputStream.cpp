@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFFileOutputStream.h>
+
 class luna_wrapper_wxFFileOutputStream {
 public:
 	typedef Luna< wxFFileOutputStream > luna_t;
@@ -57,6 +59,25 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,15266762) ) return false;
+		if( (!dynamic_cast< wxFFile* >(Luna< wxFFile >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_IsOk(lua_State *L) {
@@ -101,12 +122,45 @@ public:
 		return new wxFFileOutputStream(file);
 	}
 
+	// wxFFileOutputStream::wxFFileOutputStream(lua_Table * data, const wxString & filename, const wxString & mode = "wb")
+	static wxFFileOutputStream* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFFileOutputStream::wxFFileOutputStream(lua_Table * data, const wxString & filename, const wxString & mode = \"wb\") function, expected prototype:\nwxFFileOutputStream::wxFFileOutputStream(lua_Table * data, const wxString & filename, const wxString & mode = \"wb\")\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+		wxString mode(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxFFileOutputStream(L,NULL, filename, mode);
+	}
+
+	// wxFFileOutputStream::wxFFileOutputStream(lua_Table * data, wxFFile & file)
+	static wxFFileOutputStream* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFFileOutputStream::wxFFileOutputStream(lua_Table * data, wxFFile & file) function, expected prototype:\nwxFFileOutputStream::wxFFileOutputStream(lua_Table * data, wxFFile & file)\nClass arguments details:\narg 2 ID = 15266762\n");
+		}
+
+		wxFFile* file_ptr=(Luna< wxFFile >::check(L,2));
+		if( !file_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg file in wxFFileOutputStream::wxFFileOutputStream function");
+		}
+		wxFFile & file=*file_ptr;
+
+		return new wrapper_wxFFileOutputStream(L,NULL, file);
+	}
+
 	// Overload binder for wxFFileOutputStream::wxFFileOutputStream
 	static wxFFileOutputStream* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxFFileOutputStream, cannot match any of the overloads for function wxFFileOutputStream:\n  wxFFileOutputStream(const wxString &, const wxString &)\n  wxFFileOutputStream(wxFFile &)\n");
+		luaL_error(L, "error in function wxFFileOutputStream, cannot match any of the overloads for function wxFFileOutputStream:\n  wxFFileOutputStream(const wxString &, const wxString &)\n  wxFFileOutputStream(wxFFile &)\n  wxFFileOutputStream(lua_Table *, const wxString &, const wxString &)\n  wxFFileOutputStream(lua_Table *, wxFFile &)\n");
 		return NULL;
 	}
 

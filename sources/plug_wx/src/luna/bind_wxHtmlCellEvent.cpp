@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlCellEvent.h>
+
 class luna_wrapper_wxHtmlCellEvent {
 public:
 	typedef Luna< wxHtmlCellEvent > luna_t;
@@ -160,8 +162,6 @@ wxHtmlCellEvent* LunaTraits< wxHtmlCellEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlCellEvent >::_bind_dtor(wxHtmlCellEvent* obj) {

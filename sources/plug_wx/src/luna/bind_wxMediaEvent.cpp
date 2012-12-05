@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMediaEvent.h>
+
 class luna_wrapper_wxMediaEvent {
 public:
 	typedef Luna< wxMediaEvent > luna_t;
@@ -54,8 +56,6 @@ wxMediaEvent* LunaTraits< wxMediaEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMediaEvent >::_bind_dtor(wxMediaEvent* obj) {

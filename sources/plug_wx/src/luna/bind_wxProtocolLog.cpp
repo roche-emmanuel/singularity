@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxProtocolLog.h>
+
 class luna_wrapper_wxProtocolLog {
 public:
 	typedef Luna< wxProtocolLog > luna_t;
@@ -54,10 +56,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -83,8 +93,8 @@ public:
 
 	// Constructor binds:
 	// wxProtocolLog::wxProtocolLog(const wxString & traceMask)
-	static wxProtocolLog* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxProtocolLog* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxProtocolLog::wxProtocolLog(const wxString & traceMask) function, expected prototype:\nwxProtocolLog::wxProtocolLog(const wxString & traceMask)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -92,6 +102,27 @@ public:
 		wxString traceMask(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new wxProtocolLog(traceMask);
+	}
+
+	// wxProtocolLog::wxProtocolLog(lua_Table * data, const wxString & traceMask)
+	static wxProtocolLog* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProtocolLog::wxProtocolLog(lua_Table * data, const wxString & traceMask) function, expected prototype:\nwxProtocolLog::wxProtocolLog(lua_Table * data, const wxString & traceMask)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString traceMask(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxProtocolLog(L,NULL, traceMask);
+	}
+
+	// Overload binder for wxProtocolLog::wxProtocolLog
+	static wxProtocolLog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxProtocolLog, cannot match any of the overloads for function wxProtocolLog:\n  wxProtocolLog(const wxString &)\n  wxProtocolLog(lua_Table *, const wxString &)\n");
+		return NULL;
 	}
 
 

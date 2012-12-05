@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewCustomRenderer.h>
+
 class luna_wrapper_wxDataViewCustomRenderer {
 public:
 	typedef Luna< wxDataViewCustomRenderer > luna_t;
@@ -347,8 +349,6 @@ wxDataViewCustomRenderer* LunaTraits< wxDataViewCustomRenderer >::_bind_ctor(lua
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewCustomRenderer >::_bind_dtor(wxDataViewCustomRenderer* obj) {

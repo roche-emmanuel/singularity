@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEventLoopBase.h>
+
 class luna_wrapper_wxEventLoopBase {
 public:
 	typedef Luna< wxEventLoopBase > luna_t;
@@ -504,8 +506,6 @@ wxEventLoopBase* LunaTraits< wxEventLoopBase >::_bind_ctor(lua_State *L) {
 	// bool wxEventLoopBase::Dispatch()
 	// int wxEventLoopBase::DispatchTimeout(unsigned long timeout)
 	// void wxEventLoopBase::WakeUp()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxEventLoopBase >::_bind_dtor(wxEventLoopBase* obj) {

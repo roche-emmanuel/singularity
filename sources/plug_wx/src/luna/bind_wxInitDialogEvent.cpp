@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxInitDialogEvent.h>
+
 class luna_wrapper_wxInitDialogEvent {
 public:
 	typedef Luna< wxInitDialogEvent > luna_t;
@@ -54,8 +56,6 @@ wxInitDialogEvent* LunaTraits< wxInitDialogEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxInitDialogEvent >::_bind_dtor(wxInitDialogEvent* obj) {

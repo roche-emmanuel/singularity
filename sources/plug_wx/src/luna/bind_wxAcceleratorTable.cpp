@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAcceleratorTable.h>
+
 class luna_wrapper_wxAcceleratorTable {
 public:
 	typedef Luna< wxAcceleratorTable > luna_t;
@@ -53,6 +55,21 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_IsOk(lua_State *L) {
@@ -89,12 +106,37 @@ public:
 		return new wxAcceleratorTable(resource);
 	}
 
+	// wxAcceleratorTable::wxAcceleratorTable(lua_Table * data)
+	static wxAcceleratorTable* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAcceleratorTable::wxAcceleratorTable(lua_Table * data) function, expected prototype:\nwxAcceleratorTable::wxAcceleratorTable(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAcceleratorTable(L,NULL);
+	}
+
+	// wxAcceleratorTable::wxAcceleratorTable(lua_Table * data, const wxString & resource)
+	static wxAcceleratorTable* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAcceleratorTable::wxAcceleratorTable(lua_Table * data, const wxString & resource) function, expected prototype:\nwxAcceleratorTable::wxAcceleratorTable(lua_Table * data, const wxString & resource)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString resource(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxAcceleratorTable(L,NULL, resource);
+	}
+
 	// Overload binder for wxAcceleratorTable::wxAcceleratorTable
 	static wxAcceleratorTable* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxAcceleratorTable, cannot match any of the overloads for function wxAcceleratorTable:\n  wxAcceleratorTable()\n  wxAcceleratorTable(const wxString &)\n");
+		luaL_error(L, "error in function wxAcceleratorTable, cannot match any of the overloads for function wxAcceleratorTable:\n  wxAcceleratorTable()\n  wxAcceleratorTable(const wxString &)\n  wxAcceleratorTable(lua_Table *)\n  wxAcceleratorTable(lua_Table *, const wxString &)\n");
 		return NULL;
 	}
 

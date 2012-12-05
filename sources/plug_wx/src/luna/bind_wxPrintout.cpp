@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrintout.h>
+
 class luna_wrapper_wxPrintout {
 public:
 	typedef Luna< wxPrintout > luna_t;
@@ -54,8 +56,6 @@ wxPrintout* LunaTraits< wxPrintout >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxPrintout::OnPrintPage(int pageNum)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPrintout >::_bind_dtor(wxPrintout* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMessageOutputBest.h>
+
 class luna_wrapper_wxMessageOutputBest {
 public:
 	typedef Luna< wxMessageOutputBest > luna_t;
@@ -54,8 +56,6 @@ wxMessageOutputBest* LunaTraits< wxMessageOutputBest >::_bind_ctor(lua_State *L)
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxMessageOutput::Output(const wxString & str)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMessageOutputBest >::_bind_dtor(wxMessageOutputBest* obj) {

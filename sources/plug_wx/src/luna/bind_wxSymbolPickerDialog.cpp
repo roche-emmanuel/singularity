@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSymbolPickerDialog.h>
+
 class luna_wrapper_wxSymbolPickerDialog {
 public:
 	typedef Luna< wxSymbolPickerDialog > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSymbolPickerDialog* ptr= static_cast< wxSymbolPickerDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSymbolPickerDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -73,6 +64,33 @@ public:
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,20268751) ) return false;
 		if( luatop>7 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,8))) ) return false;
 		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>10 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
+		if( (lua_isnil(L,5)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) ) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,25723480) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,8))) ) return false;
+		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,20268751) ) return false;
+		if( luatop>8 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,9))) ) return false;
+		if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		return true;
 	}
 
@@ -187,11 +205,11 @@ public:
 		return new wxSymbolPickerDialog();
 	}
 
-	// wxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)
+	// wxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)
 	static wxSymbolPickerDialog* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) function, expected prototype:\nwxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 25723480\narg 8 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) function, expected prototype:\nwxSymbolPickerDialog::wxSymbolPickerDialog(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 25723480\narg 8 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -200,7 +218,7 @@ public:
 		wxString initialFont(lua_tostring(L,2),lua_objlen(L,2));
 		wxString normalTextFont(lua_tostring(L,3),lua_objlen(L,3));
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4));
-		int id=luatop>4 ? (int)lua_tointeger(L,5) : wxID_ANY;
+		int id=luatop>4 ? (int)lua_tointeger(L,5) : ::wxID_ANY;
 		wxString title(lua_tostring(L,6),lua_objlen(L,6));
 		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
 		if( luatop>6 && !pos_ptr ) {
@@ -217,22 +235,22 @@ public:
 		return new wxSymbolPickerDialog(symbol, initialFont, normalTextFont, parent, id, title, pos, size, style);
 	}
 
-	// Overload binder for wxSymbolPickerDialog::wxSymbolPickerDialog
-	static wxSymbolPickerDialog* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+	// wxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data)
+	static wxSymbolPickerDialog* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data) function, expected prototype:\nwxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data)\nClass arguments details:\n");
+		}
 
-		luaL_error(L, "error in function wxSymbolPickerDialog, cannot match any of the overloads for function wxSymbolPickerDialog:\n  wxSymbolPickerDialog()\n  wxSymbolPickerDialog(const wxString &, const wxString &, const wxString &, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long)\n");
-		return NULL;
+
+		return new wrapper_wxSymbolPickerDialog(L,NULL);
 	}
 
-
-	// Function binds:
-	// bool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & caption = wxGetTranslation ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)
-	static int _bind_Create(lua_State *L) {
-		if (!_lg_typecheck_Create(L)) {
+	// wxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)
+	static wxSymbolPickerDialog* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & caption = wxGetTranslation (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) function, expected prototype:\nbool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = wxID_ANY, const wxString & caption = wxGetTranslation (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 25723480\narg 8 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) function, expected prototype:\nwxSymbolPickerDialog::wxSymbolPickerDialog(lua_Table * data, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 56813631\narg 7 ID = 88196105\narg 8 ID = 25723480\narg 9 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -241,7 +259,50 @@ public:
 		wxString initialFont(lua_tostring(L,3),lua_objlen(L,3));
 		wxString normalTextFont(lua_tostring(L,4),lua_objlen(L,4));
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5));
-		int id=luatop>5 ? (int)lua_tointeger(L,6) : wxID_ANY;
+		int id=luatop>5 ? (int)lua_tointeger(L,6) : ::wxID_ANY;
+		wxString title(lua_tostring(L,7),lua_objlen(L,7));
+		const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
+		if( luatop>7 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxSymbolPickerDialog::wxSymbolPickerDialog function");
+		}
+		const wxPoint & pos=luatop>7 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>8 ? (Luna< wxSize >::check(L,9)) : NULL;
+		if( luatop>8 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSymbolPickerDialog::wxSymbolPickerDialog function");
+		}
+		const wxSize & size=luatop>8 ? *size_ptr : wxDefaultSize;
+		long style=luatop>9 ? (long)lua_tointeger(L,10) : wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX;
+
+		return new wrapper_wxSymbolPickerDialog(L,NULL, symbol, initialFont, normalTextFont, parent, id, title, pos, size, style);
+	}
+
+	// Overload binder for wxSymbolPickerDialog::wxSymbolPickerDialog
+	static wxSymbolPickerDialog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+
+		luaL_error(L, "error in function wxSymbolPickerDialog, cannot match any of the overloads for function wxSymbolPickerDialog:\n  wxSymbolPickerDialog()\n  wxSymbolPickerDialog(const wxString &, const wxString &, const wxString &, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long)\n  wxSymbolPickerDialog(lua_Table *)\n  wxSymbolPickerDialog(lua_Table *, const wxString &, const wxString &, const wxString &, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long)\n");
+		return NULL;
+	}
+
+
+	// Function binds:
+	// bool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & caption = wxGetTranslation ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)
+	static int _bind_Create(lua_State *L) {
+		if (!_lg_typecheck_Create(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & caption = wxGetTranslation (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) function, expected prototype:\nbool wxSymbolPickerDialog::Create(const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & caption = wxGetTranslation (\"Symbols\"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxSize (400, 300), long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 25723480\narg 8 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString symbol(lua_tostring(L,2),lua_objlen(L,2));
+		wxString initialFont(lua_tostring(L,3),lua_objlen(L,3));
+		wxString normalTextFont(lua_tostring(L,4),lua_objlen(L,4));
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5));
+		int id=luatop>5 ? (int)lua_tointeger(L,6) : ::wxID_ANY;
 		wxString caption(lua_tostring(L,7),lua_objlen(L,7));
 		const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
 		if( luatop>7 && !pos_ptr ) {
@@ -534,7 +595,6 @@ luna_RegType LunaTraits< wxSymbolPickerDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSymbolPickerDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSymbolPickerDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxSymbolPickerDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

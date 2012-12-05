@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDialogLayoutAdapter.h>
+
 class luna_wrapper_wxDialogLayoutAdapter {
 public:
 	typedef Luna< wxDialogLayoutAdapter > luna_t;
@@ -123,8 +125,6 @@ wxDialogLayoutAdapter* LunaTraits< wxDialogLayoutAdapter >::_bind_ctor(lua_State
 	// Abstract methods:
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)
 	// bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDialogLayoutAdapter >::_bind_dtor(wxDialogLayoutAdapter* obj) {

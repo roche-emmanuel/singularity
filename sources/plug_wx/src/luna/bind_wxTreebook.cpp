@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTreebook.h>
+
 class luna_wrapper_wxTreebook {
 public:
 	typedef Luna< wxTreebook > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxTreebook* ptr= dynamic_cast< wxTreebook* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxTreebook >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxTreebook* ptr= static_cast< wxTreebook* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -442,8 +433,6 @@ wxTreebook* LunaTraits< wxTreebook >::_bind_ctor(lua_State *L) {
 	// bool wxBookCtrlBase::SetPageText(size_t page, const wxString & text)
 	// int wxBookCtrlBase::SetSelection(size_t page)
 	// int wxBookCtrlBase::ChangeSelection(size_t page)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTreebook >::_bind_dtor(wxTreebook* obj) {
@@ -475,7 +464,6 @@ luna_RegType LunaTraits< wxTreebook >::methods[] = {
 
 luna_ConverterType LunaTraits< wxTreebook >::converters[] = {
 	{"wxObject", &luna_wrapper_wxTreebook::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxTreebook::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxTreebook::_cast_from_wxWithImages},
 	{0,0}
 };

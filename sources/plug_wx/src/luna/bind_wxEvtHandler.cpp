@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEvtHandler.h>
+
 class luna_wrapper_wxEvtHandler {
 public:
 	typedef Luna< wxEvtHandler > luna_t;
@@ -38,22 +40,18 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxEvtHandler* ptr= static_cast< wxEvtHandler* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxEvtHandler >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -246,14 +244,34 @@ public:
 
 	// Constructor binds:
 	// wxEvtHandler::wxEvtHandler()
-	static wxEvtHandler* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxEvtHandler* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler() function, expected prototype:\nwxEvtHandler::wxEvtHandler()\nClass arguments details:\n");
 		}
 
 
 		return new wxEvtHandler();
+	}
+
+	// wxEvtHandler::wxEvtHandler(lua_Table * data)
+	static wxEvtHandler* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEvtHandler::wxEvtHandler(lua_Table * data) function, expected prototype:\nwxEvtHandler::wxEvtHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxEvtHandler(L,NULL);
+	}
+
+	// Overload binder for wxEvtHandler::wxEvtHandler
+	static wxEvtHandler* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxEvtHandler, cannot match any of the overloads for function wxEvtHandler:\n  wxEvtHandler()\n  wxEvtHandler(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -791,7 +809,6 @@ luna_RegType LunaTraits< wxEvtHandler >::methods[] = {
 
 luna_ConverterType LunaTraits< wxEvtHandler >::converters[] = {
 	{"wxObject", &luna_wrapper_wxEvtHandler::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxEvtHandler::_cast_from_wxTrackable},
 	{0,0}
 };
 

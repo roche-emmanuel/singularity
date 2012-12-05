@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStringOutputStream.h>
+
 class luna_wrapper_wxStringOutputStream {
 public:
 	typedef Luna< wxStringOutputStream > luna_t;

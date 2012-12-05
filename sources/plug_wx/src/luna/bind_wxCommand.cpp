@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCommand.h>
+
 class luna_wrapper_wxCommand {
 public:
 	typedef Luna< wxCommand > luna_t;
@@ -155,8 +157,6 @@ wxCommand* LunaTraits< wxCommand >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxCommand::Do()
 	// bool wxCommand::Undo()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxCommand >::_bind_dtor(wxCommand* obj) {

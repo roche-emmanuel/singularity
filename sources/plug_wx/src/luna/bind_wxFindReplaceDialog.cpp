@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFindReplaceDialog.h>
+
 class luna_wrapper_wxFindReplaceDialog {
 public:
 	typedef Luna< wxFindReplaceDialog > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxFindReplaceDialog* ptr= static_cast< wxFindReplaceDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxFindReplaceDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -67,6 +58,27 @@ public:
 		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -122,12 +134,42 @@ public:
 		return new wxFindReplaceDialog(parent, data, title, style);
 	}
 
+	// wxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data)
+	static wxFindReplaceDialog* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data) function, expected prototype:\nwxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFindReplaceDialog(L,NULL);
+	}
+
+	// wxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0)
+	static wxFindReplaceDialog* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0) function, expected prototype:\nwxFindReplaceDialog::wxFindReplaceDialog(lua_Table * data, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxFindReplaceData* data=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,3));
+		wxString title(lua_tostring(L,4),lua_objlen(L,4));
+		int style=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+
+		return new wrapper_wxFindReplaceDialog(L,NULL, parent, data, title, style);
+	}
+
 	// Overload binder for wxFindReplaceDialog::wxFindReplaceDialog
 	static wxFindReplaceDialog* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxFindReplaceDialog, cannot match any of the overloads for function wxFindReplaceDialog:\n  wxFindReplaceDialog()\n  wxFindReplaceDialog(wxWindow *, wxFindReplaceData *, const wxString &, int)\n");
+		luaL_error(L, "error in function wxFindReplaceDialog, cannot match any of the overloads for function wxFindReplaceDialog:\n  wxFindReplaceDialog()\n  wxFindReplaceDialog(wxWindow *, wxFindReplaceData *, const wxString &, int)\n  wxFindReplaceDialog(lua_Table *)\n  wxFindReplaceDialog(lua_Table *, wxWindow *, wxFindReplaceData *, const wxString &, int)\n");
 		return NULL;
 	}
 
@@ -208,7 +250,6 @@ luna_RegType LunaTraits< wxFindReplaceDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxFindReplaceDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxFindReplaceDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxFindReplaceDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

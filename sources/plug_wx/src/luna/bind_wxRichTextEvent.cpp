@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextEvent.h>
+
 class luna_wrapper_wxRichTextEvent {
 public:
 	typedef Luna< wxRichTextEvent > luna_t;

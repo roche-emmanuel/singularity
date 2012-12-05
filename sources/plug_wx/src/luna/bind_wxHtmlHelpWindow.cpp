@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlHelpWindow.h>
+
 class luna_wrapper_wxHtmlHelpWindow {
 public:
 	typedef Luna< wxHtmlHelpWindow > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHtmlHelpWindow* ptr= static_cast< wxHtmlHelpWindow* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHtmlHelpWindow >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -75,6 +66,35 @@ public:
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
 		if( luatop>6 && (lua_isnil(L,7)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,7)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,56813631)) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,8)) ) ) return false;
 		return true;
 	}
 
@@ -186,11 +206,11 @@ public:
 		return new wxHtmlHelpWindow(data);
 	}
 
-	// wxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
+	// wxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
 	static wxHtmlHelpWindow* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 7 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpWindow::wxHtmlHelpWindow(wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 7 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -207,29 +227,73 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHtmlHelpWindow::wxHtmlHelpWindow function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxTAB_TRAVERSAL | wxBORDER_NONE;
+		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxTAB_TRAVERSAL | ::wxBORDER_NONE;
 		int helpStyle=luatop>5 ? (int)lua_tointeger(L,6) : wxHF_DEFAULT_STYLE;
 		wxHtmlHelpData* data=luatop>6 ? dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,7)) : (wxHtmlHelpData*)NULL;
 
 		return new wxHtmlHelpWindow(parent, wxWindowID, pos, size, style, helpStyle, data);
 	}
 
+	// wxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxHtmlHelpData * data = NULL)
+	static wxHtmlHelpWindow* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxHtmlHelpData* data=luatop>1 ? dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,2)) : (wxHtmlHelpData*)NULL;
+
+		return new wrapper_wxHtmlHelpWindow(L,NULL, data);
+	}
+
+	// wxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
+	static wxHtmlHelpWindow* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpWindow::wxHtmlHelpWindow(lua_Table * data, wxWindow * parent, int wxWindowID, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 8 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int wxWindowID=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHtmlHelpWindow::wxHtmlHelpWindow function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHtmlHelpWindow::wxHtmlHelpWindow function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		int style=luatop>5 ? (int)lua_tointeger(L,6) : wxTAB_TRAVERSAL | ::wxBORDER_NONE;
+		int helpStyle=luatop>6 ? (int)lua_tointeger(L,7) : wxHF_DEFAULT_STYLE;
+		wxHtmlHelpData* data=luatop>7 ? dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,8)) : (wxHtmlHelpData*)NULL;
+
+		return new wrapper_wxHtmlHelpWindow(L,NULL, parent, wxWindowID, pos, size, style, helpStyle, data);
+	}
+
 	// Overload binder for wxHtmlHelpWindow::wxHtmlHelpWindow
 	static wxHtmlHelpWindow* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxHtmlHelpWindow, cannot match any of the overloads for function wxHtmlHelpWindow:\n  wxHtmlHelpWindow(wxHtmlHelpData *)\n  wxHtmlHelpWindow(wxWindow *, int, const wxPoint &, const wxSize &, int, int, wxHtmlHelpData *)\n");
+		luaL_error(L, "error in function wxHtmlHelpWindow, cannot match any of the overloads for function wxHtmlHelpWindow:\n  wxHtmlHelpWindow(wxHtmlHelpData *)\n  wxHtmlHelpWindow(wxWindow *, int, const wxPoint &, const wxSize &, int, int, wxHtmlHelpData *)\n  wxHtmlHelpWindow(lua_Table *, wxHtmlHelpData *)\n  wxHtmlHelpWindow(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, int, int, wxHtmlHelpData *)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// bool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE)
+	// bool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE) function, expected prototype:\nbool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE) function, expected prototype:\nbool wxHtmlHelpWindow::Create(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, int style = wxTAB_TRAVERSAL | ::wxBORDER_NONE, int helpStyle = wxHF_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -246,7 +310,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHtmlHelpWindow::Create function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		int style=luatop>5 ? (int)lua_tointeger(L,6) : wxTAB_TRAVERSAL | wxBORDER_NONE;
+		int style=luatop>5 ? (int)lua_tointeger(L,6) : wxTAB_TRAVERSAL | ::wxBORDER_NONE;
 		int helpStyle=luatop>6 ? (int)lua_tointeger(L,7) : wxHF_DEFAULT_STYLE;
 
 		wxHtmlHelpWindow* self=dynamic_cast< wxHtmlHelpWindow* >(Luna< wxObject >::check(L,1));
@@ -368,17 +432,17 @@ public:
 		return 1;
 	}
 
-	// bool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)
+	// bool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_KeywordSearch(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpWindow::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString keyword(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
 
 		wxHtmlHelpWindow* self=dynamic_cast< wxHtmlHelpWindow* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -512,7 +576,6 @@ luna_RegType LunaTraits< wxHtmlHelpWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHtmlHelpWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHtmlHelpWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHtmlHelpWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

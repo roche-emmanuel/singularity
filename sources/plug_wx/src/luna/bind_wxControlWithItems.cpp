@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxControlWithItems.h>
+
 class luna_wrapper_wxControlWithItems {
 public:
 	typedef Luna< wxControlWithItems > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxControlWithItems* ptr= dynamic_cast< wxControlWithItems* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxControlWithItems >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxControlWithItems* ptr= static_cast< wxControlWithItems* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -80,8 +71,6 @@ wxControlWithItems* LunaTraits< wxControlWithItems >::_bind_ctor(lua_State *L) {
 	// void wxItemContainerImmutable::SetString(unsigned int n, const wxString & string)
 	// void wxItemContainerImmutable::SetSelection(int n)
 	// int wxItemContainerImmutable::GetSelection() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxControlWithItems >::_bind_dtor(wxControlWithItems* obj) {
@@ -102,7 +91,6 @@ luna_RegType LunaTraits< wxControlWithItems >::methods[] = {
 
 luna_ConverterType LunaTraits< wxControlWithItems >::converters[] = {
 	{"wxObject", &luna_wrapper_wxControlWithItems::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxControlWithItems::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxControlWithItems::_cast_from_wxItemContainerImmutable},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGLContext.h>
+
 class luna_wrapper_wxGLContext {
 public:
 	typedef Luna< wxGLContext > luna_t;
@@ -40,12 +42,26 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxGLCanvas* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxGLContext* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxGLCanvas* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxGLContext* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -64,8 +80,8 @@ public:
 
 	// Constructor binds:
 	// wxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL)
-	static wxGLContext* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxGLContext* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
@@ -76,6 +92,30 @@ public:
 		const wxGLContext* other=luatop>1 ? dynamic_cast< wxGLContext* >(Luna< wxObject >::check(L,2)) : (const wxGLContext*)NULL;
 
 		return new wxGLContext(win, other);
+	}
+
+	// wxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL)
+	static wxGLContext* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL) function, expected prototype:\nwxGLContext::wxGLContext(lua_Table * data, wxGLCanvas * win, const wxGLContext * other = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxGLCanvas* win=dynamic_cast< wxGLCanvas* >(Luna< wxObject >::check(L,2));
+		const wxGLContext* other=luatop>2 ? dynamic_cast< wxGLContext* >(Luna< wxObject >::check(L,3)) : (const wxGLContext*)NULL;
+
+		return new wrapper_wxGLContext(L,NULL, win, other);
+	}
+
+	// Overload binder for wxGLContext::wxGLContext
+	static wxGLContext* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGLContext, cannot match any of the overloads for function wxGLContext:\n  wxGLContext(wxGLCanvas *, const wxGLContext *)\n  wxGLContext(lua_Table *, wxGLCanvas *, const wxGLContext *)\n");
+		return NULL;
 	}
 
 

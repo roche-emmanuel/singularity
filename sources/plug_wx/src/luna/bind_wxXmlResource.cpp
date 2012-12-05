@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlResource.h>
+
 class luna_wrapper_wxXmlResource {
 public:
 	typedef Luna< wxXmlResource > luna_t;
@@ -1043,17 +1045,17 @@ public:
 		return 1;
 	}
 
-	// static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE)
+	// static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE)
 	static int _bind_GetXRCID(lua_State *L) {
 		if (!_lg_typecheck_GetXRCID(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE) function, expected prototype:\nstatic int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE) function, expected prototype:\nstatic int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString str_id(lua_tostring(L,1),lua_objlen(L,1));
-		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : wxID_NONE;
+		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_NONE;
 
 		int lret = wxXmlResource::GetXRCID(str_id, value_if_not_found);
 		lua_pushnumber(L,lret);

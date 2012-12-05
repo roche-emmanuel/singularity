@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderCtrl.h>
+
 class luna_wrapper_wxHeaderCtrl {
 public:
 	typedef Luna< wxHeaderCtrl > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxHeaderCtrl* ptr= dynamic_cast< wxHeaderCtrl* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHeaderCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHeaderCtrl* ptr= static_cast< wxHeaderCtrl* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -161,17 +152,17 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxHeaderCtrl::Create(wxWindow * parent, int winid = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr)
+	// bool wxHeaderCtrl::Create(wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHeaderCtrl::Create(wxWindow * parent, int winid = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) function, expected prototype:\nbool wxHeaderCtrl::Create(wxWindow * parent, int winid = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHeaderCtrl::Create(wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) function, expected prototype:\nbool wxHeaderCtrl::Create(wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int winid=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHeaderCtrl::Create function");
@@ -182,7 +173,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHeaderCtrl::Create function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxHD_DEFAULT_STYLE;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : ::wxHD_DEFAULT_STYLE;
 		wxString name(lua_tostring(L,7),lua_objlen(L,7));
 
 		wxHeaderCtrl* self=dynamic_cast< wxHeaderCtrl* >(Luna< wxObject >::check(L,1));
@@ -476,8 +467,6 @@ wxHeaderCtrl* LunaTraits< wxHeaderCtrl >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// const wxHeaderColumn & wxHeaderCtrl::GetColumn(unsigned int idx) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHeaderCtrl >::_bind_dtor(wxHeaderCtrl* obj) {
@@ -512,7 +501,6 @@ luna_RegType LunaTraits< wxHeaderCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHeaderCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHeaderCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHeaderCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

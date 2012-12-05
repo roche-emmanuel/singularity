@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlParser.h>
+
 class luna_wrapper_wxHtmlParser {
 public:
 	typedef Luna< wxHtmlParser > luna_t;
@@ -378,8 +380,6 @@ wxHtmlParser* LunaTraits< wxHtmlParser >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxObject * wxHtmlParser::GetProduct()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlParser >::_bind_dtor(wxHtmlParser* obj) {

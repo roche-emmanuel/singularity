@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDocument.h>
+
 class luna_wrapper_wxDocument {
 public:
 	typedef Luna< wxDocument > luna_t;
@@ -38,24 +40,24 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDocument* ptr= static_cast< wxDocument* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDocument >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -327,8 +329,8 @@ public:
 
 	// Constructor binds:
 	// wxDocument::wxDocument(wxDocument * parent = NULL)
-	static wxDocument* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxDocument* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxDocument::wxDocument(wxDocument * parent = NULL) function, expected prototype:\nwxDocument::wxDocument(wxDocument * parent = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -338,6 +340,29 @@ public:
 		wxDocument* parent=luatop>0 ? dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1)) : (wxDocument*)NULL;
 
 		return new wxDocument(parent);
+	}
+
+	// wxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL)
+	static wxDocument* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL) function, expected prototype:\nwxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDocument* parent=luatop>1 ? dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2)) : (wxDocument*)NULL;
+
+		return new wrapper_wxDocument(L,NULL, parent);
+	}
+
+	// Overload binder for wxDocument::wxDocument
+	static wxDocument* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDocument, cannot match any of the overloads for function wxDocument:\n  wxDocument(wxDocument *)\n  wxDocument(lua_Table *, wxDocument *)\n");
+		return NULL;
 	}
 
 
@@ -1206,7 +1231,6 @@ luna_RegType LunaTraits< wxDocument >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDocument >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDocument::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDocument::_cast_from_wxTrackable},
 	{0,0}
 };
 

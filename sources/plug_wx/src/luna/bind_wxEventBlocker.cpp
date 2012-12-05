@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEventBlocker.h>
+
 class luna_wrapper_wxEventBlocker {
 public:
 	typedef Luna< wxEventBlocker > luna_t;
@@ -38,25 +40,26 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxEventBlocker* ptr= static_cast< wxEventBlocker* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxEventBlocker >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -75,8 +78,8 @@ public:
 
 	// Constructor binds:
 	// wxEventBlocker::wxEventBlocker(wxWindow * win, int type = -1)
-	static wxEventBlocker* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxEventBlocker* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxEventBlocker::wxEventBlocker(wxWindow * win, int type = -1) function, expected prototype:\nwxEventBlocker::wxEventBlocker(wxWindow * win, int type = -1)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -87,6 +90,30 @@ public:
 		int type=luatop>1 ? (int)lua_tointeger(L,2) : -1;
 
 		return new wxEventBlocker(win, type);
+	}
+
+	// wxEventBlocker::wxEventBlocker(lua_Table * data, wxWindow * win, int type = -1)
+	static wxEventBlocker* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventBlocker::wxEventBlocker(lua_Table * data, wxWindow * win, int type = -1) function, expected prototype:\nwxEventBlocker::wxEventBlocker(lua_Table * data, wxWindow * win, int type = -1)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int type=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+
+		return new wrapper_wxEventBlocker(L,NULL, win, type);
+	}
+
+	// Overload binder for wxEventBlocker::wxEventBlocker
+	static wxEventBlocker* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxEventBlocker, cannot match any of the overloads for function wxEventBlocker:\n  wxEventBlocker(wxWindow *, int)\n  wxEventBlocker(lua_Table *, wxWindow *, int)\n");
+		return NULL;
 	}
 
 
@@ -138,7 +165,6 @@ luna_RegType LunaTraits< wxEventBlocker >::methods[] = {
 
 luna_ConverterType LunaTraits< wxEventBlocker >::converters[] = {
 	{"wxObject", &luna_wrapper_wxEventBlocker::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxEventBlocker::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxListView.h>
+
 class luna_wrapper_wxListView {
 public:
 	typedef Luna< wxListView > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxListView* ptr= dynamic_cast< wxListView* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxListView >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxListView* ptr= static_cast< wxListView* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -310,7 +301,6 @@ luna_RegType LunaTraits< wxListView >::methods[] = {
 
 luna_ConverterType LunaTraits< wxListView >::converters[] = {
 	{"wxObject", &luna_wrapper_wxListView::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxListView::_cast_from_wxTrackable},
 	{0,0}
 };
 

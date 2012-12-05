@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileDirPickerEvent.h>
+
 class luna_wrapper_wxFileDirPickerEvent {
 public:
 	typedef Luna< wxFileDirPickerEvent > luna_t;
@@ -105,8 +107,6 @@ wxFileDirPickerEvent* LunaTraits< wxFileDirPickerEvent >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileDirPickerEvent >::_bind_dtor(wxFileDirPickerEvent* obj) {

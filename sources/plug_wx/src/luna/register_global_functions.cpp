@@ -2244,17 +2244,17 @@ static int _bind_wxConcatFiles(lua_State *L) {
 	return 1;
 }
 
-// bool wxMkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT)
+// bool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT)
 static int _bind_wxMkdir(lua_State *L) {
 	if (!_lg_typecheck_wxMkdir(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxMkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT) function, expected prototype:\nbool wxMkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT) function, expected prototype:\nbool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 	}
 
 	int luatop = lua_gettop(L);
 
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-	int perm=luatop>1 ? (int)lua_tointeger(L,2) : wxS_DIR_DEFAULT;
+	int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
 
 	bool lret = wxMkdir(dir, perm);
 	lua_pushboolean(L,lret?1:0);
@@ -2646,11 +2646,11 @@ static int _bind_wxIsNullDouble(lua_State *L) {
 	return 1;
 }
 
-// int wxMessageBox(const wxString & message, const wxString & caption = "Message", int style = wxOK, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord)
+// int wxMessageBox(const wxString & message, const wxString & caption = "Message", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord)
 static int _bind_wxMessageBox(lua_State *L) {
 	if (!_lg_typecheck_wxMessageBox(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord) function, expected prototype:\nint wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord) function, expected prototype:\nint wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
 	}
 
 	int luatop = lua_gettop(L);
@@ -2659,8 +2659,8 @@ static int _bind_wxMessageBox(lua_State *L) {
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	int style=luatop>2 ? (int)lua_tointeger(L,3) : wxOK;
 	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : wxDefaultCoord;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 
 	int lret = wxMessageBox(message, caption, style, parent, x, y);
 	lua_pushnumber(L,lret);
@@ -2746,17 +2746,17 @@ static int _bind_wxTextAttrCollectCommonAttributes(lua_State *L) {
 	return 0;
 }
 
-// wxString wxGetStockLabel(int id, long flags = wxSTOCK_WITH_MNEMONIC)
+// wxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC)
 static int _bind_wxGetStockLabel(lua_State *L) {
 	if (!_lg_typecheck_wxGetStockLabel(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetStockLabel(int id, long flags = wxSTOCK_WITH_MNEMONIC) function, expected prototype:\nwxString wxGetStockLabel(int id, long flags = wxSTOCK_WITH_MNEMONIC)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC) function, expected prototype:\nwxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC)\nClass arguments details:\n");
 	}
 
 	int luatop = lua_gettop(L);
 
 	int id=(int)lua_tointeger(L,1);
-	long flags=luatop>1 ? (long)lua_tointeger(L,2) : wxSTOCK_WITH_MNEMONIC;
+	long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxSTOCK_WITH_MNEMONIC;
 
 	wxString lret = wxGetStockLabel(id, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2764,11 +2764,11 @@ static int _bind_wxGetStockLabel(lua_State *L) {
 	return 1;
 }
 
-// wxString wxGetTextFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true)
+// wxString wxGetTextFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)
 static int _bind_wxGetTextFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetTextFromUser(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
 	}
 
 	int luatop = lua_gettop(L);
@@ -2777,8 +2777,8 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
 	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : wxDefaultCoord;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
 
 	wxString lret = wxGetTextFromUser(message, caption, default_value, parent, x, y, centre);
@@ -2787,11 +2787,11 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 	return 1;
 }
 
-// wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true)
+// wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)
 static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetPasswordFromUser(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = wxDefaultCoord, int y = wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
 	}
 
 	int luatop = lua_gettop(L);
@@ -2800,8 +2800,8 @@ static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
 	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
-	int x=luatop>4 ? (int)lua_tointeger(L,5) : wxDefaultCoord;
-	int y=luatop>5 ? (int)lua_tointeger(L,6) : wxDefaultCoord;
+	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
+	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
 
 	wxString lret = wxGetPasswordFromUser(message, caption, default_value, parent, x, y, centre);
@@ -2972,11 +2972,11 @@ static int _bind_wxGetTranslation_overload_1(lua_State *L) {
 	return 1;
 }
 
-// const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned n, const wxString & domain = wxEmptyString)
+// const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString)
 static int _bind_wxGetTranslation_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxGetTranslation_overload_2(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned n, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned n, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
 	}
 
 	int luatop = lua_gettop(L);
@@ -2997,7 +2997,7 @@ static int _bind_wxGetTranslation(lua_State *L) {
 	if (_lg_typecheck_wxGetTranslation_overload_1(L)) return _bind_wxGetTranslation_overload_1(L);
 	if (_lg_typecheck_wxGetTranslation_overload_2(L)) return _bind_wxGetTranslation_overload_2(L);
 
-	luaL_error(L, "error in function wxGetTranslation, cannot match any of the overloads for function wxGetTranslation:\n  wxGetTranslation(const wxString &, const wxString &)\n  wxGetTranslation(const wxString &, const wxString &, unsigned, const wxString &)\n");
+	luaL_error(L, "error in function wxGetTranslation, cannot match any of the overloads for function wxGetTranslation:\n  wxGetTranslation(const wxString &, const wxString &)\n  wxGetTranslation(const wxString &, const wxString &, unsigned int, const wxString &)\n");
 	return 0;
 }
 
@@ -3386,17 +3386,17 @@ static int _bind_wxLoadUserResource(lua_State *L) {
 	return 1;
 }
 
-// wxString wxStripMenuCodes(const wxString & str, int flags = wxStrip_All)
+// wxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All)
 static int _bind_wxStripMenuCodes(lua_State *L) {
 	if (!_lg_typecheck_wxStripMenuCodes(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxStripMenuCodes(const wxString & str, int flags = wxStrip_All) function, expected prototype:\nwxString wxStripMenuCodes(const wxString & str, int flags = wxStrip_All)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All) function, expected prototype:\nwxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All)\nClass arguments details:\narg 1 ID = 88196105\n");
 	}
 
 	int luatop = lua_gettop(L);
 
 	wxString str(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxStrip_All;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxStrip_All;
 
 	wxString lret = wxStripMenuCodes(str, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -3525,17 +3525,17 @@ static int _bind_wxIsPlatformLittleEndian(lua_State *L) {
 	return 1;
 }
 
-// long wxExecute(const wxString & command, int flags = wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)
+// long wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)
 static int _bind_wxExecute_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxExecute_overload_1(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, int flags = wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, int flags = wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 57480074\n");
+		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 57480074\n");
 	}
 
 	int luatop = lua_gettop(L);
 
 	wxString command(lua_tostring(L,1),lua_objlen(L,1));
-	int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxEXEC_ASYNC;
+	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
 	wxProcess* callback=luatop>2 ? dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,3)) : (wxProcess*)NULL;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
@@ -3639,16 +3639,16 @@ static int _bind_wxShell(lua_State *L) {
 	return 1;
 }
 
-// bool wxShutdown(int flags = wxSHUTDOWN_POWEROFF)
+// bool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF)
 static int _bind_wxShutdown(lua_State *L) {
 	if (!_lg_typecheck_wxShutdown(L)) {
 		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxShutdown(int flags = wxSHUTDOWN_POWEROFF) function, expected prototype:\nbool wxShutdown(int flags = wxSHUTDOWN_POWEROFF)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF) function, expected prototype:\nbool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF)\nClass arguments details:\n");
 	}
 
 	int luatop = lua_gettop(L);
 
-	int flags=luatop>0 ? (int)lua_tointeger(L,1) : wxSHUTDOWN_POWEROFF;
+	int flags=luatop>0 ? (int)lua_tointeger(L,1) : ::wxSHUTDOWN_POWEROFF;
 
 	bool lret = wxShutdown(flags);
 	lua_pushboolean(L,lret?1:0);

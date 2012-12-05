@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridRowHeaderRendererDefault.h>
+
 class luna_wrapper_wxGridRowHeaderRendererDefault {
 public:
 	typedef Luna< wxGridRowHeaderRendererDefault > luna_t;

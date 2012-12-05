@@ -349,18 +349,18 @@ public:
 		return 1;
 	}
 
-	// bool wxFile::Create(const wxString & filename, bool overwrite = false, int access = wxS_DEFAULT)
+	// bool wxFile::Create(const wxString & filename, bool overwrite = false, int access = ::wxS_DEFAULT)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFile::Create(const wxString & filename, bool overwrite = false, int access = wxS_DEFAULT) function, expected prototype:\nbool wxFile::Create(const wxString & filename, bool overwrite = false, int access = wxS_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFile::Create(const wxString & filename, bool overwrite = false, int access = ::wxS_DEFAULT) function, expected prototype:\nbool wxFile::Create(const wxString & filename, bool overwrite = false, int access = ::wxS_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool overwrite=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
-		int access=luatop>3 ? (int)lua_tointeger(L,4) : wxS_DEFAULT;
+		int access=luatop>3 ? (int)lua_tointeger(L,4) : ::wxS_DEFAULT;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
@@ -486,18 +486,18 @@ public:
 		return 1;
 	}
 
-	// bool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = wxS_DEFAULT)
+	// bool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = ::wxS_DEFAULT)
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = wxS_DEFAULT) function, expected prototype:\nbool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = wxS_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = ::wxS_DEFAULT) function, expected prototype:\nbool wxFile::Open(const wxString & filename, wxFile::OpenMode mode = wxFile::read, int access = ::wxS_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 		wxFile::OpenMode mode=luatop>2 ? (wxFile::OpenMode)lua_tointeger(L,3) : wxFile::read;
-		int access=luatop>3 ? (int)lua_tointeger(L,4) : wxS_DEFAULT;
+		int access=luatop>3 ? (int)lua_tointeger(L,4) : ::wxS_DEFAULT;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
@@ -531,17 +531,17 @@ public:
 		return 1;
 	}
 
-	// long wxFile::Seek(long ofs, wxSeekMode mode = wxFromStart)
+	// long wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)
 	static int _bind_Seek(lua_State *L) {
 		if (!_lg_typecheck_Seek(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxFile::Seek(long ofs, wxSeekMode mode = wxFromStart) function, expected prototype:\nlong wxFile::Seek(long ofs, wxSeekMode mode = wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long ofs=(long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {

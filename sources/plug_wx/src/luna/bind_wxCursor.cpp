@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCursor.h>
+
 class luna_wrapper_wxCursor {
 public:
 	typedef Luna< wxCursor > luna_t;
@@ -77,6 +79,51 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -165,6 +212,78 @@ public:
 		return new wxCursor(cursor);
 	}
 
+	// wxCursor::wxCursor(lua_Table * data)
+	static wxCursor* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxCursor(L,NULL);
+	}
+
+	// wxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)
+	static wxCursor* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString cursorName(lua_tostring(L,2),lua_objlen(L,2));
+		wxBitmapType type=luatop>2 ? (wxBitmapType)lua_tointeger(L,3) : wxCURSOR_DEFAULT_TYPE;
+		int hotSpotX=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int hotSpotY=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+
+		return new wrapper_wxCursor(L,NULL, cursorName, type, hotSpotX, hotSpotY);
+	}
+
+	// wxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId)
+	static wxCursor* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, wxStockCursor cursorId)\nClass arguments details:\n");
+		}
+
+		wxStockCursor cursorId=(wxStockCursor)lua_tointeger(L,2);
+
+		return new wrapper_wxCursor(L,NULL, cursorId);
+	}
+
+	// wxCursor::wxCursor(lua_Table * data, const wxImage & image)
+	static wxCursor* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxImage & image) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxImage & image)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxImage* image_ptr=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
+		if( !image_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg image in wxCursor::wxCursor function");
+		}
+		const wxImage & image=*image_ptr;
+
+		return new wrapper_wxCursor(L,NULL, image);
+	}
+
+	// wxCursor::wxCursor(lua_Table * data, const wxCursor & cursor)
+	static wxCursor* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCursor::wxCursor(lua_Table * data, const wxCursor & cursor) function, expected prototype:\nwxCursor::wxCursor(lua_Table * data, const wxCursor & cursor)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxCursor* cursor_ptr=dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,2));
+		if( !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxCursor::wxCursor function");
+		}
+		const wxCursor & cursor=*cursor_ptr;
+
+		return new wrapper_wxCursor(L,NULL, cursor);
+	}
+
 	// Overload binder for wxCursor::wxCursor
 	static wxCursor* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -172,8 +291,13 @@ public:
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
 
-		luaL_error(L, "error in function wxCursor, cannot match any of the overloads for function wxCursor:\n  wxCursor()\n  wxCursor(const wxString &, wxBitmapType, int, int)\n  wxCursor(wxStockCursor)\n  wxCursor(const wxImage &)\n  wxCursor(const wxCursor &)\n");
+		luaL_error(L, "error in function wxCursor, cannot match any of the overloads for function wxCursor:\n  wxCursor()\n  wxCursor(const wxString &, wxBitmapType, int, int)\n  wxCursor(wxStockCursor)\n  wxCursor(const wxImage &)\n  wxCursor(const wxCursor &)\n  wxCursor(lua_Table *)\n  wxCursor(lua_Table *, const wxString &, wxBitmapType, int, int)\n  wxCursor(lua_Table *, wxStockCursor)\n  wxCursor(lua_Table *, const wxImage &)\n  wxCursor(lua_Table *, const wxCursor &)\n");
 		return NULL;
 	}
 

@@ -87,16 +87,16 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = wxCRITSEC_DEFAULT)
+	// wxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = ::wxCRITSEC_DEFAULT)
 	static wxCriticalSection* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = wxCRITSEC_DEFAULT) function, expected prototype:\nwxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = wxCRITSEC_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = ::wxCRITSEC_DEFAULT) function, expected prototype:\nwxCriticalSection::wxCriticalSection(wxCriticalSectionType critSecType = ::wxCRITSEC_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxCriticalSectionType critSecType=luatop>0 ? (wxCriticalSectionType)lua_tointeger(L,1) : wxCRITSEC_DEFAULT;
+		wxCriticalSectionType critSecType=luatop>0 ? (wxCriticalSectionType)lua_tointeger(L,1) : ::wxCRITSEC_DEFAULT;
 
 		return new wxCriticalSection(critSecType);
 	}

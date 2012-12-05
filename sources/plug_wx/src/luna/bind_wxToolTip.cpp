@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxToolTip.h>
+
 class luna_wrapper_wxToolTip {
 public:
 	typedef Luna< wxToolTip > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -109,8 +119,8 @@ public:
 
 	// Constructor binds:
 	// wxToolTip::wxToolTip(const wxString & tip)
-	static wxToolTip* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxToolTip* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxToolTip::wxToolTip(const wxString & tip) function, expected prototype:\nwxToolTip::wxToolTip(const wxString & tip)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -118,6 +128,27 @@ public:
 		wxString tip(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new wxToolTip(tip);
+	}
+
+	// wxToolTip::wxToolTip(lua_Table * data, const wxString & tip)
+	static wxToolTip* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxToolTip::wxToolTip(lua_Table * data, const wxString & tip) function, expected prototype:\nwxToolTip::wxToolTip(lua_Table * data, const wxString & tip)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString tip(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxToolTip(L,NULL, tip);
+	}
+
+	// Overload binder for wxToolTip::wxToolTip
+	static wxToolTip* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxToolTip, cannot match any of the overloads for function wxToolTip:\n  wxToolTip(const wxString &)\n  wxToolTip(lua_Table *, const wxString &)\n");
+		return NULL;
 	}
 
 

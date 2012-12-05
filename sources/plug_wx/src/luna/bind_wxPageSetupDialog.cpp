@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPageSetupDialog.h>
+
 class luna_wrapper_wxPageSetupDialog {
 public:
 	typedef Luna< wxPageSetupDialog > luna_t;
@@ -38,25 +40,28 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPageSetupDialog* ptr= static_cast< wxPageSetupDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPageSetupDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -80,8 +85,8 @@ public:
 
 	// Constructor binds:
 	// wxPageSetupDialog::wxPageSetupDialog(wxWindow * parent, wxPageSetupDialogData * data = NULL)
-	static wxPageSetupDialog* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxPageSetupDialog* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxPageSetupDialog::wxPageSetupDialog(wxWindow * parent, wxPageSetupDialogData * data = NULL) function, expected prototype:\nwxPageSetupDialog::wxPageSetupDialog(wxWindow * parent, wxPageSetupDialogData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
@@ -92,6 +97,30 @@ public:
 		wxPageSetupDialogData* data=luatop>1 ? dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,2)) : (wxPageSetupDialogData*)NULL;
 
 		return new wxPageSetupDialog(parent, data);
+	}
+
+	// wxPageSetupDialog::wxPageSetupDialog(lua_Table * data, wxWindow * parent, wxPageSetupDialogData * data = NULL)
+	static wxPageSetupDialog* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialog::wxPageSetupDialog(lua_Table * data, wxWindow * parent, wxPageSetupDialogData * data = NULL) function, expected prototype:\nwxPageSetupDialog::wxPageSetupDialog(lua_Table * data, wxWindow * parent, wxPageSetupDialogData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxPageSetupDialogData* data=luatop>2 ? dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,3)) : (wxPageSetupDialogData*)NULL;
+
+		return new wrapper_wxPageSetupDialog(L,NULL, parent, data);
+	}
+
+	// Overload binder for wxPageSetupDialog::wxPageSetupDialog
+	static wxPageSetupDialog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPageSetupDialog, cannot match any of the overloads for function wxPageSetupDialog:\n  wxPageSetupDialog(wxWindow *, wxPageSetupDialogData *)\n  wxPageSetupDialog(lua_Table *, wxWindow *, wxPageSetupDialogData *)\n");
+		return NULL;
 	}
 
 
@@ -165,7 +194,6 @@ luna_RegType LunaTraits< wxPageSetupDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPageSetupDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPageSetupDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPageSetupDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

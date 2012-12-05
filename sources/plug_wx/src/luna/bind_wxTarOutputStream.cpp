@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTarOutputStream.h>
+
 class luna_wrapper_wxTarOutputStream {
 public:
 	typedef Luna< wxTarOutputStream > luna_t;

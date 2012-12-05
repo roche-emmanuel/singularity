@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrinterDC.h>
+
 class luna_wrapper_wxPrinterDC {
 public:
 	typedef Luna< wxPrinterDC > luna_t;

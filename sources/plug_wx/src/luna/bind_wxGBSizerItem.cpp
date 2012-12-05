@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGBSizerItem.h>
+
 class luna_wrapper_wxGBSizerItem {
 public:
 	typedef Luna< wxGBSizerItem > luna_t;
@@ -88,6 +90,60 @@ public:
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,6)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,3425779) ) return false;
+		if( (!dynamic_cast< wxGBPosition* >(Luna< wxGBPosition >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,97553085) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxGBSpan* >(Luna< wxGBSpan >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,56813631)) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,8)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,3425779) ) return false;
+		if( (!dynamic_cast< wxGBPosition* >(Luna< wxGBPosition >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,97553085) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxGBSpan* >(Luna< wxGBSpan >::check(L,4))) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,7)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,3425779) ) return false;
+		if( (!dynamic_cast< wxGBPosition* >(Luna< wxGBPosition >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,97553085) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxGBSpan* >(Luna< wxGBSpan >::check(L,4))) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,7)) ) ) return false;
 		return true;
 	}
 
@@ -261,13 +317,98 @@ public:
 		return new wxGBSizerItem(sizer, pos, span, flag, border, userData);
 	}
 
+	// wxGBSizerItem::wxGBSizerItem(lua_Table * data, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)
+	static wxGBSizerItem* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGBSizerItem::wxGBSizerItem(lua_Table * data, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) function, expected prototype:\nwxGBSizerItem::wxGBSizerItem(lua_Table * data, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)\nClass arguments details:\narg 4 ID = 3425779\narg 5 ID = 97553085\narg 8 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,4));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBPosition & pos=*pos_ptr;
+		const wxGBSpan* span_ptr=luatop>4 ? (Luna< wxGBSpan >::check(L,5)) : NULL;
+		if( luatop>4 && !span_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBSpan & span=luatop>4 ? *span_ptr : wxDefaultSpan;
+		int flag=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
+		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
+
+		return new wrapper_wxGBSizerItem(L,NULL, width, height, pos, span, flag, border, userData);
+	}
+
+	// wxGBSizerItem::wxGBSizerItem(lua_Table * data, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)
+	static wxGBSizerItem* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGBSizerItem::wxGBSizerItem(lua_Table * data, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) function, expected prototype:\nwxGBSizerItem::wxGBSizerItem(lua_Table * data, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 3425779\narg 4 ID = 97553085\narg 7 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBPosition & pos=*pos_ptr;
+		const wxGBSpan* span_ptr=luatop>3 ? (Luna< wxGBSpan >::check(L,4)) : NULL;
+		if( luatop>3 && !span_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
+
+		return new wrapper_wxGBSizerItem(L,NULL, window, pos, span, flag, border, userData);
+	}
+
+	// wxGBSizerItem::wxGBSizerItem(lua_Table * data, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)
+	static wxGBSizerItem* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGBSizerItem::wxGBSizerItem(lua_Table * data, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) function, expected prototype:\nwxGBSizerItem::wxGBSizerItem(lua_Table * data, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 3425779\narg 4 ID = 97553085\narg 7 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBPosition & pos=*pos_ptr;
+		const wxGBSpan* span_ptr=luatop>3 ? (Luna< wxGBSpan >::check(L,4)) : NULL;
+		if( luatop>3 && !span_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGBSizerItem::wxGBSizerItem function");
+		}
+		const wxGBSpan & span=luatop>3 ? *span_ptr : wxDefaultSpan;
+		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
+		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
+
+		return new wrapper_wxGBSizerItem(L,NULL, sizer, pos, span, flag, border, userData);
+	}
+
 	// Overload binder for wxGBSizerItem::wxGBSizerItem
 	static wxGBSizerItem* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxGBSizerItem, cannot match any of the overloads for function wxGBSizerItem:\n  wxGBSizerItem(int, int, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(wxWindow *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(wxSizer *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n");
+		luaL_error(L, "error in function wxGBSizerItem, cannot match any of the overloads for function wxGBSizerItem:\n  wxGBSizerItem(int, int, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(wxWindow *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(wxSizer *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(lua_Table *, int, int, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(lua_Table *, wxWindow *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n  wxGBSizerItem(lua_Table *, wxSizer *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)\n");
 		return NULL;
 	}
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxChildFocusEvent.h>
+
 class luna_wrapper_wxChildFocusEvent {
 public:
 	typedef Luna< wxChildFocusEvent > luna_t;
@@ -81,8 +83,6 @@ wxChildFocusEvent* LunaTraits< wxChildFocusEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxChildFocusEvent >::_bind_dtor(wxChildFocusEvent* obj) {

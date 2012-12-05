@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTaskBarIconEvent.h>
+
 class luna_wrapper_wxTaskBarIconEvent {
 public:
 	typedef Luna< wxTaskBarIconEvent > luna_t;
@@ -54,8 +56,6 @@ wxTaskBarIconEvent* LunaTraits< wxTaskBarIconEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTaskBarIconEvent >::_bind_dtor(wxTaskBarIconEvent* obj) {

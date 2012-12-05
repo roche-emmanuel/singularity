@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextTable.h>
+
 class luna_wrapper_wxRichTextTable {
 public:
 	typedef Luna< wxRichTextTable > luna_t;

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSplashScreen.h>
+
 class luna_wrapper_wxSplashScreen {
 public:
 	typedef Luna< wxSplashScreen > luna_t;
@@ -38,31 +40,44 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSplashScreen* ptr= static_cast< wxSplashScreen* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSplashScreen >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>8 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1))) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) ) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,6))) ) return false;
 		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,20268751) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,7))) ) return false;
 		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>9 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
+		if( (lua_isnil(L,5)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) ) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,7))) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,20268751) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,8))) ) return false;
+		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		return true;
 	}
 
@@ -98,11 +113,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)
-	static wxSplashScreen* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)
+	static wxSplashScreen* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) function, expected prototype:\nwxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 25723480\narg 7 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) function, expected prototype:\nwxSplashScreen::wxSplashScreen(const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 25723480\narg 7 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -126,9 +141,51 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplashScreen::wxSplashScreen function");
 		}
 		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP;
 
 		return new wxSplashScreen(bitmap, splashStyle, milliseconds, parent, id, pos, size, style);
+	}
+
+	// wxSplashScreen::wxSplashScreen(lua_Table * data, const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)
+	static wxSplashScreen* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSplashScreen::wxSplashScreen(lua_Table * data, const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) function, expected prototype:\nwxSplashScreen::wxSplashScreen(lua_Table * data, const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP)\nClass arguments details:\narg 2 ID = 56813631\narg 5 ID = 56813631\narg 7 ID = 25723480\narg 8 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxSplashScreen::wxSplashScreen function");
+		}
+		const wxBitmap & bitmap=*bitmap_ptr;
+		long splashStyle=(long)lua_tointeger(L,3);
+		int milliseconds=(int)lua_tointeger(L,4);
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5));
+		int id=(int)lua_tointeger(L,6);
+		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
+		if( luatop>6 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxSplashScreen::wxSplashScreen function");
+		}
+		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>7 ? (Luna< wxSize >::check(L,8)) : NULL;
+		if( luatop>7 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSplashScreen::wxSplashScreen function");
+		}
+		const wxSize & size=luatop>7 ? *size_ptr : wxDefaultSize;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP;
+
+		return new wrapper_wxSplashScreen(L,NULL, bitmap, splashStyle, milliseconds, parent, id, pos, size, style);
+	}
+
+	// Overload binder for wxSplashScreen::wxSplashScreen
+	static wxSplashScreen* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSplashScreen, cannot match any of the overloads for function wxSplashScreen:\n  wxSplashScreen(const wxBitmap &, long, int, wxWindow *, int, const wxPoint &, const wxSize &, long)\n  wxSplashScreen(lua_Table *, const wxBitmap &, long, int, wxWindow *, int, const wxPoint &, const wxSize &, long)\n");
+		return NULL;
 	}
 
 
@@ -246,7 +303,6 @@ luna_RegType LunaTraits< wxSplashScreen >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSplashScreen >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSplashScreen::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxSplashScreen::_cast_from_wxTrackable},
 	{0,0}
 };
 

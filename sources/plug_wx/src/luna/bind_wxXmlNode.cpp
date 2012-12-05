@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlNode.h>
+
 class luna_wrapper_wxXmlNode {
 public:
 	typedef Luna< wxXmlNode > luna_t;
@@ -87,6 +89,45 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,64848530) ) return false;
 		if( (!dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,23837631)) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !dynamic_cast< wxXmlAttribute* >(Luna< wxXmlAttribute >::check(L,6)) ) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,64848530)) ) return false;
+		if( luatop>6 && (lua_isnil(L,7)==0 && !dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,7)) ) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,64848530) ) return false;
+		if( (!dynamic_cast< wxXmlNode* >(Luna< wxXmlNode >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -357,13 +398,69 @@ public:
 		return new wxXmlNode(node);
 	}
 
+	// wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)
+	static wxXmlNode* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)\nClass arguments details:\narg 2 ID = 64848530\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 23837631\narg 7 ID = 64848530\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxXmlNode* parent=(Luna< wxXmlNode >::check(L,2));
+		wxXmlNodeType type=(wxXmlNodeType)lua_tointeger(L,3);
+		wxString name(lua_tostring(L,4),lua_objlen(L,4));
+		wxString content(lua_tostring(L,5),lua_objlen(L,5));
+		wxXmlAttribute* attrs=luatop>5 ? (Luna< wxXmlAttribute >::check(L,6)) : (wxXmlAttribute*)NULL;
+		wxXmlNode* next=luatop>6 ? (Luna< wxXmlNode >::check(L,7)) : (wxXmlNode*)NULL;
+		int lineNo=luatop>7 ? (int)lua_tointeger(L,8) : -1;
+
+		return new wrapper_wxXmlNode(L,NULL, parent, type, name, content, attrs, next, lineNo);
+	}
+
+	// wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)
+	static wxXmlNode* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)\nClass arguments details:\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxXmlNodeType type=(wxXmlNodeType)lua_tointeger(L,2);
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+		wxString content(lua_tostring(L,4),lua_objlen(L,4));
+		int lineNo=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+
+		return new wrapper_wxXmlNode(L,NULL, type, name, content, lineNo);
+	}
+
+	// wxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node)
+	static wxXmlNode* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node)\nClass arguments details:\narg 2 ID = 64848530\n");
+		}
+
+		const wxXmlNode* node_ptr=(Luna< wxXmlNode >::check(L,2));
+		if( !node_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg node in wxXmlNode::wxXmlNode function");
+		}
+		const wxXmlNode & node=*node_ptr;
+
+		return new wrapper_wxXmlNode(L,NULL, node);
+	}
+
 	// Overload binder for wxXmlNode::wxXmlNode
 	static wxXmlNode* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxXmlNode, cannot match any of the overloads for function wxXmlNode:\n  wxXmlNode(wxXmlNode *, wxXmlNodeType, const wxString &, const wxString &, wxXmlAttribute *, wxXmlNode *, int)\n  wxXmlNode(wxXmlNodeType, const wxString &, const wxString &, int)\n  wxXmlNode(const wxXmlNode &)\n");
+		luaL_error(L, "error in function wxXmlNode, cannot match any of the overloads for function wxXmlNode:\n  wxXmlNode(wxXmlNode *, wxXmlNodeType, const wxString &, const wxString &, wxXmlAttribute *, wxXmlNode *, int)\n  wxXmlNode(wxXmlNodeType, const wxString &, const wxString &, int)\n  wxXmlNode(const wxXmlNode &)\n  wxXmlNode(lua_Table *, wxXmlNode *, wxXmlNodeType, const wxString &, const wxString &, wxXmlAttribute *, wxXmlNode *, int)\n  wxXmlNode(lua_Table *, wxXmlNodeType, const wxString &, const wxString &, int)\n  wxXmlNode(lua_Table *, const wxXmlNode &)\n");
 		return NULL;
 	}
 

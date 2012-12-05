@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileHistory.h>
+
 class luna_wrapper_wxFileHistory {
 public:
 	typedef Luna< wxFileHistory > luna_t;

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAppTraits.h>
+
 class luna_wrapper_wxAppTraits {
 public:
 	typedef Luna< wxAppTraits > luna_t;
@@ -400,8 +402,6 @@ wxAppTraits* LunaTraits< wxAppTraits >::_bind_ctor(lua_State *L) {
 	// bool wxAppTraits::HasStderr()
 	// bool wxAppTraits::IsUsingUniversalWidgets() const
 	// bool wxAppTraits::ShowAssertDialog(const wxString & msg)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAppTraits >::_bind_dtor(wxAppTraits* obj) {

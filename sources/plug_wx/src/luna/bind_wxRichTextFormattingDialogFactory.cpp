@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextFormattingDialogFactory.h>
+
 class luna_wrapper_wxRichTextFormattingDialogFactory {
 public:
 	typedef Luna< wxRichTextFormattingDialogFactory > luna_t;

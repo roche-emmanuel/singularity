@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderCtrlEvent.h>
+
 class luna_wrapper_wxHeaderCtrlEvent {
 public:
 	typedef Luna< wxHeaderCtrlEvent > luna_t;
@@ -129,8 +131,6 @@ wxHeaderCtrlEvent* LunaTraits< wxHeaderCtrlEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHeaderCtrlEvent >::_bind_dtor(wxHeaderCtrlEvent* obj) {

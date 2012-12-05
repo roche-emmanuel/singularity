@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxProgressDialog.h>
+
 class luna_wrapper_wxProgressDialog {
 public:
 	typedef Luna< wxProgressDialog > luna_t;
@@ -38,20 +40,9 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxProgressDialog* ptr= static_cast< wxProgressDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxProgressDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>5 ) return false;
 
@@ -59,7 +50,22 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) ) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) ) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -133,8 +139,8 @@ public:
 
 	// Constructor binds:
 	// wxProgressDialog::wxProgressDialog(const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002)
-	static wxProgressDialog* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxProgressDialog* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxProgressDialog::wxProgressDialog(const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002) function, expected prototype:\nwxProgressDialog::wxProgressDialog(const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
 		}
@@ -148,6 +154,33 @@ public:
 		int style=luatop>4 ? (int)lua_tointeger(L,5) : 0x0004|0x0002;
 
 		return new wxProgressDialog(title, message, maximum, parent, style);
+	}
+
+	// wxProgressDialog::wxProgressDialog(lua_Table * data, const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002)
+	static wxProgressDialog* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProgressDialog::wxProgressDialog(lua_Table * data, const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002) function, expected prototype:\nwxProgressDialog::wxProgressDialog(lua_Table * data, const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 5 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+		wxString message(lua_tostring(L,3),lua_objlen(L,3));
+		int maximum=luatop>3 ? (int)lua_tointeger(L,4) : 100;
+		wxWindow* parent=luatop>4 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) : (wxWindow*)NULL;
+		int style=luatop>5 ? (int)lua_tointeger(L,6) : 0x0004|0x0002;
+
+		return new wrapper_wxProgressDialog(L,NULL, title, message, maximum, parent, style);
+	}
+
+	// Overload binder for wxProgressDialog::wxProgressDialog
+	static wxProgressDialog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxProgressDialog, cannot match any of the overloads for function wxProgressDialog:\n  wxProgressDialog(const wxString &, const wxString &, int, wxWindow *, int)\n  wxProgressDialog(lua_Table *, const wxString &, const wxString &, int, wxWindow *, int)\n");
+		return NULL;
 	}
 
 
@@ -367,7 +400,6 @@ luna_RegType LunaTraits< wxProgressDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxProgressDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxProgressDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxProgressDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

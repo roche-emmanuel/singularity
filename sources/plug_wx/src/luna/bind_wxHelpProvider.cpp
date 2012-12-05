@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHelpProvider.h>
+
 class luna_wrapper_wxHelpProvider {
 public:
 	typedef Luna< wxHelpProvider > luna_t;
@@ -295,8 +297,6 @@ wxHelpProvider* LunaTraits< wxHelpProvider >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHelpProvider >::_bind_dtor(wxHelpProvider* obj) {

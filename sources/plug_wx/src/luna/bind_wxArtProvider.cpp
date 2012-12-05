@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxArtProvider.h>
+
 class luna_wrapper_wxArtProvider {
 public:
 	typedef Luna< wxArtProvider > luna_t;

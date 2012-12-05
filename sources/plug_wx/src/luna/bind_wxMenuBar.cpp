@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMenuBar.h>
+
 class luna_wrapper_wxMenuBar {
 public:
 	typedef Luna< wxMenuBar > luna_t;
@@ -38,24 +40,22 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMenuBar* ptr= static_cast< wxMenuBar* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMenuBar >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -267,8 +267,8 @@ public:
 
 	// Constructor binds:
 	// wxMenuBar::wxMenuBar(long style = 0)
-	static wxMenuBar* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxMenuBar* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxMenuBar::wxMenuBar(long style = 0) function, expected prototype:\nwxMenuBar::wxMenuBar(long style = 0)\nClass arguments details:\n");
 		}
@@ -278,6 +278,29 @@ public:
 		long style=luatop>0 ? (long)lua_tointeger(L,1) : 0;
 
 		return new wxMenuBar(style);
+	}
+
+	// wxMenuBar::wxMenuBar(lua_Table * data, long style = 0)
+	static wxMenuBar* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMenuBar::wxMenuBar(lua_Table * data, long style = 0) function, expected prototype:\nwxMenuBar::wxMenuBar(lua_Table * data, long style = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+
+		return new wrapper_wxMenuBar(L,NULL, style);
+	}
+
+	// Overload binder for wxMenuBar::wxMenuBar
+	static wxMenuBar* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxMenuBar, cannot match any of the overloads for function wxMenuBar:\n  wxMenuBar(long)\n  wxMenuBar(lua_Table *, long)\n");
+		return NULL;
 	}
 
 
@@ -886,7 +909,6 @@ luna_RegType LunaTraits< wxMenuBar >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMenuBar >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMenuBar::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxMenuBar::_cast_from_wxTrackable},
 	{0,0}
 };
 

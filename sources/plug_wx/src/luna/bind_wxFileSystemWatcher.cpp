@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileSystemWatcher.h>
+
 class luna_wrapper_wxFileSystemWatcher {
 public:
 	typedef Luna< wxFileSystemWatcher > luna_t;
@@ -38,22 +40,18 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxFileSystemWatcher* ptr= static_cast< wxFileSystemWatcher* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxFileSystemWatcher >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -124,8 +122,8 @@ public:
 
 	// Constructor binds:
 	// wxFileSystemWatcher::wxFileSystemWatcher()
-	static wxFileSystemWatcher* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxFileSystemWatcher* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher() function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher()\nClass arguments details:\n");
 		}
@@ -134,13 +132,33 @@ public:
 		return new wxFileSystemWatcher();
 	}
 
+	// wxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data)
+	static wxFileSystemWatcher* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data) function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFileSystemWatcher(L,NULL);
+	}
+
+	// Overload binder for wxFileSystemWatcher::wxFileSystemWatcher
+	static wxFileSystemWatcher* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxFileSystemWatcher, cannot match any of the overloads for function wxFileSystemWatcher:\n  wxFileSystemWatcher()\n  wxFileSystemWatcher(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
-	// bool wxFileSystemWatcher::Add(const wxFileName & path, int events = wxFSW_EVENT_ALL)
+	// bool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)
 	static int _bind_Add(lua_State *L) {
 		if (!_lg_typecheck_Add(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Add(const wxFileName & path, int events = wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::Add(const wxFileName & path, int events = wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -150,7 +168,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::Add function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
 
 		wxFileSystemWatcher* self=dynamic_cast< wxFileSystemWatcher* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -163,11 +181,11 @@ public:
 		return 1;
 	}
 
-	// bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)
+	// bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)
 	static int _bind_AddTree(lua_State *L) {
 		if (!_lg_typecheck_AddTree(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -177,7 +195,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg path in wxFileSystemWatcher::AddTree function");
 		}
 		const wxFileName & path=*path_ptr;
-		int events=luatop>2 ? (int)lua_tointeger(L,3) : wxFSW_EVENT_ALL;
+		int events=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFSW_EVENT_ALL;
 		wxString filter(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxFileSystemWatcher* self=dynamic_cast< wxFileSystemWatcher* >(Luna< wxObject >::check(L,1));
@@ -351,7 +369,6 @@ luna_RegType LunaTraits< wxFileSystemWatcher >::methods[] = {
 
 luna_ConverterType LunaTraits< wxFileSystemWatcher >::converters[] = {
 	{"wxObject", &luna_wrapper_wxFileSystemWatcher::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxFileSystemWatcher::_cast_from_wxTrackable},
 	{0,0}
 };
 

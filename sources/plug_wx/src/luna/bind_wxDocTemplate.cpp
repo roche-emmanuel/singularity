@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDocTemplate.h>
+
 class luna_wrapper_wxDocTemplate {
 public:
 	typedef Luna< wxDocTemplate > luna_t;
@@ -40,11 +42,12 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<7 || luatop>10 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
@@ -52,8 +55,31 @@ public:
 		if( lua_isstring(L,6)==0 ) return false;
 		if( lua_isstring(L,7)==0 ) return false;
 		if( luatop>7 && (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,96106697)) ) return false;
+		if( luatop>7 && (lua_isnil(L,8)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,8)) ) ) return false;
 		if( luatop>8 && (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,96106697)) ) return false;
+		if( luatop>8 && (lua_isnil(L,9)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,9)) ) ) return false;
 		if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<8 || luatop>11 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
+		if( lua_isstring(L,7)==0 ) return false;
+		if( lua_isstring(L,8)==0 ) return false;
+		if( luatop>8 && (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,96106697)) ) return false;
+		if( luatop>8 && (lua_isnil(L,9)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,9)) ) ) return false;
+		if( luatop>9 && (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,96106697)) ) return false;
+		if( luatop>9 && (lua_isnil(L,10)==0 && !dynamic_cast< wxClassInfo* >(Luna< wxClassInfo >::check(L,10)) ) ) return false;
+		if( luatop>10 && (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		return true;
 	}
 
@@ -207,11 +233,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = wxTEMPLATE_VISIBLE)
-	static wxDocTemplate* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE)
+	static wxDocTemplate* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = wxTEMPLATE_VISIBLE) function, expected prototype:\nwxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = wxTEMPLATE_VISIBLE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 88196105\narg 7 ID = 88196105\narg 8 ID = 96106697\narg 9 ID = 96106697\n");
+			luaL_error(L, "luna typecheck failed in wxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE) function, expected prototype:\nwxDocTemplate::wxDocTemplate(wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 88196105\narg 7 ID = 88196105\narg 8 ID = 96106697\narg 9 ID = 96106697\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -225,9 +251,41 @@ public:
 		wxString viewTypeName(lua_tostring(L,7),lua_objlen(L,7));
 		wxClassInfo* docClassInfo=luatop>7 ? (Luna< wxClassInfo >::check(L,8)) : (wxClassInfo*)0;
 		wxClassInfo* viewClassInfo=luatop>8 ? (Luna< wxClassInfo >::check(L,9)) : (wxClassInfo*)0;
-		long flags=luatop>9 ? (long)lua_tointeger(L,10) : wxTEMPLATE_VISIBLE;
+		long flags=luatop>9 ? (long)lua_tointeger(L,10) : ::wxTEMPLATE_VISIBLE;
 
 		return new wxDocTemplate(manager, descr, filter, dir, ext, docTypeName, viewTypeName, docClassInfo, viewClassInfo, flags);
+	}
+
+	// wxDocTemplate::wxDocTemplate(lua_Table * data, wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE)
+	static wxDocTemplate* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocTemplate::wxDocTemplate(lua_Table * data, wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE) function, expected prototype:\nwxDocTemplate::wxDocTemplate(lua_Table * data, wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 88196105\narg 7 ID = 88196105\narg 8 ID = 88196105\narg 9 ID = 96106697\narg 10 ID = 96106697\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDocManager* manager=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,2));
+		wxString descr(lua_tostring(L,3),lua_objlen(L,3));
+		wxString filter(lua_tostring(L,4),lua_objlen(L,4));
+		wxString dir(lua_tostring(L,5),lua_objlen(L,5));
+		wxString ext(lua_tostring(L,6),lua_objlen(L,6));
+		wxString docTypeName(lua_tostring(L,7),lua_objlen(L,7));
+		wxString viewTypeName(lua_tostring(L,8),lua_objlen(L,8));
+		wxClassInfo* docClassInfo=luatop>8 ? (Luna< wxClassInfo >::check(L,9)) : (wxClassInfo*)0;
+		wxClassInfo* viewClassInfo=luatop>9 ? (Luna< wxClassInfo >::check(L,10)) : (wxClassInfo*)0;
+		long flags=luatop>10 ? (long)lua_tointeger(L,11) : ::wxTEMPLATE_VISIBLE;
+
+		return new wrapper_wxDocTemplate(L,NULL, manager, descr, filter, dir, ext, docTypeName, viewTypeName, docClassInfo, viewClassInfo, flags);
+	}
+
+	// Overload binder for wxDocTemplate::wxDocTemplate
+	static wxDocTemplate* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDocTemplate, cannot match any of the overloads for function wxDocTemplate:\n  wxDocTemplate(wxDocManager *, const wxString &, const wxString &, const wxString &, const wxString &, const wxString &, const wxString &, wxClassInfo *, wxClassInfo *, long)\n  wxDocTemplate(lua_Table *, wxDocManager *, const wxString &, const wxString &, const wxString &, const wxString &, const wxString &, const wxString &, wxClassInfo *, wxClassInfo *, long)\n");
+		return NULL;
 	}
 
 

@@ -469,11 +469,11 @@ public:
 		return 0;
 	}
 
-	// wxString wxTimeSpan::Format(const wxString &  = wxDefaultTimeSpanFormat) const
+	// wxString wxTimeSpan::Format(const wxString & arg1 = wxDefaultTimeSpanFormat) const
 	static int _bind_Format(lua_State *L) {
 		if (!_lg_typecheck_Format(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTimeSpan::Format(const wxString &  = wxDefaultTimeSpanFormat) const function, expected prototype:\nwxString wxTimeSpan::Format(const wxString &  = wxDefaultTimeSpanFormat) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTimeSpan::Format(const wxString & arg1 = wxDefaultTimeSpanFormat) const function, expected prototype:\nwxString wxTimeSpan::Format(const wxString & arg1 = wxDefaultTimeSpanFormat) const\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);

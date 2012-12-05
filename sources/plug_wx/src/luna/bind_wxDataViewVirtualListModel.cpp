@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewVirtualListModel.h>
+
 class luna_wrapper_wxDataViewVirtualListModel {
 public:
 	typedef Luna< wxDataViewVirtualListModel > luna_t;
@@ -62,8 +64,6 @@ wxDataViewVirtualListModel* LunaTraits< wxDataViewVirtualListModel >::_bind_ctor
 	// void wxDataViewModel::GetValue(wxVariant & variant, const wxDataViewItem & item, unsigned int col) const
 	// bool wxDataViewModel::IsContainer(const wxDataViewItem & item) const
 	// bool wxDataViewModel::SetValue(const wxVariant & variant, const wxDataViewItem & item, unsigned int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewVirtualListModel >::_bind_dtor(wxDataViewVirtualListModel* obj) {

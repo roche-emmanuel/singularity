@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextXMLHandler.h>
+
 class luna_wrapper_wxRichTextXMLHandler {
 public:
 	typedef Luna< wxRichTextXMLHandler > luna_t;
@@ -54,8 +56,6 @@ wxRichTextXMLHandler* LunaTraits< wxRichTextXMLHandler >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxRichTextFileHandler::SetVisible(bool visible)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRichTextXMLHandler >::_bind_dtor(wxRichTextXMLHandler* obj) {

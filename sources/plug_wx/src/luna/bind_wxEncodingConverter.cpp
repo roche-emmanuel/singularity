@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEncodingConverter.h>
+
 class luna_wrapper_wxEncodingConverter {
 public:
 	typedef Luna< wxEncodingConverter > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -95,14 +104,34 @@ public:
 
 	// Constructor binds:
 	// wxEncodingConverter::wxEncodingConverter()
-	static wxEncodingConverter* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxEncodingConverter* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter() function, expected prototype:\nwxEncodingConverter::wxEncodingConverter()\nClass arguments details:\n");
 		}
 
 
 		return new wxEncodingConverter();
+	}
+
+	// wxEncodingConverter::wxEncodingConverter(lua_Table * data)
+	static wxEncodingConverter* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter(lua_Table * data) function, expected prototype:\nwxEncodingConverter::wxEncodingConverter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxEncodingConverter(L,NULL);
+	}
+
+	// Overload binder for wxEncodingConverter::wxEncodingConverter
+	static wxEncodingConverter* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxEncodingConverter, cannot match any of the overloads for function wxEncodingConverter:\n  wxEncodingConverter()\n  wxEncodingConverter(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -127,18 +156,18 @@ public:
 		return 1;
 	}
 
-	// bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = wxCONVERT_STRICT)
+	// bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT)
 	static int _bind_Init(lua_State *L) {
 		if (!_lg_typecheck_Init(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = wxCONVERT_STRICT) function, expected prototype:\nbool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = wxCONVERT_STRICT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT) function, expected prototype:\nbool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxFontEncoding input_enc=(wxFontEncoding)lua_tointeger(L,2);
 		wxFontEncoding output_enc=(wxFontEncoding)lua_tointeger(L,3);
-		int method=luatop>3 ? (int)lua_tointeger(L,4) : wxCONVERT_STRICT;
+		int method=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCONVERT_STRICT;
 
 		wxEncodingConverter* self=dynamic_cast< wxEncodingConverter* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -168,17 +197,17 @@ public:
 		return 1;
 	}
 
-	// static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = wxPLATFORM_CURRENT)
+	// static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT)
 	static int _bind_GetPlatformEquivalents(lua_State *L) {
 		if (!_lg_typecheck_GetPlatformEquivalents(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = wxPLATFORM_CURRENT) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = wxPLATFORM_CURRENT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
-		int platform=luatop>1 ? (int)lua_tointeger(L,2) : wxPLATFORM_CURRENT;
+		int platform=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPLATFORM_CURRENT;
 
 		wxFontEncodingArray lret = wxEncodingConverter::GetPlatformEquivalents(enc, platform);
 		////////////////////////////////////////////////////////////////////

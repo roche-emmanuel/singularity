@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPropertyGridManager.h>
+
 class luna_wrapper_wxPropertyGridManager {
 public:
 	typedef Luna< wxPropertyGridManager > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxPropertyGridManager* ptr= dynamic_cast< wxPropertyGridManager* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPropertyGridManager >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPropertyGridManager* ptr= static_cast< wxPropertyGridManager* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -431,17 +422,17 @@ public:
 		return 1;
 	}
 
-	// bool wxPropertyGridManager::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr)
+	// bool wxPropertyGridManager::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridManager::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr) function, expected prototype:\nbool wxPropertyGridManager::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridManager::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr) function, expected prototype:\nbool wxPropertyGridManager::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxPGMAN_DEFAULT_STYLE, const wxString & name = wxPropertyGridManagerNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPropertyGridManager::Create function");
@@ -1193,7 +1184,6 @@ luna_RegType LunaTraits< wxPropertyGridManager >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPropertyGridManager >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPropertyGridManager::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPropertyGridManager::_cast_from_wxTrackable},
 	{"wxPropertyGridInterface", &luna_wrapper_wxPropertyGridManager::_cast_from_wxPropertyGridInterface},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewSpinRenderer.h>
+
 class luna_wrapper_wxDataViewSpinRenderer {
 public:
 	typedef Luna< wxDataViewSpinRenderer > luna_t;
@@ -57,8 +59,6 @@ wxDataViewSpinRenderer* LunaTraits< wxDataViewSpinRenderer >::_bind_ctor(lua_Sta
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewSpinRenderer >::_bind_dtor(wxDataViewSpinRenderer* obj) {

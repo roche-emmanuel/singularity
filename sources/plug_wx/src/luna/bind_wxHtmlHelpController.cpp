@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlHelpController.h>
+
 class luna_wrapper_wxHtmlHelpController {
 public:
 	typedef Luna< wxHtmlHelpController > luna_t;
@@ -54,12 +56,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -173,8 +187,8 @@ public:
 
 	// Constructor binds:
 	// wxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)
-	static wxHtmlHelpController* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHtmlHelpController* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
@@ -185,6 +199,30 @@ public:
 		wxWindow* parentWindow=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
 
 		return new wxHtmlHelpController(style, parentWindow);
+	}
+
+	// wxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)
+	static wxHtmlHelpController* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlHelpController::wxHtmlHelpController(lua_Table * data, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int style=luatop>1 ? (int)lua_tointeger(L,2) : wxHF_DEFAULT_STYLE;
+		wxWindow* parentWindow=luatop>2 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) : (wxWindow*)NULL;
+
+		return new wrapper_wxHtmlHelpController(L,NULL, style, parentWindow);
+	}
+
+	// Overload binder for wxHtmlHelpController::wxHtmlHelpController
+	static wxHtmlHelpController* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHtmlHelpController, cannot match any of the overloads for function wxHtmlHelpController:\n  wxHtmlHelpController(int, wxWindow *)\n  wxHtmlHelpController(lua_Table *, int, wxWindow *)\n");
+		return NULL;
 	}
 
 
@@ -335,17 +373,17 @@ public:
 		return 1;
 	}
 
-	// bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)
+	// bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_KeywordSearch(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString keyword(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
 		if(!self) {

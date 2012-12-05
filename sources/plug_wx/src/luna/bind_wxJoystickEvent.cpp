@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxJoystickEvent.h>
+
 class luna_wrapper_wxJoystickEvent {
 public:
 	typedef Luna< wxJoystickEvent > luna_t;
@@ -117,16 +119,16 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxJoystickEvent::ButtonDown(int button = wxJOY_BUTTON_ANY) const
+	// bool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonDown(lua_State *L) {
 		if (!_lg_typecheck_ButtonDown(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonDown(int button = wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonDown(int button = wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=dynamic_cast< wxJoystickEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -139,16 +141,16 @@ public:
 		return 1;
 	}
 
-	// bool wxJoystickEvent::ButtonIsDown(int button = wxJOY_BUTTON_ANY) const
+	// bool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonIsDown(lua_State *L) {
 		if (!_lg_typecheck_ButtonIsDown(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonIsDown(int button = wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonIsDown(int button = wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonIsDown(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=dynamic_cast< wxJoystickEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -161,16 +163,16 @@ public:
 		return 1;
 	}
 
-	// bool wxJoystickEvent::ButtonUp(int button = wxJOY_BUTTON_ANY) const
+	// bool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const
 	static int _bind_ButtonUp(lua_State *L) {
 		if (!_lg_typecheck_ButtonUp(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonUp(int button = wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonUp(int button = wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const function, expected prototype:\nbool wxJoystickEvent::ButtonUp(int button = ::wxJOY_BUTTON_ANY) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxJOY_BUTTON_ANY;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOY_BUTTON_ANY;
 
 		wxJoystickEvent* self=dynamic_cast< wxJoystickEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -347,8 +349,6 @@ wxJoystickEvent* LunaTraits< wxJoystickEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxJoystickEvent >::_bind_dtor(wxJoystickEvent* obj) {

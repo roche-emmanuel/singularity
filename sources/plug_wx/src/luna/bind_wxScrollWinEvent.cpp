@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxScrollWinEvent.h>
+
 class luna_wrapper_wxScrollWinEvent {
 public:
 	typedef Luna< wxScrollWinEvent > luna_t;
@@ -156,8 +158,6 @@ wxScrollWinEvent* LunaTraits< wxScrollWinEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxScrollWinEvent >::_bind_dtor(wxScrollWinEvent* obj) {

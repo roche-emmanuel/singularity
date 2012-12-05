@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPreviewControlBar.h>
+
 class luna_wrapper_wxPreviewControlBar {
 public:
 	typedef Luna< wxPreviewControlBar > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxPreviewControlBar* ptr= dynamic_cast< wxPreviewControlBar* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPreviewControlBar >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPreviewControlBar* ptr= static_cast< wxPreviewControlBar* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -165,7 +156,6 @@ luna_RegType LunaTraits< wxPreviewControlBar >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPreviewControlBar >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPreviewControlBar::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPreviewControlBar::_cast_from_wxTrackable},
 	{0,0}
 };
 

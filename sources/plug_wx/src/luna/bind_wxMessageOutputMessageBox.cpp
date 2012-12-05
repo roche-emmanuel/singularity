@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMessageOutputMessageBox.h>
+
 class luna_wrapper_wxMessageOutputMessageBox {
 public:
 	typedef Luna< wxMessageOutputMessageBox > luna_t;
@@ -54,8 +56,6 @@ wxMessageOutputMessageBox* LunaTraits< wxMessageOutputMessageBox >::_bind_ctor(l
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxMessageOutput::Output(const wxString & str)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMessageOutputMessageBox >::_bind_dtor(wxMessageOutputMessageBox* obj) {

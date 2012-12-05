@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewChoiceRenderer.h>
+
 class luna_wrapper_wxDataViewChoiceRenderer {
 public:
 	typedef Luna< wxDataViewChoiceRenderer > luna_t;
@@ -109,8 +111,6 @@ wxDataViewChoiceRenderer* LunaTraits< wxDataViewChoiceRenderer >::_bind_ctor(lua
 	// Abstract methods:
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewChoiceRenderer >::_bind_dtor(wxDataViewChoiceRenderer* obj) {

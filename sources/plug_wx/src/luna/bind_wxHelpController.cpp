@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHelpController.h>
+
 class luna_wrapper_wxHelpController {
 public:
 	typedef Luna< wxHelpController > luna_t;
@@ -54,11 +56,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -192,8 +205,8 @@ public:
 
 	// Constructor binds:
 	// wxHelpController::wxHelpController(wxWindow * parentWindow = NULL)
-	static wxHelpController* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHelpController* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -203,6 +216,29 @@ public:
 		wxWindow* parentWindow=luatop>0 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) : (wxWindow*)NULL;
 
 		return new wxHelpController(parentWindow);
+	}
+
+	// wxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL)
+	static wxHelpController* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parentWindow=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+
+		return new wrapper_wxHelpController(L,NULL, parentWindow);
+	}
+
+	// Overload binder for wxHelpController::wxHelpController
+	static wxHelpController* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHelpController, cannot match any of the overloads for function wxHelpController:\n  wxHelpController(wxWindow *)\n  wxHelpController(lua_Table *, wxWindow *)\n");
+		return NULL;
 	}
 
 
@@ -437,17 +473,17 @@ public:
 		return 0;
 	}
 
-	// bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)
+	// bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_KeywordSearch(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString keyWord(lua_tostring(L,2),lua_objlen(L,2));
-		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : wxHELP_SEARCH_ALL;
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {

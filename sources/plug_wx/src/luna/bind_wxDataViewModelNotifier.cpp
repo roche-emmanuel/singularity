@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewModelNotifier.h>
+
 class luna_wrapper_wxDataViewModelNotifier {
 public:
 	typedef Luna< wxDataViewModelNotifier > luna_t;
@@ -418,8 +420,6 @@ wxDataViewModelNotifier* LunaTraits< wxDataViewModelNotifier >::_bind_ctor(lua_S
 	// bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item)
 	// void wxDataViewModelNotifier::Resort()
 	// bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewModelNotifier >::_bind_dtor(wxDataViewModelNotifier* obj) {

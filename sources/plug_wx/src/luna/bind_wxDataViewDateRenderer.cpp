@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewDateRenderer.h>
+
 class luna_wrapper_wxDataViewDateRenderer {
 public:
 	typedef Luna< wxDataViewDateRenderer > luna_t;
@@ -55,8 +57,6 @@ wxDataViewDateRenderer* LunaTraits< wxDataViewDateRenderer >::_bind_ctor(lua_Sta
 	// Abstract methods:
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewDateRenderer >::_bind_dtor(wxDataViewDateRenderer* obj) {

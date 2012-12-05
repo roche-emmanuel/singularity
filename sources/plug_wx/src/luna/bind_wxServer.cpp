@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxServer.h>
+
 class luna_wrapper_wxServer {
 public:
 	typedef Luna< wxServer > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -82,14 +91,34 @@ public:
 
 	// Constructor binds:
 	// wxServer::wxServer()
-	static wxServer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxServer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxServer::wxServer() function, expected prototype:\nwxServer::wxServer()\nClass arguments details:\n");
 		}
 
 
 		return new wxServer();
+	}
+
+	// wxServer::wxServer(lua_Table * data)
+	static wxServer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxServer::wxServer(lua_Table * data) function, expected prototype:\nwxServer::wxServer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxServer(L,NULL);
+	}
+
+	// Overload binder for wxServer::wxServer
+	static wxServer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxServer, cannot match any of the overloads for function wxServer:\n  wxServer()\n  wxServer(lua_Table *)\n");
+		return NULL;
 	}
 
 

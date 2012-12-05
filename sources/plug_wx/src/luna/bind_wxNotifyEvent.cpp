@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxNotifyEvent.h>
+
 class luna_wrapper_wxNotifyEvent {
 public:
 	typedef Luna< wxNotifyEvent > luna_t;
@@ -127,8 +129,6 @@ wxNotifyEvent* LunaTraits< wxNotifyEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxNotifyEvent >::_bind_dtor(wxNotifyEvent* obj) {

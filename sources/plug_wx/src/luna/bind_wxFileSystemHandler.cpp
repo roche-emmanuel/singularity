@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileSystemHandler.h>
+
 class luna_wrapper_wxFileSystemHandler {
 public:
 	typedef Luna< wxFileSystemHandler > luna_t;
@@ -196,8 +198,6 @@ wxFileSystemHandler* LunaTraits< wxFileSystemHandler >::_bind_ctor(lua_State *L)
 	// Abstract methods:
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileSystemHandler >::_bind_dtor(wxFileSystemHandler* obj) {

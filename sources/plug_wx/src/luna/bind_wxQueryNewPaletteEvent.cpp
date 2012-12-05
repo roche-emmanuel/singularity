@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxQueryNewPaletteEvent.h>
+
 class luna_wrapper_wxQueryNewPaletteEvent {
 public:
 	typedef Luna< wxQueryNewPaletteEvent > luna_t;
@@ -105,8 +107,6 @@ wxQueryNewPaletteEvent* LunaTraits< wxQueryNewPaletteEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxQueryNewPaletteEvent >::_bind_dtor(wxQueryNewPaletteEvent* obj) {

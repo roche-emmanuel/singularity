@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextEntry.h>
+
 class luna_wrapper_wxTextEntry {
 public:
 	typedef Luna< wxTextEntry > luna_t;

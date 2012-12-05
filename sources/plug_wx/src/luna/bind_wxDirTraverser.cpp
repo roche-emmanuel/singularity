@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDirTraverser.h>
+
 class luna_wrapper_wxDirTraverser {
 public:
 	typedef Luna< wxDirTraverser > luna_t;
@@ -150,8 +152,6 @@ wxDirTraverser* LunaTraits< wxDirTraverser >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	// wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDirTraverser >::_bind_dtor(wxDirTraverser* obj) {

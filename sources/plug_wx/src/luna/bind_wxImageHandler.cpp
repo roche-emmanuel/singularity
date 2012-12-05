@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxImageHandler.h>
+
 class luna_wrapper_wxImageHandler {
 public:
 	typedef Luna< wxImageHandler > luna_t;
@@ -466,8 +468,6 @@ wxImageHandler* LunaTraits< wxImageHandler >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// int wxImageHandler::GetImageCount(wxInputStream & stream)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxImageHandler >::_bind_dtor(wxImageHandler* obj) {

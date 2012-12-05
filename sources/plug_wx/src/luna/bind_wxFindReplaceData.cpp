@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFindReplaceData.h>
+
 class luna_wrapper_wxFindReplaceData {
 public:
 	typedef Luna< wxFindReplaceData > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -95,8 +106,8 @@ public:
 
 	// Constructor binds:
 	// wxFindReplaceData::wxFindReplaceData(unsigned int flags = 0)
-	static wxFindReplaceData* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxFindReplaceData* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(unsigned int flags = 0)\nClass arguments details:\n");
 		}
@@ -106,6 +117,29 @@ public:
 		unsigned int flags=luatop>0 ? (unsigned int)lua_tointeger(L,1) : 0;
 
 		return new wxFindReplaceData(flags);
+	}
+
+	// wxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0)
+	static wxFindReplaceData* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0) function, expected prototype:\nwxFindReplaceData::wxFindReplaceData(lua_Table * data, unsigned int flags = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+
+		return new wrapper_wxFindReplaceData(L,NULL, flags);
+	}
+
+	// Overload binder for wxFindReplaceData::wxFindReplaceData
+	static wxFindReplaceData* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxFindReplaceData, cannot match any of the overloads for function wxFindReplaceData:\n  wxFindReplaceData(unsigned int)\n  wxFindReplaceData(lua_Table *, unsigned int)\n");
+		return NULL;
 	}
 
 

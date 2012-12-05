@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxComboPopup.h>
+
 class luna_wrapper_wxComboPopup {
 public:
 	typedef Luna< wxComboPopup > luna_t;
@@ -528,8 +530,6 @@ wxComboPopup* LunaTraits< wxComboPopup >::_bind_ctor(lua_State *L) {
 	// bool wxComboPopup::Create(wxWindow * parent)
 	// wxWindow * wxComboPopup::GetControl()
 	// wxString wxComboPopup::GetStringValue() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxComboPopup >::_bind_dtor(wxComboPopup* obj) {

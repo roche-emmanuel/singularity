@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxNonOwnedWindow.h>
+
 class luna_wrapper_wxNonOwnedWindow {
 public:
 	typedef Luna< wxNonOwnedWindow > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxNonOwnedWindow* ptr= dynamic_cast< wxNonOwnedWindow* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxNonOwnedWindow >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxNonOwnedWindow* ptr= static_cast< wxNonOwnedWindow* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -119,7 +110,6 @@ luna_RegType LunaTraits< wxNonOwnedWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxNonOwnedWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxNonOwnedWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxNonOwnedWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

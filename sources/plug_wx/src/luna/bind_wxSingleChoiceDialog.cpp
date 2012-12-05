@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSingleChoiceDialog.h>
+
 class luna_wrapper_wxSingleChoiceDialog {
 public:
 	typedef Luna< wxSingleChoiceDialog > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxSingleChoiceDialog* ptr= dynamic_cast< wxSingleChoiceDialog* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSingleChoiceDialog >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSingleChoiceDialog* ptr= static_cast< wxSingleChoiceDialog* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -218,7 +209,6 @@ luna_RegType LunaTraits< wxSingleChoiceDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSingleChoiceDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSingleChoiceDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxSingleChoiceDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxImageList.h>
+
 class luna_wrapper_wxImageList {
 public:
 	typedef Luna< wxImageList > luna_t;
@@ -54,6 +56,25 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -208,12 +229,42 @@ public:
 		return new wxImageList(width, height, mask, initialCount);
 	}
 
+	// wxImageList::wxImageList(lua_Table * data)
+	static wxImageList* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxImageList(L,NULL);
+	}
+
+	// wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)
+	static wxImageList* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : 1;
+
+		return new wrapper_wxImageList(L,NULL, width, height, mask, initialCount);
+	}
+
 	// Overload binder for wxImageList::wxImageList
 	static wxImageList* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxImageList, cannot match any of the overloads for function wxImageList:\n  wxImageList()\n  wxImageList(int, int, bool, int)\n");
+		luaL_error(L, "error in function wxImageList, cannot match any of the overloads for function wxImageList:\n  wxImageList()\n  wxImageList(int, int, bool, int)\n  wxImageList(lua_Table *)\n  wxImageList(lua_Table *, int, int, bool, int)\n");
 		return NULL;
 	}
 

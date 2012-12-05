@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEraseEvent.h>
+
 class luna_wrapper_wxEraseEvent {
 public:
 	typedef Luna< wxEraseEvent > luna_t;
@@ -81,8 +83,6 @@ wxEraseEvent* LunaTraits< wxEraseEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxEraseEvent >::_bind_dtor(wxEraseEvent* obj) {

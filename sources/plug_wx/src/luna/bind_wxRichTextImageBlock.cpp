@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextImageBlock.h>
+
 class luna_wrapper_wxRichTextImageBlock {
 public:
 	typedef Luna< wxRichTextImageBlock > luna_t;

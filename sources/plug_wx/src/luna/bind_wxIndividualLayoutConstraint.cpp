@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxIndividualLayoutConstraint.h>
+
 class luna_wrapper_wxIndividualLayoutConstraint {
 public:
 	typedef Luna< wxIndividualLayoutConstraint > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -241,14 +250,34 @@ public:
 
 	// Constructor binds:
 	// wxIndividualLayoutConstraint::wxIndividualLayoutConstraint()
-	static wxIndividualLayoutConstraint* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxIndividualLayoutConstraint* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint() function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint()\nClass arguments details:\n");
 		}
 
 
 		return new wxIndividualLayoutConstraint();
+	}
+
+	// wxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data)
+	static wxIndividualLayoutConstraint* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data) function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxIndividualLayoutConstraint(L,NULL);
+	}
+
+	// Overload binder for wxIndividualLayoutConstraint::wxIndividualLayoutConstraint
+	static wxIndividualLayoutConstraint* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxIndividualLayoutConstraint, cannot match any of the overloads for function wxIndividualLayoutConstraint:\n  wxIndividualLayoutConstraint()\n  wxIndividualLayoutConstraint(lua_Table *)\n");
+		return NULL;
 	}
 
 

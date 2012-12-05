@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridTableBase.h>
+
 class luna_wrapper_wxGridTableBase {
 public:
 	typedef Luna< wxGridTableBase > luna_t;
@@ -1181,8 +1183,6 @@ wxGridTableBase* LunaTraits< wxGridTableBase >::_bind_ctor(lua_State *L) {
 	// int wxGridTableBase::GetNumberCols()
 	// wxString wxGridTableBase::GetValue(int row, int col)
 	// void wxGridTableBase::SetValue(int row, int col, const wxString & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridTableBase >::_bind_dtor(wxGridTableBase* obj) {

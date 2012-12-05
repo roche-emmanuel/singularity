@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxQueryLayoutInfoEvent.h>
+
 class luna_wrapper_wxQueryLayoutInfoEvent {
 public:
 	typedef Luna< wxQueryLayoutInfoEvent > luna_t;
@@ -316,8 +318,6 @@ wxQueryLayoutInfoEvent* LunaTraits< wxQueryLayoutInfoEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxQueryLayoutInfoEvent >::_bind_dtor(wxQueryLayoutInfoEvent* obj) {

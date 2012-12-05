@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVarScrollHelperBase.h>
+
 class luna_wrapper_wxVarScrollHelperBase {
 public:
 	typedef Luna< wxVarScrollHelperBase > luna_t;
@@ -434,8 +436,6 @@ wxVarScrollHelperBase* LunaTraits< wxVarScrollHelperBase >::_bind_ctor(lua_State
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxVarScrollHelperBase >::_bind_dtor(wxVarScrollHelperBase* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHyperlinkCtrl.h>
+
 class luna_wrapper_wxHyperlinkCtrl {
 public:
 	typedef Luna< wxHyperlinkCtrl > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxHyperlinkCtrl* ptr= dynamic_cast< wxHyperlinkCtrl* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHyperlinkCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHyperlinkCtrl* ptr= static_cast< wxHyperlinkCtrl* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -345,8 +336,6 @@ wxHyperlinkCtrl* LunaTraits< wxHyperlinkCtrl >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxHyperlinkCtrl::GetVisited() const
 	// void wxHyperlinkCtrl::SetVisited(bool visited = true)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHyperlinkCtrl >::_bind_dtor(wxHyperlinkCtrl* obj) {
@@ -377,7 +366,6 @@ luna_RegType LunaTraits< wxHyperlinkCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHyperlinkCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHyperlinkCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHyperlinkCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

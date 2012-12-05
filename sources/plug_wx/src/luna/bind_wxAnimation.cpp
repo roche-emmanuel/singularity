@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAnimation.h>
+
 class luna_wrapper_wxAnimation {
 public:
 	typedef Luna< wxAnimation > luna_t;
@@ -54,6 +56,25 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxAnimation* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -130,27 +151,60 @@ public:
 		return new wxAnimation(anim);
 	}
 
-	// wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY)
+	// wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static wxAnimation* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxAnimationType type=luatop>1 ? (wxAnimationType)lua_tointeger(L,2) : wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>1 ? (wxAnimationType)lua_tointeger(L,2) : ::wxANIMATION_TYPE_ANY;
 
 		return new wxAnimation(name, type);
+	}
+
+	// wxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim)
+	static wxAnimation* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxAnimation* anim_ptr=dynamic_cast< wxAnimation* >(Luna< wxObject >::check(L,2));
+		if( !anim_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg anim in wxAnimation::wxAnimation function");
+		}
+		const wxAnimation & anim=*anim_ptr;
+
+		return new wrapper_wxAnimation(L,NULL, anim);
+	}
+
+	// wxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
+	static wxAnimation* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
+
+		return new wrapper_wxAnimation(L,NULL, name, type);
 	}
 
 	// Overload binder for wxAnimation::wxAnimation
 	static wxAnimation* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxAnimation, cannot match any of the overloads for function wxAnimation:\n  wxAnimation(const wxAnimation &)\n  wxAnimation(const wxString &, wxAnimationType)\n");
+		luaL_error(L, "error in function wxAnimation, cannot match any of the overloads for function wxAnimation:\n  wxAnimation(const wxAnimation &)\n  wxAnimation(const wxString &, wxAnimationType)\n  wxAnimation(lua_Table *, const wxAnimation &)\n  wxAnimation(lua_Table *, const wxString &, wxAnimationType)\n");
 		return NULL;
 	}
 
@@ -259,11 +313,11 @@ public:
 		return 1;
 	}
 
-	// bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = wxANIMATION_TYPE_ANY)
+	// bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_Load(lua_State *L) {
 		if (!_lg_typecheck_Load(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -273,7 +327,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxAnimation::Load function");
 		}
 		wxInputStream & stream=*stream_ptr;
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=dynamic_cast< wxAnimation* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -286,17 +340,17 @@ public:
 		return 1;
 	}
 
-	// bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY)
+	// bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_LoadFile(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : wxANIMATION_TYPE_ANY;
+		wxAnimationType type=luatop>2 ? (wxAnimationType)lua_tointeger(L,3) : ::wxANIMATION_TYPE_ANY;
 
 		wxAnimation* self=dynamic_cast< wxAnimation* >(Luna< wxObject >::check(L,1));
 		if(!self) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextFormattingDialog.h>
+
 class luna_wrapper_wxRichTextFormattingDialog {
 public:
 	typedef Luna< wxRichTextFormattingDialog > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxRichTextFormattingDialog* ptr= dynamic_cast< wxRichTextFormattingDialog* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRichTextFormattingDialog >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRichTextFormattingDialog* ptr= static_cast< wxRichTextFormattingDialog* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +78,6 @@ luna_RegType LunaTraits< wxRichTextFormattingDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRichTextFormattingDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRichTextFormattingDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRichTextFormattingDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

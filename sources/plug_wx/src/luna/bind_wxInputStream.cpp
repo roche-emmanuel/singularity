@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxInputStream.h>
+
 class luna_wrapper_wxInputStream {
 public:
 	typedef Luna< wxInputStream > luna_t;
@@ -274,17 +276,17 @@ public:
 		return 0;
 	}
 
-	// long wxInputStream::SeekI(long pos, wxSeekMode mode = wxFromStart)
+	// long wxInputStream::SeekI(long pos, wxSeekMode mode = ::wxFromStart)
 	static int _bind_SeekI(lua_State *L) {
 		if (!_lg_typecheck_SeekI(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxInputStream::SeekI(long pos, wxSeekMode mode = wxFromStart) function, expected prototype:\nlong wxInputStream::SeekI(long pos, wxSeekMode mode = wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxInputStream::SeekI(long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxInputStream::SeekI(long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long pos=(long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxInputStream* self=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -375,8 +377,6 @@ wxInputStream* LunaTraits< wxInputStream >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxInputStream >::_bind_dtor(wxInputStream* obj) {

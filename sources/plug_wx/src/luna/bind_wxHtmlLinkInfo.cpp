@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlLinkInfo.h>
+
 class luna_wrapper_wxHtmlLinkInfo {
 public:
 	typedef Luna< wxHtmlLinkInfo > luna_t;
@@ -52,6 +54,23 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -112,12 +131,40 @@ public:
 		return new wxHtmlLinkInfo(href, target);
 	}
 
+	// wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data)
+	static wxHtmlLinkInfo* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxHtmlLinkInfo(L,NULL);
+	}
+
+	// wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString)
+	static wxHtmlLinkInfo* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString) function, expected prototype:\nwxHtmlLinkInfo::wxHtmlLinkInfo(lua_Table * data, const wxString & href, const wxString & target = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString href(lua_tostring(L,2),lua_objlen(L,2));
+		wxString target(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxHtmlLinkInfo(L,NULL, href, target);
+	}
+
 	// Overload binder for wxHtmlLinkInfo::wxHtmlLinkInfo
 	static wxHtmlLinkInfo* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxHtmlLinkInfo, cannot match any of the overloads for function wxHtmlLinkInfo:\n  wxHtmlLinkInfo()\n  wxHtmlLinkInfo(const wxString &, const wxString &)\n");
+		luaL_error(L, "error in function wxHtmlLinkInfo, cannot match any of the overloads for function wxHtmlLinkInfo:\n  wxHtmlLinkInfo()\n  wxHtmlLinkInfo(const wxString &, const wxString &)\n  wxHtmlLinkInfo(lua_Table *)\n  wxHtmlLinkInfo(lua_Table *, const wxString &, const wxString &)\n");
 		return NULL;
 	}
 

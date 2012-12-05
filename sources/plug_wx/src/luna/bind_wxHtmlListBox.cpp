@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlListBox.h>
+
 class luna_wrapper_wxHtmlListBox {
 public:
 	typedef Luna< wxHtmlListBox > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxHtmlListBox* ptr= dynamic_cast< wxHtmlListBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHtmlListBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHtmlListBox* ptr= static_cast< wxHtmlListBox* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -92,17 +83,17 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxHtmlListBox::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr)
+	// bool wxHtmlListBox::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlListBox::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr) function, expected prototype:\nbool wxHtmlListBox::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlListBox::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr) function, expected prototype:\nbool wxHtmlListBox::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHtmlListBox::Create function");
@@ -194,8 +185,6 @@ wxHtmlListBox* LunaTraits< wxHtmlListBox >::_bind_ctor(lua_State *L) {
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlListBox >::_bind_dtor(wxHtmlListBox* obj) {
@@ -218,7 +207,6 @@ luna_RegType LunaTraits< wxHtmlListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHtmlListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHtmlListBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHtmlListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxHtmlListBox::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

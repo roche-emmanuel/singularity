@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPGChoiceEntry.h>
+
 class luna_wrapper_wxPGChoiceEntry {
 public:
 	typedef Luna< wxPGChoiceEntry > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -67,14 +76,34 @@ public:
 
 	// Constructor binds:
 	// wxPGChoiceEntry::wxPGChoiceEntry()
-	static wxPGChoiceEntry* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxPGChoiceEntry* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry::wxPGChoiceEntry() function, expected prototype:\nwxPGChoiceEntry::wxPGChoiceEntry()\nClass arguments details:\n");
 		}
 
 
 		return new wxPGChoiceEntry();
+	}
+
+	// wxPGChoiceEntry::wxPGChoiceEntry(lua_Table * data)
+	static wxPGChoiceEntry* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry::wxPGChoiceEntry(lua_Table * data) function, expected prototype:\nwxPGChoiceEntry::wxPGChoiceEntry(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPGChoiceEntry(L,NULL);
+	}
+
+	// Overload binder for wxPGChoiceEntry::wxPGChoiceEntry
+	static wxPGChoiceEntry* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPGChoiceEntry, cannot match any of the overloads for function wxPGChoiceEntry:\n  wxPGChoiceEntry()\n  wxPGChoiceEntry(lua_Table *)\n");
+		return NULL;
 	}
 
 

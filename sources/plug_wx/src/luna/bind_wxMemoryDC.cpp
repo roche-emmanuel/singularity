@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMemoryDC.h>
+
 class luna_wrapper_wxMemoryDC {
 public:
 	typedef Luna< wxMemoryDC > luna_t;
@@ -59,6 +61,31 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -122,13 +149,55 @@ public:
 		return new wxMemoryDC(bitmap);
 	}
 
+	// wxMemoryDC::wxMemoryDC(lua_Table * data)
+	static wxMemoryDC* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMemoryDC(L,NULL);
+	}
+
+	// wxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc)
+	static wxMemoryDC* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxDC* dc=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+
+		return new wrapper_wxMemoryDC(L,NULL, dc);
+	}
+
+	// wxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap)
+	static wxMemoryDC* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryDC::wxMemoryDC function");
+		}
+		wxBitmap & bitmap=*bitmap_ptr;
+
+		return new wrapper_wxMemoryDC(L,NULL, bitmap);
+	}
+
 	// Overload binder for wxMemoryDC::wxMemoryDC
 	static wxMemoryDC* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxMemoryDC, cannot match any of the overloads for function wxMemoryDC:\n  wxMemoryDC()\n  wxMemoryDC(wxDC *)\n  wxMemoryDC(wxBitmap &)\n");
+		luaL_error(L, "error in function wxMemoryDC, cannot match any of the overloads for function wxMemoryDC:\n  wxMemoryDC()\n  wxMemoryDC(wxDC *)\n  wxMemoryDC(wxBitmap &)\n  wxMemoryDC(lua_Table *)\n  wxMemoryDC(lua_Table *, wxDC *)\n  wxMemoryDC(lua_Table *, wxBitmap &)\n");
 		return NULL;
 	}
 

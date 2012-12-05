@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFilterOutputStream.h>
+
 class luna_wrapper_wxFilterOutputStream {
 public:
 	typedef Luna< wxFilterOutputStream > luna_t;
@@ -56,6 +58,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 
@@ -91,12 +111,42 @@ public:
 		return new wxFilterOutputStream(stream);
 	}
 
+	// wxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream & stream)
+	static wxFilterOutputStream* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream & stream) function, expected prototype:\nwxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream & stream)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxOutputStream* stream_ptr=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,2));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxFilterOutputStream::wxFilterOutputStream function");
+		}
+		wxOutputStream & stream=*stream_ptr;
+
+		return new wrapper_wxFilterOutputStream(L,NULL, stream);
+	}
+
+	// wxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream * stream)
+	static wxFilterOutputStream* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream * stream) function, expected prototype:\nwxFilterOutputStream::wxFilterOutputStream(lua_Table * data, wxOutputStream * stream)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxOutputStream* stream=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,2));
+
+		return new wrapper_wxFilterOutputStream(L,NULL, stream);
+	}
+
 	// Overload binder for wxFilterOutputStream::wxFilterOutputStream
 	static wxFilterOutputStream* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxFilterOutputStream, cannot match any of the overloads for function wxFilterOutputStream:\n  wxFilterOutputStream(wxOutputStream &)\n  wxFilterOutputStream(wxOutputStream *)\n");
+		luaL_error(L, "error in function wxFilterOutputStream, cannot match any of the overloads for function wxFilterOutputStream:\n  wxFilterOutputStream(wxOutputStream &)\n  wxFilterOutputStream(wxOutputStream *)\n  wxFilterOutputStream(lua_Table *, wxOutputStream &)\n  wxFilterOutputStream(lua_Table *, wxOutputStream *)\n");
 		return NULL;
 	}
 

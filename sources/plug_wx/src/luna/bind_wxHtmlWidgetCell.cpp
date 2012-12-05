@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlWidgetCell.h>
+
 class luna_wrapper_wxHtmlWidgetCell {
 public:
 	typedef Luna< wxHtmlWidgetCell > luna_t;
@@ -40,12 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -57,8 +71,8 @@ public:
 
 	// Constructor binds:
 	// wxHtmlWidgetCell::wxHtmlWidgetCell(wxWindow * wnd, int w = 0)
-	static wxHtmlWidgetCell* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHtmlWidgetCell* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHtmlWidgetCell::wxHtmlWidgetCell(wxWindow * wnd, int w = 0) function, expected prototype:\nwxHtmlWidgetCell::wxHtmlWidgetCell(wxWindow * wnd, int w = 0)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -69,6 +83,30 @@ public:
 		int w=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
 		return new wxHtmlWidgetCell(wnd, w);
+	}
+
+	// wxHtmlWidgetCell::wxHtmlWidgetCell(lua_Table * data, wxWindow * wnd, int w = 0)
+	static wxHtmlWidgetCell* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlWidgetCell::wxHtmlWidgetCell(lua_Table * data, wxWindow * wnd, int w = 0) function, expected prototype:\nwxHtmlWidgetCell::wxHtmlWidgetCell(lua_Table * data, wxWindow * wnd, int w = 0)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int w=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxHtmlWidgetCell(L,NULL, wnd, w);
+	}
+
+	// Overload binder for wxHtmlWidgetCell::wxHtmlWidgetCell
+	static wxHtmlWidgetCell* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHtmlWidgetCell, cannot match any of the overloads for function wxHtmlWidgetCell:\n  wxHtmlWidgetCell(wxWindow *, int)\n  wxHtmlWidgetCell(lua_Table *, wxWindow *, int)\n");
+		return NULL;
 	}
 
 

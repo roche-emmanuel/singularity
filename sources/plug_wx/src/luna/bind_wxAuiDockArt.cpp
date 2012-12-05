@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiDockArt.h>
+
 class luna_wrapper_wxAuiDockArt {
 public:
 	typedef Luna< wxAuiDockArt > luna_t;
@@ -520,8 +522,6 @@ wxAuiDockArt* LunaTraits< wxAuiDockArt >::_bind_ctor(lua_State *L) {
 	// void wxAuiDockArt::SetColour(int id, const wxColour & colour)
 	// void wxAuiDockArt::SetFont(int id, const wxFont & font)
 	// void wxAuiDockArt::SetMetric(int id, int new_val)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiDockArt >::_bind_dtor(wxAuiDockArt* obj) {

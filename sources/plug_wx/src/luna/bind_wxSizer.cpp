@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSizer.h>
+
 class luna_wrapper_wxSizer {
 public:
 	typedef Luna< wxSizer > luna_t;
@@ -2593,8 +2595,6 @@ wxSizer* LunaTraits< wxSizer >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxSize wxSizer::CalcMin()
 	// void wxSizer::RecalcSizes()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSizer >::_bind_dtor(wxSizer* obj) {

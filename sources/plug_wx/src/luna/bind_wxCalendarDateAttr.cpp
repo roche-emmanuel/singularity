@@ -208,11 +208,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = wxCAL_BORDER_NONE)
+	// wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE)
 	static wxCalendarDateAttr* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = wxCAL_BORDER_NONE) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = wxCAL_BORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -237,7 +237,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
 		const wxFont & font=luatop>3 ? *font_ptr : wxNullFont;
-		wxCalendarDateBorder border=luatop>4 ? (wxCalendarDateBorder)lua_tointeger(L,5) : wxCAL_BORDER_NONE;
+		wxCalendarDateBorder border=luatop>4 ? (wxCalendarDateBorder)lua_tointeger(L,5) : ::wxCAL_BORDER_NONE;
 
 		return new wxCalendarDateAttr(colText, colBack, colBorder, font, border);
 	}

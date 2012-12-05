@@ -169,11 +169,11 @@ public:
 
 
 	// Function binds:
-	// int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = wxHORIZONTAL) const
+	// int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const
 	static int _bind_GetPixels(lua_State *L) {
 		if (!_lg_typecheck_GetPixels(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = wxHORIZONTAL) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = wxHORIZONTAL) const\nClass arguments details:\narg 1 ID = 25580455\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const\nClass arguments details:\narg 1 ID = 25580455\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,7 +183,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dim in wxTextAttrDimensionConverter::GetPixels function");
 		}
 		const wxTextAttrDimension & dim=*dim_ptr;
-		int direction=luatop>2 ? (int)lua_tointeger(L,3) : wxHORIZONTAL;
+		int direction=luatop>2 ? (int)lua_tointeger(L,3) : ::wxHORIZONTAL;
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {

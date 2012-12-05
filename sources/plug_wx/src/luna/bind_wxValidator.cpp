@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxValidator.h>
+
 class luna_wrapper_wxValidator {
 public:
 	typedef Luna< wxValidator > luna_t;
@@ -38,22 +40,18 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxValidator* ptr= static_cast< wxValidator* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxValidator >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -111,14 +109,34 @@ public:
 
 	// Constructor binds:
 	// wxValidator::wxValidator()
-	static wxValidator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxValidator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxValidator::wxValidator() function, expected prototype:\nwxValidator::wxValidator()\nClass arguments details:\n");
 		}
 
 
 		return new wxValidator();
+	}
+
+	// wxValidator::wxValidator(lua_Table * data)
+	static wxValidator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxValidator::wxValidator(lua_Table * data) function, expected prototype:\nwxValidator::wxValidator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxValidator(L,NULL);
+	}
+
+	// Overload binder for wxValidator::wxValidator
+	static wxValidator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxValidator, cannot match any of the overloads for function wxValidator:\n  wxValidator()\n  wxValidator(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -292,7 +310,6 @@ luna_RegType LunaTraits< wxValidator >::methods[] = {
 
 luna_ConverterType LunaTraits< wxValidator >::converters[] = {
 	{"wxObject", &luna_wrapper_wxValidator::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxValidator::_cast_from_wxTrackable},
 	{0,0}
 };
 

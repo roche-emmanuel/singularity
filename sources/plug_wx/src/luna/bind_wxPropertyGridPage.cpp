@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPropertyGridPage.h>
+
 class luna_wrapper_wxPropertyGridPage {
 public:
 	typedef Luna< wxPropertyGridPage > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPropertyGridPage* ptr= static_cast< wxPropertyGridPage* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPropertyGridPage >::push(L,ptr,false);
-		return 1;
-	};
-
 	static int _cast_from_wxPropertyGridInterface(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxPropertyGridPage* ptr= dynamic_cast< wxPropertyGridPage* >(Luna< wxPropertyGridInterface >::check(L,1));
@@ -62,9 +53,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -148,14 +146,34 @@ public:
 
 	// Constructor binds:
 	// wxPropertyGridPage::wxPropertyGridPage()
-	static wxPropertyGridPage* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxPropertyGridPage* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxPropertyGridPage::wxPropertyGridPage() function, expected prototype:\nwxPropertyGridPage::wxPropertyGridPage()\nClass arguments details:\n");
 		}
 
 
 		return new wxPropertyGridPage();
+	}
+
+	// wxPropertyGridPage::wxPropertyGridPage(lua_Table * data)
+	static wxPropertyGridPage* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPropertyGridPage::wxPropertyGridPage(lua_Table * data) function, expected prototype:\nwxPropertyGridPage::wxPropertyGridPage(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPropertyGridPage(L,NULL);
+	}
+
+	// Overload binder for wxPropertyGridPage::wxPropertyGridPage
+	static wxPropertyGridPage* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPropertyGridPage, cannot match any of the overloads for function wxPropertyGridPage:\n  wxPropertyGridPage()\n  wxPropertyGridPage(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -415,7 +433,6 @@ luna_RegType LunaTraits< wxPropertyGridPage >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPropertyGridPage >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPropertyGridPage::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPropertyGridPage::_cast_from_wxTrackable},
 	{"wxPropertyGridInterface", &luna_wrapper_wxPropertyGridPage::_cast_from_wxPropertyGridInterface},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiManager.h>
+
 class luna_wrapper_wxAuiManager {
 public:
 	typedef Luna< wxAuiManager > luna_t;
@@ -38,25 +40,26 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxAuiManager* ptr= static_cast< wxAuiManager* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxAuiManager >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -255,19 +258,43 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = wxAUI_MGR_DEFAULT)
-	static wxAuiManager* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)
+	static wxAuiManager* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* managed_wnd=luatop>0 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) : (wxWindow*)NULL;
-		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : wxAUI_MGR_DEFAULT;
+		unsigned int flags=luatop>1 ? (unsigned int)lua_tointeger(L,2) : ::wxAUI_MGR_DEFAULT;
 
 		return new wxAuiManager(managed_wnd, flags);
+	}
+
+	// wxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)
+	static wxAuiManager* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* managed_wnd=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		unsigned int flags=luatop>2 ? (unsigned int)lua_tointeger(L,3) : ::wxAUI_MGR_DEFAULT;
+
+		return new wrapper_wxAuiManager(L,NULL, managed_wnd, flags);
+	}
+
+	// Overload binder for wxAuiManager::wxAuiManager
+	static wxAuiManager* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxAuiManager, cannot match any of the overloads for function wxAuiManager:\n  wxAuiManager(wxWindow *, unsigned int)\n  wxAuiManager(lua_Table *, wxWindow *, unsigned int)\n");
+		return NULL;
 	}
 
 
@@ -297,17 +324,17 @@ public:
 		return 1;
 	}
 
-	// bool wxAuiManager::AddPane(wxWindow * window, int direction = wxLEFT, const wxString & caption = wxEmptyString)
+	// bool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString)
 	static int _bind_AddPane_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddPane_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, int direction = wxLEFT, const wxString & caption = wxEmptyString) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, int direction = wxLEFT, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int direction=luatop>2 ? (int)lua_tointeger(L,3) : wxLEFT;
+		int direction=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLEFT;
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
 
 		wxAuiManager* self=dynamic_cast< wxAuiManager* >(Luna< wxObject >::check(L,1));
@@ -554,11 +581,11 @@ public:
 		return 0;
 	}
 
-	// bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = wxAUI_INSERT_PANE)
+	// bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE)
 	static int _bind_InsertPane(lua_State *L) {
 		if (!_lg_typecheck_InsertPane(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = wxAUI_INSERT_PANE) function, expected prototype:\nbool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = wxAUI_INSERT_PANE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE) function, expected prototype:\nbool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -569,7 +596,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg insert_location in wxAuiManager::InsertPane function");
 		}
 		const wxAuiPaneInfo & insert_location=*insert_location_ptr;
-		int insert_level=luatop>3 ? (int)lua_tointeger(L,4) : wxAUI_INSERT_PANE;
+		int insert_level=luatop>3 ? (int)lua_tointeger(L,4) : ::wxAUI_INSERT_PANE;
 
 		wxAuiManager* self=dynamic_cast< wxAuiManager* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -874,7 +901,6 @@ luna_RegType LunaTraits< wxAuiManager >::methods[] = {
 
 luna_ConverterType LunaTraits< wxAuiManager >::converters[] = {
 	{"wxObject", &luna_wrapper_wxAuiManager::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxAuiManager::_cast_from_wxTrackable},
 	{0,0}
 };
 

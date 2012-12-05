@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxProtocol.h>
+
 class luna_wrapper_wxProtocol {
 public:
 	typedef Luna< wxProtocol > luna_t;
@@ -394,8 +396,6 @@ wxProtocol* LunaTraits< wxProtocol >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxProtocol::Abort()
 	// wxInputStream * wxProtocol::GetInputStream(const wxString & path)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxProtocol >::_bind_dtor(wxProtocol* obj) {

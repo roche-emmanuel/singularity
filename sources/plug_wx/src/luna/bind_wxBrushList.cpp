@@ -58,11 +58,11 @@ public:
 	// Constructor binds:
 
 	// Function binds:
-	// wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)
+	// wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
 	static int _bind_FindOrCreateBrush(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreateBrush(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -72,7 +72,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrushList::FindOrCreateBrush function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : wxBRUSHSTYLE_SOLID;
+		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : ::wxBRUSHSTYLE_SOLID;
 
 		wxBrushList* self=dynamic_cast< wxBrushList* >(Luna< wxList >::check(L,1));
 		if(!self) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileSystem.h>
+
 class luna_wrapper_wxFileSystem {
 public:
 	typedef Luna< wxFileSystem > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -130,14 +139,34 @@ public:
 
 	// Constructor binds:
 	// wxFileSystem::wxFileSystem()
-	static wxFileSystem* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxFileSystem* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxFileSystem::wxFileSystem() function, expected prototype:\nwxFileSystem::wxFileSystem()\nClass arguments details:\n");
 		}
 
 
 		return new wxFileSystem();
+	}
+
+	// wxFileSystem::wxFileSystem(lua_Table * data)
+	static wxFileSystem* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileSystem::wxFileSystem(lua_Table * data) function, expected prototype:\nwxFileSystem::wxFileSystem(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFileSystem(L,NULL);
+	}
+
+	// Overload binder for wxFileSystem::wxFileSystem
+	static wxFileSystem* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxFileSystem, cannot match any of the overloads for function wxFileSystem:\n  wxFileSystem()\n  wxFileSystem(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -247,17 +276,17 @@ public:
 		return 1;
 	}
 
-	// wxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = wxFS_READ)
+	// wxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = ::wxFS_READ)
 	static int _bind_OpenFile(lua_State *L) {
 		if (!_lg_typecheck_OpenFile(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = wxFS_READ) function, expected prototype:\nwxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = wxFS_READ)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = ::wxFS_READ) function, expected prototype:\nwxFSFile * wxFileSystem::OpenFile(const wxString & location, int flags = ::wxFS_READ)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxFS_READ;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxFS_READ;
 
 		wxFileSystem* self=dynamic_cast< wxFileSystem* >(Luna< wxObject >::check(L,1));
 		if(!self) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWizardPage.h>
+
 class luna_wrapper_wxWizardPage {
 public:
 	typedef Luna< wxWizardPage > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxWizardPage* ptr= dynamic_cast< wxWizardPage* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxWizardPage >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxWizardPage* ptr= static_cast< wxWizardPage* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -148,8 +139,6 @@ wxWizardPage* LunaTraits< wxWizardPage >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxWizardPage * wxWizardPage::GetNext() const
 	// wxWizardPage * wxWizardPage::GetPrev() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxWizardPage >::_bind_dtor(wxWizardPage* obj) {
@@ -173,7 +162,6 @@ luna_RegType LunaTraits< wxWizardPage >::methods[] = {
 
 luna_ConverterType LunaTraits< wxWizardPage >::converters[] = {
 	{"wxObject", &luna_wrapper_wxWizardPage::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxWizardPage::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRibbonPage.h>
+
 class luna_wrapper_wxRibbonPage {
 public:
 	typedef Luna< wxRibbonPage > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRibbonPage* ptr= static_cast< wxRibbonPage* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRibbonPage >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -68,6 +59,28 @@ public:
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
 		if( luatop>3 && (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxRibbonBar* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -163,17 +176,17 @@ public:
 		return new wxRibbonPage();
 	}
 
-	// wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
+	// wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
 	static wxRibbonPage* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxRibbonBar* parent=dynamic_cast< wxRibbonBar* >(Luna< wxObject >::check(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 		const wxBitmap* icon_ptr=luatop>3 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4)) : NULL;
 		if( luatop>3 && !icon_ptr ) {
@@ -185,28 +198,63 @@ public:
 		return new wxRibbonPage(parent, id, label, icon, style);
 	}
 
-	// Overload binder for wxRibbonPage::wxRibbonPage
-	static wxRibbonPage* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+	// wxRibbonPage::wxRibbonPage(lua_Table * data)
+	static wxRibbonPage* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data)\nClass arguments details:\n");
+		}
 
-		luaL_error(L, "error in function wxRibbonPage, cannot match any of the overloads for function wxRibbonPage:\n  wxRibbonPage()\n  wxRibbonPage(wxRibbonBar *, int, const wxString &, const wxBitmap &, long)\n");
-		return NULL;
+
+		return new wrapper_wxRibbonPage(L,NULL);
 	}
 
-
-	// Function binds:
-	// bool wxRibbonPage::Create(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
-	static int _bind_Create(lua_State *L) {
-		if (!_lg_typecheck_Create(L)) {
+	// wxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
+	static wxRibbonPage* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Create(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nbool wxRibbonPage::Create(wxRibbonBar * parent, int id = wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxRibbonBar* parent=dynamic_cast< wxRibbonBar* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		wxString label(lua_tostring(L,4),lua_objlen(L,4));
+		const wxBitmap* icon_ptr=luatop>4 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5)) : NULL;
+		if( luatop>4 && !icon_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRibbonPage::wxRibbonPage function");
+		}
+		const wxBitmap & icon=luatop>4 ? *icon_ptr : wxNullBitmap;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0;
+
+		return new wrapper_wxRibbonPage(L,NULL, parent, id, label, icon, style);
+	}
+
+	// Overload binder for wxRibbonPage::wxRibbonPage
+	static wxRibbonPage* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+
+		luaL_error(L, "error in function wxRibbonPage, cannot match any of the overloads for function wxRibbonPage:\n  wxRibbonPage()\n  wxRibbonPage(wxRibbonBar *, int, const wxString &, const wxBitmap &, long)\n  wxRibbonPage(lua_Table *)\n  wxRibbonPage(lua_Table *, wxRibbonBar *, int, const wxString &, const wxBitmap &, long)\n");
+		return NULL;
+	}
+
+
+	// Function binds:
+	// bool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
+	static int _bind_Create(lua_State *L) {
+		if (!_lg_typecheck_Create(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nbool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxRibbonBar* parent=dynamic_cast< wxRibbonBar* >(Luna< wxObject >::check(L,2));
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		wxString label(lua_tostring(L,4),lua_objlen(L,4));
 		const wxBitmap* icon_ptr=luatop>4 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5)) : NULL;
 		if( luatop>4 && !icon_ptr ) {
@@ -441,7 +489,6 @@ luna_RegType LunaTraits< wxRibbonPage >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRibbonPage >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRibbonPage::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRibbonPage::_cast_from_wxTrackable},
 	{0,0}
 };
 

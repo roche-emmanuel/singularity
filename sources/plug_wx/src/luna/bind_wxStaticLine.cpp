@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStaticLine.h>
+
 class luna_wrapper_wxStaticLine {
 public:
 	typedef Luna< wxStaticLine > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxStaticLine* ptr= static_cast< wxStaticLine* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxStaticLine >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -70,6 +61,30 @@ public:
 		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
 		return true;
 	}
 
@@ -116,17 +131,17 @@ public:
 		return new wxStaticLine();
 	}
 
-	// wxStaticLine::wxStaticLine(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)
+	// wxStaticLine::wxStaticLine(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)
 	static wxStaticLine* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStaticLine::wxStaticLine(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) function, expected prototype:\nwxStaticLine::wxStaticLine(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStaticLine::wxStaticLine(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) function, expected prototype:\nwxStaticLine::wxStaticLine(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-		int id=luatop>1 ? (int)lua_tointeger(L,2) : wxID_ANY;
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStaticLine::wxStaticLine function");
@@ -143,28 +158,68 @@ public:
 		return new wxStaticLine(parent, id, pos, size, style, name);
 	}
 
-	// Overload binder for wxStaticLine::wxStaticLine
-	static wxStaticLine* _bind_ctor(lua_State *L) {
-		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
-		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+	// wxStaticLine::wxStaticLine(lua_Table * data)
+	static wxStaticLine* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStaticLine::wxStaticLine(lua_Table * data) function, expected prototype:\nwxStaticLine::wxStaticLine(lua_Table * data)\nClass arguments details:\n");
+		}
 
-		luaL_error(L, "error in function wxStaticLine, cannot match any of the overloads for function wxStaticLine:\n  wxStaticLine()\n  wxStaticLine(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
-		return NULL;
+
+		return new wrapper_wxStaticLine(L,NULL);
 	}
 
-
-	// Function binds:
-	// bool wxStaticLine::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)
-	static int _bind_Create(lua_State *L) {
-		if (!_lg_typecheck_Create(L)) {
+	// wxStaticLine::wxStaticLine(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)
+	static wxStaticLine* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStaticLine::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) function, expected prototype:\nbool wxStaticLine::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxStaticLine::wxStaticLine(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) function, expected prototype:\nwxStaticLine::wxStaticLine(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStaticLine::wxStaticLine function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxStaticLine::wxStaticLine function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxLI_HORIZONTAL;
+		wxString name(lua_tostring(L,7),lua_objlen(L,7));
+
+		return new wrapper_wxStaticLine(L,NULL, parent, id, pos, size, style, name);
+	}
+
+	// Overload binder for wxStaticLine::wxStaticLine
+	static wxStaticLine* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+
+		luaL_error(L, "error in function wxStaticLine, cannot match any of the overloads for function wxStaticLine:\n  wxStaticLine()\n  wxStaticLine(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n  wxStaticLine(lua_Table *)\n  wxStaticLine(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		return NULL;
+	}
+
+
+	// Function binds:
+	// bool wxStaticLine::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)
+	static int _bind_Create(lua_State *L) {
+		if (!_lg_typecheck_Create(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStaticLine::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) function, expected prototype:\nbool wxStaticLine::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxStaticLine::Create function");
@@ -252,7 +307,6 @@ luna_RegType LunaTraits< wxStaticLine >::methods[] = {
 
 luna_ConverterType LunaTraits< wxStaticLine >::converters[] = {
 	{"wxObject", &luna_wrapper_wxStaticLine::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxStaticLine::_cast_from_wxTrackable},
 	{0,0}
 };
 

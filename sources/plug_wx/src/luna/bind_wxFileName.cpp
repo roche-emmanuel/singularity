@@ -912,42 +912,42 @@ public:
 		return new wxFileName(filename);
 	}
 
-	// wxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE)
+	// wxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE)
 	static wxFileName* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString fullpath(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		return new wxFileName(fullpath, format);
 	}
 
-	// wxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE)
+	// wxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE)
 	static wxFileName* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		return new wxFileName(path, name, format);
 	}
 
-	// wxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)
+	// wxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)
 	static wxFileName* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -955,16 +955,16 @@ public:
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString ext(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
 
 		return new wxFileName(path, name, ext, format);
 	}
 
-	// wxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)
+	// wxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)
 	static wxFileName* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nwxFileName::wxFileName(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -973,7 +973,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
 
 		return new wxFileName(volume, path, name, ext, format);
 	}
@@ -1035,17 +1035,17 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::Assign(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::Assign(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Assign_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Assign_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & fullpath, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & fullpath, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString fullpath(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1057,11 +1057,11 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Assign_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Assign_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, bool hasExt, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1071,7 +1071,7 @@ public:
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
 		bool hasExt=(bool)(lua_toboolean(L,6)==1);
-		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1083,11 +1083,11 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Assign_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Assign_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & volume, const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1096,7 +1096,7 @@ public:
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
-		wxPathFormat format=luatop>5 ? (wxPathFormat)lua_tointeger(L,6) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>5 ? (wxPathFormat)lua_tointeger(L,6) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1108,18 +1108,18 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Assign_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Assign_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & path, const wxString & name, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1131,11 +1131,11 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Assign_overload_6(lua_State *L) {
 		if (!_lg_typecheck_Assign_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::Assign(const wxString & path, const wxString & name, const wxString & ext, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1143,7 +1143,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1189,17 +1189,17 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::AssignDir(const wxString & dir, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::AssignDir(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_AssignDir(lua_State *L) {
 		if (!_lg_typecheck_AssignDir(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::AssignDir(const wxString & dir, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::AssignDir(const wxString & dir, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::AssignDir(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::AssignDir(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1498,16 +1498,16 @@ public:
 		return 1;
 	}
 
-	// wxString wxFileName::GetFullPath(wxPathFormat format = wxPATH_NATIVE) const
+	// wxString wxFileName::GetFullPath(wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_GetFullPath(lua_State *L) {
 		if (!_lg_typecheck_GetFullPath(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetFullPath(wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetFullPath(wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetFullPath(wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetFullPath(wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1520,18 +1520,18 @@ public:
 		return 1;
 	}
 
-	// wxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ ("Not available"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL) const
+	// wxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ ("Not available"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL) const
 	static int _bind_GetHumanReadableSize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetHumanReadableSize_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL) const function, expected prototype:\nwxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL) const function, expected prototype:\nwxString wxFileName::GetHumanReadableSize(const wxString & failmsg = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL) const\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString failmsg(lua_tostring(L,2),lua_objlen(L,2));
 		int precision=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : wxSIZE_CONV_TRADITIONAL;
+		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : ::wxSIZE_CONV_TRADITIONAL;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1544,11 +1544,11 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ ("Not available"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL)
+	// static wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ ("Not available"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL)
 	static int _bind_GetHumanReadableSize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetHumanReadableSize_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL) function, expected prototype:\nstatic wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = wxSIZE_CONV_TRADITIONAL)\nClass arguments details:\narg 1 ID = 888873\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL) function, expected prototype:\nstatic wxString wxFileName::GetHumanReadableSize(const wxULongLong & bytes, const wxString & nullsize = _ (\"Not available\"), int precision = 1, wxSizeConvention conv = ::wxSIZE_CONV_TRADITIONAL)\nClass arguments details:\narg 1 ID = 888873\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1560,7 +1560,7 @@ public:
 		const wxULongLong & bytes=*bytes_ptr;
 		wxString nullsize(lua_tostring(L,2),lua_objlen(L,2));
 		int precision=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : wxSIZE_CONV_TRADITIONAL;
+		wxSizeConvention conv=luatop>3 ? (wxSizeConvention)lua_tointeger(L,4) : ::wxSIZE_CONV_TRADITIONAL;
 
 		wxString lret = wxFileName::GetHumanReadableSize(bytes, nullsize, precision, conv);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1637,17 +1637,17 @@ public:
 		return 1;
 	}
 
-	// wxString wxFileName::GetPath(int flags = wxPATH_GET_VOLUME, wxPathFormat format = wxPATH_NATIVE) const
+	// wxString wxFileName::GetPath(int flags = ::wxPATH_GET_VOLUME, wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_GetPath(lua_State *L) {
 		if (!_lg_typecheck_GetPath(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetPath(int flags = wxPATH_GET_VOLUME, wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetPath(int flags = wxPATH_GET_VOLUME, wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetPath(int flags = ::wxPATH_GET_VOLUME, wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetPath(int flags = ::wxPATH_GET_VOLUME, wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxPATH_GET_VOLUME;
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_GET_VOLUME;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1660,16 +1660,16 @@ public:
 		return 1;
 	}
 
-	// wxString wxFileName::GetPathWithSep(wxPathFormat format = wxPATH_NATIVE) const
+	// wxString wxFileName::GetPathWithSep(wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_GetPathWithSep(lua_State *L) {
 		if (!_lg_typecheck_GetPathWithSep(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetPathWithSep(wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetPathWithSep(wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFileName::GetPathWithSep(wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nwxString wxFileName::GetPathWithSep(wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -1868,16 +1868,16 @@ public:
 		return 0;
 	}
 
-	// bool wxFileName::IsAbsolute(wxPathFormat format = wxPATH_NATIVE) const
+	// bool wxFileName::IsAbsolute(wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_IsAbsolute(lua_State *L) {
 		if (!_lg_typecheck_IsAbsolute(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::IsAbsolute(wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::IsAbsolute(wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::IsAbsolute(wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::IsAbsolute(wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2143,16 +2143,16 @@ public:
 		return 1;
 	}
 
-	// bool wxFileName::IsRelative(wxPathFormat format = wxPATH_NATIVE) const
+	// bool wxFileName::IsRelative(wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_IsRelative(lua_State *L) {
 		if (!_lg_typecheck_IsRelative(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::IsRelative(wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::IsRelative(wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::IsRelative(wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::IsRelative(wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2165,17 +2165,17 @@ public:
 		return 1;
 	}
 
-	// bool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)
+	// bool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_MakeAbsolute(lua_State *L) {
 		if (!_lg_typecheck_MakeAbsolute(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::MakeAbsolute(const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString cwd(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2188,17 +2188,17 @@ public:
 		return 1;
 	}
 
-	// bool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)
+	// bool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_MakeRelativeTo(lua_State *L) {
 		if (!_lg_typecheck_MakeRelativeTo(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::MakeRelativeTo(const wxString & pathBase = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString pathBase(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2211,16 +2211,16 @@ public:
 		return 1;
 	}
 
-	// bool wxFileName::Mkdir(int perm = wxS_DIR_DEFAULT, int flags = 0) const
+	// bool wxFileName::Mkdir(int perm = ::wxS_DIR_DEFAULT, int flags = 0) const
 	static int _bind_Mkdir_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Mkdir_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::Mkdir(int perm = wxS_DIR_DEFAULT, int flags = 0) const function, expected prototype:\nbool wxFileName::Mkdir(int perm = wxS_DIR_DEFAULT, int flags = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::Mkdir(int perm = ::wxS_DIR_DEFAULT, int flags = 0) const function, expected prototype:\nbool wxFileName::Mkdir(int perm = ::wxS_DIR_DEFAULT, int flags = 0) const\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int perm=luatop>1 ? (int)lua_tointeger(L,2) : wxS_DIR_DEFAULT;
+		int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
@@ -2234,17 +2234,17 @@ public:
 		return 1;
 	}
 
-	// static bool wxFileName::Mkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT, int flags = 0)
+	// static bool wxFileName::Mkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0)
 	static int _bind_Mkdir_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Mkdir_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxFileName::Mkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT, int flags = 0) function, expected prototype:\nstatic bool wxFileName::Mkdir(const wxString & dir, int perm = wxS_DIR_DEFAULT, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxFileName::Mkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0) function, expected prototype:\nstatic bool wxFileName::Mkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		int perm=luatop>1 ? (int)lua_tointeger(L,2) : wxS_DIR_DEFAULT;
+		int perm=luatop>1 ? (int)lua_tointeger(L,2) : ::wxS_DIR_DEFAULT;
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		bool lret = wxFileName::Mkdir(dir, perm, flags);
@@ -2262,18 +2262,18 @@ public:
 		return 0;
 	}
 
-	// bool wxFileName::Normalize(int flags = wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)
+	// bool wxFileName::Normalize(int flags = ::wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_Normalize(lua_State *L) {
 		if (!_lg_typecheck_Normalize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::Normalize(int flags = wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::Normalize(int flags = wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::Normalize(int flags = ::wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::Normalize(int flags = ::wxPATH_NORM_ALL, const wxString & cwd = wxEmptyString, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxPATH_NORM_ALL;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_NORM_ALL;
 		wxString cwd(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2342,18 +2342,18 @@ public:
 		return 0;
 	}
 
-	// bool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = "$%s", wxPathFormat format = wxPATH_NATIVE)
+	// bool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = "$%s", wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_ReplaceEnvVariable(lua_State *L) {
 		if (!_lg_typecheck_ReplaceEnvVariable(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = \"$s\", wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = \"$s\", wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = \"$s\", wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::ReplaceEnvVariable(const wxString & envname, const wxString & replacementFmtString = \"$s\", wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString envname(lua_tostring(L,2),lua_objlen(L,2));
 		wxString replacementFmtString(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2366,16 +2366,16 @@ public:
 		return 1;
 	}
 
-	// bool wxFileName::ReplaceHomeDir(wxPathFormat format = wxPATH_NATIVE)
+	// bool wxFileName::ReplaceHomeDir(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_ReplaceHomeDir(lua_State *L) {
 		if (!_lg_typecheck_ReplaceHomeDir(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::ReplaceHomeDir(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::ReplaceHomeDir(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::ReplaceHomeDir(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nbool wxFileName::ReplaceHomeDir(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2437,11 +2437,11 @@ public:
 		return 0;
 	}
 
-	// bool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = wxPATH_NATIVE) const
+	// bool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = ::wxPATH_NATIVE) const
 	static int _bind_SameAs(lua_State *L) {
 		if (!_lg_typecheck_SameAs(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = wxPATH_NATIVE) const\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = ::wxPATH_NATIVE) const function, expected prototype:\nbool wxFileName::SameAs(const wxFileName & filepath, wxPathFormat format = ::wxPATH_NATIVE) const\nClass arguments details:\narg 1 ID = 53530938\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2451,7 +2451,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg filepath in wxFileName::SameAs function");
 		}
 		const wxFileName & filepath=*filepath_ptr;
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2582,17 +2582,17 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::SetPath(const wxString & path, wxPathFormat format = wxPATH_NATIVE)
+	// void wxFileName::SetPath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_SetPath(lua_State *L) {
 		if (!_lg_typecheck_SetPath(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::SetPath(const wxString & path, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::SetPath(const wxString & path, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileName::SetPath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nvoid wxFileName::SetPath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
-		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>2 ? (wxPathFormat)lua_tointeger(L,3) : ::wxPATH_NATIVE;
 
 		wxFileName* self=(Luna< wxFileName >::check(L,1));
 		if(!self) {
@@ -2709,17 +2709,17 @@ public:
 		return 0;
 	}
 
-	// static wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = wxPATH_NATIVE)
+	// static wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_DirName(lua_State *L) {
 		if (!_lg_typecheck_DirName(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString dir(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName stack_lret = wxFileName::DirName(dir, format);
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -2730,17 +2730,17 @@ public:
 		return 1;
 	}
 
-	// static wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = wxPATH_NATIVE)
+	// static wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_FileName(lua_State *L) {
 		if (!_lg_typecheck_FileName(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxFileName wxFileName::FileName(const wxString & file, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString file(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		wxFileName stack_lret = wxFileName::FileName(file, format);
 		wxFileName* lret = new wxFileName(stack_lret);
@@ -2768,16 +2768,16 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetForbiddenChars(wxPathFormat format = wxPATH_NATIVE)
+	// static wxString wxFileName::GetForbiddenChars(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_GetForbiddenChars(lua_State *L) {
 		if (!_lg_typecheck_GetForbiddenChars(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetForbiddenChars(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetForbiddenChars(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetForbiddenChars(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetForbiddenChars(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetForbiddenChars(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2785,16 +2785,16 @@ public:
 		return 1;
 	}
 
-	// static wxPathFormat wxFileName::GetFormat(wxPathFormat format = wxPATH_NATIVE)
+	// static wxPathFormat wxFileName::GetFormat(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_GetFormat(lua_State *L) {
 		if (!_lg_typecheck_GetFormat(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxPathFormat wxFileName::GetFormat(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxPathFormat wxFileName::GetFormat(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxPathFormat wxFileName::GetFormat(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxPathFormat wxFileName::GetFormat(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		wxPathFormat lret = wxFileName::GetFormat(format);
 		lua_pushnumber(L,lret);
@@ -2816,16 +2816,16 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetPathSeparators(wxPathFormat format = wxPATH_NATIVE)
+	// static wxString wxFileName::GetPathSeparators(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_GetPathSeparators(lua_State *L) {
 		if (!_lg_typecheck_GetPathSeparators(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetPathSeparators(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetPathSeparators(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetPathSeparators(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetPathSeparators(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetPathSeparators(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2833,16 +2833,16 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetPathTerminators(wxPathFormat format = wxPATH_NATIVE)
+	// static wxString wxFileName::GetPathTerminators(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_GetPathTerminators(lua_State *L) {
 		if (!_lg_typecheck_GetPathTerminators(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetPathTerminators(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetPathTerminators(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetPathTerminators(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetPathTerminators(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetPathTerminators(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2864,16 +2864,16 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetVolumeSeparator(wxPathFormat format = wxPATH_NATIVE)
+	// static wxString wxFileName::GetVolumeSeparator(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_GetVolumeSeparator(lua_State *L) {
 		if (!_lg_typecheck_GetVolumeSeparator(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetVolumeSeparator(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetVolumeSeparator(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetVolumeSeparator(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic wxString wxFileName::GetVolumeSeparator(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		wxString lret = wxFileName::GetVolumeSeparator(format);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2881,17 +2881,17 @@ public:
 		return 1;
 	}
 
-	// static wxString wxFileName::GetVolumeString(char drive, int flags = wxPATH_GET_SEPARATOR)
+	// static wxString wxFileName::GetVolumeString(char drive, int flags = ::wxPATH_GET_SEPARATOR)
 	static int _bind_GetVolumeString(lua_State *L) {
 		if (!_lg_typecheck_GetVolumeString(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetVolumeString(char drive, int flags = wxPATH_GET_SEPARATOR) function, expected prototype:\nstatic wxString wxFileName::GetVolumeString(char drive, int flags = wxPATH_GET_SEPARATOR)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxFileName::GetVolumeString(char drive, int flags = ::wxPATH_GET_SEPARATOR) function, expected prototype:\nstatic wxString wxFileName::GetVolumeString(char drive, int flags = ::wxPATH_GET_SEPARATOR)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		char drive=(char)lua_tointeger(L,1);
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxPATH_GET_SEPARATOR;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPATH_GET_SEPARATOR;
 
 		wxString lret = wxFileName::GetVolumeString(drive, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2899,16 +2899,16 @@ public:
 		return 1;
 	}
 
-	// static bool wxFileName::IsCaseSensitive(wxPathFormat format = wxPATH_NATIVE)
+	// static bool wxFileName::IsCaseSensitive(wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_IsCaseSensitive(lua_State *L) {
 		if (!_lg_typecheck_IsCaseSensitive(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxFileName::IsCaseSensitive(wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic bool wxFileName::IsCaseSensitive(wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxFileName::IsCaseSensitive(wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic bool wxFileName::IsCaseSensitive(wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>0 ? (wxPathFormat)lua_tointeger(L,1) : ::wxPATH_NATIVE;
 
 		bool lret = wxFileName::IsCaseSensitive(format);
 		lua_pushboolean(L,lret?1:0);
@@ -2916,17 +2916,17 @@ public:
 		return 1;
 	}
 
-	// static bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = wxPATH_NATIVE)
+	// static bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_IsMSWUniqueVolumeNamePath(lua_State *L) {
 		if (!_lg_typecheck_IsMSWUniqueVolumeNamePath(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic bool wxFileName::IsMSWUniqueVolumeNamePath(const wxString & path, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString path(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 
 		bool lret = wxFileName::IsMSWUniqueVolumeNamePath(path, format);
 		lua_pushboolean(L,lret?1:0);
@@ -2934,11 +2934,11 @@ public:
 		return 1;
 	}
 
-	// static void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = wxPATH_NATIVE)
+	// static void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_SplitPath_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SplitPath_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitPath(const wxString & fullpath, wxString * volume, wxString * path, wxString * name, wxString * ext, bool * hasExt = NULL, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2949,7 +2949,7 @@ public:
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString ext(lua_tostring(L,5),lua_objlen(L,5));
 		bool hasExt=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : NULL;
-		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>6 ? (wxPathFormat)lua_tointeger(L,7) : ::wxPATH_NATIVE;
 
 		wxFileName::SplitPath(fullpath, &volume, &path, &name, &ext, &hasExt, format);
 
@@ -2975,11 +2975,11 @@ public:
 		return 0;
 	}
 
-	// static void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = wxPATH_NATIVE)
+	// static void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_SplitPath_overload_3(lua_State *L) {
 		if (!_lg_typecheck_SplitPath_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitPath(const wxString & fullpath, wxString * path, wxString * name, wxString * ext, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2988,7 +2988,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString ext(lua_tostring(L,4),lua_objlen(L,4));
-		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>4 ? (wxPathFormat)lua_tointeger(L,5) : ::wxPATH_NATIVE;
 
 		wxFileName::SplitPath(fullpath, &path, &name, &ext, format);
 
@@ -3005,11 +3005,11 @@ public:
 		return 0;
 	}
 
-	// static void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = wxPATH_NATIVE)
+	// static void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = ::wxPATH_NATIVE)
 	static int _bind_SplitVolume(lua_State *L) {
 		if (!_lg_typecheck_SplitVolume(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = ::wxPATH_NATIVE) function, expected prototype:\nstatic void wxFileName::SplitVolume(const wxString & fullpath, wxString * volume, wxString * path, wxPathFormat format = ::wxPATH_NATIVE)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -3017,7 +3017,7 @@ public:
 		wxString fullpath(lua_tostring(L,1),lua_objlen(L,1));
 		wxString volume(lua_tostring(L,2),lua_objlen(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
-		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>3 ? (wxPathFormat)lua_tointeger(L,4) : ::wxPATH_NATIVE;
 
 		wxFileName::SplitVolume(fullpath, &volume, &path, format);
 

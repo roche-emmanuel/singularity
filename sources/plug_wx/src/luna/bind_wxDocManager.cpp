@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDocManager.h>
+
 class luna_wrapper_wxDocManager {
 public:
 	typedef Luna< wxDocManager > luna_t;
@@ -38,25 +40,24 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDocManager* ptr= static_cast< wxDocManager* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDocManager >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -338,8 +339,8 @@ public:
 
 	// Constructor binds:
 	// wxDocManager::wxDocManager(long flags = 0, bool initialize = true)
-	static wxDocManager* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxDocManager* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxDocManager::wxDocManager(long flags = 0, bool initialize = true) function, expected prototype:\nwxDocManager::wxDocManager(long flags = 0, bool initialize = true)\nClass arguments details:\n");
 		}
@@ -350,6 +351,30 @@ public:
 		bool initialize=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
 		return new wxDocManager(flags, initialize);
+	}
+
+	// wxDocManager::wxDocManager(lua_Table * data, long flags = 0, bool initialize = true)
+	static wxDocManager* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocManager::wxDocManager(lua_Table * data, long flags = 0, bool initialize = true) function, expected prototype:\nwxDocManager::wxDocManager(lua_Table * data, long flags = 0, bool initialize = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		bool initialize=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		return new wrapper_wxDocManager(L,NULL, flags, initialize);
+	}
+
+	// Overload binder for wxDocManager::wxDocManager
+	static wxDocManager* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDocManager, cannot match any of the overloads for function wxDocManager:\n  wxDocManager(long, bool)\n  wxDocManager(lua_Table *, long, bool)\n");
+		return NULL;
 	}
 
 
@@ -1246,7 +1271,6 @@ luna_RegType LunaTraits< wxDocManager >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDocManager >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDocManager::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDocManager::_cast_from_wxTrackable},
 	{0,0}
 };
 

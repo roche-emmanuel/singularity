@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDC.h>
+
 class luna_wrapper_wxDC {
 public:
 	typedef Luna< wxDC > luna_t;
@@ -1692,11 +1694,11 @@ public:
 		return 0;
 	}
 
-	// void wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL)
+	// void wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL)
 	static int _bind_DrawLabel_overload_1(lua_State *L) {
 		if (!_lg_typecheck_DrawLabel_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL) function, expected prototype:\nvoid wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL) function, expected prototype:\nvoid wxDC::DrawLabel(const wxString & text, const wxBitmap & bitmap, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1, wxRect * rectBounding = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1712,7 +1714,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::DrawLabel function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int alignment=luatop>4 ? (int)lua_tointeger(L,5) : wxALIGN_LEFT | wxALIGN_TOP;
+		int alignment=luatop>4 ? (int)lua_tointeger(L,5) : ::wxALIGN_LEFT | ::wxALIGN_TOP;
 		int indexAccel=luatop>5 ? (int)lua_tointeger(L,6) : -1;
 		wxRect* rectBounding=luatop>6 ? (Luna< wxRect >::check(L,7)) : (wxRect*)NULL;
 
@@ -1726,11 +1728,11 @@ public:
 		return 0;
 	}
 
-	// void wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1)
+	// void wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1)
 	static int _bind_DrawLabel_overload_2(lua_State *L) {
 		if (!_lg_typecheck_DrawLabel_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1) function, expected prototype:\nvoid wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = wxALIGN_LEFT | wxALIGN_TOP, int indexAccel = -1)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1) function, expected prototype:\nvoid wxDC::DrawLabel(const wxString & text, const wxRect & rect, int alignment = ::wxALIGN_LEFT | ::wxALIGN_TOP, int indexAccel = -1)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20234418\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1741,7 +1743,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::DrawLabel function");
 		}
 		const wxRect & rect=*rect_ptr;
-		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : wxALIGN_LEFT | wxALIGN_TOP;
+		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : ::wxALIGN_LEFT | ::wxALIGN_TOP;
 		int indexAccel=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
@@ -1897,11 +1899,11 @@ public:
 		return 0;
 	}
 
-	// void wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = wxODDEVEN_RULE)
+	// void wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = ::wxODDEVEN_RULE)
 	static int _bind_DrawPolygon(lua_State *L) {
 		if (!_lg_typecheck_DrawPolygon(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = wxODDEVEN_RULE) function, expected prototype:\nvoid wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = wxODDEVEN_RULE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = ::wxODDEVEN_RULE) function, expected prototype:\nvoid wxDC::DrawPolygon(const wxPointList * points, int xoffset = 0, int yoffset = 0, wxPolygonFillMode fill_style = ::wxODDEVEN_RULE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1909,7 +1911,7 @@ public:
 		wxPointList points=(wxPointList)lua_tointeger(L,2);
 		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : 0;
-		wxPolygonFillMode fill_style=luatop>4 ? (wxPolygonFillMode)lua_tointeger(L,5) : wxODDEVEN_RULE;
+		wxPolygonFillMode fill_style=luatop>4 ? (wxPolygonFillMode)lua_tointeger(L,5) : ::wxODDEVEN_RULE;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -2332,11 +2334,11 @@ public:
 		return 0;
 	}
 
-	// void wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = wxRIGHT)
+	// void wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = ::wxRIGHT)
 	static int _bind_GradientFillLinear(lua_State *L) {
 		if (!_lg_typecheck_GradientFillLinear(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = wxRIGHT) function, expected prototype:\nvoid wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = wxRIGHT)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = ::wxRIGHT) function, expected prototype:\nvoid wxDC::GradientFillLinear(const wxRect & rect, const wxColour & initialColour, const wxColour & destColour, wxDirection nDirection = ::wxRIGHT)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2356,7 +2358,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg destColour in wxDC::GradientFillLinear function");
 		}
 		const wxColour & destColour=*destColour_ptr;
-		wxDirection nDirection=luatop>4 ? (wxDirection)lua_tointeger(L,5) : wxRIGHT;
+		wxDirection nDirection=luatop>4 ? (wxDirection)lua_tointeger(L,5) : ::wxRIGHT;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -2368,11 +2370,11 @@ public:
 		return 0;
 	}
 
-	// bool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE)
+	// bool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE)
 	static int _bind_FloodFill_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FloodFill_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE) function, expected prototype:\nbool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE)\nClass arguments details:\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE) function, expected prototype:\nbool wxDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE)\nClass arguments details:\narg 3 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2384,7 +2386,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -2397,11 +2399,11 @@ public:
 		return 1;
 	}
 
-	// bool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = wxFLOOD_SURFACE)
+	// bool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = ::wxFLOOD_SURFACE)
 	static int _bind_FloodFill_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FloodFill_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = wxFLOOD_SURFACE) function, expected prototype:\nbool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = wxFLOOD_SURFACE)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = ::wxFLOOD_SURFACE) function, expected prototype:\nbool wxDC::FloodFill(const wxPoint & pt, const wxColour & col, wxFloodFillStyle style = ::wxFLOOD_SURFACE)\nClass arguments details:\narg 1 ID = 25723480\narg 2 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2416,7 +2418,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxDC::FloodFill function");
 		}
 		const wxColour & col=*col_ptr;
-		wxFloodFillStyle style=luatop>3 ? (wxFloodFillStyle)lua_tointeger(L,4) : wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>3 ? (wxFloodFillStyle)lua_tointeger(L,4) : ::wxFLOOD_SURFACE;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -3232,11 +3234,11 @@ public:
 		return 0;
 	}
 
-	// bool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord)
+	// bool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord)
 	static int _bind_Blit(lua_State *L) {
 		if (!_lg_typecheck_Blit(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord) function, expected prototype:\nbool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord)\nClass arguments details:\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord) function, expected prototype:\nbool wxDC::Blit(int xdest, int ydest, int width, int height, wxDC * source, int xsrc, int ysrc, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord)\nClass arguments details:\narg 5 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -3248,10 +3250,10 @@ public:
 		wxDC* source=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,6));
 		int xsrc=(int)lua_tointeger(L,7);
 		int ysrc=(int)lua_tointeger(L,8);
-		wxRasterOperationMode logicalFunc=luatop>8 ? (wxRasterOperationMode)lua_tointeger(L,9) : wxCOPY;
+		wxRasterOperationMode logicalFunc=luatop>8 ? (wxRasterOperationMode)lua_tointeger(L,9) : ::wxCOPY;
 		bool useMask=luatop>9 ? (bool)(lua_toboolean(L,10)==1) : false;
-		int xsrcMask=luatop>10 ? (int)lua_tointeger(L,11) : wxDefaultCoord;
-		int ysrcMask=luatop>11 ? (int)lua_tointeger(L,12) : wxDefaultCoord;
+		int xsrcMask=luatop>10 ? (int)lua_tointeger(L,11) : ::wxDefaultCoord;
+		int ysrcMask=luatop>11 ? (int)lua_tointeger(L,12) : ::wxDefaultCoord;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -3264,11 +3266,11 @@ public:
 		return 1;
 	}
 
-	// bool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord)
+	// bool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord)
 	static int _bind_StretchBlit(lua_State *L) {
 		if (!_lg_typecheck_StretchBlit(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord) function, expected prototype:\nbool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = wxCOPY, bool useMask = false, int xsrcMask = wxDefaultCoord, int ysrcMask = wxDefaultCoord)\nClass arguments details:\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord) function, expected prototype:\nbool wxDC::StretchBlit(int xdest, int ydest, int dstWidth, int dstHeight, wxDC * source, int xsrc, int ysrc, int srcWidth, int srcHeight, wxRasterOperationMode logicalFunc = ::wxCOPY, bool useMask = false, int xsrcMask = ::wxDefaultCoord, int ysrcMask = ::wxDefaultCoord)\nClass arguments details:\narg 5 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -3282,10 +3284,10 @@ public:
 		int ysrc=(int)lua_tointeger(L,8);
 		int srcWidth=(int)lua_tointeger(L,9);
 		int srcHeight=(int)lua_tointeger(L,10);
-		wxRasterOperationMode logicalFunc=luatop>10 ? (wxRasterOperationMode)lua_tointeger(L,11) : wxCOPY;
+		wxRasterOperationMode logicalFunc=luatop>10 ? (wxRasterOperationMode)lua_tointeger(L,11) : ::wxCOPY;
 		bool useMask=luatop>11 ? (bool)(lua_toboolean(L,12)==1) : false;
-		int xsrcMask=luatop>12 ? (int)lua_tointeger(L,13) : wxDefaultCoord;
-		int ysrcMask=luatop>13 ? (int)lua_tointeger(L,14) : wxDefaultCoord;
+		int xsrcMask=luatop>12 ? (int)lua_tointeger(L,13) : ::wxDefaultCoord;
+		int ysrcMask=luatop>13 ? (int)lua_tointeger(L,14) : ::wxDefaultCoord;
 
 		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {

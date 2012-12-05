@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellAutoWrapStringEditor.h>
+
 class luna_wrapper_wxGridCellAutoWrapStringEditor {
 public:
 	typedef Luna< wxGridCellAutoWrapStringEditor > luna_t;
@@ -59,8 +61,6 @@ wxGridCellAutoWrapStringEditor* LunaTraits< wxGridCellAutoWrapStringEditor >::_b
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
 	// void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)
 	// void wxGridCellEditor::Reset()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellAutoWrapStringEditor >::_bind_dtor(wxGridCellAutoWrapStringEditor* obj) {

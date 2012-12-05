@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsBitmap.h>
+
 class luna_wrapper_wxGraphicsBitmap {
 public:
 	typedef Luna< wxGraphicsBitmap > luna_t;

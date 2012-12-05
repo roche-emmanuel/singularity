@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextWrapper.h>
+
 class luna_wrapper_wxTextWrapper {
 public:
 	typedef Luna< wxTextWrapper > luna_t;
@@ -98,8 +100,6 @@ wxTextWrapper* LunaTraits< wxTextWrapper >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxTextWrapper::OnOutputLine(const wxString & line)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextWrapper >::_bind_dtor(wxTextWrapper* obj) {

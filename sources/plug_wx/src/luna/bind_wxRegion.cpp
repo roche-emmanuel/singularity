@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRegion.h>
+
 class luna_wrapper_wxRegion {
 public:
 	typedef Luna< wxRegion > luna_t;
@@ -110,6 +112,87 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_13(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_14(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25723480)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3)) ) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_15(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_16(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -404,18 +487,18 @@ public:
 		return new wxRegion(region);
 	}
 
-	// wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE)
+	// wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)
 	static wxRegion* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE)\nClass arguments details:\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)\nClass arguments details:\narg 2 ID = 25723480\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		size_t n=(size_t)lua_tointeger(L,1);
 		const wxPoint* points=(Luna< wxPoint >::check(L,2));
-		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : wxODDEVEN_RULE;
+		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : ::wxODDEVEN_RULE;
 
 		return new wxRegion(n, points, fillStyle);
 	}
@@ -460,6 +543,141 @@ public:
 		return new wxRegion(bmp, transColour, tolerance);
 	}
 
+	// wxRegion::wxRegion(lua_Table * data)
+	static wxRegion* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxRegion(L,NULL);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height)
+	static wxRegion* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int width=(int)lua_tointeger(L,4);
+		int height=(int)lua_tointeger(L,5);
+
+		return new wrapper_wxRegion(L,NULL, x, y, width, height);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight)
+	static wxRegion* _bind_ctor_overload_11(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight)\nClass arguments details:\narg 2 ID = 25723480\narg 3 ID = 25723480\n");
+		}
+
+		const wxPoint* topLeft_ptr=(Luna< wxPoint >::check(L,2));
+		if( !topLeft_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg topLeft in wxRegion::wxRegion function");
+		}
+		const wxPoint & topLeft=*topLeft_ptr;
+		const wxPoint* bottomRight_ptr=(Luna< wxPoint >::check(L,3));
+		if( !bottomRight_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxRegion::wxRegion function");
+		}
+		const wxPoint & bottomRight=*bottomRight_ptr;
+
+		return new wrapper_wxRegion(L,NULL, topLeft, bottomRight);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxRect & rect)
+	static wxRegion* _bind_ctor_overload_12(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxRect & rect) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxRect & rect)\nClass arguments details:\narg 2 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRegion::wxRegion function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		return new wrapper_wxRegion(L,NULL, rect);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxRegion & region)
+	static wxRegion* _bind_ctor_overload_13(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_13(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxRegion & region) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxRegion & region)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		if( !region_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::wxRegion function");
+		}
+		const wxRegion & region=*region_ptr;
+
+		return new wrapper_wxRegion(L,NULL, region);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)
+	static wxRegion* _bind_ctor_overload_14(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_14(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)\nClass arguments details:\narg 3 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t n=(size_t)lua_tointeger(L,2);
+		const wxPoint* points=(Luna< wxPoint >::check(L,3));
+		wxPolygonFillMode fillStyle=luatop>3 ? (wxPolygonFillMode)lua_tointeger(L,4) : ::wxODDEVEN_RULE;
+
+		return new wrapper_wxRegion(L,NULL, n, points, fillStyle);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp)
+	static wxRegion* _bind_ctor_overload_15(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_15(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !bmp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
+		}
+		const wxBitmap & bmp=*bmp_ptr;
+
+		return new wrapper_wxRegion(L,NULL, bmp);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0)
+	static wxRegion* _bind_ctor_overload_16(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_16(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !bmp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
+		}
+		const wxBitmap & bmp=*bmp_ptr;
+		const wxColour* transColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		if( !transColour_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::wxRegion function");
+		}
+		const wxColour & transColour=*transColour_ptr;
+		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_wxRegion(L,NULL, bmp, transColour, tolerance);
+	}
+
 	// Overload binder for wxRegion::wxRegion
 	static wxRegion* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -470,8 +688,16 @@ public:
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
 		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
+		if (_lg_typecheck_ctor_overload_11(L)) return _bind_ctor_overload_11(L);
+		if (_lg_typecheck_ctor_overload_12(L)) return _bind_ctor_overload_12(L);
+		if (_lg_typecheck_ctor_overload_13(L)) return _bind_ctor_overload_13(L);
+		if (_lg_typecheck_ctor_overload_14(L)) return _bind_ctor_overload_14(L);
+		if (_lg_typecheck_ctor_overload_15(L)) return _bind_ctor_overload_15(L);
+		if (_lg_typecheck_ctor_overload_16(L)) return _bind_ctor_overload_16(L);
 
-		luaL_error(L, "error in function wxRegion, cannot match any of the overloads for function wxRegion:\n  wxRegion()\n  wxRegion(int, int, int, int)\n  wxRegion(const wxPoint &, const wxPoint &)\n  wxRegion(const wxRect &)\n  wxRegion(const wxRegion &)\n  wxRegion(size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(const wxBitmap &)\n  wxRegion(const wxBitmap &, const wxColour &, int)\n");
+		luaL_error(L, "error in function wxRegion, cannot match any of the overloads for function wxRegion:\n  wxRegion()\n  wxRegion(int, int, int, int)\n  wxRegion(const wxPoint &, const wxPoint &)\n  wxRegion(const wxRect &)\n  wxRegion(const wxRegion &)\n  wxRegion(size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(const wxBitmap &)\n  wxRegion(const wxBitmap &, const wxColour &, int)\n  wxRegion(lua_Table *)\n  wxRegion(lua_Table *, int, int, int, int)\n  wxRegion(lua_Table *, const wxPoint &, const wxPoint &)\n  wxRegion(lua_Table *, const wxRect &)\n  wxRegion(lua_Table *, const wxRegion &)\n  wxRegion(lua_Table *, size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(lua_Table *, const wxBitmap &)\n  wxRegion(lua_Table *, const wxBitmap &, const wxColour &, int)\n");
 		return NULL;
 	}
 

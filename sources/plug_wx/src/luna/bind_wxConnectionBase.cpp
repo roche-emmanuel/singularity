@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxConnectionBase.h>
+
 class luna_wrapper_wxConnectionBase {
 public:
 	typedef Luna< wxConnectionBase > luna_t;

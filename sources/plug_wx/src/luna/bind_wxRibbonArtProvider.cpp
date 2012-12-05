@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRibbonArtProvider.h>
+
 class luna_wrapper_wxRibbonArtProvider {
 public:
 	typedef Luna< wxRibbonArtProvider > luna_t;
@@ -1566,8 +1568,6 @@ wxRibbonArtProvider* LunaTraits< wxRibbonArtProvider >::_bind_ctor(lua_State *L)
 	// bool wxRibbonArtProvider::GetButtonBarButtonSize(wxDC & dc, wxWindow * wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString & label, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize * button_size, wxRect * normal_region, wxRect * dropdown_region)
 	// wxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize * desired_bitmap_size, wxDirection * expanded_panel_direction)
 	// wxSize wxRibbonArtProvider::GetToolSize(wxDC & dc, wxWindow * wnd, wxSize bitmap_size, wxRibbonButtonKind kind, bool is_first, bool is_last, wxRect * dropdown_region)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRibbonArtProvider >::_bind_dtor(wxRibbonArtProvider* obj) {

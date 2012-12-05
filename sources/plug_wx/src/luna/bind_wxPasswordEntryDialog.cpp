@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPasswordEntryDialog.h>
+
 class luna_wrapper_wxPasswordEntryDialog {
 public:
 	typedef Luna< wxPasswordEntryDialog > luna_t;
@@ -38,29 +40,36 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPasswordEntryDialog* ptr= static_cast< wxPasswordEntryDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPasswordEntryDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>6 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,6))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -71,11 +80,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | wxCENTRE, const wxPoint & pos = wxDefaultPosition)
-	static wxPasswordEntryDialog* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)
+	static wxPasswordEntryDialog* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 25723480\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -84,7 +93,7 @@ public:
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 		wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 		wxString defaultValue(lua_tostring(L,4),lua_objlen(L,4));
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxOK | wxCANCEL | wxCENTRE;
+		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxOK | wxCANCEL | ::wxCENTRE;
 		const wxPoint* pos_ptr=luatop>5 ? (Luna< wxPoint >::check(L,6)) : NULL;
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPasswordEntryDialog::wxPasswordEntryDialog function");
@@ -92,6 +101,38 @@ public:
 		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
 
 		return new wxPasswordEntryDialog(parent, message, caption, defaultValue, style, pos);
+	}
+
+	// wxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)
+	static wxPasswordEntryDialog* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 7 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxString message(lua_tostring(L,3),lua_objlen(L,3));
+		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
+		wxString defaultValue(lua_tostring(L,5),lua_objlen(L,5));
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxOK | wxCANCEL | ::wxCENTRE;
+		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
+		if( luatop>6 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPasswordEntryDialog::wxPasswordEntryDialog function");
+		}
+		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+
+		return new wrapper_wxPasswordEntryDialog(L,NULL, parent, message, caption, defaultValue, style, pos);
+	}
+
+	// Overload binder for wxPasswordEntryDialog::wxPasswordEntryDialog
+	static wxPasswordEntryDialog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPasswordEntryDialog, cannot match any of the overloads for function wxPasswordEntryDialog:\n  wxPasswordEntryDialog(wxWindow *, const wxString &, const wxString &, const wxString &, long, const wxPoint &)\n  wxPasswordEntryDialog(lua_Table *, wxWindow *, const wxString &, const wxString &, const wxString &, long, const wxPoint &)\n");
+		return NULL;
 	}
 
 
@@ -123,7 +164,6 @@ luna_RegType LunaTraits< wxPasswordEntryDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPasswordEntryDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPasswordEntryDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPasswordEntryDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

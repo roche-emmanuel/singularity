@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogChain.h>
+
 class luna_wrapper_wxLogChain {
 public:
 	typedef Luna< wxLogChain > luna_t;
@@ -40,10 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,13550494)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxLog* >(Luna< wxLog >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,13550494)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxLog* >(Luna< wxLog >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -87,8 +99,8 @@ public:
 
 	// Constructor binds:
 	// wxLogChain::wxLogChain(wxLog * logger)
-	static wxLogChain* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogChain* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogChain::wxLogChain(wxLog * logger) function, expected prototype:\nwxLogChain::wxLogChain(wxLog * logger)\nClass arguments details:\narg 1 ID = 13550494\n");
 		}
@@ -96,6 +108,27 @@ public:
 		wxLog* logger=(Luna< wxLog >::check(L,1));
 
 		return new wxLogChain(logger);
+	}
+
+	// wxLogChain::wxLogChain(lua_Table * data, wxLog * logger)
+	static wxLogChain* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogChain::wxLogChain(lua_Table * data, wxLog * logger) function, expected prototype:\nwxLogChain::wxLogChain(lua_Table * data, wxLog * logger)\nClass arguments details:\narg 2 ID = 13550494\n");
+		}
+
+		wxLog* logger=(Luna< wxLog >::check(L,2));
+
+		return new wrapper_wxLogChain(L,NULL, logger);
+	}
+
+	// Overload binder for wxLogChain::wxLogChain
+	static wxLogChain* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogChain, cannot match any of the overloads for function wxLogChain:\n  wxLogChain(wxLog *)\n  wxLogChain(lua_Table *, wxLog *)\n");
+		return NULL;
 	}
 
 

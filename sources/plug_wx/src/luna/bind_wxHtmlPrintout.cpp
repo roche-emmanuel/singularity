@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlPrintout.h>
+
 class luna_wrapper_wxHtmlPrintout {
 public:
 	typedef Luna< wxHtmlPrintout > luna_t;
@@ -132,17 +134,17 @@ public:
 		return 0;
 	}
 
-	// void wxHtmlPrintout::SetFooter(const wxString & footer, int pg = wxPAGE_ALL)
+	// void wxHtmlPrintout::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)
 	static int _bind_SetFooter(lua_State *L) {
 		if (!_lg_typecheck_SetFooter(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlPrintout::SetFooter(const wxString & footer, int pg = wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlPrintout::SetFooter(const wxString & footer, int pg = wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlPrintout::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlPrintout::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString footer(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
 		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -154,17 +156,17 @@ public:
 		return 0;
 	}
 
-	// void wxHtmlPrintout::SetHeader(const wxString & header, int pg = wxPAGE_ALL)
+	// void wxHtmlPrintout::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)
 	static int _bind_SetHeader(lua_State *L) {
 		if (!_lg_typecheck_SetHeader(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlPrintout::SetHeader(const wxString & header, int pg = wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlPrintout::SetHeader(const wxString & header, int pg = wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlPrintout::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlPrintout::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
 		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -266,8 +268,6 @@ wxHtmlPrintout* LunaTraits< wxHtmlPrintout >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxPrintout::OnPrintPage(int pageNum)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlPrintout >::_bind_dtor(wxHtmlPrintout* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWindowDestroyEvent.h>
+
 class luna_wrapper_wxWindowDestroyEvent {
 public:
 	typedef Luna< wxWindowDestroyEvent > luna_t;
@@ -81,8 +83,6 @@ wxWindowDestroyEvent* LunaTraits< wxWindowDestroyEvent >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxWindowDestroyEvent >::_bind_dtor(wxWindowDestroyEvent* obj) {

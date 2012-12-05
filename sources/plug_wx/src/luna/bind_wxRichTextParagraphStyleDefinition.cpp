@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextParagraphStyleDefinition.h>
+
 class luna_wrapper_wxRichTextParagraphStyleDefinition {
 public:
 	typedef Luna< wxRichTextParagraphStyleDefinition > luna_t;

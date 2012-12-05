@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextProperties.h>
+
 class luna_wrapper_wxRichTextProperties {
 public:
 	typedef Luna< wxRichTextProperties > luna_t;

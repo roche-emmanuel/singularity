@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxProcess.h>
+
 class luna_wrapper_wxProcess {
 public:
 	typedef Luna< wxProcess > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxProcess* ptr= static_cast< wxProcess* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxProcess >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -65,6 +56,25 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -186,12 +196,41 @@ public:
 		return new wxProcess(flags);
 	}
 
+	// wxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1)
+	static wxProcess* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1) function, expected prototype:\nwxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxEvtHandler* parent=luatop>1 ? dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,2)) : (wxEvtHandler*)NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+
+		return new wrapper_wxProcess(L,NULL, parent, id);
+	}
+
+	// wxProcess::wxProcess(lua_Table * data, int flags)
+	static wxProcess* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProcess::wxProcess(lua_Table * data, int flags) function, expected prototype:\nwxProcess::wxProcess(lua_Table * data, int flags)\nClass arguments details:\n");
+		}
+
+		int flags=(int)lua_tointeger(L,2);
+
+		return new wrapper_wxProcess(L,NULL, flags);
+	}
+
 	// Overload binder for wxProcess::wxProcess
 	static wxProcess* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxProcess, cannot match any of the overloads for function wxProcess:\n  wxProcess(wxEvtHandler *, int)\n  wxProcess(int)\n");
+		luaL_error(L, "error in function wxProcess, cannot match any of the overloads for function wxProcess:\n  wxProcess(wxEvtHandler *, int)\n  wxProcess(int)\n  wxProcess(lua_Table *, wxEvtHandler *, int)\n  wxProcess(lua_Table *, int)\n");
 		return NULL;
 	}
 
@@ -425,17 +464,17 @@ public:
 		return 1;
 	}
 
-	// static wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC)
+	// static wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC)
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC) function, expected prototype:\nstatic wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC) function, expected prototype:\nstatic wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString cmd(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxEXEC_ASYNC;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
 
 		wxProcess * lret = wxProcess::Open(cmd, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -485,7 +524,6 @@ luna_RegType LunaTraits< wxProcess >::methods[] = {
 
 luna_ConverterType LunaTraits< wxProcess >::converters[] = {
 	{"wxObject", &luna_wrapper_wxProcess::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxProcess::_cast_from_wxTrackable},
 	{0,0}
 };
 

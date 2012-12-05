@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStringTokenizer.h>
+
 class luna_wrapper_wxStringTokenizer {
 public:
 	typedef Luna< wxStringTokenizer > luna_t;

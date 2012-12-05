@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlTagHandler.h>
+
 class luna_wrapper_wxHtmlTagHandler {
 public:
 	typedef Luna< wxHtmlTagHandler > luna_t;
@@ -137,8 +139,6 @@ wxHtmlTagHandler* LunaTraits< wxHtmlTagHandler >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxString wxHtmlTagHandler::GetSupportedTags()
 	// bool wxHtmlTagHandler::HandleTag(const wxHtmlTag & tag)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlTagHandler >::_bind_dtor(wxHtmlTagHandler* obj) {

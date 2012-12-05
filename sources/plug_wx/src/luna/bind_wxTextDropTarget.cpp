@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextDropTarget.h>
+
 class luna_wrapper_wxTextDropTarget {
 public:
 	typedef Luna< wxTextDropTarget > luna_t;
@@ -115,8 +117,6 @@ wxTextDropTarget* LunaTraits< wxTextDropTarget >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxTextDropTarget::OnDropText(int x, int y, const wxString & data)
 	// bool wxDropTarget::GetData()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextDropTarget >::_bind_dtor(wxTextDropTarget* obj) {

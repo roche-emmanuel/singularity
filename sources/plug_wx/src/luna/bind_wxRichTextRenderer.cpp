@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextRenderer.h>
+
 class luna_wrapper_wxRichTextRenderer {
 public:
 	typedef Luna< wxRichTextRenderer > luna_t;
@@ -57,8 +59,6 @@ wxRichTextRenderer* LunaTraits< wxRichTextRenderer >::_bind_ctor(lua_State *L) {
 	// bool wxRichTextRenderer::DrawTextBullet(wxRichTextParagraph * paragraph, wxDC & dc, const wxRichTextAttr & attr, const wxRect & rect, const wxString & text)
 	// bool wxRichTextRenderer::DrawBitmapBullet(wxRichTextParagraph * paragraph, wxDC & dc, const wxRichTextAttr & attr, const wxRect & rect)
 	// bool wxRichTextRenderer::EnumerateStandardBulletNames(wxArrayString & bulletNames)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRichTextRenderer >::_bind_dtor(wxRichTextRenderer* obj) {

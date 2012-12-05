@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxThread.h>
+
 class luna_wrapper_wxThread {
 public:
 	typedef Luna< wxThread > luna_t;
@@ -68,8 +70,6 @@ wxThread* LunaTraits< wxThread >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void * wxThread::Entry()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxThread >::_bind_dtor(wxThread* obj) {

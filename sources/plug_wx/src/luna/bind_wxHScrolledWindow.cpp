@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHScrolledWindow.h>
+
 class luna_wrapper_wxHScrolledWindow {
 public:
 	typedef Luna< wxHScrolledWindow > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxHScrolledWindow* ptr= dynamic_cast< wxHScrolledWindow* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHScrolledWindow >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHScrolledWindow* ptr= static_cast< wxHScrolledWindow* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -80,17 +71,17 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxHScrolledWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr)
+	// bool wxHScrolledWindow::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHScrolledWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr) function, expected prototype:\nbool wxHScrolledWindow::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHScrolledWindow::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr) function, expected prototype:\nbool wxHScrolledWindow::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHScrolledWindow::Create function");
@@ -128,8 +119,6 @@ wxHScrolledWindow* LunaTraits< wxHScrolledWindow >::_bind_ctor(lua_State *L) {
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHScrolledWindow >::_bind_dtor(wxHScrolledWindow* obj) {
@@ -151,7 +140,6 @@ luna_RegType LunaTraits< wxHScrolledWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHScrolledWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHScrolledWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHScrolledWindow::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxHScrolledWindow::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

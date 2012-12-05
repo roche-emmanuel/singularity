@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewIconText.h>
+
 class luna_wrapper_wxDataViewIconText {
 public:
 	typedef Luna< wxDataViewIconText > luna_t;
@@ -55,6 +57,26 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -126,12 +148,49 @@ public:
 		return new wxDataViewIconText(other);
 	}
 
+	// wxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon)
+	static wxDataViewIconText* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon) function, expected prototype:\nwxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString text(lua_tostring(L,2),lua_objlen(L,2));
+		const wxIcon* icon_ptr=luatop>2 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3)) : NULL;
+		if( luatop>2 && !icon_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::wxDataViewIconText function");
+		}
+		const wxIcon & icon=luatop>2 ? *icon_ptr : wxNullIcon;
+
+		return new wrapper_wxDataViewIconText(L,NULL, text, icon);
+	}
+
+	// wxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxDataViewIconText & other)
+	static wxDataViewIconText* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxDataViewIconText & other) function, expected prototype:\nwxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxDataViewIconText & other)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxDataViewIconText* other_ptr=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in wxDataViewIconText::wxDataViewIconText function");
+		}
+		const wxDataViewIconText & other=*other_ptr;
+
+		return new wrapper_wxDataViewIconText(L,NULL, other);
+	}
+
 	// Overload binder for wxDataViewIconText::wxDataViewIconText
 	static wxDataViewIconText* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxDataViewIconText, cannot match any of the overloads for function wxDataViewIconText:\n  wxDataViewIconText(const wxString &, const wxIcon &)\n  wxDataViewIconText(const wxDataViewIconText &)\n");
+		luaL_error(L, "error in function wxDataViewIconText, cannot match any of the overloads for function wxDataViewIconText:\n  wxDataViewIconText(const wxString &, const wxIcon &)\n  wxDataViewIconText(const wxDataViewIconText &)\n  wxDataViewIconText(lua_Table *, const wxString &, const wxIcon &)\n  wxDataViewIconText(lua_Table *, const wxDataViewIconText &)\n");
 		return NULL;
 	}
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMouseCaptureChangedEvent.h>
+
 class luna_wrapper_wxMouseCaptureChangedEvent {
 public:
 	typedef Luna< wxMouseCaptureChangedEvent > luna_t;
@@ -81,8 +83,6 @@ wxMouseCaptureChangedEvent* LunaTraits< wxMouseCaptureChangedEvent >::_bind_ctor
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMouseCaptureChangedEvent >::_bind_dtor(wxMouseCaptureChangedEvent* obj) {

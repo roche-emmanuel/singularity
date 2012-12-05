@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTreeListItemComparator.h>
+
 class luna_wrapper_wxTreeListItemComparator {
 public:
 	typedef Luna< wxTreeListItemComparator > luna_t;
@@ -69,11 +71,11 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned column, wxTreeListItem first, wxTreeListItem second)
+	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 	static int _bind_Compare(lua_State *L) {
 		if (!_lg_typecheck_Compare(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned column, wxTreeListItem first, wxTreeListItem second) function, expected prototype:\nint wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned column, wxTreeListItem first, wxTreeListItem second)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 75268455\narg 4 ID = 75268455\n");
+			luaL_error(L, "luna typecheck failed in int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) function, expected prototype:\nint wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 75268455\narg 4 ID = 75268455\n");
 		}
 
 		wxTreeListCtrl* treelist=dynamic_cast< wxTreeListCtrl* >(Luna< wxObject >::check(L,2));
@@ -92,7 +94,7 @@ public:
 		wxTreeListItemComparator* self=(Luna< wxTreeListItemComparator >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned, wxTreeListItem, wxTreeListItem)");
+			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned int, wxTreeListItem, wxTreeListItem)");
 		}
 		int lret = self->Compare(treelist, column, first, second);
 		lua_pushnumber(L,lret);
@@ -108,9 +110,7 @@ public:
 wxTreeListItemComparator* LunaTraits< wxTreeListItemComparator >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned column, wxTreeListItem first, wxTreeListItem second)
-
-	// Abstract operators:
+	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 }
 
 void LunaTraits< wxTreeListItemComparator >::_bind_dtor(wxTreeListItemComparator* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellTextEditor.h>
+
 class luna_wrapper_wxGridCellTextEditor {
 public:
 	typedef Luna< wxGridCellTextEditor > luna_t;
@@ -85,8 +87,6 @@ wxGridCellTextEditor* LunaTraits< wxGridCellTextEditor >::_bind_ctor(lua_State *
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
 	// void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)
 	// void wxGridCellEditor::Reset()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellTextEditor >::_bind_dtor(wxGridCellTextEditor* obj) {

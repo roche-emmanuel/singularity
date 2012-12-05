@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrintDialogData.h>
+
 class luna_wrapper_wxPrintDialogData {
 public:
 	typedef Luna< wxPrintDialogData > luna_t;

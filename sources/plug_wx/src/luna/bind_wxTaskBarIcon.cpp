@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTaskBarIcon.h>
+
 class luna_wrapper_wxTaskBarIcon {
 public:
 	typedef Luna< wxTaskBarIcon > luna_t;
@@ -38,22 +40,18 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxTaskBarIcon* ptr= static_cast< wxTaskBarIcon* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxTaskBarIcon >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -111,14 +109,34 @@ public:
 
 	// Constructor binds:
 	// wxTaskBarIcon::wxTaskBarIcon()
-	static wxTaskBarIcon* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxTaskBarIcon* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon() function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon()\nClass arguments details:\n");
 		}
 
 
 		return new wxTaskBarIcon();
+	}
+
+	// wxTaskBarIcon::wxTaskBarIcon(lua_Table * data)
+	static wxTaskBarIcon* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon(lua_Table * data) function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxTaskBarIcon(L,NULL);
+	}
+
+	// Overload binder for wxTaskBarIcon::wxTaskBarIcon
+	static wxTaskBarIcon* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxTaskBarIcon, cannot match any of the overloads for function wxTaskBarIcon:\n  wxTaskBarIcon()\n  wxTaskBarIcon(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -293,7 +311,6 @@ luna_RegType LunaTraits< wxTaskBarIcon >::methods[] = {
 
 luna_ConverterType LunaTraits< wxTaskBarIcon >::converters[] = {
 	{"wxObject", &luna_wrapper_wxTaskBarIcon::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxTaskBarIcon::_cast_from_wxTrackable},
 	{0,0}
 };
 

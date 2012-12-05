@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCalculateLayoutEvent.h>
+
 class luna_wrapper_wxCalculateLayoutEvent {
 public:
 	typedef Luna< wxCalculateLayoutEvent > luna_t;
@@ -163,8 +165,6 @@ wxCalculateLayoutEvent* LunaTraits< wxCalculateLayoutEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxCalculateLayoutEvent >::_bind_dtor(wxCalculateLayoutEvent* obj) {

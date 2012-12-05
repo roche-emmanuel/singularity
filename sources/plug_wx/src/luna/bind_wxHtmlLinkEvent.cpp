@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlLinkEvent.h>
+
 class luna_wrapper_wxHtmlLinkEvent {
 public:
 	typedef Luna< wxHtmlLinkEvent > luna_t;
@@ -81,8 +83,6 @@ wxHtmlLinkEvent* LunaTraits< wxHtmlLinkEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlLinkEvent >::_bind_dtor(wxHtmlLinkEvent* obj) {

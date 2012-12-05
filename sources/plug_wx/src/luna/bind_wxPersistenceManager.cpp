@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPersistenceManager.h>
+
 class luna_wrapper_wxPersistenceManager {
 public:
 	typedef Luna< wxPersistenceManager > luna_t;

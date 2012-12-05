@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCornerHeaderRenderer.h>
+
 class luna_wrapper_wxGridCornerHeaderRenderer {
 public:
 	typedef Luna< wxGridCornerHeaderRenderer > luna_t;
@@ -110,8 +112,6 @@ wxGridCornerHeaderRenderer* LunaTraits< wxGridCornerHeaderRenderer >::_bind_ctor
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCornerHeaderRenderer >::_bind_dtor(wxGridCornerHeaderRenderer* obj) {

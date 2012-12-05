@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFontPickerEvent.h>
+
 class luna_wrapper_wxFontPickerEvent {
 public:
 	typedef Luna< wxFontPickerEvent > luna_t;
@@ -112,8 +114,6 @@ wxFontPickerEvent* LunaTraits< wxFontPickerEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFontPickerEvent >::_bind_dtor(wxFontPickerEvent* obj) {

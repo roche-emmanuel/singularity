@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxItemContainerImmutable.h>
+
 class luna_wrapper_wxItemContainerImmutable {
 public:
 	typedef Luna< wxItemContainerImmutable > luna_t;
@@ -366,8 +368,6 @@ wxItemContainerImmutable* LunaTraits< wxItemContainerImmutable >::_bind_ctor(lua
 	// void wxItemContainerImmutable::SetString(unsigned int n, const wxString & string)
 	// void wxItemContainerImmutable::SetSelection(int n)
 	// int wxItemContainerImmutable::GetSelection() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxItemContainerImmutable >::_bind_dtor(wxItemContainerImmutable* obj) {

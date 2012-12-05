@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLocale.h>
+
 class luna_wrapper_wxLocale {
 public:
 	typedef Luna< wxLocale > luna_t;
@@ -77,6 +79,35 @@ public:
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -290,17 +321,17 @@ public:
 		return new wxLocale();
 	}
 
-	// wxLocale::wxLocale(int language, int flags = wxLOCALE_LOAD_DEFAULT)
+	// wxLocale::wxLocale(int language, int flags = ::wxLOCALE_LOAD_DEFAULT)
 	static wxLocale* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLocale::wxLocale(int language, int flags = wxLOCALE_LOAD_DEFAULT) function, expected prototype:\nwxLocale::wxLocale(int language, int flags = wxLOCALE_LOAD_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLocale::wxLocale(int language, int flags = ::wxLOCALE_LOAD_DEFAULT) function, expected prototype:\nwxLocale::wxLocale(int language, int flags = ::wxLOCALE_LOAD_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int language=(int)lua_tointeger(L,1);
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxLOCALE_LOAD_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxLOCALE_LOAD_DEFAULT;
 
 		return new wxLocale(language, flags);
 	}
@@ -322,13 +353,59 @@ public:
 		return new wxLocale(name, shortName, locale, bLoadDefault);
 	}
 
+	// wxLocale::wxLocale(lua_Table * data)
+	static wxLocale* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLocale::wxLocale(lua_Table * data) function, expected prototype:\nwxLocale::wxLocale(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxLocale(L,NULL);
+	}
+
+	// wxLocale::wxLocale(lua_Table * data, int language, int flags = ::wxLOCALE_LOAD_DEFAULT)
+	static wxLocale* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLocale::wxLocale(lua_Table * data, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) function, expected prototype:\nwxLocale::wxLocale(lua_Table * data, int language, int flags = ::wxLOCALE_LOAD_DEFAULT)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int language=(int)lua_tointeger(L,2);
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLOCALE_LOAD_DEFAULT;
+
+		return new wrapper_wxLocale(L,NULL, language, flags);
+	}
+
+	// wxLocale::wxLocale(lua_Table * data, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true)
+	static wxLocale* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLocale::wxLocale(lua_Table * data, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) function, expected prototype:\nwxLocale::wxLocale(lua_Table * data, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		wxString shortName(lua_tostring(L,3),lua_objlen(L,3));
+		wxString locale(lua_tostring(L,4),lua_objlen(L,4));
+		bool bLoadDefault=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
+
+		return new wrapper_wxLocale(L,NULL, name, shortName, locale, bLoadDefault);
+	}
+
 	// Overload binder for wxLocale::wxLocale
 	static wxLocale* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxLocale, cannot match any of the overloads for function wxLocale:\n  wxLocale()\n  wxLocale(int, int)\n  wxLocale(const wxString &, const wxString &, const wxString &, bool)\n");
+		luaL_error(L, "error in function wxLocale, cannot match any of the overloads for function wxLocale:\n  wxLocale()\n  wxLocale(int, int)\n  wxLocale(const wxString &, const wxString &, const wxString &, bool)\n  wxLocale(lua_Table *)\n  wxLocale(lua_Table *, int, int)\n  wxLocale(lua_Table *, const wxString &, const wxString &, const wxString &, bool)\n");
 		return NULL;
 	}
 
@@ -529,11 +606,11 @@ public:
 		return 1;
 	}
 
-	// const wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const
+	// const wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const
 	static int _bind_GetString_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetString_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxLocale::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -546,7 +623,7 @@ public:
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &, unsigned, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
 		}
 		const wxString & lret = self->GetString(origString, origString2, n, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -559,7 +636,7 @@ public:
 		if (_lg_typecheck_GetString_overload_1(L)) return _bind_GetString_overload_1(L);
 		if (_lg_typecheck_GetString_overload_2(L)) return _bind_GetString_overload_2(L);
 
-		luaL_error(L, "error in function GetString, cannot match any of the overloads for function GetString:\n  GetString(const wxString &, const wxString &)\n  GetString(const wxString &, const wxString &, unsigned, const wxString &)\n");
+		luaL_error(L, "error in function GetString, cannot match any of the overloads for function GetString:\n  GetString(const wxString &, const wxString &)\n  GetString(const wxString &, const wxString &, unsigned int, const wxString &)\n");
 		return 0;
 	}
 
@@ -582,17 +659,17 @@ public:
 		return 1;
 	}
 
-	// bool wxLocale::Init(int language = wxLANGUAGE_DEFAULT, int flags = wxLOCALE_LOAD_DEFAULT)
+	// bool wxLocale::Init(int language = ::wxLANGUAGE_DEFAULT, int flags = ::wxLOCALE_LOAD_DEFAULT)
 	static int _bind_Init_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Init_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxLocale::Init(int language = wxLANGUAGE_DEFAULT, int flags = wxLOCALE_LOAD_DEFAULT) function, expected prototype:\nbool wxLocale::Init(int language = wxLANGUAGE_DEFAULT, int flags = wxLOCALE_LOAD_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxLocale::Init(int language = ::wxLANGUAGE_DEFAULT, int flags = ::wxLOCALE_LOAD_DEFAULT) function, expected prototype:\nbool wxLocale::Init(int language = ::wxLANGUAGE_DEFAULT, int flags = ::wxLOCALE_LOAD_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int language=luatop>1 ? (int)lua_tointeger(L,2) : wxLANGUAGE_DEFAULT;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxLOCALE_LOAD_DEFAULT;
+		int language=luatop>1 ? (int)lua_tointeger(L,2) : ::wxLANGUAGE_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxLOCALE_LOAD_DEFAULT;
 
 		wxLocale* self=(Luna< wxLocale >::check(L,1));
 		if(!self) {
@@ -816,17 +893,17 @@ public:
 		return 1;
 	}
 
-	// static wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = wxLOCALE_CAT_DEFAULT)
+	// static wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = ::wxLOCALE_CAT_DEFAULT)
 	static int _bind_GetInfo(lua_State *L) {
 		if (!_lg_typecheck_GetInfo(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = wxLOCALE_CAT_DEFAULT) function, expected prototype:\nstatic wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = wxLOCALE_CAT_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = ::wxLOCALE_CAT_DEFAULT) function, expected prototype:\nstatic wxString wxLocale::GetInfo(wxLocaleInfo index, wxLocaleCategory cat = ::wxLOCALE_CAT_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxLocaleInfo index=(wxLocaleInfo)lua_tointeger(L,1);
-		wxLocaleCategory cat=luatop>1 ? (wxLocaleCategory)lua_tointeger(L,2) : wxLOCALE_CAT_DEFAULT;
+		wxLocaleCategory cat=luatop>1 ? (wxLocaleCategory)lua_tointeger(L,2) : ::wxLOCALE_CAT_DEFAULT;
 
 		wxString lret = wxLocale::GetInfo(index, cat);
 		lua_pushlstring(L,lret.data(),lret.size());

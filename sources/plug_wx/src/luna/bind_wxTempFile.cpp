@@ -248,17 +248,17 @@ public:
 		return 1;
 	}
 
-	// long wxTempFile::Seek(long ofs, wxSeekMode mode = wxFromStart)
+	// long wxTempFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)
 	static int _bind_Seek(lua_State *L) {
 		if (!_lg_typecheck_Seek(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTempFile::Seek(long ofs, wxSeekMode mode = wxFromStart) function, expected prototype:\nlong wxTempFile::Seek(long ofs, wxSeekMode mode = wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxTempFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxTempFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		long ofs=(long)lua_tointeger(L,2);
-		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : wxFromStart;
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {

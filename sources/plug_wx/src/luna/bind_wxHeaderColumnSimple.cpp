@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderColumnSimple.h>
+
 class luna_wrapper_wxHeaderColumnSimple {
 public:
 	typedef Luna< wxHeaderColumnSimple > luna_t;
@@ -60,6 +62,31 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -167,28 +194,28 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS)
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)
 	static wxHeaderColumnSimple* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,1),lua_objlen(L,1));
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : wxALIGN_NOT;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_NOT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(title, width, align, flags);
 	}
 
-	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS)
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)
 	static wxHeaderColumnSimple* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -198,19 +225,59 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : wxALIGN_CENTER;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_CENTER;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(bitmap, width, align, flags);
+	}
+
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)
+	static wxHeaderColumnSimple* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_NOT;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+
+		return new wrapper_wxHeaderColumnSimple(L,NULL, title, width, align, flags);
+	}
+
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)
+	static wxHeaderColumnSimple* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
+		}
+		const wxBitmap & bitmap=*bitmap_ptr;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_CENTER;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+
+		return new wrapper_wxHeaderColumnSimple(L,NULL, bitmap, width, align, flags);
 	}
 
 	// Overload binder for wxHeaderColumnSimple::wxHeaderColumnSimple
 	static wxHeaderColumnSimple* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxHeaderColumnSimple, cannot match any of the overloads for function wxHeaderColumnSimple:\n  wxHeaderColumnSimple(const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(const wxBitmap &, int, wxAlignment, int)\n");
+		luaL_error(L, "error in function wxHeaderColumnSimple, cannot match any of the overloads for function wxHeaderColumnSimple:\n  wxHeaderColumnSimple(const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(const wxBitmap &, int, wxAlignment, int)\n  wxHeaderColumnSimple(lua_Table *, const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(lua_Table *, const wxBitmap &, int, wxAlignment, int)\n");
 		return NULL;
 	}
 

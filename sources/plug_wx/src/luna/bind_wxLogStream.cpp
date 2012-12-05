@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogStream.h>
+
 class luna_wrapper_wxLogStream {
 public:
 	typedef Luna< wxLogStream > luna_t;

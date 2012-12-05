@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsFont.h>
+
 class luna_wrapper_wxGraphicsFont {
 public:
 	typedef Luna< wxGraphicsFont > luna_t;

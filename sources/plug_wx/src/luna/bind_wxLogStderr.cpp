@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogStderr.h>
+
 class luna_wrapper_wxLogStderr {
 public:
 	typedef Luna< wxLogStderr > luna_t;

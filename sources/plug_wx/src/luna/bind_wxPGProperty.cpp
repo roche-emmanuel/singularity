@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPGProperty.h>
+
 class luna_wrapper_wxPGProperty {
 public:
 	typedef Luna< wxPGProperty > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -720,12 +738,38 @@ public:
 		return new wxPGProperty(label, name);
 	}
 
+	// wxPGProperty::wxPGProperty(lua_Table * data)
+	static wxPGProperty* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGProperty::wxPGProperty(lua_Table * data) function, expected prototype:\nwxPGProperty::wxPGProperty(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPGProperty(L,NULL);
+	}
+
+	// wxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name)
+	static wxPGProperty* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name) function, expected prototype:\nwxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		}
+
+		wxString label(lua_tostring(L,2),lua_objlen(L,2));
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxPGProperty(L,NULL, label, name);
+	}
+
 	// Overload binder for wxPGProperty::wxPGProperty
 	static wxPGProperty* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxPGProperty, cannot match any of the overloads for function wxPGProperty:\n  wxPGProperty()\n  wxPGProperty(const wxString &, const wxString &)\n");
+		luaL_error(L, "error in function wxPGProperty, cannot match any of the overloads for function wxPGProperty:\n  wxPGProperty()\n  wxPGProperty(const wxString &, const wxString &)\n  wxPGProperty(lua_Table *)\n  wxPGProperty(lua_Table *, const wxString &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -1871,17 +1915,17 @@ public:
 		return 1;
 	}
 
-	// bool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE)
+	// bool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE)
 	static int _bind_Hide(lua_State *L) {
 		if (!_lg_typecheck_Hide(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE) function, expected prototype:\nbool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE) function, expected prototype:\nbool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		bool hide=(bool)(lua_toboolean(L,2)==1);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
 		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -2175,11 +2219,11 @@ public:
 		return 0;
 	}
 
-	// void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE)
+	// void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE)
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2189,7 +2233,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetBackgroundColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
 		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -2488,11 +2532,11 @@ public:
 		return 0;
 	}
 
-	// void wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE)
+	// void wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE)
 	static int _bind_SetTextColour(lua_State *L) {
 		if (!_lg_typecheck_SetTextColour(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -2502,7 +2546,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetTextColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
 		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
 		if(!self) {

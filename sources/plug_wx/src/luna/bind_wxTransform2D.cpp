@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTransform2D.h>
+
 class luna_wrapper_wxTransform2D {
 public:
 	typedef Luna< wxTransform2D > luna_t;
@@ -339,8 +341,6 @@ wxTransform2D* LunaTraits< wxTransform2D >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	// void wxTransform2D::InverseTransform(wxPoint2DInt * pt) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTransform2D >::_bind_dtor(wxTransform2D* obj) {

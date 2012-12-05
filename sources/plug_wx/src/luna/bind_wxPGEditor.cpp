@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPGEditor.h>
+
 class luna_wrapper_wxPGEditor {
 public:
 	typedef Luna< wxPGEditor > luna_t;
@@ -474,8 +476,6 @@ wxPGEditor* LunaTraits< wxPGEditor >::_bind_ctor(lua_State *L) {
 	// void wxPGEditor::UpdateControl(wxPGProperty * property, wxWindow * ctrl) const
 	// bool wxPGEditor::OnEvent(wxPropertyGrid * propgrid, wxPGProperty * property, wxWindow * wnd_primary, wxEvent & event) const
 	// void wxPGEditor::SetValueToUnspecified(wxPGProperty * property, wxWindow * ctrl) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPGEditor >::_bind_dtor(wxPGEditor* obj) {

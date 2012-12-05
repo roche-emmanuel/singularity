@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellChoiceEditor.h>
+
 class luna_wrapper_wxGridCellChoiceEditor {
 public:
 	typedef Luna< wxGridCellChoiceEditor > luna_t;
@@ -85,8 +87,6 @@ wxGridCellChoiceEditor* LunaTraits< wxGridCellChoiceEditor >::_bind_ctor(lua_Sta
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
 	// void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)
 	// void wxGridCellEditor::Reset()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellChoiceEditor >::_bind_dtor(wxGridCellChoiceEditor* obj) {

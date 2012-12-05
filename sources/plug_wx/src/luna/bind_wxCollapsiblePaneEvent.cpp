@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCollapsiblePaneEvent.h>
+
 class luna_wrapper_wxCollapsiblePaneEvent {
 public:
 	typedef Luna< wxCollapsiblePaneEvent > luna_t;
@@ -105,8 +107,6 @@ wxCollapsiblePaneEvent* LunaTraits< wxCollapsiblePaneEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxCollapsiblePaneEvent >::_bind_dtor(wxCollapsiblePaneEvent* obj) {

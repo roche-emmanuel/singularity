@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsRenderer.h>
+
 class luna_wrapper_wxGraphicsRenderer {
 public:
 	typedef Luna< wxGraphicsRenderer > luna_t;
@@ -67,15 +69,13 @@ wxGraphicsRenderer* LunaTraits< wxGraphicsRenderer >::_bind_ctor(lua_State *L) {
 	// wxGraphicsContext * wxGraphicsRenderer::CreateContextFromNativeWindow(void * window)
 	// wxGraphicsContext * wxGraphicsRenderer::CreateMeasuringContext()
 	// wxGraphicsFont wxGraphicsRenderer::CreateFont(const wxFont & font, const wxColour & col = * wxBLACK)
-	// wxGraphicsFont wxGraphicsRenderer::CreateFont(double sizeInPixels, const wxString & facename, int flags = wxFONTFLAG_DEFAULT, const wxColour & col = * wxBLACK)
+	// wxGraphicsFont wxGraphicsRenderer::CreateFont(double sizeInPixels, const wxString & facename, int flags = ::wxFONTFLAG_DEFAULT, const wxColour & col = * wxBLACK)
 	// wxGraphicsBrush wxGraphicsRenderer::CreateLinearGradientBrush(double x1, double y1, double x2, double y2, const wxGraphicsGradientStops & stops)
 	// wxGraphicsMatrix wxGraphicsRenderer::CreateMatrix(double a = 1.0, double b = 0.0, double c = 0.0, double d = 1.0, double tx = 0.0, double ty = 0.0)
 	// wxGraphicsPath wxGraphicsRenderer::CreatePath()
 	// wxGraphicsPen wxGraphicsRenderer::CreatePen(const wxPen & pen)
 	// wxGraphicsBrush wxGraphicsRenderer::CreateRadialGradientBrush(double xo, double yo, double xc, double yc, double radius, const wxGraphicsGradientStops & stops)
 	// wxGraphicsBitmap wxGraphicsRenderer::CreateSubBitmap(const wxGraphicsBitmap & bitmap, double x, double y, double w, double h)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGraphicsRenderer >::_bind_dtor(wxGraphicsRenderer* obj) {

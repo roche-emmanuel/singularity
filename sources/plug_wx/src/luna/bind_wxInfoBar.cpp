@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxInfoBar.h>
+
 class luna_wrapper_wxInfoBar {
 public:
 	typedef Luna< wxInfoBar > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxInfoBar* ptr= static_cast< wxInfoBar* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxInfoBar >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -64,6 +55,24 @@ public:
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -165,43 +174,71 @@ public:
 		return new wxInfoBar();
 	}
 
-	// wxInfoBar::wxInfoBar(wxWindow * parent, int winid = wxID_ANY)
+	// wxInfoBar::wxInfoBar(wxWindow * parent, int winid = ::wxID_ANY)
 	static wxInfoBar* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxInfoBar::wxInfoBar(wxWindow * parent, int winid = wxID_ANY) function, expected prototype:\nwxInfoBar::wxInfoBar(wxWindow * parent, int winid = wxID_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxInfoBar::wxInfoBar(wxWindow * parent, int winid = ::wxID_ANY) function, expected prototype:\nwxInfoBar::wxInfoBar(wxWindow * parent, int winid = ::wxID_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-		int winid=luatop>1 ? (int)lua_tointeger(L,2) : wxID_ANY;
+		int winid=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
 
 		return new wxInfoBar(parent, winid);
+	}
+
+	// wxInfoBar::wxInfoBar(lua_Table * data)
+	static wxInfoBar* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxInfoBar::wxInfoBar(lua_Table * data) function, expected prototype:\nwxInfoBar::wxInfoBar(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxInfoBar(L,NULL);
+	}
+
+	// wxInfoBar::wxInfoBar(lua_Table * data, wxWindow * parent, int winid = ::wxID_ANY)
+	static wxInfoBar* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxInfoBar::wxInfoBar(lua_Table * data, wxWindow * parent, int winid = ::wxID_ANY) function, expected prototype:\nwxInfoBar::wxInfoBar(lua_Table * data, wxWindow * parent, int winid = ::wxID_ANY)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+
+		return new wrapper_wxInfoBar(L,NULL, parent, winid);
 	}
 
 	// Overload binder for wxInfoBar::wxInfoBar
 	static wxInfoBar* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxInfoBar, cannot match any of the overloads for function wxInfoBar:\n  wxInfoBar()\n  wxInfoBar(wxWindow *, int)\n");
+		luaL_error(L, "error in function wxInfoBar, cannot match any of the overloads for function wxInfoBar:\n  wxInfoBar()\n  wxInfoBar(wxWindow *, int)\n  wxInfoBar(lua_Table *)\n  wxInfoBar(lua_Table *, wxWindow *, int)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// bool wxInfoBar::Create(wxWindow * parent, int winid = wxID_ANY)
+	// bool wxInfoBar::Create(wxWindow * parent, int winid = ::wxID_ANY)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxInfoBar::Create(wxWindow * parent, int winid = wxID_ANY) function, expected prototype:\nbool wxInfoBar::Create(wxWindow * parent, int winid = wxID_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxInfoBar::Create(wxWindow * parent, int winid = ::wxID_ANY) function, expected prototype:\nbool wxInfoBar::Create(wxWindow * parent, int winid = ::wxID_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int winid=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 
 		wxInfoBar* self=dynamic_cast< wxInfoBar* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -453,7 +490,6 @@ luna_RegType LunaTraits< wxInfoBar >::methods[] = {
 
 luna_ConverterType LunaTraits< wxInfoBar >::converters[] = {
 	{"wxObject", &luna_wrapper_wxInfoBar::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxInfoBar::_cast_from_wxTrackable},
 	{0,0}
 };
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSockAddress.h>
+
 class luna_wrapper_wxSockAddress {
 public:
 	typedef Luna< wxSockAddress > luna_t;
@@ -130,8 +132,6 @@ wxSockAddress* LunaTraits< wxSockAddress >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxSockAddress::Clear()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSockAddress >::_bind_dtor(wxSockAddress* obj) {

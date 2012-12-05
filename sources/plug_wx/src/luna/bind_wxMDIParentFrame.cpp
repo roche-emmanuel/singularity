@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMDIParentFrame.h>
+
 class luna_wrapper_wxMDIParentFrame {
 public:
 	typedef Luna< wxMDIParentFrame > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMDIParentFrame* ptr= static_cast< wxMDIParentFrame* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMDIParentFrame >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -71,6 +62,31 @@ public:
 		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
+		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -203,12 +219,53 @@ public:
 		return new wxMDIParentFrame(parent, id, title, pos, size, style, name);
 	}
 
+	// wxMDIParentFrame::wxMDIParentFrame(lua_Table * data)
+	static wxMDIParentFrame* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMDIParentFrame::wxMDIParentFrame(lua_Table * data) function, expected prototype:\nwxMDIParentFrame::wxMDIParentFrame(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMDIParentFrame(L,NULL);
+	}
+
+	// wxMDIParentFrame::wxMDIParentFrame(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL, const wxString & name = wxFrameNameStr)
+	static wxMDIParentFrame* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMDIParentFrame::wxMDIParentFrame(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL, const wxString & name = wxFrameNameStr) function, expected prototype:\nwxMDIParentFrame::wxMDIParentFrame(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL, const wxString & name = wxFrameNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 8 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString title(lua_tostring(L,4),lua_objlen(L,4));
+		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
+		if( luatop>4 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxMDIParentFrame::wxMDIParentFrame function");
+		}
+		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
+		if( luatop>5 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxMDIParentFrame::wxMDIParentFrame function");
+		}
+		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL;
+		wxString name(lua_tostring(L,8),lua_objlen(L,8));
+
+		return new wrapper_wxMDIParentFrame(L,NULL, parent, id, title, pos, size, style, name);
+	}
+
 	// Overload binder for wxMDIParentFrame::wxMDIParentFrame
 	static wxMDIParentFrame* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxMDIParentFrame, cannot match any of the overloads for function wxMDIParentFrame:\n  wxMDIParentFrame()\n  wxMDIParentFrame(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		luaL_error(L, "error in function wxMDIParentFrame, cannot match any of the overloads for function wxMDIParentFrame:\n  wxMDIParentFrame()\n  wxMDIParentFrame(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n  wxMDIParentFrame(lua_Table *)\n  wxMDIParentFrame(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n");
 		return NULL;
 	}
 
@@ -425,16 +482,16 @@ public:
 		return 0;
 	}
 
-	// void wxMDIParentFrame::Tile(wxOrientation orient = wxHORIZONTAL)
+	// void wxMDIParentFrame::Tile(wxOrientation orient = ::wxHORIZONTAL)
 	static int _bind_Tile(lua_State *L) {
 		if (!_lg_typecheck_Tile(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMDIParentFrame::Tile(wxOrientation orient = wxHORIZONTAL) function, expected prototype:\nvoid wxMDIParentFrame::Tile(wxOrientation orient = wxHORIZONTAL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMDIParentFrame::Tile(wxOrientation orient = ::wxHORIZONTAL) function, expected prototype:\nvoid wxMDIParentFrame::Tile(wxOrientation orient = ::wxHORIZONTAL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxOrientation orient=luatop>1 ? (wxOrientation)lua_tointeger(L,2) : wxHORIZONTAL;
+		wxOrientation orient=luatop>1 ? (wxOrientation)lua_tointeger(L,2) : ::wxHORIZONTAL;
 
 		wxMDIParentFrame* self=dynamic_cast< wxMDIParentFrame* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -499,7 +556,6 @@ luna_RegType LunaTraits< wxMDIParentFrame >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMDIParentFrame >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMDIParentFrame::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxMDIParentFrame::_cast_from_wxTrackable},
 	{0,0}
 };
 

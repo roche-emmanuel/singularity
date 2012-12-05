@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxIPaddress.h>
+
 class luna_wrapper_wxIPaddress {
 public:
 	typedef Luna< wxIPaddress > luna_t;
@@ -307,8 +309,6 @@ wxIPaddress* LunaTraits< wxIPaddress >::_bind_ctor(lua_State *L) {
 	// wxString wxIPaddress::IPAddress() const
 	// bool wxIPaddress::IsLocalHost() const
 	// void wxSockAddress::Clear()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxIPaddress >::_bind_dtor(wxIPaddress* obj) {

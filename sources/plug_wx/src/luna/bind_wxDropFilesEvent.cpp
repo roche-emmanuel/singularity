@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDropFilesEvent.h>
+
 class luna_wrapper_wxDropFilesEvent {
 public:
 	typedef Luna< wxDropFilesEvent > luna_t;
@@ -132,8 +134,6 @@ wxDropFilesEvent* LunaTraits< wxDropFilesEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDropFilesEvent >::_bind_dtor(wxDropFilesEvent* obj) {

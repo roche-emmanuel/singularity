@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMouseEventsManager.h>
+
 class luna_wrapper_wxMouseEventsManager {
 public:
 	typedef Luna< wxMouseEventsManager > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxMouseEventsManager* ptr= dynamic_cast< wxMouseEventsManager* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMouseEventsManager >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMouseEventsManager* ptr= static_cast< wxMouseEventsManager* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -97,8 +88,6 @@ wxMouseEventsManager* LunaTraits< wxMouseEventsManager >::_bind_ctor(lua_State *
 	// void wxMouseEventsManager::MouseDragging(int item, const wxPoint & pos)
 	// void wxMouseEventsManager::MouseDragEnd(int item, const wxPoint & pos)
 	// void wxMouseEventsManager::MouseDragCancelled(int item)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMouseEventsManager >::_bind_dtor(wxMouseEventsManager* obj) {
@@ -120,7 +109,6 @@ luna_RegType LunaTraits< wxMouseEventsManager >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMouseEventsManager >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMouseEventsManager::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxMouseEventsManager::_cast_from_wxTrackable},
 	{0,0}
 };
 

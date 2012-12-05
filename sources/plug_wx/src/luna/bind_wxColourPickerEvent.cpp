@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxColourPickerEvent.h>
+
 class luna_wrapper_wxColourPickerEvent {
 public:
 	typedef Luna< wxColourPickerEvent > luna_t;
@@ -112,8 +114,6 @@ wxColourPickerEvent* LunaTraits< wxColourPickerEvent >::_bind_ctor(lua_State *L)
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxColourPickerEvent >::_bind_dtor(wxColourPickerEvent* obj) {

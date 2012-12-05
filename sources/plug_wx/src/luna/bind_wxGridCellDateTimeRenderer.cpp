@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellDateTimeRenderer.h>
+
 class luna_wrapper_wxGridCellDateTimeRenderer {
 public:
 	typedef Luna< wxGridCellDateTimeRenderer > luna_t;
@@ -82,8 +84,6 @@ wxGridCellDateTimeRenderer* LunaTraits< wxGridCellDateTimeRenderer >::_bind_ctor
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellDateTimeRenderer >::_bind_dtor(wxGridCellDateTimeRenderer* obj) {

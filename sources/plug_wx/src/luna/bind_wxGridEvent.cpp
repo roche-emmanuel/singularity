@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridEvent.h>
+
 class luna_wrapper_wxGridEvent {
 public:
 	typedef Luna< wxGridEvent > luna_t;
@@ -257,8 +259,6 @@ wxGridEvent* LunaTraits< wxGridEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridEvent >::_bind_dtor(wxGridEvent* obj) {

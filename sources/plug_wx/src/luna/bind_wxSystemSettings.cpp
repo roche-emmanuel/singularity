@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSystemSettings.h>
+
 class luna_wrapper_wxSystemSettings {
 public:
 	typedef Luna< wxSystemSettings > luna_t;

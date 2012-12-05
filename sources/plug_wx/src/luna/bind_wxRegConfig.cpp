@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRegConfig.h>
+
 class luna_wrapper_wxRegConfig {
 public:
 	typedef Luna< wxRegConfig > luna_t;
@@ -69,8 +71,6 @@ wxRegConfig* LunaTraits< wxRegConfig >::_bind_ctor(lua_State *L) {
 	// bool wxConfigBase::DeleteAll()
 	// bool wxConfigBase::DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true)
 	// bool wxConfigBase::DeleteGroup(const wxString & key)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRegConfig >::_bind_dtor(wxRegConfig* obj) {

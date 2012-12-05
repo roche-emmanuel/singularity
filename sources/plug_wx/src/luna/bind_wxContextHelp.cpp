@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxContextHelp.h>
+
 class luna_wrapper_wxContextHelp {
 public:
 	typedef Luna< wxContextHelp > luna_t;
@@ -40,12 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -70,8 +84,8 @@ public:
 
 	// Constructor binds:
 	// wxContextHelp::wxContextHelp(wxWindow * window = NULL, bool doNow = true)
-	static wxContextHelp* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxContextHelp* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxContextHelp::wxContextHelp(wxWindow * window = NULL, bool doNow = true) function, expected prototype:\nwxContextHelp::wxContextHelp(wxWindow * window = NULL, bool doNow = true)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -82,6 +96,30 @@ public:
 		bool doNow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
 		return new wxContextHelp(window, doNow);
+	}
+
+	// wxContextHelp::wxContextHelp(lua_Table * data, wxWindow * window = NULL, bool doNow = true)
+	static wxContextHelp* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxContextHelp::wxContextHelp(lua_Table * data, wxWindow * window = NULL, bool doNow = true) function, expected prototype:\nwxContextHelp::wxContextHelp(lua_Table * data, wxWindow * window = NULL, bool doNow = true)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* window=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		bool doNow=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		return new wrapper_wxContextHelp(L,NULL, window, doNow);
+	}
+
+	// Overload binder for wxContextHelp::wxContextHelp
+	static wxContextHelp* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxContextHelp, cannot match any of the overloads for function wxContextHelp:\n  wxContextHelp(wxWindow *, bool)\n  wxContextHelp(lua_Table *, wxWindow *, bool)\n");
+		return NULL;
 	}
 
 

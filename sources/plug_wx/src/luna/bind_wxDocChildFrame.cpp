@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDocChildFrame.h>
+
 class luna_wrapper_wxDocChildFrame {
 public:
 	typedef Luna< wxDocChildFrame > luna_t;
@@ -38,32 +40,48 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDocChildFrame* ptr= static_cast< wxDocChildFrame* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDocChildFrame >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>9 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxView* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,6))) ) return false;
 		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,20268751) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,7))) ) return false;
 		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>10 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxView* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,4)) ) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,7))) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,20268751) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,8))) ) return false;
+		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
 	}
 
@@ -101,8 +119,8 @@ public:
 
 	// Constructor binds:
 	// wxDocChildFrame::wxDocChildFrame(wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)
-	static wxDocChildFrame* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxDocChildFrame* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxDocChildFrame::wxDocChildFrame(wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) function, expected prototype:\nwxDocChildFrame::wxDocChildFrame(wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 5 ID = 88196105\narg 6 ID = 25723480\narg 7 ID = 20268751\narg 9 ID = 88196105\n");
 		}
@@ -128,6 +146,45 @@ public:
 		wxString name(lua_tostring(L,9),lua_objlen(L,9));
 
 		return new wxDocChildFrame(doc, view, parent, id, title, pos, size, style, name);
+	}
+
+	// wxDocChildFrame::wxDocChildFrame(lua_Table * data, wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)
+	static wxDocChildFrame* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocChildFrame::wxDocChildFrame(lua_Table * data, wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) function, expected prototype:\nwxDocChildFrame::wxDocChildFrame(lua_Table * data, wxDocument * doc, wxView * view, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 6 ID = 88196105\narg 7 ID = 25723480\narg 8 ID = 20268751\narg 10 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDocument* doc=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2));
+		wxView* view=dynamic_cast< wxView* >(Luna< wxObject >::check(L,3));
+		wxFrame* parent=dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,4));
+		int id=(int)lua_tointeger(L,5);
+		wxString title(lua_tostring(L,6),lua_objlen(L,6));
+		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
+		if( luatop>6 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDocChildFrame::wxDocChildFrame function");
+		}
+		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>7 ? (Luna< wxSize >::check(L,8)) : NULL;
+		if( luatop>7 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxDocChildFrame::wxDocChildFrame function");
+		}
+		const wxSize & size=luatop>7 ? *size_ptr : wxDefaultSize;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : wxDEFAULT_FRAME_STYLE;
+		wxString name(lua_tostring(L,10),lua_objlen(L,10));
+
+		return new wrapper_wxDocChildFrame(L,NULL, doc, view, parent, id, title, pos, size, style, name);
+	}
+
+	// Overload binder for wxDocChildFrame::wxDocChildFrame
+	static wxDocChildFrame* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDocChildFrame, cannot match any of the overloads for function wxDocChildFrame:\n  wxDocChildFrame(wxDocument *, wxView *, wxFrame *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n  wxDocChildFrame(lua_Table *, wxDocument *, wxView *, wxFrame *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		return NULL;
 	}
 
 
@@ -243,7 +300,6 @@ luna_RegType LunaTraits< wxDocChildFrame >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDocChildFrame >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDocChildFrame::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDocChildFrame::_cast_from_wxTrackable},
 	{0,0}
 };
 

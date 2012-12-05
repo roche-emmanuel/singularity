@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPaletteChangedEvent.h>
+
 class luna_wrapper_wxPaletteChangedEvent {
 public:
 	typedef Luna< wxPaletteChangedEvent > luna_t;
@@ -107,8 +109,6 @@ wxPaletteChangedEvent* LunaTraits< wxPaletteChangedEvent >::_bind_ctor(lua_State
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPaletteChangedEvent >::_bind_dtor(wxPaletteChangedEvent* obj) {

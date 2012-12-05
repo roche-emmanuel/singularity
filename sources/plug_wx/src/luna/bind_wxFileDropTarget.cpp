@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileDropTarget.h>
+
 class luna_wrapper_wxFileDropTarget {
 public:
 	typedef Luna< wxFileDropTarget > luna_t;
@@ -119,8 +121,6 @@ wxFileDropTarget* LunaTraits< wxFileDropTarget >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxFileDropTarget::OnDropFiles(int x, int y, const wxArrayString & filenames)
 	// bool wxDropTarget::GetData()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileDropTarget >::_bind_dtor(wxFileDropTarget* obj) {

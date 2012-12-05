@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWrapSizer.h>
+
 class luna_wrapper_wxWrapSizer {
 public:
 	typedef Luna< wxWrapSizer > luna_t;
@@ -40,12 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -77,19 +89,43 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxWrapSizer::wxWrapSizer(int orient = wxHORIZONTAL, int flags = wxWRAPSIZER_DEFAULT_FLAGS)
-	static wxWrapSizer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxWrapSizer::wxWrapSizer(int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS)
+	static wxWrapSizer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWrapSizer::wxWrapSizer(int orient = wxHORIZONTAL, int flags = wxWRAPSIZER_DEFAULT_FLAGS) function, expected prototype:\nwxWrapSizer::wxWrapSizer(int orient = wxHORIZONTAL, int flags = wxWRAPSIZER_DEFAULT_FLAGS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWrapSizer::wxWrapSizer(int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS) function, expected prototype:\nwxWrapSizer::wxWrapSizer(int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int orient=luatop>0 ? (int)lua_tointeger(L,1) : wxHORIZONTAL;
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxWRAPSIZER_DEFAULT_FLAGS;
+		int orient=luatop>0 ? (int)lua_tointeger(L,1) : ::wxHORIZONTAL;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxWRAPSIZER_DEFAULT_FLAGS;
 
 		return new wxWrapSizer(orient, flags);
+	}
+
+	// wxWrapSizer::wxWrapSizer(lua_Table * data, int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS)
+	static wxWrapSizer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWrapSizer::wxWrapSizer(lua_Table * data, int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS) function, expected prototype:\nwxWrapSizer::wxWrapSizer(lua_Table * data, int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int orient=luatop>1 ? (int)lua_tointeger(L,2) : ::wxHORIZONTAL;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxWRAPSIZER_DEFAULT_FLAGS;
+
+		return new wrapper_wxWrapSizer(L,NULL, orient, flags);
+	}
+
+	// Overload binder for wxWrapSizer::wxWrapSizer
+	static wxWrapSizer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxWrapSizer, cannot match any of the overloads for function wxWrapSizer:\n  wxWrapSizer(int, int)\n  wxWrapSizer(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 

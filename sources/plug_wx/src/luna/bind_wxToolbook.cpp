@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxToolbook.h>
+
 class luna_wrapper_wxToolbook {
 public:
 	typedef Luna< wxToolbook > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxToolbook* ptr= dynamic_cast< wxToolbook* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxToolbook >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxToolbook* ptr= static_cast< wxToolbook* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -110,8 +101,6 @@ wxToolbook* LunaTraits< wxToolbook >::_bind_ctor(lua_State *L) {
 	// int wxBookCtrlBase::SetSelection(size_t page)
 	// int wxBookCtrlBase::ChangeSelection(size_t page)
 	// bool wxBookCtrlBase::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxToolbook >::_bind_dtor(wxToolbook* obj) {
@@ -133,7 +122,6 @@ luna_RegType LunaTraits< wxToolbook >::methods[] = {
 
 luna_ConverterType LunaTraits< wxToolbook >::converters[] = {
 	{"wxObject", &luna_wrapper_wxToolbook::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxToolbook::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxToolbook::_cast_from_wxWithImages},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPageSetupDialogData.h>
+
 class luna_wrapper_wxPageSetupDialogData {
 public:
 	typedef Luna< wxPageSetupDialogData > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -263,12 +281,41 @@ public:
 		return new wxPageSetupDialogData(data);
 	}
 
+	// wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data)
+	static wxPageSetupDialogData* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPageSetupDialogData(L,NULL);
+	}
+
+	// wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data)
+	static wxPageSetupDialogData* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxPageSetupDialogData* data_ptr=dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,2));
+		if( !data_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg data in wxPageSetupDialogData::wxPageSetupDialogData function");
+		}
+		const wxPageSetupDialogData & data=*data_ptr;
+
+		return new wrapper_wxPageSetupDialogData(L,NULL, data);
+	}
+
 	// Overload binder for wxPageSetupDialogData::wxPageSetupDialogData
 	static wxPageSetupDialogData* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxPageSetupDialogData, cannot match any of the overloads for function wxPageSetupDialogData:\n  wxPageSetupDialogData()\n  wxPageSetupDialogData(const wxPageSetupDialogData &)\n");
+		luaL_error(L, "error in function wxPageSetupDialogData, cannot match any of the overloads for function wxPageSetupDialogData:\n  wxPageSetupDialogData()\n  wxPageSetupDialogData(const wxPageSetupDialogData &)\n  wxPageSetupDialogData(lua_Table *)\n  wxPageSetupDialogData(lua_Table *, const wxPageSetupDialogData &)\n");
 		return NULL;
 	}
 

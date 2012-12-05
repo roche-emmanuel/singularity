@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellBoolRenderer.h>
+
 class luna_wrapper_wxGridCellBoolRenderer {
 public:
 	typedef Luna< wxGridCellBoolRenderer > luna_t;
@@ -56,8 +58,6 @@ wxGridCellBoolRenderer* LunaTraits< wxGridCellBoolRenderer >::_bind_ctor(lua_Sta
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellBoolRenderer >::_bind_dtor(wxGridCellBoolRenderer* obj) {

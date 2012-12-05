@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStackWalker.h>
+
 class luna_wrapper_wxStackWalker {
 public:
 	typedef Luna< wxStackWalker > luna_t;
@@ -128,8 +130,6 @@ wxStackWalker* LunaTraits< wxStackWalker >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxStackWalker::OnStackFrame(const wxStackFrame & frame)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxStackWalker >::_bind_dtor(wxStackWalker* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextDataObject.h>
+
 class luna_wrapper_wxTextDataObject {
 public:
 	typedef Luna< wxTextDataObject > luna_t;
@@ -223,8 +225,6 @@ wxTextDataObject* LunaTraits< wxTextDataObject >::_bind_ctor(lua_State *L) {
 	// size_t wxDataObject::GetDataSize(const wxDataFormat & format) const
 	// size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const
 	// wxDataFormat wxDataObject::GetPreferredFormat(wxDataObject::Direction dir = wxDataObject::Get) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextDataObject >::_bind_dtor(wxTextDataObject* obj) {

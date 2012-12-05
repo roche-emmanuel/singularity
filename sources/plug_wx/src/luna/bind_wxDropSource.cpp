@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDropSource.h>
+
 class luna_wrapper_wxDropSource {
 public:
 	typedef Luna< wxDropSource > luna_t;
@@ -83,6 +85,40 @@ public:
 		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
 		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,55398761) ) return false;
+		if( (!dynamic_cast< wxDataObject* >(Luna< wxDataObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5))) ) return false;
+		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,6))) ) return false;
 		return true;
 	}
 
@@ -192,27 +228,92 @@ public:
 		return new wxDropSource(data, win, iconCopy, iconMove, iconNone);
 	}
 
+	// wxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
+	static wxDropSource* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* win=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		const wxCursor* iconCopy_ptr=luatop>2 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3)) : NULL;
+		if( luatop>2 && !iconCopy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconCopy=luatop>2 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor* iconMove_ptr=luatop>3 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4)) : NULL;
+		if( luatop>3 && !iconMove_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconMove=luatop>3 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor* iconNone_ptr=luatop>4 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5)) : NULL;
+		if( luatop>4 && !iconNone_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconNone=luatop>4 ? *iconNone_ptr : wxNullCursor;
+
+		return new wrapper_wxDropSource(L,NULL, win, iconCopy, iconMove, iconNone);
+	}
+
+	// wxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)
+	static wxDropSource* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor) function, expected prototype:\nwxDropSource::wxDropSource(lua_Table * data, wxDataObject & data, wxWindow * win = NULL, const wxCursor & iconCopy = wxNullCursor, const wxCursor & iconMove = wxNullCursor, const wxCursor & iconNone = wxNullCursor)\nClass arguments details:\narg 2 ID = 55398761\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDataObject* data_ptr=(Luna< wxDataObject >::check(L,2));
+		if( !data_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg data in wxDropSource::wxDropSource function");
+		}
+		wxDataObject & data=*data_ptr;
+		wxWindow* win=luatop>2 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) : (wxWindow*)NULL;
+		const wxCursor* iconCopy_ptr=luatop>3 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,4)) : NULL;
+		if( luatop>3 && !iconCopy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconCopy in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconCopy=luatop>3 ? *iconCopy_ptr : wxNullCursor;
+		const wxCursor* iconMove_ptr=luatop>4 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,5)) : NULL;
+		if( luatop>4 && !iconMove_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconMove in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconMove=luatop>4 ? *iconMove_ptr : wxNullCursor;
+		const wxCursor* iconNone_ptr=luatop>5 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,6)) : NULL;
+		if( luatop>5 && !iconNone_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg iconNone in wxDropSource::wxDropSource function");
+		}
+		const wxCursor & iconNone=luatop>5 ? *iconNone_ptr : wxNullCursor;
+
+		return new wrapper_wxDropSource(L,NULL, data, win, iconCopy, iconMove, iconNone);
+	}
+
 	// Overload binder for wxDropSource::wxDropSource
 	static wxDropSource* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxDropSource, cannot match any of the overloads for function wxDropSource:\n  wxDropSource(wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n  wxDropSource(wxDataObject &, wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n");
+		luaL_error(L, "error in function wxDropSource, cannot match any of the overloads for function wxDropSource:\n  wxDropSource(wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n  wxDropSource(wxDataObject &, wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n  wxDropSource(lua_Table *, wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n  wxDropSource(lua_Table *, wxDataObject &, wxWindow *, const wxCursor &, const wxCursor &, const wxCursor &)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// wxDragResult wxDropSource::DoDragDrop(int flags = wxDrag_CopyOnly)
+	// wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)
 	static int _bind_DoDragDrop(lua_State *L) {
 		if (!_lg_typecheck_DoDragDrop(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::DoDragDrop(int flags = wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::DoDragDrop(int flags = wxDrag_CopyOnly)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly) function, expected prototype:\nwxDragResult wxDropSource::DoDragDrop(int flags = ::wxDrag_CopyOnly)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxDrag_CopyOnly;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDrag_CopyOnly;
 
 		wxDropSource* self=(Luna< wxDropSource >::check(L,1));
 		if(!self) {

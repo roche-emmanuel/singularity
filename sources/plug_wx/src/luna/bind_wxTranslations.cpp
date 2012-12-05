@@ -379,11 +379,11 @@ public:
 		return 1;
 	}
 
-	// const wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const
+	// const wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const
 	static int _bind_GetString_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetString_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned n, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxTranslations::GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -396,7 +396,7 @@ public:
 		wxTranslations* self=(Luna< wxTranslations >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &, unsigned, const wxString &) const");
+			luaL_error(L, "Invalid object in function call const wxString & wxTranslations::GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
 		}
 		const wxString & lret = self->GetString(origString, origString2, n, domain);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -409,7 +409,7 @@ public:
 		if (_lg_typecheck_GetString_overload_1(L)) return _bind_GetString_overload_1(L);
 		if (_lg_typecheck_GetString_overload_2(L)) return _bind_GetString_overload_2(L);
 
-		luaL_error(L, "error in function GetString, cannot match any of the overloads for function GetString:\n  GetString(const wxString &, const wxString &)\n  GetString(const wxString &, const wxString &, unsigned, const wxString &)\n");
+		luaL_error(L, "error in function GetString, cannot match any of the overloads for function GetString:\n  GetString(const wxString &, const wxString &)\n  GetString(const wxString &, const wxString &, unsigned int, const wxString &)\n");
 		return 0;
 	}
 

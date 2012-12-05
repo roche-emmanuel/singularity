@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFilterClassFactory.h>
+
 class luna_wrapper_wxFilterClassFactory {
 public:
 	typedef Luna< wxFilterClassFactory > luna_t;
@@ -132,17 +134,17 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL) const
+	// bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
 	static int _bind_CanHandle(lua_State *L) {
 		if (!_lg_typecheck_CanHandle(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL) const function, expected prototype:\nbool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const function, expected prototype:\nbool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString protocol(lua_tostring(L,2),lua_objlen(L,2));
-		wxStreamProtocolType type=luatop>2 ? (wxStreamProtocolType)lua_tointeger(L,3) : wxSTREAM_PROTOCOL;
+		wxStreamProtocolType type=luatop>2 ? (wxStreamProtocolType)lua_tointeger(L,3) : ::wxSTREAM_PROTOCOL;
 
 		wxFilterClassFactory* self=dynamic_cast< wxFilterClassFactory* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -358,17 +360,17 @@ public:
 		return 0;
 	}
 
-	// static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL)
+	// static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL)
 	static int _bind_Find(lua_State *L) {
 		if (!_lg_typecheck_Find(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL) function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = wxSTREAM_PROTOCOL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) function, expected prototype:\nstatic const wxFilterClassFactory * wxFilterClassFactory::Find(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString protocol(lua_tostring(L,1),lua_objlen(L,1));
-		wxStreamProtocolType type=luatop>1 ? (wxStreamProtocolType)lua_tointeger(L,2) : wxSTREAM_PROTOCOL;
+		wxStreamProtocolType type=luatop>1 ? (wxStreamProtocolType)lua_tointeger(L,2) : ::wxSTREAM_PROTOCOL;
 
 		const wxFilterClassFactory * lret = wxFilterClassFactory::Find(protocol, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -402,13 +404,11 @@ public:
 wxFilterClassFactory* LunaTraits< wxFilterClassFactory >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType type = wxSTREAM_PROTOCOL) const
+	// const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream & stream) const
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream * stream) const
 	// wxFilterOutputStream * wxFilterClassFactory::NewStream(wxOutputStream * stream) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFilterClassFactory >::_bind_dtor(wxFilterClassFactory* obj) {

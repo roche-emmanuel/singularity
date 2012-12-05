@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxThreadEvent.h>
+
 class luna_wrapper_wxThreadEvent {
 public:
 	typedef Luna< wxThreadEvent > luna_t;

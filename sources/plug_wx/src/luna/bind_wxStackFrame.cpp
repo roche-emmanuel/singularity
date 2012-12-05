@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStackFrame.h>
+
 class luna_wrapper_wxStackFrame {
 public:
 	typedef Luna< wxStackFrame > luna_t;

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAnyButton.h>
+
 class luna_wrapper_wxAnyButton {
 public:
 	typedef Luna< wxAnyButton > luna_t;
@@ -38,22 +40,18 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxAnyButton* ptr= static_cast< wxAnyButton* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxAnyButton >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -174,14 +172,34 @@ public:
 
 	// Constructor binds:
 	// wxAnyButton::wxAnyButton()
-	static wxAnyButton* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxAnyButton* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxAnyButton::wxAnyButton() function, expected prototype:\nwxAnyButton::wxAnyButton()\nClass arguments details:\n");
 		}
 
 
 		return new wxAnyButton();
+	}
+
+	// wxAnyButton::wxAnyButton(lua_Table * data)
+	static wxAnyButton* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAnyButton::wxAnyButton(lua_Table * data) function, expected prototype:\nwxAnyButton::wxAnyButton(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAnyButton(L,NULL);
+	}
+
+	// Overload binder for wxAnyButton::wxAnyButton
+	static wxAnyButton* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxAnyButton, cannot match any of the overloads for function wxAnyButton:\n  wxAnyButton()\n  wxAnyButton(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -318,11 +336,11 @@ public:
 		return 1;
 	}
 
-	// void wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = wxLEFT)
+	// void wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = ::wxLEFT)
 	static int _bind_SetBitmap(lua_State *L) {
 		if (!_lg_typecheck_SetBitmap(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = wxLEFT) function, expected prototype:\nvoid wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = wxLEFT)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = ::wxLEFT) function, expected prototype:\nvoid wxAnyButton::SetBitmap(const wxBitmap & bitmap, wxDirection dir = ::wxLEFT)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -332,7 +350,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAnyButton::SetBitmap function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		wxDirection dir=luatop>2 ? (wxDirection)lua_tointeger(L,3) : wxLEFT;
+		wxDirection dir=luatop>2 ? (wxDirection)lua_tointeger(L,3) : ::wxLEFT;
 
 		wxAnyButton* self=dynamic_cast< wxAnyButton* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -594,7 +612,6 @@ luna_RegType LunaTraits< wxAnyButton >::methods[] = {
 
 luna_ConverterType LunaTraits< wxAnyButton >::converters[] = {
 	{"wxObject", &luna_wrapper_wxAnyButton::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxAnyButton::_cast_from_wxTrackable},
 	{0,0}
 };
 

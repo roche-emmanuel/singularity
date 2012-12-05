@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxNavigationKeyEvent.h>
+
 class luna_wrapper_wxNavigationKeyEvent {
 public:
 	typedef Luna< wxNavigationKeyEvent > luna_t;
@@ -286,8 +288,6 @@ wxNavigationKeyEvent* LunaTraits< wxNavigationKeyEvent >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxNavigationKeyEvent >::_bind_dtor(wxNavigationKeyEvent* obj) {

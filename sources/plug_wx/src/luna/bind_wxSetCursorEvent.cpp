@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSetCursorEvent.h>
+
 class luna_wrapper_wxSetCursorEvent {
 public:
 	typedef Luna< wxSetCursorEvent > luna_t;
@@ -186,8 +188,6 @@ wxSetCursorEvent* LunaTraits< wxSetCursorEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSetCursorEvent >::_bind_dtor(wxSetCursorEvent* obj) {

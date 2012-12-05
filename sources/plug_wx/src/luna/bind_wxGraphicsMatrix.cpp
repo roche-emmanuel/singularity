@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsMatrix.h>
+
 class luna_wrapper_wxGraphicsMatrix {
 public:
 	typedef Luna< wxGraphicsMatrix > luna_t;

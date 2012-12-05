@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiToolBarArt.h>
+
 class luna_wrapper_wxAuiToolBarArt {
 public:
 	typedef Luna< wxAuiToolBarArt > luna_t;
@@ -776,8 +778,6 @@ wxAuiToolBarArt* LunaTraits< wxAuiToolBarArt >::_bind_ctor(lua_State *L) {
 	// int wxAuiToolBarArt::GetElementSize(int element_id)
 	// void wxAuiToolBarArt::SetElementSize(int element_id, int size)
 	// int wxAuiToolBarArt::ShowDropDown(wxWindow * wnd, const wxAuiToolBarItemArray & items)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiToolBarArt >::_bind_dtor(wxAuiToolBarArt* obj) {

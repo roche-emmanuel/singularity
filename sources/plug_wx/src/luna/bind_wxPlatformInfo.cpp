@@ -364,11 +364,11 @@ public:
 		return new wxPlatformInfo();
 	}
 
-	// wxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = wxARCH_INVALID, wxEndianness endian = wxENDIAN_INVALID)
+	// wxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = ::wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = ::wxARCH_INVALID, wxEndianness endian = ::wxENDIAN_INVALID)
 	static wxPlatformInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = wxARCH_INVALID, wxEndianness endian = wxENDIAN_INVALID) function, expected prototype:\nwxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = wxARCH_INVALID, wxEndianness endian = wxENDIAN_INVALID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = ::wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = ::wxARCH_INVALID, wxEndianness endian = ::wxENDIAN_INVALID) function, expected prototype:\nwxPlatformInfo::wxPlatformInfo(wxPortId pid, int tkMajor = -1, int tkMinor = -1, wxOperatingSystemId id = ::wxOS_UNKNOWN, int osMajor = -1, int osMinor = -1, wxArchitecture arch = ::wxARCH_INVALID, wxEndianness endian = ::wxENDIAN_INVALID)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -376,11 +376,11 @@ public:
 		wxPortId pid=(wxPortId)lua_tointeger(L,1);
 		int tkMajor=luatop>1 ? (int)lua_tointeger(L,2) : -1;
 		int tkMinor=luatop>2 ? (int)lua_tointeger(L,3) : -1;
-		wxOperatingSystemId id=luatop>3 ? (wxOperatingSystemId)lua_tointeger(L,4) : wxOS_UNKNOWN;
+		wxOperatingSystemId id=luatop>3 ? (wxOperatingSystemId)lua_tointeger(L,4) : ::wxOS_UNKNOWN;
 		int osMajor=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 		int osMinor=luatop>5 ? (int)lua_tointeger(L,6) : -1;
-		wxArchitecture arch=luatop>6 ? (wxArchitecture)lua_tointeger(L,7) : wxARCH_INVALID;
-		wxEndianness endian=luatop>7 ? (wxEndianness)lua_tointeger(L,8) : wxENDIAN_INVALID;
+		wxArchitecture arch=luatop>6 ? (wxArchitecture)lua_tointeger(L,7) : ::wxARCH_INVALID;
+		wxEndianness endian=luatop>7 ? (wxEndianness)lua_tointeger(L,8) : ::wxENDIAN_INVALID;
 
 		return new wxPlatformInfo(pid, tkMajor, tkMinor, id, osMajor, osMinor, arch, endian);
 	}

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextStyleListBox.h>
+
 class luna_wrapper_wxRichTextStyleListBox {
 public:
 	typedef Luna< wxRichTextStyleListBox > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRichTextStyleListBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRichTextStyleListBox* ptr= static_cast< wxRichTextStyleListBox* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -82,8 +73,6 @@ wxRichTextStyleListBox* LunaTraits< wxRichTextStyleListBox >::_bind_ctor(lua_Sta
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRichTextStyleListBox >::_bind_dtor(wxRichTextStyleListBox* obj) {
@@ -104,7 +93,6 @@ luna_RegType LunaTraits< wxRichTextStyleListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRichTextStyleListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxRichTextStyleListBox::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

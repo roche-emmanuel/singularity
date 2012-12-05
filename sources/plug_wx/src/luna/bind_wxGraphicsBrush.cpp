@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsBrush.h>
+
 class luna_wrapper_wxGraphicsBrush {
 public:
 	typedef Luna< wxGraphicsBrush > luna_t;

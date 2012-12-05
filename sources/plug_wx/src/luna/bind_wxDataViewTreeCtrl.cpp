@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewTreeCtrl.h>
+
 class luna_wrapper_wxDataViewTreeCtrl {
 public:
 	typedef Luna< wxDataViewTreeCtrl > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDataViewTreeCtrl* ptr= static_cast< wxDataViewTreeCtrl* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDataViewTreeCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -71,6 +62,31 @@ public:
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
 		if( luatop>5 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,6))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -334,12 +350,56 @@ public:
 		return new wxDataViewTreeCtrl(parent, id, pos, size, style, validator);
 	}
 
+	// wxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data)
+	static wxDataViewTreeCtrl* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data) function, expected prototype:\nwxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDataViewTreeCtrl(L,NULL);
+	}
+
+	// wxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0x0002|0x0010, const wxValidator & validator = wxDefaultValidator)
+	static wxDataViewTreeCtrl* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0x0002|0x0010, const wxValidator & validator = wxDefaultValidator) function, expected prototype:\nwxDataViewTreeCtrl::wxDataViewTreeCtrl(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0x0002|0x0010, const wxValidator & validator = wxDefaultValidator)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDataViewTreeCtrl::wxDataViewTreeCtrl function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxDataViewTreeCtrl::wxDataViewTreeCtrl function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : 0x0002|0x0010;
+		const wxValidator* validator_ptr=luatop>6 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7)) : NULL;
+		if( luatop>6 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxDataViewTreeCtrl::wxDataViewTreeCtrl function");
+		}
+		const wxValidator & validator=luatop>6 ? *validator_ptr : wxDefaultValidator;
+
+		return new wrapper_wxDataViewTreeCtrl(L,NULL, parent, id, pos, size, style, validator);
+	}
+
 	// Overload binder for wxDataViewTreeCtrl::wxDataViewTreeCtrl
 	static wxDataViewTreeCtrl* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxDataViewTreeCtrl, cannot match any of the overloads for function wxDataViewTreeCtrl:\n  wxDataViewTreeCtrl()\n  wxDataViewTreeCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &)\n");
+		luaL_error(L, "error in function wxDataViewTreeCtrl, cannot match any of the overloads for function wxDataViewTreeCtrl:\n  wxDataViewTreeCtrl()\n  wxDataViewTreeCtrl(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &)\n  wxDataViewTreeCtrl(lua_Table *)\n  wxDataViewTreeCtrl(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxValidator &)\n");
 		return NULL;
 	}
 
@@ -1077,7 +1137,6 @@ luna_RegType LunaTraits< wxDataViewTreeCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxDataViewTreeCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDataViewTreeCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDataViewTreeCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

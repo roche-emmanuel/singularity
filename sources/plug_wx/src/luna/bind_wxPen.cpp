@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPen.h>
+
 class luna_wrapper_wxPen {
 public:
 	typedef Luna< wxPen > luna_t;
@@ -49,6 +51,44 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxPen* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxPen* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -190,11 +230,11 @@ public:
 		return new wxPen();
 	}
 
-	// wxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID)
+	// wxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)
 	static wxPen* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID) function, expected prototype:\nwxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) function, expected prototype:\nwxPen::wxPen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -205,7 +245,7 @@ public:
 		}
 		const wxColour & colour=*colour_ptr;
 		int width=luatop>1 ? (int)lua_tointeger(L,2) : 1;
-		wxPenStyle style=luatop>2 ? (wxPenStyle)lua_tointeger(L,3) : wxPENSTYLE_SOLID;
+		wxPenStyle style=luatop>2 ? (wxPenStyle)lua_tointeger(L,3) : ::wxPENSTYLE_SOLID;
 
 		return new wxPen(colour, width, style);
 	}
@@ -243,14 +283,82 @@ public:
 		return new wxPen(pen);
 	}
 
+	// wxPen::wxPen(lua_Table * data)
+	static wxPen* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen::wxPen(lua_Table * data) function, expected prototype:\nwxPen::wxPen(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPen(L,NULL);
+	}
+
+	// wxPen::wxPen(lua_Table * data, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)
+	static wxPen* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen::wxPen(lua_Table * data, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) function, expected prototype:\nwxPen::wxPen(lua_Table * data, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		if( !colour_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPen::wxPen function");
+		}
+		const wxColour & colour=*colour_ptr;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : 1;
+		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : ::wxPENSTYLE_SOLID;
+
+		return new wrapper_wxPen(L,NULL, colour, width, style);
+	}
+
+	// wxPen::wxPen(lua_Table * data, const wxBitmap & stipple, int width)
+	static wxPen* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen::wxPen(lua_Table * data, const wxBitmap & stipple, int width) function, expected prototype:\nwxPen::wxPen(lua_Table * data, const wxBitmap & stipple, int width)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxBitmap* stipple_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !stipple_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stipple in wxPen::wxPen function");
+		}
+		const wxBitmap & stipple=*stipple_ptr;
+		int width=(int)lua_tointeger(L,3);
+
+		return new wrapper_wxPen(L,NULL, stipple, width);
+	}
+
+	// wxPen::wxPen(lua_Table * data, const wxPen & pen)
+	static wxPen* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen::wxPen(lua_Table * data, const wxPen & pen) function, expected prototype:\nwxPen::wxPen(lua_Table * data, const wxPen & pen)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxPen* pen_ptr=dynamic_cast< wxPen* >(Luna< wxObject >::check(L,2));
+		if( !pen_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pen in wxPen::wxPen function");
+		}
+		const wxPen & pen=*pen_ptr;
+
+		return new wrapper_wxPen(L,NULL, pen);
+	}
+
 	// Overload binder for wxPen::wxPen
 	static wxPen* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
 
-		luaL_error(L, "error in function wxPen, cannot match any of the overloads for function wxPen:\n  wxPen()\n  wxPen(const wxColour &, int, wxPenStyle)\n  wxPen(const wxBitmap &, int)\n  wxPen(const wxPen &)\n");
+		luaL_error(L, "error in function wxPen, cannot match any of the overloads for function wxPen:\n  wxPen()\n  wxPen(const wxColour &, int, wxPenStyle)\n  wxPen(const wxBitmap &, int)\n  wxPen(const wxPen &)\n  wxPen(lua_Table *)\n  wxPen(lua_Table *, const wxColour &, int, wxPenStyle)\n  wxPen(lua_Table *, const wxBitmap &, int)\n  wxPen(lua_Table *, const wxPen &)\n");
 		return NULL;
 	}
 

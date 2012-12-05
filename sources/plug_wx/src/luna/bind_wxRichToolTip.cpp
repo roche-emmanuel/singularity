@@ -213,11 +213,11 @@ public:
 		return 0;
 	}
 
-	// void wxRichToolTip::SetTimeout(unsigned milliseconds)
+	// void wxRichToolTip::SetTimeout(unsigned int milliseconds)
 	static int _bind_SetTimeout(lua_State *L) {
 		if (!_lg_typecheck_SetTimeout(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTimeout(unsigned milliseconds) function, expected prototype:\nvoid wxRichToolTip::SetTimeout(unsigned milliseconds)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTimeout(unsigned int milliseconds) function, expected prototype:\nvoid wxRichToolTip::SetTimeout(unsigned int milliseconds)\nClass arguments details:\n");
 		}
 
 		unsigned milliseconds=(unsigned)lua_tointeger(L,2);
@@ -225,7 +225,7 @@ public:
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned)");
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned int)");
 		}
 		self->SetTimeout(milliseconds);
 

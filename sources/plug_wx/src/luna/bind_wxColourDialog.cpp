@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxColourDialog.h>
+
 class luna_wrapper_wxColourDialog {
 public:
 	typedef Luna< wxColourDialog > luna_t;
@@ -38,25 +40,28 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxColourDialog* ptr= static_cast< wxColourDialog* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxColourDialog >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -89,8 +94,8 @@ public:
 
 	// Constructor binds:
 	// wxColourDialog::wxColourDialog(wxWindow * parent, wxColourData * data = NULL)
-	static wxColourDialog* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxColourDialog* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColourDialog::wxColourDialog(wxWindow * parent, wxColourData * data = NULL) function, expected prototype:\nwxColourDialog::wxColourDialog(wxWindow * parent, wxColourData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
@@ -101,6 +106,30 @@ public:
 		wxColourData* data=luatop>1 ? dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,2)) : (wxColourData*)NULL;
 
 		return new wxColourDialog(parent, data);
+	}
+
+	// wxColourDialog::wxColourDialog(lua_Table * data, wxWindow * parent, wxColourData * data = NULL)
+	static wxColourDialog* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxColourDialog::wxColourDialog(lua_Table * data, wxWindow * parent, wxColourData * data = NULL) function, expected prototype:\nwxColourDialog::wxColourDialog(lua_Table * data, wxWindow * parent, wxColourData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxColourData* data=luatop>2 ? dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,3)) : (wxColourData*)NULL;
+
+		return new wrapper_wxColourDialog(L,NULL, parent, data);
+	}
+
+	// Overload binder for wxColourDialog::wxColourDialog
+	static wxColourDialog* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxColourDialog, cannot match any of the overloads for function wxColourDialog:\n  wxColourDialog(wxWindow *, wxColourData *)\n  wxColourDialog(lua_Table *, wxWindow *, wxColourData *)\n");
+		return NULL;
 	}
 
 
@@ -198,7 +227,6 @@ luna_RegType LunaTraits< wxColourDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxColourDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxColourDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxColourDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

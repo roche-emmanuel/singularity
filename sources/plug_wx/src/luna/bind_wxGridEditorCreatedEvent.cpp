@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridEditorCreatedEvent.h>
+
 class luna_wrapper_wxGridEditorCreatedEvent {
 public:
 	typedef Luna< wxGridEditorCreatedEvent > luna_t;
@@ -209,8 +211,6 @@ wxGridEditorCreatedEvent* LunaTraits< wxGridEditorCreatedEvent >::_bind_ctor(lua
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridEditorCreatedEvent >::_bind_dtor(wxGridEditorCreatedEvent* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileSystemWatcherEvent.h>
+
 class luna_wrapper_wxFileSystemWatcherEvent {
 public:
 	typedef Luna< wxFileSystemWatcherEvent > luna_t;
@@ -208,8 +210,6 @@ wxFileSystemWatcherEvent* LunaTraits< wxFileSystemWatcherEvent >::_bind_ctor(lua
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileSystemWatcherEvent >::_bind_dtor(wxFileSystemWatcherEvent* obj) {

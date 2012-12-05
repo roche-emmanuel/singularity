@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileCtrlEvent.h>
+
 class luna_wrapper_wxFileCtrlEvent {
 public:
 	typedef Luna< wxFileCtrlEvent > luna_t;
@@ -239,8 +241,6 @@ wxFileCtrlEvent* LunaTraits< wxFileCtrlEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileCtrlEvent >::_bind_dtor(wxFileCtrlEvent* obj) {

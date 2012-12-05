@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxBrush.h>
+
 class luna_wrapper_wxBrush {
 public:
 	typedef Luna< wxBrush > luna_t;
@@ -47,6 +49,42 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -155,11 +193,11 @@ public:
 		return new wxBrush();
 	}
 
-	// wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)
+	// wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
 	static wxBrush* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -169,7 +207,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrush::wxBrush function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxBrushStyle style=luatop>1 ? (wxBrushStyle)lua_tointeger(L,2) : wxBRUSHSTYLE_SOLID;
+		wxBrushStyle style=luatop>1 ? (wxBrushStyle)lua_tointeger(L,2) : ::wxBRUSHSTYLE_SOLID;
 
 		return new wxBrush(colour, style);
 	}
@@ -206,14 +244,80 @@ public:
 		return new wxBrush(brush);
 	}
 
+	// wxBrush::wxBrush(lua_Table * data)
+	static wxBrush* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxBrush(L,NULL);
+	}
+
+	// wxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
+	static wxBrush* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		if( !colour_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxBrush::wxBrush function");
+		}
+		const wxColour & colour=*colour_ptr;
+		wxBrushStyle style=luatop>2 ? (wxBrushStyle)lua_tointeger(L,3) : ::wxBRUSHSTYLE_SOLID;
+
+		return new wrapper_wxBrush(L,NULL, colour, style);
+	}
+
+	// wxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap)
+	static wxBrush* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBitmap & stippleBitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxBitmap* stippleBitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !stippleBitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stippleBitmap in wxBrush::wxBrush function");
+		}
+		const wxBitmap & stippleBitmap=*stippleBitmap_ptr;
+
+		return new wrapper_wxBrush(L,NULL, stippleBitmap);
+	}
+
+	// wxBrush::wxBrush(lua_Table * data, const wxBrush & brush)
+	static wxBrush* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBrush::wxBrush(lua_Table * data, const wxBrush & brush) function, expected prototype:\nwxBrush::wxBrush(lua_Table * data, const wxBrush & brush)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxBrush* brush_ptr=dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,2));
+		if( !brush_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg brush in wxBrush::wxBrush function");
+		}
+		const wxBrush & brush=*brush_ptr;
+
+		return new wrapper_wxBrush(L,NULL, brush);
+	}
+
 	// Overload binder for wxBrush::wxBrush
 	static wxBrush* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
 
-		luaL_error(L, "error in function wxBrush, cannot match any of the overloads for function wxBrush:\n  wxBrush()\n  wxBrush(const wxColour &, wxBrushStyle)\n  wxBrush(const wxBitmap &)\n  wxBrush(const wxBrush &)\n");
+		luaL_error(L, "error in function wxBrush, cannot match any of the overloads for function wxBrush:\n  wxBrush()\n  wxBrush(const wxColour &, wxBrushStyle)\n  wxBrush(const wxBitmap &)\n  wxBrush(const wxBrush &)\n  wxBrush(lua_Table *)\n  wxBrush(lua_Table *, const wxColour &, wxBrushStyle)\n  wxBrush(lua_Table *, const wxBitmap &)\n  wxBrush(lua_Table *, const wxBrush &)\n");
 		return NULL;
 	}
 

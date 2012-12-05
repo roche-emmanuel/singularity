@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSocketServer.h>
+
 class luna_wrapper_wxSocketServer {
 public:
 	typedef Luna< wxSocketServer > luna_t;
@@ -40,12 +42,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1))) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -82,11 +96,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE)
-	static wxSocketServer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE)
+	static wxSocketServer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -96,9 +110,37 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxSOCKET_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
 
 		return new wxSocketServer(address, flags);
+	}
+
+	// wxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE)
+	static wxSocketServer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSockAddress* address_ptr=dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,2));
+		if( !address_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
+		}
+		const wxSockAddress & address=*address_ptr;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxSOCKET_NONE;
+
+		return new wrapper_wxSocketServer(L,NULL, address, flags);
+	}
+
+	// Overload binder for wxSocketServer::wxSocketServer
+	static wxSocketServer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSocketServer, cannot match any of the overloads for function wxSocketServer:\n  wxSocketServer(const wxSockAddress &, int)\n  wxSocketServer(lua_Table *, const wxSockAddress &, int)\n");
+		return NULL;
 	}
 
 

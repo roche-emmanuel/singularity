@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStaticBoxSizer.h>
+
 class luna_wrapper_wxStaticBoxSizer {
 public:
 	typedef Luna< wxStaticBoxSizer > luna_t;
@@ -60,6 +62,28 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxStaticBox* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetStaticBox(lua_State *L) {
@@ -114,12 +138,43 @@ public:
 		return new wxStaticBoxSizer(orient, parent, label);
 	}
 
+	// wxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, wxStaticBox * box, int orient)
+	static wxStaticBoxSizer* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, wxStaticBox * box, int orient) function, expected prototype:\nwxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, wxStaticBox * box, int orient)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxStaticBox* box=dynamic_cast< wxStaticBox* >(Luna< wxObject >::check(L,2));
+		int orient=(int)lua_tointeger(L,3);
+
+		return new wrapper_wxStaticBoxSizer(L,NULL, box, orient);
+	}
+
+	// wxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, int orient, wxWindow * parent, const wxString & label = wxEmptyString)
+	static wxStaticBoxSizer* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, int orient, wxWindow * parent, const wxString & label = wxEmptyString) function, expected prototype:\nwxStaticBoxSizer::wxStaticBoxSizer(lua_Table * data, int orient, wxWindow * parent, const wxString & label = wxEmptyString)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int orient=(int)lua_tointeger(L,2);
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxString label(lua_tostring(L,4),lua_objlen(L,4));
+
+		return new wrapper_wxStaticBoxSizer(L,NULL, orient, parent, label);
+	}
+
 	// Overload binder for wxStaticBoxSizer::wxStaticBoxSizer
 	static wxStaticBoxSizer* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxStaticBoxSizer, cannot match any of the overloads for function wxStaticBoxSizer:\n  wxStaticBoxSizer(wxStaticBox *, int)\n  wxStaticBoxSizer(int, wxWindow *, const wxString &)\n");
+		luaL_error(L, "error in function wxStaticBoxSizer, cannot match any of the overloads for function wxStaticBoxSizer:\n  wxStaticBoxSizer(wxStaticBox *, int)\n  wxStaticBoxSizer(int, wxWindow *, const wxString &)\n  wxStaticBoxSizer(lua_Table *, wxStaticBox *, int)\n  wxStaticBoxSizer(lua_Table *, int, wxWindow *, const wxString &)\n");
 		return NULL;
 	}
 

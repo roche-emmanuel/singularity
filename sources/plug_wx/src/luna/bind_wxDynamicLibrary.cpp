@@ -155,17 +155,17 @@ public:
 		return new wxDynamicLibrary();
 	}
 
-	// wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = wxDL_DEFAULT)
+	// wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT)
 	static wxDynamicLibrary* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = wxDL_DEFAULT) function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nwxDynamicLibrary::wxDynamicLibrary(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxDL_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxDL_DEFAULT;
 
 		return new wxDynamicLibrary(name, flags);
 	}
@@ -267,17 +267,17 @@ public:
 		return 1;
 	}
 
-	// bool wxDynamicLibrary::Load(const wxString & name, int flags = wxDL_DEFAULT)
+	// bool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT)
 	static int _bind_Load(lua_State *L) {
 		if (!_lg_typecheck_Load(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::Load(const wxString & name, int flags = wxDL_DEFAULT) function, expected prototype:\nbool wxDynamicLibrary::Load(const wxString & name, int flags = wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT) function, expected prototype:\nbool wxDynamicLibrary::Load(const wxString & name, int flags = ::wxDL_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxDL_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxDL_DEFAULT;
 
 		wxDynamicLibrary* self=(Luna< wxDynamicLibrary >::check(L,1));
 		if(!self) {
@@ -308,17 +308,17 @@ public:
 		return 0;
 	}
 
-	// static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = wxDL_LIBRARY)
+	// static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY)
 	static int _bind_CanonicalizeName(lua_State *L) {
 		if (!_lg_typecheck_CanonicalizeName(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = wxDL_LIBRARY) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = wxDL_LIBRARY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizeName(const wxString & name, wxDynamicLibraryCategory cat = ::wxDL_LIBRARY)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxDynamicLibraryCategory cat=luatop>1 ? (wxDynamicLibraryCategory)lua_tointeger(L,2) : wxDL_LIBRARY;
+		wxDynamicLibraryCategory cat=luatop>1 ? (wxDynamicLibraryCategory)lua_tointeger(L,2) : ::wxDL_LIBRARY;
 
 		wxString lret = wxDynamicLibrary::CanonicalizeName(name, cat);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -326,17 +326,17 @@ public:
 		return 1;
 	}
 
-	// static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = wxDL_PLUGIN_GUI)
+	// static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI)
 	static int _bind_CanonicalizePluginName(lua_State *L) {
 		if (!_lg_typecheck_CanonicalizePluginName(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = wxDL_PLUGIN_GUI) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = wxDL_PLUGIN_GUI)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI) function, expected prototype:\nstatic wxString wxDynamicLibrary::CanonicalizePluginName(const wxString & name, wxPluginCategory cat = ::wxDL_PLUGIN_GUI)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxPluginCategory cat=luatop>1 ? (wxPluginCategory)lua_tointeger(L,2) : wxDL_PLUGIN_GUI;
+		wxPluginCategory cat=luatop>1 ? (wxPluginCategory)lua_tointeger(L,2) : ::wxDL_PLUGIN_GUI;
 
 		wxString lret = wxDynamicLibrary::CanonicalizePluginName(name, cat);
 		lua_pushlstring(L,lret.data(),lret.size());

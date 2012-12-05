@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxComboBox.h>
+
 class luna_wrapper_wxComboBox {
 public:
 	typedef Luna< wxComboBox > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxComboBox* ptr= dynamic_cast< wxComboBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxComboBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxComboBox* ptr= static_cast< wxComboBox* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -97,6 +88,35 @@ public:
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
 		if( luatop>7 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8))) ) return false;
 		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<7 || luatop>10 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,7))) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
+		if( luatop>8 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9))) ) return false;
+		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
 	}
 
@@ -280,12 +300,63 @@ public:
 		return new wxComboBox(parent, id, value, pos, size, choices, style, validator, name);
 	}
 
+	// wxComboBox::wxComboBox(lua_Table * data)
+	static wxComboBox* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxComboBox(L,NULL);
+	}
+
+	// wxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)
+	static wxComboBox* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) function, expected prototype:\nwxComboBox::wxComboBox(lua_Table * data, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 7 ID = 59507769\narg 9 ID = 56813631\narg 10 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString value(lua_tostring(L,4),lua_objlen(L,4));
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,5));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxComboBox::wxComboBox function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,6));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxComboBox::wxComboBox function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,7));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxComboBox::wxComboBox function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : 0;
+		const wxValidator* validator_ptr=luatop>8 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9)) : NULL;
+		if( luatop>8 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxComboBox::wxComboBox function");
+		}
+		const wxValidator & validator=luatop>8 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,10),lua_objlen(L,10));
+
+		return new wrapper_wxComboBox(L,NULL, parent, id, value, pos, size, choices, style, validator, name);
+	}
+
 	// Overload binder for wxComboBox::wxComboBox
 	static wxComboBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxComboBox, cannot match any of the overloads for function wxComboBox:\n  wxComboBox()\n  wxComboBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxComboBox, cannot match any of the overloads for function wxComboBox:\n  wxComboBox()\n  wxComboBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxComboBox(lua_Table *)\n  wxComboBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -707,7 +778,6 @@ luna_RegType LunaTraits< wxComboBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxComboBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxComboBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxComboBox::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxComboBox::_cast_from_wxItemContainerImmutable},
 	{"wxTextEntry", &luna_wrapper_wxComboBox::_cast_from_wxTextEntry},
 	{0,0}

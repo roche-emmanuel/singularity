@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextCompleterSimple.h>
+
 class luna_wrapper_wxTextCompleterSimple {
 public:
 	typedef Luna< wxTextCompleterSimple > luna_t;
@@ -88,8 +90,6 @@ wxTextCompleterSimple* LunaTraits< wxTextCompleterSimple >::_bind_ctor(lua_State
 	// void wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res)
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	// wxString wxTextCompleter::GetNext()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextCompleterSimple >::_bind_dtor(wxTextCompleterSimple* obj) {

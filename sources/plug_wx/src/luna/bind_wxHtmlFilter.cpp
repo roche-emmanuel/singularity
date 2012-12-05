@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlFilter.h>
+
 class luna_wrapper_wxHtmlFilter {
 public:
 	typedef Luna< wxHtmlFilter > luna_t;
@@ -117,8 +119,6 @@ wxHtmlFilter* LunaTraits< wxHtmlFilter >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxHtmlFilter::CanRead(const wxFSFile & file) const
 	// wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlFilter >::_bind_dtor(wxHtmlFilter* obj) {

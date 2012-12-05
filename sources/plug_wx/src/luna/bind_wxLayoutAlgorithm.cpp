@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLayoutAlgorithm.h>
+
 class luna_wrapper_wxLayoutAlgorithm {
 public:
 	typedef Luna< wxLayoutAlgorithm > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -81,14 +90,34 @@ public:
 
 	// Constructor binds:
 	// wxLayoutAlgorithm::wxLayoutAlgorithm()
-	static wxLayoutAlgorithm* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLayoutAlgorithm* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLayoutAlgorithm::wxLayoutAlgorithm() function, expected prototype:\nwxLayoutAlgorithm::wxLayoutAlgorithm()\nClass arguments details:\n");
 		}
 
 
 		return new wxLayoutAlgorithm();
+	}
+
+	// wxLayoutAlgorithm::wxLayoutAlgorithm(lua_Table * data)
+	static wxLayoutAlgorithm* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLayoutAlgorithm::wxLayoutAlgorithm(lua_Table * data) function, expected prototype:\nwxLayoutAlgorithm::wxLayoutAlgorithm(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxLayoutAlgorithm(L,NULL);
+	}
+
+	// Overload binder for wxLayoutAlgorithm::wxLayoutAlgorithm
+	static wxLayoutAlgorithm* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLayoutAlgorithm, cannot match any of the overloads for function wxLayoutAlgorithm:\n  wxLayoutAlgorithm()\n  wxLayoutAlgorithm(lua_Table *)\n");
+		return NULL;
 	}
 
 

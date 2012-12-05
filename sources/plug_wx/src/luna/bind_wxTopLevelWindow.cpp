@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTopLevelWindow.h>
+
 class luna_wrapper_wxTopLevelWindow {
 public:
 	typedef Luna< wxTopLevelWindow > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxTopLevelWindow* ptr= static_cast< wxTopLevelWindow* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxTopLevelWindow >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -71,6 +62,31 @@ public:
 		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
 		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
+		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
+		if( luatop>5 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
 		return true;
 	}
 
@@ -375,12 +391,53 @@ public:
 		return new wxTopLevelWindow(parent, id, title, pos, size, style, name);
 	}
 
+	// wxTopLevelWindow::wxTopLevelWindow(lua_Table * data)
+	static wxTopLevelWindow* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTopLevelWindow::wxTopLevelWindow(lua_Table * data) function, expected prototype:\nwxTopLevelWindow::wxTopLevelWindow(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxTopLevelWindow(L,NULL);
+	}
+
+	// wxTopLevelWindow::wxTopLevelWindow(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)
+	static wxTopLevelWindow* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTopLevelWindow::wxTopLevelWindow(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) function, expected prototype:\nwxTopLevelWindow::wxTopLevelWindow(lua_Table * data, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 8 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString title(lua_tostring(L,4),lua_objlen(L,4));
+		const wxPoint* pos_ptr=luatop>4 ? (Luna< wxPoint >::check(L,5)) : NULL;
+		if( luatop>4 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTopLevelWindow::wxTopLevelWindow function");
+		}
+		const wxPoint & pos=luatop>4 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>5 ? (Luna< wxSize >::check(L,6)) : NULL;
+		if( luatop>5 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTopLevelWindow::wxTopLevelWindow function");
+		}
+		const wxSize & size=luatop>5 ? *size_ptr : wxDefaultSize;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxDEFAULT_FRAME_STYLE;
+		wxString name(lua_tostring(L,8),lua_objlen(L,8));
+
+		return new wrapper_wxTopLevelWindow(L,NULL, parent, id, title, pos, size, style, name);
+	}
+
 	// Overload binder for wxTopLevelWindow::wxTopLevelWindow
 	static wxTopLevelWindow* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxTopLevelWindow, cannot match any of the overloads for function wxTopLevelWindow:\n  wxTopLevelWindow()\n  wxTopLevelWindow(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		luaL_error(L, "error in function wxTopLevelWindow, cannot match any of the overloads for function wxTopLevelWindow:\n  wxTopLevelWindow()\n  wxTopLevelWindow(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n  wxTopLevelWindow(lua_Table *)\n  wxTopLevelWindow(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, long, const wxString &)\n");
 		return NULL;
 	}
 
@@ -460,16 +517,16 @@ public:
 		return 0;
 	}
 
-	// void wxTopLevelWindow::CentreOnScreen(int direction = wxBOTH)
+	// void wxTopLevelWindow::CentreOnScreen(int direction = ::wxBOTH)
 	static int _bind_CentreOnScreen(lua_State *L) {
 		if (!_lg_typecheck_CentreOnScreen(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTopLevelWindow::CentreOnScreen(int direction = wxBOTH) function, expected prototype:\nvoid wxTopLevelWindow::CentreOnScreen(int direction = wxBOTH)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTopLevelWindow::CentreOnScreen(int direction = ::wxBOTH) function, expected prototype:\nvoid wxTopLevelWindow::CentreOnScreen(int direction = ::wxBOTH)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : wxBOTH;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxBOTH;
 
 		wxTopLevelWindow* self=dynamic_cast< wxTopLevelWindow* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -763,16 +820,16 @@ public:
 		return 1;
 	}
 
-	// void wxTopLevelWindow::RequestUserAttention(int flags = wxUSER_ATTENTION_INFO)
+	// void wxTopLevelWindow::RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)
 	static int _bind_RequestUserAttention(lua_State *L) {
 		if (!_lg_typecheck_RequestUserAttention(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTopLevelWindow::RequestUserAttention(int flags = wxUSER_ATTENTION_INFO) function, expected prototype:\nvoid wxTopLevelWindow::RequestUserAttention(int flags = wxUSER_ATTENTION_INFO)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTopLevelWindow::RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO) function, expected prototype:\nvoid wxTopLevelWindow::RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxUSER_ATTENTION_INFO;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxUSER_ATTENTION_INFO;
 
 		wxTopLevelWindow* self=dynamic_cast< wxTopLevelWindow* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1107,17 +1164,17 @@ public:
 		return 1;
 	}
 
-	// bool wxTopLevelWindow::ShowFullScreen(bool show, long style = wxFULLSCREEN_ALL)
+	// bool wxTopLevelWindow::ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)
 	static int _bind_ShowFullScreen(lua_State *L) {
 		if (!_lg_typecheck_ShowFullScreen(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTopLevelWindow::ShowFullScreen(bool show, long style = wxFULLSCREEN_ALL) function, expected prototype:\nbool wxTopLevelWindow::ShowFullScreen(bool show, long style = wxFULLSCREEN_ALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTopLevelWindow::ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL) function, expected prototype:\nbool wxTopLevelWindow::ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : wxFULLSCREEN_ALL;
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : ::wxFULLSCREEN_ALL;
 
 		wxTopLevelWindow* self=dynamic_cast< wxTopLevelWindow* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1208,7 +1265,6 @@ luna_RegType LunaTraits< wxTopLevelWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxTopLevelWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxTopLevelWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxTopLevelWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

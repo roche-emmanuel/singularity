@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxBookCtrlBase.h>
+
 class luna_wrapper_wxBookCtrlBase {
 public:
 	typedef Luna< wxBookCtrlBase > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxBookCtrlBase* ptr= dynamic_cast< wxBookCtrlBase* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxBookCtrlBase >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxBookCtrlBase* ptr= static_cast< wxBookCtrlBase* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -651,8 +642,6 @@ wxBookCtrlBase* LunaTraits< wxBookCtrlBase >::_bind_ctor(lua_State *L) {
 	// int wxBookCtrlBase::SetSelection(size_t page)
 	// int wxBookCtrlBase::ChangeSelection(size_t page)
 	// bool wxBookCtrlBase::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxBookCtrlBase >::_bind_dtor(wxBookCtrlBase* obj) {
@@ -692,7 +681,6 @@ luna_RegType LunaTraits< wxBookCtrlBase >::methods[] = {
 
 luna_ConverterType LunaTraits< wxBookCtrlBase >::converters[] = {
 	{"wxObject", &luna_wrapper_wxBookCtrlBase::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxBookCtrlBase::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxBookCtrlBase::_cast_from_wxWithImages},
 	{0,0}
 };

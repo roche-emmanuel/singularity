@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellAttrProvider.h>
+
 class luna_wrapper_wxGridCellAttrProvider {
 public:
 	typedef Luna< wxGridCellAttrProvider > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -108,14 +117,34 @@ public:
 
 	// Constructor binds:
 	// wxGridCellAttrProvider::wxGridCellAttrProvider()
-	static wxGridCellAttrProvider* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxGridCellAttrProvider* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGridCellAttrProvider::wxGridCellAttrProvider() function, expected prototype:\nwxGridCellAttrProvider::wxGridCellAttrProvider()\nClass arguments details:\n");
 		}
 
 
 		return new wxGridCellAttrProvider();
+	}
+
+	// wxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data)
+	static wxGridCellAttrProvider* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data) function, expected prototype:\nwxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridCellAttrProvider(L,NULL);
+	}
+
+	// Overload binder for wxGridCellAttrProvider::wxGridCellAttrProvider
+	static wxGridCellAttrProvider* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGridCellAttrProvider, cannot match any of the overloads for function wxGridCellAttrProvider:\n  wxGridCellAttrProvider()\n  wxGridCellAttrProvider(lua_Table *)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCommandProcessor.h>
+
 class luna_wrapper_wxCommandProcessor {
 public:
 	typedef Luna< wxCommandProcessor > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -195,8 +206,8 @@ public:
 
 	// Constructor binds:
 	// wxCommandProcessor::wxCommandProcessor(int maxCommands = -1)
-	static wxCommandProcessor* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxCommandProcessor* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(int maxCommands = -1)\nClass arguments details:\n");
 		}
@@ -206,6 +217,29 @@ public:
 		int maxCommands=luatop>0 ? (int)lua_tointeger(L,1) : -1;
 
 		return new wxCommandProcessor(maxCommands);
+	}
+
+	// wxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1)
+	static wxCommandProcessor* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int maxCommands=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+
+		return new wrapper_wxCommandProcessor(L,NULL, maxCommands);
+	}
+
+	// Overload binder for wxCommandProcessor::wxCommandProcessor
+	static wxCommandProcessor* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxCommandProcessor, cannot match any of the overloads for function wxCommandProcessor:\n  wxCommandProcessor(int)\n  wxCommandProcessor(lua_Table *, int)\n");
+		return NULL;
 	}
 
 

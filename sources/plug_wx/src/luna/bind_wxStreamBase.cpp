@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStreamBase.h>
+
 class luna_wrapper_wxStreamBase {
 public:
 	typedef Luna< wxStreamBase > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -92,14 +101,34 @@ public:
 
 	// Constructor binds:
 	// wxStreamBase::wxStreamBase()
-	static wxStreamBase* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxStreamBase* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxStreamBase::wxStreamBase() function, expected prototype:\nwxStreamBase::wxStreamBase()\nClass arguments details:\n");
 		}
 
 
 		return new wxStreamBase();
+	}
+
+	// wxStreamBase::wxStreamBase(lua_Table * data)
+	static wxStreamBase* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStreamBase::wxStreamBase(lua_Table * data) function, expected prototype:\nwxStreamBase::wxStreamBase(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxStreamBase(L,NULL);
+	}
+
+	// Overload binder for wxStreamBase::wxStreamBase
+	static wxStreamBase* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxStreamBase, cannot match any of the overloads for function wxStreamBase:\n  wxStreamBase()\n  wxStreamBase(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -199,16 +228,16 @@ public:
 		return 1;
 	}
 
-	// void wxStreamBase::Reset(wxStreamError error = wxSTREAM_NO_ERROR)
+	// void wxStreamBase::Reset(wxStreamError error = ::wxSTREAM_NO_ERROR)
 	static int _bind_Reset(lua_State *L) {
 		if (!_lg_typecheck_Reset(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStreamBase::Reset(wxStreamError error = wxSTREAM_NO_ERROR) function, expected prototype:\nvoid wxStreamBase::Reset(wxStreamError error = wxSTREAM_NO_ERROR)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStreamBase::Reset(wxStreamError error = ::wxSTREAM_NO_ERROR) function, expected prototype:\nvoid wxStreamBase::Reset(wxStreamError error = ::wxSTREAM_NO_ERROR)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxStreamError error=luatop>1 ? (wxStreamError)lua_tointeger(L,2) : wxSTREAM_NO_ERROR;
+		wxStreamError error=luatop>1 ? (wxStreamError)lua_tointeger(L,2) : ::wxSTREAM_NO_ERROR;
 
 		wxStreamBase* self=dynamic_cast< wxStreamBase* >(Luna< wxObject >::check(L,1));
 		if(!self) {

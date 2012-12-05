@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEventFilter.h>
+
 class luna_wrapper_wxEventFilter {
 public:
 	typedef Luna< wxEventFilter > luna_t;
@@ -99,8 +101,6 @@ wxEventFilter* LunaTraits< wxEventFilter >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// int wxEventFilter::FilterEvent(wxEvent & event)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxEventFilter >::_bind_dtor(wxEventFilter* obj) {

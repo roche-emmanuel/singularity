@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFlexGridSizer.h>
+
 class luna_wrapper_wxFlexGridSizer {
 public:
 	typedef Luna< wxFlexGridSizer > luna_t;
@@ -76,6 +78,49 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
 		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
 		return true;
 	}
 
@@ -236,14 +281,84 @@ public:
 		return new wxFlexGridSizer(rows, cols, gap);
 	}
 
+	// wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, int vgap, int hgap)
+	static wxFlexGridSizer* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, int vgap, int hgap) function, expected prototype:\nwxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, int vgap, int hgap)\nClass arguments details:\n");
+		}
+
+		int cols=(int)lua_tointeger(L,2);
+		int vgap=(int)lua_tointeger(L,3);
+		int hgap=(int)lua_tointeger(L,4);
+
+		return new wrapper_wxFlexGridSizer(L,NULL, cols, vgap, hgap);
+	}
+
+	// wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, const wxSize & gap = wxSize (0, 0))
+	static wxFlexGridSizer* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, const wxSize & gap = wxSize (0, 0)) function, expected prototype:\nwxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int cols, const wxSize & gap = wxSize (0, 0))\nClass arguments details:\narg 3 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int cols=(int)lua_tointeger(L,2);
+		const wxSize* gap_ptr=luatop>2 ? (Luna< wxSize >::check(L,3)) : NULL;
+		if( luatop>2 && !gap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxFlexGridSizer::wxFlexGridSizer function");
+		}
+		const wxSize & gap=luatop>2 ? *gap_ptr : wxSize (0, 0);
+
+		return new wrapper_wxFlexGridSizer(L,NULL, cols, gap);
+	}
+
+	// wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, int vgap, int hgap)
+	static wxFlexGridSizer* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, int vgap, int hgap) function, expected prototype:\nwxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, int vgap, int hgap)\nClass arguments details:\n");
+		}
+
+		int rows=(int)lua_tointeger(L,2);
+		int cols=(int)lua_tointeger(L,3);
+		int vgap=(int)lua_tointeger(L,4);
+		int hgap=(int)lua_tointeger(L,5);
+
+		return new wrapper_wxFlexGridSizer(L,NULL, rows, cols, vgap, hgap);
+	}
+
+	// wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, const wxSize & gap)
+	static wxFlexGridSizer* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, const wxSize & gap) function, expected prototype:\nwxFlexGridSizer::wxFlexGridSizer(lua_Table * data, int rows, int cols, const wxSize & gap)\nClass arguments details:\narg 4 ID = 20268751\n");
+		}
+
+		int rows=(int)lua_tointeger(L,2);
+		int cols=(int)lua_tointeger(L,3);
+		const wxSize* gap_ptr=(Luna< wxSize >::check(L,4));
+		if( !gap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg gap in wxFlexGridSizer::wxFlexGridSizer function");
+		}
+		const wxSize & gap=*gap_ptr;
+
+		return new wrapper_wxFlexGridSizer(L,NULL, rows, cols, gap);
+	}
+
 	// Overload binder for wxFlexGridSizer::wxFlexGridSizer
 	static wxFlexGridSizer* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
 
-		luaL_error(L, "error in function wxFlexGridSizer, cannot match any of the overloads for function wxFlexGridSizer:\n  wxFlexGridSizer(int, int, int)\n  wxFlexGridSizer(int, const wxSize &)\n  wxFlexGridSizer(int, int, int, int)\n  wxFlexGridSizer(int, int, const wxSize &)\n");
+		luaL_error(L, "error in function wxFlexGridSizer, cannot match any of the overloads for function wxFlexGridSizer:\n  wxFlexGridSizer(int, int, int)\n  wxFlexGridSizer(int, const wxSize &)\n  wxFlexGridSizer(int, int, int, int)\n  wxFlexGridSizer(int, int, const wxSize &)\n  wxFlexGridSizer(lua_Table *, int, int, int)\n  wxFlexGridSizer(lua_Table *, int, const wxSize &)\n  wxFlexGridSizer(lua_Table *, int, int, int, int)\n  wxFlexGridSizer(lua_Table *, int, int, const wxSize &)\n");
 		return NULL;
 	}
 

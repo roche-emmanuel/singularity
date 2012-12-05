@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStyledTextEvent.h>
+
 class luna_wrapper_wxStyledTextEvent {
 public:
 	typedef Luna< wxStyledTextEvent > luna_t;
@@ -1149,8 +1151,6 @@ wxStyledTextEvent* LunaTraits< wxStyledTextEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxStyledTextEvent >::_bind_dtor(wxStyledTextEvent* obj) {

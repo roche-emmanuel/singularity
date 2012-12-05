@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSocketEvent.h>
+
 class luna_wrapper_wxSocketEvent {
 public:
 	typedef Luna< wxSocketEvent > luna_t;
@@ -133,8 +135,6 @@ wxSocketEvent* LunaTraits< wxSocketEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSocketEvent >::_bind_dtor(wxSocketEvent* obj) {

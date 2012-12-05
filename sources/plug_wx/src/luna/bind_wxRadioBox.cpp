@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRadioBox.h>
+
 class luna_wrapper_wxRadioBox {
 public:
 	typedef Luna< wxRadioBox > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRadioBox* ptr= static_cast< wxRadioBox* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRadioBox >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -76,6 +67,36 @@ public:
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
 		if( luatop>8 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9))) ) return false;
 		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<7 || luatop>11 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,6))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,7))) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( luatop>9 && !Luna<void>::has_uniqueid(L,10,56813631) ) return false;
+		if( luatop>9 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,10))) ) return false;
+		if( luatop>10 && lua_isstring(L,11)==0 ) return false;
 		return true;
 	}
 
@@ -277,12 +298,64 @@ public:
 		return new wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name);
 	}
 
+	// wxRadioBox::wxRadioBox(lua_Table * data)
+	static wxRadioBox* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRadioBox::wxRadioBox(lua_Table * data) function, expected prototype:\nwxRadioBox::wxRadioBox(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxRadioBox(L,NULL);
+	}
+
+	// wxRadioBox::wxRadioBox(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr)
+	static wxRadioBox* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRadioBox::wxRadioBox(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr) function, expected prototype:\nwxRadioBox::wxRadioBox(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 25723480\narg 6 ID = 20268751\narg 7 ID = 59507769\narg 10 ID = 56813631\narg 11 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString label(lua_tostring(L,4),lua_objlen(L,4));
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,5));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRadioBox::wxRadioBox function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,6));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRadioBox::wxRadioBox function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,7));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxRadioBox::wxRadioBox function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		int majorDimension=luatop>7 ? (int)lua_tointeger(L,8) : 0;
+		long style=luatop>8 ? (long)lua_tointeger(L,9) : wxRA_SPECIFY_COLS;
+		const wxValidator* validator_ptr=luatop>9 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,10)) : NULL;
+		if( luatop>9 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRadioBox::wxRadioBox function");
+		}
+		const wxValidator & validator=luatop>9 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,11),lua_objlen(L,11));
+
+		return new wrapper_wxRadioBox(L,NULL, parent, id, label, pos, size, choices, majorDimension, style, validator, name);
+	}
+
 	// Overload binder for wxRadioBox::wxRadioBox
 	static wxRadioBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxRadioBox, cannot match any of the overloads for function wxRadioBox:\n  wxRadioBox()\n  wxRadioBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, int, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxRadioBox, cannot match any of the overloads for function wxRadioBox:\n  wxRadioBox()\n  wxRadioBox(wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, int, long, const wxValidator &, const wxString &)\n  wxRadioBox(lua_Table *)\n  wxRadioBox(lua_Table *, wxWindow *, int, const wxString &, const wxPoint &, const wxSize &, const wxArrayString &, int, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -730,7 +803,6 @@ luna_RegType LunaTraits< wxRadioBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRadioBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRadioBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRadioBox::_cast_from_wxTrackable},
 	{0,0}
 };
 

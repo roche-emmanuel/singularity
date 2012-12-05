@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiNotebook.h>
+
 class luna_wrapper_wxAuiNotebook {
 public:
 	typedef Luna< wxAuiNotebook > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxAuiNotebook* ptr= dynamic_cast< wxAuiNotebook* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxAuiNotebook >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxAuiNotebook* ptr= static_cast< wxAuiNotebook* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -426,17 +417,17 @@ public:
 		return 1;
 	}
 
-	// bool wxAuiNotebook::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)
+	// bool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) function, expected prototype:\nbool wxAuiNotebook::Create(wxWindow * parent, int id = wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) function, expected prototype:\nbool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		int id=luatop>2 ? (int)lua_tointeger(L,3) : wxID_ANY;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxAuiNotebook::Create function");
@@ -1078,8 +1069,6 @@ wxAuiNotebook* LunaTraits< wxAuiNotebook >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
 	// int wxBookCtrlBase::SetSelection(size_t page)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiNotebook >::_bind_dtor(wxAuiNotebook* obj) {
@@ -1131,7 +1120,6 @@ luna_RegType LunaTraits< wxAuiNotebook >::methods[] = {
 
 luna_ConverterType LunaTraits< wxAuiNotebook >::converters[] = {
 	{"wxObject", &luna_wrapper_wxAuiNotebook::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxAuiNotebook::_cast_from_wxTrackable},
 	{"wxWithImages", &luna_wrapper_wxAuiNotebook::_cast_from_wxWithImages},
 	{0,0}
 };

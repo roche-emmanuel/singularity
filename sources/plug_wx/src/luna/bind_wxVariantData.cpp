@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVariantData.h>
+
 class luna_wrapper_wxVariantData {
 public:
 	typedef Luna< wxVariantData > luna_t;
@@ -55,8 +57,6 @@ wxVariantData* LunaTraits< wxVariantData >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxVariantData::Eq(wxVariantData & data) const
 	// wxString wxVariantData::GetType() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxVariantData >::_bind_dtor(wxVariantData* obj) {

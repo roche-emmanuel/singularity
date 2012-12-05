@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrintDialog.h>
+
 class luna_wrapper_wxPrintDialog {
 public:
 	typedef Luna< wxPrintDialog > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxPrintDialog* ptr= dynamic_cast< wxPrintDialog* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPrintDialog >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPrintDialog* ptr= static_cast< wxPrintDialog* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +78,6 @@ luna_RegType LunaTraits< wxPrintDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPrintDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPrintDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPrintDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

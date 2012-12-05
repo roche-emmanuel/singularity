@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewRenderer.h>
+
 class luna_wrapper_wxDataViewRenderer {
 public:
 	typedef Luna< wxDataViewRenderer > luna_t;
@@ -103,16 +105,16 @@ public:
 	// (found 0 valid operators)
 
 	// Function binds:
-	// void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = wxELLIPSIZE_MIDDLE)
+	// void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = ::wxELLIPSIZE_MIDDLE)
 	static int _bind_EnableEllipsize(lua_State *L) {
 		if (!_lg_typecheck_EnableEllipsize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = wxELLIPSIZE_MIDDLE) function, expected prototype:\nvoid wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = wxELLIPSIZE_MIDDLE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = ::wxELLIPSIZE_MIDDLE) function, expected prototype:\nvoid wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = ::wxELLIPSIZE_MIDDLE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxEllipsizeMode mode=luatop>1 ? (wxEllipsizeMode)lua_tointeger(L,2) : wxELLIPSIZE_MIDDLE;
+		wxEllipsizeMode mode=luatop>1 ? (wxEllipsizeMode)lua_tointeger(L,2) : ::wxELLIPSIZE_MIDDLE;
 
 		wxDataViewRenderer* self=dynamic_cast< wxDataViewRenderer* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -287,8 +289,6 @@ wxDataViewRenderer* LunaTraits< wxDataViewRenderer >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewRenderer >::_bind_dtor(wxDataViewRenderer* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlResourceHandler.h>
+
 class luna_wrapper_wxXmlResourceHandler {
 public:
 	typedef Luna< wxXmlResourceHandler > luna_t;
@@ -168,8 +170,6 @@ wxXmlResourceHandler* LunaTraits< wxXmlResourceHandler >::_bind_ctor(lua_State *
 	// Abstract methods:
 	// wxObject * wxXmlResourceHandler::DoCreateResource()
 	// bool wxXmlResourceHandler::CanHandle(wxXmlNode * node)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxXmlResourceHandler >::_bind_dtor(wxXmlResourceHandler* obj) {

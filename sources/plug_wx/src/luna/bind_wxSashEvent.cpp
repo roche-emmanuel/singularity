@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSashEvent.h>
+
 class luna_wrapper_wxSashEvent {
 public:
 	typedef Luna< wxSashEvent > luna_t;
@@ -132,8 +134,6 @@ wxSashEvent* LunaTraits< wxSashEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSashEvent >::_bind_dtor(wxSashEvent* obj) {

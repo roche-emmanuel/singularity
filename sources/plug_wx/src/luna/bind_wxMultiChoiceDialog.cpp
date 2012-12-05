@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMultiChoiceDialog.h>
+
 class luna_wrapper_wxMultiChoiceDialog {
 public:
 	typedef Luna< wxMultiChoiceDialog > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxMultiChoiceDialog* ptr= dynamic_cast< wxMultiChoiceDialog* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMultiChoiceDialog >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMultiChoiceDialog* ptr= static_cast< wxMultiChoiceDialog* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -80,6 +71,40 @@ public:
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
 		if( luatop>5 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,6))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_isstring(L,6)==0 ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,25723480) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,8))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
+		if( luatop>6 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,7))) ) return false;
 		return true;
 	}
 
@@ -154,12 +179,65 @@ public:
 		return new wxMultiChoiceDialog(parent, message, caption, choices, style, pos);
 	}
 
+	// wxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, int n, const wxString * choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition)
+	static wxMultiChoiceDialog* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, int n, const wxString * choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, int n, const wxString * choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 88196105\narg 8 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxString message(lua_tostring(L,3),lua_objlen(L,3));
+		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
+		int n=(int)lua_tointeger(L,5);
+		wxString choices(lua_tostring(L,6),lua_objlen(L,6));
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxCHOICEDLG_STYLE;
+		const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
+		if( luatop>7 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxMultiChoiceDialog::wxMultiChoiceDialog function");
+		}
+		const wxPoint & pos=luatop>7 ? *pos_ptr : wxDefaultPosition;
+
+		return new wrapper_wxMultiChoiceDialog(L,NULL, parent, message, caption, n, &choices, style, pos);
+	}
+
+	// wxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, const wxArrayString & choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition)
+	static wxMultiChoiceDialog* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, const wxArrayString & choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxMultiChoiceDialog::wxMultiChoiceDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption, const wxArrayString & choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 59507769\narg 7 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxString message(lua_tostring(L,3),lua_objlen(L,3));
+		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,5));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxMultiChoiceDialog::wxMultiChoiceDialog function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxCHOICEDLG_STYLE;
+		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
+		if( luatop>6 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxMultiChoiceDialog::wxMultiChoiceDialog function");
+		}
+		const wxPoint & pos=luatop>6 ? *pos_ptr : wxDefaultPosition;
+
+		return new wrapper_wxMultiChoiceDialog(L,NULL, parent, message, caption, choices, style, pos);
+	}
+
 	// Overload binder for wxMultiChoiceDialog::wxMultiChoiceDialog
 	static wxMultiChoiceDialog* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxMultiChoiceDialog, cannot match any of the overloads for function wxMultiChoiceDialog:\n  wxMultiChoiceDialog(wxWindow *, const wxString &, const wxString &, int, const wxString *, long, const wxPoint &)\n  wxMultiChoiceDialog(wxWindow *, const wxString &, const wxString &, const wxArrayString &, long, const wxPoint &)\n");
+		luaL_error(L, "error in function wxMultiChoiceDialog, cannot match any of the overloads for function wxMultiChoiceDialog:\n  wxMultiChoiceDialog(wxWindow *, const wxString &, const wxString &, int, const wxString *, long, const wxPoint &)\n  wxMultiChoiceDialog(wxWindow *, const wxString &, const wxString &, const wxArrayString &, long, const wxPoint &)\n  wxMultiChoiceDialog(lua_Table *, wxWindow *, const wxString &, const wxString &, int, const wxString *, long, const wxPoint &)\n  wxMultiChoiceDialog(lua_Table *, wxWindow *, const wxString &, const wxString &, const wxArrayString &, long, const wxPoint &)\n");
 		return NULL;
 	}
 
@@ -236,7 +314,6 @@ luna_RegType LunaTraits< wxMultiChoiceDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMultiChoiceDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMultiChoiceDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxMultiChoiceDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

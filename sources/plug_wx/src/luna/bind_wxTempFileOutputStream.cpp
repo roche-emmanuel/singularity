@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTempFileOutputStream.h>
+
 class luna_wrapper_wxTempFileOutputStream {
 public:
 	typedef Luna< wxTempFileOutputStream > luna_t;
@@ -40,10 +42,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -67,8 +77,8 @@ public:
 
 	// Constructor binds:
 	// wxTempFileOutputStream::wxTempFileOutputStream(const wxString & fileName)
-	static wxTempFileOutputStream* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxTempFileOutputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxTempFileOutputStream::wxTempFileOutputStream(const wxString & fileName) function, expected prototype:\nwxTempFileOutputStream::wxTempFileOutputStream(const wxString & fileName)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -76,6 +86,27 @@ public:
 		wxString fileName(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new wxTempFileOutputStream(fileName);
+	}
+
+	// wxTempFileOutputStream::wxTempFileOutputStream(lua_Table * data, const wxString & fileName)
+	static wxTempFileOutputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTempFileOutputStream::wxTempFileOutputStream(lua_Table * data, const wxString & fileName) function, expected prototype:\nwxTempFileOutputStream::wxTempFileOutputStream(lua_Table * data, const wxString & fileName)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString fileName(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxTempFileOutputStream(L,NULL, fileName);
+	}
+
+	// Overload binder for wxTempFileOutputStream::wxTempFileOutputStream
+	static wxTempFileOutputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxTempFileOutputStream, cannot match any of the overloads for function wxTempFileOutputStream:\n  wxTempFileOutputStream(const wxString &)\n  wxTempFileOutputStream(lua_Table *, const wxString &)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMenu.h>
+
 class luna_wrapper_wxMenu {
 public:
 	typedef Luna< wxMenu > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxMenu* ptr= static_cast< wxMenu* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxMenu >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -70,6 +61,31 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -517,23 +533,64 @@ public:
 		return new wxMenu(title, style);
 	}
 
+	// wxMenu::wxMenu(lua_Table * data)
+	static wxMenu* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMenu::wxMenu(lua_Table * data) function, expected prototype:\nwxMenu::wxMenu(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMenu(L,NULL);
+	}
+
+	// wxMenu::wxMenu(lua_Table * data, long style)
+	static wxMenu* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMenu::wxMenu(lua_Table * data, long style) function, expected prototype:\nwxMenu::wxMenu(lua_Table * data, long style)\nClass arguments details:\n");
+		}
+
+		long style=(long)lua_tointeger(L,2);
+
+		return new wrapper_wxMenu(L,NULL, style);
+	}
+
+	// wxMenu::wxMenu(lua_Table * data, const wxString & title, long style = 0)
+	static wxMenu* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMenu::wxMenu(lua_Table * data, const wxString & title, long style = 0) function, expected prototype:\nwxMenu::wxMenu(lua_Table * data, const wxString & title, long style = 0)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+		long style=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxMenu(L,NULL, title, style);
+	}
+
 	// Overload binder for wxMenu::wxMenu
 	static wxMenu* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxMenu, cannot match any of the overloads for function wxMenu:\n  wxMenu()\n  wxMenu(long)\n  wxMenu(const wxString &, long)\n");
+		luaL_error(L, "error in function wxMenu, cannot match any of the overloads for function wxMenu:\n  wxMenu()\n  wxMenu(long)\n  wxMenu(const wxString &, long)\n  wxMenu(lua_Table *)\n  wxMenu(lua_Table *, long)\n  wxMenu(lua_Table *, const wxString &, long)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// wxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)
+	// wxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)
 	static int _bind_Append_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Append(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -541,7 +598,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
-		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : wxITEM_NORMAL;
+		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
 
 		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1109,11 +1166,11 @@ public:
 		return 1;
 	}
 
-	// wxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)
+	// wxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)
 	static int _bind_Insert_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)\nClass arguments details:\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Insert(size_t pos, int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)\nClass arguments details:\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1122,7 +1179,7 @@ public:
 		int id=(int)lua_tointeger(L,3);
 		wxString item(lua_tostring(L,4),lua_objlen(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
-		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : wxITEM_NORMAL;
+		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
 
 		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1284,11 +1341,11 @@ public:
 		return 1;
 	}
 
-	// wxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)
+	// wxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)
 	static int _bind_Prepend_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Prepend_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL) function, expected prototype:\nwxMenuItem * wxMenu::Prepend(int id, const wxString & item = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -1296,7 +1353,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
-		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : wxITEM_NORMAL;
+		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
 
 		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -1772,7 +1829,6 @@ luna_RegType LunaTraits< wxMenu >::methods[] = {
 
 luna_ConverterType LunaTraits< wxMenu >::converters[] = {
 	{"wxObject", &luna_wrapper_wxMenu::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxMenu::_cast_from_wxTrackable},
 	{0,0}
 };
 

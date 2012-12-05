@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPopupTransientWindow.h>
+
 class luna_wrapper_wxPopupTransientWindow {
 public:
 	typedef Luna< wxPopupTransientWindow > luna_t;
@@ -38,25 +40,26 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxPopupTransientWindow* ptr= static_cast< wxPopupTransientWindow* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxPopupTransientWindow >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -88,19 +91,43 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = wxBORDER_NONE)
-	static wxPopupTransientWindow* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = ::wxBORDER_NONE)
+	static wxPopupTransientWindow* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = wxBORDER_NONE) function, expected prototype:\nwxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = wxBORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = ::wxBORDER_NONE) function, expected prototype:\nwxPopupTransientWindow::wxPopupTransientWindow(wxWindow * parent, int flags = ::wxBORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxBORDER_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxBORDER_NONE;
 
 		return new wxPopupTransientWindow(parent, flags);
+	}
+
+	// wxPopupTransientWindow::wxPopupTransientWindow(lua_Table * data, wxWindow * parent, int flags = ::wxBORDER_NONE)
+	static wxPopupTransientWindow* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPopupTransientWindow::wxPopupTransientWindow(lua_Table * data, wxWindow * parent, int flags = ::wxBORDER_NONE) function, expected prototype:\nwxPopupTransientWindow::wxPopupTransientWindow(lua_Table * data, wxWindow * parent, int flags = ::wxBORDER_NONE)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxBORDER_NONE;
+
+		return new wrapper_wxPopupTransientWindow(L,NULL, parent, flags);
+	}
+
+	// Overload binder for wxPopupTransientWindow::wxPopupTransientWindow
+	static wxPopupTransientWindow* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPopupTransientWindow, cannot match any of the overloads for function wxPopupTransientWindow:\n  wxPopupTransientWindow(wxWindow *, int)\n  wxPopupTransientWindow(lua_Table *, wxWindow *, int)\n");
+		return NULL;
 	}
 
 
@@ -198,7 +225,6 @@ luna_RegType LunaTraits< wxPopupTransientWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxPopupTransientWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxPopupTransientWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxPopupTransientWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

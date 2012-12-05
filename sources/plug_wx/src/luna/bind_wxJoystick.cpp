@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxJoystick.h>
+
 class luna_wrapper_wxJoystick {
 public:
 	typedef Luna< wxJoystick > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -313,18 +324,41 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxJoystick::wxJoystick(int joystick = wxJOYSTICK1)
-	static wxJoystick* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxJoystick::wxJoystick(int joystick = ::wxJOYSTICK1)
+	static wxJoystick* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxJoystick::wxJoystick(int joystick = wxJOYSTICK1) function, expected prototype:\nwxJoystick::wxJoystick(int joystick = wxJOYSTICK1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxJoystick::wxJoystick(int joystick = ::wxJOYSTICK1) function, expected prototype:\nwxJoystick::wxJoystick(int joystick = ::wxJOYSTICK1)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int joystick=luatop>0 ? (int)lua_tointeger(L,1) : wxJOYSTICK1;
+		int joystick=luatop>0 ? (int)lua_tointeger(L,1) : ::wxJOYSTICK1;
 
 		return new wxJoystick(joystick);
+	}
+
+	// wxJoystick::wxJoystick(lua_Table * data, int joystick = ::wxJOYSTICK1)
+	static wxJoystick* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxJoystick::wxJoystick(lua_Table * data, int joystick = ::wxJOYSTICK1) function, expected prototype:\nwxJoystick::wxJoystick(lua_Table * data, int joystick = ::wxJOYSTICK1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int joystick=luatop>1 ? (int)lua_tointeger(L,2) : ::wxJOYSTICK1;
+
+		return new wrapper_wxJoystick(L,NULL, joystick);
+	}
+
+	// Overload binder for wxJoystick::wxJoystick
+	static wxJoystick* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxJoystick, cannot match any of the overloads for function wxJoystick:\n  wxJoystick(int)\n  wxJoystick(lua_Table *, int)\n");
+		return NULL;
 	}
 
 

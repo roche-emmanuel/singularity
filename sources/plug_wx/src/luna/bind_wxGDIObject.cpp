@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGDIObject.h>
+
 class luna_wrapper_wxGDIObject {
 public:
 	typedef Luna< wxGDIObject > luna_t;

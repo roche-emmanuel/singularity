@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxModule.h>
+
 class luna_wrapper_wxModule {
 public:
 	typedef Luna< wxModule > luna_t;
@@ -104,8 +106,6 @@ wxModule* LunaTraits< wxModule >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// void wxModule::OnExit()
 	// bool wxModule::OnInit()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxModule >::_bind_dtor(wxModule* obj) {

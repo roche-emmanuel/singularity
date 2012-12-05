@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDragImage.h>
+
 class luna_wrapper_wxDragImage {
 public:
 	typedef Luna< wxDragImage > luna_t;
@@ -100,6 +102,75 @@ public:
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,1))) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_8(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxTreeCtrl* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,28400299) ) return false;
+		if( (!dynamic_cast< wxTreeItemId* >(Luna< wxTreeItemId >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -290,6 +361,135 @@ public:
 		return new wxDragImage(listCtrl, id);
 	}
 
+	// wxDragImage::wxDragImage(lua_Table * data)
+	static wxDragImage* _bind_ctor_overload_7(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDragImage(L,NULL);
+	}
+
+	// wxDragImage::wxDragImage(lua_Table * data, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))
+	static wxDragImage* _bind_ctor_overload_8(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data, const wxBitmap & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* image_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		if( !image_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg image in wxDragImage::wxDragImage function");
+		}
+		const wxBitmap & image=*image_ptr;
+		const wxCursor* cursor_ptr=luatop>2 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3)) : NULL;
+		if( luatop>2 && !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
+		}
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !cursorHotspot_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
+		}
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+
+		return new wrapper_wxDragImage(L,NULL, image, cursor, cursorHotspot);
+	}
+
+	// wxDragImage::wxDragImage(lua_Table * data, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))
+	static wxDragImage* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data, const wxIcon & image, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxIcon* image_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		if( !image_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg image in wxDragImage::wxDragImage function");
+		}
+		const wxIcon & image=*image_ptr;
+		const wxCursor* cursor_ptr=luatop>2 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3)) : NULL;
+		if( luatop>2 && !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
+		}
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !cursorHotspot_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
+		}
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+
+		return new wrapper_wxDragImage(L,NULL, image, cursor, cursorHotspot);
+	}
+
+	// wxDragImage::wxDragImage(lua_Table * data, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))
+	static wxDragImage* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0)) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data, const wxString & text, const wxCursor & cursor = wxNullCursor, const wxPoint & cursorHotspot = wxPoint (0, 0))\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString text(lua_tostring(L,2),lua_objlen(L,2));
+		const wxCursor* cursor_ptr=luatop>2 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,3)) : NULL;
+		if( luatop>2 && !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxDragImage::wxDragImage function");
+		}
+		const wxCursor & cursor=luatop>2 ? *cursor_ptr : wxNullCursor;
+		const wxPoint* cursorHotspot_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !cursorHotspot_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursorHotspot in wxDragImage::wxDragImage function");
+		}
+		const wxPoint & cursorHotspot=luatop>3 ? *cursorHotspot_ptr : wxPoint (0, 0);
+
+		return new wrapper_wxDragImage(L,NULL, text, cursor, cursorHotspot);
+	}
+
+	// wxDragImage::wxDragImage(lua_Table * data, const wxTreeCtrl & treeCtrl, wxTreeItemId & id)
+	static wxDragImage* _bind_ctor_overload_11(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data, const wxTreeCtrl & treeCtrl, wxTreeItemId & id) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data, const wxTreeCtrl & treeCtrl, wxTreeItemId & id)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 28400299\n");
+		}
+
+		const wxTreeCtrl* treeCtrl_ptr=dynamic_cast< wxTreeCtrl* >(Luna< wxObject >::check(L,2));
+		if( !treeCtrl_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg treeCtrl in wxDragImage::wxDragImage function");
+		}
+		const wxTreeCtrl & treeCtrl=*treeCtrl_ptr;
+		wxTreeItemId* id_ptr=(Luna< wxTreeItemId >::check(L,3));
+		if( !id_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg id in wxDragImage::wxDragImage function");
+		}
+		wxTreeItemId & id=*id_ptr;
+
+		return new wrapper_wxDragImage(L,NULL, treeCtrl, id);
+	}
+
+	// wxDragImage::wxDragImage(lua_Table * data, const wxListCtrl & listCtrl, long id)
+	static wxDragImage* _bind_ctor_overload_12(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragImage::wxDragImage(lua_Table * data, const wxListCtrl & listCtrl, long id) function, expected prototype:\nwxDragImage::wxDragImage(lua_Table * data, const wxListCtrl & listCtrl, long id)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxListCtrl* listCtrl_ptr=dynamic_cast< wxListCtrl* >(Luna< wxObject >::check(L,2));
+		if( !listCtrl_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg listCtrl in wxDragImage::wxDragImage function");
+		}
+		const wxListCtrl & listCtrl=*listCtrl_ptr;
+		long id=(long)lua_tointeger(L,3);
+
+		return new wrapper_wxDragImage(L,NULL, listCtrl, id);
+	}
+
 	// Overload binder for wxDragImage::wxDragImage
 	static wxDragImage* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
@@ -298,8 +498,14 @@ public:
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
+		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
+		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
+		if (_lg_typecheck_ctor_overload_11(L)) return _bind_ctor_overload_11(L);
+		if (_lg_typecheck_ctor_overload_12(L)) return _bind_ctor_overload_12(L);
 
-		luaL_error(L, "error in function wxDragImage, cannot match any of the overloads for function wxDragImage:\n  wxDragImage()\n  wxDragImage(const wxBitmap &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxIcon &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxString &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxTreeCtrl &, wxTreeItemId &)\n  wxDragImage(const wxListCtrl &, long)\n");
+		luaL_error(L, "error in function wxDragImage, cannot match any of the overloads for function wxDragImage:\n  wxDragImage()\n  wxDragImage(const wxBitmap &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxIcon &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxString &, const wxCursor &, const wxPoint &)\n  wxDragImage(const wxTreeCtrl &, wxTreeItemId &)\n  wxDragImage(const wxListCtrl &, long)\n  wxDragImage(lua_Table *)\n  wxDragImage(lua_Table *, const wxBitmap &, const wxCursor &, const wxPoint &)\n  wxDragImage(lua_Table *, const wxIcon &, const wxCursor &, const wxPoint &)\n  wxDragImage(lua_Table *, const wxString &, const wxCursor &, const wxPoint &)\n  wxDragImage(lua_Table *, const wxTreeCtrl &, wxTreeItemId &)\n  wxDragImage(lua_Table *, const wxListCtrl &, long)\n");
 		return NULL;
 	}
 

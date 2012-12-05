@@ -351,18 +351,18 @@ public:
 
 
 	// Function binds:
-	// void wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)
+	// void wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)
 	static int _bind_AddLongOption(lua_State *L) {
 		if (!_lg_typecheck_AddLongOption(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddLongOption(const wxString & lng, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString lng(lua_tostring(L,2),lua_objlen(L,2));
 		wxString desc(lua_tostring(L,3),lua_objlen(L,3));
-		wxCmdLineParamType type=luatop>3 ? (wxCmdLineParamType)lua_tointeger(L,4) : wxCMD_LINE_VAL_STRING;
+		wxCmdLineParamType type=luatop>3 ? (wxCmdLineParamType)lua_tointeger(L,4) : ::wxCMD_LINE_VAL_STRING;
 		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
@@ -398,11 +398,11 @@ public:
 		return 0;
 	}
 
-	// void wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)
+	// void wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)
 	static int _bind_AddOption(lua_State *L) {
 		if (!_lg_typecheck_AddOption(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddOption(const wxString & name, const wxString & lng = wxEmptyString, const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -410,7 +410,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString lng(lua_tostring(L,3),lua_objlen(L,3));
 		wxString desc(lua_tostring(L,4),lua_objlen(L,4));
-		wxCmdLineParamType type=luatop>4 ? (wxCmdLineParamType)lua_tointeger(L,5) : wxCMD_LINE_VAL_STRING;
+		wxCmdLineParamType type=luatop>4 ? (wxCmdLineParamType)lua_tointeger(L,5) : ::wxCMD_LINE_VAL_STRING;
 		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
@@ -423,17 +423,17 @@ public:
 		return 0;
 	}
 
-	// void wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)
+	// void wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)
 	static int _bind_AddParam(lua_State *L) {
 		if (!_lg_typecheck_AddParam(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0) function, expected prototype:\nvoid wxCmdLineParser::AddParam(const wxString & desc = wxEmptyString, wxCmdLineParamType type = ::wxCMD_LINE_VAL_STRING, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString desc(lua_tostring(L,2),lua_objlen(L,2));
-		wxCmdLineParamType type=luatop>2 ? (wxCmdLineParamType)lua_tointeger(L,3) : wxCMD_LINE_VAL_STRING;
+		wxCmdLineParamType type=luatop>2 ? (wxCmdLineParamType)lua_tointeger(L,3) : ::wxCMD_LINE_VAL_STRING;
 		int flags=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
 		wxCmdLineParser* self=(Luna< wxCmdLineParser >::check(L,1));
@@ -859,17 +859,17 @@ public:
 		return 1;
 	}
 
-	// static wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = wxCMD_LINE_SPLIT_DOS)
+	// static wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = ::wxCMD_LINE_SPLIT_DOS)
 	static int _bind_ConvertStringToArgs(lua_State *L) {
 		if (!_lg_typecheck_ConvertStringToArgs(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = wxCMD_LINE_SPLIT_DOS) function, expected prototype:\nstatic wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = wxCMD_LINE_SPLIT_DOS)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = ::wxCMD_LINE_SPLIT_DOS) function, expected prototype:\nstatic wxArrayString wxCmdLineParser::ConvertStringToArgs(const wxString & cmdline, wxCmdLineSplitType flags = ::wxCMD_LINE_SPLIT_DOS)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString cmdline(lua_tostring(L,1),lua_objlen(L,1));
-		wxCmdLineSplitType flags=luatop>1 ? (wxCmdLineSplitType)lua_tointeger(L,2) : wxCMD_LINE_SPLIT_DOS;
+		wxCmdLineSplitType flags=luatop>1 ? (wxCmdLineSplitType)lua_tointeger(L,2) : ::wxCMD_LINE_SPLIT_DOS;
 
 		wxArrayString stack_lret = wxCmdLineParser::ConvertStringToArgs(cmdline, flags);
 		wxArrayString* lret = new wxArrayString(stack_lret);

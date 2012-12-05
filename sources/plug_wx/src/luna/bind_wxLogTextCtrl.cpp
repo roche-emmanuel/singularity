@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogTextCtrl.h>
+
 class luna_wrapper_wxLogTextCtrl {
 public:
 	typedef Luna< wxLogTextCtrl > luna_t;
@@ -40,10 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxTextCtrl* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxTextCtrl* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -55,8 +67,8 @@ public:
 
 	// Constructor binds:
 	// wxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl)
-	static wxLogTextCtrl* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogTextCtrl* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
@@ -64,6 +76,27 @@ public:
 		wxTextCtrl* pTextCtrl=dynamic_cast< wxTextCtrl* >(Luna< wxObject >::check(L,1));
 
 		return new wxLogTextCtrl(pTextCtrl);
+	}
+
+	// wxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl)
+	static wxLogTextCtrl* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxTextCtrl* pTextCtrl=dynamic_cast< wxTextCtrl* >(Luna< wxObject >::check(L,2));
+
+		return new wrapper_wxLogTextCtrl(L,NULL, pTextCtrl);
+	}
+
+	// Overload binder for wxLogTextCtrl::wxLogTextCtrl
+	static wxLogTextCtrl* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogTextCtrl, cannot match any of the overloads for function wxLogTextCtrl:\n  wxLogTextCtrl(wxTextCtrl *)\n  wxLogTextCtrl(lua_Table *, wxTextCtrl *)\n");
+		return NULL;
 	}
 
 

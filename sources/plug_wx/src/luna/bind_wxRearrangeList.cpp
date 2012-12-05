@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRearrangeList.h>
+
 class luna_wrapper_wxRearrangeList {
 public:
 	typedef Luna< wxRearrangeList > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxRearrangeList* ptr= dynamic_cast< wxRearrangeList* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRearrangeList >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRearrangeList* ptr= static_cast< wxRearrangeList* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,6 +78,36 @@ public:
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
 		if( luatop>7 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8))) ) return false;
 		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<7 || luatop>10 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,47342076) ) return false;
+		if( (!dynamic_cast< wxArrayInt* >(Luna< wxArrayInt >::check(L,6))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,7))) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
+		if( luatop>8 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9))) ) return false;
+		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
 	}
 
@@ -196,12 +217,67 @@ public:
 		return new wxRearrangeList(parent, id, pos, size, order, items, style, validator, name);
 	}
 
+	// wxRearrangeList::wxRearrangeList(lua_Table * data)
+	static wxRearrangeList* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRearrangeList::wxRearrangeList(lua_Table * data) function, expected prototype:\nwxRearrangeList::wxRearrangeList(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxRearrangeList(L,NULL);
+	}
+
+	// wxRearrangeList::wxRearrangeList(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)
+	static wxRearrangeList* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRearrangeList::wxRearrangeList(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) function, expected prototype:\nwxRearrangeList::wxRearrangeList(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 47342076\narg 7 ID = 59507769\narg 9 ID = 56813631\narg 10 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxRearrangeList::wxRearrangeList function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,5));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRearrangeList::wxRearrangeList function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayInt* order_ptr=(Luna< wxArrayInt >::check(L,6));
+		if( !order_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg order in wxRearrangeList::wxRearrangeList function");
+		}
+		const wxArrayInt & order=*order_ptr;
+		const wxArrayString* items_ptr=(Luna< wxArrayString >::check(L,7));
+		if( !items_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg items in wxRearrangeList::wxRearrangeList function");
+		}
+		const wxArrayString & items=*items_ptr;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : 0;
+		const wxValidator* validator_ptr=luatop>8 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,9)) : NULL;
+		if( luatop>8 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRearrangeList::wxRearrangeList function");
+		}
+		const wxValidator & validator=luatop>8 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,10),lua_objlen(L,10));
+
+		return new wrapper_wxRearrangeList(L,NULL, parent, id, pos, size, order, items, style, validator, name);
+	}
+
 	// Overload binder for wxRearrangeList::wxRearrangeList
 	static wxRearrangeList* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxRearrangeList, cannot match any of the overloads for function wxRearrangeList:\n  wxRearrangeList()\n  wxRearrangeList(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxRearrangeList, cannot match any of the overloads for function wxRearrangeList:\n  wxRearrangeList()\n  wxRearrangeList(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxRearrangeList(lua_Table *)\n  wxRearrangeList(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -387,7 +463,6 @@ luna_RegType LunaTraits< wxRearrangeList >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRearrangeList >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRearrangeList::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRearrangeList::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxRearrangeList::_cast_from_wxItemContainerImmutable},
 	{0,0}
 };

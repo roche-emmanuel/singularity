@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextValidator.h>
+
 class luna_wrapper_wxTextValidator {
 public:
 	typedef Luna< wxTextValidator > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxTextValidator* ptr= static_cast< wxTextValidator* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxTextValidator >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
@@ -65,6 +56,25 @@ public:
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxTextValidator* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -183,27 +193,60 @@ public:
 		return new wxTextValidator(validator);
 	}
 
-	// wxTextValidator::wxTextValidator(long style = wxFILTER_NONE, wxString * valPtr = NULL)
+	// wxTextValidator::wxTextValidator(long style = ::wxFILTER_NONE, wxString * valPtr = NULL)
 	static wxTextValidator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextValidator::wxTextValidator(long style = wxFILTER_NONE, wxString * valPtr = NULL) function, expected prototype:\nwxTextValidator::wxTextValidator(long style = wxFILTER_NONE, wxString * valPtr = NULL)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxTextValidator::wxTextValidator(long style = ::wxFILTER_NONE, wxString * valPtr = NULL) function, expected prototype:\nwxTextValidator::wxTextValidator(long style = ::wxFILTER_NONE, wxString * valPtr = NULL)\nClass arguments details:\narg 2 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long style=luatop>0 ? (long)lua_tointeger(L,1) : wxFILTER_NONE;
+		long style=luatop>0 ? (long)lua_tointeger(L,1) : ::wxFILTER_NONE;
 		wxString valPtr(lua_tostring(L,2),lua_objlen(L,2));
 
 		return new wxTextValidator(style, &valPtr);
+	}
+
+	// wxTextValidator::wxTextValidator(lua_Table * data, const wxTextValidator & validator)
+	static wxTextValidator* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextValidator::wxTextValidator(lua_Table * data, const wxTextValidator & validator) function, expected prototype:\nwxTextValidator::wxTextValidator(lua_Table * data, const wxTextValidator & validator)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxTextValidator* validator_ptr=dynamic_cast< wxTextValidator* >(Luna< wxObject >::check(L,2));
+		if( !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxTextValidator::wxTextValidator function");
+		}
+		const wxTextValidator & validator=*validator_ptr;
+
+		return new wrapper_wxTextValidator(L,NULL, validator);
+	}
+
+	// wxTextValidator::wxTextValidator(lua_Table * data, long style = ::wxFILTER_NONE, wxString * valPtr = NULL)
+	static wxTextValidator* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextValidator::wxTextValidator(lua_Table * data, long style = ::wxFILTER_NONE, wxString * valPtr = NULL) function, expected prototype:\nwxTextValidator::wxTextValidator(lua_Table * data, long style = ::wxFILTER_NONE, wxString * valPtr = NULL)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		long style=luatop>1 ? (long)lua_tointeger(L,2) : ::wxFILTER_NONE;
+		wxString valPtr(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxTextValidator(L,NULL, style, &valPtr);
 	}
 
 	// Overload binder for wxTextValidator::wxTextValidator
 	static wxTextValidator* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxTextValidator, cannot match any of the overloads for function wxTextValidator:\n  wxTextValidator(const wxTextValidator &)\n  wxTextValidator(long, wxString *)\n");
+		luaL_error(L, "error in function wxTextValidator, cannot match any of the overloads for function wxTextValidator:\n  wxTextValidator(const wxTextValidator &)\n  wxTextValidator(long, wxString *)\n  wxTextValidator(lua_Table *, const wxTextValidator &)\n  wxTextValidator(lua_Table *, long, wxString *)\n");
 		return NULL;
 	}
 
@@ -536,7 +579,6 @@ luna_RegType LunaTraits< wxTextValidator >::methods[] = {
 
 luna_ConverterType LunaTraits< wxTextValidator >::converters[] = {
 	{"wxObject", &luna_wrapper_wxTextValidator::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxTextValidator::_cast_from_wxTrackable},
 	{0,0}
 };
 

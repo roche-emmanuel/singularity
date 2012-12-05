@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTipProvider.h>
+
 class luna_wrapper_wxTipProvider {
 public:
 	typedef Luna< wxTipProvider > luna_t;
@@ -118,8 +120,6 @@ wxTipProvider* LunaTraits< wxTipProvider >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxString wxTipProvider::GetTip()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTipProvider >::_bind_dtor(wxTipProvider* obj) {

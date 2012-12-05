@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxApp.h>
+
 class luna_wrapper_wxApp {
 public:
 	typedef Luna< wxApp > luna_t;
@@ -38,17 +40,6 @@ public:
 		return 1;
 	};
 
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxApp* ptr= static_cast< wxApp* >(Luna< wxTrackable >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxApp >::push(L,ptr,false);
-		return 1;
-	};
-
 	static int _cast_from_wxEventFilter(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxApp* ptr= dynamic_cast< wxApp* >(Luna< wxEventFilter >::check(L,1));
@@ -62,9 +53,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -165,14 +163,34 @@ public:
 
 	// Constructor binds:
 	// wxApp::wxApp()
-	static wxApp* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxApp* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxApp::wxApp() function, expected prototype:\nwxApp::wxApp()\nClass arguments details:\n");
 		}
 
 
 		return new wxApp();
+	}
+
+	// wxApp::wxApp(lua_Table * data)
+	static wxApp* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxApp::wxApp(lua_Table * data) function, expected prototype:\nwxApp::wxApp(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxApp(L,NULL);
+	}
+
+	// Overload binder for wxApp::wxApp
+	static wxApp* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxApp, cannot match any of the overloads for function wxApp:\n  wxApp()\n  wxApp(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -482,7 +500,6 @@ luna_RegType LunaTraits< wxApp >::methods[] = {
 
 luna_ConverterType LunaTraits< wxApp >::converters[] = {
 	{"wxObject", &luna_wrapper_wxApp::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxApp::_cast_from_wxTrackable},
 	{"wxEventFilter", &luna_wrapper_wxApp::_cast_from_wxEventFilter},
 	{0,0}
 };

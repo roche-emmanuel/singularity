@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSpinEvent.h>
+
 class luna_wrapper_wxSpinEvent {
 public:
 	typedef Luna< wxSpinEvent > luna_t;
@@ -105,8 +107,6 @@ wxSpinEvent* LunaTraits< wxSpinEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSpinEvent >::_bind_dtor(wxSpinEvent* obj) {

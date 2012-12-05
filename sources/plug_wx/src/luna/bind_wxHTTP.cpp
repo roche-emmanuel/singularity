@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHTTP.h>
+
 class luna_wrapper_wxHTTP {
 public:
 	typedef Luna< wxHTTP > luna_t;
@@ -315,8 +317,6 @@ wxHTTP* LunaTraits< wxHTTP >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxProtocol::Abort()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHTTP >::_bind_dtor(wxHTTP* obj) {

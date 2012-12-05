@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridRangeSelectEvent.h>
+
 class luna_wrapper_wxGridRangeSelectEvent {
 public:
 	typedef Luna< wxGridRangeSelectEvent > luna_t;
@@ -335,8 +337,6 @@ wxGridRangeSelectEvent* LunaTraits< wxGridRangeSelectEvent >::_bind_ctor(lua_Sta
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridRangeSelectEvent >::_bind_dtor(wxGridRangeSelectEvent* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTreeListEvent.h>
+
 class luna_wrapper_wxTreeListEvent {
 public:
 	typedef Luna< wxTreeListEvent > luna_t;
@@ -104,20 +106,20 @@ public:
 		return 1;
 	}
 
-	// unsigned wxTreeListEvent::GetColumn() const
+	// unsigned int wxTreeListEvent::GetColumn() const
 	static int _bind_GetColumn(lua_State *L) {
 		if (!_lg_typecheck_GetColumn(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned wxTreeListEvent::GetColumn() const function, expected prototype:\nunsigned wxTreeListEvent::GetColumn() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxTreeListEvent::GetColumn() const function, expected prototype:\nunsigned int wxTreeListEvent::GetColumn() const\nClass arguments details:\n");
 		}
 
 
 		wxTreeListEvent* self=dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned wxTreeListEvent::GetColumn() const");
+			luaL_error(L, "Invalid object in function call unsigned int wxTreeListEvent::GetColumn() const");
 		}
-		unsigned lret = self->GetColumn();
+		unsigned int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -132,8 +134,6 @@ wxTreeListEvent* LunaTraits< wxTreeListEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTreeListEvent >::_bind_dtor(wxTreeListEvent* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCheckListBox.h>
+
 class luna_wrapper_wxCheckListBox {
 public:
 	typedef Luna< wxCheckListBox > luna_t;
@@ -30,17 +32,6 @@ public:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
 		wxCheckListBox* ptr= dynamic_cast< wxCheckListBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxCheckListBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxCheckListBox* ptr= static_cast< wxCheckListBox* >(Luna< wxTrackable >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -85,6 +76,34 @@ public:
 		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,56813631) ) return false;
 		if( luatop>6 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,7))) ) return false;
 		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>9 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,6))) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8))) ) return false;
+		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
 		return true;
 	}
 
@@ -174,12 +193,62 @@ public:
 		return new wxCheckListBox(parent, id, pos, size, choices, style, validator, name);
 	}
 
+	// wxCheckListBox::wxCheckListBox(lua_Table * data)
+	static wxCheckListBox* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCheckListBox::wxCheckListBox(lua_Table * data) function, expected prototype:\nwxCheckListBox::wxCheckListBox(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxCheckListBox(L,NULL);
+	}
+
+	// wxCheckListBox::wxCheckListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "listBox")
+	static wxCheckListBox* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCheckListBox::wxCheckListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"listBox\") function, expected prototype:\nwxCheckListBox::wxCheckListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = \"listBox\")\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxCheckListBox::wxCheckListBox function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,5));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxCheckListBox::wxCheckListBox function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,6));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxCheckListBox::wxCheckListBox function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : 0;
+		const wxValidator* validator_ptr=luatop>7 ? dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8)) : NULL;
+		if( luatop>7 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxCheckListBox::wxCheckListBox function");
+		}
+		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,9),lua_objlen(L,9));
+
+		return new wrapper_wxCheckListBox(L,NULL, parent, id, pos, size, choices, style, validator, name);
+	}
+
 	// Overload binder for wxCheckListBox::wxCheckListBox
 	static wxCheckListBox* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxCheckListBox, cannot match any of the overloads for function wxCheckListBox:\n  wxCheckListBox()\n  wxCheckListBox(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
+		luaL_error(L, "error in function wxCheckListBox, cannot match any of the overloads for function wxCheckListBox:\n  wxCheckListBox()\n  wxCheckListBox(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxCheckListBox(lua_Table *)\n  wxCheckListBox(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -302,7 +371,6 @@ luna_RegType LunaTraits< wxCheckListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxCheckListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxCheckListBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxCheckListBox::_cast_from_wxTrackable},
 	{"wxItemContainerImmutable", &luna_wrapper_wxCheckListBox::_cast_from_wxItemContainerImmutable},
 	{0,0}
 };

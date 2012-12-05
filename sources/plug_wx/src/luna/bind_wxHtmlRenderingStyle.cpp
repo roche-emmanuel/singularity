@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlRenderingStyle.h>
+
 class luna_wrapper_wxHtmlRenderingStyle {
 public:
 	typedef Luna< wxHtmlRenderingStyle > luna_t;
@@ -137,8 +139,6 @@ wxHtmlRenderingStyle* LunaTraits< wxHtmlRenderingStyle >::_bind_ctor(lua_State *
 	// Abstract methods:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlRenderingStyle >::_bind_dtor(wxHtmlRenderingStyle* obj) {

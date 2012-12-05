@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxZlibInputStream.h>
+
 class luna_wrapper_wxZlibInputStream {
 public:
 	typedef Luna< wxZlibInputStream > luna_t;
@@ -103,8 +105,6 @@ wxZlibInputStream* LunaTraits< wxZlibInputStream >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxZlibInputStream >::_bind_dtor(wxZlibInputStream* obj) {

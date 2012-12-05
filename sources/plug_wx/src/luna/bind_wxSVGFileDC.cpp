@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSVGFileDC.h>
+
 class luna_wrapper_wxSVGFileDC {
 public:
 	typedef Luna< wxSVGFileDC > luna_t;
@@ -40,7 +42,7 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
@@ -48,6 +50,18 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -178,8 +192,8 @@ public:
 
 	// Constructor binds:
 	// wxSVGFileDC::wxSVGFileDC(const wxString & filename, int width = 320, int height = 240, double dpi = 72)
-	static wxSVGFileDC* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxSVGFileDC* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxSVGFileDC::wxSVGFileDC(const wxString & filename, int width = 320, int height = 240, double dpi = 72) function, expected prototype:\nwxSVGFileDC::wxSVGFileDC(const wxString & filename, int width = 320, int height = 240, double dpi = 72)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -192,6 +206,32 @@ public:
 		double dpi=luatop>3 ? (double)lua_tonumber(L,4) : 72;
 
 		return new wxSVGFileDC(filename, width, height, dpi);
+	}
+
+	// wxSVGFileDC::wxSVGFileDC(lua_Table * data, const wxString & filename, int width = 320, int height = 240, double dpi = 72)
+	static wxSVGFileDC* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSVGFileDC::wxSVGFileDC(lua_Table * data, const wxString & filename, int width = 320, int height = 240, double dpi = 72) function, expected prototype:\nwxSVGFileDC::wxSVGFileDC(lua_Table * data, const wxString & filename, int width = 320, int height = 240, double dpi = 72)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : 320;
+		int height=luatop>3 ? (int)lua_tointeger(L,4) : 240;
+		double dpi=luatop>4 ? (double)lua_tonumber(L,5) : 72;
+
+		return new wrapper_wxSVGFileDC(L,NULL, filename, width, height, dpi);
+	}
+
+	// Overload binder for wxSVGFileDC::wxSVGFileDC
+	static wxSVGFileDC* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSVGFileDC, cannot match any of the overloads for function wxSVGFileDC:\n  wxSVGFileDC(const wxString &, int, int, double)\n  wxSVGFileDC(lua_Table *, const wxString &, int, int, double)\n");
+		return NULL;
 	}
 
 
@@ -307,11 +347,11 @@ public:
 		return 0;
 	}
 
-	// bool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE)
+	// bool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE)
 	static int _bind_FloodFill(lua_State *L) {
 		if (!_lg_typecheck_FloodFill(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE) function, expected prototype:\nbool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = wxFLOOD_SURFACE)\nClass arguments details:\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE) function, expected prototype:\nbool wxSVGFileDC::FloodFill(int x, int y, const wxColour & colour, wxFloodFillStyle style = ::wxFLOOD_SURFACE)\nClass arguments details:\narg 3 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -323,7 +363,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxSVGFileDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
-		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : wxFLOOD_SURFACE;
+		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
 
 		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
 		if(!self) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewProgressRenderer.h>
+
 class luna_wrapper_wxDataViewProgressRenderer {
 public:
 	typedef Luna< wxDataViewProgressRenderer > luna_t;
@@ -55,8 +57,6 @@ wxDataViewProgressRenderer* LunaTraits< wxDataViewProgressRenderer >::_bind_ctor
 	// Abstract methods:
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewProgressRenderer >::_bind_dtor(wxDataViewProgressRenderer* obj) {

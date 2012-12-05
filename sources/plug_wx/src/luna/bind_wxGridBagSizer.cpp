@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridBagSizer.h>
+
 class luna_wrapper_wxGridBagSizer {
 public:
 	typedef Luna< wxGridBagSizer > luna_t;
@@ -40,12 +42,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -314,8 +326,8 @@ public:
 
 	// Constructor binds:
 	// wxGridBagSizer::wxGridBagSizer(int vgap = 0, int hgap = 0)
-	static wxGridBagSizer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxGridBagSizer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGridBagSizer::wxGridBagSizer(int vgap = 0, int hgap = 0) function, expected prototype:\nwxGridBagSizer::wxGridBagSizer(int vgap = 0, int hgap = 0)\nClass arguments details:\n");
 		}
@@ -326,6 +338,30 @@ public:
 		int hgap=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
 		return new wxGridBagSizer(vgap, hgap);
+	}
+
+	// wxGridBagSizer::wxGridBagSizer(lua_Table * data, int vgap = 0, int hgap = 0)
+	static wxGridBagSizer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridBagSizer::wxGridBagSizer(lua_Table * data, int vgap = 0, int hgap = 0) function, expected prototype:\nwxGridBagSizer::wxGridBagSizer(lua_Table * data, int vgap = 0, int hgap = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int vgap=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int hgap=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxGridBagSizer(L,NULL, vgap, hgap);
+	}
+
+	// Overload binder for wxGridBagSizer::wxGridBagSizer
+	static wxGridBagSizer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGridBagSizer, cannot match any of the overloads for function wxGridBagSizer:\n  wxGridBagSizer(int, int)\n  wxGridBagSizer(lua_Table *, int, int)\n");
+		return NULL;
 	}
 
 

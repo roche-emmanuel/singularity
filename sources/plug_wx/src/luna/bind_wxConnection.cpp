@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxConnection.h>
+
 class luna_wrapper_wxConnection {
 public:
 	typedef Luna< wxConnection > luna_t;
@@ -51,6 +53,22 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -271,22 +289,48 @@ public:
 		return new wxConnection(buffer, size);
 	}
 
+	// wxConnection::wxConnection(lua_Table * data)
+	static wxConnection* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConnection::wxConnection(lua_Table * data) function, expected prototype:\nwxConnection::wxConnection(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxConnection(L,NULL);
+	}
+
+	// wxConnection::wxConnection(lua_Table * data, void * buffer, size_t size)
+	static wxConnection* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConnection::wxConnection(lua_Table * data, void * buffer, size_t size) function, expected prototype:\nwxConnection::wxConnection(lua_Table * data, void * buffer, size_t size)\nClass arguments details:\n");
+		}
+
+		void* buffer=(Luna< void >::check(L,2));
+		size_t size=(size_t)lua_tointeger(L,3);
+
+		return new wrapper_wxConnection(L,NULL, buffer, size);
+	}
+
 	// Overload binder for wxConnection::wxConnection
 	static wxConnection* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxConnection, cannot match any of the overloads for function wxConnection:\n  wxConnection()\n  wxConnection(void *, size_t)\n");
+		luaL_error(L, "error in function wxConnection, cannot match any of the overloads for function wxConnection:\n  wxConnection()\n  wxConnection(void *, size_t)\n  wxConnection(lua_Table *)\n  wxConnection(lua_Table *, void *, size_t)\n");
 		return NULL;
 	}
 
 
 	// Function binds:
-	// bool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)
+	// bool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Advise_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Advise_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Advise(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -294,7 +338,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
-		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
 
 		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -378,18 +422,18 @@ public:
 		return 1;
 	}
 
-	// bool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)
+	// bool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Execute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Execute_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Execute(const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		void* data=(Luna< void >::check(L,2));
 		size_t size=(size_t)lua_tointeger(L,3);
-		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_PRIVATE;
 
 		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -607,11 +651,11 @@ public:
 		return 1;
 	}
 
-	// bool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)
+	// bool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)
 	static int _bind_Poke_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Poke_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE) function, expected prototype:\nbool wxConnection::Poke(const wxString & item, const void * data, size_t size, wxIPCFormat format = ::wxIPC_PRIVATE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -619,7 +663,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		void* data=(Luna< void >::check(L,3));
 		size_t size=(size_t)lua_tointeger(L,4);
-		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : wxIPC_PRIVATE;
+		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
 
 		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
 		if(!self) {
@@ -684,18 +728,18 @@ public:
 		return 0;
 	}
 
-	// const void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = wxIPC_TEXT)
+	// const void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = ::wxIPC_TEXT)
 	static int _bind_Request(lua_State *L) {
 		if (!_lg_typecheck_Request(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = wxIPC_TEXT) function, expected prototype:\nconst void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in const void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = ::wxIPC_TEXT) function, expected prototype:\nconst void * wxConnection::Request(const wxString & item, size_t * size, wxIPCFormat format = ::wxIPC_TEXT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		size_t size=(size_t)lua_tointeger(L,3);
-		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : wxIPC_TEXT;
+		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_TEXT;
 
 		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
 		if(!self) {

@@ -228,16 +228,16 @@ public:
 		return 0;
 	}
 
-	// bool wxUIActionSimulator::MouseDown(int button = wxMOUSE_BTN_LEFT)
+	// bool wxUIActionSimulator::MouseDown(int button = ::wxMOUSE_BTN_LEFT)
 	static int _bind_MouseDown(lua_State *L) {
 		if (!_lg_typecheck_MouseDown(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDown(int button = wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDown(int button = wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDown(int button = ::wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDown(int button = ::wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -250,16 +250,16 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::MouseUp(int button = wxMOUSE_BTN_LEFT)
+	// bool wxUIActionSimulator::MouseUp(int button = ::wxMOUSE_BTN_LEFT)
 	static int _bind_MouseUp(lua_State *L) {
 		if (!_lg_typecheck_MouseUp(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseUp(int button = wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseUp(int button = wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseUp(int button = ::wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseUp(int button = ::wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -272,16 +272,16 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::MouseClick(int button = wxMOUSE_BTN_LEFT)
+	// bool wxUIActionSimulator::MouseClick(int button = ::wxMOUSE_BTN_LEFT)
 	static int _bind_MouseClick(lua_State *L) {
 		if (!_lg_typecheck_MouseClick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseClick(int button = wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseClick(int button = wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseClick(int button = ::wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseClick(int button = ::wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -294,16 +294,16 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::MouseDblClick(int button = wxMOUSE_BTN_LEFT)
+	// bool wxUIActionSimulator::MouseDblClick(int button = ::wxMOUSE_BTN_LEFT)
 	static int _bind_MouseDblClick(lua_State *L) {
 		if (!_lg_typecheck_MouseDblClick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDblClick(int button = wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDblClick(int button = wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDblClick(int button = ::wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDblClick(int button = ::wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int button=luatop>1 ? (int)lua_tointeger(L,2) : wxMOUSE_BTN_LEFT;
+		int button=luatop>1 ? (int)lua_tointeger(L,2) : ::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -316,11 +316,11 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = wxMOUSE_BTN_LEFT)
+	// bool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = ::wxMOUSE_BTN_LEFT)
 	static int _bind_MouseDragDrop(lua_State *L) {
 		if (!_lg_typecheck_MouseDragDrop(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = ::wxMOUSE_BTN_LEFT) function, expected prototype:\nbool wxUIActionSimulator::MouseDragDrop(long x1, long y1, long x2, long y2, int button = ::wxMOUSE_BTN_LEFT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -329,7 +329,7 @@ public:
 		long y1=(long)lua_tointeger(L,3);
 		long x2=(long)lua_tointeger(L,4);
 		long y2=(long)lua_tointeger(L,5);
-		int button=luatop>5 ? (int)lua_tointeger(L,6) : wxMOUSE_BTN_LEFT;
+		int button=luatop>5 ? (int)lua_tointeger(L,6) : ::wxMOUSE_BTN_LEFT;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -342,17 +342,17 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::KeyDown(int keycode, int modifiers = wxMOD_NONE)
+	// bool wxUIActionSimulator::KeyDown(int keycode, int modifiers = ::wxMOD_NONE)
 	static int _bind_KeyDown(lua_State *L) {
 		if (!_lg_typecheck_KeyDown(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::KeyDown(int keycode, int modifiers = wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::KeyDown(int keycode, int modifiers = wxMOD_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::KeyDown(int keycode, int modifiers = ::wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::KeyDown(int keycode, int modifiers = ::wxMOD_NONE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -365,17 +365,17 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::KeyUp(int keycode, int modifiers = wxMOD_NONE)
+	// bool wxUIActionSimulator::KeyUp(int keycode, int modifiers = ::wxMOD_NONE)
 	static int _bind_KeyUp(lua_State *L) {
 		if (!_lg_typecheck_KeyUp(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::KeyUp(int keycode, int modifiers = wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::KeyUp(int keycode, int modifiers = wxMOD_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::KeyUp(int keycode, int modifiers = ::wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::KeyUp(int keycode, int modifiers = ::wxMOD_NONE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {
@@ -388,17 +388,17 @@ public:
 		return 1;
 	}
 
-	// bool wxUIActionSimulator::Char(int keycode, int modifiers = wxMOD_NONE)
+	// bool wxUIActionSimulator::Char(int keycode, int modifiers = ::wxMOD_NONE)
 	static int _bind_Char(lua_State *L) {
 		if (!_lg_typecheck_Char(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::Char(int keycode, int modifiers = wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::Char(int keycode, int modifiers = wxMOD_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxUIActionSimulator::Char(int keycode, int modifiers = ::wxMOD_NONE) function, expected prototype:\nbool wxUIActionSimulator::Char(int keycode, int modifiers = ::wxMOD_NONE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int keycode=(int)lua_tointeger(L,2);
-		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : wxMOD_NONE;
+		int modifiers=luatop>2 ? (int)lua_tointeger(L,3) : ::wxMOD_NONE;
 
 		wxUIActionSimulator* self=(Luna< wxUIActionSimulator >::check(L,1));
 		if(!self) {

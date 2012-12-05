@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogGui.h>
+
 class luna_wrapper_wxLogGui {
 public:
 	typedef Luna< wxLogGui > luna_t;
@@ -40,9 +42,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -60,14 +69,34 @@ public:
 
 	// Constructor binds:
 	// wxLogGui::wxLogGui()
-	static wxLogGui* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogGui* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui() function, expected prototype:\nwxLogGui::wxLogGui()\nClass arguments details:\n");
 		}
 
 
 		return new wxLogGui();
+	}
+
+	// wxLogGui::wxLogGui(lua_Table * data)
+	static wxLogGui* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogGui::wxLogGui(lua_Table * data) function, expected prototype:\nwxLogGui::wxLogGui(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxLogGui(L,NULL);
+	}
+
+	// Overload binder for wxLogGui::wxLogGui
+	static wxLogGui* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogGui, cannot match any of the overloads for function wxLogGui:\n  wxLogGui()\n  wxLogGui(lua_Table *)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridHeaderLabelsRenderer.h>
+
 class luna_wrapper_wxGridHeaderLabelsRenderer {
 public:
 	typedef Luna< wxGridHeaderLabelsRenderer > luna_t;
@@ -104,8 +106,6 @@ wxGridHeaderLabelsRenderer* LunaTraits< wxGridHeaderLabelsRenderer >::_bind_ctor
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridHeaderLabelsRenderer >::_bind_dtor(wxGridHeaderLabelsRenderer* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPalette.h>
+
 class luna_wrapper_wxPalette {
 public:
 	typedef Luna< wxPalette > luna_t;
@@ -61,6 +63,33 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxPalette* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -154,13 +183,58 @@ public:
 		return new wxPalette(n, &red, &green, &blue);
 	}
 
+	// wxPalette::wxPalette(lua_Table * data)
+	static wxPalette* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(lua_Table * data) function, expected prototype:\nwxPalette::wxPalette(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPalette(L,NULL);
+	}
+
+	// wxPalette::wxPalette(lua_Table * data, const wxPalette & palette)
+	static wxPalette* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(lua_Table * data, const wxPalette & palette) function, expected prototype:\nwxPalette::wxPalette(lua_Table * data, const wxPalette & palette)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxPalette* palette_ptr=dynamic_cast< wxPalette* >(Luna< wxObject >::check(L,2));
+		if( !palette_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxPalette::wxPalette function");
+		}
+		const wxPalette & palette=*palette_ptr;
+
+		return new wrapper_wxPalette(L,NULL, palette);
+	}
+
+	// wxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)
+	static wxPalette* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue) function, expected prototype:\nwxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)\nClass arguments details:\n");
+		}
+
+		int n=(int)lua_tointeger(L,2);
+		unsigned char red = (unsigned char)(lua_tointeger(L,3));
+		unsigned char green = (unsigned char)(lua_tointeger(L,4));
+		unsigned char blue = (unsigned char)(lua_tointeger(L,5));
+
+		return new wrapper_wxPalette(L,NULL, n, &red, &green, &blue);
+	}
+
 	// Overload binder for wxPalette::wxPalette
 	static wxPalette* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxPalette, cannot match any of the overloads for function wxPalette:\n  wxPalette()\n  wxPalette(const wxPalette &)\n  wxPalette(int, const unsigned char *, const unsigned char *, const unsigned char *)\n");
+		luaL_error(L, "error in function wxPalette, cannot match any of the overloads for function wxPalette:\n  wxPalette()\n  wxPalette(const wxPalette &)\n  wxPalette(int, const unsigned char *, const unsigned char *, const unsigned char *)\n  wxPalette(lua_Table *)\n  wxPalette(lua_Table *, const wxPalette &)\n  wxPalette(lua_Table *, int, const unsigned char *, const unsigned char *, const unsigned char *)\n");
 		return NULL;
 	}
 

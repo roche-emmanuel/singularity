@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSocketClient.h>
+
 class luna_wrapper_wxSocketClient {
 public:
 	typedef Luna< wxSocketClient > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -86,18 +97,41 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxSocketClient::wxSocketClient(int flags = wxSOCKET_NONE)
-	static wxSocketClient* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxSocketClient::wxSocketClient(int flags = ::wxSOCKET_NONE)
+	static wxSocketClient* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSocketClient::wxSocketClient(int flags = wxSOCKET_NONE) function, expected prototype:\nwxSocketClient::wxSocketClient(int flags = wxSOCKET_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSocketClient::wxSocketClient(int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketClient::wxSocketClient(int flags = ::wxSOCKET_NONE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>0 ? (int)lua_tointeger(L,1) : wxSOCKET_NONE;
+		int flags=luatop>0 ? (int)lua_tointeger(L,1) : ::wxSOCKET_NONE;
 
 		return new wxSocketClient(flags);
+	}
+
+	// wxSocketClient::wxSocketClient(lua_Table * data, int flags = ::wxSOCKET_NONE)
+	static wxSocketClient* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSocketClient::wxSocketClient(lua_Table * data, int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketClient::wxSocketClient(lua_Table * data, int flags = ::wxSOCKET_NONE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
+
+		return new wrapper_wxSocketClient(L,NULL, flags);
+	}
+
+	// Overload binder for wxSocketClient::wxSocketClient
+	static wxSocketClient* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSocketClient, cannot match any of the overloads for function wxSocketClient:\n  wxSocketClient(int)\n  wxSocketClient(lua_Table *, int)\n");
+		return NULL;
 	}
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMetafile.h>
+
 class luna_wrapper_wxMetafile {
 public:
 	typedef Luna< wxMetafile > luna_t;
@@ -40,11 +42,20 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -78,8 +89,8 @@ public:
 
 	// Constructor binds:
 	// wxMetafile::wxMetafile(const wxString & filename = wxEmptyString)
-	static wxMetafile* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxMetafile* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(const wxString & filename = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -89,6 +100,29 @@ public:
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new wxMetafile(filename);
+	}
+
+	// wxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString)
+	static wxMetafile* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString) function, expected prototype:\nwxMetafile::wxMetafile(lua_Table * data, const wxString & filename = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxMetafile(L,NULL, filename);
+	}
+
+	// Overload binder for wxMetafile::wxMetafile
+	static wxMetafile* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxMetafile, cannot match any of the overloads for function wxMetafile:\n  wxMetafile(const wxString &)\n  wxMetafile(lua_Table *, const wxString &)\n");
+		return NULL;
 	}
 
 
