@@ -1,0 +1,137 @@
+#ifndef _WRAPPERS_WRAPPER_WXAUIDOCKART_H_
+#define _WRAPPERS_WRAPPER_WXAUIDOCKART_H_
+
+#include <plug_common.h>
+
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+#include <wx/aui/dockart.h>
+
+class wrapper_wxAuiDockArt : public wxAuiDockArt {
+protected:
+	sgt::LuaObject _obj;
+	
+public:
+	
+
+	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), _obj(L,-1) {};
+
+	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
+	void DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) {
+		THROW_IF(!_obj.pushFunction("DrawBackground"),"No implementation for abstract function wxAuiDockArt::DrawBackground");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(orientation);
+		_obj.pushArg(&rect);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)
+	void DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane) {
+		THROW_IF(!_obj.pushFunction("DrawBorder"),"No implementation for abstract function wxAuiDockArt::DrawBorder");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(&rect);
+		_obj.pushArg(&pane);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::DrawCaption(wxDC & dc, wxWindow * window, const wxString & text, const wxRect & rect, wxAuiPaneInfo & pane)
+	void DrawCaption(wxDC & dc, wxWindow * window, const wxString & text, const wxRect & rect, wxAuiPaneInfo & pane) {
+		THROW_IF(!_obj.pushFunction("DrawCaption"),"No implementation for abstract function wxAuiDockArt::DrawCaption");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(text);
+		_obj.pushArg(&rect);
+		_obj.pushArg(&pane);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::DrawGripper(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)
+	void DrawGripper(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane) {
+		THROW_IF(!_obj.pushFunction("DrawGripper"),"No implementation for abstract function wxAuiDockArt::DrawGripper");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(&rect);
+		_obj.pushArg(&pane);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::DrawPaneButton(wxDC & dc, wxWindow * window, int button, int button_state, const wxRect & rect, wxAuiPaneInfo & pane)
+	void DrawPaneButton(wxDC & dc, wxWindow * window, int button, int button_state, const wxRect & rect, wxAuiPaneInfo & pane) {
+		THROW_IF(!_obj.pushFunction("DrawPaneButton"),"No implementation for abstract function wxAuiDockArt::DrawPaneButton");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(button);
+		_obj.pushArg(button_state);
+		_obj.pushArg(&rect);
+		_obj.pushArg(&pane);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::DrawSash(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
+	void DrawSash(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) {
+		THROW_IF(!_obj.pushFunction("DrawSash"),"No implementation for abstract function wxAuiDockArt::DrawSash");
+		_obj.pushArg(&dc);
+		_obj.pushArg(window);
+		_obj.pushArg(orientation);
+		_obj.pushArg(&rect);
+		return (_obj.callFunction<void>());
+	};
+
+	// wxColour wxAuiDockArt::GetColour(int id)
+	wxColour GetColour(int id) {
+		THROW_IF(!_obj.pushFunction("GetColour"),"No implementation for abstract function wxAuiDockArt::GetColour");
+		_obj.pushArg(id);
+		return *(_obj.callFunction<wxColour*>());
+	};
+
+	// wxFont wxAuiDockArt::GetFont(int id)
+	wxFont GetFont(int id) {
+		THROW_IF(!_obj.pushFunction("GetFont"),"No implementation for abstract function wxAuiDockArt::GetFont");
+		_obj.pushArg(id);
+		return *(_obj.callFunction<wxFont*>());
+	};
+
+	// int wxAuiDockArt::GetMetric(int id)
+	int GetMetric(int id) {
+		THROW_IF(!_obj.pushFunction("GetMetric"),"No implementation for abstract function wxAuiDockArt::GetMetric");
+		_obj.pushArg(id);
+		return (_obj.callFunction<int>());
+	};
+
+	// void wxAuiDockArt::SetColour(int id, const wxColour & colour)
+	void SetColour(int id, const wxColour & colour) {
+		THROW_IF(!_obj.pushFunction("SetColour"),"No implementation for abstract function wxAuiDockArt::SetColour");
+		_obj.pushArg(id);
+		_obj.pushArg(&colour);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::SetFont(int id, const wxFont & font)
+	void SetFont(int id, const wxFont & font) {
+		THROW_IF(!_obj.pushFunction("SetFont"),"No implementation for abstract function wxAuiDockArt::SetFont");
+		_obj.pushArg(id);
+		_obj.pushArg(&font);
+		return (_obj.callFunction<void>());
+	};
+
+	// void wxAuiDockArt::SetMetric(int id, int new_val)
+	void SetMetric(int id, int new_val) {
+		THROW_IF(!_obj.pushFunction("SetMetric"),"No implementation for abstract function wxAuiDockArt::SetMetric");
+		_obj.pushArg(id);
+		_obj.pushArg(new_val);
+		return (_obj.callFunction<void>());
+	};
+
+
+
+
+};
+
+
+
+
+#endif
+

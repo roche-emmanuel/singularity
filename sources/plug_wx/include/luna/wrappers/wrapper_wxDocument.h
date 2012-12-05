@@ -1,0 +1,349 @@
+#ifndef _WRAPPERS_WRAPPER_WXDOCUMENT_H_
+#define _WRAPPERS_WRAPPER_WXDOCUMENT_H_
+
+#include <plug_common.h>
+
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+#include <wx/docview.h>
+
+class wrapper_wxDocument : public wxDocument {
+protected:
+	sgt::LuaObject _obj;
+	
+public:
+	
+
+	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), _obj(L,-1) {};
+
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxObject::GetClassInfo();
+	};
+
+	// void wxEvtHandler::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::QueueEvent(event);
+	};
+
+	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::AddPendingEvent(event);
+	};
+
+	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxEvtHandler::ProcessEvent(event);
+	};
+
+	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
+	void SetNextHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::SetNextHandler(handler);
+	};
+
+	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
+	void SetPreviousHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::SetPreviousHandler(handler);
+	};
+
+	// bool wxDocument::AddView(wxView * view)
+	bool AddView(wxView * view) {
+		if(_obj.pushFunction("AddView")) {
+			_obj.pushArg(view);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::AddView(view);
+	};
+
+	// bool wxDocument::Close()
+	bool Close() {
+		if(_obj.pushFunction("Close")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::Close();
+	};
+
+	// bool wxDocument::DeleteAllViews()
+	bool DeleteAllViews() {
+		if(_obj.pushFunction("DeleteAllViews")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::DeleteAllViews();
+	};
+
+	// bool wxDocument::DeleteContents()
+	bool DeleteContents() {
+		if(_obj.pushFunction("DeleteContents")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::DeleteContents();
+	};
+
+	// wxCommandProcessor * wxDocument::GetCommandProcessor() const
+	wxCommandProcessor * GetCommandProcessor() const {
+		if(_obj.pushFunction("GetCommandProcessor")) {
+			return (_obj.callFunction<wxCommandProcessor*>());
+		}
+
+		return wxDocument::GetCommandProcessor();
+	};
+
+	// wxDocManager * wxDocument::GetDocumentManager() const
+	wxDocManager * GetDocumentManager() const {
+		if(_obj.pushFunction("GetDocumentManager")) {
+			return (_obj.callFunction<wxDocManager*>());
+		}
+
+		return wxDocument::GetDocumentManager();
+	};
+
+	// wxDocTemplate * wxDocument::GetDocumentTemplate() const
+	wxDocTemplate * GetDocumentTemplate() const {
+		if(_obj.pushFunction("GetDocumentTemplate")) {
+			return (_obj.callFunction<wxDocTemplate*>());
+		}
+
+		return wxDocument::GetDocumentTemplate();
+	};
+
+	// wxWindow * wxDocument::GetDocumentWindow() const
+	wxWindow * GetDocumentWindow() const {
+		if(_obj.pushFunction("GetDocumentWindow")) {
+			return (_obj.callFunction<wxWindow*>());
+		}
+
+		return wxDocument::GetDocumentWindow();
+	};
+
+	// wxString wxDocument::GetUserReadableName() const
+	wxString GetUserReadableName() const {
+		if(_obj.pushFunction("GetUserReadableName")) {
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxDocument::GetUserReadableName();
+	};
+
+	// bool wxDocument::IsModified() const
+	bool IsModified() const {
+		if(_obj.pushFunction("IsModified")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::IsModified();
+	};
+
+	// void wxDocument::Modify(bool modify)
+	void Modify(bool modify) {
+		if(_obj.pushFunction("Modify")) {
+			_obj.pushArg(modify);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::Modify(modify);
+	};
+
+	// void wxDocument::OnChangedViewList()
+	void OnChangedViewList() {
+		if(_obj.pushFunction("OnChangedViewList")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::OnChangedViewList();
+	};
+
+	// bool wxDocument::OnCloseDocument()
+	bool OnCloseDocument() {
+		if(_obj.pushFunction("OnCloseDocument")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnCloseDocument();
+	};
+
+	// bool wxDocument::OnCreate(const wxString & path, long flags)
+	bool OnCreate(const wxString & path, long flags) {
+		if(_obj.pushFunction("OnCreate")) {
+			_obj.pushArg(path);
+			_obj.pushArg(flags);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnCreate(path, flags);
+	};
+
+	// wxCommandProcessor * wxDocument::OnCreateCommandProcessor()
+	wxCommandProcessor * OnCreateCommandProcessor() {
+		if(_obj.pushFunction("OnCreateCommandProcessor")) {
+			return (_obj.callFunction<wxCommandProcessor*>());
+		}
+
+		return wxDocument::OnCreateCommandProcessor();
+	};
+
+	// bool wxDocument::OnNewDocument()
+	bool OnNewDocument() {
+		if(_obj.pushFunction("OnNewDocument")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnNewDocument();
+	};
+
+	// bool wxDocument::OnOpenDocument(const wxString & filename)
+	bool OnOpenDocument(const wxString & filename) {
+		if(_obj.pushFunction("OnOpenDocument")) {
+			_obj.pushArg(filename);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnOpenDocument(filename);
+	};
+
+	// bool wxDocument::OnSaveDocument(const wxString & filename)
+	bool OnSaveDocument(const wxString & filename) {
+		if(_obj.pushFunction("OnSaveDocument")) {
+			_obj.pushArg(filename);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnSaveDocument(filename);
+	};
+
+	// bool wxDocument::OnSaveModified()
+	bool OnSaveModified() {
+		if(_obj.pushFunction("OnSaveModified")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::OnSaveModified();
+	};
+
+	// bool wxDocument::RemoveView(wxView * view)
+	bool RemoveView(wxView * view) {
+		if(_obj.pushFunction("RemoveView")) {
+			_obj.pushArg(view);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::RemoveView(view);
+	};
+
+	// bool wxDocument::Save()
+	bool Save() {
+		if(_obj.pushFunction("Save")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::Save();
+	};
+
+	// bool wxDocument::SaveAs()
+	bool SaveAs() {
+		if(_obj.pushFunction("SaveAs")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::SaveAs();
+	};
+
+	// bool wxDocument::Revert()
+	bool Revert() {
+		if(_obj.pushFunction("Revert")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxDocument::Revert();
+	};
+
+	// void wxDocument::SetCommandProcessor(wxCommandProcessor * processor)
+	void SetCommandProcessor(wxCommandProcessor * processor) {
+		if(_obj.pushFunction("SetCommandProcessor")) {
+			_obj.pushArg(processor);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::SetCommandProcessor(processor);
+	};
+
+	// void wxDocument::SetDocumentTemplate(wxDocTemplate * templ)
+	void SetDocumentTemplate(wxDocTemplate * templ) {
+		if(_obj.pushFunction("SetDocumentTemplate")) {
+			_obj.pushArg(templ);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::SetDocumentTemplate(templ);
+	};
+
+	// void wxDocument::OnChangeFilename(bool notifyViews)
+	void OnChangeFilename(bool notifyViews) {
+		if(_obj.pushFunction("OnChangeFilename")) {
+			_obj.pushArg(notifyViews);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::OnChangeFilename(notifyViews);
+	};
+
+	// void wxDocument::UpdateAllViews(wxView * sender = NULL, wxObject * hint = NULL)
+	void UpdateAllViews(wxView * sender = NULL, wxObject * hint = NULL) {
+		if(_obj.pushFunction("UpdateAllViews")) {
+			_obj.pushArg(sender);
+			_obj.pushArg(hint);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxDocument::UpdateAllViews(sender, hint);
+	};
+
+
+protected:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	// bool wxDocument::DoSaveDocument(const wxString & file)
+	// bool wxDocument::DoOpenDocument(const wxString & file)
+
+};
+
+
+
+
+#endif
+

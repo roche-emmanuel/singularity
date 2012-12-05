@@ -1,0 +1,138 @@
+#ifndef _WRAPPERS_WRAPPER_WXPROPERTYGRIDPAGE_H_
+#define _WRAPPERS_WRAPPER_WXPROPERTYGRIDPAGE_H_
+
+#include <plug_common.h>
+
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+#include <wx/propgrid/manager.h>
+
+class wrapper_wxPropertyGridPage : public wxPropertyGridPage {
+protected:
+	sgt::LuaObject _obj;
+	
+public:
+	
+
+	wrapper_wxPropertyGridPage(lua_State* L, lua_Table* dum) : wxPropertyGridPage(), _obj(L,-1) {};
+
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxObject::GetClassInfo();
+	};
+
+	// void wxEvtHandler::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::QueueEvent(event);
+	};
+
+	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::AddPendingEvent(event);
+	};
+
+	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxEvtHandler::ProcessEvent(event);
+	};
+
+	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
+	void SetNextHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetNextHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::SetNextHandler(handler);
+	};
+
+	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
+	void SetPreviousHandler(wxEvtHandler * handler) {
+		if(_obj.pushFunction("SetPreviousHandler")) {
+			_obj.pushArg(handler);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEvtHandler::SetPreviousHandler(handler);
+	};
+
+	// void wxPropertyGridPage::Clear()
+	void Clear() {
+		if(_obj.pushFunction("Clear")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPropertyGridPage::Clear();
+	};
+
+	// void wxPropertyGridPage::Init()
+	void Init() {
+		if(_obj.pushFunction("Init")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPropertyGridPage::Init();
+	};
+
+	// bool wxPropertyGridPage::IsHandlingAllEvents() const
+	bool IsHandlingAllEvents() const {
+		if(_obj.pushFunction("IsHandlingAllEvents")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxPropertyGridPage::IsHandlingAllEvents();
+	};
+
+	// void wxPropertyGridPage::OnShow()
+	void OnShow() {
+		if(_obj.pushFunction("OnShow")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPropertyGridPage::OnShow();
+	};
+
+	// void wxPropertyGridPage::RefreshProperty(wxPGProperty * p)
+	void RefreshProperty(wxPGProperty * p) {
+		if(_obj.pushFunction("RefreshProperty")) {
+			_obj.pushArg(p);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPropertyGridPage::RefreshProperty(p);
+	};
+
+
+protected:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	// bool wxEvtHandler::TryAfter(wxEvent & event)
+
+};
+
+
+
+
+#endif
+
