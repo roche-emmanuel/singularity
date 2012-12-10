@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::TimeProvider* ptr= dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::TimeProvider* ptr= dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* ptr= luna_caster< osg::Referenced, sgt::TimeProvider >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -222,7 +223,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const sgt::TimeProvider* tm_ptr=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		const sgt::TimeProvider* tm_ptr=(Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1));
 		if( !tm_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tm in sgt::TimeProvider::TimeProvider function");
 		}
@@ -256,7 +257,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const sgt::TimeProvider* tm_ptr=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,2));
+		const sgt::TimeProvider* tm_ptr=(Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,2));
 		if( !tm_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tm in sgt::TimeProvider::TimeProvider function");
 		}
@@ -291,7 +292,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::TimeProvider::cloneType() const");
@@ -312,7 +313,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::TimeProvider::clone() const");
@@ -338,7 +339,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::TimeProvider::clone(const osg::CopyOp &) const");
@@ -367,9 +368,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool sgt::TimeProvider::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool sgt::TimeProvider::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::TimeProvider::isSameKindAs(const osg::Object *) const");
@@ -388,7 +389,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * sgt::TimeProvider::libraryName() const");
@@ -407,7 +408,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * sgt::TimeProvider::className() const");
@@ -426,7 +427,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call posix_time::ptime sgt::TimeProvider::getCurrentTime()");
@@ -456,7 +457,7 @@ public:
 		const posix_time::ptime & value=*value_ptr;
 		bool utc=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setCurrentTime(const posix_time::ptime &, bool)");
@@ -475,7 +476,7 @@ public:
 
 		double value=(double)lua_tonumber(L,2);
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setTimeSpeed(double)");
@@ -493,7 +494,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double sgt::TimeProvider::getTimeSpeed() const");
@@ -513,7 +514,7 @@ public:
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setMicroPrecision(bool)");
@@ -531,7 +532,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::TimeProvider::getMicroPrecision() const");
@@ -550,7 +551,7 @@ public:
 		}
 
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const posix_time::ptime & sgt::TimeProvider::getStartTime() const");
@@ -576,7 +577,7 @@ public:
 		}
 		const posix_time::ptime & val=*val_ptr;
 
-		sgt::TimeProvider* self=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* self=Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::TimeProvider::setStartTime(const posix_time::ptime &)");
@@ -615,7 +616,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		sgt::TimeProvider* provider=luatop>0 ? dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1)) : (sgt::TimeProvider*)NULL;
+		sgt::TimeProvider* provider=luatop>0 ? (Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1)) : (sgt::TimeProvider*)NULL;
 		bool utc=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
 		posix_time::ptime stack_lret = sgt::TimeProvider::getTime(provider, utc);
@@ -634,7 +635,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static double sgt::TimeProvider::getElapsedSeconds(sgt::TimeProvider * provider) function, expected prototype:\nstatic double sgt::TimeProvider::getElapsedSeconds(sgt::TimeProvider * provider)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		sgt::TimeProvider* provider=dynamic_cast< sgt::TimeProvider* >(Luna< osg::Referenced >::check(L,1));
+		sgt::TimeProvider* provider=(Luna< osg::Referenced >::checkSubType< sgt::TimeProvider >(L,1));
 
 		double lret = sgt::TimeProvider::getElapsedSeconds(provider);
 		lua_pushnumber(L,lret);

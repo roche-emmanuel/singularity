@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Object* ptr= dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Object* ptr= dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* ptr= luna_caster< osg::Referenced, osg::Object >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -192,7 +193,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Object::cloneType() const");
@@ -218,7 +219,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Object::clone(const osg::CopyOp &) const");
@@ -238,9 +239,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Object::isSameKindAs(const osg::Object * arg1) const function, expected prototype:\nbool osg::Object::isSameKindAs(const osg::Object * arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Object::isSameKindAs(const osg::Object *) const");
@@ -259,7 +260,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Object::libraryName() const");
@@ -278,7 +279,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Object::className() const");
@@ -298,7 +299,7 @@ public:
 
 		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setThreadSafeRefUnref(bool)");
@@ -317,7 +318,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setName(const std::string &)");
@@ -336,7 +337,7 @@ public:
 
 		const char * name=(const char *)lua_tostring(L,2);
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setName(const char *)");
@@ -363,7 +364,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::Object::getName() const");
@@ -383,7 +384,7 @@ public:
 
 		osg::Object::DataVariance dv=(osg::Object::DataVariance)lua_tointeger(L,2);
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setDataVariance(osg::Object::DataVariance)");
@@ -401,7 +402,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object::DataVariance osg::Object::getDataVariance() const");
@@ -420,7 +421,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::computeDataVariance()");
@@ -437,9 +438,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Object::setUserDataContainer(osg::UserDataContainer * udc) function, expected prototype:\nvoid osg::Object::setUserDataContainer(osg::UserDataContainer * udc)\nClass arguments details:\narg 1 ID = 87260941\n");
 		}
 
-		osg::UserDataContainer* udc=dynamic_cast< osg::UserDataContainer* >(Luna< osg::Referenced >::check(L,2));
+		osg::UserDataContainer* udc=(Luna< osg::Referenced >::checkSubType< osg::UserDataContainer >(L,2));
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setUserDataContainer(osg::UserDataContainer *)");
@@ -457,7 +458,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::UserDataContainer * osg::Object::getUserDataContainer()");
@@ -478,7 +479,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::UserDataContainer * osg::Object::getUserDataContainer() const");
@@ -508,7 +509,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::UserDataContainer * osg::Object::getOrCreateUserDataContainer()");
@@ -530,7 +531,7 @@ public:
 
 		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::setUserData(osg::Referenced *)");
@@ -548,7 +549,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Object::getUserData()");
@@ -569,7 +570,7 @@ public:
 		}
 
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Object::getUserData() const");
@@ -600,7 +601,7 @@ public:
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::resizeGLObjectBuffers(unsigned int)");
@@ -619,9 +620,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::State* _arg1=luatop>1 ? dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2)) : (osg::State*)0;
+		osg::State* _arg1=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
 
-		osg::Object* self=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+		osg::Object* self=Luna< osg::Referenced >::checkSubType< osg::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Object::releaseGLObjects(osg::State *) const");

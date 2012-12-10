@@ -31,7 +31,7 @@ ReflectionGenerator.generate{
 	},
 	ignoreClasses={
 	},
-	ignoreConverters={ "Surface" },
+	ignoreConverters={ }, --"Surface"
 	ignoreHeaders = { "helpers%.h" },
 	corrections = {
 		type_name = {

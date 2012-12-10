@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_SurfaceFactory(lua_State* L, lua_Table* dum) : Awesomium::SurfaceFactory(), _obj(L,-1) {};
 
 	// Awesomium::Surface * Awesomium::SurfaceFactory::CreateSurface(Awesomium::WebView * view, int width, int height)
 	Awesomium::Surface * CreateSurface(Awesomium::WebView * view, int width, int height) {

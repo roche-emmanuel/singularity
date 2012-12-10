@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_Dialog(lua_State* L, lua_Table* dum) : WebViewListener::Dialog(), _obj(L,-1) {};
 
 	// void WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	void OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) {

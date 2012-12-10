@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return Awesomium::BitmapSurface::Paint(src_buffer, src_row_span, src_rect, dest_rect);
+		return BitmapSurface::Paint(src_buffer, src_row_span, src_rect, dest_rect);
 	};
 
 	// void Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
@@ -39,7 +39,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return Awesomium::BitmapSurface::Scroll(dx, dy, clip_rect);
+		return BitmapSurface::Scroll(dx, dy, clip_rect);
 	};
 
 

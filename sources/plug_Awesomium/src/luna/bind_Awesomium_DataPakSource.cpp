@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_DataSource(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		Awesomium::DataPakSource* ptr= dynamic_cast< Awesomium::DataPakSource* >(Luna< Awesomium::DataSource >::check(L,1));
+		//Awesomium::DataPakSource* ptr= dynamic_cast< Awesomium::DataPakSource* >(Luna< Awesomium::DataSource >::check(L,1));
+		Awesomium::DataPakSource* ptr= luna_caster< Awesomium::DataSource, Awesomium::DataPakSource >::cast(Luna< Awesomium::DataSource >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -120,7 +121,7 @@ public:
 		std::string path_str(lua_tostring(L,3),lua_objlen(L,3));
 		Awesomium::WebString path = Awesomium::ToWebString(path_str);
 
-		Awesomium::DataPakSource* self=dynamic_cast< Awesomium::DataPakSource* >(Luna< Awesomium::DataSource >::check(L,1));
+		Awesomium::DataPakSource* self=Luna< Awesomium::DataSource >::checkSubType< Awesomium::DataPakSource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::DataPakSource::OnRequest(int, const Awesomium::WebString &)");

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* ptr= luna_caster< osg::Referenced, sgt::FileLogger >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -191,7 +192,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string)");
@@ -213,7 +214,7 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool)");
@@ -232,7 +233,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename()");
@@ -251,7 +252,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending()");

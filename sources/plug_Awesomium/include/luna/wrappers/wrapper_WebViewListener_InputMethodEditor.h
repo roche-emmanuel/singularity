@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_InputMethodEditor(lua_State* L, lua_Table* dum) : WebViewListener::InputMethodEditor(), _obj(L,-1) {};
 
 	// void WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)
 	void OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y) {

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::Referenced* ptr= dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::Referenced* ptr= dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Referenced* ptr= luna_caster< osg::Referenced, sgt::Referenced >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -117,7 +118,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::Referenced* self=dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::Referenced::setName(const std::string &)");
@@ -135,7 +136,7 @@ public:
 		}
 
 
-		sgt::Referenced* self=dynamic_cast< sgt::Referenced* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Referenced* self=Luna< osg::Referenced >::checkSubType< sgt::Referenced >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::Referenced::getName()");

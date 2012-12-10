@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_WebSession(lua_State* L, lua_Table* dum) : Awesomium::WebSession(), _obj(L,-1) {};
 
 	// void Awesomium::WebSession::Release() const
 	void Release() const {
@@ -38,7 +37,7 @@ public:
 	// const Awesomium::WebPreferences & Awesomium::WebSession::preferences() const
 	const Awesomium::WebPreferences & preferences() const {
 		THROW_IF(!_obj.pushFunction("preferences"),"No implementation for abstract function Awesomium::WebSession::preferences");
-		return *(_obj.callFunction<const Awesomium::WebPreferences*>());
+		return *(_obj.callFunction<Awesomium::WebPreferences*>());
 	};
 
 	// void Awesomium::WebSession::AddDataSource(const Awesomium::WebString & asset_host, Awesomium::DataSource * source)

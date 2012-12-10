@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_SurfaceFactory(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		Awesomium::BitmapSurfaceFactory* ptr= static_cast< Awesomium::BitmapSurfaceFactory* >(Luna< Awesomium::SurfaceFactory >::check(L,1));
+		//Awesomium::BitmapSurfaceFactory* ptr= dynamic_cast< Awesomium::BitmapSurfaceFactory* >(Luna< Awesomium::SurfaceFactory >::check(L,1));
+		Awesomium::BitmapSurfaceFactory* ptr= luna_caster< Awesomium::SurfaceFactory, Awesomium::BitmapSurfaceFactory >::cast(Luna< Awesomium::SurfaceFactory >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -122,7 +123,7 @@ public:
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		Awesomium::BitmapSurfaceFactory* self=static_cast< Awesomium::BitmapSurfaceFactory* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call Awesomium::Surface * Awesomium::BitmapSurfaceFactory::CreateSurface(Awesomium::WebView *, int, int)");
@@ -144,7 +145,7 @@ public:
 
 		Awesomium::Surface* surface=(Luna< Awesomium::Surface >::check(L,2));
 
-		Awesomium::BitmapSurfaceFactory* self=static_cast< Awesomium::BitmapSurfaceFactory* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurfaceFactory* self=Luna< Awesomium::SurfaceFactory >::checkSubType< Awesomium::BitmapSurfaceFactory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurfaceFactory::DestroySurface(Awesomium::Surface *)");

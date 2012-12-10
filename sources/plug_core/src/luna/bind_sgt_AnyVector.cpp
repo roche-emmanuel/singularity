@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::AnyVector* ptr= dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::AnyVector* ptr= dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+		sgt::AnyVector* ptr= luna_caster< osg::Referenced, sgt::AnyVector >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -117,7 +118,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int sgt::AnyVector::vector_push_back(sgt::AnyVector * vec, lua_Any * dum, lua_State * L) function, expected prototype:\nint sgt::AnyVector::vector_push_back(sgt::AnyVector * vec, lua_Any * dum, lua_State * L)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		sgt::AnyVector* vec=dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+		sgt::AnyVector* vec=(Luna< osg::Referenced >::checkSubType< sgt::AnyVector >(L,1));
 
 		return vector_push_back(vec, NULL, L);
 	}
@@ -129,7 +130,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int sgt::AnyVector::vector_get(sgt::AnyVector * vec, unsigned int index, lua_State * L) function, expected prototype:\nint sgt::AnyVector::vector_get(sgt::AnyVector * vec, unsigned int index, lua_State * L)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		sgt::AnyVector* vec=dynamic_cast< sgt::AnyVector* >(Luna< osg::Referenced >::check(L,1));
+		sgt::AnyVector* vec=(Luna< osg::Referenced >::checkSubType< sgt::AnyVector >(L,1));
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
 		return vector_get(vec, index, L);

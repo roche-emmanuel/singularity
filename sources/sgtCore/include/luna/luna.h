@@ -49,6 +49,19 @@ struct luna_eqstr{
 	}
 };
 
+template <typename T1, typename T2>
+class luna_same_types
+{
+public: enum {result = false};
+};
+
+template <typename T>
+class luna_same_types<T, T>
+{
+public: enum {result = true};
+};
+
+
 // Caster templates used for the convertion of types in gc_T()
 template <typename srcType, typename dstType>
 struct luna_caster {
@@ -57,10 +70,17 @@ struct luna_caster {
 	};
 };
 
-template <typename srcType>
-struct luna_caster<srcType,srcType> {
-	static inline srcType* cast(srcType* ptr) {
+template <typename srcType, typename dstType, bool b>
+struct perform_luna_cast {
+	static inline dstType* cast(srcType* ptr) {
 		return ptr;
+	};
+};
+
+template <typename srcType, typename dstType>
+struct perform_luna_cast<srcType, dstType, false> {
+	static inline dstType* cast(srcType* ptr) {
+		return luna_caster<srcType, dstType>::cast(ptr);
 	};
 };
 
@@ -389,7 +409,12 @@ template <typename T> class Luna {
 		return lua_isnil(L,narg)==1 ? (T*)NULL : checkRaw(L, narg);
 	}
 
-
+	template<typename SubType>
+	inline static SubType *checkSubType(lua_State *L, int narg) {
+		T* res = check(L,narg);
+		return perform_luna_cast<T, SubType, luna_same_types<SubType,T>::result >::cast(res);
+	}
+	
 	// use lunaStack::push if possible. 
 	inline static void push(lua_State *L, const T* obj, bool gc, const char* metatable=T_interface::className, const char* module=T_interface::moduleName)
 	{
@@ -468,7 +493,7 @@ template <typename T> class Luna {
 				return 0; // nothing to do in that case.
 				
 			//T *obj = dynamic_cast<T*>(pobj);
-			T *obj = luna_caster<ParentType,T>::cast(pobj);
+			T *obj = perform_luna_cast<ParentType,T, luna_same_types<ParentType,T>::result >::cast(pobj);
 			if(!obj) {
 				luaL_error(L, "in gc_T(): could not convert parent pointer type %s to child pointer %s",LunaTraits<ParentType>::className,T_interface::className);
 			}

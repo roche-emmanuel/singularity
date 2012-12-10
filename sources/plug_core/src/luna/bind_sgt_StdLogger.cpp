@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::StdLogger* ptr= dynamic_cast< sgt::StdLogger* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::StdLogger* ptr= dynamic_cast< sgt::StdLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::StdLogger* ptr= luna_caster< osg::Referenced, sgt::StdLogger >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -125,7 +126,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::StdLogger* self=dynamic_cast< sgt::StdLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::StdLogger::output(int, std::string, std::string)");

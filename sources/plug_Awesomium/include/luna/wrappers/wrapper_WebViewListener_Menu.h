@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_Menu(lua_State* L, lua_Table* dum) : WebViewListener::Menu(), _obj(L,-1) {};
 
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	void OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info) {

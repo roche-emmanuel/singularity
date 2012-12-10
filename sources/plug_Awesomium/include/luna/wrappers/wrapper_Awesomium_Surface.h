@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_Surface(lua_State* L, lua_Table* dum) : Awesomium::Surface(), _obj(L,-1) {};
 
 	// void Awesomium::Surface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	void Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) {

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::LogSink* ptr= dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::LogSink* ptr= dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* ptr= luna_caster< osg::Referenced, sgt::LogSink >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -110,7 +111,7 @@ public:
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setEnabled(bool)");
@@ -131,7 +132,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::output(int, std::string, std::string)");
@@ -151,7 +152,7 @@ public:
 		int mini=(int)lua_tointeger(L,2);
 		int maxi=(int)lua_tointeger(L,3);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLevelRange(int, int)");
@@ -170,7 +171,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::addTrace(std::string)");
@@ -189,7 +190,7 @@ public:
 
 		std::string trace(lua_tostring(L,2),lua_objlen(L,2));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::removeTrace(std::string)");
@@ -208,7 +209,7 @@ public:
 
 		bool enabled=(bool)(lua_toboolean(L,2)==1);
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::setLogTraceList(bool)");
@@ -229,7 +230,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::LogSink* self=dynamic_cast< sgt::LogSink* >(Luna< osg::Referenced >::check(L,1));
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::LogSink::process(int, std::string, std::string)");

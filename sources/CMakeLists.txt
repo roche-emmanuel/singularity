@@ -28,7 +28,7 @@ ENDIF()
 ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 IF(MSVC)
-	ADD_SUBDIRECTORY(plug_wx)
+	# ADD_SUBDIRECTORY(plug_wx)
 ENDIF()
 
 # ADD_SUBDIRECTORY(plug_osg)
@@ -36,7 +36,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_spice)
 # ADD_SUBDIRECTORY(plug_norad)
 # ADD_SUBDIRECTORY(plug_FANN)
-# ADD_SUBDIRECTORY(plug_awesomium)
+ADD_SUBDIRECTORY(plug_awesomium)
 
 
 ADD_SUBDIRECTORY(sgt_launcher)

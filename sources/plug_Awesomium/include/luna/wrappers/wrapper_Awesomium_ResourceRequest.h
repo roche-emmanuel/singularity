@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_ResourceRequest(lua_State* L, lua_Table* dum) : Awesomium::ResourceRequest(), _obj(L,-1) {};
 
 	// void Awesomium::ResourceRequest::Cancel()
 	void Cancel() {
@@ -92,7 +91,7 @@ public:
 	const Awesomium::UploadElement * GetUploadElement(unsigned int idx) {
 		THROW_IF(!_obj.pushFunction("GetUploadElement"),"No implementation for abstract function Awesomium::ResourceRequest::GetUploadElement");
 		_obj.pushArg(idx);
-		return (_obj.callFunction<const Awesomium::UploadElement*>());
+		return (_obj.callFunction<Awesomium::UploadElement*>());
 	};
 
 	// void Awesomium::ResourceRequest::ClearUploadElements()

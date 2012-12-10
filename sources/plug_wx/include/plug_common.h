@@ -41,13 +41,6 @@ struct luna_caster<wxKeyboardState,dstType> {
 	};
 };
 
-template <>
-struct luna_caster<wxKeyboardState,wxKeyboardState> {
-	static inline wxKeyboardState* cast(wxKeyboardState* ptr) {
-		return ptr;
-	};
-};
-
 template <typename dstType>
 struct luna_caster<wxArrayString,dstType> {
 	static inline dstType* cast(wxArrayString* ptr) {
@@ -55,24 +48,10 @@ struct luna_caster<wxArrayString,dstType> {
 	};
 };
 
-template <>
-struct luna_caster<wxArrayString,wxArrayString> {
-	static inline wxArrayString* cast(wxArrayString* ptr) {
-		return ptr;
-	};
-};
-
 template <typename dstType>
 struct luna_caster<wxTextAttr,dstType> {
 	static inline dstType* cast(wxTextAttr* ptr) {
 		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <>
-struct luna_caster<wxTextAttr,wxTextAttr> {
-	static inline wxTextAttr* cast(wxTextAttr* ptr) {
-		return ptr;
 	};
 };
 

@@ -39,7 +39,8 @@ end
 function Class:getConverterCode(class,bclass)
 	local str = [[static int _cast_from_${3}(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		${2}* ptr= ${4}_cast< ${2}* >(Luna< ${1} >::check(L,1));
+		//${2}* ptr= ${4}_cast< ${2}* >(Luna< ${1} >::check(L,1));
+		${2}* ptr= luna_caster< ${1}, ${2} >::cast(Luna< ${1} >::check(L,1));
 		if(!ptr)
 			return 0;
 		

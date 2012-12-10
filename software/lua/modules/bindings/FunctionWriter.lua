@@ -116,8 +116,8 @@ function Class:retrieveArguments(func)
 		elseif pt:isClass() then
 			-- get the class absolute parent hash:
 			local fbname = tm:getBaseTypeMapping(pt:getAbsoluteBaseFullName())
-			local isUnsafe = im:ignore(fbname,"converter")
-			local casttype = isUnsafe and "static" or "dynamic"
+			--local isUnsafe = im:ignore(fbname,"converter")
+			--local casttype = isUnsafe and "static" or "dynamic"
 			
 			if pt:isPointer() then
 				-- we just retrieve the pointer here:
@@ -125,11 +125,12 @@ function Class:retrieveArguments(func)
 					self:writeSubLine("${7}${3}* ${1}=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)				
 				else
 					-- need to dynamic cast:
-					if isUnsafe then
-						self:writeSubLine("${7}${3}* ${1}=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)					
-					else
-						self:writeSubLine("${7}${3}* ${1}=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)
-					end
+					self:writeSubLine("${7}${3}* ${1}=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre)
+					--if isUnsafe then
+					--	self:writeSubLine("${7}${3}* ${1}=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)					
+					--else
+					--	self:writeSubLine("${7}${3}* ${1}=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPost,constPre,casttype)
+					--end
 				end
 				
 				isPointer=true			
@@ -139,11 +140,13 @@ function Class:retrieveArguments(func)
 					self:writeSubLine("${7}${3}* ${1}_ptr=${5}(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
 				
 				else
-					if isUnsafe then
-						self:writeSubLine("${7}${3}* ${1}_ptr=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
-					else
-						self:writeSubLine("${7}${3}* ${1}_ptr=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
-					end
+					self:writeSubLine("${7}${3}* ${1}_ptr=${5}(Luna< ${4} >::checkSubType< ${3} >(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre)
+				
+					--if isUnsafe then
+					--	self:writeSubLine("${7}${3}* ${1}_ptr=${5}static_cast< ${3}* >(Luna< void >::rawPointer(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
+					--else
+					--	self:writeSubLine("${7}${3}* ${1}_ptr=${5}${8}_cast< ${3}* >(Luna< ${4} >::check(L,${2}))${6};",argname,index,bname,fbname,defStrPre,defStrPostNull,constPre,casttype)
+					--end
 				end
 				self:writeSubLine("if( ${2}!${1}_ptr ) {",argname,defStrAnd)
 				self:pushIndent()
@@ -212,19 +215,21 @@ function Class:writeFunctionCall(cname,func,args)
 		end
 		
 		bname = tm:getBaseTypeMapping(bname)
-		local isUnsafe = im:ignore(bname,"converter")
-		local casttype = isUnsafe and "static" or "dynamic"
+		--local isUnsafe = im:ignore(bname,"converter")
+		--local casttype = isUnsafe and "static" or "dynamic"
 		
 		-- the function is a class method, retrieve the object:
 		if cname == bname then
 			self:writeSubLine("${1}* self=(Luna< ${2} >::check(L,1));",cname, bname);
 		else
 			-- need to dynamic cast:
-			if isUnsafe then
-				self:writeSubLine("${1}* self=static_cast< ${1}* >(Luna< void >::rawPointer(L,1));",cname);			
-			else
-				self:writeSubLine("${1}* self=${3}_cast< ${1}* >(Luna< ${2} >::check(L,1));",cname, bname, casttype);
-			end
+			self:writeSubLine("${1}* self=Luna< ${2} >::checkSubType< ${1} >(L,1);",cname, bname);
+			
+			--if isUnsafe then
+			--	self:writeSubLine("${1}* self=static_cast< ${1}* >(Luna< void >::rawPointer(L,1));",cname);			
+			--else
+			--	self:writeSubLine("${1}* self=${3}_cast< ${1}* >(Luna< ${2} >::check(L,1));",cname, bname, casttype);
+			--end
 		end
 		self:writeLine("if(!self) {")
 		self:pushIndent()

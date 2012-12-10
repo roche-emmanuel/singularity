@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::Object* ptr= dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::Object* ptr= dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* ptr= luna_caster< osg::Referenced, sgt::Object >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -157,7 +158,7 @@ public:
 			luaL_error(L, "luna typecheck failed in sgt::Object::Object(const sgt::Object & rhs) function, expected prototype:\nsgt::Object::Object(const sgt::Object & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		const sgt::Object* rhs_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
 		}
@@ -173,7 +174,7 @@ public:
 			luaL_error(L, "luna typecheck failed in sgt::Object::Object(const sgt::Object & rhs, const osg::CopyOp & copyop) function, expected prototype:\nsgt::Object::Object(const sgt::Object & rhs, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
-		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		const sgt::Object* rhs_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
 		}
@@ -205,7 +206,7 @@ public:
 			luaL_error(L, "luna typecheck failed in sgt::Object::Object(lua_Table * data, const sgt::Object & rhs) function, expected prototype:\nsgt::Object::Object(lua_Table * data, const sgt::Object & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2));
+		const sgt::Object* rhs_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Object >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
 		}
@@ -221,7 +222,7 @@ public:
 			luaL_error(L, "luna typecheck failed in sgt::Object::Object(lua_Table * data, const sgt::Object & rhs, const osg::CopyOp & copyop) function, expected prototype:\nsgt::Object::Object(lua_Table * data, const sgt::Object & rhs, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
 		}
 
-		const sgt::Object* rhs_ptr=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,2));
+		const sgt::Object* rhs_ptr=(Luna< osg::Referenced >::checkSubType< sgt::Object >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in sgt::Object::Object function");
 		}
@@ -258,7 +259,7 @@ public:
 		}
 
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::cloneType() const");
@@ -279,7 +280,7 @@ public:
 		}
 
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone() const");
@@ -305,7 +306,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * sgt::Object::clone(const osg::CopyOp &) const");
@@ -334,9 +335,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool sgt::Object::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool sgt::Object::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::Object::isSameKindAs(const osg::Object *) const");
@@ -355,7 +356,7 @@ public:
 		}
 
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * sgt::Object::libraryName() const");
@@ -374,7 +375,7 @@ public:
 		}
 
 
-		sgt::Object* self=dynamic_cast< sgt::Object* >(Luna< osg::Referenced >::check(L,1));
+		sgt::Object* self=Luna< osg::Referenced >::checkSubType< sgt::Object >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * sgt::Object::className() const");
