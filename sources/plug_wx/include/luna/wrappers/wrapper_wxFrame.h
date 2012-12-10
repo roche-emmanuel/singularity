@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxFrame::GetClassInfo();
 	};
 
 	// bool wxWindow::AcceptsFocus() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocus();
+		return wxFrame::AcceptsFocus();
 	};
 
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusFromKeyboard();
+		return wxFrame::AcceptsFocusFromKeyboard();
 	};
 
 	// bool wxWindow::AcceptsFocusRecursively() const
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusRecursively();
+		return wxFrame::AcceptsFocusRecursively();
 	};
 
 	// bool wxWindow::HasFocus() const
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasFocus();
+		return wxFrame::HasFocus();
 	};
 
 	// void wxWindow::SetCanFocus(bool canFocus)
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetCanFocus(canFocus);
+		return wxFrame::SetCanFocus(canFocus);
 	};
 
 	// void wxWindow::SetFocus()
@@ -79,7 +79,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocus();
+		return wxFrame::SetFocus();
 	};
 
 	// void wxWindow::SetFocusFromKbd()
@@ -88,7 +88,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocusFromKbd();
+		return wxFrame::SetFocusFromKbd();
 	};
 
 	// void wxWindow::AddChild(wxWindow * child)
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AddChild(child);
+		return wxFrame::AddChild(child);
 	};
 
 	// void wxWindow::RemoveChild(wxWindow * child)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::RemoveChild(child);
+		return wxFrame::RemoveChild(child);
 	};
 
 	// bool wxWindow::Reparent(wxWindow * newParent)
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Reparent(newParent);
+		return wxFrame::Reparent(newParent);
 	};
 
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AlwaysShowScrollbars(hflag, vflag);
+		return wxFrame::AlwaysShowScrollbars(hflag, vflag);
 	};
 
 	// int wxWindow::GetScrollPos(int orientation) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollPos(orientation);
+		return wxFrame::GetScrollPos(orientation);
 	};
 
 	// int wxWindow::GetScrollRange(int orientation) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollRange(orientation);
+		return wxFrame::GetScrollRange(orientation);
 	};
 
 	// int wxWindow::GetScrollThumb(int orientation) const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollThumb(orientation);
+		return wxFrame::GetScrollThumb(orientation);
 	};
 
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsScrollbarAlwaysShown(orient);
+		return wxFrame::IsScrollbarAlwaysShown(orient);
 	};
 
 	// bool wxWindow::ScrollLines(int lines)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollLines(lines);
+		return wxFrame::ScrollLines(lines);
 	};
 
 	// bool wxWindow::ScrollPages(int pages)
@@ -189,7 +189,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollPages(pages);
+		return wxFrame::ScrollPages(pages);
 	};
 
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ScrollWindow(dx, dy, rect);
+		return wxFrame::ScrollWindow(dx, dy, rect);
 	};
 
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollPos(orientation, pos, refresh);
+		return wxFrame::SetScrollPos(orientation, pos, refresh);
 	};
 
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
+		return wxFrame::SetScrollbar(orientation, position, thumbSize, range, refresh);
 	};
 
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
@@ -237,7 +237,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::ClientToWindowSize(size);
+		return wxFrame::ClientToWindowSize(size);
 	};
 
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
@@ -247,7 +247,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::WindowToClientSize(size);
+		return wxFrame::WindowToClientSize(size);
 	};
 
 	// void wxWindow::Fit()
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Fit();
+		return wxFrame::Fit();
 	};
 
 	// void wxWindow::FitInside()
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::FitInside();
+		return wxFrame::FitInside();
 	};
 
 	// wxSize wxWindow::GetEffectiveMinSize() const
@@ -274,7 +274,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetEffectiveMinSize();
+		return wxFrame::GetEffectiveMinSize();
 	};
 
 	// wxSize wxWindow::GetMaxClientSize() const
@@ -283,7 +283,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxClientSize();
+		return wxFrame::GetMaxClientSize();
 	};
 
 	// wxSize wxWindow::GetMaxSize() const
@@ -292,7 +292,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxSize();
+		return wxFrame::GetMaxSize();
 	};
 
 	// wxSize wxWindow::GetMinClientSize() const
@@ -301,7 +301,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinClientSize();
+		return wxFrame::GetMinClientSize();
 	};
 
 	// wxSize wxWindow::GetMinSize() const
@@ -310,7 +310,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinSize();
+		return wxFrame::GetMinSize();
 	};
 
 	// wxSize wxWindow::GetBestVirtualSize() const
@@ -319,7 +319,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetBestVirtualSize();
+		return wxFrame::GetBestVirtualSize();
 	};
 
 	// wxSize wxWindow::GetWindowBorderSize() const
@@ -328,7 +328,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetWindowBorderSize();
+		return wxFrame::GetWindowBorderSize();
 	};
 
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -340,7 +340,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::InformFirstDirection(direction, size, availableOtherDir);
+		return wxFrame::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxWindow::SendSizeEvent(int flags = 0)
@@ -350,7 +350,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SendSizeEvent(flags);
+		return wxFrame::SendSizeEvent(flags);
 	};
 
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
@@ -360,7 +360,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxClientSize(size);
+		return wxFrame::SetMaxClientSize(size);
 	};
 
 	// void wxWindow::SetMinClientSize(const wxSize & size)
@@ -370,7 +370,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinClientSize(size);
+		return wxFrame::SetMinClientSize(size);
 	};
 
 	// void wxWindow::ClearBackground()
@@ -379,7 +379,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ClearBackground();
+		return wxFrame::ClearBackground();
 	};
 
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
@@ -388,7 +388,7 @@ public:
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetBackgroundStyle();
+		return wxFrame::GetBackgroundStyle();
 	};
 
 	// int wxWindow::GetCharHeight() const
@@ -397,7 +397,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharHeight();
+		return wxFrame::GetCharHeight();
 	};
 
 	// int wxWindow::GetCharWidth() const
@@ -406,7 +406,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharWidth();
+		return wxFrame::GetCharWidth();
 	};
 
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
@@ -415,7 +415,7 @@ public:
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
-		return wxWindow::GetDefaultAttributes();
+		return wxFrame::GetDefaultAttributes();
 	};
 
 	// bool wxWindow::HasTransparentBackground()
@@ -424,7 +424,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasTransparentBackground();
+		return wxFrame::HasTransparentBackground();
 	};
 
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
@@ -435,7 +435,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Refresh(eraseBackground, rect);
+		return wxFrame::Refresh(eraseBackground, rect);
 	};
 
 	// void wxWindow::Update()
@@ -444,7 +444,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Update();
+		return wxFrame::Update();
 	};
 
 	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
@@ -454,7 +454,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundColour(colour);
+		return wxFrame::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -464,7 +464,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundStyle(style);
+		return wxFrame::SetBackgroundStyle(style);
 	};
 
 	// bool wxWindow::SetFont(const wxFont & font)
@@ -474,7 +474,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetFont(font);
+		return wxFrame::SetFont(font);
 	};
 
 	// bool wxWindow::SetForegroundColour(const wxColour & colour)
@@ -484,7 +484,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetForegroundColour(colour);
+		return wxFrame::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -493,7 +493,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShouldInheritColours();
+		return wxFrame::ShouldInheritColours();
 	};
 
 	// void wxWindow::SetThemeEnabled(bool enable)
@@ -503,7 +503,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetThemeEnabled(enable);
+		return wxFrame::SetThemeEnabled(enable);
 	};
 
 	// bool wxWindow::GetThemeEnabled() const
@@ -512,7 +512,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::GetThemeEnabled();
+		return wxFrame::GetThemeEnabled();
 	};
 
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
@@ -522,7 +522,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetNextHandler(handler);
+		return wxFrame::SetNextHandler(handler);
 	};
 
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
@@ -532,7 +532,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetPreviousHandler(handler);
+		return wxFrame::SetPreviousHandler(handler);
 	};
 
 	// long wxWindow::GetWindowStyleFlag() const
@@ -541,7 +541,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxWindow::GetWindowStyleFlag();
+		return wxFrame::GetWindowStyleFlag();
 	};
 
 	// void wxWindow::SetExtraStyle(long exStyle)
@@ -551,7 +551,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetExtraStyle(exStyle);
+		return wxFrame::SetExtraStyle(exStyle);
 	};
 
 	// void wxWindow::SetWindowStyleFlag(long style)
@@ -561,7 +561,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetWindowStyleFlag(style);
+		return wxFrame::SetWindowStyleFlag(style);
 	};
 
 	// void wxWindow::Lower()
@@ -570,7 +570,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Lower();
+		return wxFrame::Lower();
 	};
 
 	// void wxWindow::Raise()
@@ -579,7 +579,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Raise();
+		return wxFrame::Raise();
 	};
 
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -590,7 +590,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HideWithEffect(effect, timeout);
+		return wxFrame::HideWithEffect(effect, timeout);
 	};
 
 	// bool wxWindow::IsShown() const
@@ -599,7 +599,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShown();
+		return wxFrame::IsShown();
 	};
 
 	// bool wxWindow::IsShownOnScreen() const
@@ -608,7 +608,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShownOnScreen();
+		return wxFrame::IsShownOnScreen();
 	};
 
 	// bool wxWindow::Enable(bool enable = true)
@@ -618,7 +618,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Enable(enable);
+		return wxFrame::Enable(enable);
 	};
 
 	// bool wxWindow::Show(bool show = true)
@@ -628,7 +628,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Show(show);
+		return wxFrame::Show(show);
 	};
 
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -639,7 +639,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShowWithEffect(effect, timeout);
+		return wxFrame::ShowWithEffect(effect, timeout);
 	};
 
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
@@ -650,7 +650,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetHelpTextAtPoint(point, origin);
+		return wxFrame::GetHelpTextAtPoint(point, origin);
 	};
 
 	// wxValidator * wxWindow::GetValidator()
@@ -659,7 +659,7 @@ public:
 			return (_obj.callFunction<wxValidator*>());
 		}
 
-		return wxWindow::GetValidator();
+		return wxFrame::GetValidator();
 	};
 
 	// void wxWindow::SetValidator(const wxValidator & validator)
@@ -669,7 +669,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetValidator(validator);
+		return wxFrame::SetValidator(validator);
 	};
 
 	// bool wxWindow::TransferDataFromWindow()
@@ -678,7 +678,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataFromWindow();
+		return wxFrame::TransferDataFromWindow();
 	};
 
 	// bool wxWindow::TransferDataToWindow()
@@ -687,7 +687,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataToWindow();
+		return wxFrame::TransferDataToWindow();
 	};
 
 	// bool wxWindow::Validate()
@@ -696,7 +696,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Validate();
+		return wxFrame::Validate();
 	};
 
 	// wxString wxWindow::GetLabel() const
@@ -705,7 +705,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetLabel();
+		return wxFrame::GetLabel();
 	};
 
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
@@ -714,7 +714,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetLayoutDirection();
+		return wxFrame::GetLayoutDirection();
 	};
 
 	// wxString wxWindow::GetName() const
@@ -723,7 +723,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetName();
+		return wxFrame::GetName();
 	};
 
 	// void wxWindow::SetLabel(const wxString & label)
@@ -733,7 +733,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLabel(label);
+		return wxFrame::SetLabel(label);
 	};
 
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
@@ -743,7 +743,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLayoutDirection(dir);
+		return wxFrame::SetLayoutDirection(dir);
 	};
 
 	// void wxWindow::SetName(const wxString & name)
@@ -753,7 +753,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetName(name);
+		return wxFrame::SetName(name);
 	};
 
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
@@ -763,7 +763,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetAcceleratorTable(accel);
+		return wxFrame::SetAcceleratorTable(accel);
 	};
 
 	// bool wxWindow::Destroy()
@@ -772,7 +772,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Destroy();
+		return wxFrame::Destroy();
 	};
 
 	// wxDropTarget * wxWindow::GetDropTarget() const
@@ -781,7 +781,7 @@ public:
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
-		return wxWindow::GetDropTarget();
+		return wxFrame::GetDropTarget();
 	};
 
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
@@ -791,7 +791,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetDropTarget(target);
+		return wxFrame::SetDropTarget(target);
 	};
 
 	// void wxWindow::DragAcceptFiles(bool accept)
@@ -801,7 +801,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DragAcceptFiles(accept);
+		return wxFrame::DragAcceptFiles(accept);
 	};
 
 	// bool wxWindow::HasCapture() const
@@ -810,7 +810,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasCapture();
+		return wxFrame::HasCapture();
 	};
 
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
@@ -820,7 +820,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetCursor(cursor);
+		return wxFrame::SetCursor(cursor);
 	};
 
 	// void wxWindow::WarpPointer(int x, int y)
@@ -831,7 +831,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::WarpPointer(x, y);
+		return wxFrame::WarpPointer(x, y);
 	};
 
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
@@ -841,16 +841,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DoUpdateWindowUI(event);
-	};
-
-	// WXWidget wxWindow::GetHandle() const
-	WXWidget GetHandle() const {
-		if(_obj.pushFunction("GetHandle")) {
-			return (_obj.callFunction<WXWidget>());
-		}
-
-		return wxWindow::GetHandle();
+		return wxFrame::DoUpdateWindowUI(event);
 	};
 
 	// bool wxWindow::HasMultiplePages() const
@@ -859,7 +850,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasMultiplePages();
+		return wxFrame::HasMultiplePages();
 	};
 
 	// void wxWindow::InheritAttributes()
@@ -868,7 +859,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InheritAttributes();
+		return wxFrame::InheritAttributes();
 	};
 
 	// void wxWindow::InitDialog()
@@ -877,7 +868,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InitDialog();
+		return wxFrame::InitDialog();
 	};
 
 	// bool wxWindow::IsRetained() const
@@ -886,7 +877,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsRetained();
+		return wxFrame::IsRetained();
 	};
 
 	// bool wxWindow::IsTopLevel() const
@@ -895,7 +886,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsTopLevel();
+		return wxFrame::IsTopLevel();
 	};
 
 	// void wxWindow::MakeModal(bool modal = true)
@@ -905,7 +896,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::MakeModal(modal);
+		return wxFrame::MakeModal(modal);
 	};
 
 	// void wxWindow::OnInternalIdle()
@@ -914,7 +905,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::OnInternalIdle();
+		return wxFrame::OnInternalIdle();
 	};
 
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
@@ -926,7 +917,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		return wxFrame::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 	};
 
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
@@ -936,7 +927,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::UnregisterHotKey(hotkeyId);
+		return wxFrame::UnregisterHotKey(hotkeyId);
 	};
 
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
@@ -946,7 +937,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::UpdateWindowUI(flags);
+		return wxFrame::UpdateWindowUI(flags);
 	};
 
 	// bool wxTopLevelWindow::CanSetTransparent()
@@ -955,7 +946,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::CanSetTransparent();
+		return wxFrame::CanSetTransparent();
 	};
 
 	// bool wxTopLevelWindow::EnableCloseButton(bool enable = true)
@@ -965,7 +956,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::EnableCloseButton(enable);
+		return wxFrame::EnableCloseButton(enable);
 	};
 
 	// wxString wxTopLevelWindow::GetTitle() const
@@ -974,7 +965,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTopLevelWindow::GetTitle();
+		return wxFrame::GetTitle();
 	};
 
 	// void wxTopLevelWindow::Iconize(bool iconize = true)
@@ -984,7 +975,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::Iconize(iconize);
+		return wxFrame::Iconize(iconize);
 	};
 
 	// bool wxTopLevelWindow::IsActive()
@@ -993,7 +984,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsActive();
+		return wxFrame::IsActive();
 	};
 
 	// bool wxTopLevelWindow::IsAlwaysMaximized() const
@@ -1002,7 +993,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsAlwaysMaximized();
+		return wxFrame::IsAlwaysMaximized();
 	};
 
 	// bool wxTopLevelWindow::IsFullScreen() const
@@ -1011,7 +1002,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsFullScreen();
+		return wxFrame::IsFullScreen();
 	};
 
 	// bool wxTopLevelWindow::IsIconized() const
@@ -1020,7 +1011,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsIconized();
+		return wxFrame::IsIconized();
 	};
 
 	// bool wxTopLevelWindow::IsMaximized() const
@@ -1029,7 +1020,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsMaximized();
+		return wxFrame::IsMaximized();
 	};
 
 	// bool wxTopLevelWindow::Layout()
@@ -1038,7 +1029,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::Layout();
+		return wxFrame::Layout();
 	};
 
 	// void wxTopLevelWindow::Maximize(bool maximize = true)
@@ -1048,7 +1039,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::Maximize(maximize);
+		return wxFrame::Maximize(maximize);
 	};
 
 	// void wxTopLevelWindow::RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)
@@ -1058,7 +1049,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::RequestUserAttention(flags);
+		return wxFrame::RequestUserAttention(flags);
 	};
 
 	// void wxTopLevelWindow::SetIcons(const wxIconBundle & icons)
@@ -1068,7 +1059,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetIcons(icons);
+		return wxFrame::SetIcons(icons);
 	};
 
 	// void wxTopLevelWindow::SetMaxSize(const wxSize & size)
@@ -1078,7 +1069,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetMaxSize(size);
+		return wxFrame::SetMaxSize(size);
 	};
 
 	// void wxTopLevelWindow::SetMinSize(const wxSize & size)
@@ -1088,7 +1079,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetMinSize(size);
+		return wxFrame::SetMinSize(size);
 	};
 
 	// void wxTopLevelWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
@@ -1103,7 +1094,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+		return wxFrame::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 	};
 
 	// void wxTopLevelWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
@@ -1115,7 +1106,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetSizeHints(minSize, maxSize, incSize);
+		return wxFrame::SetSizeHints(minSize, maxSize, incSize);
 	};
 
 	// void wxTopLevelWindow::SetTitle(const wxString & title)
@@ -1125,7 +1116,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetTitle(title);
+		return wxFrame::SetTitle(title);
 	};
 
 	// bool wxTopLevelWindow::SetTransparent(unsigned char alpha)
@@ -1135,7 +1126,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::SetTransparent(alpha);
+		return wxFrame::SetTransparent(alpha);
 	};
 
 	// bool wxTopLevelWindow::ShouldPreventAppExit() const
@@ -1144,7 +1135,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::ShouldPreventAppExit();
+		return wxFrame::ShouldPreventAppExit();
 	};
 
 	// void wxTopLevelWindow::OSXSetModified(bool modified)
@@ -1154,7 +1145,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::OSXSetModified(modified);
+		return wxFrame::OSXSetModified(modified);
 	};
 
 	// bool wxTopLevelWindow::OSXIsModified() const
@@ -1163,7 +1154,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::OSXIsModified();
+		return wxFrame::OSXIsModified();
 	};
 
 	// bool wxTopLevelWindow::ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)
@@ -1174,7 +1165,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::ShowFullScreen(show, style);
+		return wxFrame::ShowFullScreen(show, style);
 	};
 
 	// wxStatusBar * wxFrame::CreateStatusBar(int number = 1, long style = wxSTB_DEFAULT_STYLE, int id = 0, const wxString & name = wxStatusLineNameStr)
@@ -1318,15 +1309,103 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFrame::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFrame::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxFrame::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxFrame::TryAfter(event);
+	};
+
 	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxFrame::DoCentre(direction);
+	};
+
 	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxFrame::DoGetBestSize();
+	};
+
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxFrame::SetInitialBestSize(size);
+	};
+
 	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxFrame::ProcessEvent(event);
+	};
+
 	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxFrame::QueueEvent(event);
+	};
+
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxFrame::AddPendingEvent(event);
+	};
+
 
 };
 

@@ -23,16 +23,16 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxSocketOutputStream::GetClassInfo();
 	};
 
-	// long wxStreamBase::GetLength() const
-	long GetLength() const {
+	// long long wxStreamBase::GetLength() const
+	long long GetLength() const {
 		if(_obj.pushFunction("GetLength")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxStreamBase::GetLength();
+		return wxSocketOutputStream::GetLength();
 	};
 
 	// size_t wxStreamBase::GetSize() const
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxStreamBase::GetSize();
+		return wxSocketOutputStream::GetSize();
 	};
 
 	// bool wxStreamBase::IsOk() const
@@ -50,7 +50,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxStreamBase::IsOk();
+		return wxSocketOutputStream::IsOk();
 	};
 
 	// bool wxStreamBase::IsSeekable() const
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxStreamBase::IsSeekable();
+		return wxSocketOutputStream::IsSeekable();
 	};
 
 	// bool wxOutputStream::Close()
@@ -68,7 +68,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxOutputStream::Close();
+		return wxSocketOutputStream::Close();
 	};
 
 	// size_t wxOutputStream::LastWrite() const
@@ -77,27 +77,27 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxOutputStream::LastWrite();
+		return wxSocketOutputStream::LastWrite();
 	};
 
-	// long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)
-	long SeekO(long pos, wxSeekMode mode = ::wxFromStart) {
+	// long long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart)
+	long long SeekO(long long pos, wxSeekMode mode = ::wxFromStart) {
 		if(_obj.pushFunction("SeekO")) {
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxOutputStream::SeekO(pos, mode);
+		return wxSocketOutputStream::SeekO(pos, mode);
 	};
 
-	// long wxOutputStream::TellO() const
-	long TellO() const {
+	// long long wxOutputStream::TellO() const
+	long long TellO() const {
 		if(_obj.pushFunction("TellO")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxOutputStream::TellO();
+		return wxSocketOutputStream::TellO();
 	};
 
 	// wxOutputStream & wxOutputStream::Write(const void * buffer, size_t size)
@@ -108,15 +108,50 @@ public:
 			return *(_obj.callFunction<wxOutputStream*>());
 		}
 
-		return wxOutputStream::Write(buffer, size);
+		return wxSocketOutputStream::Write(buffer, size);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSocketOutputStream::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	// long wxStreamBase::OnSysSeek(long pos, wxSeekMode mode)
-	// long wxStreamBase::OnSysTell() const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSocketOutputStream::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxSocketOutputStream::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxSocketOutputStream::OnSysTell();
+	};
+
 
 };
 

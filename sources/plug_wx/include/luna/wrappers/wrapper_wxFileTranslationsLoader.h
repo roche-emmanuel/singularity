@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxFileTranslationsLoader(lua_State* L, lua_Table* dum) : wxFileTranslationsLoader(), _obj(L,-1) {};
 
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {

@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxWindowModalDialogEvent::GetClassInfo();
 	};
 
 	// wxEventCategory wxEvent::GetEventCategory() const
@@ -32,7 +32,7 @@ public:
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 
-		return wxEvent::GetEventCategory();
+		return wxWindowModalDialogEvent::GetEventCategory();
 	};
 
 	// wxEvent * wxWindowModalDialogEvent::Clone() const
@@ -47,7 +47,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxWindowModalDialogEvent::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxWindowModalDialogEvent::CloneRefData(data);
+	};
+
 
 };
 

@@ -62,7 +62,25 @@ public:
 
 protected:
 	// wxHtmlHelpDialog * wxHtmlHelpController::CreateHelpDialog(wxHtmlHelpData * data)
+	wxHtmlHelpDialog * CreateHelpDialog(wxHtmlHelpData * data) {
+		if(_obj.pushFunction("CreateHelpDialog")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxHtmlHelpDialog*>());
+		}
+
+		return wxHtmlHelpController::CreateHelpDialog(data);
+	};
+
 	// wxHtmlHelpFrame * wxHtmlHelpController::CreateHelpFrame(wxHtmlHelpData * data)
+	wxHtmlHelpFrame * CreateHelpFrame(wxHtmlHelpData * data) {
+		if(_obj.pushFunction("CreateHelpFrame")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxHtmlHelpFrame*>());
+		}
+
+		return wxHtmlHelpController::CreateHelpFrame(data);
+	};
+
 
 };
 

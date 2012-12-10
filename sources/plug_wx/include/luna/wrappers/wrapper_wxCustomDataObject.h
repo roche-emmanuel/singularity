@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataObjectSimple::GetDataHere(buf);
+		return wxCustomDataObject::GetDataHere(buf);
 	};
 
 	// size_t wxDataObjectSimple::GetDataSize() const
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxDataObjectSimple::GetDataSize();
+		return wxCustomDataObject::GetDataSize();
 	};
 
 	// void * wxCustomDataObject::Alloc(size_t size)

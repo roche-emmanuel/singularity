@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxSizerXmlHandler::GetClassInfo();
 	};
 
 	// wxObject * wxSizerXmlHandler::DoCreateResource()
@@ -48,9 +48,44 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSizerXmlHandler::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSizerXmlHandler::CloneRefData(data);
+	};
+
 	// wxSizer * wxSizerXmlHandler::DoCreateSizer(const wxString & name)
+	wxSizer * DoCreateSizer(const wxString & name) {
+		if(_obj.pushFunction("DoCreateSizer")) {
+			_obj.pushArg(name);
+			return (_obj.callFunction<wxSizer*>());
+		}
+
+		return wxSizerXmlHandler::DoCreateSizer(name);
+	};
+
 	// bool wxSizerXmlHandler::IsSizerNode(wxXmlNode * node) const
+	bool IsSizerNode(wxXmlNode * node) const {
+		if(_obj.pushFunction("IsSizerNode")) {
+			_obj.pushArg(node);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSizerXmlHandler::IsSizerNode(node);
+	};
+
 
 };
 

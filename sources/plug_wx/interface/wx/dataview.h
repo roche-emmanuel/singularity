@@ -1734,7 +1734,7 @@ public:
     */
     wxDataViewCustomRenderer(const wxString& varianttype = "string",
                              wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
-                             int align = -1, bool no_init = false);
+                             int align = -1); //, bool no_init = false
 
     /**
         Destructor.
@@ -2159,7 +2159,7 @@ public:
         Appends a column to the control and additionally appends a
         column to the store with the type string.
     */
-    virtual void AppendColumn( wxDataViewColumn *column );
+    virtual bool AppendColumn( wxDataViewColumn *column );
 
     /**
         Appends a column to the control and additionally appends a
@@ -2215,7 +2215,7 @@ public:
         Inserts a column to the control and additionally inserts a
         column to the store with the type string.
     */
-    virtual void InsertColumn( unsigned int pos, wxDataViewColumn *column );
+    virtual bool InsertColumn( unsigned int pos, wxDataViewColumn *column );
 
     /**
         Inserts a column to the control and additionally inserts a
@@ -2228,7 +2228,7 @@ public:
         Prepends a column to the control and additionally prepends a
         column to the store with the type string.
     */
-    virtual void PrependColumn( wxDataViewColumn *column );
+    virtual bool PrependColumn( wxDataViewColumn *column );
 
     /**
         Prepends a column to the control and additionally prepends a

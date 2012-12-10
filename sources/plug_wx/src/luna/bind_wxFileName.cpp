@@ -199,15 +199,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_AssignTempFileName_overload_3(lua_State *L) {
-		if( lua_gettop(L)!=3 ) return false;
-
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,15266762)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxFFile* >(Luna< wxFFile >::check(L,3)) ) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_Clear(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -670,23 +661,12 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_CreateTempFileName_overload_1(lua_State *L) {
+	inline static bool _lg_typecheck_CreateTempFileName(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19881034)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxFile* >(Luna< wxFile >::check(L,2)) ) ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_CreateTempFileName_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<1 || luatop>2 ) return false;
-
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15266762)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxFFile* >(Luna< wxFFile >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -1268,33 +1248,12 @@ public:
 		return 0;
 	}
 
-	// void wxFileName::AssignTempFileName(const wxString & prefix, wxFFile * fileTemp)
-	static int _bind_AssignTempFileName_overload_3(lua_State *L) {
-		if (!_lg_typecheck_AssignTempFileName_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileName::AssignTempFileName(const wxString & prefix, wxFFile * fileTemp) function, expected prototype:\nvoid wxFileName::AssignTempFileName(const wxString & prefix, wxFFile * fileTemp)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 15266762\n");
-		}
-
-		wxString prefix(lua_tostring(L,2),lua_objlen(L,2));
-		wxFFile* fileTemp=(Luna< wxFFile >::check(L,3));
-
-		wxFileName* self=(Luna< wxFileName >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileName::AssignTempFileName(const wxString &, wxFFile *)");
-		}
-		self->AssignTempFileName(prefix, fileTemp);
-
-		return 0;
-	}
-
 	// Overload binder for wxFileName::AssignTempFileName
 	static int _bind_AssignTempFileName(lua_State *L) {
 		if (_lg_typecheck_AssignTempFileName_overload_1(L)) return _bind_AssignTempFileName_overload_1(L);
 		if (_lg_typecheck_AssignTempFileName_overload_2(L)) return _bind_AssignTempFileName_overload_2(L);
-		if (_lg_typecheck_AssignTempFileName_overload_3(L)) return _bind_AssignTempFileName_overload_3(L);
 
-		luaL_error(L, "error in function AssignTempFileName, cannot match any of the overloads for function AssignTempFileName:\n  AssignTempFileName(const wxString &)\n  AssignTempFileName(const wxString &, wxFile *)\n  AssignTempFileName(const wxString &, wxFFile *)\n");
+		luaL_error(L, "error in function AssignTempFileName, cannot match any of the overloads for function AssignTempFileName:\n  AssignTempFileName(const wxString &)\n  AssignTempFileName(const wxString &, wxFile *)\n");
 		return 0;
 	}
 
@@ -2665,8 +2624,8 @@ public:
 	}
 
 	// static wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFile * fileTemp = NULL)
-	static int _bind_CreateTempFileName_overload_1(lua_State *L) {
-		if (!_lg_typecheck_CreateTempFileName_overload_1(L)) {
+	static int _bind_CreateTempFileName(lua_State *L) {
+		if (!_lg_typecheck_CreateTempFileName(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in static wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFile * fileTemp = NULL) function, expected prototype:\nstatic wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFile * fileTemp = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 19881034\n");
 		}
@@ -2680,33 +2639,6 @@ public:
 		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
-	}
-
-	// static wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFFile * fileTemp = NULL)
-	static int _bind_CreateTempFileName_overload_2(lua_State *L) {
-		if (!_lg_typecheck_CreateTempFileName_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFFile * fileTemp = NULL) function, expected prototype:\nstatic wxString wxFileName::CreateTempFileName(const wxString & prefix, wxFFile * fileTemp = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 15266762\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxString prefix(lua_tostring(L,1),lua_objlen(L,1));
-		wxFFile* fileTemp=luatop>1 ? (Luna< wxFFile >::check(L,2)) : (wxFFile*)NULL;
-
-		wxString lret = wxFileName::CreateTempFileName(prefix, fileTemp);
-		lua_pushlstring(L,lret.data(),lret.size());
-
-		return 1;
-	}
-
-	// Overload binder for wxFileName::CreateTempFileName
-	static int _bind_CreateTempFileName(lua_State *L) {
-		if (_lg_typecheck_CreateTempFileName_overload_1(L)) return _bind_CreateTempFileName_overload_1(L);
-		if (_lg_typecheck_CreateTempFileName_overload_2(L)) return _bind_CreateTempFileName_overload_2(L);
-
-		luaL_error(L, "error in function CreateTempFileName, cannot match any of the overloads for function CreateTempFileName:\n  CreateTempFileName(const wxString &, wxFile *)\n  CreateTempFileName(const wxString &, wxFFile *)\n");
-		return 0;
 	}
 
 	// static wxFileName wxFileName::DirName(const wxString & dir, wxPathFormat format = ::wxPATH_NATIVE)

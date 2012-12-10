@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxSettableHeaderColumn(lua_State* L, lua_Table* dum) : wxSettableHeaderColumn(), _obj(L,-1) {};
 
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {
@@ -59,7 +58,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsResizeable();
+		return wxSettableHeaderColumn::IsResizeable();
 	};
 
 	// bool wxHeaderColumn::IsSortable() const
@@ -68,7 +67,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsSortable();
+		return wxSettableHeaderColumn::IsSortable();
 	};
 
 	// bool wxHeaderColumn::IsReorderable() const
@@ -77,7 +76,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsReorderable();
+		return wxSettableHeaderColumn::IsReorderable();
 	};
 
 	// bool wxHeaderColumn::IsHidden() const
@@ -86,7 +85,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsHidden();
+		return wxSettableHeaderColumn::IsHidden();
 	};
 
 	// bool wxHeaderColumn::IsSortKey() const

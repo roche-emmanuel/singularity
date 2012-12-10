@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::Cleared();
+		return wxDataViewVirtualListModel::Cleared();
 	};
 
 	// int wxDataViewModel::Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewModel::Compare(item1, item2, column, ascending);
+		return wxDataViewVirtualListModel::Compare(item1, item2, column, ascending);
 	};
 
 	// bool wxDataViewModel::GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::GetAttr(item, col, attr);
+		return wxDataViewVirtualListModel::GetAttr(item, col, attr);
 	};
 
 	// bool wxDataViewModel::IsEnabled(const wxDataViewItem & item, unsigned int col) const
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::IsEnabled(item, col);
+		return wxDataViewVirtualListModel::IsEnabled(item, col);
 	};
 
 	// unsigned int wxDataViewModel::GetChildren(const wxDataViewItem & item, wxDataViewItemArray & children) const
@@ -97,7 +97,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasContainerColumns(item);
+		return wxDataViewVirtualListModel::HasContainerColumns(item);
 	};
 
 	// bool wxDataViewModel::HasDefaultCompare() const
@@ -106,7 +106,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasDefaultCompare();
+		return wxDataViewVirtualListModel::HasDefaultCompare();
 	};
 
 	// bool wxDataViewModel::IsContainer(const wxDataViewItem & item) const
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewModel::Resort();
+		return wxDataViewVirtualListModel::Resort();
 	};
 
 	// bool wxDataViewModel::ValueChanged(const wxDataViewItem & item, unsigned int col)
@@ -133,7 +133,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::ValueChanged(item, col);
+		return wxDataViewVirtualListModel::ValueChanged(item, col);
 	};
 
 

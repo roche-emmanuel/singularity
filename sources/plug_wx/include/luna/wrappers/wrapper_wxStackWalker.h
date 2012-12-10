@@ -41,6 +41,12 @@ public:
 
 protected:
 	// void wxStackWalker::OnStackFrame(const wxStackFrame & frame)
+	void OnStackFrame(const wxStackFrame & frame) {
+		THROW_IF(!_obj.pushFunction("OnStackFrame"),"No implementation for abstract function wxStackWalker::OnStackFrame");
+		_obj.pushArg(&frame);
+		return (_obj.callFunction<void>());
+	};
+
 
 };
 

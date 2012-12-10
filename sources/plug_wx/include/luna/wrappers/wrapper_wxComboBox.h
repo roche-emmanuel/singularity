@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxComboBox::GetClassInfo();
 	};
 
 	// bool wxWindow::AcceptsFocus() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocus();
+		return wxComboBox::AcceptsFocus();
 	};
 
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusFromKeyboard();
+		return wxComboBox::AcceptsFocusFromKeyboard();
 	};
 
 	// bool wxWindow::AcceptsFocusRecursively() const
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusRecursively();
+		return wxComboBox::AcceptsFocusRecursively();
 	};
 
 	// bool wxWindow::HasFocus() const
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasFocus();
+		return wxComboBox::HasFocus();
 	};
 
 	// void wxWindow::SetCanFocus(bool canFocus)
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetCanFocus(canFocus);
+		return wxComboBox::SetCanFocus(canFocus);
 	};
 
 	// void wxWindow::SetFocus()
@@ -79,7 +79,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocus();
+		return wxComboBox::SetFocus();
 	};
 
 	// void wxWindow::SetFocusFromKbd()
@@ -88,7 +88,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocusFromKbd();
+		return wxComboBox::SetFocusFromKbd();
 	};
 
 	// void wxWindow::AddChild(wxWindow * child)
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AddChild(child);
+		return wxComboBox::AddChild(child);
 	};
 
 	// void wxWindow::RemoveChild(wxWindow * child)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::RemoveChild(child);
+		return wxComboBox::RemoveChild(child);
 	};
 
 	// bool wxWindow::Reparent(wxWindow * newParent)
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Reparent(newParent);
+		return wxComboBox::Reparent(newParent);
 	};
 
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AlwaysShowScrollbars(hflag, vflag);
+		return wxComboBox::AlwaysShowScrollbars(hflag, vflag);
 	};
 
 	// int wxWindow::GetScrollPos(int orientation) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollPos(orientation);
+		return wxComboBox::GetScrollPos(orientation);
 	};
 
 	// int wxWindow::GetScrollRange(int orientation) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollRange(orientation);
+		return wxComboBox::GetScrollRange(orientation);
 	};
 
 	// int wxWindow::GetScrollThumb(int orientation) const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollThumb(orientation);
+		return wxComboBox::GetScrollThumb(orientation);
 	};
 
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsScrollbarAlwaysShown(orient);
+		return wxComboBox::IsScrollbarAlwaysShown(orient);
 	};
 
 	// bool wxWindow::ScrollLines(int lines)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollLines(lines);
+		return wxComboBox::ScrollLines(lines);
 	};
 
 	// bool wxWindow::ScrollPages(int pages)
@@ -189,7 +189,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollPages(pages);
+		return wxComboBox::ScrollPages(pages);
 	};
 
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ScrollWindow(dx, dy, rect);
+		return wxComboBox::ScrollWindow(dx, dy, rect);
 	};
 
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollPos(orientation, pos, refresh);
+		return wxComboBox::SetScrollPos(orientation, pos, refresh);
 	};
 
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
+		return wxComboBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 	};
 
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
@@ -237,7 +237,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::ClientToWindowSize(size);
+		return wxComboBox::ClientToWindowSize(size);
 	};
 
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
@@ -247,7 +247,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::WindowToClientSize(size);
+		return wxComboBox::WindowToClientSize(size);
 	};
 
 	// void wxWindow::Fit()
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Fit();
+		return wxComboBox::Fit();
 	};
 
 	// void wxWindow::FitInside()
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::FitInside();
+		return wxComboBox::FitInside();
 	};
 
 	// wxSize wxWindow::GetEffectiveMinSize() const
@@ -274,7 +274,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetEffectiveMinSize();
+		return wxComboBox::GetEffectiveMinSize();
 	};
 
 	// wxSize wxWindow::GetMaxClientSize() const
@@ -283,7 +283,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxClientSize();
+		return wxComboBox::GetMaxClientSize();
 	};
 
 	// wxSize wxWindow::GetMaxSize() const
@@ -292,7 +292,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxSize();
+		return wxComboBox::GetMaxSize();
 	};
 
 	// wxSize wxWindow::GetMinClientSize() const
@@ -301,7 +301,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinClientSize();
+		return wxComboBox::GetMinClientSize();
 	};
 
 	// wxSize wxWindow::GetMinSize() const
@@ -310,7 +310,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinSize();
+		return wxComboBox::GetMinSize();
 	};
 
 	// wxSize wxWindow::GetBestVirtualSize() const
@@ -319,7 +319,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetBestVirtualSize();
+		return wxComboBox::GetBestVirtualSize();
 	};
 
 	// wxSize wxWindow::GetWindowBorderSize() const
@@ -328,7 +328,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetWindowBorderSize();
+		return wxComboBox::GetWindowBorderSize();
 	};
 
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -340,7 +340,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::InformFirstDirection(direction, size, availableOtherDir);
+		return wxComboBox::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxWindow::SendSizeEvent(int flags = 0)
@@ -350,7 +350,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SendSizeEvent(flags);
+		return wxComboBox::SendSizeEvent(flags);
 	};
 
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
@@ -360,7 +360,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxClientSize(size);
+		return wxComboBox::SetMaxClientSize(size);
 	};
 
 	// void wxWindow::SetMaxSize(const wxSize & size)
@@ -370,7 +370,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxSize(size);
+		return wxComboBox::SetMaxSize(size);
 	};
 
 	// void wxWindow::SetMinClientSize(const wxSize & size)
@@ -380,7 +380,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinClientSize(size);
+		return wxComboBox::SetMinClientSize(size);
 	};
 
 	// void wxWindow::SetMinSize(const wxSize & size)
@@ -390,7 +390,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinSize(size);
+		return wxComboBox::SetMinSize(size);
 	};
 
 	// void wxWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
@@ -402,7 +402,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minSize, maxSize, incSize);
+		return wxComboBox::SetSizeHints(minSize, maxSize, incSize);
 	};
 
 	// void wxWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
@@ -417,7 +417,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+		return wxComboBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 	};
 
 	// wxPoint wxWindow::GetClientAreaOrigin() const
@@ -426,7 +426,7 @@ public:
 			return *(_obj.callFunction<wxPoint*>());
 		}
 
-		return wxWindow::GetClientAreaOrigin();
+		return wxComboBox::GetClientAreaOrigin();
 	};
 
 	// void wxWindow::ClearBackground()
@@ -435,7 +435,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ClearBackground();
+		return wxComboBox::ClearBackground();
 	};
 
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
@@ -444,7 +444,7 @@ public:
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetBackgroundStyle();
+		return wxComboBox::GetBackgroundStyle();
 	};
 
 	// int wxWindow::GetCharHeight() const
@@ -453,7 +453,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharHeight();
+		return wxComboBox::GetCharHeight();
 	};
 
 	// int wxWindow::GetCharWidth() const
@@ -462,7 +462,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharWidth();
+		return wxComboBox::GetCharWidth();
 	};
 
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
@@ -471,7 +471,7 @@ public:
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
-		return wxWindow::GetDefaultAttributes();
+		return wxComboBox::GetDefaultAttributes();
 	};
 
 	// bool wxWindow::HasTransparentBackground()
@@ -480,7 +480,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasTransparentBackground();
+		return wxComboBox::HasTransparentBackground();
 	};
 
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
@@ -491,7 +491,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Refresh(eraseBackground, rect);
+		return wxComboBox::Refresh(eraseBackground, rect);
 	};
 
 	// void wxWindow::Update()
@@ -500,7 +500,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Update();
+		return wxComboBox::Update();
 	};
 
 	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
@@ -510,7 +510,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundColour(colour);
+		return wxComboBox::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -520,7 +520,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundStyle(style);
+		return wxComboBox::SetBackgroundStyle(style);
 	};
 
 	// bool wxWindow::SetFont(const wxFont & font)
@@ -530,7 +530,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetFont(font);
+		return wxComboBox::SetFont(font);
 	};
 
 	// bool wxWindow::SetForegroundColour(const wxColour & colour)
@@ -540,7 +540,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetForegroundColour(colour);
+		return wxComboBox::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -549,7 +549,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShouldInheritColours();
+		return wxComboBox::ShouldInheritColours();
 	};
 
 	// void wxWindow::SetThemeEnabled(bool enable)
@@ -559,7 +559,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetThemeEnabled(enable);
+		return wxComboBox::SetThemeEnabled(enable);
 	};
 
 	// bool wxWindow::GetThemeEnabled() const
@@ -568,7 +568,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::GetThemeEnabled();
+		return wxComboBox::GetThemeEnabled();
 	};
 
 	// bool wxWindow::CanSetTransparent()
@@ -577,7 +577,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::CanSetTransparent();
+		return wxComboBox::CanSetTransparent();
 	};
 
 	// bool wxWindow::SetTransparent(unsigned char alpha)
@@ -587,7 +587,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetTransparent(alpha);
+		return wxComboBox::SetTransparent(alpha);
 	};
 
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
@@ -597,7 +597,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetNextHandler(handler);
+		return wxComboBox::SetNextHandler(handler);
 	};
 
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
@@ -607,7 +607,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetPreviousHandler(handler);
+		return wxComboBox::SetPreviousHandler(handler);
 	};
 
 	// long wxWindow::GetWindowStyleFlag() const
@@ -616,7 +616,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxWindow::GetWindowStyleFlag();
+		return wxComboBox::GetWindowStyleFlag();
 	};
 
 	// void wxWindow::SetExtraStyle(long exStyle)
@@ -626,7 +626,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetExtraStyle(exStyle);
+		return wxComboBox::SetExtraStyle(exStyle);
 	};
 
 	// void wxWindow::SetWindowStyleFlag(long style)
@@ -636,7 +636,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetWindowStyleFlag(style);
+		return wxComboBox::SetWindowStyleFlag(style);
 	};
 
 	// void wxWindow::Lower()
@@ -645,7 +645,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Lower();
+		return wxComboBox::Lower();
 	};
 
 	// void wxWindow::Raise()
@@ -654,7 +654,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Raise();
+		return wxComboBox::Raise();
 	};
 
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -665,7 +665,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HideWithEffect(effect, timeout);
+		return wxComboBox::HideWithEffect(effect, timeout);
 	};
 
 	// bool wxWindow::IsShown() const
@@ -674,7 +674,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShown();
+		return wxComboBox::IsShown();
 	};
 
 	// bool wxWindow::IsShownOnScreen() const
@@ -683,7 +683,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShownOnScreen();
+		return wxComboBox::IsShownOnScreen();
 	};
 
 	// bool wxWindow::Enable(bool enable = true)
@@ -693,7 +693,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Enable(enable);
+		return wxComboBox::Enable(enable);
 	};
 
 	// bool wxWindow::Show(bool show = true)
@@ -703,7 +703,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Show(show);
+		return wxComboBox::Show(show);
 	};
 
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -714,7 +714,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShowWithEffect(effect, timeout);
+		return wxComboBox::ShowWithEffect(effect, timeout);
 	};
 
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
@@ -725,7 +725,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetHelpTextAtPoint(point, origin);
+		return wxComboBox::GetHelpTextAtPoint(point, origin);
 	};
 
 	// wxValidator * wxWindow::GetValidator()
@@ -734,7 +734,7 @@ public:
 			return (_obj.callFunction<wxValidator*>());
 		}
 
-		return wxWindow::GetValidator();
+		return wxComboBox::GetValidator();
 	};
 
 	// void wxWindow::SetValidator(const wxValidator & validator)
@@ -744,7 +744,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetValidator(validator);
+		return wxComboBox::SetValidator(validator);
 	};
 
 	// bool wxWindow::TransferDataFromWindow()
@@ -753,7 +753,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataFromWindow();
+		return wxComboBox::TransferDataFromWindow();
 	};
 
 	// bool wxWindow::TransferDataToWindow()
@@ -762,7 +762,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataToWindow();
+		return wxComboBox::TransferDataToWindow();
 	};
 
 	// bool wxWindow::Validate()
@@ -771,7 +771,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Validate();
+		return wxComboBox::Validate();
 	};
 
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
@@ -780,7 +780,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetLayoutDirection();
+		return wxComboBox::GetLayoutDirection();
 	};
 
 	// wxString wxWindow::GetName() const
@@ -789,7 +789,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetName();
+		return wxComboBox::GetName();
 	};
 
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
@@ -799,7 +799,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLayoutDirection(dir);
+		return wxComboBox::SetLayoutDirection(dir);
 	};
 
 	// void wxWindow::SetName(const wxString & name)
@@ -809,7 +809,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetName(name);
+		return wxComboBox::SetName(name);
 	};
 
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
@@ -819,7 +819,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetAcceleratorTable(accel);
+		return wxComboBox::SetAcceleratorTable(accel);
 	};
 
 	// bool wxWindow::Destroy()
@@ -828,7 +828,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Destroy();
+		return wxComboBox::Destroy();
 	};
 
 	// wxDropTarget * wxWindow::GetDropTarget() const
@@ -837,7 +837,7 @@ public:
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
-		return wxWindow::GetDropTarget();
+		return wxComboBox::GetDropTarget();
 	};
 
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
@@ -847,7 +847,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetDropTarget(target);
+		return wxComboBox::SetDropTarget(target);
 	};
 
 	// void wxWindow::DragAcceptFiles(bool accept)
@@ -857,7 +857,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DragAcceptFiles(accept);
+		return wxComboBox::DragAcceptFiles(accept);
 	};
 
 	// bool wxWindow::Layout()
@@ -866,7 +866,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Layout();
+		return wxComboBox::Layout();
 	};
 
 	// bool wxWindow::HasCapture() const
@@ -875,7 +875,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasCapture();
+		return wxComboBox::HasCapture();
 	};
 
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
@@ -885,7 +885,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetCursor(cursor);
+		return wxComboBox::SetCursor(cursor);
 	};
 
 	// void wxWindow::WarpPointer(int x, int y)
@@ -896,7 +896,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::WarpPointer(x, y);
+		return wxComboBox::WarpPointer(x, y);
 	};
 
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
@@ -906,16 +906,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DoUpdateWindowUI(event);
-	};
-
-	// WXWidget wxWindow::GetHandle() const
-	WXWidget GetHandle() const {
-		if(_obj.pushFunction("GetHandle")) {
-			return (_obj.callFunction<WXWidget>());
-		}
-
-		return wxWindow::GetHandle();
+		return wxComboBox::DoUpdateWindowUI(event);
 	};
 
 	// bool wxWindow::HasMultiplePages() const
@@ -924,7 +915,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasMultiplePages();
+		return wxComboBox::HasMultiplePages();
 	};
 
 	// void wxWindow::InheritAttributes()
@@ -933,7 +924,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InheritAttributes();
+		return wxComboBox::InheritAttributes();
 	};
 
 	// void wxWindow::InitDialog()
@@ -942,7 +933,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InitDialog();
+		return wxComboBox::InitDialog();
 	};
 
 	// bool wxWindow::IsRetained() const
@@ -951,7 +942,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsRetained();
+		return wxComboBox::IsRetained();
 	};
 
 	// bool wxWindow::IsTopLevel() const
@@ -960,7 +951,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsTopLevel();
+		return wxComboBox::IsTopLevel();
 	};
 
 	// void wxWindow::MakeModal(bool modal = true)
@@ -970,7 +961,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::MakeModal(modal);
+		return wxComboBox::MakeModal(modal);
 	};
 
 	// void wxWindow::OnInternalIdle()
@@ -979,7 +970,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::OnInternalIdle();
+		return wxComboBox::OnInternalIdle();
 	};
 
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
@@ -991,7 +982,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		return wxComboBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 	};
 
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
@@ -1001,7 +992,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::UnregisterHotKey(hotkeyId);
+		return wxComboBox::UnregisterHotKey(hotkeyId);
 	};
 
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
@@ -1011,7 +1002,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::UpdateWindowUI(flags);
+		return wxComboBox::UpdateWindowUI(flags);
 	};
 
 	// void wxControl::Command(wxCommandEvent & event)
@@ -1021,7 +1012,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxControl::Command(event);
+		return wxComboBox::Command(event);
 	};
 
 	// wxString wxControl::GetLabel() const
@@ -1030,7 +1021,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxControl::GetLabel();
+		return wxComboBox::GetLabel();
 	};
 
 	// void wxControl::SetLabel(const wxString & label)
@@ -1040,7 +1031,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxControl::SetLabel(label);
+		return wxComboBox::SetLabel(label);
 	};
 
 	// void wxTextEntry::AppendText(const wxString & text)
@@ -1050,7 +1041,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::AppendText(text);
+		return wxComboBox::AppendText(text);
 	};
 
 	// bool wxTextEntry::CanCopy() const
@@ -1059,7 +1050,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanCopy();
+		return wxComboBox::CanCopy();
 	};
 
 	// bool wxTextEntry::CanCut() const
@@ -1068,7 +1059,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanCut();
+		return wxComboBox::CanCut();
 	};
 
 	// bool wxTextEntry::CanPaste() const
@@ -1077,7 +1068,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanPaste();
+		return wxComboBox::CanPaste();
 	};
 
 	// bool wxTextEntry::CanRedo() const
@@ -1086,7 +1077,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanRedo();
+		return wxComboBox::CanRedo();
 	};
 
 	// bool wxTextEntry::CanUndo() const
@@ -1095,7 +1086,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanUndo();
+		return wxComboBox::CanUndo();
 	};
 
 	// void wxTextEntry::ChangeValue(const wxString & value)
@@ -1105,7 +1096,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::ChangeValue(value);
+		return wxComboBox::ChangeValue(value);
 	};
 
 	// void wxTextEntry::Clear()
@@ -1114,7 +1105,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Clear();
+		return wxComboBox::Clear();
 	};
 
 	// void wxTextEntry::Copy()
@@ -1123,7 +1114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Copy();
+		return wxComboBox::Copy();
 	};
 
 	// long wxTextEntry::GetLastPosition() const
@@ -1132,7 +1123,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxTextEntry::GetLastPosition();
+		return wxComboBox::GetLastPosition();
 	};
 
 	// wxString wxTextEntry::GetRange(long from, long to) const
@@ -1143,7 +1134,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetRange(from, to);
+		return wxComboBox::GetRange(from, to);
 	};
 
 	// wxString wxTextEntry::GetValue() const
@@ -1152,7 +1143,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetValue();
+		return wxComboBox::GetValue();
 	};
 
 	// bool wxTextEntry::IsEditable() const
@@ -1161,16 +1152,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::IsEditable();
-	};
-
-	// bool wxTextEntry::IsEmpty() const
-	bool IsEmpty() const {
-		if(_obj.pushFunction("IsEmpty")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxTextEntry::IsEmpty();
+		return wxComboBox::IsEditable();
 	};
 
 	// void wxTextEntry::Paste()
@@ -1179,7 +1161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Paste();
+		return wxComboBox::Paste();
 	};
 
 	// void wxTextEntry::Redo()
@@ -1188,7 +1170,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Redo();
+		return wxComboBox::Redo();
 	};
 
 	// void wxTextEntry::Remove(long from, long to)
@@ -1199,7 +1181,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Remove(from, to);
+		return wxComboBox::Remove(from, to);
 	};
 
 	// void wxTextEntry::Replace(long from, long to, const wxString & value)
@@ -1211,7 +1193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Replace(from, to, value);
+		return wxComboBox::Replace(from, to, value);
 	};
 
 	// void wxTextEntry::SetEditable(bool editable)
@@ -1221,7 +1203,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetEditable(editable);
+		return wxComboBox::SetEditable(editable);
 	};
 
 	// void wxTextEntry::SetInsertionPoint(long pos)
@@ -1231,7 +1213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetInsertionPoint(pos);
+		return wxComboBox::SetInsertionPoint(pos);
 	};
 
 	// void wxTextEntry::SetInsertionPointEnd()
@@ -1240,7 +1222,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetInsertionPointEnd();
+		return wxComboBox::SetInsertionPointEnd();
 	};
 
 	// void wxTextEntry::SetMaxLength(unsigned long len)
@@ -1250,7 +1232,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetMaxLength(len);
+		return wxComboBox::SetMaxLength(len);
 	};
 
 	// void wxTextEntry::SelectAll()
@@ -1259,7 +1241,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SelectAll();
+		return wxComboBox::SelectAll();
 	};
 
 	// bool wxTextEntry::SetHint(const wxString & hint)
@@ -1269,7 +1251,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::SetHint(hint);
+		return wxComboBox::SetHint(hint);
 	};
 
 	// wxString wxTextEntry::GetHint() const
@@ -1278,7 +1260,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetHint();
+		return wxComboBox::GetHint();
 	};
 
 	// void wxTextEntry::Undo()
@@ -1287,7 +1269,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Undo();
+		return wxComboBox::Undo();
 	};
 
 	// void wxTextEntry::WriteText(const wxString & text)
@@ -1297,7 +1279,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::WriteText(text);
+		return wxComboBox::WriteText(text);
 	};
 
 	// int wxComboBox::GetCurrentSelection() const
@@ -1440,15 +1422,103 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxComboBox::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxComboBox::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxComboBox::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxComboBox::TryAfter(event);
+	};
+
 	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::DoCentre(direction);
+	};
+
 	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxComboBox::DoGetBestSize();
+	};
+
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::SetInitialBestSize(size);
+	};
+
 	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxComboBox::ProcessEvent(event);
+	};
+
 	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::QueueEvent(event);
+	};
+
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxComboBox::AddPendingEvent(event);
+	};
+
 
 };
 

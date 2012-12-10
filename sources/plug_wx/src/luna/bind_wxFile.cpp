@@ -467,20 +467,20 @@ public:
 		return 1;
 	}
 
-	// long wxFile::Length() const
+	// long long wxFile::Length() const
 	static int _bind_Length(lua_State *L) {
 		if (!_lg_typecheck_Length(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxFile::Length() const function, expected prototype:\nlong wxFile::Length() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFile::Length() const function, expected prototype:\nlong long wxFile::Length() const\nClass arguments details:\n");
 		}
 
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFile::Length() const");
+			luaL_error(L, "Invalid object in function call long long wxFile::Length() const");
 		}
-		long lret = self->Length();
+		long long lret = self->Length();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -531,65 +531,65 @@ public:
 		return 1;
 	}
 
-	// long wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)
+	// long long wxFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart)
 	static int _bind_Seek(lua_State *L) {
 		if (!_lg_typecheck_Seek(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxFile::Seek(long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long ofs=(long)lua_tointeger(L,2);
+		long long ofs=(long long)lua_tointeger(L,2);
 		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFile::Seek(long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxFile::Seek(long long, wxSeekMode)");
 		}
-		long lret = self->Seek(ofs, mode);
+		long long lret = self->Seek(ofs, mode);
 		lua_pushnumber(L,lret);
 
 		return 1;
 	}
 
-	// long wxFile::SeekEnd(long ofs = 0)
+	// long long wxFile::SeekEnd(long long ofs = 0)
 	static int _bind_SeekEnd(lua_State *L) {
 		if (!_lg_typecheck_SeekEnd(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxFile::SeekEnd(long ofs = 0) function, expected prototype:\nlong wxFile::SeekEnd(long ofs = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFile::SeekEnd(long long ofs = 0) function, expected prototype:\nlong long wxFile::SeekEnd(long long ofs = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long ofs=luatop>1 ? (long)lua_tointeger(L,2) : 0;
+		long long ofs=luatop>1 ? (long long)lua_tointeger(L,2) : 0;
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFile::SeekEnd(long)");
+			luaL_error(L, "Invalid object in function call long long wxFile::SeekEnd(long long)");
 		}
-		long lret = self->SeekEnd(ofs);
+		long long lret = self->SeekEnd(ofs);
 		lua_pushnumber(L,lret);
 
 		return 1;
 	}
 
-	// long wxFile::Tell() const
+	// long long wxFile::Tell() const
 	static int _bind_Tell(lua_State *L) {
 		if (!_lg_typecheck_Tell(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxFile::Tell() const function, expected prototype:\nlong wxFile::Tell() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFile::Tell() const function, expected prototype:\nlong long wxFile::Tell() const\nClass arguments details:\n");
 		}
 
 
 		wxFile* self=(Luna< wxFile >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxFile::Tell() const");
+			luaL_error(L, "Invalid object in function call long long wxFile::Tell() const");
 		}
-		long lret = self->Tell();
+		long long lret = self->Tell();
 		lua_pushnumber(L,lret);
 
 		return 1;

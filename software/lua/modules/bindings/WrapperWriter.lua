@@ -57,10 +57,14 @@ function Class:writeFunctionCall(func)
 	
 	local rt = func:getReturnType()
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
-	local conv = rt:isEnum() and "("..rtype..")" or ""
+	local conv = (rt:isEnum() or rtype=="char") and "("..rtype..")" or ""
+	
 	rtype = rt:isConst() and rtype=="char*" and "const "..rtype or rtype
 	
+	-- specific conversions:
 	rtype = rt:isEnum() and "int" or rtype
+	rtype = rtype=="char" and "int" or rtype
+	
 	self:writeSubLine("return ${3}${2}(_obj.callFunction<${1}>());",rtype,(rt:isClass() and not rt:isPointer()) and "*" or "",conv);
 end
 
@@ -80,7 +84,7 @@ function Class:writeFunctionBody(func)
 		buf:popIndent()
 		buf:writeLine("}")
 		buf:newLine()
-		buf:writeSubLine("return ${1}(${2});",func:getFullName(),func:getArgumentNames());
+		buf:writeSubLine("return ${3}::${1}(${2});",func:getName(),func:getArgumentNames(),class:getName());
 	end
 end
 
@@ -103,7 +107,7 @@ function Class:writeHeader()
 	
 	buf:clearContent();
 	
-	local funcs = self._class:getVirtualFunctions():filterItems{"Valid"}
+	local funcs = self._class:getVirtualFunctions():filterItems({"ValidWrapper"},{self._class})
 	local allConstructors = self._class:getFunctions{"Constructor","Public"} + self._class:getFunctions{"Constructor","Protected"}
 	
 	local constructors = allConstructors:filterItems{"Valid"}
@@ -115,18 +119,19 @@ function Class:writeHeader()
 	
 	buf:pushIndent()
 	
-	if constructors:empty() then
+	--[[if constructors:empty() then
 		-- write the default constructor:
 		if allConstructors:empty() then
 			buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)
 		end
 	else
+	]]
 		for _,cons in constructors:sequence() do
 			if not cons:isWrapper() then
 				self:writeConstructor(cons)
 			end
 		end
-	end
+	--end
 	buf:newLine();
 	
 	local publicFuncs = funcs:filterItems{"Public"}
@@ -145,6 +150,7 @@ function Class:writeHeader()
 	buf:pushIndent()
 	for _,func in protectedFuncs:sequence() do
 		buf:writeLine("// "..func:getPrototype(true,true,true))
+		self:writeFunction(func)
 	end
 	buf:popIndent()
 

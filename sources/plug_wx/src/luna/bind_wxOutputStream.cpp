@@ -202,43 +202,43 @@ public:
 		return 0;
 	}
 
-	// long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)
+	// long long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart)
 	static int _bind_SeekO(lua_State *L) {
 		if (!_lg_typecheck_SeekO(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long pos=(long)lua_tointeger(L,2);
+		long long pos=(long long)lua_tointeger(L,2);
 		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxOutputStream* self=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxOutputStream::SeekO(long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxOutputStream::SeekO(long long, wxSeekMode)");
 		}
-		long lret = self->SeekO(pos, mode);
+		long long lret = self->SeekO(pos, mode);
 		lua_pushnumber(L,lret);
 
 		return 1;
 	}
 
-	// long wxOutputStream::TellO() const
+	// long long wxOutputStream::TellO() const
 	static int _bind_TellO(lua_State *L) {
 		if (!_lg_typecheck_TellO(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxOutputStream::TellO() const function, expected prototype:\nlong wxOutputStream::TellO() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxOutputStream::TellO() const function, expected prototype:\nlong long wxOutputStream::TellO() const\nClass arguments details:\n");
 		}
 
 
 		wxOutputStream* self=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxOutputStream::TellO() const");
+			luaL_error(L, "Invalid object in function call long long wxOutputStream::TellO() const");
 		}
-		long lret = self->TellO();
+		long long lret = self->TellO();
 		lua_pushnumber(L,lret);
 
 		return 1;

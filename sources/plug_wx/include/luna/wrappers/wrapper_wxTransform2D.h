@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxTransform2D(lua_State* L, lua_Table* dum) : wxTransform2D(), _obj(L,-1) {};
 
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	void Transform(wxPoint2DInt * pt) const {

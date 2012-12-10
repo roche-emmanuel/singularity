@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxHelpProvider(lua_State* L, lua_Table* dum) : wxHelpProvider(), _obj(L,-1) {};
 
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {

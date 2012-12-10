@@ -443,20 +443,20 @@ public:
 		return 1;
 	}
 
-	// long wxMediaCtrl::Length()
+	// long long wxMediaCtrl::Length()
 	static int _bind_Length(lua_State *L) {
 		if (!_lg_typecheck_Length(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxMediaCtrl::Length() function, expected prototype:\nlong wxMediaCtrl::Length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxMediaCtrl::Length() function, expected prototype:\nlong long wxMediaCtrl::Length()\nClass arguments details:\n");
 		}
 
 
 		wxMediaCtrl* self=dynamic_cast< wxMediaCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxMediaCtrl::Length()");
+			luaL_error(L, "Invalid object in function call long long wxMediaCtrl::Length()");
 		}
-		long lret = self->Length();
+		long long lret = self->Length();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -624,24 +624,24 @@ public:
 		return 1;
 	}
 
-	// long wxMediaCtrl::Seek(long where, wxSeekMode mode = ::wxFromStart)
+	// long long wxMediaCtrl::Seek(long long where, wxSeekMode mode = ::wxFromStart)
 	static int _bind_Seek(lua_State *L) {
 		if (!_lg_typecheck_Seek(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxMediaCtrl::Seek(long where, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong wxMediaCtrl::Seek(long where, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxMediaCtrl::Seek(long long where, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxMediaCtrl::Seek(long long where, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		long where=(long)lua_tointeger(L,2);
+		long long where=(long long)lua_tointeger(L,2);
 		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
 
 		wxMediaCtrl* self=dynamic_cast< wxMediaCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxMediaCtrl::Seek(long, wxSeekMode)");
+			luaL_error(L, "Invalid object in function call long long wxMediaCtrl::Seek(long long, wxSeekMode)");
 		}
-		long lret = self->Seek(where, mode);
+		long long lret = self->Seek(where, mode);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -728,20 +728,20 @@ public:
 		return 1;
 	}
 
-	// long wxMediaCtrl::Tell()
+	// long long wxMediaCtrl::Tell()
 	static int _bind_Tell(lua_State *L) {
 		if (!_lg_typecheck_Tell(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxMediaCtrl::Tell() function, expected prototype:\nlong wxMediaCtrl::Tell()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxMediaCtrl::Tell() function, expected prototype:\nlong long wxMediaCtrl::Tell()\nClass arguments details:\n");
 		}
 
 
 		wxMediaCtrl* self=dynamic_cast< wxMediaCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxMediaCtrl::Tell()");
+			luaL_error(L, "Invalid object in function call long long wxMediaCtrl::Tell()");
 		}
-		long lret = self->Tell();
+		long long lret = self->Tell();
 		lua_pushnumber(L,lret);
 
 		return 1;

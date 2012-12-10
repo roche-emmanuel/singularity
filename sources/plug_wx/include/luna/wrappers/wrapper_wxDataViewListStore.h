@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::Cleared();
+		return wxDataViewListStore::Cleared();
 	};
 
 	// int wxDataViewModel::Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewModel::Compare(item1, item2, column, ascending);
+		return wxDataViewListStore::Compare(item1, item2, column, ascending);
 	};
 
 	// bool wxDataViewModel::GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::GetAttr(item, col, attr);
+		return wxDataViewListStore::GetAttr(item, col, attr);
 	};
 
 	// bool wxDataViewModel::IsEnabled(const wxDataViewItem & item, unsigned int col) const
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::IsEnabled(item, col);
+		return wxDataViewListStore::IsEnabled(item, col);
 	};
 
 	// unsigned int wxDataViewModel::GetChildren(const wxDataViewItem & item, wxDataViewItemArray & children) const
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasContainerColumns(item);
+		return wxDataViewListStore::HasContainerColumns(item);
 	};
 
 	// bool wxDataViewModel::HasDefaultCompare() const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasDefaultCompare();
+		return wxDataViewListStore::HasDefaultCompare();
 	};
 
 	// bool wxDataViewModel::IsContainer(const wxDataViewItem & item) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewModel::Resort();
+		return wxDataViewListStore::Resort();
 	};
 
 	// bool wxDataViewModel::ValueChanged(const wxDataViewItem & item, unsigned int col)
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::ValueChanged(item, col);
+		return wxDataViewListStore::ValueChanged(item, col);
 	};
 
 	// unsigned int wxDataViewListStore::GetColumnCount() const

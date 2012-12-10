@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxDataViewSpinRenderer::GetClassInfo();
 	};
 
 	// int wxDataViewRenderer::GetAlignment() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetAlignment();
+		return wxDataViewSpinRenderer::GetAlignment();
 	};
 
 	// wxDataViewCellMode wxDataViewRenderer::GetMode() const
@@ -41,7 +41,7 @@ public:
 			return (wxDataViewCellMode)(_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetMode();
+		return wxDataViewSpinRenderer::GetMode();
 	};
 
 	// void wxDataViewRenderer::SetAlignment(int align)
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewRenderer::SetAlignment(align);
+		return wxDataViewSpinRenderer::SetAlignment(align);
 	};
 
 	// bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewCustomRenderer::ActivateCell(cell, model, item, col, mouseEvent);
+		return wxDataViewSpinRenderer::ActivateCell(cell, model, item, col, mouseEvent);
 	};
 
 	// wxSize wxDataViewCustomRenderer::GetSize() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewCustomRenderer::HasEditorCtrl();
+		return wxDataViewSpinRenderer::HasEditorCtrl();
 	};
 
 	// bool wxDataViewCustomRenderer::LeftClick(const wxPoint & cursor, const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewCustomRenderer::LeftClick(cursor, cell, model, item, col);
+		return wxDataViewSpinRenderer::LeftClick(cursor, cell, model, item, col);
 	};
 
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
@@ -117,13 +117,30 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewCustomRenderer::StartDrag(cursor, cell, model, item, col);
+		return wxDataViewSpinRenderer::StartDrag(cursor, cell, model, item, col);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewSpinRenderer::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewSpinRenderer::CloneRefData(data);
+	};
+
 
 };
 

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxPGProperty::GetClassInfo();
 	};
 
 	// void wxPGProperty::OnSetValue()
@@ -76,16 +76,6 @@ public:
 		return wxPGProperty::DoGetValidator();
 	};
 
-	// wxPGCellRenderer * wxPGProperty::GetCellRenderer(int column) const
-	wxPGCellRenderer * GetCellRenderer(int column) const {
-		if(_obj.pushFunction("GetCellRenderer")) {
-			_obj.pushArg(column);
-			return (_obj.callFunction<wxPGCellRenderer*>());
-		}
-
-		return wxPGProperty::GetCellRenderer(column);
-	};
-
 	// int wxPGProperty::GetChoiceSelection() const
 	int GetChoiceSelection() const {
 		if(_obj.pushFunction("GetChoiceSelection")) {
@@ -104,15 +94,6 @@ public:
 		return wxPGProperty::RefreshChildren();
 	};
 
-	// wxPGEditorDialogAdapter * wxPGProperty::GetEditorDialog() const
-	wxPGEditorDialogAdapter * GetEditorDialog() const {
-		if(_obj.pushFunction("GetEditorDialog")) {
-			return (_obj.callFunction<wxPGEditorDialogAdapter*>());
-		}
-
-		return wxPGProperty::GetEditorDialog();
-	};
-
 	// wxString wxPGProperty::GetValueAsString(int argFlags = 0) const
 	wxString GetValueAsString(int argFlags = 0) const {
 		if(_obj.pushFunction("GetValueAsString")) {
@@ -126,7 +107,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPGProperty::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPGProperty::CloneRefData(data);
+	};
+
 
 };
 

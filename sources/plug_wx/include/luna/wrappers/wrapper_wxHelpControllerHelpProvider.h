@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::AddHelp(window, text);
+		return wxHelpControllerHelpProvider::AddHelp(window, text);
 	};
 
 	// void wxHelpProvider::AddHelp(int id, const wxString & text)
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::AddHelp(id, text);
+		return wxHelpControllerHelpProvider::AddHelp(id, text);
 	};
 
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::RemoveHelp(window);
+		return wxHelpControllerHelpProvider::RemoveHelp(window);
 	};
 
 	// bool wxHelpProvider::ShowHelp(wxWindow * window)
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHelpProvider::ShowHelp(window);
+		return wxHelpControllerHelpProvider::ShowHelp(window);
 	};
 
 	// bool wxHelpProvider::ShowHelpAtPoint(wxWindow * window, const wxPoint & point, wxHelpEvent::Origin origin)
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHelpProvider::ShowHelpAtPoint(window, point, origin);
+		return wxHelpControllerHelpProvider::ShowHelpAtPoint(window, point, origin);
 	};
 
 

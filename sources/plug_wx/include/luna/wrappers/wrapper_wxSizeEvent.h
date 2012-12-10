@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxSizeEvent::GetClassInfo();
 	};
 
 	// wxEvent * wxEvent::Clone() const
@@ -38,13 +38,30 @@ public:
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 
-		return wxEvent::GetEventCategory();
+		return wxSizeEvent::GetEventCategory();
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSizeEvent::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSizeEvent::CloneRefData(data);
+	};
+
 
 };
 

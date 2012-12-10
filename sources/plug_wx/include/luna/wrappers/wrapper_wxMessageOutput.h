@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxMessageOutput(lua_State* L, lua_Table* dum) : wxMessageOutput(), _obj(L,-1) {};
 
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {

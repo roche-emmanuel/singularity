@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxRendererNative(lua_State* L, lua_Table* dum) : wxRendererNative(), _obj(L,-1) {};
 
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxGridCornerHeaderRendererDefault(lua_State* L, lua_Table* dum) : wxGridCornerHeaderRendererDefault(), _obj(L,-1) {};
 
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {

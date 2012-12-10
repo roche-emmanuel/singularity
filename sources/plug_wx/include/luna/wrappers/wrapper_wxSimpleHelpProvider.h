@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxSimpleHelpProvider(lua_State* L, lua_Table* dum) : wxSimpleHelpProvider(), _obj(L,-1) {};
 
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {
@@ -25,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::AddHelp(window, text);
+		return wxSimpleHelpProvider::AddHelp(window, text);
 	};
 
 	// void wxHelpProvider::AddHelp(int id, const wxString & text)
@@ -36,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::AddHelp(id, text);
+		return wxSimpleHelpProvider::AddHelp(id, text);
 	};
 
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
@@ -53,7 +52,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHelpProvider::RemoveHelp(window);
+		return wxSimpleHelpProvider::RemoveHelp(window);
 	};
 
 	// bool wxHelpProvider::ShowHelp(wxWindow * window)
@@ -63,7 +62,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHelpProvider::ShowHelp(window);
+		return wxSimpleHelpProvider::ShowHelp(window);
 	};
 
 	// bool wxHelpProvider::ShowHelpAtPoint(wxWindow * window, const wxPoint & point, wxHelpEvent::Origin origin)
@@ -75,7 +74,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHelpProvider::ShowHelpAtPoint(window, point, origin);
+		return wxSimpleHelpProvider::ShowHelpAtPoint(window, point, origin);
 	};
 
 

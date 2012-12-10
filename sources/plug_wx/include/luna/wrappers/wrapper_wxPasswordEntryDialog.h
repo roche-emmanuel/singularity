@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxPasswordEntryDialog::GetClassInfo();
 	};
 
 	// bool wxWindow::AcceptsFocus() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocus();
+		return wxPasswordEntryDialog::AcceptsFocus();
 	};
 
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusFromKeyboard();
+		return wxPasswordEntryDialog::AcceptsFocusFromKeyboard();
 	};
 
 	// bool wxWindow::AcceptsFocusRecursively() const
@@ -50,7 +50,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusRecursively();
+		return wxPasswordEntryDialog::AcceptsFocusRecursively();
 	};
 
 	// bool wxWindow::HasFocus() const
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasFocus();
+		return wxPasswordEntryDialog::HasFocus();
 	};
 
 	// void wxWindow::SetCanFocus(bool canFocus)
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetCanFocus(canFocus);
+		return wxPasswordEntryDialog::SetCanFocus(canFocus);
 	};
 
 	// void wxWindow::SetFocus()
@@ -78,7 +78,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocus();
+		return wxPasswordEntryDialog::SetFocus();
 	};
 
 	// void wxWindow::SetFocusFromKbd()
@@ -87,7 +87,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocusFromKbd();
+		return wxPasswordEntryDialog::SetFocusFromKbd();
 	};
 
 	// void wxWindow::AddChild(wxWindow * child)
@@ -97,7 +97,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AddChild(child);
+		return wxPasswordEntryDialog::AddChild(child);
 	};
 
 	// void wxWindow::RemoveChild(wxWindow * child)
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::RemoveChild(child);
+		return wxPasswordEntryDialog::RemoveChild(child);
 	};
 
 	// bool wxWindow::Reparent(wxWindow * newParent)
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Reparent(newParent);
+		return wxPasswordEntryDialog::Reparent(newParent);
 	};
 
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AlwaysShowScrollbars(hflag, vflag);
+		return wxPasswordEntryDialog::AlwaysShowScrollbars(hflag, vflag);
 	};
 
 	// int wxWindow::GetScrollPos(int orientation) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollPos(orientation);
+		return wxPasswordEntryDialog::GetScrollPos(orientation);
 	};
 
 	// int wxWindow::GetScrollRange(int orientation) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollRange(orientation);
+		return wxPasswordEntryDialog::GetScrollRange(orientation);
 	};
 
 	// int wxWindow::GetScrollThumb(int orientation) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollThumb(orientation);
+		return wxPasswordEntryDialog::GetScrollThumb(orientation);
 	};
 
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsScrollbarAlwaysShown(orient);
+		return wxPasswordEntryDialog::IsScrollbarAlwaysShown(orient);
 	};
 
 	// bool wxWindow::ScrollLines(int lines)
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollLines(lines);
+		return wxPasswordEntryDialog::ScrollLines(lines);
 	};
 
 	// bool wxWindow::ScrollPages(int pages)
@@ -188,7 +188,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollPages(pages);
+		return wxPasswordEntryDialog::ScrollPages(pages);
 	};
 
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
@@ -200,7 +200,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ScrollWindow(dx, dy, rect);
+		return wxPasswordEntryDialog::ScrollWindow(dx, dy, rect);
 	};
 
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
@@ -212,7 +212,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollPos(orientation, pos, refresh);
+		return wxPasswordEntryDialog::SetScrollPos(orientation, pos, refresh);
 	};
 
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
+		return wxPasswordEntryDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 	};
 
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
@@ -236,7 +236,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::ClientToWindowSize(size);
+		return wxPasswordEntryDialog::ClientToWindowSize(size);
 	};
 
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
@@ -246,7 +246,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::WindowToClientSize(size);
+		return wxPasswordEntryDialog::WindowToClientSize(size);
 	};
 
 	// void wxWindow::Fit()
@@ -255,7 +255,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Fit();
+		return wxPasswordEntryDialog::Fit();
 	};
 
 	// void wxWindow::FitInside()
@@ -264,7 +264,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::FitInside();
+		return wxPasswordEntryDialog::FitInside();
 	};
 
 	// wxSize wxWindow::GetEffectiveMinSize() const
@@ -273,7 +273,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetEffectiveMinSize();
+		return wxPasswordEntryDialog::GetEffectiveMinSize();
 	};
 
 	// wxSize wxWindow::GetMaxClientSize() const
@@ -282,7 +282,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxClientSize();
+		return wxPasswordEntryDialog::GetMaxClientSize();
 	};
 
 	// wxSize wxWindow::GetMaxSize() const
@@ -291,7 +291,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxSize();
+		return wxPasswordEntryDialog::GetMaxSize();
 	};
 
 	// wxSize wxWindow::GetMinClientSize() const
@@ -300,7 +300,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinClientSize();
+		return wxPasswordEntryDialog::GetMinClientSize();
 	};
 
 	// wxSize wxWindow::GetMinSize() const
@@ -309,7 +309,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinSize();
+		return wxPasswordEntryDialog::GetMinSize();
 	};
 
 	// wxSize wxWindow::GetBestVirtualSize() const
@@ -318,7 +318,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetBestVirtualSize();
+		return wxPasswordEntryDialog::GetBestVirtualSize();
 	};
 
 	// wxSize wxWindow::GetWindowBorderSize() const
@@ -327,7 +327,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetWindowBorderSize();
+		return wxPasswordEntryDialog::GetWindowBorderSize();
 	};
 
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -339,7 +339,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::InformFirstDirection(direction, size, availableOtherDir);
+		return wxPasswordEntryDialog::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxWindow::SendSizeEvent(int flags = 0)
@@ -349,7 +349,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SendSizeEvent(flags);
+		return wxPasswordEntryDialog::SendSizeEvent(flags);
 	};
 
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
@@ -359,7 +359,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxClientSize(size);
+		return wxPasswordEntryDialog::SetMaxClientSize(size);
 	};
 
 	// void wxWindow::SetMinClientSize(const wxSize & size)
@@ -369,7 +369,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinClientSize(size);
+		return wxPasswordEntryDialog::SetMinClientSize(size);
 	};
 
 	// wxPoint wxWindow::GetClientAreaOrigin() const
@@ -378,7 +378,7 @@ public:
 			return *(_obj.callFunction<wxPoint*>());
 		}
 
-		return wxWindow::GetClientAreaOrigin();
+		return wxPasswordEntryDialog::GetClientAreaOrigin();
 	};
 
 	// void wxWindow::ClearBackground()
@@ -387,7 +387,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ClearBackground();
+		return wxPasswordEntryDialog::ClearBackground();
 	};
 
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
@@ -396,7 +396,7 @@ public:
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetBackgroundStyle();
+		return wxPasswordEntryDialog::GetBackgroundStyle();
 	};
 
 	// int wxWindow::GetCharHeight() const
@@ -405,7 +405,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharHeight();
+		return wxPasswordEntryDialog::GetCharHeight();
 	};
 
 	// int wxWindow::GetCharWidth() const
@@ -414,7 +414,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharWidth();
+		return wxPasswordEntryDialog::GetCharWidth();
 	};
 
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
@@ -423,7 +423,7 @@ public:
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
-		return wxWindow::GetDefaultAttributes();
+		return wxPasswordEntryDialog::GetDefaultAttributes();
 	};
 
 	// bool wxWindow::HasTransparentBackground()
@@ -432,7 +432,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasTransparentBackground();
+		return wxPasswordEntryDialog::HasTransparentBackground();
 	};
 
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
@@ -443,7 +443,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Refresh(eraseBackground, rect);
+		return wxPasswordEntryDialog::Refresh(eraseBackground, rect);
 	};
 
 	// void wxWindow::Update()
@@ -452,7 +452,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Update();
+		return wxPasswordEntryDialog::Update();
 	};
 
 	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
@@ -462,7 +462,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundColour(colour);
+		return wxPasswordEntryDialog::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -472,7 +472,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundStyle(style);
+		return wxPasswordEntryDialog::SetBackgroundStyle(style);
 	};
 
 	// bool wxWindow::SetFont(const wxFont & font)
@@ -482,7 +482,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetFont(font);
+		return wxPasswordEntryDialog::SetFont(font);
 	};
 
 	// bool wxWindow::SetForegroundColour(const wxColour & colour)
@@ -492,7 +492,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetForegroundColour(colour);
+		return wxPasswordEntryDialog::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -501,7 +501,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShouldInheritColours();
+		return wxPasswordEntryDialog::ShouldInheritColours();
 	};
 
 	// void wxWindow::SetThemeEnabled(bool enable)
@@ -511,7 +511,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetThemeEnabled(enable);
+		return wxPasswordEntryDialog::SetThemeEnabled(enable);
 	};
 
 	// bool wxWindow::GetThemeEnabled() const
@@ -520,7 +520,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::GetThemeEnabled();
+		return wxPasswordEntryDialog::GetThemeEnabled();
 	};
 
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
@@ -530,7 +530,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetNextHandler(handler);
+		return wxPasswordEntryDialog::SetNextHandler(handler);
 	};
 
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
@@ -540,7 +540,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetPreviousHandler(handler);
+		return wxPasswordEntryDialog::SetPreviousHandler(handler);
 	};
 
 	// long wxWindow::GetWindowStyleFlag() const
@@ -549,7 +549,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxWindow::GetWindowStyleFlag();
+		return wxPasswordEntryDialog::GetWindowStyleFlag();
 	};
 
 	// void wxWindow::SetExtraStyle(long exStyle)
@@ -559,7 +559,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetExtraStyle(exStyle);
+		return wxPasswordEntryDialog::SetExtraStyle(exStyle);
 	};
 
 	// void wxWindow::SetWindowStyleFlag(long style)
@@ -569,7 +569,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetWindowStyleFlag(style);
+		return wxPasswordEntryDialog::SetWindowStyleFlag(style);
 	};
 
 	// void wxWindow::Lower()
@@ -578,7 +578,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Lower();
+		return wxPasswordEntryDialog::Lower();
 	};
 
 	// void wxWindow::Raise()
@@ -587,7 +587,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Raise();
+		return wxPasswordEntryDialog::Raise();
 	};
 
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -598,7 +598,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HideWithEffect(effect, timeout);
+		return wxPasswordEntryDialog::HideWithEffect(effect, timeout);
 	};
 
 	// bool wxWindow::IsShown() const
@@ -607,7 +607,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShown();
+		return wxPasswordEntryDialog::IsShown();
 	};
 
 	// bool wxWindow::IsShownOnScreen() const
@@ -616,7 +616,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShownOnScreen();
+		return wxPasswordEntryDialog::IsShownOnScreen();
 	};
 
 	// bool wxWindow::Enable(bool enable = true)
@@ -626,7 +626,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Enable(enable);
+		return wxPasswordEntryDialog::Enable(enable);
 	};
 
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -637,7 +637,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShowWithEffect(effect, timeout);
+		return wxPasswordEntryDialog::ShowWithEffect(effect, timeout);
 	};
 
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
@@ -648,7 +648,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetHelpTextAtPoint(point, origin);
+		return wxPasswordEntryDialog::GetHelpTextAtPoint(point, origin);
 	};
 
 	// wxValidator * wxWindow::GetValidator()
@@ -657,7 +657,7 @@ public:
 			return (_obj.callFunction<wxValidator*>());
 		}
 
-		return wxWindow::GetValidator();
+		return wxPasswordEntryDialog::GetValidator();
 	};
 
 	// void wxWindow::SetValidator(const wxValidator & validator)
@@ -667,7 +667,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetValidator(validator);
+		return wxPasswordEntryDialog::SetValidator(validator);
 	};
 
 	// bool wxWindow::TransferDataFromWindow()
@@ -676,7 +676,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataFromWindow();
+		return wxPasswordEntryDialog::TransferDataFromWindow();
 	};
 
 	// bool wxWindow::TransferDataToWindow()
@@ -685,7 +685,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataToWindow();
+		return wxPasswordEntryDialog::TransferDataToWindow();
 	};
 
 	// bool wxWindow::Validate()
@@ -694,7 +694,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Validate();
+		return wxPasswordEntryDialog::Validate();
 	};
 
 	// wxString wxWindow::GetLabel() const
@@ -703,7 +703,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetLabel();
+		return wxPasswordEntryDialog::GetLabel();
 	};
 
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
@@ -712,7 +712,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetLayoutDirection();
+		return wxPasswordEntryDialog::GetLayoutDirection();
 	};
 
 	// wxString wxWindow::GetName() const
@@ -721,7 +721,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetName();
+		return wxPasswordEntryDialog::GetName();
 	};
 
 	// void wxWindow::SetLabel(const wxString & label)
@@ -731,7 +731,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLabel(label);
+		return wxPasswordEntryDialog::SetLabel(label);
 	};
 
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
@@ -741,7 +741,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLayoutDirection(dir);
+		return wxPasswordEntryDialog::SetLayoutDirection(dir);
 	};
 
 	// void wxWindow::SetName(const wxString & name)
@@ -751,7 +751,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetName(name);
+		return wxPasswordEntryDialog::SetName(name);
 	};
 
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
@@ -761,7 +761,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetAcceleratorTable(accel);
+		return wxPasswordEntryDialog::SetAcceleratorTable(accel);
 	};
 
 	// bool wxWindow::Destroy()
@@ -770,7 +770,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Destroy();
+		return wxPasswordEntryDialog::Destroy();
 	};
 
 	// wxDropTarget * wxWindow::GetDropTarget() const
@@ -779,7 +779,7 @@ public:
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
-		return wxWindow::GetDropTarget();
+		return wxPasswordEntryDialog::GetDropTarget();
 	};
 
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
@@ -789,7 +789,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetDropTarget(target);
+		return wxPasswordEntryDialog::SetDropTarget(target);
 	};
 
 	// void wxWindow::DragAcceptFiles(bool accept)
@@ -799,7 +799,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DragAcceptFiles(accept);
+		return wxPasswordEntryDialog::DragAcceptFiles(accept);
 	};
 
 	// bool wxWindow::HasCapture() const
@@ -808,7 +808,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasCapture();
+		return wxPasswordEntryDialog::HasCapture();
 	};
 
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
@@ -818,7 +818,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetCursor(cursor);
+		return wxPasswordEntryDialog::SetCursor(cursor);
 	};
 
 	// void wxWindow::WarpPointer(int x, int y)
@@ -829,7 +829,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::WarpPointer(x, y);
+		return wxPasswordEntryDialog::WarpPointer(x, y);
 	};
 
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
@@ -839,16 +839,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DoUpdateWindowUI(event);
-	};
-
-	// WXWidget wxWindow::GetHandle() const
-	WXWidget GetHandle() const {
-		if(_obj.pushFunction("GetHandle")) {
-			return (_obj.callFunction<WXWidget>());
-		}
-
-		return wxWindow::GetHandle();
+		return wxPasswordEntryDialog::DoUpdateWindowUI(event);
 	};
 
 	// bool wxWindow::HasMultiplePages() const
@@ -857,7 +848,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasMultiplePages();
+		return wxPasswordEntryDialog::HasMultiplePages();
 	};
 
 	// void wxWindow::InheritAttributes()
@@ -866,7 +857,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InheritAttributes();
+		return wxPasswordEntryDialog::InheritAttributes();
 	};
 
 	// void wxWindow::InitDialog()
@@ -875,7 +866,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InitDialog();
+		return wxPasswordEntryDialog::InitDialog();
 	};
 
 	// bool wxWindow::IsRetained() const
@@ -884,7 +875,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsRetained();
+		return wxPasswordEntryDialog::IsRetained();
 	};
 
 	// bool wxWindow::IsTopLevel() const
@@ -893,7 +884,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsTopLevel();
+		return wxPasswordEntryDialog::IsTopLevel();
 	};
 
 	// void wxWindow::MakeModal(bool modal = true)
@@ -903,7 +894,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::MakeModal(modal);
+		return wxPasswordEntryDialog::MakeModal(modal);
 	};
 
 	// void wxWindow::OnInternalIdle()
@@ -912,7 +903,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::OnInternalIdle();
+		return wxPasswordEntryDialog::OnInternalIdle();
 	};
 
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
@@ -924,7 +915,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		return wxPasswordEntryDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 	};
 
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
@@ -934,7 +925,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::UnregisterHotKey(hotkeyId);
+		return wxPasswordEntryDialog::UnregisterHotKey(hotkeyId);
 	};
 
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
@@ -944,7 +935,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::UpdateWindowUI(flags);
+		return wxPasswordEntryDialog::UpdateWindowUI(flags);
 	};
 
 	// bool wxTopLevelWindow::CanSetTransparent()
@@ -953,7 +944,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::CanSetTransparent();
+		return wxPasswordEntryDialog::CanSetTransparent();
 	};
 
 	// bool wxTopLevelWindow::EnableCloseButton(bool enable = true)
@@ -963,7 +954,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::EnableCloseButton(enable);
+		return wxPasswordEntryDialog::EnableCloseButton(enable);
 	};
 
 	// wxString wxTopLevelWindow::GetTitle() const
@@ -972,7 +963,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTopLevelWindow::GetTitle();
+		return wxPasswordEntryDialog::GetTitle();
 	};
 
 	// bool wxTopLevelWindow::IsActive()
@@ -981,7 +972,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsActive();
+		return wxPasswordEntryDialog::IsActive();
 	};
 
 	// bool wxTopLevelWindow::IsAlwaysMaximized() const
@@ -990,7 +981,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsAlwaysMaximized();
+		return wxPasswordEntryDialog::IsAlwaysMaximized();
 	};
 
 	// bool wxTopLevelWindow::IsFullScreen() const
@@ -999,7 +990,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsFullScreen();
+		return wxPasswordEntryDialog::IsFullScreen();
 	};
 
 	// bool wxTopLevelWindow::IsMaximized() const
@@ -1008,7 +999,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::IsMaximized();
+		return wxPasswordEntryDialog::IsMaximized();
 	};
 
 	// bool wxTopLevelWindow::Layout()
@@ -1017,7 +1008,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::Layout();
+		return wxPasswordEntryDialog::Layout();
 	};
 
 	// void wxTopLevelWindow::Maximize(bool maximize = true)
@@ -1027,7 +1018,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::Maximize(maximize);
+		return wxPasswordEntryDialog::Maximize(maximize);
 	};
 
 	// void wxTopLevelWindow::RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)
@@ -1037,7 +1028,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::RequestUserAttention(flags);
+		return wxPasswordEntryDialog::RequestUserAttention(flags);
 	};
 
 	// void wxTopLevelWindow::SetMaxSize(const wxSize & size)
@@ -1047,7 +1038,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetMaxSize(size);
+		return wxPasswordEntryDialog::SetMaxSize(size);
 	};
 
 	// void wxTopLevelWindow::SetMinSize(const wxSize & size)
@@ -1057,7 +1048,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetMinSize(size);
+		return wxPasswordEntryDialog::SetMinSize(size);
 	};
 
 	// void wxTopLevelWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
@@ -1072,7 +1063,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+		return wxPasswordEntryDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 	};
 
 	// void wxTopLevelWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
@@ -1084,7 +1075,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetSizeHints(minSize, maxSize, incSize);
+		return wxPasswordEntryDialog::SetSizeHints(minSize, maxSize, incSize);
 	};
 
 	// void wxTopLevelWindow::SetTitle(const wxString & title)
@@ -1094,7 +1085,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::SetTitle(title);
+		return wxPasswordEntryDialog::SetTitle(title);
 	};
 
 	// bool wxTopLevelWindow::SetTransparent(unsigned char alpha)
@@ -1104,7 +1095,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::SetTransparent(alpha);
+		return wxPasswordEntryDialog::SetTransparent(alpha);
 	};
 
 	// bool wxTopLevelWindow::ShouldPreventAppExit() const
@@ -1113,7 +1104,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::ShouldPreventAppExit();
+		return wxPasswordEntryDialog::ShouldPreventAppExit();
 	};
 
 	// void wxTopLevelWindow::OSXSetModified(bool modified)
@@ -1123,7 +1114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTopLevelWindow::OSXSetModified(modified);
+		return wxPasswordEntryDialog::OSXSetModified(modified);
 	};
 
 	// bool wxTopLevelWindow::OSXIsModified() const
@@ -1132,7 +1123,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::OSXIsModified();
+		return wxPasswordEntryDialog::OSXIsModified();
 	};
 
 	// bool wxTopLevelWindow::ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)
@@ -1143,7 +1134,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTopLevelWindow::ShowFullScreen(show, style);
+		return wxPasswordEntryDialog::ShowFullScreen(show, style);
 	};
 
 	// bool wxDialog::CanDoLayoutAdaptation()
@@ -1152,7 +1143,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDialog::CanDoLayoutAdaptation();
+		return wxPasswordEntryDialog::CanDoLayoutAdaptation();
 	};
 
 	// bool wxDialog::DoLayoutAdaptation()
@@ -1161,7 +1152,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDialog::DoLayoutAdaptation();
+		return wxPasswordEntryDialog::DoLayoutAdaptation();
 	};
 
 	// void wxDialog::EndModal(int retCode)
@@ -1171,7 +1162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDialog::EndModal(retCode);
+		return wxPasswordEntryDialog::EndModal(retCode);
 	};
 
 	// wxWindow * wxDialog::GetContentWindow() const
@@ -1180,7 +1171,7 @@ public:
 			return (_obj.callFunction<wxWindow*>());
 		}
 
-		return wxDialog::GetContentWindow();
+		return wxPasswordEntryDialog::GetContentWindow();
 	};
 
 	// void wxDialog::Iconize(bool iconize = true)
@@ -1190,7 +1181,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDialog::Iconize(iconize);
+		return wxPasswordEntryDialog::Iconize(iconize);
 	};
 
 	// bool wxDialog::IsIconized() const
@@ -1199,7 +1190,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDialog::IsIconized();
+		return wxPasswordEntryDialog::IsIconized();
 	};
 
 	// bool wxDialog::IsModal() const
@@ -1208,7 +1199,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDialog::IsModal();
+		return wxPasswordEntryDialog::IsModal();
 	};
 
 	// void wxDialog::SetIcons(const wxIconBundle & icons)
@@ -1218,7 +1209,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDialog::SetIcons(icons);
+		return wxPasswordEntryDialog::SetIcons(icons);
 	};
 
 	// bool wxDialog::Show(bool show = 1)
@@ -1228,7 +1219,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDialog::Show(show);
+		return wxPasswordEntryDialog::Show(show);
 	};
 
 	// int wxTextEntryDialog::ShowModal()
@@ -1237,21 +1228,109 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxTextEntryDialog::ShowModal();
+		return wxPasswordEntryDialog::ShowModal();
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPasswordEntryDialog::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPasswordEntryDialog::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxPasswordEntryDialog::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxPasswordEntryDialog::TryAfter(event);
+	};
+
 	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPasswordEntryDialog::DoCentre(direction);
+	};
+
 	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxPasswordEntryDialog::DoGetBestSize();
+	};
+
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPasswordEntryDialog::SetInitialBestSize(size);
+	};
+
 	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxPasswordEntryDialog::ProcessEvent(event);
+	};
+
 	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPasswordEntryDialog::QueueEvent(event);
+	};
+
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxPasswordEntryDialog::AddPendingEvent(event);
+	};
+
 
 };
 

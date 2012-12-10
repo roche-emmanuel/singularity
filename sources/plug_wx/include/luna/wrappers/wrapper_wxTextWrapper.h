@@ -20,7 +20,21 @@ public:
 
 protected:
 	// void wxTextWrapper::OnOutputLine(const wxString & line)
+	void OnOutputLine(const wxString & line) {
+		THROW_IF(!_obj.pushFunction("OnOutputLine"),"No implementation for abstract function wxTextWrapper::OnOutputLine");
+		_obj.pushArg(line);
+		return (_obj.callFunction<void>());
+	};
+
 	// void wxTextWrapper::OnNewLine()
+	void OnNewLine() {
+		if(_obj.pushFunction("OnNewLine")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxTextWrapper::OnNewLine();
+	};
+
 
 };
 

@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxPGEditor::GetClassInfo();
 	};
 
 	// wxString wxPGEditor::GetName() const
@@ -33,16 +33,6 @@ public:
 		}
 
 		return wxPGEditor::GetName();
-	};
-
-	// wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const
-	wxPGWindowList CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const {
-		THROW_IF(!_obj.pushFunction("CreateControls"),"No implementation for abstract function wxPGEditor::CreateControls");
-		_obj.pushArg(propgrid);
-		_obj.pushArg(property);
-		_obj.pushArg(&pos);
-		_obj.pushArg(&size);
-		return (_obj.callFunction<wxPGWindowList>());
 	};
 
 	// void wxPGEditor::UpdateControl(wxPGProperty * property, wxWindow * ctrl) const
@@ -169,7 +159,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPGEditor::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPGEditor::CloneRefData(data);
+	};
+
 
 };
 

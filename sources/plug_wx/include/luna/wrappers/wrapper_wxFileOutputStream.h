@@ -25,16 +25,16 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxFileOutputStream::GetClassInfo();
 	};
 
-	// long wxStreamBase::GetLength() const
-	long GetLength() const {
+	// long long wxStreamBase::GetLength() const
+	long long GetLength() const {
 		if(_obj.pushFunction("GetLength")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxStreamBase::GetLength();
+		return wxFileOutputStream::GetLength();
 	};
 
 	// size_t wxStreamBase::GetSize() const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxStreamBase::GetSize();
+		return wxFileOutputStream::GetSize();
 	};
 
 	// bool wxStreamBase::IsSeekable() const
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxStreamBase::IsSeekable();
+		return wxFileOutputStream::IsSeekable();
 	};
 
 	// bool wxOutputStream::Close()
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxOutputStream::Close();
+		return wxFileOutputStream::Close();
 	};
 
 	// size_t wxOutputStream::LastWrite() const
@@ -70,27 +70,27 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxOutputStream::LastWrite();
+		return wxFileOutputStream::LastWrite();
 	};
 
-	// long wxOutputStream::SeekO(long pos, wxSeekMode mode = ::wxFromStart)
-	long SeekO(long pos, wxSeekMode mode = ::wxFromStart) {
+	// long long wxOutputStream::SeekO(long long pos, wxSeekMode mode = ::wxFromStart)
+	long long SeekO(long long pos, wxSeekMode mode = ::wxFromStart) {
 		if(_obj.pushFunction("SeekO")) {
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxOutputStream::SeekO(pos, mode);
+		return wxFileOutputStream::SeekO(pos, mode);
 	};
 
-	// long wxOutputStream::TellO() const
-	long TellO() const {
+	// long long wxOutputStream::TellO() const
+	long long TellO() const {
 		if(_obj.pushFunction("TellO")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxOutputStream::TellO();
+		return wxFileOutputStream::TellO();
 	};
 
 	// wxOutputStream & wxOutputStream::Write(const void * buffer, size_t size)
@@ -101,7 +101,7 @@ public:
 			return *(_obj.callFunction<wxOutputStream*>());
 		}
 
-		return wxOutputStream::Write(buffer, size);
+		return wxFileOutputStream::Write(buffer, size);
 	};
 
 	// bool wxFileOutputStream::IsOk() const
@@ -116,9 +116,44 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFileOutputStream::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	// long wxStreamBase::OnSysSeek(long pos, wxSeekMode mode)
-	// long wxStreamBase::OnSysTell() const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFileOutputStream::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxFileOutputStream::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxFileOutputStream::OnSysTell();
+	};
+
 
 };
 

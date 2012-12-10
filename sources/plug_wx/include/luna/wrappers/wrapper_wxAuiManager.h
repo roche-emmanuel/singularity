@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxAuiManager::GetClassInfo();
 	};
 
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::QueueEvent(event);
+		return wxAuiManager::QueueEvent(event);
 	};
 
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::AddPendingEvent(event);
+		return wxAuiManager::AddPendingEvent(event);
 	};
 
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxEvtHandler::ProcessEvent(event);
+		return wxAuiManager::ProcessEvent(event);
 	};
 
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetNextHandler(handler);
+		return wxAuiManager::SetNextHandler(handler);
 	};
 
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetPreviousHandler(handler);
+		return wxAuiManager::SetPreviousHandler(handler);
 	};
 
 	// void wxAuiManager::HideHint()
@@ -98,10 +98,55 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxAuiManager::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxAuiManager::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::TryAfter(event);
+	};
+
 	// bool wxAuiManager::ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos)
+	bool ProcessDockResult(wxAuiPaneInfo & target, const wxAuiPaneInfo & new_pos) {
+		if(_obj.pushFunction("ProcessDockResult")) {
+			_obj.pushArg(&target);
+			_obj.pushArg(&new_pos);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxAuiManager::ProcessDockResult(target, new_pos);
+	};
+
 
 };
 

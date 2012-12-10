@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsResizeable();
+		return wxDataViewColumn::IsResizeable();
 	};
 
 	// bool wxHeaderColumn::IsSortable() const
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsSortable();
+		return wxDataViewColumn::IsSortable();
 	};
 
 	// bool wxHeaderColumn::IsReorderable() const
@@ -78,7 +78,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsReorderable();
+		return wxDataViewColumn::IsReorderable();
 	};
 
 	// bool wxHeaderColumn::IsHidden() const
@@ -87,7 +87,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHeaderColumn::IsHidden();
+		return wxDataViewColumn::IsHidden();
 	};
 
 	// bool wxHeaderColumn::IsSortKey() const
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSettableHeaderColumn::SetResizeable(resizable);
+		return wxDataViewColumn::SetResizeable(resizable);
 	};
 
 	// void wxSettableHeaderColumn::SetSortable(bool sortable)
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSettableHeaderColumn::SetSortable(sortable);
+		return wxDataViewColumn::SetSortable(sortable);
 	};
 
 	// void wxSettableHeaderColumn::SetReorderable(bool reorderable)
@@ -171,7 +171,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSettableHeaderColumn::SetReorderable(reorderable);
+		return wxDataViewColumn::SetReorderable(reorderable);
 	};
 
 	// void wxSettableHeaderColumn::SetHidden(bool hidden)
@@ -181,7 +181,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSettableHeaderColumn::SetHidden(hidden);
+		return wxDataViewColumn::SetHidden(hidden);
 	};
 
 	// void wxSettableHeaderColumn::SetSortOrder(bool ascending)

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxTextCompleter(lua_State* L, lua_Table* dum) : wxTextCompleter(), _obj(L,-1) {};
 
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	bool Start(const wxString & prefix) {

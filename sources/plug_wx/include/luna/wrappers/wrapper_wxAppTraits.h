@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxAppTraits(lua_State* L, lua_Table* dum) : wxAppTraits(), _obj(L,-1) {};
 
 	// wxConfigBase * wxAppTraits::CreateConfig()
 	wxConfigBase * CreateConfig() {

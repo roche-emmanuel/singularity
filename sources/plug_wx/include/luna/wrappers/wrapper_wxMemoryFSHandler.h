@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxMemoryFSHandler::GetClassInfo();
 	};
 
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
@@ -41,7 +41,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxFileSystemHandler::FindFirst(wildcard, flags);
+		return wxMemoryFSHandler::FindFirst(wildcard, flags);
 	};
 
 	// wxString wxFileSystemHandler::FindNext()
@@ -50,7 +50,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxFileSystemHandler::FindNext();
+		return wxMemoryFSHandler::FindNext();
 	};
 
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)
@@ -64,7 +64,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxMemoryFSHandler::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxMemoryFSHandler::CloneRefData(data);
+	};
+
 
 };
 

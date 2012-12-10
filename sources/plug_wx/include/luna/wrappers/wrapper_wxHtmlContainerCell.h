@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxHtmlContainerCell::GetClassInfo();
 	};
 
 	// bool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHtmlCell::AdjustPagebreak(pagebreak, known_pagebreaks);
+		return wxHtmlContainerCell::AdjustPagebreak(pagebreak, known_pagebreaks);
 	};
 
 	// void wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
@@ -49,7 +49,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::Draw(dc, x, y, view_y1, view_y2, info);
+		return wxHtmlContainerCell::Draw(dc, x, y, view_y1, view_y2, info);
 	};
 
 	// void wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::DrawInvisible(dc, x, y, info);
+		return wxHtmlContainerCell::DrawInvisible(dc, x, y, info);
 	};
 
 	// const wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<wxHtmlCell*>());
 		}
 
-		return wxHtmlCell::Find(condition, param);
+		return wxHtmlContainerCell::Find(condition, param);
 	};
 
 	// wxHtmlCell * wxHtmlCell::GetFirstChild() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<wxHtmlCell*>());
 		}
 
-		return wxHtmlCell::GetFirstChild();
+		return wxHtmlContainerCell::GetFirstChild();
 	};
 
 	// wxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<wxHtmlLinkInfo*>());
 		}
 
-		return wxHtmlCell::GetLink(x, y);
+		return wxHtmlContainerCell::GetLink(x, y);
 	};
 
 	// void wxHtmlCell::Layout(int w)
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::Layout(w);
+		return wxHtmlContainerCell::Layout(w);
 	};
 
 	// void wxHtmlCell::SetPos(int x, int y)
@@ -114,13 +114,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::SetPos(x, y);
+		return wxHtmlContainerCell::SetPos(x, y);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlContainerCell::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlContainerCell::CloneRefData(data);
+	};
+
 
 };
 

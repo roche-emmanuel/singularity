@@ -93,6 +93,7 @@ typedef long off_t;
 //typedef wchar_t wxChar;
 typedef wxInt8 wxDash;
 typedef wxColour wxColor;
+typedef long long wxLongLong_t;
 
 typedef wxHelpController wxHelpControllerBase;
 

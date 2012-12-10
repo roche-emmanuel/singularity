@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxTextEntry(lua_State* L, lua_Table* dum) : wxTextEntry(), _obj(L,-1) {};
 
 	// void wxTextEntry::AppendText(const wxString & text)
 	void AppendText(const wxString & text) {

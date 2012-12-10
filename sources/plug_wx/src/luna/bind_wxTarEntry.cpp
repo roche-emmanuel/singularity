@@ -269,11 +269,11 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)
+	// wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static wxTarEntry* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -284,7 +284,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
 		const wxDateTime & dt=luatop>1 ? *dt_ptr : wxDateTime::Now ();
-		long size=luatop>2 ? (long)lua_tointeger(L,3) : wxInvalidOffset;
+		long long size=luatop>2 ? (long long)lua_tointeger(L,3) : wxInvalidOffset;
 
 		return new wxTarEntry(name, dt, size);
 	}
@@ -305,11 +305,11 @@ public:
 		return new wxTarEntry(entry);
 	}
 
-	// wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)
+	// wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static wxTarEntry* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 57497519\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -320,7 +320,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
 		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
-		long size=luatop>3 ? (long)lua_tointeger(L,4) : wxInvalidOffset;
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
 
 		return new wrapper_wxTarEntry(L,NULL, name, dt, size);
 	}
@@ -348,7 +348,7 @@ public:
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
 		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxTarEntry, cannot match any of the overloads for function wxTarEntry:\n  wxTarEntry(const wxString &, const wxDateTime &, long)\n  wxTarEntry(const wxTarEntry &)\n  wxTarEntry(lua_Table *, const wxString &, const wxDateTime &, long)\n  wxTarEntry(lua_Table *, const wxTarEntry &)\n");
+		luaL_error(L, "error in function wxTarEntry, cannot match any of the overloads for function wxTarEntry:\n  wxTarEntry(const wxString &, const wxDateTime &, long long)\n  wxTarEntry(const wxTarEntry &)\n  wxTarEntry(lua_Table *, const wxString &, const wxDateTime &, long long)\n  wxTarEntry(lua_Table *, const wxTarEntry &)\n");
 		return NULL;
 	}
 
@@ -729,39 +729,39 @@ public:
 		return 0;
 	}
 
-	// void wxTarEntry::SetSize(long size)
+	// void wxTarEntry::SetSize(long long size)
 	static int _bind_SetSize(lua_State *L) {
 		if (!_lg_typecheck_SetSize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long long size)\nClass arguments details:\n");
 		}
 
-		long size=(long)lua_tointeger(L,2);
+		long long size=(long long)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long)");
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long long)");
 		}
 		self->SetSize(size);
 
 		return 0;
 	}
 
-	// long wxTarEntry::GetSize() const
+	// long long wxTarEntry::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTarEntry::GetSize() const function, expected prototype:\nlong wxTarEntry::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::GetSize() const function, expected prototype:\nlong long wxTarEntry::GetSize() const\nClass arguments details:\n");
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTarEntry::GetSize() const");
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::GetSize() const");
 		}
-		long lret = self->GetSize();
+		long long lret = self->GetSize();
 		lua_pushnumber(L,lret);
 
 		return 1;

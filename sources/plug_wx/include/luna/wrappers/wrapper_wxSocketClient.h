@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxSocketClient::GetClassInfo();
 	};
 
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetLocal(addr);
+		return wxSocketClient::GetLocal(addr);
 	};
 
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetPeer(addr);
+		return wxSocketClient::GetPeer(addr);
 	};
 
 	// bool wxSocketBase::Close()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::Close();
+		return wxSocketClient::Close();
 	};
 
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::SetLocal(local);
+		return wxSocketClient::SetLocal(local);
 	};
 
 	// bool wxSocketClient::Connect(const wxSockAddress & address, bool wait = true)
@@ -79,7 +79,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSocketClient::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSocketClient::CloneRefData(data);
+	};
+
 
 };
 

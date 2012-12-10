@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxTimer::GetClassInfo();
 	};
 
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::QueueEvent(event);
+		return wxTimer::QueueEvent(event);
 	};
 
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::AddPendingEvent(event);
+		return wxTimer::AddPendingEvent(event);
 	};
 
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxEvtHandler::ProcessEvent(event);
+		return wxTimer::ProcessEvent(event);
 	};
 
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetNextHandler(handler);
+		return wxTimer::SetNextHandler(handler);
 	};
 
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetPreviousHandler(handler);
+		return wxTimer::SetPreviousHandler(handler);
 	};
 
 	// void wxTimer::Notify()
@@ -109,9 +109,44 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxTimer::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxTimer::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxTimer::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxTimer::TryAfter(event);
+	};
+
 
 };
 

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxSearchCtrl::GetClassInfo();
 	};
 
 	// bool wxWindow::AcceptsFocus() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocus();
+		return wxSearchCtrl::AcceptsFocus();
 	};
 
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusFromKeyboard();
+		return wxSearchCtrl::AcceptsFocusFromKeyboard();
 	};
 
 	// bool wxWindow::AcceptsFocusRecursively() const
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusRecursively();
+		return wxSearchCtrl::AcceptsFocusRecursively();
 	};
 
 	// bool wxWindow::HasFocus() const
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasFocus();
+		return wxSearchCtrl::HasFocus();
 	};
 
 	// void wxWindow::SetCanFocus(bool canFocus)
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetCanFocus(canFocus);
+		return wxSearchCtrl::SetCanFocus(canFocus);
 	};
 
 	// void wxWindow::SetFocus()
@@ -79,7 +79,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocus();
+		return wxSearchCtrl::SetFocus();
 	};
 
 	// void wxWindow::SetFocusFromKbd()
@@ -88,7 +88,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocusFromKbd();
+		return wxSearchCtrl::SetFocusFromKbd();
 	};
 
 	// void wxWindow::AddChild(wxWindow * child)
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AddChild(child);
+		return wxSearchCtrl::AddChild(child);
 	};
 
 	// void wxWindow::RemoveChild(wxWindow * child)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::RemoveChild(child);
+		return wxSearchCtrl::RemoveChild(child);
 	};
 
 	// bool wxWindow::Reparent(wxWindow * newParent)
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Reparent(newParent);
+		return wxSearchCtrl::Reparent(newParent);
 	};
 
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AlwaysShowScrollbars(hflag, vflag);
+		return wxSearchCtrl::AlwaysShowScrollbars(hflag, vflag);
 	};
 
 	// int wxWindow::GetScrollPos(int orientation) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollPos(orientation);
+		return wxSearchCtrl::GetScrollPos(orientation);
 	};
 
 	// int wxWindow::GetScrollRange(int orientation) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollRange(orientation);
+		return wxSearchCtrl::GetScrollRange(orientation);
 	};
 
 	// int wxWindow::GetScrollThumb(int orientation) const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollThumb(orientation);
+		return wxSearchCtrl::GetScrollThumb(orientation);
 	};
 
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsScrollbarAlwaysShown(orient);
+		return wxSearchCtrl::IsScrollbarAlwaysShown(orient);
 	};
 
 	// bool wxWindow::ScrollLines(int lines)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollLines(lines);
+		return wxSearchCtrl::ScrollLines(lines);
 	};
 
 	// bool wxWindow::ScrollPages(int pages)
@@ -189,7 +189,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ScrollPages(pages);
+		return wxSearchCtrl::ScrollPages(pages);
 	};
 
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ScrollWindow(dx, dy, rect);
+		return wxSearchCtrl::ScrollWindow(dx, dy, rect);
 	};
 
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollPos(orientation, pos, refresh);
+		return wxSearchCtrl::SetScrollPos(orientation, pos, refresh);
 	};
 
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
+		return wxSearchCtrl::SetScrollbar(orientation, position, thumbSize, range, refresh);
 	};
 
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
@@ -237,7 +237,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::ClientToWindowSize(size);
+		return wxSearchCtrl::ClientToWindowSize(size);
 	};
 
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
@@ -247,7 +247,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::WindowToClientSize(size);
+		return wxSearchCtrl::WindowToClientSize(size);
 	};
 
 	// void wxWindow::Fit()
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Fit();
+		return wxSearchCtrl::Fit();
 	};
 
 	// void wxWindow::FitInside()
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::FitInside();
+		return wxSearchCtrl::FitInside();
 	};
 
 	// wxSize wxWindow::GetEffectiveMinSize() const
@@ -274,7 +274,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetEffectiveMinSize();
+		return wxSearchCtrl::GetEffectiveMinSize();
 	};
 
 	// wxSize wxWindow::GetMaxClientSize() const
@@ -283,7 +283,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxClientSize();
+		return wxSearchCtrl::GetMaxClientSize();
 	};
 
 	// wxSize wxWindow::GetMaxSize() const
@@ -292,7 +292,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxSize();
+		return wxSearchCtrl::GetMaxSize();
 	};
 
 	// wxSize wxWindow::GetMinClientSize() const
@@ -301,7 +301,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinClientSize();
+		return wxSearchCtrl::GetMinClientSize();
 	};
 
 	// wxSize wxWindow::GetMinSize() const
@@ -310,7 +310,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinSize();
+		return wxSearchCtrl::GetMinSize();
 	};
 
 	// wxSize wxWindow::GetBestVirtualSize() const
@@ -319,7 +319,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetBestVirtualSize();
+		return wxSearchCtrl::GetBestVirtualSize();
 	};
 
 	// wxSize wxWindow::GetWindowBorderSize() const
@@ -328,7 +328,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetWindowBorderSize();
+		return wxSearchCtrl::GetWindowBorderSize();
 	};
 
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -340,7 +340,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::InformFirstDirection(direction, size, availableOtherDir);
+		return wxSearchCtrl::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxWindow::SendSizeEvent(int flags = 0)
@@ -350,7 +350,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SendSizeEvent(flags);
+		return wxSearchCtrl::SendSizeEvent(flags);
 	};
 
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
@@ -360,7 +360,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxClientSize(size);
+		return wxSearchCtrl::SetMaxClientSize(size);
 	};
 
 	// void wxWindow::SetMaxSize(const wxSize & size)
@@ -370,7 +370,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxSize(size);
+		return wxSearchCtrl::SetMaxSize(size);
 	};
 
 	// void wxWindow::SetMinClientSize(const wxSize & size)
@@ -380,7 +380,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinClientSize(size);
+		return wxSearchCtrl::SetMinClientSize(size);
 	};
 
 	// void wxWindow::SetMinSize(const wxSize & size)
@@ -390,7 +390,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinSize(size);
+		return wxSearchCtrl::SetMinSize(size);
 	};
 
 	// void wxWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
@@ -402,7 +402,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minSize, maxSize, incSize);
+		return wxSearchCtrl::SetSizeHints(minSize, maxSize, incSize);
 	};
 
 	// void wxWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
@@ -417,7 +417,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+		return wxSearchCtrl::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 	};
 
 	// wxPoint wxWindow::GetClientAreaOrigin() const
@@ -426,7 +426,7 @@ public:
 			return *(_obj.callFunction<wxPoint*>());
 		}
 
-		return wxWindow::GetClientAreaOrigin();
+		return wxSearchCtrl::GetClientAreaOrigin();
 	};
 
 	// void wxWindow::ClearBackground()
@@ -435,7 +435,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ClearBackground();
+		return wxSearchCtrl::ClearBackground();
 	};
 
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
@@ -444,7 +444,7 @@ public:
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetBackgroundStyle();
+		return wxSearchCtrl::GetBackgroundStyle();
 	};
 
 	// int wxWindow::GetCharHeight() const
@@ -453,7 +453,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharHeight();
+		return wxSearchCtrl::GetCharHeight();
 	};
 
 	// int wxWindow::GetCharWidth() const
@@ -462,7 +462,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharWidth();
+		return wxSearchCtrl::GetCharWidth();
 	};
 
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
@@ -471,7 +471,7 @@ public:
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
-		return wxWindow::GetDefaultAttributes();
+		return wxSearchCtrl::GetDefaultAttributes();
 	};
 
 	// bool wxWindow::HasTransparentBackground()
@@ -480,7 +480,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasTransparentBackground();
+		return wxSearchCtrl::HasTransparentBackground();
 	};
 
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
@@ -491,7 +491,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Refresh(eraseBackground, rect);
+		return wxSearchCtrl::Refresh(eraseBackground, rect);
 	};
 
 	// void wxWindow::Update()
@@ -500,7 +500,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Update();
+		return wxSearchCtrl::Update();
 	};
 
 	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
@@ -510,7 +510,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundColour(colour);
+		return wxSearchCtrl::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -520,7 +520,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundStyle(style);
+		return wxSearchCtrl::SetBackgroundStyle(style);
 	};
 
 	// bool wxWindow::SetFont(const wxFont & font)
@@ -530,7 +530,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetFont(font);
+		return wxSearchCtrl::SetFont(font);
 	};
 
 	// bool wxWindow::SetForegroundColour(const wxColour & colour)
@@ -540,7 +540,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetForegroundColour(colour);
+		return wxSearchCtrl::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -549,7 +549,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShouldInheritColours();
+		return wxSearchCtrl::ShouldInheritColours();
 	};
 
 	// void wxWindow::SetThemeEnabled(bool enable)
@@ -559,7 +559,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetThemeEnabled(enable);
+		return wxSearchCtrl::SetThemeEnabled(enable);
 	};
 
 	// bool wxWindow::GetThemeEnabled() const
@@ -568,7 +568,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::GetThemeEnabled();
+		return wxSearchCtrl::GetThemeEnabled();
 	};
 
 	// bool wxWindow::CanSetTransparent()
@@ -577,7 +577,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::CanSetTransparent();
+		return wxSearchCtrl::CanSetTransparent();
 	};
 
 	// bool wxWindow::SetTransparent(unsigned char alpha)
@@ -587,7 +587,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetTransparent(alpha);
+		return wxSearchCtrl::SetTransparent(alpha);
 	};
 
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
@@ -597,7 +597,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetNextHandler(handler);
+		return wxSearchCtrl::SetNextHandler(handler);
 	};
 
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
@@ -607,7 +607,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetPreviousHandler(handler);
+		return wxSearchCtrl::SetPreviousHandler(handler);
 	};
 
 	// long wxWindow::GetWindowStyleFlag() const
@@ -616,7 +616,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxWindow::GetWindowStyleFlag();
+		return wxSearchCtrl::GetWindowStyleFlag();
 	};
 
 	// void wxWindow::SetExtraStyle(long exStyle)
@@ -626,7 +626,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetExtraStyle(exStyle);
+		return wxSearchCtrl::SetExtraStyle(exStyle);
 	};
 
 	// void wxWindow::SetWindowStyleFlag(long style)
@@ -636,7 +636,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetWindowStyleFlag(style);
+		return wxSearchCtrl::SetWindowStyleFlag(style);
 	};
 
 	// void wxWindow::Lower()
@@ -645,7 +645,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Lower();
+		return wxSearchCtrl::Lower();
 	};
 
 	// void wxWindow::Raise()
@@ -654,7 +654,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Raise();
+		return wxSearchCtrl::Raise();
 	};
 
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -665,7 +665,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HideWithEffect(effect, timeout);
+		return wxSearchCtrl::HideWithEffect(effect, timeout);
 	};
 
 	// bool wxWindow::IsShown() const
@@ -674,7 +674,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShown();
+		return wxSearchCtrl::IsShown();
 	};
 
 	// bool wxWindow::IsShownOnScreen() const
@@ -683,7 +683,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShownOnScreen();
+		return wxSearchCtrl::IsShownOnScreen();
 	};
 
 	// bool wxWindow::Enable(bool enable = true)
@@ -693,7 +693,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Enable(enable);
+		return wxSearchCtrl::Enable(enable);
 	};
 
 	// bool wxWindow::Show(bool show = true)
@@ -703,7 +703,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Show(show);
+		return wxSearchCtrl::Show(show);
 	};
 
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -714,7 +714,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShowWithEffect(effect, timeout);
+		return wxSearchCtrl::ShowWithEffect(effect, timeout);
 	};
 
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
@@ -725,7 +725,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetHelpTextAtPoint(point, origin);
+		return wxSearchCtrl::GetHelpTextAtPoint(point, origin);
 	};
 
 	// wxValidator * wxWindow::GetValidator()
@@ -734,7 +734,7 @@ public:
 			return (_obj.callFunction<wxValidator*>());
 		}
 
-		return wxWindow::GetValidator();
+		return wxSearchCtrl::GetValidator();
 	};
 
 	// void wxWindow::SetValidator(const wxValidator & validator)
@@ -744,7 +744,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetValidator(validator);
+		return wxSearchCtrl::SetValidator(validator);
 	};
 
 	// bool wxWindow::TransferDataFromWindow()
@@ -753,7 +753,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataFromWindow();
+		return wxSearchCtrl::TransferDataFromWindow();
 	};
 
 	// bool wxWindow::TransferDataToWindow()
@@ -762,7 +762,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataToWindow();
+		return wxSearchCtrl::TransferDataToWindow();
 	};
 
 	// bool wxWindow::Validate()
@@ -771,7 +771,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Validate();
+		return wxSearchCtrl::Validate();
 	};
 
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
@@ -780,7 +780,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetLayoutDirection();
+		return wxSearchCtrl::GetLayoutDirection();
 	};
 
 	// wxString wxWindow::GetName() const
@@ -789,7 +789,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetName();
+		return wxSearchCtrl::GetName();
 	};
 
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
@@ -799,7 +799,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLayoutDirection(dir);
+		return wxSearchCtrl::SetLayoutDirection(dir);
 	};
 
 	// void wxWindow::SetName(const wxString & name)
@@ -809,7 +809,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetName(name);
+		return wxSearchCtrl::SetName(name);
 	};
 
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
@@ -819,7 +819,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetAcceleratorTable(accel);
+		return wxSearchCtrl::SetAcceleratorTable(accel);
 	};
 
 	// bool wxWindow::Destroy()
@@ -828,7 +828,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Destroy();
+		return wxSearchCtrl::Destroy();
 	};
 
 	// wxDropTarget * wxWindow::GetDropTarget() const
@@ -837,7 +837,7 @@ public:
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
-		return wxWindow::GetDropTarget();
+		return wxSearchCtrl::GetDropTarget();
 	};
 
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
@@ -847,7 +847,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetDropTarget(target);
+		return wxSearchCtrl::SetDropTarget(target);
 	};
 
 	// void wxWindow::DragAcceptFiles(bool accept)
@@ -857,7 +857,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DragAcceptFiles(accept);
+		return wxSearchCtrl::DragAcceptFiles(accept);
 	};
 
 	// bool wxWindow::Layout()
@@ -866,7 +866,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Layout();
+		return wxSearchCtrl::Layout();
 	};
 
 	// bool wxWindow::HasCapture() const
@@ -875,7 +875,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasCapture();
+		return wxSearchCtrl::HasCapture();
 	};
 
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
@@ -885,7 +885,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetCursor(cursor);
+		return wxSearchCtrl::SetCursor(cursor);
 	};
 
 	// void wxWindow::WarpPointer(int x, int y)
@@ -896,7 +896,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::WarpPointer(x, y);
+		return wxSearchCtrl::WarpPointer(x, y);
 	};
 
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
@@ -906,16 +906,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DoUpdateWindowUI(event);
-	};
-
-	// WXWidget wxWindow::GetHandle() const
-	WXWidget GetHandle() const {
-		if(_obj.pushFunction("GetHandle")) {
-			return (_obj.callFunction<WXWidget>());
-		}
-
-		return wxWindow::GetHandle();
+		return wxSearchCtrl::DoUpdateWindowUI(event);
 	};
 
 	// bool wxWindow::HasMultiplePages() const
@@ -924,7 +915,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasMultiplePages();
+		return wxSearchCtrl::HasMultiplePages();
 	};
 
 	// void wxWindow::InheritAttributes()
@@ -933,7 +924,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InheritAttributes();
+		return wxSearchCtrl::InheritAttributes();
 	};
 
 	// void wxWindow::InitDialog()
@@ -942,7 +933,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InitDialog();
+		return wxSearchCtrl::InitDialog();
 	};
 
 	// bool wxWindow::IsRetained() const
@@ -951,7 +942,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsRetained();
+		return wxSearchCtrl::IsRetained();
 	};
 
 	// bool wxWindow::IsTopLevel() const
@@ -960,7 +951,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsTopLevel();
+		return wxSearchCtrl::IsTopLevel();
 	};
 
 	// void wxWindow::MakeModal(bool modal = true)
@@ -970,7 +961,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::MakeModal(modal);
+		return wxSearchCtrl::MakeModal(modal);
 	};
 
 	// void wxWindow::OnInternalIdle()
@@ -979,7 +970,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::OnInternalIdle();
+		return wxSearchCtrl::OnInternalIdle();
 	};
 
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
@@ -991,7 +982,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		return wxSearchCtrl::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 	};
 
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
@@ -1001,7 +992,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::UnregisterHotKey(hotkeyId);
+		return wxSearchCtrl::UnregisterHotKey(hotkeyId);
 	};
 
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
@@ -1011,7 +1002,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::UpdateWindowUI(flags);
+		return wxSearchCtrl::UpdateWindowUI(flags);
 	};
 
 	// void wxControl::Command(wxCommandEvent & event)
@@ -1021,7 +1012,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxControl::Command(event);
+		return wxSearchCtrl::Command(event);
 	};
 
 	// wxString wxControl::GetLabel() const
@@ -1030,7 +1021,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxControl::GetLabel();
+		return wxSearchCtrl::GetLabel();
 	};
 
 	// void wxControl::SetLabel(const wxString & label)
@@ -1040,7 +1031,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxControl::SetLabel(label);
+		return wxSearchCtrl::SetLabel(label);
 	};
 
 	// void wxTextEntry::AppendText(const wxString & text)
@@ -1050,7 +1041,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::AppendText(text);
+		return wxSearchCtrl::AppendText(text);
 	};
 
 	// bool wxTextEntry::CanCopy() const
@@ -1059,7 +1050,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanCopy();
+		return wxSearchCtrl::CanCopy();
 	};
 
 	// bool wxTextEntry::CanCut() const
@@ -1068,7 +1059,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanCut();
+		return wxSearchCtrl::CanCut();
 	};
 
 	// bool wxTextEntry::CanPaste() const
@@ -1077,7 +1068,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanPaste();
+		return wxSearchCtrl::CanPaste();
 	};
 
 	// bool wxTextEntry::CanRedo() const
@@ -1086,7 +1077,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanRedo();
+		return wxSearchCtrl::CanRedo();
 	};
 
 	// bool wxTextEntry::CanUndo() const
@@ -1095,7 +1086,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::CanUndo();
+		return wxSearchCtrl::CanUndo();
 	};
 
 	// void wxTextEntry::ChangeValue(const wxString & value)
@@ -1105,7 +1096,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::ChangeValue(value);
+		return wxSearchCtrl::ChangeValue(value);
 	};
 
 	// void wxTextEntry::Clear()
@@ -1114,7 +1105,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Clear();
+		return wxSearchCtrl::Clear();
 	};
 
 	// void wxTextEntry::Copy()
@@ -1123,7 +1114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Copy();
+		return wxSearchCtrl::Copy();
 	};
 
 	// long wxTextEntry::GetInsertionPoint() const
@@ -1132,7 +1123,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxTextEntry::GetInsertionPoint();
+		return wxSearchCtrl::GetInsertionPoint();
 	};
 
 	// long wxTextEntry::GetLastPosition() const
@@ -1141,7 +1132,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxTextEntry::GetLastPosition();
+		return wxSearchCtrl::GetLastPosition();
 	};
 
 	// wxString wxTextEntry::GetRange(long from, long to) const
@@ -1152,7 +1143,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetRange(from, to);
+		return wxSearchCtrl::GetRange(from, to);
 	};
 
 	// void wxTextEntry::GetSelection(long * from, long * to) const
@@ -1163,7 +1154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::GetSelection(from, to);
+		return wxSearchCtrl::GetSelection(from, to);
 	};
 
 	// wxString wxTextEntry::GetStringSelection() const
@@ -1172,7 +1163,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetStringSelection();
+		return wxSearchCtrl::GetStringSelection();
 	};
 
 	// wxString wxTextEntry::GetValue() const
@@ -1181,7 +1172,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetValue();
+		return wxSearchCtrl::GetValue();
 	};
 
 	// bool wxTextEntry::IsEditable() const
@@ -1190,7 +1181,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::IsEditable();
+		return wxSearchCtrl::IsEditable();
 	};
 
 	// bool wxTextEntry::IsEmpty() const
@@ -1199,7 +1190,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::IsEmpty();
+		return wxSearchCtrl::IsEmpty();
 	};
 
 	// void wxTextEntry::Paste()
@@ -1208,7 +1199,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Paste();
+		return wxSearchCtrl::Paste();
 	};
 
 	// void wxTextEntry::Redo()
@@ -1217,7 +1208,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Redo();
+		return wxSearchCtrl::Redo();
 	};
 
 	// void wxTextEntry::Remove(long from, long to)
@@ -1228,7 +1219,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Remove(from, to);
+		return wxSearchCtrl::Remove(from, to);
 	};
 
 	// void wxTextEntry::Replace(long from, long to, const wxString & value)
@@ -1240,7 +1231,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Replace(from, to, value);
+		return wxSearchCtrl::Replace(from, to, value);
 	};
 
 	// void wxTextEntry::SetEditable(bool editable)
@@ -1250,7 +1241,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetEditable(editable);
+		return wxSearchCtrl::SetEditable(editable);
 	};
 
 	// void wxTextEntry::SetInsertionPoint(long pos)
@@ -1260,7 +1251,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetInsertionPoint(pos);
+		return wxSearchCtrl::SetInsertionPoint(pos);
 	};
 
 	// void wxTextEntry::SetInsertionPointEnd()
@@ -1269,7 +1260,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetInsertionPointEnd();
+		return wxSearchCtrl::SetInsertionPointEnd();
 	};
 
 	// void wxTextEntry::SetMaxLength(unsigned long len)
@@ -1279,7 +1270,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetMaxLength(len);
+		return wxSearchCtrl::SetMaxLength(len);
 	};
 
 	// void wxTextEntry::SetSelection(long from, long to)
@@ -1290,7 +1281,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetSelection(from, to);
+		return wxSearchCtrl::SetSelection(from, to);
 	};
 
 	// void wxTextEntry::SelectAll()
@@ -1299,7 +1290,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SelectAll();
+		return wxSearchCtrl::SelectAll();
 	};
 
 	// bool wxTextEntry::SetHint(const wxString & hint)
@@ -1309,7 +1300,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextEntry::SetHint(hint);
+		return wxSearchCtrl::SetHint(hint);
 	};
 
 	// wxString wxTextEntry::GetHint() const
@@ -1318,7 +1309,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextEntry::GetHint();
+		return wxSearchCtrl::GetHint();
 	};
 
 	// void wxTextEntry::SetValue(const wxString & value)
@@ -1328,7 +1319,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::SetValue(value);
+		return wxSearchCtrl::SetValue(value);
 	};
 
 	// void wxTextEntry::Undo()
@@ -1337,7 +1328,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::Undo();
+		return wxSearchCtrl::Undo();
 	};
 
 	// void wxTextEntry::WriteText(const wxString & text)
@@ -1347,7 +1338,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextEntry::WriteText(text);
+		return wxSearchCtrl::WriteText(text);
 	};
 
 	// void wxTextCtrl::Cut()
@@ -1356,7 +1347,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextCtrl::Cut();
+		return wxSearchCtrl::Cut();
 	};
 
 	// void wxTextCtrl::DiscardEdits()
@@ -1365,7 +1356,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextCtrl::DiscardEdits();
+		return wxSearchCtrl::DiscardEdits();
 	};
 
 	// bool wxTextCtrl::EmulateKeyPress(const wxKeyEvent & event)
@@ -1375,7 +1366,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::EmulateKeyPress(event);
+		return wxSearchCtrl::EmulateKeyPress(event);
 	};
 
 	// const wxTextAttr & wxTextCtrl::GetDefaultStyle() const
@@ -1384,7 +1375,7 @@ public:
 			return *(_obj.callFunction<wxTextAttr*>());
 		}
 
-		return wxTextCtrl::GetDefaultStyle();
+		return wxSearchCtrl::GetDefaultStyle();
 	};
 
 	// int wxTextCtrl::GetLineLength(long lineNo) const
@@ -1394,7 +1385,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxTextCtrl::GetLineLength(lineNo);
+		return wxSearchCtrl::GetLineLength(lineNo);
 	};
 
 	// wxString wxTextCtrl::GetLineText(long lineNo) const
@@ -1404,7 +1395,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxTextCtrl::GetLineText(lineNo);
+		return wxSearchCtrl::GetLineText(lineNo);
 	};
 
 	// int wxTextCtrl::GetNumberOfLines() const
@@ -1413,7 +1404,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxTextCtrl::GetNumberOfLines();
+		return wxSearchCtrl::GetNumberOfLines();
 	};
 
 	// bool wxTextCtrl::GetStyle(long position, wxTextAttr & style)
@@ -1424,7 +1415,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::GetStyle(position, style);
+		return wxSearchCtrl::GetStyle(position, style);
 	};
 
 	// bool wxTextCtrl::IsModified() const
@@ -1433,7 +1424,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::IsModified();
+		return wxSearchCtrl::IsModified();
 	};
 
 	// void wxTextCtrl::MarkDirty()
@@ -1442,7 +1433,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextCtrl::MarkDirty();
+		return wxSearchCtrl::MarkDirty();
 	};
 
 	// bool wxTextCtrl::PositionToXY(long pos, long * x, long * y) const
@@ -1454,7 +1445,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::PositionToXY(pos, x, y);
+		return wxSearchCtrl::PositionToXY(pos, x, y);
 	};
 
 	// bool wxTextCtrl::SetDefaultStyle(const wxTextAttr & style)
@@ -1464,7 +1455,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::SetDefaultStyle(style);
+		return wxSearchCtrl::SetDefaultStyle(style);
 	};
 
 	// bool wxTextCtrl::SetStyle(long start, long end, const wxTextAttr & style)
@@ -1476,7 +1467,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxTextCtrl::SetStyle(start, end, style);
+		return wxSearchCtrl::SetStyle(start, end, style);
 	};
 
 	// void wxTextCtrl::ShowPosition(long pos)
@@ -1486,7 +1477,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxTextCtrl::ShowPosition(pos);
+		return wxSearchCtrl::ShowPosition(pos);
 	};
 
 	// long wxTextCtrl::XYToPosition(long x, long y) const
@@ -1497,7 +1488,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxTextCtrl::XYToPosition(x, y);
+		return wxSearchCtrl::XYToPosition(x, y);
 	};
 
 	// wxMenu * wxSearchCtrl::GetMenu()
@@ -1560,15 +1551,103 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSearchCtrl::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxSearchCtrl::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSearchCtrl::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSearchCtrl::TryAfter(event);
+	};
+
 	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSearchCtrl::DoCentre(direction);
+	};
+
 	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxSearchCtrl::DoGetBestSize();
+	};
+
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSearchCtrl::SetInitialBestSize(size);
+	};
+
 	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSearchCtrl::ProcessEvent(event);
+	};
+
 	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSearchCtrl::QueueEvent(event);
+	};
+
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSearchCtrl::AddPendingEvent(event);
+	};
+
 
 };
 

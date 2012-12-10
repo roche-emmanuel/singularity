@@ -23,16 +23,16 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxInputStream::GetClassInfo();
 	};
 
-	// long wxStreamBase::GetLength() const
-	long GetLength() const {
+	// long long wxStreamBase::GetLength() const
+	long long GetLength() const {
 		if(_obj.pushFunction("GetLength")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
-		return wxStreamBase::GetLength();
+		return wxInputStream::GetLength();
 	};
 
 	// size_t wxStreamBase::GetSize() const
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxStreamBase::GetSize();
+		return wxInputStream::GetSize();
 	};
 
 	// bool wxStreamBase::IsOk() const
@@ -50,7 +50,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxStreamBase::IsOk();
+		return wxInputStream::IsOk();
 	};
 
 	// bool wxStreamBase::IsSeekable() const
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxStreamBase::IsSeekable();
+		return wxInputStream::IsSeekable();
 	};
 
 	// bool wxInputStream::CanRead() const
@@ -92,7 +92,7 @@ public:
 	// char wxInputStream::Peek()
 	char Peek() {
 		if(_obj.pushFunction("Peek")) {
-			return (_obj.callFunction<char>());
+			return (char)(_obj.callFunction<int>());
 		}
 
 		return wxInputStream::Peek();
@@ -109,21 +109,21 @@ public:
 		return wxInputStream::Read(buffer, size);
 	};
 
-	// long wxInputStream::SeekI(long pos, wxSeekMode mode = ::wxFromStart)
-	long SeekI(long pos, wxSeekMode mode = ::wxFromStart) {
+	// long long wxInputStream::SeekI(long long pos, wxSeekMode mode = ::wxFromStart)
+	long long SeekI(long long pos, wxSeekMode mode = ::wxFromStart) {
 		if(_obj.pushFunction("SeekI")) {
 			_obj.pushArg(pos);
 			_obj.pushArg(mode);
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
 		return wxInputStream::SeekI(pos, mode);
 	};
 
-	// long wxInputStream::TellI() const
-	long TellI() const {
+	// long long wxInputStream::TellI() const
+	long long TellI() const {
 		if(_obj.pushFunction("TellI")) {
-			return (_obj.callFunction<long>());
+			return (_obj.callFunction<long long>());
 		}
 
 		return wxInputStream::TellI();
@@ -132,10 +132,52 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxInputStream::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
-	// long wxStreamBase::OnSysSeek(long pos, wxSeekMode mode)
-	// long wxStreamBase::OnSysTell() const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxInputStream::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxInputStream::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxInputStream::OnSysTell();
+	};
+
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
+	size_t OnSysRead(void * buffer, size_t bufsize) {
+		THROW_IF(!_obj.pushFunction("OnSysRead"),"No implementation for abstract function wxInputStream::OnSysRead");
+		_obj.pushArg(buffer);
+		_obj.pushArg(bufsize);
+		return (_obj.callFunction<size_t>());
+	};
+
 
 };
 

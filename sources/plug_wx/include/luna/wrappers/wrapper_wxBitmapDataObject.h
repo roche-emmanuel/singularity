@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataObjectSimple::GetDataHere(buf);
+		return wxBitmapDataObject::GetDataHere(buf);
 	};
 
 	// size_t wxDataObjectSimple::GetDataSize() const
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<size_t>());
 		}
 
-		return wxDataObjectSimple::GetDataSize();
+		return wxBitmapDataObject::GetDataSize();
 	};
 
 	// bool wxDataObjectSimple::SetData(size_t len, const void * buf)
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataObjectSimple::SetData(len, buf);
+		return wxBitmapDataObject::SetData(len, buf);
 	};
 
 	// wxBitmap wxBitmapDataObject::GetBitmap() const

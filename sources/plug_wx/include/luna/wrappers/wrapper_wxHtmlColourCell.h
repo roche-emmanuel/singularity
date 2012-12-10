@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxHtmlColourCell::GetClassInfo();
 	};
 
 	// bool wxHtmlCell::AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxHtmlCell::AdjustPagebreak(pagebreak, known_pagebreaks);
+		return wxHtmlColourCell::AdjustPagebreak(pagebreak, known_pagebreaks);
 	};
 
 	// void wxHtmlCell::Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
@@ -49,7 +49,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::Draw(dc, x, y, view_y1, view_y2, info);
+		return wxHtmlColourCell::Draw(dc, x, y, view_y1, view_y2, info);
 	};
 
 	// void wxHtmlCell::DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::DrawInvisible(dc, x, y, info);
+		return wxHtmlColourCell::DrawInvisible(dc, x, y, info);
 	};
 
 	// const wxHtmlCell * wxHtmlCell::Find(int condition, const void * param) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<wxHtmlCell*>());
 		}
 
-		return wxHtmlCell::Find(condition, param);
+		return wxHtmlColourCell::Find(condition, param);
 	};
 
 	// wxHtmlCell * wxHtmlCell::GetFirstChild() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<wxHtmlCell*>());
 		}
 
-		return wxHtmlCell::GetFirstChild();
+		return wxHtmlColourCell::GetFirstChild();
 	};
 
 	// wxHtmlLinkInfo * wxHtmlCell::GetLink(int x = 0, int y = 0) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<wxHtmlLinkInfo*>());
 		}
 
-		return wxHtmlCell::GetLink(x, y);
+		return wxHtmlColourCell::GetLink(x, y);
 	};
 
 	// void wxHtmlCell::Layout(int w)
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::Layout(w);
+		return wxHtmlColourCell::Layout(w);
 	};
 
 	// void wxHtmlCell::SetPos(int x, int y)
@@ -114,13 +114,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlCell::SetPos(x, y);
+		return wxHtmlColourCell::SetPos(x, y);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlColourCell::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlColourCell::CloneRefData(data);
+	};
+
 
 };
 

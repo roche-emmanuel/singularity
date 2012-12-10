@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxDirTraverser(lua_State* L, lua_Table* dum) : wxDirTraverser(), _obj(L,-1) {};
 
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	wxDirTraverseResult OnDir(const wxString & dirname) {

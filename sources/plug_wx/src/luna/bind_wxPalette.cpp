@@ -168,11 +168,11 @@ public:
 		return new wxPalette(palette);
 	}
 
-	// wxPalette::wxPalette(int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)
+	// wxPalette::wxPalette(int n, unsigned char * red, unsigned char * green, unsigned char * blue)
 	static wxPalette* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue) function, expected prototype:\nwxPalette::wxPalette(int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(int n, unsigned char * red, unsigned char * green, unsigned char * blue) function, expected prototype:\nwxPalette::wxPalette(int n, unsigned char * red, unsigned char * green, unsigned char * blue)\nClass arguments details:\n");
 		}
 
 		int n=(int)lua_tointeger(L,1);
@@ -210,11 +210,11 @@ public:
 		return new wrapper_wxPalette(L,NULL, palette);
 	}
 
-	// wxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)
+	// wxPalette::wxPalette(lua_Table * data, int n, unsigned char * red, unsigned char * green, unsigned char * blue)
 	static wxPalette* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue) function, expected prototype:\nwxPalette::wxPalette(lua_Table * data, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPalette::wxPalette(lua_Table * data, int n, unsigned char * red, unsigned char * green, unsigned char * blue) function, expected prototype:\nwxPalette::wxPalette(lua_Table * data, int n, unsigned char * red, unsigned char * green, unsigned char * blue)\nClass arguments details:\n");
 		}
 
 		int n=(int)lua_tointeger(L,2);
@@ -234,7 +234,7 @@ public:
 		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxPalette, cannot match any of the overloads for function wxPalette:\n  wxPalette()\n  wxPalette(const wxPalette &)\n  wxPalette(int, const unsigned char *, const unsigned char *, const unsigned char *)\n  wxPalette(lua_Table *)\n  wxPalette(lua_Table *, const wxPalette &)\n  wxPalette(lua_Table *, int, const unsigned char *, const unsigned char *, const unsigned char *)\n");
+		luaL_error(L, "error in function wxPalette, cannot match any of the overloads for function wxPalette:\n  wxPalette()\n  wxPalette(const wxPalette &)\n  wxPalette(int, unsigned char *, unsigned char *, unsigned char *)\n  wxPalette(lua_Table *)\n  wxPalette(lua_Table *, const wxPalette &)\n  wxPalette(lua_Table *, int, unsigned char *, unsigned char *, unsigned char *)\n");
 		return NULL;
 	}
 

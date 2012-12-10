@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxHtmlListBox::GetClassInfo();
 	};
 
 	// bool wxWindow::AcceptsFocusFromKeyboard() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusFromKeyboard();
+		return wxHtmlListBox::AcceptsFocusFromKeyboard();
 	};
 
 	// bool wxWindow::AcceptsFocusRecursively() const
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::AcceptsFocusRecursively();
+		return wxHtmlListBox::AcceptsFocusRecursively();
 	};
 
 	// bool wxWindow::HasFocus() const
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasFocus();
+		return wxHtmlListBox::HasFocus();
 	};
 
 	// void wxWindow::SetCanFocus(bool canFocus)
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetCanFocus(canFocus);
+		return wxHtmlListBox::SetCanFocus(canFocus);
 	};
 
 	// void wxWindow::SetFocusFromKbd()
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetFocusFromKbd();
+		return wxHtmlListBox::SetFocusFromKbd();
 	};
 
 	// void wxWindow::AddChild(wxWindow * child)
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AddChild(child);
+		return wxHtmlListBox::AddChild(child);
 	};
 
 	// void wxWindow::RemoveChild(wxWindow * child)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::RemoveChild(child);
+		return wxHtmlListBox::RemoveChild(child);
 	};
 
 	// bool wxWindow::Reparent(wxWindow * newParent)
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Reparent(newParent);
+		return wxHtmlListBox::Reparent(newParent);
 	};
 
 	// void wxWindow::AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::AlwaysShowScrollbars(hflag, vflag);
+		return wxHtmlListBox::AlwaysShowScrollbars(hflag, vflag);
 	};
 
 	// int wxWindow::GetScrollPos(int orientation) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollPos(orientation);
+		return wxHtmlListBox::GetScrollPos(orientation);
 	};
 
 	// int wxWindow::GetScrollRange(int orientation) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollRange(orientation);
+		return wxHtmlListBox::GetScrollRange(orientation);
 	};
 
 	// int wxWindow::GetScrollThumb(int orientation) const
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetScrollThumb(orientation);
+		return wxHtmlListBox::GetScrollThumb(orientation);
 	};
 
 	// bool wxWindow::IsScrollbarAlwaysShown(int orient) const
@@ -151,27 +151,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsScrollbarAlwaysShown(orient);
-	};
-
-	// bool wxWindow::ScrollLines(int lines)
-	bool ScrollLines(int lines) {
-		if(_obj.pushFunction("ScrollLines")) {
-			_obj.pushArg(lines);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxWindow::ScrollLines(lines);
-	};
-
-	// bool wxWindow::ScrollPages(int pages)
-	bool ScrollPages(int pages) {
-		if(_obj.pushFunction("ScrollPages")) {
-			_obj.pushArg(pages);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxWindow::ScrollPages(pages);
+		return wxHtmlListBox::IsScrollbarAlwaysShown(orient);
 	};
 
 	// void wxWindow::ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
@@ -183,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ScrollWindow(dx, dy, rect);
+		return wxHtmlListBox::ScrollWindow(dx, dy, rect);
 	};
 
 	// void wxWindow::SetScrollPos(int orientation, int pos, bool refresh = true)
@@ -195,7 +175,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollPos(orientation, pos, refresh);
+		return wxHtmlListBox::SetScrollPos(orientation, pos, refresh);
 	};
 
 	// void wxWindow::SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
@@ -209,7 +189,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetScrollbar(orientation, position, thumbSize, range, refresh);
+		return wxHtmlListBox::SetScrollbar(orientation, position, thumbSize, range, refresh);
 	};
 
 	// wxSize wxWindow::ClientToWindowSize(const wxSize & size) const
@@ -219,7 +199,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::ClientToWindowSize(size);
+		return wxHtmlListBox::ClientToWindowSize(size);
 	};
 
 	// wxSize wxWindow::WindowToClientSize(const wxSize & size) const
@@ -229,7 +209,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::WindowToClientSize(size);
+		return wxHtmlListBox::WindowToClientSize(size);
 	};
 
 	// void wxWindow::Fit()
@@ -238,7 +218,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Fit();
+		return wxHtmlListBox::Fit();
 	};
 
 	// void wxWindow::FitInside()
@@ -247,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::FitInside();
+		return wxHtmlListBox::FitInside();
 	};
 
 	// wxSize wxWindow::GetEffectiveMinSize() const
@@ -256,7 +236,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetEffectiveMinSize();
+		return wxHtmlListBox::GetEffectiveMinSize();
 	};
 
 	// wxSize wxWindow::GetMaxClientSize() const
@@ -265,7 +245,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxClientSize();
+		return wxHtmlListBox::GetMaxClientSize();
 	};
 
 	// wxSize wxWindow::GetMaxSize() const
@@ -274,7 +254,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMaxSize();
+		return wxHtmlListBox::GetMaxSize();
 	};
 
 	// wxSize wxWindow::GetMinClientSize() const
@@ -283,7 +263,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinClientSize();
+		return wxHtmlListBox::GetMinClientSize();
 	};
 
 	// wxSize wxWindow::GetMinSize() const
@@ -292,7 +272,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetMinSize();
+		return wxHtmlListBox::GetMinSize();
 	};
 
 	// wxSize wxWindow::GetBestVirtualSize() const
@@ -301,7 +281,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetBestVirtualSize();
+		return wxHtmlListBox::GetBestVirtualSize();
 	};
 
 	// wxSize wxWindow::GetWindowBorderSize() const
@@ -310,7 +290,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxWindow::GetWindowBorderSize();
+		return wxHtmlListBox::GetWindowBorderSize();
 	};
 
 	// bool wxWindow::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -322,7 +302,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::InformFirstDirection(direction, size, availableOtherDir);
+		return wxHtmlListBox::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxWindow::SendSizeEvent(int flags = 0)
@@ -332,7 +312,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SendSizeEvent(flags);
+		return wxHtmlListBox::SendSizeEvent(flags);
 	};
 
 	// void wxWindow::SetMaxClientSize(const wxSize & size)
@@ -342,7 +322,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxClientSize(size);
+		return wxHtmlListBox::SetMaxClientSize(size);
 	};
 
 	// void wxWindow::SetMaxSize(const wxSize & size)
@@ -352,7 +332,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMaxSize(size);
+		return wxHtmlListBox::SetMaxSize(size);
 	};
 
 	// void wxWindow::SetMinClientSize(const wxSize & size)
@@ -362,7 +342,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinClientSize(size);
+		return wxHtmlListBox::SetMinClientSize(size);
 	};
 
 	// void wxWindow::SetMinSize(const wxSize & size)
@@ -372,7 +352,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetMinSize(size);
+		return wxHtmlListBox::SetMinSize(size);
 	};
 
 	// void wxWindow::SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
@@ -384,7 +364,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minSize, maxSize, incSize);
+		return wxHtmlListBox::SetSizeHints(minSize, maxSize, incSize);
 	};
 
 	// void wxWindow::SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
@@ -399,7 +379,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+		return wxHtmlListBox::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 	};
 
 	// wxPoint wxWindow::GetClientAreaOrigin() const
@@ -408,7 +388,7 @@ public:
 			return *(_obj.callFunction<wxPoint*>());
 		}
 
-		return wxWindow::GetClientAreaOrigin();
+		return wxHtmlListBox::GetClientAreaOrigin();
 	};
 
 	// void wxWindow::ClearBackground()
@@ -417,7 +397,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::ClearBackground();
+		return wxHtmlListBox::ClearBackground();
 	};
 
 	// wxBackgroundStyle wxWindow::GetBackgroundStyle() const
@@ -426,7 +406,7 @@ public:
 			return (wxBackgroundStyle)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetBackgroundStyle();
+		return wxHtmlListBox::GetBackgroundStyle();
 	};
 
 	// int wxWindow::GetCharHeight() const
@@ -435,7 +415,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharHeight();
+		return wxHtmlListBox::GetCharHeight();
 	};
 
 	// int wxWindow::GetCharWidth() const
@@ -444,7 +424,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetCharWidth();
+		return wxHtmlListBox::GetCharWidth();
 	};
 
 	// wxVisualAttributes wxWindow::GetDefaultAttributes() const
@@ -453,7 +433,7 @@ public:
 			return *(_obj.callFunction<wxVisualAttributes*>());
 		}
 
-		return wxWindow::GetDefaultAttributes();
+		return wxHtmlListBox::GetDefaultAttributes();
 	};
 
 	// bool wxWindow::HasTransparentBackground()
@@ -462,7 +442,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasTransparentBackground();
+		return wxHtmlListBox::HasTransparentBackground();
 	};
 
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
@@ -473,7 +453,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Refresh(eraseBackground, rect);
+		return wxHtmlListBox::Refresh(eraseBackground, rect);
 	};
 
 	// void wxWindow::Update()
@@ -482,7 +462,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Update();
+		return wxHtmlListBox::Update();
 	};
 
 	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
@@ -492,7 +472,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundColour(colour);
+		return wxHtmlListBox::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -502,7 +482,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetBackgroundStyle(style);
+		return wxHtmlListBox::SetBackgroundStyle(style);
 	};
 
 	// bool wxWindow::SetFont(const wxFont & font)
@@ -512,7 +492,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetFont(font);
+		return wxHtmlListBox::SetFont(font);
 	};
 
 	// bool wxWindow::SetForegroundColour(const wxColour & colour)
@@ -522,7 +502,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetForegroundColour(colour);
+		return wxHtmlListBox::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -531,7 +511,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShouldInheritColours();
+		return wxHtmlListBox::ShouldInheritColours();
 	};
 
 	// void wxWindow::SetThemeEnabled(bool enable)
@@ -541,7 +521,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetThemeEnabled(enable);
+		return wxHtmlListBox::SetThemeEnabled(enable);
 	};
 
 	// bool wxWindow::GetThemeEnabled() const
@@ -550,7 +530,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::GetThemeEnabled();
+		return wxHtmlListBox::GetThemeEnabled();
 	};
 
 	// bool wxWindow::CanSetTransparent()
@@ -559,7 +539,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::CanSetTransparent();
+		return wxHtmlListBox::CanSetTransparent();
 	};
 
 	// bool wxWindow::SetTransparent(unsigned char alpha)
@@ -569,7 +549,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetTransparent(alpha);
+		return wxHtmlListBox::SetTransparent(alpha);
 	};
 
 	// void wxWindow::SetNextHandler(wxEvtHandler * handler)
@@ -579,7 +559,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetNextHandler(handler);
+		return wxHtmlListBox::SetNextHandler(handler);
 	};
 
 	// void wxWindow::SetPreviousHandler(wxEvtHandler * handler)
@@ -589,7 +569,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetPreviousHandler(handler);
+		return wxHtmlListBox::SetPreviousHandler(handler);
 	};
 
 	// long wxWindow::GetWindowStyleFlag() const
@@ -598,7 +578,7 @@ public:
 			return (_obj.callFunction<long>());
 		}
 
-		return wxWindow::GetWindowStyleFlag();
+		return wxHtmlListBox::GetWindowStyleFlag();
 	};
 
 	// void wxWindow::SetExtraStyle(long exStyle)
@@ -608,7 +588,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetExtraStyle(exStyle);
+		return wxHtmlListBox::SetExtraStyle(exStyle);
 	};
 
 	// void wxWindow::SetWindowStyleFlag(long style)
@@ -618,7 +598,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetWindowStyleFlag(style);
+		return wxHtmlListBox::SetWindowStyleFlag(style);
 	};
 
 	// void wxWindow::Lower()
@@ -627,7 +607,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Lower();
+		return wxHtmlListBox::Lower();
 	};
 
 	// void wxWindow::Raise()
@@ -636,7 +616,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::Raise();
+		return wxHtmlListBox::Raise();
 	};
 
 	// bool wxWindow::HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -647,7 +627,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HideWithEffect(effect, timeout);
+		return wxHtmlListBox::HideWithEffect(effect, timeout);
 	};
 
 	// bool wxWindow::IsShown() const
@@ -656,7 +636,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShown();
+		return wxHtmlListBox::IsShown();
 	};
 
 	// bool wxWindow::IsShownOnScreen() const
@@ -665,7 +645,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsShownOnScreen();
+		return wxHtmlListBox::IsShownOnScreen();
 	};
 
 	// bool wxWindow::Enable(bool enable = true)
@@ -675,7 +655,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Enable(enable);
+		return wxHtmlListBox::Enable(enable);
 	};
 
 	// bool wxWindow::Show(bool show = true)
@@ -685,7 +665,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Show(show);
+		return wxHtmlListBox::Show(show);
 	};
 
 	// bool wxWindow::ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
@@ -696,7 +676,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::ShowWithEffect(effect, timeout);
+		return wxHtmlListBox::ShowWithEffect(effect, timeout);
 	};
 
 	// wxString wxWindow::GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
@@ -707,7 +687,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetHelpTextAtPoint(point, origin);
+		return wxHtmlListBox::GetHelpTextAtPoint(point, origin);
 	};
 
 	// wxValidator * wxWindow::GetValidator()
@@ -716,7 +696,7 @@ public:
 			return (_obj.callFunction<wxValidator*>());
 		}
 
-		return wxWindow::GetValidator();
+		return wxHtmlListBox::GetValidator();
 	};
 
 	// void wxWindow::SetValidator(const wxValidator & validator)
@@ -726,7 +706,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetValidator(validator);
+		return wxHtmlListBox::SetValidator(validator);
 	};
 
 	// bool wxWindow::TransferDataFromWindow()
@@ -735,7 +715,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataFromWindow();
+		return wxHtmlListBox::TransferDataFromWindow();
 	};
 
 	// bool wxWindow::TransferDataToWindow()
@@ -744,7 +724,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::TransferDataToWindow();
+		return wxHtmlListBox::TransferDataToWindow();
 	};
 
 	// bool wxWindow::Validate()
@@ -753,7 +733,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Validate();
+		return wxHtmlListBox::Validate();
 	};
 
 	// wxString wxWindow::GetLabel() const
@@ -762,7 +742,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetLabel();
+		return wxHtmlListBox::GetLabel();
 	};
 
 	// wxLayoutDirection wxWindow::GetLayoutDirection() const
@@ -771,7 +751,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxWindow::GetLayoutDirection();
+		return wxHtmlListBox::GetLayoutDirection();
 	};
 
 	// wxString wxWindow::GetName() const
@@ -780,7 +760,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxWindow::GetName();
+		return wxHtmlListBox::GetName();
 	};
 
 	// void wxWindow::SetLabel(const wxString & label)
@@ -790,7 +770,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLabel(label);
+		return wxHtmlListBox::SetLabel(label);
 	};
 
 	// void wxWindow::SetLayoutDirection(wxLayoutDirection dir)
@@ -800,7 +780,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetLayoutDirection(dir);
+		return wxHtmlListBox::SetLayoutDirection(dir);
 	};
 
 	// void wxWindow::SetName(const wxString & name)
@@ -810,7 +790,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetName(name);
+		return wxHtmlListBox::SetName(name);
 	};
 
 	// void wxWindow::SetAcceleratorTable(const wxAcceleratorTable & accel)
@@ -820,7 +800,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetAcceleratorTable(accel);
+		return wxHtmlListBox::SetAcceleratorTable(accel);
 	};
 
 	// bool wxWindow::Destroy()
@@ -829,7 +809,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::Destroy();
+		return wxHtmlListBox::Destroy();
 	};
 
 	// wxDropTarget * wxWindow::GetDropTarget() const
@@ -838,7 +818,7 @@ public:
 			return (_obj.callFunction<wxDropTarget*>());
 		}
 
-		return wxWindow::GetDropTarget();
+		return wxHtmlListBox::GetDropTarget();
 	};
 
 	// void wxWindow::SetDropTarget(wxDropTarget * target)
@@ -848,7 +828,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::SetDropTarget(target);
+		return wxHtmlListBox::SetDropTarget(target);
 	};
 
 	// void wxWindow::DragAcceptFiles(bool accept)
@@ -858,7 +838,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DragAcceptFiles(accept);
+		return wxHtmlListBox::DragAcceptFiles(accept);
 	};
 
 	// bool wxWindow::HasCapture() const
@@ -867,7 +847,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasCapture();
+		return wxHtmlListBox::HasCapture();
 	};
 
 	// bool wxWindow::SetCursor(const wxCursor & cursor)
@@ -877,7 +857,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::SetCursor(cursor);
+		return wxHtmlListBox::SetCursor(cursor);
 	};
 
 	// void wxWindow::WarpPointer(int x, int y)
@@ -888,7 +868,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::WarpPointer(x, y);
+		return wxHtmlListBox::WarpPointer(x, y);
 	};
 
 	// void wxWindow::DoUpdateWindowUI(wxUpdateUIEvent & event)
@@ -898,16 +878,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::DoUpdateWindowUI(event);
-	};
-
-	// WXWidget wxWindow::GetHandle() const
-	WXWidget GetHandle() const {
-		if(_obj.pushFunction("GetHandle")) {
-			return (_obj.callFunction<WXWidget>());
-		}
-
-		return wxWindow::GetHandle();
+		return wxHtmlListBox::DoUpdateWindowUI(event);
 	};
 
 	// bool wxWindow::HasMultiplePages() const
@@ -916,7 +887,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::HasMultiplePages();
+		return wxHtmlListBox::HasMultiplePages();
 	};
 
 	// void wxWindow::InheritAttributes()
@@ -925,7 +896,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::InheritAttributes();
+		return wxHtmlListBox::InheritAttributes();
 	};
 
 	// bool wxWindow::IsRetained() const
@@ -934,7 +905,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsRetained();
+		return wxHtmlListBox::IsRetained();
 	};
 
 	// bool wxWindow::IsTopLevel() const
@@ -943,7 +914,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::IsTopLevel();
+		return wxHtmlListBox::IsTopLevel();
 	};
 
 	// void wxWindow::MakeModal(bool modal = true)
@@ -953,7 +924,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::MakeModal(modal);
+		return wxHtmlListBox::MakeModal(modal);
 	};
 
 	// void wxWindow::OnInternalIdle()
@@ -962,7 +933,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::OnInternalIdle();
+		return wxHtmlListBox::OnInternalIdle();
 	};
 
 	// bool wxWindow::RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
@@ -974,7 +945,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		return wxHtmlListBox::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 	};
 
 	// bool wxWindow::UnregisterHotKey(int hotkeyId)
@@ -984,7 +955,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxWindow::UnregisterHotKey(hotkeyId);
+		return wxHtmlListBox::UnregisterHotKey(hotkeyId);
 	};
 
 	// void wxWindow::UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
@@ -994,7 +965,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxWindow::UpdateWindowUI(flags);
+		return wxHtmlListBox::UpdateWindowUI(flags);
 	};
 
 	// bool wxPanel::AcceptsFocus() const
@@ -1003,7 +974,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxPanel::AcceptsFocus();
+		return wxHtmlListBox::AcceptsFocus();
 	};
 
 	// void wxPanel::InitDialog()
@@ -1012,7 +983,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxPanel::InitDialog();
+		return wxHtmlListBox::InitDialog();
 	};
 
 	// bool wxPanel::Layout()
@@ -1021,7 +992,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxPanel::Layout();
+		return wxHtmlListBox::Layout();
 	};
 
 	// void wxPanel::SetFocus()
@@ -1030,7 +1001,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxPanel::SetFocus();
+		return wxHtmlListBox::SetFocus();
 	};
 
 	// int wxVarScrollHelperBase::GetNonOrientationTargetSize() const
@@ -1057,7 +1028,7 @@ public:
 			return (_obj.callFunction<wxWindow*>());
 		}
 
-		return wxVarScrollHelperBase::GetTargetWindow();
+		return wxHtmlListBox::GetTargetWindow();
 	};
 
 	// void wxVarScrollHelperBase::RefreshAll()
@@ -1066,7 +1037,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::RefreshAll();
+		return wxHtmlListBox::RefreshAll();
 	};
 
 	// void wxVarScrollHelperBase::SetTargetWindow(wxWindow * target)
@@ -1076,7 +1047,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::SetTargetWindow(target);
+		return wxHtmlListBox::SetTargetWindow(target);
 	};
 
 	// void wxVarScrollHelperBase::UpdateScrollbar()
@@ -1085,7 +1056,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::UpdateScrollbar();
+		return wxHtmlListBox::UpdateScrollbar();
 	};
 
 	// void wxVarVScrollHelper::RefreshRow(size_t row)
@@ -1095,7 +1066,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarVScrollHelper::RefreshRow(row);
+		return wxHtmlListBox::RefreshRow(row);
 	};
 
 	// void wxVarVScrollHelper::RefreshRows(size_t from, size_t to)
@@ -1106,7 +1077,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarVScrollHelper::RefreshRows(from, to);
+		return wxHtmlListBox::RefreshRows(from, to);
 	};
 
 	// bool wxVarVScrollHelper::ScrollRowPages(int pages)
@@ -1116,7 +1087,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxVarVScrollHelper::ScrollRowPages(pages);
+		return wxHtmlListBox::ScrollRowPages(pages);
 	};
 
 	// bool wxVarVScrollHelper::ScrollRows(int rows)
@@ -1126,32 +1097,211 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxVarVScrollHelper::ScrollRows(rows);
+		return wxHtmlListBox::ScrollRows(rows);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlListBox::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHtmlListBox::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlListBox::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlListBox::TryAfter(event);
+	};
+
 	// void wxWindow::DoCentre(int direction)
+	void DoCentre(int direction) {
+		if(_obj.pushFunction("DoCentre")) {
+			_obj.pushArg(direction);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::DoCentre(direction);
+	};
+
 	// wxSize wxWindow::DoGetBestSize() const
+	wxSize DoGetBestSize() const {
+		if(_obj.pushFunction("DoGetBestSize")) {
+			return *(_obj.callFunction<wxSize*>());
+		}
+
+		return wxHtmlListBox::DoGetBestSize();
+	};
+
 	// void wxWindow::SetInitialBestSize(const wxSize & size)
+	void SetInitialBestSize(const wxSize & size) {
+		if(_obj.pushFunction("SetInitialBestSize")) {
+			_obj.pushArg(&size);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::SetInitialBestSize(size);
+	};
+
 	// bool wxWindow::ProcessEvent(wxEvent & event)
+	bool ProcessEvent(wxEvent & event) {
+		if(_obj.pushFunction("ProcessEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxHtmlListBox::ProcessEvent(event);
+	};
+
 	// void wxWindow::QueueEvent(wxEvent * event)
+	void QueueEvent(wxEvent * event) {
+		if(_obj.pushFunction("QueueEvent")) {
+			_obj.pushArg(event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::QueueEvent(event);
+	};
+
 	// void wxWindow::AddPendingEvent(const wxEvent & event)
+	void AddPendingEvent(const wxEvent & event) {
+		if(_obj.pushFunction("AddPendingEvent")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::AddPendingEvent(event);
+	};
+
 	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
+	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
+		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
+			_obj.pushArg(unitMin);
+			_obj.pushArg(unitMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::OnGetUnitsSizeHint(unitMin, unitMax);
+	};
+
 	// int wxVarScrollHelperBase::EstimateTotalSize() const
+	int EstimateTotalSize() const {
+		if(_obj.pushFunction("EstimateTotalSize")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxHtmlListBox::EstimateTotalSize();
+	};
+
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
+	int OnGetUnitSize(size_t unit) const {
+		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
+		_obj.pushArg(unit);
+		return (_obj.callFunction<int>());
+	};
+
 	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
+	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
+		if(_obj.pushFunction("OnGetRowsHeightHint")) {
+			_obj.pushArg(rowMin);
+			_obj.pushArg(rowMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::OnGetRowsHeightHint(rowMin, rowMax);
+	};
+
 	// int wxVarVScrollHelper::EstimateTotalHeight() const
+	int EstimateTotalHeight() const {
+		if(_obj.pushFunction("EstimateTotalHeight")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxHtmlListBox::EstimateTotalHeight();
+	};
+
 	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
+	int OnGetRowHeight(size_t row) const {
+		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
+		_obj.pushArg(row);
+		return (_obj.callFunction<int>());
+	};
+
 	// void wxHtmlListBox::OnLinkClicked(size_t n, const wxHtmlLinkInfo & link)
+	void OnLinkClicked(size_t n, const wxHtmlLinkInfo & link) {
+		if(_obj.pushFunction("OnLinkClicked")) {
+			_obj.pushArg(n);
+			_obj.pushArg(&link);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlListBox::OnLinkClicked(n, link);
+	};
+
 	// wxColour wxHtmlListBox::GetSelectedTextBgColour(const wxColour & colBg) const
+	wxColour GetSelectedTextBgColour(const wxColour & colBg) const {
+		if(_obj.pushFunction("GetSelectedTextBgColour")) {
+			_obj.pushArg(&colBg);
+			return *(_obj.callFunction<wxColour*>());
+		}
+
+		return wxHtmlListBox::GetSelectedTextBgColour(colBg);
+	};
+
 	// wxColour wxHtmlListBox::GetSelectedTextColour(const wxColour & colFg) const
+	wxColour GetSelectedTextColour(const wxColour & colFg) const {
+		if(_obj.pushFunction("GetSelectedTextColour")) {
+			_obj.pushArg(&colFg);
+			return *(_obj.callFunction<wxColour*>());
+		}
+
+		return wxHtmlListBox::GetSelectedTextColour(colFg);
+	};
+
 	// wxString wxHtmlListBox::OnGetItemMarkup(size_t n) const
+	wxString OnGetItemMarkup(size_t n) const {
+		if(_obj.pushFunction("OnGetItemMarkup")) {
+			_obj.pushArg(n);
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxHtmlListBox::OnGetItemMarkup(n);
+	};
+
 	// wxString wxHtmlListBox::OnGetItem(size_t n) const
+	wxString OnGetItem(size_t n) const {
+		THROW_IF(!_obj.pushFunction("OnGetItem"),"No implementation for abstract function wxHtmlListBox::OnGetItem");
+		_obj.pushArg(n);
+		return *(_obj.callFunction<wxString*>());
+	};
+
 
 };
 

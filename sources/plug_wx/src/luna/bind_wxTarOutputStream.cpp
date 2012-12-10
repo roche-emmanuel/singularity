@@ -305,11 +305,11 @@ public:
 		return 1;
 	}
 
-	// bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)
+	// bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static int _bind_PutNextEntry_overload_2(lua_State *L) {
 		if (!_lg_typecheck_PutNextEntry_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nbool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -320,12 +320,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarOutputStream::PutNextEntry function");
 		}
 		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
-		long size=luatop>3 ? (long)lua_tointeger(L,4) : wxInvalidOffset;
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
 
 		wxTarOutputStream* self=(Luna< wxTarOutputStream >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long)");
+			luaL_error(L, "Invalid object in function call bool wxTarOutputStream::PutNextEntry(const wxString &, const wxDateTime &, long long)");
 		}
 		bool lret = self->PutNextEntry(name, dt, size);
 		lua_pushboolean(L,lret?1:0);
@@ -338,7 +338,7 @@ public:
 		if (_lg_typecheck_PutNextEntry_overload_1(L)) return _bind_PutNextEntry_overload_1(L);
 		if (_lg_typecheck_PutNextEntry_overload_2(L)) return _bind_PutNextEntry_overload_2(L);
 
-		luaL_error(L, "error in function PutNextEntry, cannot match any of the overloads for function PutNextEntry:\n  PutNextEntry(wxTarEntry *)\n  PutNextEntry(const wxString &, const wxDateTime &, long)\n");
+		luaL_error(L, "error in function PutNextEntry, cannot match any of the overloads for function PutNextEntry:\n  PutNextEntry(wxTarEntry *)\n  PutNextEntry(const wxString &, const wxDateTime &, long long)\n");
 		return 0;
 	}
 

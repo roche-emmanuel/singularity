@@ -40,6 +40,15 @@ public:
 
 protected:
 	// void wxProtocolLog::DoLogString(const wxString & str)
+	void DoLogString(const wxString & str) {
+		if(_obj.pushFunction("DoLogString")) {
+			_obj.pushArg(str);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxProtocolLog::DoLogString(str);
+	};
+
 
 };
 

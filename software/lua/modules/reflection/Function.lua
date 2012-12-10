@@ -308,7 +308,7 @@ end
 --- Generate function prototype:
 -- @param withNames When set to true the parameter names and default values are added in the prototype.
 function Class:getPrototype(withNames,fullname,noargstring)
-    local sig =  "".. (self:getReturnType() and (self:getReturnType():getName().." ") or "") .. (fullname and self:getFullName() or self:getName()) 
+    local sig =  "".. (self:getReturnType() and (self:getReturnType():getName().." ") or "") .. ((type(fullname)=="string" and fullname .."::"..self:getName()) or (fullname and self:getFullName()) or self:getName()) 
     
     if noargstring then
 		sig = sig .. "(" .. self:getArgumentsPrototype(withNames) .. ")"

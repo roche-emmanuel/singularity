@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxDialUpManager(lua_State* L, lua_Table* dum) : wxDialUpManager(), _obj(L,-1) {};
 
 	// bool wxDialUpManager::CancelDialing()
 	bool CancelDialing() {

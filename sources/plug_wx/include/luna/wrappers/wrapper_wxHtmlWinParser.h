@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlParser::AddTagHandler(handler);
+		return wxHtmlWinParser::AddTagHandler(handler);
 	};
 
 	// void wxHtmlParser::DoneParser()
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlParser::DoneParser();
+		return wxHtmlWinParser::DoneParser();
 	};
 
 	// wxObject * wxHtmlParser::GetProduct()
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlParser::InitParser(source);
+		return wxHtmlWinParser::InitParser(source);
 	};
 
 	// void wxHtmlParser::StopParsing()
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxHtmlParser::StopParsing();
+		return wxHtmlWinParser::StopParsing();
 	};
 
 	// wxFont * wxHtmlWinParser::CreateCurrentFont()
@@ -83,6 +83,15 @@ public:
 
 protected:
 	// void wxHtmlParser::AddTag(const wxHtmlTag & tag)
+	void AddTag(const wxHtmlTag & tag) {
+		if(_obj.pushFunction("AddTag")) {
+			_obj.pushArg(&tag);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlWinParser::AddTag(tag);
+	};
+
 
 };
 

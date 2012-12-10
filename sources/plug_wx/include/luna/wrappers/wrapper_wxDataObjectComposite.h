@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataObject::SetData(format, len, buf);
+		return wxDataObjectComposite::SetData(format, len, buf);
 	};
 
 

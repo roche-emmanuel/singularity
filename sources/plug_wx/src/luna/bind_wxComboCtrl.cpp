@@ -1261,11 +1261,11 @@ public:
 		return 0;
 	}
 
-	// void wxComboCtrl::SetHint(const wxString & hint)
+	// bool wxComboCtrl::SetHint(const wxString & hint)
 	static int _bind_SetHint(lua_State *L) {
 		if (!_lg_typecheck_SetHint(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboCtrl::SetHint(const wxString & hint) function, expected prototype:\nvoid wxComboCtrl::SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboCtrl::SetHint(const wxString & hint) function, expected prototype:\nbool wxComboCtrl::SetHint(const wxString & hint)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		wxString hint(lua_tostring(L,2),lua_objlen(L,2));
@@ -1273,11 +1273,12 @@ public:
 		wxComboCtrl* self=dynamic_cast< wxComboCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboCtrl::SetHint(const wxString &)");
+			luaL_error(L, "Invalid object in function call bool wxComboCtrl::SetHint(const wxString &)");
 		}
-		self->SetHint(hint);
+		bool lret = self->SetHint(hint);
+		lua_pushboolean(L,lret?1:0);
 
-		return 0;
+		return 1;
 	}
 
 	// void wxComboCtrl::SetInsertionPoint(long pos)

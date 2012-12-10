@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxDataViewListModel(lua_State* L, lua_Table* dum) : wxDataViewListModel(), _obj(L,-1) {};
 
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::Cleared();
+		return wxDataViewListModel::Cleared();
 	};
 
 	// int wxDataViewModel::Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const
@@ -36,7 +35,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewModel::Compare(item1, item2, column, ascending);
+		return wxDataViewListModel::Compare(item1, item2, column, ascending);
 	};
 
 	// bool wxDataViewModel::GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const
@@ -48,7 +47,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::GetAttr(item, col, attr);
+		return wxDataViewListModel::GetAttr(item, col, attr);
 	};
 
 	// bool wxDataViewModel::IsEnabled(const wxDataViewItem & item, unsigned int col) const
@@ -59,7 +58,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::IsEnabled(item, col);
+		return wxDataViewListModel::IsEnabled(item, col);
 	};
 
 	// unsigned int wxDataViewModel::GetChildren(const wxDataViewItem & item, wxDataViewItemArray & children) const
@@ -97,7 +96,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasContainerColumns(item);
+		return wxDataViewListModel::HasContainerColumns(item);
 	};
 
 	// bool wxDataViewModel::HasDefaultCompare() const
@@ -106,7 +105,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::HasDefaultCompare();
+		return wxDataViewListModel::HasDefaultCompare();
 	};
 
 	// bool wxDataViewModel::IsContainer(const wxDataViewItem & item) const
@@ -122,7 +121,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewModel::Resort();
+		return wxDataViewListModel::Resort();
 	};
 
 	// bool wxDataViewModel::ValueChanged(const wxDataViewItem & item, unsigned int col)
@@ -133,7 +132,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxDataViewModel::ValueChanged(item, col);
+		return wxDataViewListModel::ValueChanged(item, col);
 	};
 
 

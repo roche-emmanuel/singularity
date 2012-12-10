@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxStandardPaths(lua_State* L, lua_Table* dum) : wxStandardPaths(), _obj(L,-1) {};
 
 	// wxString wxStandardPaths::GetAppDocumentsDir() const
 	wxString GetAppDocumentsDir() const {

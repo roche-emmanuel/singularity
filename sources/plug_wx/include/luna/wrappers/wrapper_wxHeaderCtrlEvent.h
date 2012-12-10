@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxHeaderCtrlEvent(lua_State* L, lua_Table* dum) : wxHeaderCtrlEvent(), _obj(L,-1) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxHeaderCtrlEvent::GetClassInfo();
 	};
 
 	// wxEvent * wxEvent::Clone() const
@@ -38,13 +37,30 @@ public:
 			return (wxEventCategory)(_obj.callFunction<int>());
 		}
 
-		return wxEvent::GetEventCategory();
+		return wxHeaderCtrlEvent::GetEventCategory();
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHeaderCtrlEvent::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHeaderCtrlEvent::CloneRefData(data);
+	};
+
 
 };
 

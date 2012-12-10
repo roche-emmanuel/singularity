@@ -35,7 +35,7 @@ public:
 		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
 
 		// ensure this object is a table:
-		THROW_IF(lua_type(_state,-1)!=LUA_TTABLE,"Invalid non table base for luaObject.");
+		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject.");
 
 		// remove from stack:
 		lua_pop(_state,1);
@@ -169,6 +169,24 @@ inline void pushValue(lua_State* L, double arg) {
 	lua_pushnumber(L,arg);
 }
 
+//template <>
+inline void pushValue(lua_State* L, unsigned int * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
+//template <>
+inline void pushValue(lua_State* L, long * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
+//template <>
+inline void pushValue(lua_State* L, bool * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
 inline void pushValue(lua_State* L, const String& arg) {
 	lua_pushlstring(L,arg.data(),arg.size());
 }
@@ -183,42 +201,63 @@ inline ResultType getValue(lua_State* L, int index) {
 
 template <>
 inline int getValue(lua_State* L, int index) {
-	return lua_tointeger(L,-1);
+	return lua_tointeger(L,index);
+}
+
+
+/*template <>
+inline char getValue(lua_State* L, int index) {
+	return lua_tointeger(L,index);
+}*/
+
+template <>
+inline char getValue(lua_State* L, int index) {
+	return (char)lua_tointeger(L,index);
+}
+
+template <>
+inline long getValue(lua_State* L, int index) {
+	return lua_tointeger(L,index);
 }
 
 template <>
 inline unsigned int getValue(lua_State* L, int index) {
-	return (unsigned int)lua_tointeger(L,-1);
+	return (unsigned int)lua_tointeger(L,index);
+}
+
+template <>
+inline unsigned char getValue(lua_State* L, int index) {
+	return (unsigned char)lua_tointeger(L,index);
 }
 
 template <>
 inline long long getValue(lua_State* L, int index) {
-	return (long long)lua_tonumber(L,-1);
+	return (long long)lua_tonumber(L,index);
 }
 
 template <>
 inline bool getValue(lua_State* L, int index) {
-	return lua_toboolean(L,-1)==1;
+	return lua_toboolean(L,index)==1;
 }
 
 template <>
 inline double getValue(lua_State* L, int index) {
-	return lua_tonumber(L,-1);
+	return lua_tonumber(L,index);
 }
 
 template <>
 inline float getValue(lua_State* L, int index) {
-	return (float)lua_tonumber(L,-1);
+	return (float)lua_tonumber(L,index);
 }
 
 template <>
 inline String getValue(lua_State* L, int index) {
-	return String(lua_tostring(L,-1));
+	return String(lua_tostring(L,index));
 }
 
 template <>
 inline const char* getValue(lua_State* L, int index) {
-	return lua_tostring(L,-1);
+	return lua_tostring(L,index);
 }
 
 };

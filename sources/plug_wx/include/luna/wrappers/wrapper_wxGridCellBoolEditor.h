@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::Destroy();
+		return wxGridCellBoolEditor::Destroy();
 	};
 
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
@@ -77,7 +77,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::HandleReturn(event);
+		return wxGridCellBoolEditor::HandleReturn(event);
 	};
 
 	// void wxGridCellEditor::PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)
@@ -88,7 +88,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::PaintBackground(rectCell, attr);
+		return wxGridCellBoolEditor::PaintBackground(rectCell, attr);
 	};
 
 	// void wxGridCellEditor::Reset()
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::SetSize(rect);
+		return wxGridCellBoolEditor::SetSize(rect);
 	};
 
 	// void wxGridCellEditor::Show(bool show, wxGridCellAttr * attr = NULL)
@@ -115,7 +115,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::Show(show, attr);
+		return wxGridCellBoolEditor::Show(show, attr);
 	};
 
 	// void wxGridCellEditor::StartingClick()
@@ -124,7 +124,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::StartingClick();
+		return wxGridCellBoolEditor::StartingClick();
 	};
 
 	// void wxGridCellEditor::StartingKey(wxKeyEvent & event)
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridCellEditor::StartingKey(event);
+		return wxGridCellBoolEditor::StartingKey(event);
 	};
 
 

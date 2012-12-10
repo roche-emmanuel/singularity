@@ -15,7 +15,7 @@ protected:
 public:
 	
 
-	wrapper_wxDataViewCustomRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "string", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1, bool no_init = false) : wxDataViewCustomRenderer(varianttype, mode, align, no_init), _obj(L,-1) {};
+	wrapper_wxDataViewCustomRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "string", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewCustomRenderer(varianttype, mode, align), _obj(L,-1) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxDataViewCustomRenderer::GetClassInfo();
 	};
 
 	// int wxDataViewRenderer::GetAlignment() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetAlignment();
+		return wxDataViewCustomRenderer::GetAlignment();
 	};
 
 	// wxDataViewCellMode wxDataViewRenderer::GetMode() const
@@ -41,7 +41,7 @@ public:
 			return (wxDataViewCellMode)(_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetMode();
+		return wxDataViewCustomRenderer::GetMode();
 	};
 
 	// void wxDataViewRenderer::SetAlignment(int align)
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewRenderer::SetAlignment(align);
+		return wxDataViewCustomRenderer::SetAlignment(align);
 	};
 
 	// bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
@@ -123,7 +123,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewCustomRenderer::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewCustomRenderer::CloneRefData(data);
+	};
+
 
 };
 

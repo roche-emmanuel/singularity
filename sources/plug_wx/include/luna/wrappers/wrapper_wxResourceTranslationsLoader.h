@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxResourceTranslationsLoader(lua_State* L, lua_Table* dum) : wxResourceTranslationsLoader(), _obj(L,-1) {};
 
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {
@@ -35,6 +34,14 @@ public:
 
 protected:
 	// wxString wxResourceTranslationsLoader::GetResourceType() const
+	wxString GetResourceType() const {
+		if(_obj.pushFunction("GetResourceType")) {
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxResourceTranslationsLoader::GetResourceType();
+	};
+
 
 };
 

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setThreadSafeRefUnref(threadSafe);
+		return AnyVector::setThreadSafeRefUnref(threadSafe);
 	};
 
 	// void osg::Object::setName(const std::string & name)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AnyVector::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AnyVector::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AnyVector::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnyVector::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnyVector::getUserData();
 	};
 
 	// void osg::Object::resizeGLObjectBuffers(unsigned int arg1)
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::resizeGLObjectBuffers(arg1);
+		return AnyVector::resizeGLObjectBuffers(arg1);
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AnyVector::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * sgt::Object::cloneType() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return sgt::Object::cloneType();
+		return AnyVector::cloneType();
 	};
 
 	// osg::Object * sgt::Object::clone() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return sgt::Object::clone();
+		return AnyVector::clone();
 	};
 
 	// osg::Object * sgt::Object::clone(const osg::CopyOp & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return sgt::Object::clone(arg1);
+		return AnyVector::clone(arg1);
 	};
 
 	// bool sgt::Object::isSameKindAs(const osg::Object * obj) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return sgt::Object::isSameKindAs(obj);
+		return AnyVector::isSameKindAs(obj);
 	};
 
 	// const char * sgt::Object::libraryName() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return sgt::Object::libraryName();
+		return AnyVector::libraryName();
 	};
 
 	// const char * sgt::Object::className() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return sgt::Object::className();
+		return AnyVector::className();
 	};
 
 

@@ -64,6 +64,15 @@ public:
 
 protected:
 	// void wxHtmlParser::AddTag(const wxHtmlTag & tag)
+	void AddTag(const wxHtmlTag & tag) {
+		if(_obj.pushFunction("AddTag")) {
+			_obj.pushArg(&tag);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxHtmlParser::AddTag(tag);
+	};
+
 
 };
 

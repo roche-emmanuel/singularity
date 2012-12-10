@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxFontEnumerator(lua_State* L, lua_Table* dum) : wxFontEnumerator(), _obj(L,-1) {};
 
 	// bool wxFontEnumerator::EnumerateEncodings(const wxString & font = wxEmptyString)
 	bool EnumerateEncodings(const wxString & font = wxEmptyString) {

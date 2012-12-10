@@ -622,11 +622,11 @@ public:
 		return 1;
 	}
 
-	// void wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column)
+	// bool wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column)
 	static int _bind_AppendColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AppendColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column) function, expected prototype:\nvoid wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column)\nClass arguments details:\narg 1 ID = 185523\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column) function, expected prototype:\nbool wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column)\nClass arguments details:\narg 1 ID = 185523\n");
 		}
 
 		wxDataViewColumn* column=dynamic_cast< wxDataViewColumn* >(Luna< wxHeaderColumn >::check(L,2));
@@ -634,11 +634,12 @@ public:
 		wxDataViewListCtrl* self=dynamic_cast< wxDataViewListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListCtrl::AppendColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListCtrl::AppendColumn(wxDataViewColumn *)");
 		}
-		self->AppendColumn(column);
+		bool lret = self->AppendColumn(column);
+		lua_pushboolean(L,lret?1:0);
 
-		return 0;
+		return 1;
 	}
 
 	// void wxDataViewListCtrl::AppendColumn(wxDataViewColumn * column, const wxString & varianttype)
@@ -782,11 +783,11 @@ public:
 		return 1;
 	}
 
-	// void wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column)
+	// bool wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column)
 	static int _bind_InsertColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_InsertColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column) function, expected prototype:\nvoid wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column)\nClass arguments details:\narg 2 ID = 185523\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column) function, expected prototype:\nbool wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column)\nClass arguments details:\narg 2 ID = 185523\n");
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
@@ -795,11 +796,12 @@ public:
 		wxDataViewListCtrl* self=dynamic_cast< wxDataViewListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListCtrl::InsertColumn(unsigned int, wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListCtrl::InsertColumn(unsigned int, wxDataViewColumn *)");
 		}
-		self->InsertColumn(pos, column);
+		bool lret = self->InsertColumn(pos, column);
+		lua_pushboolean(L,lret?1:0);
 
-		return 0;
+		return 1;
 	}
 
 	// void wxDataViewListCtrl::InsertColumn(unsigned int pos, wxDataViewColumn * column, const wxString & varianttype)
@@ -832,11 +834,11 @@ public:
 		return 0;
 	}
 
-	// void wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column)
+	// bool wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column)
 	static int _bind_PrependColumn_overload_1(lua_State *L) {
 		if (!_lg_typecheck_PrependColumn_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column) function, expected prototype:\nvoid wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column)\nClass arguments details:\narg 1 ID = 185523\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column) function, expected prototype:\nbool wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column)\nClass arguments details:\narg 1 ID = 185523\n");
 		}
 
 		wxDataViewColumn* column=dynamic_cast< wxDataViewColumn* >(Luna< wxHeaderColumn >::check(L,2));
@@ -844,11 +846,12 @@ public:
 		wxDataViewListCtrl* self=dynamic_cast< wxDataViewListCtrl* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewListCtrl::PrependColumn(wxDataViewColumn *)");
+			luaL_error(L, "Invalid object in function call bool wxDataViewListCtrl::PrependColumn(wxDataViewColumn *)");
 		}
-		self->PrependColumn(column);
+		bool lret = self->PrependColumn(column);
+		lua_pushboolean(L,lret?1:0);
 
-		return 0;
+		return 1;
 	}
 
 	// void wxDataViewListCtrl::PrependColumn(wxDataViewColumn * column, const wxString & varianttype)

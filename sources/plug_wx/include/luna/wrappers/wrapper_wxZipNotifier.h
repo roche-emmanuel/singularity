@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxZipNotifier(lua_State* L, lua_Table* dum) : wxZipNotifier(), _obj(L,-1) {};
 
 
 

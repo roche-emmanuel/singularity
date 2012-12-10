@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxPropertyGridInterface(lua_State* L, lua_Table* dum) : wxPropertyGridInterface(), _obj(L,-1) {};
 
 	// void wxPropertyGridInterface::Clear()
 	void Clear() {

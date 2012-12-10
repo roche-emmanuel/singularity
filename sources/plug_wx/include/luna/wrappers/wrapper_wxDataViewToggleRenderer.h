@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxDataViewToggleRenderer::GetClassInfo();
 	};
 
 	// int wxDataViewRenderer::GetAlignment() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetAlignment();
+		return wxDataViewToggleRenderer::GetAlignment();
 	};
 
 	// wxDataViewCellMode wxDataViewRenderer::GetMode() const
@@ -41,7 +41,7 @@ public:
 			return (wxDataViewCellMode)(_obj.callFunction<int>());
 		}
 
-		return wxDataViewRenderer::GetMode();
+		return wxDataViewToggleRenderer::GetMode();
 	};
 
 	// void wxDataViewRenderer::SetAlignment(int align)
@@ -51,13 +51,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDataViewRenderer::SetAlignment(align);
+		return wxDataViewToggleRenderer::SetAlignment(align);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewToggleRenderer::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxDataViewToggleRenderer::CloneRefData(data);
+	};
+
 
 };
 

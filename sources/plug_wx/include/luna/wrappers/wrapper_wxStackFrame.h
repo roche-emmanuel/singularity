@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxStackFrame(lua_State* L, lua_Table* dum) : wxStackFrame(), _obj(L,-1) {};
 
 	// bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	bool GetParam(size_t n, wxString * type, wxString * name, wxString * value) const {

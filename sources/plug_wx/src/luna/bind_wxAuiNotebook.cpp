@@ -958,11 +958,11 @@ public:
 		return 0;
 	}
 
-	// size_t wxAuiNotebook::SetSelection(size_t new_page)
+	// int wxAuiNotebook::SetSelection(size_t new_page)
 	static int _bind_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_SetSelection(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxAuiNotebook::SetSelection(size_t new_page) function, expected prototype:\nsize_t wxAuiNotebook::SetSelection(size_t new_page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::SetSelection(size_t new_page) function, expected prototype:\nint wxAuiNotebook::SetSelection(size_t new_page)\nClass arguments details:\n");
 		}
 
 		size_t new_page=(size_t)lua_tointeger(L,2);
@@ -970,9 +970,9 @@ public:
 		wxAuiNotebook* self=dynamic_cast< wxAuiNotebook* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::SetSelection(size_t)");
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::SetSelection(size_t)");
 		}
-		size_t lret = self->SetSelection(new_page);
+		int lret = self->SetSelection(new_page);
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -1068,7 +1068,6 @@ wxAuiNotebook* LunaTraits< wxAuiNotebook >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
-	// int wxBookCtrlBase::SetSelection(size_t page)
 }
 
 void LunaTraits< wxAuiNotebook >::_bind_dtor(wxAuiNotebook* obj) {

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxGridCellRenderer(lua_State* L, lua_Table* dum) : wxGridCellRenderer(), _obj(L,-1) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxGridRowHeaderRendererDefault(lua_State* L, lua_Table* dum) : wxGridRowHeaderRendererDefault(), _obj(L,-1) {};
 
 	// void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
 	void DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const {
@@ -30,7 +29,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridHeaderLabelsRenderer::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
+		return wxGridRowHeaderRendererDefault::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
 	};
 
 	// void wxGridRowHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const

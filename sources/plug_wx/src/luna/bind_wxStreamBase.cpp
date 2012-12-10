@@ -152,20 +152,20 @@ public:
 		return 1;
 	}
 
-	// long wxStreamBase::GetLength() const
+	// long long wxStreamBase::GetLength() const
 	static int _bind_GetLength(lua_State *L) {
 		if (!_lg_typecheck_GetLength(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxStreamBase::GetLength() const function, expected prototype:\nlong wxStreamBase::GetLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxStreamBase::GetLength() const function, expected prototype:\nlong long wxStreamBase::GetLength() const\nClass arguments details:\n");
 		}
 
 
 		wxStreamBase* self=dynamic_cast< wxStreamBase* >(Luna< wxObject >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxStreamBase::GetLength() const");
+			luaL_error(L, "Invalid object in function call long long wxStreamBase::GetLength() const");
 		}
-		long lret = self->GetLength();
+		long long lret = self->GetLength();
 		lua_pushnumber(L,lret);
 
 		return 1;

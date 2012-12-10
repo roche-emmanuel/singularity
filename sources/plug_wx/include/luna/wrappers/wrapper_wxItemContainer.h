@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxItemContainer(lua_State* L, lua_Table* dum) : wxItemContainer(), _obj(L,-1) {};
 
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {
@@ -46,7 +45,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxItemContainerImmutable::FindString(string, caseSensitive);
+		return wxItemContainer::FindString(string, caseSensitive);
 	};
 
 	// void wxItemContainerImmutable::SetSelection(int n)
@@ -68,7 +67,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxItemContainerImmutable::GetStringSelection();
+		return wxItemContainer::GetStringSelection();
 	};
 
 

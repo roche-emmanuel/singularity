@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxGridColumnHeaderRenderer(lua_State* L, lua_Table* dum) : wxGridColumnHeaderRenderer(), _obj(L,-1) {};
 
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {
@@ -39,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxGridHeaderLabelsRenderer::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
+		return wxGridColumnHeaderRenderer::DrawLabel(grid, dc, value, rect, horizAlign, vertAlign, textOrientation);
 	};
 
 

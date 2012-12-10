@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxHTTP::GetClassInfo();
 	};
 
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetLocal(addr);
+		return wxHTTP::GetLocal(addr);
 	};
 
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetPeer(addr);
+		return wxHTTP::GetPeer(addr);
 	};
 
 	// bool wxSocketBase::Close()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::Close();
+		return wxHTTP::Close();
 	};
 
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::SetLocal(local);
+		return wxHTTP::SetLocal(local);
 	};
 
 	// bool wxProtocol::Abort()
@@ -77,7 +77,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxProtocol::GetContentType();
+		return wxHTTP::GetContentType();
 	};
 
 	// wxProtocolError wxProtocol::GetError() const
@@ -86,7 +86,7 @@ public:
 			return (wxProtocolError)(_obj.callFunction<int>());
 		}
 
-		return wxProtocol::GetError();
+		return wxHTTP::GetError();
 	};
 
 	// void wxProtocol::SetPassword(const wxString & user)
@@ -96,7 +96,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxProtocol::SetPassword(user);
+		return wxHTTP::SetPassword(user);
 	};
 
 	// void wxProtocol::SetUser(const wxString & user)
@@ -106,7 +106,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxProtocol::SetUser(user);
+		return wxHTTP::SetUser(user);
 	};
 
 	// bool wxHTTP::Connect(const wxString & host)
@@ -154,7 +154,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHTTP::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxHTTP::CloneRefData(data);
+	};
+
 
 };
 

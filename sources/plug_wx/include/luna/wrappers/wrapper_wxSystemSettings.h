@@ -16,19 +16,8 @@ public:
 	
 
 
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
-
-		return wxObject::GetClassInfo();
-	};
 
 
-protected:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
 
 };
 

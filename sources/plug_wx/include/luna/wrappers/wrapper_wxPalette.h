@@ -17,7 +17,7 @@ public:
 
 	wrapper_wxPalette(lua_State* L, lua_Table* dum) : wxPalette(), _obj(L,-1) {};
 	wrapper_wxPalette(lua_State* L, lua_Table* dum, const wxPalette & palette) : wxPalette(palette), _obj(L,-1) {};
-	wrapper_wxPalette(lua_State* L, lua_Table* dum, int n, const unsigned char * red, const unsigned char * green, const unsigned char * blue) : wxPalette(n, red, green, blue), _obj(L,-1) {};
+	wrapper_wxPalette(lua_State* L, lua_Table* dum, int n, unsigned char * red, unsigned char * green, unsigned char * blue) : wxPalette(n, red, green, blue), _obj(L,-1) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxPalette::GetClassInfo();
 	};
 
 	// int wxPalette::GetColoursCount() const
@@ -49,7 +49,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPalette::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxPalette::CloneRefData(data);
+	};
+
 
 };
 

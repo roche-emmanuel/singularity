@@ -117,7 +117,7 @@ const int wxInvalidOffset = -1;
     (see http://www.gnu.org/software/libc/manual/html_node/File-Position-Primitive.html)
     or to @c wxLongLong_t on Windows when @c wxHAS_HUGE_FILES is defined.
 */
-typedef off_t wxFileOffset;
+typedef wxLongLong_t wxFileOffset;
 
 /**
     Under Unix this macro changes the current process umask to the given value,

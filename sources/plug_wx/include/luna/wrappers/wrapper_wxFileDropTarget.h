@@ -32,7 +32,7 @@ public:
 			return (wxDragResult)(_obj.callFunction<int>());
 		}
 
-		return wxDropTarget::OnData(x, y, def);
+		return wxFileDropTarget::OnData(x, y, def);
 	};
 
 	// wxDragResult wxDropTarget::OnDragOver(int x, int y, wxDragResult def)
@@ -44,7 +44,7 @@ public:
 			return (wxDragResult)(_obj.callFunction<int>());
 		}
 
-		return wxDropTarget::OnDragOver(x, y, def);
+		return wxFileDropTarget::OnDragOver(x, y, def);
 	};
 
 	// wxDragResult wxDropTarget::OnEnter(int x, int y, wxDragResult def)
@@ -56,7 +56,7 @@ public:
 			return (wxDragResult)(_obj.callFunction<int>());
 		}
 
-		return wxDropTarget::OnEnter(x, y, def);
+		return wxFileDropTarget::OnEnter(x, y, def);
 	};
 
 	// void wxDropTarget::OnLeave()
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxDropTarget::OnLeave();
+		return wxFileDropTarget::OnLeave();
 	};
 
 	// bool wxFileDropTarget::OnDrop(int x, int y)

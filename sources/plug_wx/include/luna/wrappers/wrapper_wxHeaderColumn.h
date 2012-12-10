@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxHeaderColumn(lua_State* L, lua_Table* dum) : wxHeaderColumn(), _obj(L,-1) {};
 
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {

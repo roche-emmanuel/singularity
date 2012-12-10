@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxFTP::GetClassInfo();
 	};
 
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetLocal(addr);
+		return wxFTP::GetLocal(addr);
 	};
 
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetPeer(addr);
+		return wxFTP::GetPeer(addr);
 	};
 
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::SetLocal(local);
+		return wxFTP::SetLocal(local);
 	};
 
 	// wxString wxProtocol::GetContentType() const
@@ -62,7 +62,7 @@ public:
 			return *(_obj.callFunction<wxString*>());
 		}
 
-		return wxProtocol::GetContentType();
+		return wxFTP::GetContentType();
 	};
 
 	// wxProtocolError wxProtocol::GetError() const
@@ -71,7 +71,7 @@ public:
 			return (wxProtocolError)(_obj.callFunction<int>());
 		}
 
-		return wxProtocol::GetError();
+		return wxFTP::GetError();
 	};
 
 	// bool wxFTP::Connect(const wxString & host)
@@ -156,7 +156,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFTP::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxFTP::CloneRefData(data);
+	};
+
 
 };
 

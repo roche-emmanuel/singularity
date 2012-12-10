@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxHtmlRenderingStyle(lua_State* L, lua_Table* dum) : wxHtmlRenderingStyle(), _obj(L,-1) {};
 
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	wxColour GetSelectedTextColour(const wxColour & clr) {

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_sgtApp(lua_State* L, lua_Table* dum) : sgtApp(), _obj(L,-1) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return sgtApp::GetClassInfo();
 	};
 
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
@@ -33,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::QueueEvent(event);
+		return sgtApp::QueueEvent(event);
 	};
 
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
@@ -43,7 +42,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::AddPendingEvent(event);
+		return sgtApp::AddPendingEvent(event);
 	};
 
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
@@ -53,7 +52,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxEvtHandler::ProcessEvent(event);
+		return sgtApp::ProcessEvent(event);
 	};
 
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
@@ -63,7 +62,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetNextHandler(handler);
+		return sgtApp::SetNextHandler(handler);
 	};
 
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
@@ -73,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetPreviousHandler(handler);
+		return sgtApp::SetPreviousHandler(handler);
 	};
 
 	// int wxAppConsole::MainLoop()
@@ -82,7 +81,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::MainLoop();
+		return sgtApp::MainLoop();
 	};
 
 	// void wxAppConsole::ExitMainLoop()
@@ -91,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::ExitMainLoop();
+		return sgtApp::ExitMainLoop();
 	};
 
 	// int wxAppConsole::FilterEvent(wxEvent & event)
@@ -101,7 +100,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::FilterEvent(event);
+		return sgtApp::FilterEvent(event);
 	};
 
 	// bool wxAppConsole::UsesEventLoop() const
@@ -110,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::UsesEventLoop();
+		return sgtApp::UsesEventLoop();
 	};
 
 	// void wxAppConsole::ProcessPendingEvents()
@@ -119,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::ProcessPendingEvents();
+		return sgtApp::ProcessPendingEvents();
 	};
 
 	// bool wxAppConsole::OnCmdLineError(wxCmdLineParser & parser)
@@ -129,7 +128,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineError(parser);
+		return sgtApp::OnCmdLineError(parser);
 	};
 
 	// bool wxAppConsole::OnCmdLineHelp(wxCmdLineParser & parser)
@@ -139,7 +138,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineHelp(parser);
+		return sgtApp::OnCmdLineHelp(parser);
 	};
 
 	// bool wxAppConsole::OnCmdLineParsed(wxCmdLineParser & parser)
@@ -149,7 +148,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineParsed(parser);
+		return sgtApp::OnCmdLineParsed(parser);
 	};
 
 	// void wxAppConsole::OnEventLoopEnter(wxEventLoopBase * loop)
@@ -159,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnEventLoopEnter(loop);
+		return sgtApp::OnEventLoopEnter(loop);
 	};
 
 	// void wxAppConsole::OnEventLoopExit(wxEventLoopBase * loop)
@@ -169,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnEventLoopExit(loop);
+		return sgtApp::OnEventLoopExit(loop);
 	};
 
 	// bool wxAppConsole::OnExceptionInMainLoop()
@@ -178,7 +177,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnExceptionInMainLoop();
+		return sgtApp::OnExceptionInMainLoop();
 	};
 
 	// int wxAppConsole::OnExit()
@@ -187,7 +186,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::OnExit();
+		return sgtApp::OnExit();
 	};
 
 	// void wxAppConsole::OnFatalException()
@@ -196,7 +195,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnFatalException();
+		return sgtApp::OnFatalException();
 	};
 
 	// bool wxAppConsole::OnInit()
@@ -205,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnInit();
+		return sgtApp::OnInit();
 	};
 
 	// void wxAppConsole::OnInitCmdLine(wxCmdLineParser & parser)
@@ -215,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnInitCmdLine(parser);
+		return sgtApp::OnInitCmdLine(parser);
 	};
 
 	// int wxAppConsole::OnRun()
@@ -224,7 +223,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::OnRun();
+		return sgtApp::OnRun();
 	};
 
 	// void wxAppConsole::OnUnhandledException()
@@ -233,7 +232,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnUnhandledException();
+		return sgtApp::OnUnhandledException();
 	};
 
 	// wxVideoMode wxApp::GetDisplayMode() const
@@ -242,7 +241,7 @@ public:
 			return *(_obj.callFunction<wxVideoMode*>());
 		}
 
-		return wxApp::GetDisplayMode();
+		return sgtApp::GetDisplayMode();
 	};
 
 	// wxLayoutDirection wxApp::GetLayoutDirection() const
@@ -251,7 +250,7 @@ public:
 			return (wxLayoutDirection)(_obj.callFunction<int>());
 		}
 
-		return wxApp::GetLayoutDirection();
+		return sgtApp::GetLayoutDirection();
 	};
 
 	// wxWindow * wxApp::GetTopWindow() const
@@ -260,7 +259,7 @@ public:
 			return (_obj.callFunction<wxWindow*>());
 		}
 
-		return wxApp::GetTopWindow();
+		return sgtApp::GetTopWindow();
 	};
 
 	// bool wxApp::IsActive() const
@@ -269,7 +268,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxApp::IsActive();
+		return sgtApp::IsActive();
 	};
 
 	// bool wxApp::SafeYield(wxWindow * win, bool onlyIfNeeded)
@@ -280,7 +279,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxApp::SafeYield(win, onlyIfNeeded);
+		return sgtApp::SafeYield(win, onlyIfNeeded);
 	};
 
 	// bool wxApp::SafeYieldFor(wxWindow * win, long eventsToProcess)
@@ -291,7 +290,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxApp::SafeYieldFor(win, eventsToProcess);
+		return sgtApp::SafeYieldFor(win, eventsToProcess);
 	};
 
 	// bool wxApp::SetDisplayMode(const wxVideoMode & info)
@@ -301,7 +300,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxApp::SetDisplayMode(info);
+		return sgtApp::SetDisplayMode(info);
 	};
 
 	// bool wxApp::SetNativeTheme(const wxString & theme)
@@ -311,16 +310,59 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxApp::SetNativeTheme(theme);
+		return sgtApp::SetNativeTheme(theme);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return sgtApp::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return sgtApp::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return sgtApp::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return sgtApp::TryAfter(event);
+	};
+
 	// wxAppTraits * wxAppConsole::CreateTraits()
+	wxAppTraits * CreateTraits() {
+		if(_obj.pushFunction("CreateTraits")) {
+			return (_obj.callFunction<wxAppTraits*>());
+		}
+
+		return sgtApp::CreateTraits();
+	};
+
 
 };
 

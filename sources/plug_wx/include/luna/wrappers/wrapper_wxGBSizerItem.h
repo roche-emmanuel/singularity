@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxGBSizerItem::GetClassInfo();
 	};
 
 	// wxSize wxSizerItem::CalcMin()
@@ -34,7 +34,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxSizerItem::CalcMin();
+		return wxGBSizerItem::CalcMin();
 	};
 
 	// void wxSizerItem::DeleteWindows()
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSizerItem::DeleteWindows();
+		return wxGBSizerItem::DeleteWindows();
 	};
 
 	// wxRect wxSizerItem::GetRect()
@@ -52,7 +52,7 @@ public:
 			return *(_obj.callFunction<wxRect*>());
 		}
 
-		return wxSizerItem::GetRect();
+		return wxGBSizerItem::GetRect();
 	};
 
 	// wxSize wxSizerItem::GetSize() const
@@ -61,7 +61,7 @@ public:
 			return *(_obj.callFunction<wxSize*>());
 		}
 
-		return wxSizerItem::GetSize();
+		return wxGBSizerItem::GetSize();
 	};
 
 	// void wxSizerItem::SetDimension(const wxPoint & pos, const wxSize & size)
@@ -72,13 +72,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSizerItem::SetDimension(pos, size);
+		return wxGBSizerItem::SetDimension(pos, size);
 	};
 
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxGBSizerItem::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxGBSizerItem::CloneRefData(data);
+	};
+
 
 };
 

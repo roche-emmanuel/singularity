@@ -23,13 +23,11 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxPGChoiceEntry::GetClassInfo();
 	};
 
 
-protected:
-	// wxObjectRefData * wxObject::CreateRefData() const
-	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+
 
 };
 

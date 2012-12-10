@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxApp::GetClassInfo();
 	};
 
 	// void wxEvtHandler::QueueEvent(wxEvent * event)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::QueueEvent(event);
+		return wxApp::QueueEvent(event);
 	};
 
 	// void wxEvtHandler::AddPendingEvent(const wxEvent & event)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::AddPendingEvent(event);
+		return wxApp::AddPendingEvent(event);
 	};
 
 	// bool wxEvtHandler::ProcessEvent(wxEvent & event)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxEvtHandler::ProcessEvent(event);
+		return wxApp::ProcessEvent(event);
 	};
 
 	// void wxEvtHandler::SetNextHandler(wxEvtHandler * handler)
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetNextHandler(handler);
+		return wxApp::SetNextHandler(handler);
 	};
 
 	// void wxEvtHandler::SetPreviousHandler(wxEvtHandler * handler)
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxEvtHandler::SetPreviousHandler(handler);
+		return wxApp::SetPreviousHandler(handler);
 	};
 
 	// int wxAppConsole::MainLoop()
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::MainLoop();
+		return wxApp::MainLoop();
 	};
 
 	// void wxAppConsole::ExitMainLoop()
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::ExitMainLoop();
+		return wxApp::ExitMainLoop();
 	};
 
 	// int wxAppConsole::FilterEvent(wxEvent & event)
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::FilterEvent(event);
+		return wxApp::FilterEvent(event);
 	};
 
 	// bool wxAppConsole::UsesEventLoop() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::UsesEventLoop();
+		return wxApp::UsesEventLoop();
 	};
 
 	// void wxAppConsole::ProcessPendingEvents()
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::ProcessPendingEvents();
+		return wxApp::ProcessPendingEvents();
 	};
 
 	// bool wxAppConsole::OnCmdLineError(wxCmdLineParser & parser)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineError(parser);
+		return wxApp::OnCmdLineError(parser);
 	};
 
 	// bool wxAppConsole::OnCmdLineHelp(wxCmdLineParser & parser)
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineHelp(parser);
+		return wxApp::OnCmdLineHelp(parser);
 	};
 
 	// bool wxAppConsole::OnCmdLineParsed(wxCmdLineParser & parser)
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnCmdLineParsed(parser);
+		return wxApp::OnCmdLineParsed(parser);
 	};
 
 	// void wxAppConsole::OnEventLoopEnter(wxEventLoopBase * loop)
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnEventLoopEnter(loop);
+		return wxApp::OnEventLoopEnter(loop);
 	};
 
 	// void wxAppConsole::OnEventLoopExit(wxEventLoopBase * loop)
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnEventLoopExit(loop);
+		return wxApp::OnEventLoopExit(loop);
 	};
 
 	// bool wxAppConsole::OnExceptionInMainLoop()
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnExceptionInMainLoop();
+		return wxApp::OnExceptionInMainLoop();
 	};
 
 	// int wxAppConsole::OnExit()
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::OnExit();
+		return wxApp::OnExit();
 	};
 
 	// void wxAppConsole::OnFatalException()
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnFatalException();
+		return wxApp::OnFatalException();
 	};
 
 	// bool wxAppConsole::OnInit()
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxAppConsole::OnInit();
+		return wxApp::OnInit();
 	};
 
 	// void wxAppConsole::OnInitCmdLine(wxCmdLineParser & parser)
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnInitCmdLine(parser);
+		return wxApp::OnInitCmdLine(parser);
 	};
 
 	// int wxAppConsole::OnRun()
@@ -224,7 +224,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return wxAppConsole::OnRun();
+		return wxApp::OnRun();
 	};
 
 	// void wxAppConsole::OnUnhandledException()
@@ -233,7 +233,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxAppConsole::OnUnhandledException();
+		return wxApp::OnUnhandledException();
 	};
 
 	// wxVideoMode wxApp::GetDisplayMode() const
@@ -317,10 +317,53 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxApp::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxApp::CloneRefData(data);
+	};
+
 	// bool wxEvtHandler::TryBefore(wxEvent & event)
+	bool TryBefore(wxEvent & event) {
+		if(_obj.pushFunction("TryBefore")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxApp::TryBefore(event);
+	};
+
 	// bool wxEvtHandler::TryAfter(wxEvent & event)
+	bool TryAfter(wxEvent & event) {
+		if(_obj.pushFunction("TryAfter")) {
+			_obj.pushArg(&event);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxApp::TryAfter(event);
+	};
+
 	// wxAppTraits * wxAppConsole::CreateTraits()
+	wxAppTraits * CreateTraits() {
+		if(_obj.pushFunction("CreateTraits")) {
+			return (_obj.callFunction<wxAppTraits*>());
+		}
+
+		return wxApp::CreateTraits();
+	};
+
 
 };
 

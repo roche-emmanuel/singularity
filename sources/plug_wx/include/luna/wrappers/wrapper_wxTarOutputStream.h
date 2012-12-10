@@ -45,8 +45,8 @@ public:
 		return wxTarOutputStream::PutNextDirEntry(name, dt);
 	};
 
-	// bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)
-	bool PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset) {
+	// bool wxTarOutputStream::PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
+	bool PutNextEntry(const wxString & name, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) {
 		if(_obj.pushFunction("PutNextEntry")) {
 			_obj.pushArg(name);
 			_obj.pushArg(&dt);

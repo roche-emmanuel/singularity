@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxEventLoopBase(lua_State* L, lua_Table* dum) : wxEventLoopBase(), _obj(L,-1) {};
 
 	// int wxEventLoopBase::Run()
 	int Run() {
@@ -104,6 +103,14 @@ public:
 
 protected:
 	// void wxEventLoopBase::OnExit()
+	void OnExit() {
+		if(_obj.pushFunction("OnExit")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return wxEventLoopBase::OnExit();
+	};
+
 
 };
 

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_wxProtocol(lua_State* L, lua_Table* dum) : wxProtocol(), _obj(L,-1) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxProtocol::GetClassInfo();
 	};
 
 	// bool wxSocketBase::GetLocal(wxSockAddress & addr) const
@@ -33,7 +32,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetLocal(addr);
+		return wxProtocol::GetLocal(addr);
 	};
 
 	// bool wxSocketBase::GetPeer(wxSockAddress & addr) const
@@ -43,7 +42,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::GetPeer(addr);
+		return wxProtocol::GetPeer(addr);
 	};
 
 	// bool wxSocketBase::Close()
@@ -52,7 +51,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::Close();
+		return wxProtocol::Close();
 	};
 
 	// bool wxSocketBase::SetLocal(const wxIPV4address & local)
@@ -62,7 +61,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketBase::SetLocal(local);
+		return wxProtocol::SetLocal(local);
 	};
 
 	// bool wxSocketClient::Connect(const wxSockAddress & address, bool wait = true)
@@ -73,7 +72,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSocketClient::Connect(address, wait);
+		return wxProtocol::Connect(address, wait);
 	};
 
 	// bool wxProtocol::Abort()
@@ -130,7 +129,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxProtocol::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxProtocol::CloneRefData(data);
+	};
+
 
 };
 

@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<wxWindow*>());
 		}
 
-		return wxVarScrollHelperBase::GetTargetWindow();
+		return wxVarVScrollHelper::GetTargetWindow();
 	};
 
 	// void wxVarScrollHelperBase::RefreshAll()
@@ -50,7 +50,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::RefreshAll();
+		return wxVarVScrollHelper::RefreshAll();
 	};
 
 	// void wxVarScrollHelperBase::SetTargetWindow(wxWindow * target)
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::SetTargetWindow(target);
+		return wxVarVScrollHelper::SetTargetWindow(target);
 	};
 
 	// void wxVarScrollHelperBase::UpdateScrollbar()
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxVarScrollHelperBase::UpdateScrollbar();
+		return wxVarVScrollHelper::UpdateScrollbar();
 	};
 
 	// void wxVarVScrollHelper::RefreshRow(size_t row)
@@ -116,11 +116,59 @@ public:
 
 protected:
 	// void wxVarScrollHelperBase::OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const
+	void OnGetUnitsSizeHint(size_t unitMin, size_t unitMax) const {
+		if(_obj.pushFunction("OnGetUnitsSizeHint")) {
+			_obj.pushArg(unitMin);
+			_obj.pushArg(unitMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVarVScrollHelper::OnGetUnitsSizeHint(unitMin, unitMax);
+	};
+
 	// int wxVarScrollHelperBase::EstimateTotalSize() const
+	int EstimateTotalSize() const {
+		if(_obj.pushFunction("EstimateTotalSize")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVarVScrollHelper::EstimateTotalSize();
+	};
+
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
+	int OnGetUnitSize(size_t unit) const {
+		THROW_IF(!_obj.pushFunction("OnGetUnitSize"),"No implementation for abstract function wxVarScrollHelperBase::OnGetUnitSize");
+		_obj.pushArg(unit);
+		return (_obj.callFunction<int>());
+	};
+
 	// void wxVarVScrollHelper::OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const
+	void OnGetRowsHeightHint(size_t rowMin, size_t rowMax) const {
+		if(_obj.pushFunction("OnGetRowsHeightHint")) {
+			_obj.pushArg(rowMin);
+			_obj.pushArg(rowMax);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxVarVScrollHelper::OnGetRowsHeightHint(rowMin, rowMax);
+	};
+
 	// int wxVarVScrollHelper::EstimateTotalHeight() const
+	int EstimateTotalHeight() const {
+		if(_obj.pushFunction("EstimateTotalHeight")) {
+			return (_obj.callFunction<int>());
+		}
+
+		return wxVarVScrollHelper::EstimateTotalHeight();
+	};
+
 	// int wxVarVScrollHelper::OnGetRowHeight(size_t row) const
+	int OnGetRowHeight(size_t row) const {
+		THROW_IF(!_obj.pushFunction("OnGetRowHeight"),"No implementation for abstract function wxVarVScrollHelper::OnGetRowHeight");
+		_obj.pushArg(row);
+		return (_obj.callFunction<int>());
+	};
+
 
 };
 

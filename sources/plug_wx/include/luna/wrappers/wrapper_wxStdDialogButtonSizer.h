@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<wxClassInfo*>());
 		}
 
-		return wxObject::GetClassInfo();
+		return wxStdDialogButtonSizer::GetClassInfo();
 	};
 
 	// void wxSizer::Clear(bool delete_windows = false)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSizer::Clear(delete_windows);
+		return wxStdDialogButtonSizer::Clear(delete_windows);
 	};
 
 	// bool wxSizer::Detach(wxWindow * window)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Detach(window);
+		return wxStdDialogButtonSizer::Detach(window);
 	};
 
 	// bool wxSizer::Detach(wxSizer * sizer)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Detach(sizer);
+		return wxStdDialogButtonSizer::Detach(sizer);
 	};
 
 	// bool wxSizer::Detach(int index)
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Detach(index);
+		return wxStdDialogButtonSizer::Detach(index);
 	};
 
 	// bool wxSizer::InformFirstDirection(int direction, int size, int availableOtherDir)
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::InformFirstDirection(direction, size, availableOtherDir);
+		return wxStdDialogButtonSizer::InformFirstDirection(direction, size, availableOtherDir);
 	};
 
 	// void wxSizer::Layout()
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return wxSizer::Layout();
+		return wxStdDialogButtonSizer::Layout();
 	};
 
 	// bool wxSizer::Remove(wxSizer * sizer)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Remove(sizer);
+		return wxStdDialogButtonSizer::Remove(sizer);
 	};
 
 	// bool wxSizer::Remove(int index)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Remove(index);
+		return wxStdDialogButtonSizer::Remove(index);
 	};
 
 	// bool wxSizer::Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Replace(oldwin, newwin, recursive);
+		return wxStdDialogButtonSizer::Replace(oldwin, newwin, recursive);
 	};
 
 	// bool wxSizer::Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Replace(oldsz, newsz, recursive);
+		return wxStdDialogButtonSizer::Replace(oldsz, newsz, recursive);
 	};
 
 	// bool wxSizer::Replace(size_t index, wxSizerItem * newitem)
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return wxSizer::Replace(index, newitem);
+		return wxStdDialogButtonSizer::Replace(index, newitem);
 	};
 
 	// wxSizerItem * wxBoxSizer::AddSpacer(int size)
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<wxSizerItem*>());
 		}
 
-		return wxBoxSizer::AddSpacer(size);
+		return wxStdDialogButtonSizer::AddSpacer(size);
 	};
 
 	// void wxStdDialogButtonSizer::RecalcSizes()
@@ -173,7 +173,24 @@ public:
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStdDialogButtonSizer::CreateRefData();
+	};
+
 	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStdDialogButtonSizer::CloneRefData(data);
+	};
+
 
 };
 
