@@ -26,6 +26,10 @@ function Class:initialize(options)
 	self._oneShot = options.oneShot or false
 end
 
+function Class:release()
+	self.wrapper = nil;
+end
+
 function Class:Notify()
 	--self:info("Calling notify on extended timer.")
 	self._callback(self._arg)

@@ -58,7 +58,7 @@ void LuaRef::unrefLuaItem() {
     										// note: this key will be used for the next wxluaR_ref()
 
     lua_pop(L, 1);                    		// pop table
-	logNOTICE("Unreferenced lua object at ref="<<_ref);
+	//logNOTICE("Unreferenced lua object at ref="<<_ref);
 }
 
 bool LuaRef::pushLuaItem() const {
