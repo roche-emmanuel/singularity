@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxQueryNewPaletteEvent* ptr= dynamic_cast< wxQueryNewPaletteEvent* >(Luna< wxObject >::check(L,1));
+		//wxQueryNewPaletteEvent* ptr= dynamic_cast< wxQueryNewPaletteEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryNewPaletteEvent* ptr= luna_caster< wxObject, wxQueryNewPaletteEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -69,7 +82,7 @@ public:
 
 		bool realized=(bool)(lua_toboolean(L,2)==1);
 
-		wxQueryNewPaletteEvent* self=dynamic_cast< wxQueryNewPaletteEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryNewPaletteEvent::SetPaletteRealized(bool)");
@@ -87,13 +100,53 @@ public:
 		}
 
 
-		wxQueryNewPaletteEvent* self=dynamic_cast< wxQueryNewPaletteEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxQueryNewPaletteEvent::GetPaletteRealized()");
 		}
 		bool lret = self->GetPaletteRealized();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxQueryNewPaletteEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxQueryNewPaletteEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxQueryNewPaletteEvent* self=Luna< wxObject >::checkSubType< wxQueryNewPaletteEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxQueryNewPaletteEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxQueryNewPaletteEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -123,6 +176,8 @@ const int LunaTraits< wxQueryNewPaletteEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxQueryNewPaletteEvent >::methods[] = {
 	{"SetPaletteRealized", &luna_wrapper_wxQueryNewPaletteEvent::_bind_SetPaletteRealized},
 	{"GetPaletteRealized", &luna_wrapper_wxQueryNewPaletteEvent::_bind_GetPaletteRealized},
+	{"base_GetClassInfo", &luna_wrapper_wxQueryNewPaletteEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxQueryNewPaletteEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxQueryNewPaletteEvent::_bind___eq},
 	{0,0}
 };

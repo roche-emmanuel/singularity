@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDocManager* ptr= dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		//wxDocManager* ptr= dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* ptr= luna_caster< wxObject, wxDocManager >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -333,6 +334,166 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ActivateView(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddFileToHistory(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CreateDocument(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CreateView(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistoryAddFilesToMenu_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistoryAddFilesToMenu_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistoryLoad(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistoryRemoveMenu(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistorySave(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FileHistoryUseMenu(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindTemplateForPath(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCurrentView(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetFileHistory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetHistoryFilesCount(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Initialize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_MakeNewDocumentName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCreateFileHistory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -388,10 +549,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxView* doc=dynamic_cast< wxView* >(Luna< wxObject >::check(L,2));
+		wxView* doc=(Luna< wxObject >::checkSubType< wxView >(L,2));
 		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::ActivateView(wxView *, bool)");
@@ -408,9 +569,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::AddDocument(wxDocument * doc) function, expected prototype:\nvoid wxDocManager::AddDocument(wxDocument * doc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDocument* doc=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2));
+		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::AddDocument(wxDocument *)");
@@ -429,7 +590,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::AddFileToHistory(const wxString &)");
@@ -446,9 +607,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::AssociateTemplate(wxDocTemplate * temp) function, expected prototype:\nvoid wxDocManager::AssociateTemplate(wxDocTemplate * temp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDocTemplate* temp=dynamic_cast< wxDocTemplate* >(Luna< wxObject >::check(L,2));
+		wxDocTemplate* temp=(Luna< wxObject >::checkSubType< wxDocTemplate >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::AssociateTemplate(wxDocTemplate *)");
@@ -467,7 +628,7 @@ public:
 
 		const wxClassInfo* classinfo=(Luna< wxClassInfo >::check(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocTemplate * wxDocManager::FindTemplate(const wxClassInfo *)");
@@ -489,10 +650,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDocument* doc=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2));
+		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 		bool force=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocManager::CloseDocument(wxDocument *, bool)");
@@ -514,7 +675,7 @@ public:
 
 		bool force=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocManager::CloseDocuments(bool)");
@@ -537,7 +698,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocument * wxDocManager::CreateDocument(const wxString &, long)");
@@ -558,7 +719,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocument * wxDocManager::CreateNewDocument()");
@@ -580,10 +741,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDocument* doc=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2));
+		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxView * wxDocManager::CreateView(wxDocument *, long)");
@@ -603,9 +764,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::DisassociateTemplate(wxDocTemplate * temp) function, expected prototype:\nvoid wxDocManager::DisassociateTemplate(wxDocTemplate * temp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDocTemplate* temp=dynamic_cast< wxDocTemplate* >(Luna< wxObject >::check(L,2));
+		wxDocTemplate* temp=(Luna< wxObject >::checkSubType< wxDocTemplate >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::DisassociateTemplate(wxDocTemplate *)");
@@ -623,7 +784,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistoryAddFilesToMenu()");
@@ -640,9 +801,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::FileHistoryAddFilesToMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::FileHistoryAddFilesToMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistoryAddFilesToMenu(wxMenu *)");
@@ -668,13 +829,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::FileHistoryLoad(const wxConfigBase & config) function, expected prototype:\nvoid wxDocManager::FileHistoryLoad(const wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxConfigBase* config_ptr=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		const wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		if( !config_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg config in wxDocManager::FileHistoryLoad function");
 		}
 		const wxConfigBase & config=*config_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistoryLoad(const wxConfigBase &)");
@@ -691,9 +852,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::FileHistoryRemoveMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::FileHistoryRemoveMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistoryRemoveMenu(wxMenu *)");
@@ -710,13 +871,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::FileHistorySave(wxConfigBase & resourceFile) function, expected prototype:\nvoid wxDocManager::FileHistorySave(wxConfigBase & resourceFile)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxConfigBase* resourceFile_ptr=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* resourceFile_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		if( !resourceFile_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg resourceFile in wxDocManager::FileHistorySave function");
 		}
 		wxConfigBase & resourceFile=*resourceFile_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistorySave(wxConfigBase &)");
@@ -733,9 +894,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::FileHistoryUseMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::FileHistoryUseMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::FileHistoryUseMenu(wxMenu *)");
@@ -754,7 +915,7 @@ public:
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocTemplate * wxDocManager::FindTemplateForPath(const wxString &)");
@@ -775,7 +936,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocument * wxDocManager::GetCurrentDocument() const");
@@ -796,7 +957,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxView * wxDocManager::GetCurrentView() const");
@@ -817,7 +978,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxList & wxDocManager::GetDocuments()");
@@ -838,7 +999,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFileHistory * wxDocManager::GetFileHistory() const");
@@ -859,7 +1020,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxDocManager::GetHistoryFilesCount() const");
@@ -878,7 +1039,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocManager::GetLastDirectory() const");
@@ -897,7 +1058,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDocManager::GetMaxDocsOpen() const");
@@ -916,7 +1077,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxList & wxDocManager::GetTemplates()");
@@ -937,7 +1098,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocManager::Initialize()");
@@ -956,7 +1117,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocManager::MakeNewDocumentName()");
@@ -975,7 +1136,7 @@ public:
 		}
 
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFileHistory * wxDocManager::OnCreateFileHistory()");
@@ -995,13 +1156,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileClose(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileClose(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileClose function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileClose(wxCommandEvent &)");
@@ -1018,13 +1179,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileCloseAll(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileCloseAll(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileCloseAll function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileCloseAll(wxCommandEvent &)");
@@ -1041,13 +1202,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileNew(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileNew(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileNew function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileNew(wxCommandEvent &)");
@@ -1064,13 +1225,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileOpen(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileOpen(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileOpen function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileOpen(wxCommandEvent &)");
@@ -1087,13 +1248,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileRevert(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileRevert(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileRevert function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileRevert(wxCommandEvent &)");
@@ -1110,13 +1271,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileSave(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileSave(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileSave function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileSave(wxCommandEvent &)");
@@ -1133,13 +1294,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::OnFileSaveAs(wxCommandEvent & event) function, expected prototype:\nvoid wxDocManager::OnFileSaveAs(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandEvent* event_ptr=dynamic_cast< wxCommandEvent* >(Luna< wxObject >::check(L,2));
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::OnFileSaveAs function");
 		}
 		wxCommandEvent & event=*event_ptr;
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::OnFileSaveAs(wxCommandEvent &)");
@@ -1156,9 +1317,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocManager::RemoveDocument(wxDocument * doc) function, expected prototype:\nvoid wxDocManager::RemoveDocument(wxDocument * doc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDocument* doc=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2));
+		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::RemoveDocument(wxDocument *)");
@@ -1177,7 +1338,7 @@ public:
 
 		wxString dir(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::SetLastDirectory(const wxString &)");
@@ -1196,7 +1357,7 @@ public:
 
 		int n=(int)lua_tointeger(L,2);
 
-		wxDocManager* self=dynamic_cast< wxDocManager* >(Luna< wxObject >::check(L,1));
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocManager::SetMaxDocsOpen(int)");
@@ -1204,6 +1365,494 @@ public:
 		self->SetMaxDocsOpen(n);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxDocManager::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDocManager::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDocManager::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocManager::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDocManager::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxDocManager::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxDocManager::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_QueueEvent(wxEvent *)");
+		}
+		self->wxDocManager::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxDocManager::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxDocManager::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxDocManager::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocManager::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxDocManager::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocManager::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocManager::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxDocManager::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxDocManager::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxDocManager::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxDocManager::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxDocManager::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxDocManager::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_ActivateView(wxView * doc, bool activate = true)
+	static int _bind_base_ActivateView(lua_State *L) {
+		if (!_lg_typecheck_base_ActivateView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_ActivateView(wxView * doc, bool activate = true) function, expected prototype:\nvoid wxDocManager::base_ActivateView(wxView * doc, bool activate = true)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxView* doc=(Luna< wxObject >::checkSubType< wxView >(L,2));
+		bool activate=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_ActivateView(wxView *, bool)");
+		}
+		self->wxDocManager::ActivateView(doc, activate);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_AddFileToHistory(const wxString & filename)
+	static int _bind_base_AddFileToHistory(lua_State *L) {
+		if (!_lg_typecheck_base_AddFileToHistory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_AddFileToHistory(const wxString & filename) function, expected prototype:\nvoid wxDocManager::base_AddFileToHistory(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_AddFileToHistory(const wxString &)");
+		}
+		self->wxDocManager::AddFileToHistory(filename);
+
+		return 0;
+	}
+
+	// wxDocument * wxDocManager::base_CreateDocument(const wxString & path, long flags = 0)
+	static int _bind_base_CreateDocument(lua_State *L) {
+		if (!_lg_typecheck_base_CreateDocument(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocument * wxDocManager::base_CreateDocument(const wxString & path, long flags = 0) function, expected prototype:\nwxDocument * wxDocManager::base_CreateDocument(const wxString & path, long flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString path(lua_tostring(L,2),lua_objlen(L,2));
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDocument * wxDocManager::base_CreateDocument(const wxString &, long)");
+		}
+		wxDocument * lret = self->wxDocManager::CreateDocument(path, flags);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDocument >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxView * wxDocManager::base_CreateView(wxDocument * doc, long flags = 0)
+	static int _bind_base_CreateView(lua_State *L) {
+		if (!_lg_typecheck_base_CreateView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxView * wxDocManager::base_CreateView(wxDocument * doc, long flags = 0) function, expected prototype:\nwxView * wxDocManager::base_CreateView(wxDocument * doc, long flags = 0)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDocument* doc=(Luna< wxObject >::checkSubType< wxDocument >(L,2));
+		long flags=luatop>2 ? (long)lua_tointeger(L,3) : 0;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxView * wxDocManager::base_CreateView(wxDocument *, long)");
+		}
+		wxView * lret = self->wxDocManager::CreateView(doc, flags);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxView >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxDocManager::base_FileHistoryAddFilesToMenu()
+	static int _bind_base_FileHistoryAddFilesToMenu_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistoryAddFilesToMenu_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistoryAddFilesToMenu() function, expected prototype:\nvoid wxDocManager::base_FileHistoryAddFilesToMenu()\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistoryAddFilesToMenu()");
+		}
+		self->wxDocManager::FileHistoryAddFilesToMenu();
+
+		return 0;
+	}
+
+	// void wxDocManager::base_FileHistoryAddFilesToMenu(wxMenu * menu)
+	static int _bind_base_FileHistoryAddFilesToMenu_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistoryAddFilesToMenu_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistoryAddFilesToMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::base_FileHistoryAddFilesToMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistoryAddFilesToMenu(wxMenu *)");
+		}
+		self->wxDocManager::FileHistoryAddFilesToMenu(menu);
+
+		return 0;
+	}
+
+	// Overload binder for wxDocManager::base_FileHistoryAddFilesToMenu
+	static int _bind_base_FileHistoryAddFilesToMenu(lua_State *L) {
+		if (_lg_typecheck_base_FileHistoryAddFilesToMenu_overload_1(L)) return _bind_base_FileHistoryAddFilesToMenu_overload_1(L);
+		if (_lg_typecheck_base_FileHistoryAddFilesToMenu_overload_2(L)) return _bind_base_FileHistoryAddFilesToMenu_overload_2(L);
+
+		luaL_error(L, "error in function base_FileHistoryAddFilesToMenu, cannot match any of the overloads for function base_FileHistoryAddFilesToMenu:\n  base_FileHistoryAddFilesToMenu()\n  base_FileHistoryAddFilesToMenu(wxMenu *)\n");
+		return 0;
+	}
+
+	// void wxDocManager::base_FileHistoryLoad(const wxConfigBase & config)
+	static int _bind_base_FileHistoryLoad(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistoryLoad(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistoryLoad(const wxConfigBase & config) function, expected prototype:\nvoid wxDocManager::base_FileHistoryLoad(const wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		if( !config_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg config in wxDocManager::base_FileHistoryLoad function");
+		}
+		const wxConfigBase & config=*config_ptr;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistoryLoad(const wxConfigBase &)");
+		}
+		self->wxDocManager::FileHistoryLoad(config);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_FileHistoryRemoveMenu(wxMenu * menu)
+	static int _bind_base_FileHistoryRemoveMenu(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistoryRemoveMenu(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistoryRemoveMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::base_FileHistoryRemoveMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistoryRemoveMenu(wxMenu *)");
+		}
+		self->wxDocManager::FileHistoryRemoveMenu(menu);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_FileHistorySave(wxConfigBase & resourceFile)
+	static int _bind_base_FileHistorySave(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistorySave(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistorySave(wxConfigBase & resourceFile) function, expected prototype:\nvoid wxDocManager::base_FileHistorySave(wxConfigBase & resourceFile)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxConfigBase* resourceFile_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		if( !resourceFile_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg resourceFile in wxDocManager::base_FileHistorySave function");
+		}
+		wxConfigBase & resourceFile=*resourceFile_ptr;
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistorySave(wxConfigBase &)");
+		}
+		self->wxDocManager::FileHistorySave(resourceFile);
+
+		return 0;
+	}
+
+	// void wxDocManager::base_FileHistoryUseMenu(wxMenu * menu)
+	static int _bind_base_FileHistoryUseMenu(lua_State *L) {
+		if (!_lg_typecheck_base_FileHistoryUseMenu(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocManager::base_FileHistoryUseMenu(wxMenu * menu) function, expected prototype:\nvoid wxDocManager::base_FileHistoryUseMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocManager::base_FileHistoryUseMenu(wxMenu *)");
+		}
+		self->wxDocManager::FileHistoryUseMenu(menu);
+
+		return 0;
+	}
+
+	// wxDocTemplate * wxDocManager::base_FindTemplateForPath(const wxString & path)
+	static int _bind_base_FindTemplateForPath(lua_State *L) {
+		if (!_lg_typecheck_base_FindTemplateForPath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocTemplate * wxDocManager::base_FindTemplateForPath(const wxString & path) function, expected prototype:\nwxDocTemplate * wxDocManager::base_FindTemplateForPath(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString path(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDocTemplate * wxDocManager::base_FindTemplateForPath(const wxString &)");
+		}
+		wxDocTemplate * lret = self->wxDocManager::FindTemplateForPath(path);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDocTemplate >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxView * wxDocManager::base_GetCurrentView() const
+	static int _bind_base_GetCurrentView(lua_State *L) {
+		if (!_lg_typecheck_base_GetCurrentView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxView * wxDocManager::base_GetCurrentView() const function, expected prototype:\nwxView * wxDocManager::base_GetCurrentView() const\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxView * wxDocManager::base_GetCurrentView() const");
+		}
+		wxView * lret = self->wxDocManager::GetCurrentView();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxView >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxFileHistory * wxDocManager::base_GetFileHistory() const
+	static int _bind_base_GetFileHistory(lua_State *L) {
+		if (!_lg_typecheck_base_GetFileHistory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileHistory * wxDocManager::base_GetFileHistory() const function, expected prototype:\nwxFileHistory * wxDocManager::base_GetFileHistory() const\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFileHistory * wxDocManager::base_GetFileHistory() const");
+		}
+		wxFileHistory * lret = self->wxDocManager::GetFileHistory();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFileHistory >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// size_t wxDocManager::base_GetHistoryFilesCount() const
+	static int _bind_base_GetHistoryFilesCount(lua_State *L) {
+		if (!_lg_typecheck_base_GetHistoryFilesCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxDocManager::base_GetHistoryFilesCount() const function, expected prototype:\nsize_t wxDocManager::base_GetHistoryFilesCount() const\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxDocManager::base_GetHistoryFilesCount() const");
+		}
+		size_t lret = self->wxDocManager::GetHistoryFilesCount();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxDocManager::base_Initialize()
+	static int _bind_base_Initialize(lua_State *L) {
+		if (!_lg_typecheck_base_Initialize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocManager::base_Initialize() function, expected prototype:\nbool wxDocManager::base_Initialize()\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocManager::base_Initialize()");
+		}
+		bool lret = self->wxDocManager::Initialize();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxDocManager::base_MakeNewDocumentName()
+	static int _bind_base_MakeNewDocumentName(lua_State *L) {
+		if (!_lg_typecheck_base_MakeNewDocumentName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxDocManager::base_MakeNewDocumentName() function, expected prototype:\nwxString wxDocManager::base_MakeNewDocumentName()\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxDocManager::base_MakeNewDocumentName()");
+		}
+		wxString lret = self->wxDocManager::MakeNewDocumentName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxFileHistory * wxDocManager::base_OnCreateFileHistory()
+	static int _bind_base_OnCreateFileHistory(lua_State *L) {
+		if (!_lg_typecheck_base_OnCreateFileHistory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileHistory * wxDocManager::base_OnCreateFileHistory() function, expected prototype:\nwxFileHistory * wxDocManager::base_OnCreateFileHistory()\nClass arguments details:\n");
+		}
+
+
+		wxDocManager* self=Luna< wxObject >::checkSubType< wxDocManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxFileHistory * wxDocManager::base_OnCreateFileHistory()");
+		}
+		wxFileHistory * lret = self->wxDocManager::OnCreateFileHistory();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxFileHistory >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -1265,6 +1914,28 @@ luna_RegType LunaTraits< wxDocManager >::methods[] = {
 	{"RemoveDocument", &luna_wrapper_wxDocManager::_bind_RemoveDocument},
 	{"SetLastDirectory", &luna_wrapper_wxDocManager::_bind_SetLastDirectory},
 	{"SetMaxDocsOpen", &luna_wrapper_wxDocManager::_bind_SetMaxDocsOpen},
+	{"base_GetClassInfo", &luna_wrapper_wxDocManager::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxDocManager::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxDocManager::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxDocManager::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxDocManager::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxDocManager::_bind_base_SetPreviousHandler},
+	{"base_ActivateView", &luna_wrapper_wxDocManager::_bind_base_ActivateView},
+	{"base_AddFileToHistory", &luna_wrapper_wxDocManager::_bind_base_AddFileToHistory},
+	{"base_CreateDocument", &luna_wrapper_wxDocManager::_bind_base_CreateDocument},
+	{"base_CreateView", &luna_wrapper_wxDocManager::_bind_base_CreateView},
+	{"base_FileHistoryAddFilesToMenu", &luna_wrapper_wxDocManager::_bind_base_FileHistoryAddFilesToMenu},
+	{"base_FileHistoryLoad", &luna_wrapper_wxDocManager::_bind_base_FileHistoryLoad},
+	{"base_FileHistoryRemoveMenu", &luna_wrapper_wxDocManager::_bind_base_FileHistoryRemoveMenu},
+	{"base_FileHistorySave", &luna_wrapper_wxDocManager::_bind_base_FileHistorySave},
+	{"base_FileHistoryUseMenu", &luna_wrapper_wxDocManager::_bind_base_FileHistoryUseMenu},
+	{"base_FindTemplateForPath", &luna_wrapper_wxDocManager::_bind_base_FindTemplateForPath},
+	{"base_GetCurrentView", &luna_wrapper_wxDocManager::_bind_base_GetCurrentView},
+	{"base_GetFileHistory", &luna_wrapper_wxDocManager::_bind_base_GetFileHistory},
+	{"base_GetHistoryFilesCount", &luna_wrapper_wxDocManager::_bind_base_GetHistoryFilesCount},
+	{"base_Initialize", &luna_wrapper_wxDocManager::_bind_base_Initialize},
+	{"base_MakeNewDocumentName", &luna_wrapper_wxDocManager::_bind_base_MakeNewDocumentName},
+	{"base_OnCreateFileHistory", &luna_wrapper_wxDocManager::_bind_base_OnCreateFileHistory},
 	{"__eq", &luna_wrapper_wxDocManager::_bind___eq},
 	{0,0}
 };

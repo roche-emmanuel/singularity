@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlTagsModule* ptr= dynamic_cast< wxHtmlTagsModule* >(Luna< wxObject >::check(L,1));
+		//wxHtmlTagsModule* ptr= dynamic_cast< wxHtmlTagsModule* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagsModule* ptr= luna_caster< wxObject, wxHtmlTagsModule >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -43,6 +44,19 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_FillHandlersTable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,65918681)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FillHandlersTable(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,65918681)) ) return false;
@@ -61,14 +75,54 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser * parser) function, expected prototype:\nvoid wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser * parser)\nClass arguments details:\narg 1 ID = 65918681\n");
 		}
 
-		wxHtmlWinParser* parser=dynamic_cast< wxHtmlWinParser* >(Luna< wxHtmlParser >::check(L,2));
+		wxHtmlWinParser* parser=(Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,2));
 
-		wxHtmlTagsModule* self=dynamic_cast< wxHtmlTagsModule* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::FillHandlersTable(wxHtmlWinParser *)");
 		}
 		self->FillHandlersTable(parser);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagsModule::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlTagsModule::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser * parser)
+	static int _bind_base_FillHandlersTable(lua_State *L) {
+		if (!_lg_typecheck_base_FillHandlersTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser * parser) function, expected prototype:\nvoid wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser * parser)\nClass arguments details:\narg 1 ID = 65918681\n");
+		}
+
+		wxHtmlWinParser* parser=(Luna< wxHtmlParser >::checkSubType< wxHtmlWinParser >(L,2));
+
+		wxHtmlTagsModule* self=Luna< wxObject >::checkSubType< wxHtmlTagsModule >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlTagsModule::base_FillHandlersTable(wxHtmlWinParser *)");
+		}
+		self->wxHtmlTagsModule::FillHandlersTable(parser);
 
 		return 0;
 	}
@@ -98,6 +152,8 @@ const int LunaTraits< wxHtmlTagsModule >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxHtmlTagsModule >::methods[] = {
 	{"FillHandlersTable", &luna_wrapper_wxHtmlTagsModule::_bind_FillHandlersTable},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlTagsModule::_bind_base_GetClassInfo},
+	{"base_FillHandlersTable", &luna_wrapper_wxHtmlTagsModule::_bind_base_FillHandlersTable},
 	{"__eq", &luna_wrapper_wxHtmlTagsModule::_bind___eq},
 	{0,0}
 };

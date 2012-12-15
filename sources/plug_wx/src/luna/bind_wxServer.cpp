@@ -85,6 +85,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_OnAcceptConnection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -165,6 +172,28 @@ public:
 		return 1;
 	}
 
+	// wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic)
+	static int _bind_base_OnAcceptConnection(lua_State *L) {
+		if (!_lg_typecheck_base_OnAcceptConnection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic) function, expected prototype:\nwxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxServer* self=(Luna< wxServer >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString &)");
+		}
+		wxConnectionBase * lret = self->wxServer::OnAcceptConnection(topic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxConnectionBase >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -188,6 +217,7 @@ const int LunaTraits< wxServer >::uniqueIDs[] = {74355515,0};
 luna_RegType LunaTraits< wxServer >::methods[] = {
 	{"Create", &luna_wrapper_wxServer::_bind_Create},
 	{"OnAcceptConnection", &luna_wrapper_wxServer::_bind_OnAcceptConnection},
+	{"base_OnAcceptConnection", &luna_wrapper_wxServer::_bind_base_OnAcceptConnection},
 	{"dynCast", &luna_wrapper_wxServer::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxServer::_bind___eq},
 	{0,0}

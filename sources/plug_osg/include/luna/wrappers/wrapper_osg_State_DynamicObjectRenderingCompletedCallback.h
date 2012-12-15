@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_State_DynamicObjectRenderingCompletedCallback(lua_State* L, lua_Table* dum) : osg::State::DynamicObjectRenderingCompletedCallback(), _obj(L,-1) {};
 
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
 	void completed(osg::State * arg1) {

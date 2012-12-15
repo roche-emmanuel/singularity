@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Fog::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Fog::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Fog::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Fog::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Fog::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Fog::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Fog::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return Fog::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return Fog::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Fog::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return Fog::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return Fog::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Fog::cloneType() const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Fog::cloneType();
+		return Fog::cloneType();
 	};
 
 	// osg::Object * osg::Fog::clone(const osg::CopyOp & arg1) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Fog::clone(arg1);
+		return Fog::clone(arg1);
 	};
 
 	// bool osg::Fog::isSameKindAs(const osg::Object * obj) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Fog::isSameKindAs(obj);
+		return Fog::isSameKindAs(obj);
 	};
 
 	// const char * osg::Fog::libraryName() const
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Fog::libraryName();
+		return Fog::libraryName();
 	};
 
 	// const char * osg::Fog::className() const
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Fog::className();
+		return Fog::className();
 	};
 
 	// osg::StateAttribute::Type osg::Fog::getType() const
@@ -184,7 +184,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Fog::getType();
+		return Fog::getType();
 	};
 
 	// int osg::Fog::compare(const osg::StateAttribute & sa) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Fog::compare(sa);
+		return Fog::compare(sa);
 	};
 
 	// bool osg::Fog::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Fog::getModeUsage(arg1);
+		return Fog::getModeUsage(arg1);
 	};
 
 	// void osg::Fog::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Fog::apply(arg1);
+		return Fog::apply(arg1);
 	};
 
 

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return SceneView::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return SceneView::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return SceneView::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SceneView::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SceneView::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return SceneView::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgUtil::SceneView::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::SceneView::cloneType();
+		return SceneView::cloneType();
 	};
 
 	// osg::Object * osgUtil::SceneView::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::SceneView::clone(arg1);
+		return SceneView::clone(arg1);
 	};
 
 	// bool osgUtil::SceneView::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::SceneView::isSameKindAs(obj);
+		return SceneView::isSameKindAs(obj);
 	};
 
 	// const char * osgUtil::SceneView::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::SceneView::libraryName();
+		return SceneView::libraryName();
 	};
 
 	// const char * osgUtil::SceneView::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::SceneView::className();
+		return SceneView::className();
 	};
 
 	// void osgUtil::SceneView::setDefaults()
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::setDefaults();
+		return SceneView::setDefaults();
 	};
 
 	// void osgUtil::SceneView::setDefaults(unsigned int options)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::setDefaults(options);
+		return SceneView::setDefaults(options);
 	};
 
 	// osg::Matrixd osgUtil::SceneView::computeLeftEyeProjectionImplementation(const osg::Matrixd & projection) const
@@ -148,7 +148,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgUtil::SceneView::computeLeftEyeProjectionImplementation(projection);
+		return SceneView::computeLeftEyeProjectionImplementation(projection);
 	};
 
 	// osg::Matrixd osgUtil::SceneView::computeLeftEyeViewImplementation(const osg::Matrixd & view) const
@@ -158,7 +158,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgUtil::SceneView::computeLeftEyeViewImplementation(view);
+		return SceneView::computeLeftEyeViewImplementation(view);
 	};
 
 	// osg::Matrixd osgUtil::SceneView::computeRightEyeProjectionImplementation(const osg::Matrixd & projection) const
@@ -168,7 +168,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgUtil::SceneView::computeRightEyeProjectionImplementation(projection);
+		return SceneView::computeRightEyeProjectionImplementation(projection);
 	};
 
 	// osg::Matrixd osgUtil::SceneView::computeRightEyeViewImplementation(const osg::Matrixd & view) const
@@ -178,7 +178,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgUtil::SceneView::computeRightEyeViewImplementation(view);
+		return SceneView::computeRightEyeViewImplementation(view);
 	};
 
 	// void osgUtil::SceneView::inheritCullSettings(const osg::CullSettings & settings)
@@ -188,7 +188,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::inheritCullSettings(settings);
+		return SceneView::inheritCullSettings(settings);
 	};
 
 	// void osgUtil::SceneView::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
@@ -199,7 +199,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::inheritCullSettings(settings, inheritanceMask);
+		return SceneView::inheritCullSettings(settings, inheritanceMask);
 	};
 
 	// void osgUtil::SceneView::init()
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::init();
+		return SceneView::init();
 	};
 
 	// void osgUtil::SceneView::update()
@@ -217,7 +217,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::update();
+		return SceneView::update();
 	};
 
 	// void osgUtil::SceneView::cull()
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::cull();
+		return SceneView::cull();
 	};
 
 	// void osgUtil::SceneView::draw()
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::draw();
+		return SceneView::draw();
 	};
 
 	// void osgUtil::SceneView::releaseAllGLObjects()
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::releaseAllGLObjects();
+		return SceneView::releaseAllGLObjects();
 	};
 
 	// void osgUtil::SceneView::flushAllDeletedGLObjects()
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::flushAllDeletedGLObjects();
+		return SceneView::flushAllDeletedGLObjects();
 	};
 
 	// void osgUtil::SceneView::flushDeletedGLObjects(double & availableTime)
@@ -263,12 +263,26 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::SceneView::flushDeletedGLObjects(availableTime);
+		return SceneView::flushDeletedGLObjects(availableTime);
 	};
 
 
 protected:
 	// bool osgUtil::SceneView::cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport)
+	bool cullStage(const osg::Matrixd & projection, const osg::Matrixd & modelview, osgUtil::CullVisitor * cullVisitor, osgUtil::StateGraph * rendergraph, osgUtil::RenderStage * renderStage, osg::Viewport * viewport) {
+		if(_obj.pushFunction("cullStage")) {
+			_obj.pushArg(&projection);
+			_obj.pushArg(&modelview);
+			_obj.pushArg(cullVisitor);
+			_obj.pushArg(rendergraph);
+			_obj.pushArg(renderStage);
+			_obj.pushArg(viewport);
+			return (_obj.callFunction<bool>());
+		}
+
+		return SceneView::cullStage(projection, modelview, cullVisitor, rendergraph, renderStage, viewport);
+	};
+
 
 };
 

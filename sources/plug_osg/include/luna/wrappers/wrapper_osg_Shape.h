@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Shape::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Shape::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Shape::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Shape::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Shape::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Shape::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Shape::cloneType() const
@@ -95,7 +95,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Shape::isSameKindAs(obj);
+		return Shape::isSameKindAs(obj);
 	};
 
 	// const char * osg::Shape::libraryName() const
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Shape::libraryName();
+		return Shape::libraryName();
 	};
 
 	// const char * osg::Shape::className() const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Shape::className();
+		return Shape::className();
 	};
 
 	// void osg::Shape::accept(osg::ShapeVisitor & arg1)

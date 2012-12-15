@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxBitmapHandler* ptr= dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		//wxBitmapHandler* ptr= dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* ptr= luna_caster< wxObject, wxBitmapHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -131,6 +132,47 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Create(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>7 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_LoadFile(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SaveFile(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -178,14 +220,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxBitmap* bitmap=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		void* data=(Luna< void >::check(L,3));
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
 		int depth=luatop>6 ? (int)lua_tointeger(L,7) : 1;
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::Create(wxBitmap *, const void *, wxBitmapType, int, int, int)");
@@ -204,7 +246,7 @@ public:
 		}
 
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetExtension() const");
@@ -223,7 +265,7 @@ public:
 		}
 
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxBitmapHandler::GetName() const");
@@ -242,7 +284,7 @@ public:
 		}
 
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmapType wxBitmapHandler::GetType() const");
@@ -260,13 +302,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxBitmap* bitmap=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
 		int desiredWidth=(int)lua_tointeger(L,5);
 		int desiredHeight=(int)lua_tointeger(L,6);
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int)");
@@ -286,12 +328,12 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bitmap=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
-		const wxPalette* palette=luatop>4 ? dynamic_cast< wxPalette* >(Luna< wxObject >::check(L,5)) : (const wxPalette*)NULL;
+		const wxPalette* palette=luatop>4 ? (Luna< wxObject >::checkSubType< wxPalette >(L,5)) : (const wxPalette*)NULL;
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const");
@@ -311,7 +353,7 @@ public:
 
 		wxString extension(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetExtension(const wxString &)");
@@ -330,7 +372,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetName(const wxString &)");
@@ -349,7 +391,7 @@ public:
 
 		wxBitmapType type=(wxBitmapType)lua_tointeger(L,2);
 
-		wxBitmapHandler* self=dynamic_cast< wxBitmapHandler* >(Luna< wxObject >::check(L,1));
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxBitmapHandler::SetType(wxBitmapType)");
@@ -357,6 +399,103 @@ public:
 		self->SetType(type);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxBitmapHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBitmapHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBitmapHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBitmapHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxBitmapHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)
+	static int _bind_base_Create(lua_State *L) {
+		if (!_lg_typecheck_base_Create(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1) function, expected prototype:\nbool wxBitmapHandler::base_Create(wxBitmap * bitmap, const void * data, wxBitmapType type, int width, int height, int depth = 1)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		void* data=(Luna< void >::check(L,3));
+		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
+		int width=(int)lua_tointeger(L,5);
+		int height=(int)lua_tointeger(L,6);
+		int depth=luatop>6 ? (int)lua_tointeger(L,7) : 1;
+
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_Create(wxBitmap *, const void *, wxBitmapType, int, int, int)");
+		}
+		bool lret = self->wxBitmapHandler::Create(bitmap, data, type, width, height, depth);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)
+	static int _bind_base_LoadFile(lua_State *L) {
+		if (!_lg_typecheck_base_LoadFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight) function, expected prototype:\nbool wxBitmapHandler::base_LoadFile(wxBitmap * bitmap, const wxString & name, wxBitmapType type, int desiredWidth, int desiredHeight)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
+		int desiredWidth=(int)lua_tointeger(L,5);
+		int desiredHeight=(int)lua_tointeger(L,6);
+
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_LoadFile(wxBitmap *, const wxString &, wxBitmapType, int, int)");
+		}
+		bool lret = self->wxBitmapHandler::LoadFile(bitmap, name, type, desiredWidth, desiredHeight);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const
+	static int _bind_base_SaveFile(lua_State *L) {
+		if (!_lg_typecheck_base_SaveFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const function, expected prototype:\nbool wxBitmapHandler::base_SaveFile(const wxBitmap * bitmap, const wxString & name, wxBitmapType type, const wxPalette * palette = NULL) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+		wxBitmapType type=(wxBitmapType)lua_tointeger(L,4);
+		const wxPalette* palette=luatop>4 ? (Luna< wxObject >::checkSubType< wxPalette >(L,5)) : (const wxPalette*)NULL;
+
+		wxBitmapHandler* self=Luna< wxObject >::checkSubType< wxBitmapHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxBitmapHandler::base_SaveFile(const wxBitmap *, const wxString &, wxBitmapType, const wxPalette *) const");
+		}
+		bool lret = self->wxBitmapHandler::SaveFile(bitmap, name, type, palette);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -389,6 +528,10 @@ luna_RegType LunaTraits< wxBitmapHandler >::methods[] = {
 	{"SetExtension", &luna_wrapper_wxBitmapHandler::_bind_SetExtension},
 	{"SetName", &luna_wrapper_wxBitmapHandler::_bind_SetName},
 	{"SetType", &luna_wrapper_wxBitmapHandler::_bind_SetType},
+	{"base_GetClassInfo", &luna_wrapper_wxBitmapHandler::_bind_base_GetClassInfo},
+	{"base_Create", &luna_wrapper_wxBitmapHandler::_bind_base_Create},
+	{"base_LoadFile", &luna_wrapper_wxBitmapHandler::_bind_base_LoadFile},
+	{"base_SaveFile", &luna_wrapper_wxBitmapHandler::_bind_base_SaveFile},
 	{"__eq", &luna_wrapper_wxBitmapHandler::_bind___eq},
 	{0,0}
 };

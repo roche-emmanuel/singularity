@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DrawPixels::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DrawPixels::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawPixels::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawPixels::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return DrawPixels::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return DrawPixels::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return DrawPixels::computeDataVariance();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return DrawPixels::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return DrawPixels::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return DrawPixels::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return DrawPixels::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::releaseGLObjects(state);
+		return DrawPixels::releaseGLObjects(state);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return DrawPixels::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return DrawPixels::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return DrawPixels::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return DrawPixels::setDrawCallback(dc);
 	};
 
 	// osg::Object * osg::DrawPixels::cloneType() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawPixels::cloneType();
+		return DrawPixels::cloneType();
 	};
 
 	// osg::Object * osg::DrawPixels::clone(const osg::CopyOp & arg1) const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawPixels::clone(arg1);
+		return DrawPixels::clone(arg1);
 	};
 
 	// bool osg::DrawPixels::isSameKindAs(const osg::Object * obj) const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::DrawPixels::isSameKindAs(obj);
+		return DrawPixels::isSameKindAs(obj);
 	};
 
 	// const char * osg::DrawPixels::libraryName() const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawPixels::libraryName();
+		return DrawPixels::libraryName();
 	};
 
 	// const char * osg::DrawPixels::className() const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawPixels::className();
+		return DrawPixels::className();
 	};
 
 	// void osg::DrawPixels::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawPixels::drawImplementation(renderInfo);
+		return DrawPixels::drawImplementation(renderInfo);
 	};
 
 	// osg::BoundingBoxd osg::DrawPixels::computeBound() const
@@ -234,7 +234,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osg::DrawPixels::computeBound();
+		return DrawPixels::computeBound();
 	};
 
 

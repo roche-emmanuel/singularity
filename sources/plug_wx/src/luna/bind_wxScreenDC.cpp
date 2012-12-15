@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxScreenDC* ptr= dynamic_cast< wxScreenDC* >(Luna< wxObject >::check(L,1));
+		//wxScreenDC* ptr= dynamic_cast< wxScreenDC* >(Luna< wxObject >::check(L,1));
+		wxScreenDC* ptr= luna_caster< wxObject, wxScreenDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -77,6 +78,12 @@ public:
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,20234418)) ) return false;
 		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxRect* >(Luna< wxRect >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -139,7 +146,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static bool wxScreenDC::StartDrawingOnTop(wxWindow * window) function, expected prototype:\nstatic bool wxScreenDC::StartDrawingOnTop(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 		bool lret = wxScreenDC::StartDrawingOnTop(window);
 		lua_pushboolean(L,lret?1:0);
@@ -173,6 +180,27 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxScreenDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxScreenDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxScreenDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxScreenDC* self=Luna< wxObject >::checkSubType< wxScreenDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxScreenDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxScreenDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -196,6 +224,7 @@ const int LunaTraits< wxScreenDC >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxScreenDC >::methods[] = {
 	{"EndDrawingOnTop", &luna_wrapper_wxScreenDC::_bind_EndDrawingOnTop},
 	{"StartDrawingOnTop", &luna_wrapper_wxScreenDC::_bind_StartDrawingOnTop},
+	{"base_GetClassInfo", &luna_wrapper_wxScreenDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxScreenDC::_bind___eq},
 	{0,0}
 };

@@ -511,7 +511,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAboutDialogInfo::SetIcon(const wxIcon & icon) function, expected prototype:\nvoid wxAboutDialogInfo::SetIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxAboutDialogInfo::SetIcon function");
 		}

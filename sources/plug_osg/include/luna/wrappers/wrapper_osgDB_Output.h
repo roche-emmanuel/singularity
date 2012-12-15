@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::Output::writeObject(obj);
+		return Output::writeObject(obj);
 	};
 
 	// void osgDB::Output::writeBeginObject(const std::string & name)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::Output::writeBeginObject(name);
+		return Output::writeBeginObject(name);
 	};
 
 	// void osgDB::Output::writeEndObject()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::Output::writeEndObject();
+		return Output::writeEndObject();
 	};
 
 	// void osgDB::Output::writeUseID(const std::string & id)
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::Output::writeUseID(id);
+		return Output::writeUseID(id);
 	};
 
 	// void osgDB::Output::writeUniqueID(const std::string & id)
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::Output::writeUniqueID(id);
+		return Output::writeUniqueID(id);
 	};
 
 	// std::string osgDB::Output::getFileNameForOutput(const std::string & filename) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgDB::Output::getFileNameForOutput(filename);
+		return Output::getFileNameForOutput(filename);
 	};
 
 	// std::string osgDB::Output::getTextureFileNameForOutput()
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgDB::Output::getTextureFileNameForOutput();
+		return Output::getTextureFileNameForOutput();
 	};
 
 	// std::string osgDB::Output::getShaderFileNameForOutput()
@@ -92,12 +92,20 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgDB::Output::getShaderFileNameForOutput();
+		return Output::getShaderFileNameForOutput();
 	};
 
 
 protected:
 	// void osgDB::Output::init()
+	void init() {
+		if(_obj.pushFunction("init")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Output::init();
+	};
+
 
 };
 

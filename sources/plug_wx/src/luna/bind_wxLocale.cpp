@@ -305,6 +305,26 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetString_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetString_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>5 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -926,6 +946,63 @@ public:
 		return 1;
 	}
 
+	// const wxString & wxLocale::base_GetString(const wxString & origString, const wxString & domain = wxEmptyString) const
+	static int _bind_base_GetString_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_GetString_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxString & wxLocale::base_GetString(const wxString & origString, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxLocale::base_GetString(const wxString & origString, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString origString(lua_tostring(L,2),lua_objlen(L,2));
+		wxString domain(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxLocale* self=(Luna< wxLocale >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &) const");
+		}
+		const wxString & lret = self->wxLocale::GetString(origString, domain);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// const wxString & wxLocale::base_GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const
+	static int _bind_base_GetString_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_GetString_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxString & wxLocale::base_GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const function, expected prototype:\nconst wxString & wxLocale::base_GetString(const wxString & origString, const wxString & origString2, unsigned int n, const wxString & domain = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString origString(lua_tostring(L,2),lua_objlen(L,2));
+		wxString origString2(lua_tostring(L,3),lua_objlen(L,3));
+		unsigned n=(unsigned)lua_tointeger(L,4);
+		wxString domain(lua_tostring(L,5),lua_objlen(L,5));
+
+		wxLocale* self=(Luna< wxLocale >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxString & wxLocale::base_GetString(const wxString &, const wxString &, unsigned int, const wxString &) const");
+		}
+		const wxString & lret = self->wxLocale::GetString(origString, origString2, n, domain);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// Overload binder for wxLocale::base_GetString
+	static int _bind_base_GetString(lua_State *L) {
+		if (_lg_typecheck_base_GetString_overload_1(L)) return _bind_base_GetString_overload_1(L);
+		if (_lg_typecheck_base_GetString_overload_2(L)) return _bind_base_GetString_overload_2(L);
+
+		luaL_error(L, "error in function base_GetString, cannot match any of the overloads for function base_GetString:\n  base_GetString(const wxString &, const wxString &)\n  base_GetString(const wxString &, const wxString &, unsigned int, const wxString &)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -969,6 +1046,7 @@ luna_RegType LunaTraits< wxLocale >::methods[] = {
 	{"GetSystemLanguage", &luna_wrapper_wxLocale::_bind_GetSystemLanguage},
 	{"GetInfo", &luna_wrapper_wxLocale::_bind_GetInfo},
 	{"IsAvailable", &luna_wrapper_wxLocale::_bind_IsAvailable},
+	{"base_GetString", &luna_wrapper_wxLocale::_bind_base_GetString},
 	{"dynCast", &luna_wrapper_wxLocale::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxLocale::_bind___eq},
 	{0,0}

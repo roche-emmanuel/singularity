@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return UFOManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return UFOManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return UFOManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return UFOManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return UFOManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return UFOManipulator::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::cloneType();
+		return UFOManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::clone(arg1);
+		return UFOManipulator::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return UFOManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return UFOManipulator::libraryName();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return UFOManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return UFOManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setCoordinateFrameCallback(cb);
+		return UFOManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
@@ -150,7 +150,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceMode();
+		return UFOManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::CameraManipulator::getFusionDistanceValue() const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceValue();
+		return UFOManipulator::getFusionDistanceValue();
 	};
 
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return UFOManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return UFOManipulator::getHomePosition(eye, center, up);
 	};
 
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setAutoComputeHomePosition(flag);
+		return UFOManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// const char * osgGA::UFOManipulator::className() const
@@ -203,7 +203,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::UFOManipulator::className();
+		return UFOManipulator::className();
 	};
 
 	// void osgGA::UFOManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::setByMatrix(matrix);
+		return UFOManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::UFOManipulator::setByInverseMatrix(const osg::Matrixd & invmat)
@@ -223,7 +223,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::setByInverseMatrix(invmat);
+		return UFOManipulator::setByInverseMatrix(invmat);
 	};
 
 	// osg::Matrixd osgGA::UFOManipulator::getMatrix() const
@@ -232,7 +232,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::UFOManipulator::getMatrix();
+		return UFOManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::UFOManipulator::getInverseMatrix() const
@@ -241,7 +241,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::UFOManipulator::getInverseMatrix();
+		return UFOManipulator::getInverseMatrix();
 	};
 
 	// void osgGA::UFOManipulator::setNode(osg::Node * node)
@@ -251,7 +251,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::setNode(node);
+		return UFOManipulator::setNode(node);
 	};
 
 	// const osg::Node * osgGA::UFOManipulator::getNode() const
@@ -260,7 +260,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::UFOManipulator::getNode();
+		return UFOManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::UFOManipulator::getNode()
@@ -269,7 +269,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::UFOManipulator::getNode();
+		return UFOManipulator::getNode();
 	};
 
 	// void osgGA::UFOManipulator::computeHomePosition()
@@ -278,7 +278,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::computeHomePosition();
+		return UFOManipulator::computeHomePosition();
 	};
 
 	// void osgGA::UFOManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -289,7 +289,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::home(arg1, arg2);
+		return UFOManipulator::home(arg1, arg2);
 	};
 
 	// void osgGA::UFOManipulator::home(double arg1)
@@ -299,7 +299,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::home(arg1);
+		return UFOManipulator::home(arg1);
 	};
 
 	// void osgGA::UFOManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -310,7 +310,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::init(arg1, arg2);
+		return UFOManipulator::init(arg1, arg2);
 	};
 
 	// bool osgGA::UFOManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
@@ -321,7 +321,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::UFOManipulator::handle(ea, aa);
+		return UFOManipulator::handle(ea, aa);
 	};
 
 	// void osgGA::UFOManipulator::getUsage(osg::ApplicationUsage & usage) const
@@ -331,7 +331,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::UFOManipulator::getUsage(usage);
+		return UFOManipulator::getUsage(usage);
 	};
 
 

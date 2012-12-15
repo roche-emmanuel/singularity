@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::State::objectDeleted(arg1);
+		return State::objectDeleted(arg1);
 	};
 
 	// void osg::State::frameCompleted()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::State::frameCompleted();
+		return State::frameCompleted();
 	};
 
 

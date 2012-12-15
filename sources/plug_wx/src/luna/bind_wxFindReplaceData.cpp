@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFindReplaceData* ptr= dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		//wxFindReplaceData* ptr= dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* ptr= luna_caster< wxObject, wxFindReplaceData >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -100,6 +101,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -152,7 +159,7 @@ public:
 		}
 
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetFindString()");
@@ -171,7 +178,7 @@ public:
 		}
 
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxFindReplaceData::GetFlags() const");
@@ -190,7 +197,7 @@ public:
 		}
 
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFindReplaceData::GetReplaceString()");
@@ -210,7 +217,7 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFindString(const wxString &)");
@@ -229,7 +236,7 @@ public:
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetFlags(unsigned int)");
@@ -248,7 +255,7 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFindReplaceData* self=dynamic_cast< wxFindReplaceData* >(Luna< wxObject >::check(L,1));
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFindReplaceData::SetReplaceString(const wxString &)");
@@ -256,6 +263,27 @@ public:
 		self->SetReplaceString(str);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxFindReplaceData::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFindReplaceData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFindReplaceData::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFindReplaceData* self=Luna< wxObject >::checkSubType< wxFindReplaceData >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFindReplaceData::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFindReplaceData::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -285,6 +313,7 @@ luna_RegType LunaTraits< wxFindReplaceData >::methods[] = {
 	{"SetFindString", &luna_wrapper_wxFindReplaceData::_bind_SetFindString},
 	{"SetFlags", &luna_wrapper_wxFindReplaceData::_bind_SetFlags},
 	{"SetReplaceString", &luna_wrapper_wxFindReplaceData::_bind_SetReplaceString},
+	{"base_GetClassInfo", &luna_wrapper_wxFindReplaceData::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxFindReplaceData::_bind___eq},
 	{0,0}
 };

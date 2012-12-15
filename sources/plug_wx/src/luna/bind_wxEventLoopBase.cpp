@@ -166,6 +166,37 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_IsOk(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WakeUpIdle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessIdle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsYielding(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsEventAllowedInsideYield(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -492,6 +523,101 @@ public:
 		return 1;
 	}
 
+	// bool wxEventLoopBase::base_IsOk() const
+	static int _bind_base_IsOk(lua_State *L) {
+		if (!_lg_typecheck_base_IsOk(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxEventLoopBase::base_IsOk() const function, expected prototype:\nbool wxEventLoopBase::base_IsOk() const\nClass arguments details:\n");
+		}
+
+
+		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsOk() const");
+		}
+		bool lret = self->wxEventLoopBase::IsOk();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxEventLoopBase::base_WakeUpIdle()
+	static int _bind_base_WakeUpIdle(lua_State *L) {
+		if (!_lg_typecheck_base_WakeUpIdle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxEventLoopBase::base_WakeUpIdle() function, expected prototype:\nvoid wxEventLoopBase::base_WakeUpIdle()\nClass arguments details:\n");
+		}
+
+
+		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxEventLoopBase::base_WakeUpIdle()");
+		}
+		self->wxEventLoopBase::WakeUpIdle();
+
+		return 0;
+	}
+
+	// bool wxEventLoopBase::base_ProcessIdle()
+	static int _bind_base_ProcessIdle(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessIdle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxEventLoopBase::base_ProcessIdle() function, expected prototype:\nbool wxEventLoopBase::base_ProcessIdle()\nClass arguments details:\n");
+		}
+
+
+		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_ProcessIdle()");
+		}
+		bool lret = self->wxEventLoopBase::ProcessIdle();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxEventLoopBase::base_IsYielding() const
+	static int _bind_base_IsYielding(lua_State *L) {
+		if (!_lg_typecheck_base_IsYielding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxEventLoopBase::base_IsYielding() const function, expected prototype:\nbool wxEventLoopBase::base_IsYielding() const\nClass arguments details:\n");
+		}
+
+
+		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsYielding() const");
+		}
+		bool lret = self->wxEventLoopBase::IsYielding();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory cat) const
+	static int _bind_base_IsEventAllowedInsideYield(lua_State *L) {
+		if (!_lg_typecheck_base_IsEventAllowedInsideYield(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory cat) const function, expected prototype:\nbool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory cat) const\nClass arguments details:\n");
+		}
+
+		wxEventCategory cat=(wxEventCategory)lua_tointeger(L,2);
+
+		wxEventLoopBase* self=(Luna< wxEventLoopBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxEventLoopBase::base_IsEventAllowedInsideYield(wxEventCategory) const");
+		}
+		bool lret = self->wxEventLoopBase::IsEventAllowedInsideYield(cat);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -537,6 +663,11 @@ luna_RegType LunaTraits< wxEventLoopBase >::methods[] = {
 	{"Yield", &luna_wrapper_wxEventLoopBase::_bind_Yield},
 	{"YieldFor", &luna_wrapper_wxEventLoopBase::_bind_YieldFor},
 	{"IsEventAllowedInsideYield", &luna_wrapper_wxEventLoopBase::_bind_IsEventAllowedInsideYield},
+	{"base_IsOk", &luna_wrapper_wxEventLoopBase::_bind_base_IsOk},
+	{"base_WakeUpIdle", &luna_wrapper_wxEventLoopBase::_bind_base_WakeUpIdle},
+	{"base_ProcessIdle", &luna_wrapper_wxEventLoopBase::_bind_base_ProcessIdle},
+	{"base_IsYielding", &luna_wrapper_wxEventLoopBase::_bind_base_IsYielding},
+	{"base_IsEventAllowedInsideYield", &luna_wrapper_wxEventLoopBase::_bind_base_IsEventAllowedInsideYield},
 	{"dynCast", &luna_wrapper_wxEventLoopBase::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxEventLoopBase::_bind___eq},
 	{0,0}

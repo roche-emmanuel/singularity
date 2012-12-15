@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxHelpController(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxExtHelpController* ptr= dynamic_cast< wxExtHelpController* >(Luna< wxHelpController >::check(L,1));
+		//wxExtHelpController* ptr= dynamic_cast< wxExtHelpController* >(Luna< wxHelpController >::check(L,1));
+		wxExtHelpController* ptr= luna_caster< wxHelpController, wxExtHelpController >::cast(Luna< wxHelpController >::check(L,1));
 		if(!ptr)
 			return 0;
 		

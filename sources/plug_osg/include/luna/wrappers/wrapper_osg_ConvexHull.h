@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ConvexHull::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ConvexHull::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ConvexHull::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConvexHull::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConvexHull::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ConvexHull::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ConvexHull::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ConvexHull::cloneType();
+		return ConvexHull::cloneType();
 	};
 
 	// osg::Object * osg::ConvexHull::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ConvexHull::clone(arg1);
+		return ConvexHull::clone(arg1);
 	};
 
 	// bool osg::ConvexHull::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ConvexHull::isSameKindAs(obj);
+		return ConvexHull::isSameKindAs(obj);
 	};
 
 	// const char * osg::ConvexHull::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ConvexHull::libraryName();
+		return ConvexHull::libraryName();
 	};
 
 	// const char * osg::ConvexHull::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ConvexHull::className();
+		return ConvexHull::className();
 	};
 
 	// void osg::ConvexHull::accept(osg::ShapeVisitor & arg1)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConvexHull::accept(arg1);
+		return ConvexHull::accept(arg1);
 	};
 
 	// void osg::ConvexHull::accept(osg::ConstShapeVisitor & arg1) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConvexHull::accept(arg1);
+		return ConvexHull::accept(arg1);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxGridCellRenderer(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellAutoWrapStringRenderer* ptr= dynamic_cast< wxGridCellAutoWrapStringRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		//wxGridCellAutoWrapStringRenderer* ptr= dynamic_cast< wxGridCellAutoWrapStringRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		wxGridCellAutoWrapStringRenderer* ptr= luna_caster< wxGridCellRenderer, wxGridCellAutoWrapStringRenderer >::cast(Luna< wxGridCellRenderer >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Geometry* ptr= dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Geometry* ptr= dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* ptr= luna_caster< osg::Referenced, osg::Geometry >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -526,6 +527,65 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getNumPrimitiveSets(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveSet_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveSet_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_addPrimitiveSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setPrimitiveSet(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_insertPrimitiveSet(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_removePrimitiveSet(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveSetIndex(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_setVertexIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -825,6 +885,157 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeBound(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUpdateCallback(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setEventCallback(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setCullCallback(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setDrawCallback(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGeometry_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGeometry_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUseVertexBufferObjects(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_dirtyDisplayList(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getGLObjectSizeHint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_compileGLObjects(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_drawImplementation(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -850,7 +1061,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Geometry* geometry_ptr=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1));
 		if( !geometry_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg geometry in osg::Geometry::Geometry function");
 		}
@@ -884,7 +1095,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Geometry* geometry_ptr=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 		if( !geometry_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg geometry in osg::Geometry::Geometry function");
 		}
@@ -919,7 +1130,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Geometry::cloneType() const");
@@ -945,7 +1156,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Geometry::clone(const osg::CopyOp &) const");
@@ -965,9 +1176,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Geometry::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Geometry::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::isSameKindAs(const osg::Object *) const");
@@ -986,7 +1197,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Geometry::libraryName() const");
@@ -1005,7 +1216,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Geometry::className() const");
@@ -1024,7 +1235,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry * osg::Geometry::asGeometry()");
@@ -1045,7 +1256,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::Geometry::asGeometry() const");
@@ -1075,7 +1286,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::empty() const");
@@ -1093,9 +1304,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setVertexArray(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::setVertexArray(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexArray(osg::Array *)");
@@ -1113,7 +1324,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getVertexArray()");
@@ -1134,7 +1345,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getVertexArray() const");
@@ -1169,7 +1380,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexData(const osg::Geometry::ArrayData &)");
@@ -1187,7 +1398,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getVertexData()");
@@ -1208,7 +1419,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getVertexData() const");
@@ -1239,7 +1450,7 @@ public:
 
 		osg::Geometry::AttributeBinding ab=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setNormalBinding(osg::Geometry::AttributeBinding)");
@@ -1257,7 +1468,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::getNormalBinding() const");
@@ -1275,9 +1486,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setNormalArray(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::setNormalArray(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setNormalArray(osg::Array *)");
@@ -1295,7 +1506,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getNormalArray()");
@@ -1316,7 +1527,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getNormalArray() const");
@@ -1351,7 +1562,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setNormalData(const osg::Geometry::ArrayData &)");
@@ -1369,7 +1580,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getNormalData()");
@@ -1390,7 +1601,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getNormalData() const");
@@ -1421,7 +1632,7 @@ public:
 
 		osg::Geometry::AttributeBinding ab=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setColorBinding(osg::Geometry::AttributeBinding)");
@@ -1439,7 +1650,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::getColorBinding() const");
@@ -1457,9 +1668,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setColorArray(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::setColorArray(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setColorArray(osg::Array *)");
@@ -1477,7 +1688,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getColorArray()");
@@ -1498,7 +1709,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getColorArray() const");
@@ -1533,7 +1744,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setColorData(const osg::Geometry::ArrayData &)");
@@ -1551,7 +1762,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getColorData()");
@@ -1572,7 +1783,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getColorData() const");
@@ -1603,7 +1814,7 @@ public:
 
 		osg::Geometry::AttributeBinding ab=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setSecondaryColorBinding(osg::Geometry::AttributeBinding)");
@@ -1621,7 +1832,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::getSecondaryColorBinding() const");
@@ -1639,9 +1850,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setSecondaryColorArray(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::setSecondaryColorArray(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setSecondaryColorArray(osg::Array *)");
@@ -1659,7 +1870,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getSecondaryColorArray()");
@@ -1680,7 +1891,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getSecondaryColorArray() const");
@@ -1715,7 +1926,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setSecondaryColorData(const osg::Geometry::ArrayData &)");
@@ -1733,7 +1944,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getSecondaryColorData()");
@@ -1754,7 +1965,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getSecondaryColorData() const");
@@ -1785,7 +1996,7 @@ public:
 
 		osg::Geometry::AttributeBinding ab=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setFogCoordBinding(osg::Geometry::AttributeBinding)");
@@ -1803,7 +2014,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::getFogCoordBinding() const");
@@ -1821,9 +2032,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setFogCoordArray(osg::Array * array) function, expected prototype:\nvoid osg::Geometry::setFogCoordArray(osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setFogCoordArray(osg::Array *)");
@@ -1841,7 +2052,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getFogCoordArray()");
@@ -1862,7 +2073,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getFogCoordArray() const");
@@ -1897,7 +2108,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setFogCoordData(const osg::Geometry::ArrayData &)");
@@ -1915,7 +2126,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getFogCoordData()");
@@ -1936,7 +2147,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getFogCoordData() const");
@@ -1966,9 +2177,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		osg::Array* _arg2=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3));
+		osg::Array* _arg2=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setTexCoordArray(unsigned int, osg::Array *)");
@@ -1987,7 +2198,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getTexCoordArray(unsigned int)");
@@ -2009,7 +2220,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getTexCoordArray(unsigned int) const");
@@ -2045,7 +2256,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setTexCoordData(unsigned int, const osg::Geometry::ArrayData &)");
@@ -2064,7 +2275,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getTexCoordData(unsigned int)");
@@ -2086,7 +2297,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getTexCoordData(unsigned int) const");
@@ -2116,7 +2327,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::getNumTexCoordArrays() const");
@@ -2135,7 +2346,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayDataList & osg::Geometry::getTexCoordArrayList()");
@@ -2156,7 +2367,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayDataList & osg::Geometry::getTexCoordArrayList() const");
@@ -2186,9 +2397,9 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3));
+		osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexAttribArray(unsigned int, osg::Array *)");
@@ -2207,7 +2418,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Array * osg::Geometry::getVertexAttribArray(unsigned int)");
@@ -2229,7 +2440,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Array * osg::Geometry::getVertexAttribArray(unsigned int) const");
@@ -2261,7 +2472,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		osg::Geometry::AttributeBinding ab=(osg::Geometry::AttributeBinding)lua_tointeger(L,3);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexAttribBinding(unsigned int, osg::Geometry::AttributeBinding)");
@@ -2280,7 +2491,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::AttributeBinding osg::Geometry::getVertexAttribBinding(unsigned int) const");
@@ -2301,7 +2512,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned char norm = (unsigned char)(lua_tointeger(L,3));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexAttribNormalize(unsigned int, unsigned char)");
@@ -2320,7 +2531,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char osg::Geometry::getVertexAttribNormalize(unsigned int) const");
@@ -2345,7 +2556,7 @@ public:
 		}
 		const osg::Geometry::ArrayData & arrayData=*arrayData_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexAttribData(unsigned int, const osg::Geometry::ArrayData &)");
@@ -2364,7 +2575,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayData & osg::Geometry::getVertexAttribData(unsigned int)");
@@ -2386,7 +2597,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayData & osg::Geometry::getVertexAttribData(unsigned int) const");
@@ -2416,7 +2627,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::getNumVertexAttribArrays() const");
@@ -2435,7 +2646,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry::ArrayDataList & osg::Geometry::getVertexAttribArrayList()");
@@ -2456,7 +2667,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry::ArrayDataList & osg::Geometry::getVertexAttribArrayList() const");
@@ -2478,6 +2689,183 @@ public:
 		return 0;
 	}
 
+	// unsigned int osg::Geometry::getNumPrimitiveSets() const
+	static int _bind_getNumPrimitiveSets(lua_State *L) {
+		if (!_lg_typecheck_getNumPrimitiveSets(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Geometry::getNumPrimitiveSets() const function, expected prototype:\nunsigned int osg::Geometry::getNumPrimitiveSets() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::getNumPrimitiveSets() const");
+		}
+		unsigned int lret = self->getNumPrimitiveSets();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos)
+	static int _bind_getPrimitiveSet_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveSet_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos) function, expected prototype:\nosg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos)\nClass arguments details:\n");
+		}
+
+		unsigned int pos=(unsigned int)lua_tointeger(L,2);
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int)");
+		}
+		osg::PrimitiveSet * lret = self->getPrimitiveSet(pos);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos) const
+	static int _bind_getPrimitiveSet_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveSet_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos) const function, expected prototype:\nconst osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int pos) const\nClass arguments details:\n");
+		}
+
+		unsigned int pos=(unsigned int)lua_tointeger(L,2);
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::PrimitiveSet * osg::Geometry::getPrimitiveSet(unsigned int) const");
+		}
+		const osg::PrimitiveSet * lret = self->getPrimitiveSet(pos);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::PrimitiveSet >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Geometry::getPrimitiveSet
+	static int _bind_getPrimitiveSet(lua_State *L) {
+		if (_lg_typecheck_getPrimitiveSet_overload_1(L)) return _bind_getPrimitiveSet_overload_1(L);
+		if (_lg_typecheck_getPrimitiveSet_overload_2(L)) return _bind_getPrimitiveSet_overload_2(L);
+
+		luaL_error(L, "error in function getPrimitiveSet, cannot match any of the overloads for function getPrimitiveSet:\n  getPrimitiveSet(unsigned int)\n  getPrimitiveSet(unsigned int)\n");
+		return 0;
+	}
+
+	// bool osg::Geometry::addPrimitiveSet(osg::PrimitiveSet * primitiveset)
+	static int _bind_addPrimitiveSet(lua_State *L) {
+		if (!_lg_typecheck_addPrimitiveSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::addPrimitiveSet(osg::PrimitiveSet * primitiveset) function, expected prototype:\nbool osg::Geometry::addPrimitiveSet(osg::PrimitiveSet * primitiveset)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::PrimitiveSet* primitiveset=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::addPrimitiveSet(osg::PrimitiveSet *)");
+		}
+		bool lret = self->addPrimitiveSet(primitiveset);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Geometry::setPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset)
+	static int _bind_setPrimitiveSet(lua_State *L) {
+		if (!_lg_typecheck_setPrimitiveSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::setPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset) function, expected prototype:\nbool osg::Geometry::setPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int i=(unsigned int)lua_tointeger(L,2);
+		osg::PrimitiveSet* primitiveset=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,3));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::setPrimitiveSet(unsigned int, osg::PrimitiveSet *)");
+		}
+		bool lret = self->setPrimitiveSet(i, primitiveset);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Geometry::insertPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset)
+	static int _bind_insertPrimitiveSet(lua_State *L) {
+		if (!_lg_typecheck_insertPrimitiveSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::insertPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset) function, expected prototype:\nbool osg::Geometry::insertPrimitiveSet(unsigned int i, osg::PrimitiveSet * primitiveset)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int i=(unsigned int)lua_tointeger(L,2);
+		osg::PrimitiveSet* primitiveset=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,3));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::insertPrimitiveSet(unsigned int, osg::PrimitiveSet *)");
+		}
+		bool lret = self->insertPrimitiveSet(i, primitiveset);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Geometry::removePrimitiveSet(unsigned int i, unsigned int numElementsToRemove = 1)
+	static int _bind_removePrimitiveSet(lua_State *L) {
+		if (!_lg_typecheck_removePrimitiveSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::removePrimitiveSet(unsigned int i, unsigned int numElementsToRemove = 1) function, expected prototype:\nbool osg::Geometry::removePrimitiveSet(unsigned int i, unsigned int numElementsToRemove = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int i=(unsigned int)lua_tointeger(L,2);
+		unsigned int numElementsToRemove=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 1;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::removePrimitiveSet(unsigned int, unsigned int)");
+		}
+		bool lret = self->removePrimitiveSet(i, numElementsToRemove);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// unsigned int osg::Geometry::getPrimitiveSetIndex(const osg::PrimitiveSet * primitiveset) const
+	static int _bind_getPrimitiveSetIndex(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveSetIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Geometry::getPrimitiveSetIndex(const osg::PrimitiveSet * primitiveset) const function, expected prototype:\nunsigned int osg::Geometry::getPrimitiveSetIndex(const osg::PrimitiveSet * primitiveset) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::PrimitiveSet* primitiveset=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::getPrimitiveSetIndex(const osg::PrimitiveSet *) const");
+		}
+		unsigned int lret = self->getPrimitiveSetIndex(primitiveset);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 	// void osg::Geometry::setVertexIndices(osg::IndexArray * array)
 	static int _bind_setVertexIndices(lua_State *L) {
 		if (!_lg_typecheck_setVertexIndices(L)) {
@@ -2485,9 +2873,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setVertexIndices(osg::IndexArray * array) function, expected prototype:\nvoid osg::Geometry::setVertexIndices(osg::IndexArray * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexIndices(osg::IndexArray *)");
@@ -2505,7 +2893,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getVertexIndices()");
@@ -2526,7 +2914,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getVertexIndices() const");
@@ -2555,9 +2943,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setNormalIndices(osg::IndexArray * array) function, expected prototype:\nvoid osg::Geometry::setNormalIndices(osg::IndexArray * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setNormalIndices(osg::IndexArray *)");
@@ -2575,7 +2963,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getNormalIndices()");
@@ -2596,7 +2984,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getNormalIndices() const");
@@ -2625,9 +3013,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setColorIndices(osg::IndexArray * array) function, expected prototype:\nvoid osg::Geometry::setColorIndices(osg::IndexArray * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setColorIndices(osg::IndexArray *)");
@@ -2645,7 +3033,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getColorIndices()");
@@ -2666,7 +3054,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getColorIndices() const");
@@ -2695,9 +3083,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setSecondaryColorIndices(osg::IndexArray * array) function, expected prototype:\nvoid osg::Geometry::setSecondaryColorIndices(osg::IndexArray * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setSecondaryColorIndices(osg::IndexArray *)");
@@ -2715,7 +3103,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getSecondaryColorIndices()");
@@ -2736,7 +3124,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getSecondaryColorIndices() const");
@@ -2765,9 +3153,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setFogCoordIndices(osg::IndexArray * array) function, expected prototype:\nvoid osg::Geometry::setFogCoordIndices(osg::IndexArray * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setFogCoordIndices(osg::IndexArray *)");
@@ -2785,7 +3173,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getFogCoordIndices()");
@@ -2806,7 +3194,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getFogCoordIndices() const");
@@ -2836,9 +3224,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		osg::IndexArray* _arg2=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,3));
+		osg::IndexArray* _arg2=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setTexCoordIndices(unsigned int, osg::IndexArray *)");
@@ -2857,7 +3245,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getTexCoordIndices(unsigned int)");
@@ -2879,7 +3267,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getTexCoordIndices(unsigned int) const");
@@ -2909,9 +3297,9 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::IndexArray* array=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,3));
+		osg::IndexArray* array=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setVertexAttribIndices(unsigned int, osg::IndexArray *)");
@@ -2930,7 +3318,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::IndexArray * osg::Geometry::getVertexAttribIndices(unsigned int)");
@@ -2952,7 +3340,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::IndexArray * osg::Geometry::getVertexAttribIndices(unsigned int) const");
@@ -2983,7 +3371,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setUseVertexBufferObjects(bool)");
@@ -3001,7 +3389,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::dirtyDisplayList()");
@@ -3020,9 +3408,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::State* state=luatop>1 ? dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2)) : (osg::State*)0;
+		osg::State* state=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::releaseGLObjects(osg::State *) const");
@@ -3045,7 +3433,7 @@ public:
 		}
 		osg::Geometry::ArrayList & arrayList=*arrayList_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::getArrayList(osg::Geometry::ArrayList &) const");
@@ -3069,7 +3457,7 @@ public:
 		}
 		osg::Geometry::DrawElementsList & drawElementsList=*drawElementsList_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::getDrawElementsList(osg::Geometry::DrawElementsList &) const");
@@ -3088,7 +3476,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::VertexBufferObject * osg::Geometry::getOrCreateVertexBufferObject()");
@@ -3109,7 +3497,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::ElementBufferObject * osg::Geometry::getOrCreateElementBufferObject()");
@@ -3131,7 +3519,7 @@ public:
 
 		bool on=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setFastPathHint(bool)");
@@ -3149,7 +3537,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::getFastPathHint() const");
@@ -3168,7 +3556,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::areFastPathsUsed() const");
@@ -3187,7 +3575,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::computeFastPathsUsed()");
@@ -3206,7 +3594,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::verifyBindings() const");
@@ -3225,7 +3613,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::computeCorrectBindingsAndArraySizes()");
@@ -3243,7 +3631,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::suitableForOptimization() const");
@@ -3261,13 +3649,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::copyToAndOptimize(osg::Geometry & target) function, expected prototype:\nvoid osg::Geometry::copyToAndOptimize(osg::Geometry & target)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geometry* target_ptr=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geometry* target_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 		if( !target_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg target in osg::Geometry::copyToAndOptimize function");
 		}
 		osg::Geometry & target=*target_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::copyToAndOptimize(osg::Geometry &)");
@@ -3285,7 +3673,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Geometry::containsSharedArrays() const");
@@ -3304,7 +3692,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::duplicateSharedArrays()");
@@ -3322,7 +3710,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::computeInternalOptimizedGeometry()");
@@ -3340,7 +3728,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::removeInternalOptimizedGeometry()");
@@ -3357,9 +3745,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Geometry::setInternalOptimizedGeometry(osg::Geometry * geometry) function, expected prototype:\nvoid osg::Geometry::setInternalOptimizedGeometry(osg::Geometry * geometry)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geometry* geometry=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geometry* geometry=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::setInternalOptimizedGeometry(osg::Geometry *)");
@@ -3377,7 +3765,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry * osg::Geometry::getInternalOptimizedGeometry()");
@@ -3398,7 +3786,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::Geometry::getInternalOptimizedGeometry() const");
@@ -3428,7 +3816,7 @@ public:
 		}
 
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::getGLObjectSizeHint() const");
@@ -3452,7 +3840,7 @@ public:
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::compileGLObjects(osg::RenderInfo &) const");
@@ -3475,12 +3863,496 @@ public:
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
 
-		osg::Geometry* self=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,1));
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Geometry::drawImplementation(osg::RenderInfo &) const");
 		}
 		self->drawImplementation(renderInfo);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Geometry::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setName(const std::string &)");
+		}
+		self->Geometry::setName(name);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Geometry::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setUserData(osg::Referenced *)");
+		}
+		self->Geometry::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::Geometry::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Geometry::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Geometry::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Geometry::base_getUserData()");
+		}
+		osg::Referenced * lret = self->Geometry::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::Geometry::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Geometry::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Geometry::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Geometry::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->Geometry::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Geometry::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// void osg::Geometry::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_computeDataVariance() function, expected prototype:\nvoid osg::Geometry::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_computeDataVariance()");
+		}
+		self->Geometry::computeDataVariance();
+
+		return 0;
+	}
+
+	// osg::BoundingBoxd osg::Geometry::base_computeBound() const
+	static int _bind_base_computeBound(lua_State *L) {
+		if (!_lg_typecheck_base_computeBound(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BoundingBoxd osg::Geometry::base_computeBound() const function, expected prototype:\nosg::BoundingBoxd osg::Geometry::base_computeBound() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::BoundingBoxd osg::Geometry::base_computeBound() const");
+		}
+		osg::BoundingBoxd stack_lret = self->Geometry::computeBound();
+		osg::BoundingBoxd* lret = new osg::BoundingBoxd(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::BoundingBoxd >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void osg::Geometry::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)
+	static int _bind_base_setUpdateCallback(lua_State *L) {
+		if (!_lg_typecheck_base_setUpdateCallback(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac) function, expected prototype:\nvoid osg::Geometry::base_setUpdateCallback(osg::Drawable::UpdateCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Drawable::UpdateCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::UpdateCallback >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setUpdateCallback(osg::Drawable::UpdateCallback *)");
+		}
+		self->Geometry::setUpdateCallback(ac);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_setEventCallback(osg::Drawable::EventCallback * ac)
+	static int _bind_base_setEventCallback(lua_State *L) {
+		if (!_lg_typecheck_base_setEventCallback(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setEventCallback(osg::Drawable::EventCallback * ac) function, expected prototype:\nvoid osg::Geometry::base_setEventCallback(osg::Drawable::EventCallback * ac)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Drawable::EventCallback* ac=(Luna< osg::Referenced >::checkSubType< osg::Drawable::EventCallback >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setEventCallback(osg::Drawable::EventCallback *)");
+		}
+		self->Geometry::setEventCallback(ac);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_setCullCallback(osg::Drawable::CullCallback * cc)
+	static int _bind_base_setCullCallback(lua_State *L) {
+		if (!_lg_typecheck_base_setCullCallback(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setCullCallback(osg::Drawable::CullCallback * cc) function, expected prototype:\nvoid osg::Geometry::base_setCullCallback(osg::Drawable::CullCallback * cc)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Drawable::CullCallback* cc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::CullCallback >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setCullCallback(osg::Drawable::CullCallback *)");
+		}
+		self->Geometry::setCullCallback(cc);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_setDrawCallback(osg::Drawable::DrawCallback * dc)
+	static int _bind_base_setDrawCallback(lua_State *L) {
+		if (!_lg_typecheck_base_setDrawCallback(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setDrawCallback(osg::Drawable::DrawCallback * dc) function, expected prototype:\nvoid osg::Geometry::base_setDrawCallback(osg::Drawable::DrawCallback * dc)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Drawable::DrawCallback* dc=(Luna< osg::Referenced >::checkSubType< osg::Drawable::DrawCallback >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setDrawCallback(osg::Drawable::DrawCallback *)");
+		}
+		self->Geometry::setDrawCallback(dc);
+
+		return 0;
+	}
+
+	// osg::Object * osg::Geometry::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Geometry::base_cloneType() const function, expected prototype:\nosg::Object * osg::Geometry::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geometry::base_cloneType() const");
+		}
+		osg::Object * lret = self->Geometry::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::Geometry::base_clone(const osg::CopyOp & arg1) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Geometry::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Geometry::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Geometry::base_clone function");
+		}
+		const osg::CopyOp & _arg1=*_arg1_ptr;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Geometry::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->Geometry::clone(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::Geometry::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Geometry::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->Geometry::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::Geometry::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Geometry::base_libraryName() const function, expected prototype:\nconst char * osg::Geometry::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Geometry::base_libraryName() const");
+		}
+		const char * lret = self->Geometry::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::Geometry::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Geometry::base_className() const function, expected prototype:\nconst char * osg::Geometry::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Geometry::base_className() const");
+		}
+		const char * lret = self->Geometry::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// osg::Geometry * osg::Geometry::base_asGeometry()
+	static int _bind_base_asGeometry_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asGeometry_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geometry * osg::Geometry::base_asGeometry() function, expected prototype:\nosg::Geometry * osg::Geometry::base_asGeometry()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geometry * osg::Geometry::base_asGeometry()");
+		}
+		osg::Geometry * lret = self->Geometry::asGeometry();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Geometry * osg::Geometry::base_asGeometry() const
+	static int _bind_base_asGeometry_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asGeometry_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Geometry * osg::Geometry::base_asGeometry() const function, expected prototype:\nconst osg::Geometry * osg::Geometry::base_asGeometry() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Geometry * osg::Geometry::base_asGeometry() const");
+		}
+		const osg::Geometry * lret = self->Geometry::asGeometry();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geometry >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Geometry::base_asGeometry
+	static int _bind_base_asGeometry(lua_State *L) {
+		if (_lg_typecheck_base_asGeometry_overload_1(L)) return _bind_base_asGeometry_overload_1(L);
+		if (_lg_typecheck_base_asGeometry_overload_2(L)) return _bind_base_asGeometry_overload_2(L);
+
+		luaL_error(L, "error in function base_asGeometry, cannot match any of the overloads for function base_asGeometry:\n  base_asGeometry()\n  base_asGeometry()\n");
+		return 0;
+	}
+
+	// void osg::Geometry::base_setUseVertexBufferObjects(bool flag)
+	static int _bind_base_setUseVertexBufferObjects(lua_State *L) {
+		if (!_lg_typecheck_base_setUseVertexBufferObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_setUseVertexBufferObjects(bool flag) function, expected prototype:\nvoid osg::Geometry::base_setUseVertexBufferObjects(bool flag)\nClass arguments details:\n");
+		}
+
+		bool flag=(bool)(lua_toboolean(L,2)==1);
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_setUseVertexBufferObjects(bool)");
+		}
+		self->Geometry::setUseVertexBufferObjects(flag);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_dirtyDisplayList()
+	static int _bind_base_dirtyDisplayList(lua_State *L) {
+		if (!_lg_typecheck_base_dirtyDisplayList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_dirtyDisplayList() function, expected prototype:\nvoid osg::Geometry::base_dirtyDisplayList()\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_dirtyDisplayList()");
+		}
+		self->Geometry::dirtyDisplayList();
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_releaseGLObjects(osg::State * state = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Geometry::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* state=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_releaseGLObjects(osg::State *) const");
+		}
+		self->Geometry::releaseGLObjects(state);
+
+		return 0;
+	}
+
+	// unsigned int osg::Geometry::base_getGLObjectSizeHint() const
+	static int _bind_base_getGLObjectSizeHint(lua_State *L) {
+		if (!_lg_typecheck_base_getGLObjectSizeHint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::Geometry::base_getGLObjectSizeHint() const function, expected prototype:\nunsigned int osg::Geometry::base_getGLObjectSizeHint() const\nClass arguments details:\n");
+		}
+
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::Geometry::base_getGLObjectSizeHint() const");
+		}
+		unsigned int lret = self->Geometry::getGLObjectSizeHint();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Geometry::base_compileGLObjects(osg::RenderInfo & renderInfo) const
+	static int _bind_base_compileGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_compileGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_compileGLObjects(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osg::Geometry::base_compileGLObjects(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+		}
+
+		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
+		if( !renderInfo_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg renderInfo in osg::Geometry::base_compileGLObjects function");
+		}
+		osg::RenderInfo & renderInfo=*renderInfo_ptr;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_compileGLObjects(osg::RenderInfo &) const");
+		}
+		self->Geometry::compileGLObjects(renderInfo);
+
+		return 0;
+	}
+
+	// void osg::Geometry::base_drawImplementation(osg::RenderInfo & renderInfo) const
+	static int _bind_base_drawImplementation(lua_State *L) {
+		if (!_lg_typecheck_base_drawImplementation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Geometry::base_drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid osg::Geometry::base_drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\narg 1 ID = 2286263\n");
+		}
+
+		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
+		if( !renderInfo_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg renderInfo in osg::Geometry::base_drawImplementation function");
+		}
+		osg::RenderInfo & renderInfo=*renderInfo_ptr;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Geometry::base_drawImplementation(osg::RenderInfo &) const");
+		}
+		self->Geometry::drawImplementation(renderInfo);
 
 		return 0;
 	}
@@ -3557,6 +4429,13 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"getVertexAttribData", &luna_wrapper_osg_Geometry::_bind_getVertexAttribData},
 	{"getNumVertexAttribArrays", &luna_wrapper_osg_Geometry::_bind_getNumVertexAttribArrays},
 	{"getVertexAttribArrayList", &luna_wrapper_osg_Geometry::_bind_getVertexAttribArrayList},
+	{"getNumPrimitiveSets", &luna_wrapper_osg_Geometry::_bind_getNumPrimitiveSets},
+	{"getPrimitiveSet", &luna_wrapper_osg_Geometry::_bind_getPrimitiveSet},
+	{"addPrimitiveSet", &luna_wrapper_osg_Geometry::_bind_addPrimitiveSet},
+	{"setPrimitiveSet", &luna_wrapper_osg_Geometry::_bind_setPrimitiveSet},
+	{"insertPrimitiveSet", &luna_wrapper_osg_Geometry::_bind_insertPrimitiveSet},
+	{"removePrimitiveSet", &luna_wrapper_osg_Geometry::_bind_removePrimitiveSet},
+	{"getPrimitiveSetIndex", &luna_wrapper_osg_Geometry::_bind_getPrimitiveSetIndex},
 	{"setVertexIndices", &luna_wrapper_osg_Geometry::_bind_setVertexIndices},
 	{"getVertexIndices", &luna_wrapper_osg_Geometry::_bind_getVertexIndices},
 	{"setNormalIndices", &luna_wrapper_osg_Geometry::_bind_setNormalIndices},
@@ -3595,6 +4474,27 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"getGLObjectSizeHint", &luna_wrapper_osg_Geometry::_bind_getGLObjectSizeHint},
 	{"compileGLObjects", &luna_wrapper_osg_Geometry::_bind_compileGLObjects},
 	{"drawImplementation", &luna_wrapper_osg_Geometry::_bind_drawImplementation},
+	{"base_setName", &luna_wrapper_osg_Geometry::_bind_base_setName},
+	{"base_setUserData", &luna_wrapper_osg_Geometry::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_Geometry::_bind_base_getUserData},
+	{"base_computeDataVariance", &luna_wrapper_osg_Geometry::_bind_base_computeDataVariance},
+	{"base_computeBound", &luna_wrapper_osg_Geometry::_bind_base_computeBound},
+	{"base_setUpdateCallback", &luna_wrapper_osg_Geometry::_bind_base_setUpdateCallback},
+	{"base_setEventCallback", &luna_wrapper_osg_Geometry::_bind_base_setEventCallback},
+	{"base_setCullCallback", &luna_wrapper_osg_Geometry::_bind_base_setCullCallback},
+	{"base_setDrawCallback", &luna_wrapper_osg_Geometry::_bind_base_setDrawCallback},
+	{"base_cloneType", &luna_wrapper_osg_Geometry::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_Geometry::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_Geometry::_bind_base_isSameKindAs},
+	{"base_libraryName", &luna_wrapper_osg_Geometry::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osg_Geometry::_bind_base_className},
+	{"base_asGeometry", &luna_wrapper_osg_Geometry::_bind_base_asGeometry},
+	{"base_setUseVertexBufferObjects", &luna_wrapper_osg_Geometry::_bind_base_setUseVertexBufferObjects},
+	{"base_dirtyDisplayList", &luna_wrapper_osg_Geometry::_bind_base_dirtyDisplayList},
+	{"base_releaseGLObjects", &luna_wrapper_osg_Geometry::_bind_base_releaseGLObjects},
+	{"base_getGLObjectSizeHint", &luna_wrapper_osg_Geometry::_bind_base_getGLObjectSizeHint},
+	{"base_compileGLObjects", &luna_wrapper_osg_Geometry::_bind_base_compileGLObjects},
+	{"base_drawImplementation", &luna_wrapper_osg_Geometry::_bind_base_drawImplementation},
 	{"__eq", &luna_wrapper_osg_Geometry::_bind___eq},
 	{0,0}
 };

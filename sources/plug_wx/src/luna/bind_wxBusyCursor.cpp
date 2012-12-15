@@ -78,7 +78,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxCursor* cursor=luatop>0 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,1)) : (const wxCursor*)wxHOURGLASS_CURSOR;
+		const wxCursor* cursor=luatop>0 ? (Luna< wxObject >::checkSubType< wxCursor >(L,1)) : (const wxCursor*)wxHOURGLASS_CURSOR;
 
 		return new wxBusyCursor(cursor);
 	}

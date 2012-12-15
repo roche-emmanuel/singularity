@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ProgramBinary::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ProgramBinary::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ProgramBinary::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ProgramBinary::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ProgramBinary::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ProgramBinary::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Program::ProgramBinary::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Program::ProgramBinary::cloneType();
+		return ProgramBinary::cloneType();
 	};
 
 	// osg::Object * osg::Program::ProgramBinary::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Program::ProgramBinary::clone(arg1);
+		return ProgramBinary::clone(arg1);
 	};
 
 	// bool osg::Program::ProgramBinary::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Program::ProgramBinary::isSameKindAs(obj);
+		return ProgramBinary::isSameKindAs(obj);
 	};
 
 	// const char * osg::Program::ProgramBinary::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Program::ProgramBinary::libraryName();
+		return ProgramBinary::libraryName();
 	};
 
 	// const char * osg::Program::ProgramBinary::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Program::ProgramBinary::className();
+		return ProgramBinary::className();
 	};
 
 

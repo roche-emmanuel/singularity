@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDC* ptr= dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		//wxDC* ptr= dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* ptr= luna_caster< wxObject, wxDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -1059,6 +1060,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -1075,7 +1082,7 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalX(int) const");
@@ -1095,7 +1102,7 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalXRel(int) const");
@@ -1115,7 +1122,7 @@ public:
 
 		int y=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalY(int) const");
@@ -1135,7 +1142,7 @@ public:
 
 		int y=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::DeviceToLogicalYRel(int) const");
@@ -1155,7 +1162,7 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceX(int) const");
@@ -1175,7 +1182,7 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceXRel(int) const");
@@ -1195,7 +1202,7 @@ public:
 
 		int y=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceY(int) const");
@@ -1215,7 +1222,7 @@ public:
 
 		int y=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::LogicalToDeviceYRel(int) const");
@@ -1234,7 +1241,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::Clear()");
@@ -1258,7 +1265,7 @@ public:
 		int xc=(int)lua_tointeger(L,6);
 		int yc=(int)lua_tointeger(L,7);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(int, int, int, int, int, int)");
@@ -1291,7 +1298,7 @@ public:
 		}
 		const wxPoint & centre=*centre_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawArc(const wxPoint &, const wxPoint &, const wxPoint &)");
@@ -1319,7 +1326,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxDC::DrawBitmap function");
 		}
@@ -1328,7 +1335,7 @@ public:
 		int y=(int)lua_tointeger(L,4);
 		bool useMask=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, int, int, bool)");
@@ -1347,7 +1354,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxDC::DrawBitmap function");
 		}
@@ -1359,7 +1366,7 @@ public:
 		const wxPoint & pt=*pt_ptr;
 		bool useMask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawBitmap(const wxBitmap &, const wxPoint &, bool)");
@@ -1390,7 +1397,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(int, int, int, int)");
@@ -1413,7 +1420,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawCheckMark(const wxRect &)");
@@ -1443,7 +1450,7 @@ public:
 		int y=(int)lua_tointeger(L,3);
 		int radius=(int)lua_tointeger(L,4);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(int, int, int)");
@@ -1467,7 +1474,7 @@ public:
 		const wxPoint & pt=*pt_ptr;
 		int radius=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawCircle(const wxPoint &, int)");
@@ -1498,7 +1505,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(int, int, int, int)");
@@ -1526,7 +1533,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxPoint &, const wxSize &)");
@@ -1549,7 +1556,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipse(const wxRect &)");
@@ -1583,7 +1590,7 @@ public:
 		double start=(double)lua_tonumber(L,6);
 		double end=(double)lua_tonumber(L,7);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(int, int, int, int, double, double)");
@@ -1613,7 +1620,7 @@ public:
 		double sa=(double)lua_tonumber(L,4);
 		double ea=(double)lua_tonumber(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawEllipticArc(const wxPoint &, const wxSize &, double, double)");
@@ -1639,7 +1646,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::DrawIcon(const wxIcon & icon, int x, int y) function, expected prototype:\nvoid wxDC::DrawIcon(const wxIcon & icon, int x, int y)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDC::DrawIcon function");
 		}
@@ -1647,7 +1654,7 @@ public:
 		int x=(int)lua_tointeger(L,3);
 		int y=(int)lua_tointeger(L,4);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, int, int)");
@@ -1664,7 +1671,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::DrawIcon(const wxIcon & icon, const wxPoint & pt) function, expected prototype:\nvoid wxDC::DrawIcon(const wxIcon & icon, const wxPoint & pt)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 25723480\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDC::DrawIcon function");
 		}
@@ -1675,7 +1682,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawIcon(const wxIcon &, const wxPoint &)");
@@ -1704,7 +1711,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,3));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxDC::DrawLabel function");
 		}
@@ -1718,7 +1725,7 @@ public:
 		int indexAccel=luatop>5 ? (int)lua_tointeger(L,6) : -1;
 		wxRect* rectBounding=luatop>6 ? (Luna< wxRect >::check(L,7)) : (wxRect*)NULL;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxBitmap &, const wxRect &, int, int, wxRect *)");
@@ -1746,7 +1753,7 @@ public:
 		int alignment=luatop>3 ? (int)lua_tointeger(L,4) : ::wxALIGN_LEFT | ::wxALIGN_TOP;
 		int indexAccel=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawLabel(const wxString &, const wxRect &, int, int)");
@@ -1777,7 +1784,7 @@ public:
 		int x2=(int)lua_tointeger(L,4);
 		int y2=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(int, int, int, int)");
@@ -1805,7 +1812,7 @@ public:
 		}
 		const wxPoint & pt2=*pt2_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawLine(const wxPoint &, const wxPoint &)");
@@ -1837,7 +1844,7 @@ public:
 		int xoffset=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawLines(const wxPointList *, int, int)");
@@ -1857,7 +1864,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(int, int)");
@@ -1880,7 +1887,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawPoint(const wxPoint &)");
@@ -1913,7 +1920,7 @@ public:
 		int yoffset=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		wxPolygonFillMode fill_style=luatop>4 ? (wxPolygonFillMode)lua_tointeger(L,5) : ::wxODDEVEN_RULE;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawPolygon(const wxPointList *, int, int, wxPolygonFillMode)");
@@ -1935,7 +1942,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(int, int, int, int)");
@@ -1963,7 +1970,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxPoint &, const wxSize &)");
@@ -1986,7 +1993,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRectangle(const wxRect &)");
@@ -2018,7 +2025,7 @@ public:
 		int y=(int)lua_tointeger(L,4);
 		double angle=(double)lua_tonumber(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, int, int, double)");
@@ -2043,7 +2050,7 @@ public:
 		const wxPoint & point=*point_ptr;
 		double angle=(double)lua_tonumber(L,4);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRotatedText(const wxString &, const wxPoint &, double)");
@@ -2075,7 +2082,7 @@ public:
 		int height=(int)lua_tointeger(L,5);
 		double radius=(double)lua_tonumber(L,6);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(int, int, int, int, double)");
@@ -2104,7 +2111,7 @@ public:
 		const wxSize & sz=*sz_ptr;
 		double radius=(double)lua_tonumber(L,4);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxPoint &, const wxSize &, double)");
@@ -2128,7 +2135,7 @@ public:
 		const wxRect & rect=*rect_ptr;
 		double radius=(double)lua_tonumber(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawRoundedRectangle(const wxRect &, double)");
@@ -2157,7 +2164,7 @@ public:
 
 		wxPointList points=(wxPointList)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(const wxPointList *)");
@@ -2181,7 +2188,7 @@ public:
 		int x3=(int)lua_tointeger(L,6);
 		int y3=(int)lua_tointeger(L,7);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawSpline(int, int, int, int, int, int)");
@@ -2211,7 +2218,7 @@ public:
 		int x=(int)lua_tointeger(L,3);
 		int y=(int)lua_tointeger(L,4);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, int, int)");
@@ -2235,7 +2242,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DrawText(const wxString &, const wxPoint &)");
@@ -2266,18 +2273,18 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::GradientFillConcentric function");
 		}
 		const wxRect & rect=*rect_ptr;
-		const wxColour* initialColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* initialColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !initialColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg initialColour in wxDC::GradientFillConcentric function");
 		}
 		const wxColour & initialColour=*initialColour_ptr;
-		const wxColour* destColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* destColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !destColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg destColour in wxDC::GradientFillConcentric function");
 		}
 		const wxColour & destColour=*destColour_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &)");
@@ -2299,12 +2306,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::GradientFillConcentric function");
 		}
 		const wxRect & rect=*rect_ptr;
-		const wxColour* initialColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* initialColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !initialColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg initialColour in wxDC::GradientFillConcentric function");
 		}
 		const wxColour & initialColour=*initialColour_ptr;
-		const wxColour* destColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* destColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !destColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg destColour in wxDC::GradientFillConcentric function");
 		}
@@ -2315,7 +2322,7 @@ public:
 		}
 		const wxPoint & circleCenter=*circleCenter_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GradientFillConcentric(const wxRect &, const wxColour &, const wxColour &, const wxPoint &)");
@@ -2348,19 +2355,19 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxDC::GradientFillLinear function");
 		}
 		const wxRect & rect=*rect_ptr;
-		const wxColour* initialColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* initialColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !initialColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg initialColour in wxDC::GradientFillLinear function");
 		}
 		const wxColour & initialColour=*initialColour_ptr;
-		const wxColour* destColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* destColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !destColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg destColour in wxDC::GradientFillLinear function");
 		}
 		const wxColour & destColour=*destColour_ptr;
 		wxDirection nDirection=luatop>4 ? (wxDirection)lua_tointeger(L,5) : ::wxRIGHT;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GradientFillLinear(const wxRect &, const wxColour &, const wxColour &, wxDirection)");
@@ -2381,14 +2388,14 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
 		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(int, int, const wxColour &, wxFloodFillStyle)");
@@ -2413,14 +2420,14 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxDC::FloodFill function");
 		}
 		const wxPoint & pt=*pt_ptr;
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxDC::FloodFill function");
 		}
 		const wxColour & col=*col_ptr;
 		wxFloodFillStyle style=luatop>3 ? (wxFloodFillStyle)lua_tointeger(L,4) : ::wxFLOOD_SURFACE;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::FloodFill(const wxPoint &, const wxColour &, wxFloodFillStyle)");
@@ -2450,7 +2457,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(int, int)");
@@ -2473,7 +2480,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::CrossHair(const wxPoint &)");
@@ -2500,7 +2507,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::DestroyClippingRegion()");
@@ -2522,7 +2529,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetClippingBox(int *, int *, int *, int *) const");
@@ -2544,7 +2551,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(int, int, int, int)");
@@ -2572,7 +2579,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxPoint &, const wxSize &)");
@@ -2595,7 +2602,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetClippingRegion(const wxRect &)");
@@ -2622,13 +2629,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetDeviceClippingRegion(const wxRegion & region) function, expected prototype:\nvoid wxDC::SetDeviceClippingRegion(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxDC::SetDeviceClippingRegion function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceClippingRegion(const wxRegion &)");
@@ -2646,7 +2653,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::GetCharHeight() const");
@@ -2665,7 +2672,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::GetCharWidth() const");
@@ -2684,7 +2691,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFontMetrics wxDC::GetFontMetrics() const");
@@ -2711,9 +2718,9 @@ public:
 		int w=(int)lua_tointeger(L,3);
 		int h=(int)lua_tointeger(L,4);
 		int heightLine=luatop>4 ? (int)lua_tointeger(L,5) : NULL;
-		const wxFont* font=luatop>5 ? dynamic_cast< wxFont* >(Luna< wxObject >::check(L,6)) : (const wxFont*)NULL;
+		const wxFont* font=luatop>5 ? (Luna< wxObject >::checkSubType< wxFont >(L,6)) : (const wxFont*)NULL;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetMultiLineTextExtent(const wxString &, int *, int *, int *, const wxFont *) const");
@@ -2732,7 +2739,7 @@ public:
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxDC::GetMultiLineTextExtent(const wxString &) const");
@@ -2769,7 +2776,7 @@ public:
 		}
 		wxArrayInt & widths=*widths_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::GetPartialTextExtents(const wxString &, wxArrayInt &) const");
@@ -2794,9 +2801,9 @@ public:
 		int h=(int)lua_tointeger(L,4);
 		int descent=luatop>4 ? (int)lua_tointeger(L,5) : NULL;
 		int externalLeading=luatop>5 ? (int)lua_tointeger(L,6) : NULL;
-		const wxFont* font=luatop>6 ? dynamic_cast< wxFont* >(Luna< wxObject >::check(L,7)) : (const wxFont*)NULL;
+		const wxFont* font=luatop>6 ? (Luna< wxObject >::checkSubType< wxFont >(L,7)) : (const wxFont*)NULL;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetTextExtent(const wxString &, int *, int *, int *, int *, const wxFont *) const");
@@ -2815,7 +2822,7 @@ public:
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxDC::GetTextExtent(const wxString &) const");
@@ -2846,7 +2853,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::GetBackgroundMode() const");
@@ -2865,7 +2872,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxFont & wxDC::GetFont() const");
@@ -2886,7 +2893,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxLayoutDirection wxDC::GetLayoutDirection() const");
@@ -2905,7 +2912,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextBackground() const");
@@ -2926,7 +2933,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxColour & wxDC::GetTextForeground() const");
@@ -2948,7 +2955,7 @@ public:
 
 		int mode=(int)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetBackgroundMode(int)");
@@ -2965,13 +2972,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetFont(const wxFont & font) function, expected prototype:\nvoid wxDC::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxDC::SetFont function");
 		}
 		const wxFont & font=*font_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetFont(const wxFont &)");
@@ -2988,13 +2995,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetTextBackground(const wxColour & colour) function, expected prototype:\nvoid wxDC::SetTextBackground(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxDC::SetTextBackground function");
 		}
 		const wxColour & colour=*colour_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetTextBackground(const wxColour &)");
@@ -3011,13 +3018,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetTextForeground(const wxColour & colour) function, expected prototype:\nvoid wxDC::SetTextForeground(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxDC::SetTextForeground function");
 		}
 		const wxColour & colour=*colour_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetTextForeground(const wxColour &)");
@@ -3036,7 +3043,7 @@ public:
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetLayoutDirection(wxLayoutDirection)");
@@ -3056,7 +3063,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::CalcBoundingBox(int, int)");
@@ -3074,7 +3081,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::MaxX() const");
@@ -3093,7 +3100,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::MaxY() const");
@@ -3112,7 +3119,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::MinX() const");
@@ -3131,7 +3138,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::MinY() const");
@@ -3150,7 +3157,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::ResetBoundingBox()");
@@ -3169,7 +3176,7 @@ public:
 
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::StartDoc(const wxString &)");
@@ -3188,7 +3195,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::StartPage()");
@@ -3206,7 +3213,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::EndDoc()");
@@ -3224,7 +3231,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::EndPage()");
@@ -3247,7 +3254,7 @@ public:
 		int ydest=(int)lua_tointeger(L,3);
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
-		wxDC* source=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,6));
+		wxDC* source=(Luna< wxObject >::checkSubType< wxDC >(L,6));
 		int xsrc=(int)lua_tointeger(L,7);
 		int ysrc=(int)lua_tointeger(L,8);
 		wxRasterOperationMode logicalFunc=luatop>8 ? (wxRasterOperationMode)lua_tointeger(L,9) : ::wxCOPY;
@@ -3255,7 +3262,7 @@ public:
 		int xsrcMask=luatop>10 ? (int)lua_tointeger(L,11) : ::wxDefaultCoord;
 		int ysrcMask=luatop>11 ? (int)lua_tointeger(L,12) : ::wxDefaultCoord;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::Blit(int, int, int, int, wxDC *, int, int, wxRasterOperationMode, bool, int, int)");
@@ -3279,7 +3286,7 @@ public:
 		int ydest=(int)lua_tointeger(L,3);
 		int dstWidth=(int)lua_tointeger(L,4);
 		int dstHeight=(int)lua_tointeger(L,5);
-		wxDC* source=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,6));
+		wxDC* source=(Luna< wxObject >::checkSubType< wxDC >(L,6));
 		int xsrc=(int)lua_tointeger(L,7);
 		int ysrc=(int)lua_tointeger(L,8);
 		int srcWidth=(int)lua_tointeger(L,9);
@@ -3289,7 +3296,7 @@ public:
 		int xsrcMask=luatop>12 ? (int)lua_tointeger(L,13) : ::wxDefaultCoord;
 		int ysrcMask=luatop>13 ? (int)lua_tointeger(L,14) : ::wxDefaultCoord;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::StretchBlit(int, int, int, int, wxDC *, int, int, int, int, wxRasterOperationMode, bool, int, int)");
@@ -3308,7 +3315,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBackground() const");
@@ -3329,7 +3336,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxBrush & wxDC::GetBrush() const");
@@ -3350,7 +3357,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPen & wxDC::GetPen() const");
@@ -3370,13 +3377,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetBackground(const wxBrush & brush) function, expected prototype:\nvoid wxDC::SetBackground(const wxBrush & brush)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBrush* brush_ptr=dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,2));
+		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
 		if( !brush_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg brush in wxDC::SetBackground function");
 		}
 		const wxBrush & brush=*brush_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetBackground(const wxBrush &)");
@@ -3393,13 +3400,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetBrush(const wxBrush & brush) function, expected prototype:\nvoid wxDC::SetBrush(const wxBrush & brush)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBrush* brush_ptr=dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,2));
+		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
 		if( !brush_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg brush in wxDC::SetBrush function");
 		}
 		const wxBrush & brush=*brush_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetBrush(const wxBrush &)");
@@ -3416,13 +3423,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetPen(const wxPen & pen) function, expected prototype:\nvoid wxDC::SetPen(const wxPen & pen)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPen* pen_ptr=dynamic_cast< wxPen* >(Luna< wxObject >::check(L,2));
+		const wxPen* pen_ptr=(Luna< wxObject >::checkSubType< wxPen >(L,2));
 		if( !pen_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pen in wxDC::SetPen function");
 		}
 		const wxPen & pen=*pen_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetPen(const wxPen &)");
@@ -3439,13 +3446,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::CopyAttributes(const wxDC & dc) function, expected prototype:\nvoid wxDC::CopyAttributes(const wxDC & dc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		const wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDC::CopyAttributes function");
 		}
 		const wxDC & dc=*dc_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::CopyAttributes(const wxDC &)");
@@ -3463,7 +3470,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDC::GetDepth() const");
@@ -3482,7 +3489,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetDeviceOrigin() const");
@@ -3504,7 +3511,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRasterOperationMode wxDC::GetLogicalFunction() const");
@@ -3523,7 +3530,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMappingMode wxDC::GetMapMode() const");
@@ -3543,9 +3550,9 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
-		wxColour* colour=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		wxColour* colour=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::GetPixel(int, int, wxColour *) const");
@@ -3564,7 +3571,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxDC::GetPPI() const");
@@ -3588,7 +3595,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetSize(int *, int *) const");
@@ -3606,7 +3613,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSize() const");
@@ -3639,7 +3646,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetSizeMM(int *, int *) const");
@@ -3657,7 +3664,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxDC::GetSizeMM() const");
@@ -3690,7 +3697,7 @@ public:
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetUserScale(double *, double *) const");
@@ -3708,7 +3715,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::IsOk() const");
@@ -3729,7 +3736,7 @@ public:
 		bool xLeftRight=(bool)(lua_toboolean(L,2)==1);
 		bool yBottomUp=(bool)(lua_toboolean(L,3)==1);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetAxisOrientation(bool, bool)");
@@ -3749,7 +3756,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetDeviceOrigin(int, int)");
@@ -3768,7 +3775,7 @@ public:
 
 		wxRasterOperationMode function=(wxRasterOperationMode)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalFunction(wxRasterOperationMode)");
@@ -3787,7 +3794,7 @@ public:
 
 		wxMappingMode mode=(wxMappingMode)lua_tointeger(L,2);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetMapMode(wxMappingMode)");
@@ -3804,13 +3811,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDC::SetPalette(const wxPalette & palette) function, expected prototype:\nvoid wxDC::SetPalette(const wxPalette & palette)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPalette* palette_ptr=dynamic_cast< wxPalette* >(Luna< wxObject >::check(L,2));
+		const wxPalette* palette_ptr=(Luna< wxObject >::checkSubType< wxPalette >(L,2));
 		if( !palette_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxDC::SetPalette function");
 		}
 		const wxPalette & palette=*palette_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetPalette(const wxPalette &)");
@@ -3830,7 +3837,7 @@ public:
 		double xScale=(double)lua_tonumber(L,2);
 		double yScale=(double)lua_tonumber(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetUserScale(double, double)");
@@ -3848,7 +3855,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::CanUseTransformMatrix() const");
@@ -3872,7 +3879,7 @@ public:
 		}
 		const wxAffineMatrix2D & matrix=*matrix_ptr;
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDC::SetTransformMatrix(const wxAffineMatrix2D &)");
@@ -3891,7 +3898,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAffineMatrix2D wxDC::GetTransformMatrix() const");
@@ -3913,7 +3920,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::ResetTransformMatrix()");
@@ -3933,7 +3940,7 @@ public:
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalScale(double, double)");
@@ -3953,7 +3960,7 @@ public:
 		double x=(double)lua_tonumber(L,2);
 		double y=(double)lua_tonumber(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalScale(double *, double *) const");
@@ -3973,7 +3980,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::SetLogicalOrigin(int, int)");
@@ -3993,7 +4000,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDC::GetLogicalOrigin(int *, int *) const");
@@ -4011,7 +4018,7 @@ public:
 		}
 
 
-		wxDC* self=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxDC::GetLogicalOrigin() const");
@@ -4032,6 +4039,27 @@ public:
 
 		luaL_error(L, "error in function GetLogicalOrigin, cannot match any of the overloads for function GetLogicalOrigin:\n  GetLogicalOrigin(int *, int *)\n  GetLogicalOrigin()\n");
 		return 0;
+	}
+
+	// wxClassInfo * wxDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDC* self=Luna< wxObject >::checkSubType< wxDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -4148,6 +4176,7 @@ luna_RegType LunaTraits< wxDC >::methods[] = {
 	{"GetLogicalScale", &luna_wrapper_wxDC::_bind_GetLogicalScale},
 	{"SetLogicalOrigin", &luna_wrapper_wxDC::_bind_SetLogicalOrigin},
 	{"GetLogicalOrigin", &luna_wrapper_wxDC::_bind_GetLogicalOrigin},
+	{"base_GetClassInfo", &luna_wrapper_wxDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxDC::_bind___eq},
 	{0,0}
 };

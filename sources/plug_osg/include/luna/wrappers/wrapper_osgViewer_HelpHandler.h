@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return HelpHandler::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return HelpHandler::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return HelpHandler::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return HelpHandler::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return HelpHandler::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return HelpHandler::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::cloneType();
+		return HelpHandler::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::clone(arg1);
+		return HelpHandler::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return HelpHandler::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return HelpHandler::libraryName();
 	};
 
 	// const char * osgGA::GUIEventHandler::className() const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::className();
+		return HelpHandler::className();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return HelpHandler::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return HelpHandler::operator()(node, nv);
 	};
 
 	// bool osgViewer::HelpHandler::handle(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::HelpHandler::handle(arg1, arg2);
+		return HelpHandler::handle(arg1, arg2);
 	};
 
 	// void osgViewer::HelpHandler::getUsage(osg::ApplicationUsage & usage) const
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::HelpHandler::getUsage(usage);
+		return HelpHandler::getUsage(usage);
 	};
 
 

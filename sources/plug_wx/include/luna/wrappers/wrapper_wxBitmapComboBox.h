@@ -474,15 +474,6 @@ public:
 		return wxBitmapComboBox::GetDefaultAttributes();
 	};
 
-	// bool wxWindow::HasTransparentBackground()
-	bool HasTransparentBackground() {
-		if(_obj.pushFunction("HasTransparentBackground")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxBitmapComboBox::HasTransparentBackground();
-	};
-
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	void Refresh(bool eraseBackground = true, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("Refresh")) {
@@ -503,16 +494,6 @@ public:
 		return wxBitmapComboBox::Update();
 	};
 
-	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
-	bool SetBackgroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetBackgroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxBitmapComboBox::SetBackgroundColour(colour);
-	};
-
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
 	bool SetBackgroundStyle(wxBackgroundStyle style) {
 		if(_obj.pushFunction("SetBackgroundStyle")) {
@@ -531,16 +512,6 @@ public:
 		}
 
 		return wxBitmapComboBox::SetFont(font);
-	};
-
-	// bool wxWindow::SetForegroundColour(const wxColour & colour)
-	bool SetForegroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetForegroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxBitmapComboBox::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileSystemWatcherEvent* ptr= dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		//wxFileSystemWatcherEvent* ptr= dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* ptr= luna_caster< wxObject, wxFileSystemWatcherEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -78,6 +79,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -91,7 +104,7 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetPath() const");
@@ -112,7 +125,7 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxFileName & wxFileSystemWatcherEvent::GetNewPath() const");
@@ -133,7 +146,7 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxFileSystemWatcherEvent::GetChangeType() const");
@@ -152,7 +165,7 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcherEvent::IsError() const");
@@ -171,7 +184,7 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::GetErrorDescription() const");
@@ -190,13 +203,53 @@ public:
 		}
 
 
-		wxFileSystemWatcherEvent* self=dynamic_cast< wxFileSystemWatcherEvent* >(Luna< wxObject >::check(L,1));
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileSystemWatcherEvent::ToString() const");
 		}
 		wxString lret = self->ToString();
 		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemWatcherEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileSystemWatcherEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxFileSystemWatcherEvent* self=Luna< wxObject >::checkSubType< wxFileSystemWatcherEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFileSystemWatcherEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxFileSystemWatcherEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -230,6 +283,8 @@ luna_RegType LunaTraits< wxFileSystemWatcherEvent >::methods[] = {
 	{"IsError", &luna_wrapper_wxFileSystemWatcherEvent::_bind_IsError},
 	{"GetErrorDescription", &luna_wrapper_wxFileSystemWatcherEvent::_bind_GetErrorDescription},
 	{"ToString", &luna_wrapper_wxFileSystemWatcherEvent::_bind_ToString},
+	{"base_GetClassInfo", &luna_wrapper_wxFileSystemWatcherEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxFileSystemWatcherEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxFileSystemWatcherEvent::_bind___eq},
 	{0,0}
 };

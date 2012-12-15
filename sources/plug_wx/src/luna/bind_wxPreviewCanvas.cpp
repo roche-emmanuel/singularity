@@ -77,7 +77,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPreviewCanvas::OnPaint(wxPaintEvent & event) function, expected prototype:\nvoid wxPreviewCanvas::OnPaint(wxPaintEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPaintEvent* event_ptr=dynamic_cast< wxPaintEvent* >(Luna< wxObject >::check(L,2));
+		wxPaintEvent* event_ptr=(Luna< wxObject >::checkSubType< wxPaintEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPreviewCanvas::OnPaint function");
 		}

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxContextHelp* ptr= dynamic_cast< wxContextHelp* >(Luna< wxObject >::check(L,1));
+		//wxContextHelp* ptr= dynamic_cast< wxContextHelp* >(Luna< wxObject >::check(L,1));
+		wxContextHelp* ptr= luna_caster< wxObject, wxContextHelp >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -78,6 +79,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -92,7 +99,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=luatop>0 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) : (wxWindow*)NULL;
+		wxWindow* window=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
 		bool doNow=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
 		return new wxContextHelp(window, doNow);
@@ -107,7 +114,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		wxWindow* window=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 		bool doNow=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
 		return new wrapper_wxContextHelp(L,NULL, window, doNow);
@@ -131,9 +138,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxContextHelp::BeginContextHelp(wxWindow * window) function, expected prototype:\nbool wxContextHelp::BeginContextHelp(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxContextHelp* self=dynamic_cast< wxContextHelp* >(Luna< wxObject >::check(L,1));
+		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxContextHelp::BeginContextHelp(wxWindow *)");
@@ -152,13 +159,34 @@ public:
 		}
 
 
-		wxContextHelp* self=dynamic_cast< wxContextHelp* >(Luna< wxObject >::check(L,1));
+		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxContextHelp::EndContextHelp()");
 		}
 		bool lret = self->EndContextHelp();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxContextHelp::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxContextHelp::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxContextHelp::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxContextHelp* self=Luna< wxObject >::checkSubType< wxContextHelp >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxContextHelp::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxContextHelp::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -186,6 +214,7 @@ const int LunaTraits< wxContextHelp >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxContextHelp >::methods[] = {
 	{"BeginContextHelp", &luna_wrapper_wxContextHelp::_bind_BeginContextHelp},
 	{"EndContextHelp", &luna_wrapper_wxContextHelp::_bind_EndContextHelp},
+	{"base_GetClassInfo", &luna_wrapper_wxContextHelp::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxContextHelp::_bind___eq},
 	{0,0}
 };

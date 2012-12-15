@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxArtProvider* ptr= dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		//wxArtProvider* ptr= dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* ptr= luna_caster< wxObject, wxArtProvider >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -136,6 +137,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -150,7 +157,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Delete(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Delete(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxArtProvider* provider=dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
 
 		bool lret = wxArtProvider::Delete(provider);
 		lua_pushboolean(L,lret?1:0);
@@ -291,7 +298,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Insert(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Insert(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxArtProvider* provider=dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
 
 		wxArtProvider::Insert(provider);
 
@@ -319,7 +326,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Push(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Push(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxArtProvider* provider=dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
 
 		wxArtProvider::Push(provider);
 
@@ -333,7 +340,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxArtProvider::PushBack(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::PushBack(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxArtProvider* provider=dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
 
 		wxArtProvider::PushBack(provider);
 
@@ -347,10 +354,31 @@ public:
 			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Remove(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Remove(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxArtProvider* provider=dynamic_cast< wxArtProvider* >(Luna< wxObject >::check(L,1));
+		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
 
 		bool lret = wxArtProvider::Remove(provider);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxArtProvider::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxArtProvider::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxArtProvider::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxArtProvider* self=Luna< wxObject >::checkSubType< wxArtProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxArtProvider::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxArtProvider::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -388,6 +416,7 @@ luna_RegType LunaTraits< wxArtProvider >::methods[] = {
 	{"Push", &luna_wrapper_wxArtProvider::_bind_Push},
 	{"PushBack", &luna_wrapper_wxArtProvider::_bind_PushBack},
 	{"Remove", &luna_wrapper_wxArtProvider::_bind_Remove},
+	{"base_GetClassInfo", &luna_wrapper_wxArtProvider::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxArtProvider::_bind___eq},
 	{0,0}
 };

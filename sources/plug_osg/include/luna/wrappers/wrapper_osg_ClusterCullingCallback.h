@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ClusterCullingCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ClusterCullingCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ClusterCullingCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ClusterCullingCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ClusterCullingCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ClusterCullingCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ClusterCullingCallback::cloneType() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ClusterCullingCallback::cloneType();
+		return ClusterCullingCallback::cloneType();
 	};
 
 	// osg::Object * osg::ClusterCullingCallback::clone(const osg::CopyOp & arg1) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ClusterCullingCallback::clone(arg1);
+		return ClusterCullingCallback::clone(arg1);
 	};
 
 	// bool osg::ClusterCullingCallback::isSameKindAs(const osg::Object * obj) const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ClusterCullingCallback::isSameKindAs(obj);
+		return ClusterCullingCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::ClusterCullingCallback::libraryName() const
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ClusterCullingCallback::libraryName();
+		return ClusterCullingCallback::libraryName();
 	};
 
 	// const char * osg::ClusterCullingCallback::className() const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ClusterCullingCallback::className();
+		return ClusterCullingCallback::className();
 	};
 
 	// bool osg::ClusterCullingCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const
@@ -133,7 +133,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ClusterCullingCallback::cull(arg1, arg2, arg3);
+		return ClusterCullingCallback::cull(arg1, arg2, arg3);
 	};
 
 	// void osg::ClusterCullingCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ClusterCullingCallback::operator()(node, nv);
+		return ClusterCullingCallback::operator()(node, nv);
 	};
 
 

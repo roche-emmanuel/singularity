@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Camera::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Camera::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Camera::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Camera::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Camera::getUserData();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Camera::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Camera::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Camera::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Camera::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return Camera::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return Camera::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return Camera::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return Camera::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return Camera::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return Camera::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return Camera::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return Camera::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -190,7 +190,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return Camera::setChild(i, node);
 	};
 
 	// osg::Transform * osg::Transform::asTransform()
@@ -199,7 +199,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return Camera::asTransform();
 	};
 
 	// const osg::Transform * osg::Transform::asTransform() const
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return Camera::asTransform();
 	};
 
 	// osg::MatrixTransform * osg::Transform::asMatrixTransform()
@@ -217,7 +217,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return Camera::asMatrixTransform();
 	};
 
 	// const osg::MatrixTransform * osg::Transform::asMatrixTransform() const
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return Camera::asMatrixTransform();
 	};
 
 	// osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform()
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return Camera::asPositionAttitudeTransform();
 	};
 
 	// const osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform() const
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return Camera::asPositionAttitudeTransform();
 	};
 
 	// osg::BoundingSphered osg::Transform::computeBound() const
@@ -253,7 +253,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Transform::computeBound();
+		return Camera::computeBound();
 	};
 
 	// void osg::CullSettings::setDefaults()
@@ -262,7 +262,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::setDefaults();
+		return Camera::setDefaults();
 	};
 
 	// osg::Object * osg::Camera::cloneType() const
@@ -271,7 +271,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Camera::cloneType();
+		return Camera::cloneType();
 	};
 
 	// osg::Object * osg::Camera::clone(const osg::CopyOp & copyop) const
@@ -281,7 +281,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Camera::clone(copyop);
+		return Camera::clone(copyop);
 	};
 
 	// bool osg::Camera::isSameKindAs(const osg::Object * obj) const
@@ -291,7 +291,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Camera::isSameKindAs(obj);
+		return Camera::isSameKindAs(obj);
 	};
 
 	// const char * osg::Camera::className() const
@@ -300,7 +300,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Camera::className();
+		return Camera::className();
 	};
 
 	// const char * osg::Camera::libraryName() const
@@ -309,7 +309,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Camera::libraryName();
+		return Camera::libraryName();
 	};
 
 	// void osg::Camera::accept(osg::NodeVisitor & nv)
@@ -319,7 +319,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Camera::accept(nv);
+		return Camera::accept(nv);
 	};
 
 	// void osg::Camera::releaseGLObjects(osg::State * arg1 = 0) const
@@ -329,7 +329,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Camera::releaseGLObjects(arg1);
+		return Camera::releaseGLObjects(arg1);
 	};
 
 	// bool osg::Camera::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * arg2) const
@@ -340,7 +340,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Camera::computeLocalToWorldMatrix(matrix, arg2);
+		return Camera::computeLocalToWorldMatrix(matrix, arg2);
 	};
 
 	// bool osg::Camera::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * arg2) const
@@ -351,7 +351,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Camera::computeWorldToLocalMatrix(matrix, arg2);
+		return Camera::computeWorldToLocalMatrix(matrix, arg2);
 	};
 
 	// void osg::Camera::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
@@ -362,13 +362,32 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Camera::inheritCullSettings(settings, inheritanceMask);
+		return Camera::inheritCullSettings(settings, inheritanceMask);
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return Camera::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return Camera::childInserted(arg1);
+	};
+
 
 };
 

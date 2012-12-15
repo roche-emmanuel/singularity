@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Interpolator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Interpolator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Interpolator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Interpolator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Interpolator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Interpolator::releaseGLObjects(arg1);
 	};
 
 	// const char * osgParticle::Interpolator::libraryName() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Interpolator::libraryName();
+		return Interpolator::libraryName();
 	};
 
 	// const char * osgParticle::Interpolator::className() const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Interpolator::className();
+		return Interpolator::className();
 	};
 
 	// bool osgParticle::Interpolator::isSameKindAs(const osg::Object * obj) const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::Interpolator::isSameKindAs(obj);
+		return Interpolator::isSameKindAs(obj);
 	};
 
 	// float osgParticle::Interpolator::interpolate(float t, float y1, float y2) const
@@ -134,7 +134,7 @@ public:
 			return *(_obj.callFunction<osg::Vec2f*>());
 		}
 
-		return osgParticle::Interpolator::interpolate(t, y1, y2);
+		return Interpolator::interpolate(t, y1, y2);
 	};
 
 	// osg::Vec3f osgParticle::Interpolator::interpolate(float t, const osg::Vec3f & y1, const osg::Vec3f & y2) const
@@ -146,7 +146,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgParticle::Interpolator::interpolate(t, y1, y2);
+		return Interpolator::interpolate(t, y1, y2);
 	};
 
 	// osg::Vec4f osgParticle::Interpolator::interpolate(float t, const osg::Vec4f & y1, const osg::Vec4f & y2) const
@@ -158,7 +158,7 @@ public:
 			return *(_obj.callFunction<osg::Vec4f*>());
 		}
 
-		return osgParticle::Interpolator::interpolate(t, y1, y2);
+		return Interpolator::interpolate(t, y1, y2);
 	};
 
 

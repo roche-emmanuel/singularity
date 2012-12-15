@@ -426,15 +426,6 @@ public:
 		return wxProgressDialog::GetDefaultAttributes();
 	};
 
-	// bool wxWindow::HasTransparentBackground()
-	bool HasTransparentBackground() {
-		if(_obj.pushFunction("HasTransparentBackground")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxProgressDialog::HasTransparentBackground();
-	};
-
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	void Refresh(bool eraseBackground = true, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("Refresh")) {
@@ -444,16 +435,6 @@ public:
 		}
 
 		return wxProgressDialog::Refresh(eraseBackground, rect);
-	};
-
-	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
-	bool SetBackgroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetBackgroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxProgressDialog::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -474,16 +455,6 @@ public:
 		}
 
 		return wxProgressDialog::SetFont(font);
-	};
-
-	// bool wxWindow::SetForegroundColour(const wxColour & colour)
-	bool SetForegroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetForegroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxProgressDialog::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMask* ptr= dynamic_cast< wxMask* >(Luna< wxObject >::check(L,1));
+		//wxMask* ptr= dynamic_cast< wxMask* >(Luna< wxObject >::check(L,1));
+		wxMask* ptr= luna_caster< wxObject, wxMask >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -141,6 +142,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -164,7 +171,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
@@ -181,7 +188,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
@@ -197,12 +204,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxMask::wxMask function");
 		}
@@ -229,7 +236,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, int index)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
@@ -246,7 +253,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
@@ -262,12 +269,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nwxMask::wxMask(lua_Table * data, const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::wxMask function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxMask::wxMask function");
 		}
@@ -300,14 +307,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, int index) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, int index)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::Create function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 		int index=(int)lua_tointeger(L,3);
 
-		wxMask* self=dynamic_cast< wxMask* >(Luna< wxObject >::check(L,1));
+		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, int)");
@@ -325,13 +332,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::Create function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 
-		wxMask* self=dynamic_cast< wxMask* >(Luna< wxObject >::check(L,1));
+		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &)");
@@ -349,18 +356,18 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour) function, expected prototype:\nbool wxMask::Create(const wxBitmap & bitmap, const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMask::Create function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxMask::Create function");
 		}
 		const wxColour & colour=*colour_ptr;
 
-		wxMask* self=dynamic_cast< wxMask* >(Luna< wxObject >::check(L,1));
+		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMask::Create(const wxBitmap &, const wxColour &)");
@@ -379,6 +386,27 @@ public:
 
 		luaL_error(L, "error in function Create, cannot match any of the overloads for function Create:\n  Create(const wxBitmap &, int)\n  Create(const wxBitmap &)\n  Create(const wxBitmap &, const wxColour &)\n");
 		return 0;
+	}
+
+	// wxClassInfo * wxMask::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMask::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMask::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMask* self=Luna< wxObject >::checkSubType< wxMask >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMask::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMask::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -403,6 +431,7 @@ const int LunaTraits< wxMask >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxMask >::methods[] = {
 	{"Create", &luna_wrapper_wxMask::_bind_Create},
+	{"base_GetClassInfo", &luna_wrapper_wxMask::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxMask::_bind___eq},
 	{0,0}
 };

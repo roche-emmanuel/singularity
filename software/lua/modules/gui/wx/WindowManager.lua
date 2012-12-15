@@ -4,6 +4,8 @@ local wx = require "wx"
 
 local Set = require "std.Set"
 
+local Scheduler = require "gui.wx.Scheduler" -- ensure the scheduler gets initialized.
+
 -- Main class to manager all the windows/interfaces.
 function Class:initialize(options)
 	self._interfaces = Set();

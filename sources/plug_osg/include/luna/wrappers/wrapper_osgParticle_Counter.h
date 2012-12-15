@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Counter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Counter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Counter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Counter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Counter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Counter::releaseGLObjects(arg1);
 	};
 
 	// const char * osgParticle::Counter::libraryName() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Counter::libraryName();
+		return Counter::libraryName();
 	};
 
 	// const char * osgParticle::Counter::className() const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Counter::className();
+		return Counter::className();
 	};
 
 	// bool osgParticle::Counter::isSameKindAs(const osg::Object * obj) const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::Counter::isSameKindAs(obj);
+		return Counter::isSameKindAs(obj);
 	};
 
 	// int osgParticle::Counter::numParticlesToCreate(double dt) const

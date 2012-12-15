@@ -122,6 +122,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetParam(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetParamCount(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -325,6 +341,48 @@ public:
 		return 1;
 	}
 
+	// bool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
+	static int _bind_base_GetParam(lua_State *L) {
+		if (!_lg_typecheck_base_GetParam(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const function, expected prototype:\nbool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+		}
+
+		size_t n=(size_t)lua_tointeger(L,2);
+		wxString type(lua_tostring(L,3),lua_objlen(L,3));
+		wxString name(lua_tostring(L,4),lua_objlen(L,4));
+		wxString value(lua_tostring(L,5),lua_objlen(L,5));
+
+		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::base_GetParam(size_t, wxString *, wxString *, wxString *) const");
+		}
+		bool lret = self->wxStackFrame::GetParam(n, &type, &name, &value);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxStackFrame::base_GetParamCount() const
+	static int _bind_base_GetParamCount(lua_State *L) {
+		if (!_lg_typecheck_base_GetParamCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::base_GetParamCount() const function, expected prototype:\nsize_t wxStackFrame::base_GetParamCount() const\nClass arguments details:\n");
+		}
+
+
+		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::base_GetParamCount() const");
+		}
+		size_t lret = self->wxStackFrame::GetParamCount();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -356,6 +414,8 @@ luna_RegType LunaTraits< wxStackFrame >::methods[] = {
 	{"GetParam", &luna_wrapper_wxStackFrame::_bind_GetParam},
 	{"GetParamCount", &luna_wrapper_wxStackFrame::_bind_GetParamCount},
 	{"HasSourceLocation", &luna_wrapper_wxStackFrame::_bind_HasSourceLocation},
+	{"base_GetParam", &luna_wrapper_wxStackFrame::_bind_base_GetParam},
+	{"base_GetParamCount", &luna_wrapper_wxStackFrame::_bind_base_GetParamCount},
 	{"dynCast", &luna_wrapper_wxStackFrame::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxStackFrame::_bind___eq},
 	{0,0}

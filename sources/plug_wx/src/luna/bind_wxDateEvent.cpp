@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDateEvent* ptr= dynamic_cast< wxDateEvent* >(Luna< wxObject >::check(L,1));
+		//wxDateEvent* ptr= dynamic_cast< wxDateEvent* >(Luna< wxObject >::check(L,1));
+		wxDateEvent* ptr= luna_caster< wxObject, wxDateEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -68,7 +81,7 @@ public:
 		}
 
 
-		wxDateEvent* self=dynamic_cast< wxDateEvent* >(Luna< wxObject >::check(L,1));
+		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxDateTime & wxDateEvent::GetDate() const");
@@ -94,7 +107,7 @@ public:
 		}
 		const wxDateTime & date=*date_ptr;
 
-		wxDateEvent* self=dynamic_cast< wxDateEvent* >(Luna< wxObject >::check(L,1));
+		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDateEvent::SetDate(const wxDateTime &)");
@@ -102,6 +115,46 @@ public:
 		self->SetDate(date);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxDateEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDateEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDateEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDateEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDateEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxDateEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxDateEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDateEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxDateEvent* self=Luna< wxObject >::checkSubType< wxDateEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDateEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxDateEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -129,6 +182,8 @@ const int LunaTraits< wxDateEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxDateEvent >::methods[] = {
 	{"GetDate", &luna_wrapper_wxDateEvent::_bind_GetDate},
 	{"SetDate", &luna_wrapper_wxDateEvent::_bind_SetDate},
+	{"base_GetClassInfo", &luna_wrapper_wxDateEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxDateEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxDateEvent::_bind___eq},
 	{0,0}
 };

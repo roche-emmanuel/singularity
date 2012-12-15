@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ScreenCaptureHandler::WriteToFile::operator()(image, context_id);
+		return WriteToFile::operator()(image, context_id);
 	};
 
 

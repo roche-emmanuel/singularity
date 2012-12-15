@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return StatsVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return StatsVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return StatsVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return StatsVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return StatsVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::StatsVisitor::libraryName() const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::StatsVisitor::libraryName();
+		return StatsVisitor::libraryName();
 	};
 
 	// const char * osgUtil::StatsVisitor::className() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::StatsVisitor::className();
+		return StatsVisitor::className();
 	};
 
 	// void osgUtil::StatsVisitor::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::reset();
+		return StatsVisitor::reset();
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::Group & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::Transform & node)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::LOD & node)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::Switch & node)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 	// void osgUtil::StatsVisitor::apply(osg::Geode & node)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StatsVisitor::apply(node);
+		return StatsVisitor::apply(node);
 	};
 
 

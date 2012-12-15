@@ -239,7 +239,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -521,7 +521,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property) function, expected prototype:\nwxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {

@@ -123,7 +123,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter function");
 		}

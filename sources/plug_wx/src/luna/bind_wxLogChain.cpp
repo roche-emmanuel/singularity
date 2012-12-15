@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxLog(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxLogChain* ptr= dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		//wxLogChain* ptr= dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* ptr= luna_caster< wxLog, wxLogChain >::cast(Luna< wxLog >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -93,6 +94,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -141,7 +148,7 @@ public:
 		}
 
 
-		wxLogChain* self=dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxLogChain::DetachOldLog()");
@@ -159,7 +166,7 @@ public:
 		}
 
 
-		wxLogChain* self=dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxLog * wxLogChain::GetOldLog() const");
@@ -180,7 +187,7 @@ public:
 		}
 
 
-		wxLogChain* self=dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLogChain::IsPassingMessages() const");
@@ -200,7 +207,7 @@ public:
 
 		bool passMessages=(bool)(lua_toboolean(L,2)==1);
 
-		wxLogChain* self=dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxLogChain::PassMessages(bool)");
@@ -219,12 +226,30 @@ public:
 
 		wxLog* logger=(Luna< wxLog >::check(L,2));
 
-		wxLogChain* self=dynamic_cast< wxLogChain* >(Luna< wxLog >::check(L,1));
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxLogChain::SetLog(wxLog *)");
 		}
 		self->SetLog(logger);
+
+		return 0;
+	}
+
+	// void wxLogChain::base_Flush()
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLogChain::base_Flush() function, expected prototype:\nvoid wxLogChain::base_Flush()\nClass arguments details:\n");
+		}
+
+
+		wxLogChain* self=Luna< wxLog >::checkSubType< wxLogChain >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLogChain::base_Flush()");
+		}
+		self->wxLogChain::Flush();
 
 		return 0;
 	}
@@ -255,6 +280,7 @@ luna_RegType LunaTraits< wxLogChain >::methods[] = {
 	{"IsPassingMessages", &luna_wrapper_wxLogChain::_bind_IsPassingMessages},
 	{"PassMessages", &luna_wrapper_wxLogChain::_bind_PassMessages},
 	{"SetLog", &luna_wrapper_wxLogChain::_bind_SetLog},
+	{"base_Flush", &luna_wrapper_wxLogChain::_bind_base_Flush},
 	{"__eq", &luna_wrapper_wxLogChain::_bind___eq},
 	{0,0}
 };

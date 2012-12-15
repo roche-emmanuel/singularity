@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CompositeShape::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CompositeShape::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CompositeShape::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CompositeShape::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CompositeShape::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return CompositeShape::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::CompositeShape::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CompositeShape::cloneType();
+		return CompositeShape::cloneType();
 	};
 
 	// osg::Object * osg::CompositeShape::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CompositeShape::clone(arg1);
+		return CompositeShape::clone(arg1);
 	};
 
 	// bool osg::CompositeShape::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CompositeShape::isSameKindAs(obj);
+		return CompositeShape::isSameKindAs(obj);
 	};
 
 	// const char * osg::CompositeShape::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CompositeShape::libraryName();
+		return CompositeShape::libraryName();
 	};
 
 	// const char * osg::CompositeShape::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CompositeShape::className();
+		return CompositeShape::className();
 	};
 
 	// void osg::CompositeShape::accept(osg::ShapeVisitor & arg1)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CompositeShape::accept(arg1);
+		return CompositeShape::accept(arg1);
 	};
 
 	// void osg::CompositeShape::accept(osg::ConstShapeVisitor & arg1) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CompositeShape::accept(arg1);
+		return CompositeShape::accept(arg1);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTaskBarIcon* ptr= dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		//wxTaskBarIcon* ptr= dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* ptr= luna_caster< wxObject, wxTaskBarIcon >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -103,6 +104,69 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_PopupMenu(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RemoveIcon(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetIcon(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -149,7 +213,7 @@ public:
 		}
 
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::Destroy()");
@@ -167,7 +231,7 @@ public:
 		}
 
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsIconInstalled() const");
@@ -186,7 +250,7 @@ public:
 		}
 
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsOk() const");
@@ -204,9 +268,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::PopupMenu(wxMenu *)");
@@ -225,7 +289,7 @@ public:
 		}
 
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::RemoveIcon()");
@@ -245,14 +309,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxTaskBarIcon::SetIcon function");
 		}
 		const wxIcon & icon=*icon_ptr;
 		wxString tooltip(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxTaskBarIcon* self=dynamic_cast< wxTaskBarIcon* >(Luna< wxObject >::check(L,1));
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::SetIcon(const wxIcon &, const wxString &)");
@@ -272,6 +336,197 @@ public:
 
 
 		bool lret = wxTaskBarIcon::IsAvailable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTaskBarIcon::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxTaskBarIcon::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxTaskBarIcon::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxTaskBarIcon::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_QueueEvent(wxEvent *)");
+		}
+		self->wxTaskBarIcon::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxTaskBarIcon::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxTaskBarIcon::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxTaskBarIcon::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxTaskBarIcon::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxTaskBarIcon::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxTaskBarIcon::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxTaskBarIcon::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxTaskBarIcon::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// bool wxTaskBarIcon::base_PopupMenu(wxMenu * menu)
+	static int _bind_base_PopupMenu(lua_State *L) {
+		if (!_lg_typecheck_base_PopupMenu(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::base_PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_PopupMenu(wxMenu *)");
+		}
+		bool lret = self->wxTaskBarIcon::PopupMenu(menu);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxTaskBarIcon::base_RemoveIcon()
+	static int _bind_base_RemoveIcon(lua_State *L) {
+		if (!_lg_typecheck_base_RemoveIcon(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_RemoveIcon() function, expected prototype:\nbool wxTaskBarIcon::base_RemoveIcon()\nClass arguments details:\n");
+		}
+
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_RemoveIcon()");
+		}
+		bool lret = self->wxTaskBarIcon::RemoveIcon();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)
+	static int _bind_base_SetIcon(lua_State *L) {
+		if (!_lg_typecheck_base_SetIcon(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString) function, expected prototype:\nbool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
+		if( !icon_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxTaskBarIcon::base_SetIcon function");
+		}
+		const wxIcon & icon=*icon_ptr;
+		wxString tooltip(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_SetIcon(const wxIcon &, const wxString &)");
+		}
+		bool lret = self->wxTaskBarIcon::SetIcon(icon, tooltip);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -305,6 +560,15 @@ luna_RegType LunaTraits< wxTaskBarIcon >::methods[] = {
 	{"RemoveIcon", &luna_wrapper_wxTaskBarIcon::_bind_RemoveIcon},
 	{"SetIcon", &luna_wrapper_wxTaskBarIcon::_bind_SetIcon},
 	{"IsAvailable", &luna_wrapper_wxTaskBarIcon::_bind_IsAvailable},
+	{"base_GetClassInfo", &luna_wrapper_wxTaskBarIcon::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxTaskBarIcon::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxTaskBarIcon::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxTaskBarIcon::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxTaskBarIcon::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxTaskBarIcon::_bind_base_SetPreviousHandler},
+	{"base_PopupMenu", &luna_wrapper_wxTaskBarIcon::_bind_base_PopupMenu},
+	{"base_RemoveIcon", &luna_wrapper_wxTaskBarIcon::_bind_base_RemoveIcon},
+	{"base_SetIcon", &luna_wrapper_wxTaskBarIcon::_bind_base_SetIcon},
 	{"__eq", &luna_wrapper_wxTaskBarIcon::_bind___eq},
 	{0,0}
 };

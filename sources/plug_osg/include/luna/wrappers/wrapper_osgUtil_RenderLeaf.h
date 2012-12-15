@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderLeaf::render(renderInfo, previous);
+		return RenderLeaf::render(renderInfo, previous);
 	};
 
 

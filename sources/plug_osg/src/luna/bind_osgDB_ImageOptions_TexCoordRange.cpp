@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::ImageOptions::TexCoordRange* ptr= dynamic_cast< osgDB::ImageOptions::TexCoordRange* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::ImageOptions::TexCoordRange* ptr= dynamic_cast< osgDB::ImageOptions::TexCoordRange* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ImageOptions::TexCoordRange* ptr= luna_caster< osg::Referenced, osgDB::ImageOptions::TexCoordRange >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -117,7 +118,7 @@ public:
 		double w=(double)lua_tonumber(L,4);
 		double h=(double)lua_tonumber(L,5);
 
-		osgDB::ImageOptions::TexCoordRange* self=dynamic_cast< osgDB::ImageOptions::TexCoordRange* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ImageOptions::TexCoordRange* self=Luna< osg::Referenced >::checkSubType< osgDB::ImageOptions::TexCoordRange >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::ImageOptions::TexCoordRange::set(double, double, double, double)");

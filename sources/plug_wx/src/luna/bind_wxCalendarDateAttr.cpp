@@ -217,22 +217,22 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colText_ptr=luatop>0 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1)) : NULL;
+		const wxColour* colText_ptr=luatop>0 ? (Luna< wxObject >::checkSubType< wxColour >(L,1)) : NULL;
 		if( luatop>0 && !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
 		const wxColour & colText=luatop>0 ? *colText_ptr : wxNullColour;
-		const wxColour* colBack_ptr=luatop>1 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2)) : NULL;
+		const wxColour* colBack_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxColour >(L,2)) : NULL;
 		if( luatop>1 && !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
 		const wxColour & colBack=luatop>1 ? *colBack_ptr : wxNullColour;
-		const wxColour* colBorder_ptr=luatop>2 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxColour* colBorder_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxColour >(L,3)) : NULL;
 		if( luatop>2 && !colBorder_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBorder in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
 		const wxColour & colBorder=luatop>2 ? *colBorder_ptr : wxNullColour;
-		const wxFont* font_ptr=luatop>3 ? dynamic_cast< wxFont* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxFont* font_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxFont >(L,4)) : NULL;
 		if( luatop>3 && !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
@@ -252,7 +252,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxCalendarDateBorder border=(wxCalendarDateBorder)lua_tointeger(L,1);
-		const wxColour* colBorder_ptr=luatop>1 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2)) : NULL;
+		const wxColour* colBorder_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxColour >(L,2)) : NULL;
 		if( luatop>1 && !colBorder_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBorder in wxCalendarDateAttr::wxCalendarDateAttr function");
 		}
@@ -496,7 +496,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colBack_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxCalendarDateAttr::SetBackgroundColour function");
 		}
@@ -538,7 +538,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBorderColour(const wxColour & col) function, expected prototype:\nvoid wxCalendarDateAttr::SetBorderColour(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxCalendarDateAttr::SetBorderColour function");
 		}
@@ -561,7 +561,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxCalendarDateAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxCalendarDateAttr::SetFont function");
 		}
@@ -603,7 +603,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxCalendarDateAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colText_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxCalendarDateAttr::SetTextColour function");
 		}

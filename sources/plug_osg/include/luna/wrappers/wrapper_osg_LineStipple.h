@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return LineStipple::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return LineStipple::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return LineStipple::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LineStipple::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LineStipple::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return LineStipple::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return LineStipple::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return LineStipple::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return LineStipple::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return LineStipple::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return LineStipple::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return LineStipple::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::LineStipple::cloneType() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LineStipple::cloneType();
+		return LineStipple::cloneType();
 	};
 
 	// osg::Object * osg::LineStipple::clone(const osg::CopyOp & arg1) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LineStipple::clone(arg1);
+		return LineStipple::clone(arg1);
 	};
 
 	// bool osg::LineStipple::isSameKindAs(const osg::Object * obj) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::LineStipple::isSameKindAs(obj);
+		return LineStipple::isSameKindAs(obj);
 	};
 
 	// const char * osg::LineStipple::libraryName() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LineStipple::libraryName();
+		return LineStipple::libraryName();
 	};
 
 	// const char * osg::LineStipple::className() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LineStipple::className();
+		return LineStipple::className();
 	};
 
 	// osg::StateAttribute::Type osg::LineStipple::getType() const
@@ -185,7 +185,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::LineStipple::getType();
+		return LineStipple::getType();
 	};
 
 	// int osg::LineStipple::compare(const osg::StateAttribute & sa) const
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::LineStipple::compare(sa);
+		return LineStipple::compare(sa);
 	};
 
 	// bool osg::LineStipple::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::LineStipple::getModeUsage(arg1);
+		return LineStipple::getModeUsage(arg1);
 	};
 
 	// void osg::LineStipple::apply(osg::State & arg1) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::LineStipple::apply(arg1);
+		return LineStipple::apply(arg1);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPageSetupDialog* ptr= dynamic_cast< wxPageSetupDialog* >(Luna< wxObject >::check(L,1));
+		//wxPageSetupDialog* ptr= dynamic_cast< wxPageSetupDialog* >(Luna< wxObject >::check(L,1));
+		wxPageSetupDialog* ptr= luna_caster< wxObject, wxPageSetupDialog >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -93,8 +94,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-		wxPageSetupDialogData* data=luatop>1 ? dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,2)) : (wxPageSetupDialogData*)NULL;
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+		wxPageSetupDialogData* data=luatop>1 ? (Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,2)) : (wxPageSetupDialogData*)NULL;
 
 		return new wxPageSetupDialog(parent, data);
 	}
@@ -108,8 +109,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxPageSetupDialogData* data=luatop>2 ? dynamic_cast< wxPageSetupDialogData* >(Luna< wxObject >::check(L,3)) : (wxPageSetupDialogData*)NULL;
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxPageSetupDialogData* data=luatop>2 ? (Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,3)) : (wxPageSetupDialogData*)NULL;
 
 		return new wrapper_wxPageSetupDialog(L,NULL, parent, data);
 	}
@@ -133,7 +134,7 @@ public:
 		}
 
 
-		wxPageSetupDialog* self=dynamic_cast< wxPageSetupDialog* >(Luna< wxObject >::check(L,1));
+		wxPageSetupDialog* self=Luna< wxObject >::checkSubType< wxPageSetupDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialog::GetPageSetupData()");
@@ -154,7 +155,7 @@ public:
 		}
 
 
-		wxPageSetupDialog* self=dynamic_cast< wxPageSetupDialog* >(Luna< wxObject >::check(L,1));
+		wxPageSetupDialog* self=Luna< wxObject >::checkSubType< wxPageSetupDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPageSetupDialog::ShowModal()");

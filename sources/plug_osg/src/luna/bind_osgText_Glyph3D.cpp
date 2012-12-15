@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgText::Glyph3D* ptr= dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		//osgText::Glyph3D* ptr= dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* ptr= luna_caster< osg::Referenced, osgText::Glyph3D >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -175,7 +176,7 @@ public:
 	inline static bool _lg_typecheck_setRawVertexArray(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -210,7 +211,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::Glyph3D::Glyph3D(osgText::Font * font, unsigned int glyphCode) function, expected prototype:\nosgText::Glyph3D::Glyph3D(osgText::Font * font, unsigned int glyphCode)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgText::Font* font=dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font* font=(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,1));
 		unsigned int glyphCode=(unsigned int)lua_tointeger(L,2);
 
 		return new osgText::Glyph3D(font, glyphCode);
@@ -223,7 +224,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::Glyph3D::Glyph3D(lua_Table * data, osgText::Font * font, unsigned int glyphCode) function, expected prototype:\nosgText::Glyph3D::Glyph3D(lua_Table * data, osgText::Font * font, unsigned int glyphCode)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		osgText::Font* font=dynamic_cast< osgText::Font* >(Luna< osg::Referenced >::check(L,2));
+		osgText::Font* font=(Luna< osg::Referenced >::checkSubType< osgText::Font >(L,2));
 		unsigned int glyphCode=(unsigned int)lua_tointeger(L,3);
 
 		return new wrapper_osgText_Glyph3D(L,NULL, font, glyphCode);
@@ -248,7 +249,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgText::Font * osgText::Glyph3D::getFont()");
@@ -269,7 +270,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgText::Font * osgText::Glyph3D::getFont() const");
@@ -299,7 +300,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgText::Glyph3D::getGlyphCode() const");
@@ -319,7 +320,7 @@ public:
 
 		float width=(float)lua_tonumber(L,2);
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setWidth(float)");
@@ -337,7 +338,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getWidth() const");
@@ -357,7 +358,7 @@ public:
 
 		float height=(float)lua_tonumber(L,2);
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHeight(float)");
@@ -375,7 +376,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHeight() const");
@@ -399,7 +400,7 @@ public:
 		}
 		const osg::Vec2f & bearing=*bearing_ptr;
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalBearing(const osg::Vec2f &)");
@@ -417,7 +418,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getHorizontalBearing() const");
@@ -439,7 +440,7 @@ public:
 
 		float advance=(float)lua_tonumber(L,2);
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setHorizontalAdvance(float)");
@@ -457,7 +458,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getHorizontalAdvance() const");
@@ -481,7 +482,7 @@ public:
 		}
 		const osg::Vec2f & bearing=*bearing_ptr;
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalBearing(const osg::Vec2f &)");
@@ -499,7 +500,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec2f & osgText::Glyph3D::getVerticalBearing() const");
@@ -521,7 +522,7 @@ public:
 
 		float advance=(float)lua_tonumber(L,2);
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setVerticalAdvance(float)");
@@ -539,7 +540,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osgText::Glyph3D::getVerticalAdvance() const");
@@ -563,7 +564,7 @@ public:
 		}
 		osg::BoundingBoxd & bb=*bb_ptr;
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setBoundingBox(osg::BoundingBoxd &)");
@@ -581,7 +582,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::BoundingBoxd & osgText::Glyph3D::getBoundingBox() const");
@@ -598,12 +599,12 @@ public:
 	static int _bind_setRawVertexArray(lua_State *L) {
 		if (!_lg_typecheck_setRawVertexArray(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array * vertices) function, expected prototype:\nvoid osgText::Glyph3D::setRawVertexArray(osg::Vec3Array * vertices)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array * vertices) function, expected prototype:\nvoid osgText::Glyph3D::setRawVertexArray(osg::Vec3Array * vertices)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Vec3Array* vertices=(Luna< osg::Vec3Array >::check(L,2));
+		osg::Vec3Array* vertices=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Glyph3D::setRawVertexArray(osg::Vec3Array *)");
@@ -621,7 +622,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::Glyph3D::getRawVertexArray()");
@@ -642,7 +643,7 @@ public:
 		}
 
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgText::Glyph3D::getRawVertexArray() const");
@@ -671,9 +672,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osgText::GlyphGeometry * osgText::Glyph3D::getGlyphGeometry(const osgText::Style * style) function, expected prototype:\nosgText::GlyphGeometry * osgText::Glyph3D::getGlyphGeometry(const osgText::Style * style)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgText::Style* style=dynamic_cast< osgText::Style* >(Luna< osg::Referenced >::check(L,2));
+		const osgText::Style* style=(Luna< osg::Referenced >::checkSubType< osgText::Style >(L,2));
 
-		osgText::Glyph3D* self=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Glyph3D* self=Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgText::GlyphGeometry * osgText::Glyph3D::getGlyphGeometry(const osgText::Style *)");

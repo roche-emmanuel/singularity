@@ -29,7 +29,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObjectRefData(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPGChoicesData* ptr= dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		//wxPGChoicesData* ptr= dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* ptr= luna_caster< wxObjectRefData, wxPGChoicesData >::cast(Luna< wxObjectRefData >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -114,9 +115,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data) function, expected prototype:\nvoid wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data)\nClass arguments details:\narg 1 ID = 60960840\n");
 		}
 
-		wxPGChoicesData* data=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,2));
+		wxPGChoicesData* data=(Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,2));
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGChoicesData::CopyDataFrom(wxPGChoicesData *)");
@@ -134,13 +135,13 @@ public:
 		}
 
 		int index=(int)lua_tointeger(L,2);
-		const wxPGChoiceEntry* item_ptr=dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,3));
+		const wxPGChoiceEntry* item_ptr=(Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,3));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxPGChoicesData::Insert function");
 		}
 		const wxPGChoiceEntry & item=*item_ptr;
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Insert(int, const wxPGChoiceEntry &)");
@@ -161,7 +162,7 @@ public:
 		}
 
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGChoicesData::Clear()");
@@ -179,7 +180,7 @@ public:
 		}
 
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPGChoicesData::GetCount() const");
@@ -199,7 +200,7 @@ public:
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int) const");
@@ -221,7 +222,7 @@ public:
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
-		wxPGChoicesData* self=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int)");

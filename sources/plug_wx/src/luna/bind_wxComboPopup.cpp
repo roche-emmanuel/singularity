@@ -169,6 +169,82 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_DestroyPopup(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindItem(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetAdjustedSize(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Init(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_LazyCreate(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnComboDoubleClick(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnComboKeyEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDismiss(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnPopup(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_PaintComboControl(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,20234418) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetStringValue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -181,7 +257,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxComboPopup::Create(wxWindow * parent) function, expected prototype:\nbool wxComboPopup::Create(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
@@ -420,7 +496,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxKeyEvent* event_ptr=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,2));
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxComboPopup::OnComboKeyEvent function");
 		}
@@ -479,7 +555,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxComboPopup::PaintComboControl function");
 		}
@@ -515,6 +591,233 @@ public:
 			luaL_error(L, "Invalid object in function call void wxComboPopup::SetStringValue(const wxString &)");
 		}
 		self->SetStringValue(value);
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_DestroyPopup()
+	static int _bind_base_DestroyPopup(lua_State *L) {
+		if (!_lg_typecheck_base_DestroyPopup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_DestroyPopup() function, expected prototype:\nvoid wxComboPopup::base_DestroyPopup()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_DestroyPopup()");
+		}
+		self->wxComboPopup::DestroyPopup();
+
+		return 0;
+	}
+
+	// bool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL)
+	static int _bind_base_FindItem(lua_State *L) {
+		if (!_lg_typecheck_base_FindItem(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL) function, expected prototype:\nbool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString item(lua_tostring(L,2),lua_objlen(L,2));
+		wxString trueItem(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_FindItem(const wxString &, wxString *)");
+		}
+		bool lret = self->wxComboPopup::FindItem(item, &trueItem);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)
+	static int _bind_base_GetAdjustedSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetAdjustedSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight) function, expected prototype:\nwxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)\nClass arguments details:\n");
+		}
+
+		int minWidth=(int)lua_tointeger(L,2);
+		int prefHeight=(int)lua_tointeger(L,3);
+		int maxHeight=(int)lua_tointeger(L,4);
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::base_GetAdjustedSize(int, int, int)");
+		}
+		wxSize stack_lret = self->wxComboPopup::GetAdjustedSize(minWidth, prefHeight, maxHeight);
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxComboPopup::base_Init()
+	static int _bind_base_Init(lua_State *L) {
+		if (!_lg_typecheck_base_Init(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_Init() function, expected prototype:\nvoid wxComboPopup::base_Init()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_Init()");
+		}
+		self->wxComboPopup::Init();
+
+		return 0;
+	}
+
+	// bool wxComboPopup::base_LazyCreate()
+	static int _bind_base_LazyCreate(lua_State *L) {
+		if (!_lg_typecheck_base_LazyCreate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_LazyCreate() function, expected prototype:\nbool wxComboPopup::base_LazyCreate()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_LazyCreate()");
+		}
+		bool lret = self->wxComboPopup::LazyCreate();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxComboPopup::base_OnComboDoubleClick()
+	static int _bind_base_OnComboDoubleClick(lua_State *L) {
+		if (!_lg_typecheck_base_OnComboDoubleClick(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboDoubleClick() function, expected prototype:\nvoid wxComboPopup::base_OnComboDoubleClick()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboDoubleClick()");
+		}
+		self->wxComboPopup::OnComboDoubleClick();
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event)
+	static int _bind_base_OnComboKeyEvent(lua_State *L) {
+		if (!_lg_typecheck_base_OnComboKeyEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxComboPopup::base_OnComboKeyEvent function");
+		}
+		wxKeyEvent & event=*event_ptr;
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent &)");
+		}
+		self->wxComboPopup::OnComboKeyEvent(event);
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_OnDismiss()
+	static int _bind_base_OnDismiss(lua_State *L) {
+		if (!_lg_typecheck_base_OnDismiss(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnDismiss() function, expected prototype:\nvoid wxComboPopup::base_OnDismiss()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnDismiss()");
+		}
+		self->wxComboPopup::OnDismiss();
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_OnPopup()
+	static int _bind_base_OnPopup(lua_State *L) {
+		if (!_lg_typecheck_base_OnPopup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnPopup() function, expected prototype:\nvoid wxComboPopup::base_OnPopup()\nClass arguments details:\n");
+		}
+
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnPopup()");
+		}
+		self->wxComboPopup::OnPopup();
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect)
+	static int _bind_base_PaintComboControl(lua_State *L) {
+		if (!_lg_typecheck_base_PaintComboControl(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n");
+		}
+
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
+		if( !dc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxComboPopup::base_PaintComboControl function");
+		}
+		wxDC & dc=*dc_ptr;
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,3));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxComboPopup::base_PaintComboControl function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_PaintComboControl(wxDC &, const wxRect &)");
+		}
+		self->wxComboPopup::PaintComboControl(dc, rect);
+
+		return 0;
+	}
+
+	// void wxComboPopup::base_SetStringValue(const wxString & value)
+	static int _bind_base_SetStringValue(lua_State *L) {
+		if (!_lg_typecheck_base_SetStringValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_SetStringValue(const wxString & value) function, expected prototype:\nvoid wxComboPopup::base_SetStringValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString value(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_SetStringValue(const wxString &)");
+		}
+		self->wxComboPopup::SetStringValue(value);
 
 		return 0;
 	}
@@ -561,6 +864,17 @@ luna_RegType LunaTraits< wxComboPopup >::methods[] = {
 	{"OnPopup", &luna_wrapper_wxComboPopup::_bind_OnPopup},
 	{"PaintComboControl", &luna_wrapper_wxComboPopup::_bind_PaintComboControl},
 	{"SetStringValue", &luna_wrapper_wxComboPopup::_bind_SetStringValue},
+	{"base_DestroyPopup", &luna_wrapper_wxComboPopup::_bind_base_DestroyPopup},
+	{"base_FindItem", &luna_wrapper_wxComboPopup::_bind_base_FindItem},
+	{"base_GetAdjustedSize", &luna_wrapper_wxComboPopup::_bind_base_GetAdjustedSize},
+	{"base_Init", &luna_wrapper_wxComboPopup::_bind_base_Init},
+	{"base_LazyCreate", &luna_wrapper_wxComboPopup::_bind_base_LazyCreate},
+	{"base_OnComboDoubleClick", &luna_wrapper_wxComboPopup::_bind_base_OnComboDoubleClick},
+	{"base_OnComboKeyEvent", &luna_wrapper_wxComboPopup::_bind_base_OnComboKeyEvent},
+	{"base_OnDismiss", &luna_wrapper_wxComboPopup::_bind_base_OnDismiss},
+	{"base_OnPopup", &luna_wrapper_wxComboPopup::_bind_base_OnPopup},
+	{"base_PaintComboControl", &luna_wrapper_wxComboPopup::_bind_base_PaintComboControl},
+	{"base_SetStringValue", &luna_wrapper_wxComboPopup::_bind_base_SetStringValue},
 	{"dynCast", &luna_wrapper_wxComboPopup::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxComboPopup::_bind___eq},
 	{0,0}

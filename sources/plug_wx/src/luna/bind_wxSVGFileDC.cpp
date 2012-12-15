@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSVGFileDC* ptr= dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		//wxSVGFileDC* ptr= dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* ptr= luna_caster< wxObject, wxSVGFileDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -186,6 +187,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -244,7 +251,7 @@ public:
 		}
 
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::EndDoc()");
@@ -262,7 +269,7 @@ public:
 		}
 
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::EndPage()");
@@ -280,7 +287,7 @@ public:
 		}
 
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::Clear()");
@@ -299,7 +306,7 @@ public:
 
 		wxRasterOperationMode function=(wxRasterOperationMode)lua_tointeger(L,2);
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetLogicalFunction(wxRasterOperationMode)");
@@ -319,7 +326,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::CrossHair(int, int)");
@@ -337,7 +344,7 @@ public:
 		}
 
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::DestroyClippingRegion()");
@@ -358,14 +365,14 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxSVGFileDC::FloodFill function");
 		}
 		const wxColour & colour=*colour_ptr;
 		wxFloodFillStyle style=luatop>4 ? (wxFloodFillStyle)lua_tointeger(L,5) : ::wxFLOOD_SURFACE;
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSVGFileDC::FloodFill(int, int, const wxColour &, wxFloodFillStyle)");
@@ -388,7 +395,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::GetClippingBox(int *, int *, int *, int *) const");
@@ -407,9 +414,9 @@ public:
 
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
-		wxColour* colour=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		wxColour* colour=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSVGFileDC::GetPixel(int, int, wxColour *) const");
@@ -432,7 +439,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetClippingRegion(int, int, int, int)");
@@ -460,7 +467,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetClippingRegion(const wxPoint &, const wxSize &)");
@@ -483,7 +490,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetClippingRegion(const wxRect &)");
@@ -500,13 +507,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSVGFileDC::SetClippingRegion(const wxRegion & region) function, expected prototype:\nvoid wxSVGFileDC::SetClippingRegion(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxSVGFileDC::SetClippingRegion function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetClippingRegion(const wxRegion &)");
@@ -534,13 +541,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSVGFileDC::SetPalette(const wxPalette & palette) function, expected prototype:\nvoid wxSVGFileDC::SetPalette(const wxPalette & palette)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPalette* palette_ptr=dynamic_cast< wxPalette* >(Luna< wxObject >::check(L,2));
+		const wxPalette* palette_ptr=(Luna< wxObject >::checkSubType< wxPalette >(L,2));
 		if( !palette_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg palette in wxSVGFileDC::SetPalette function");
 		}
 		const wxPalette & palette=*palette_ptr;
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSVGFileDC::SetPalette(const wxPalette &)");
@@ -559,13 +566,34 @@ public:
 
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxSVGFileDC* self=dynamic_cast< wxSVGFileDC* >(Luna< wxObject >::check(L,1));
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSVGFileDC::StartDoc(const wxString &)");
 		}
 		bool lret = self->StartDoc(message);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxSVGFileDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSVGFileDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSVGFileDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSVGFileDC* self=Luna< wxObject >::checkSubType< wxSVGFileDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSVGFileDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSVGFileDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -603,6 +631,7 @@ luna_RegType LunaTraits< wxSVGFileDC >::methods[] = {
 	{"SetClippingRegion", &luna_wrapper_wxSVGFileDC::_bind_SetClippingRegion},
 	{"SetPalette", &luna_wrapper_wxSVGFileDC::_bind_SetPalette},
 	{"StartDoc", &luna_wrapper_wxSVGFileDC::_bind_StartDoc},
+	{"base_GetClassInfo", &luna_wrapper_wxSVGFileDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxSVGFileDC::_bind___eq},
 	{0,0}
 };

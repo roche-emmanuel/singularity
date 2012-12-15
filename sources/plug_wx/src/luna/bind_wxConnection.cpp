@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxConnection* ptr= dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		//wxConnection* ptr= dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* ptr= luna_caster< wxObject, wxConnection >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -260,6 +261,74 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnAdvise(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDisconnect(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnExec(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnPoke(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnRequest(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnStartAdvise(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnStopAdvise(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -340,7 +409,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const void *, size_t, wxIPCFormat)");
@@ -361,7 +430,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		const char * data=(const char *)lua_tostring(L,3);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const char *)");
@@ -382,7 +451,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		wxString data(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Advise(const wxString &, const wxString)");
@@ -411,7 +480,7 @@ public:
 		}
 
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Disconnect()");
@@ -435,7 +504,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,3);
 		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_PRIVATE;
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const void *, size_t, wxIPCFormat)");
@@ -455,7 +524,7 @@ public:
 
 		const char * data=(const char *)lua_tostring(L,2);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const char *)");
@@ -475,7 +544,7 @@ public:
 
 		wxString data(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Execute(const wxString)");
@@ -509,7 +578,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
@@ -528,7 +597,7 @@ public:
 		}
 
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnDisconnect()");
@@ -549,7 +618,7 @@ public:
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString data(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnExec(const wxString &, const wxString &)");
@@ -573,7 +642,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,5);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
@@ -596,7 +665,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnection::OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat)");
@@ -619,7 +688,7 @@ public:
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnStartAdvise(const wxString &, const wxString &)");
@@ -640,7 +709,7 @@ public:
 		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::OnStopAdvise(const wxString &, const wxString &)");
@@ -665,7 +734,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,4);
 		wxIPCFormat format=luatop>4 ? (wxIPCFormat)lua_tointeger(L,5) : ::wxIPC_PRIVATE;
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const void *, size_t, wxIPCFormat)");
@@ -686,7 +755,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		const char * data=(const char *)lua_tostring(L,3);
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const char *)");
@@ -707,7 +776,7 @@ public:
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 		wxString data(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::Poke(const wxString &, const wxString)");
@@ -741,7 +810,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,3);
 		wxIPCFormat format=luatop>3 ? (wxIPCFormat)lua_tointeger(L,4) : ::wxIPC_TEXT;
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const void * wxConnection::Request(const wxString &, size_t *, wxIPCFormat)");
@@ -763,7 +832,7 @@ public:
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::StartAdvise(const wxString &)");
@@ -783,7 +852,7 @@ public:
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxConnection* self=dynamic_cast< wxConnection* >(Luna< wxObject >::check(L,1));
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxConnection::StopAdvise(const wxString &)");
@@ -826,6 +895,182 @@ public:
 		return 1;
 	}
 
+	// wxClassInfo * wxConnection::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxConnection::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxConnection::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnection::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxConnection::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
+	static int _bind_base_OnAdvise(lua_State *L) {
+		if (!_lg_typecheck_base_OnAdvise(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxConnection::base_OnAdvise(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString item(lua_tostring(L,3),lua_objlen(L,3));
+		void* data=(Luna< void >::check(L,4));
+		size_t size=(size_t)lua_tointeger(L,5);
+		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnAdvise(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+		}
+		bool lret = self->wxConnection::OnAdvise(topic, item, data, size, format);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnDisconnect()
+	static int _bind_base_OnDisconnect(lua_State *L) {
+		if (!_lg_typecheck_base_OnDisconnect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnDisconnect() function, expected prototype:\nbool wxConnection::base_OnDisconnect()\nClass arguments details:\n");
+		}
+
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnDisconnect()");
+		}
+		bool lret = self->wxConnection::OnDisconnect();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnExec(const wxString & topic, const wxString & data)
+	static int _bind_base_OnExec(lua_State *L) {
+		if (!_lg_typecheck_base_OnExec(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnExec(const wxString & topic, const wxString & data) function, expected prototype:\nbool wxConnection::base_OnExec(const wxString & topic, const wxString & data)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString data(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnExec(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxConnection::OnExec(topic, data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)
+	static int _bind_base_OnPoke(lua_State *L) {
+		if (!_lg_typecheck_base_OnPoke(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format) function, expected prototype:\nbool wxConnection::base_OnPoke(const wxString & topic, const wxString & item, const void * data, size_t size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString item(lua_tostring(L,3),lua_objlen(L,3));
+		void* data=(Luna< void >::check(L,4));
+		size_t size=(size_t)lua_tointeger(L,5);
+		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,6);
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnPoke(const wxString &, const wxString &, const void *, size_t, wxIPCFormat)");
+		}
+		bool lret = self->wxConnection::OnPoke(topic, item, data, size, format);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const void * wxConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)
+	static int _bind_base_OnRequest(lua_State *L) {
+		if (!_lg_typecheck_base_OnRequest(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const void * wxConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format) function, expected prototype:\nconst void * wxConnection::base_OnRequest(const wxString & topic, const wxString & item, size_t * size, wxIPCFormat format)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString item(lua_tostring(L,3),lua_objlen(L,3));
+		size_t size=(size_t)lua_tointeger(L,4);
+		wxIPCFormat format=(wxIPCFormat)lua_tointeger(L,5);
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const void * wxConnection::base_OnRequest(const wxString &, const wxString &, size_t *, wxIPCFormat)");
+		}
+		const void * lret = self->wxConnection::OnRequest(topic, item, &size, format);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnStartAdvise(const wxString & topic, const wxString & item)
+	static int _bind_base_OnStartAdvise(lua_State *L) {
+		if (!_lg_typecheck_base_OnStartAdvise(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnStartAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxConnection::base_OnStartAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString item(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStartAdvise(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxConnection::OnStartAdvise(topic, item);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxConnection::base_OnStopAdvise(const wxString & topic, const wxString & item)
+	static int _bind_base_OnStopAdvise(lua_State *L) {
+		if (!_lg_typecheck_base_OnStopAdvise(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxConnection::base_OnStopAdvise(const wxString & topic, const wxString & item) function, expected prototype:\nbool wxConnection::base_OnStopAdvise(const wxString & topic, const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+		wxString item(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxConnection* self=Luna< wxObject >::checkSubType< wxConnection >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxConnection::base_OnStopAdvise(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxConnection::OnStopAdvise(topic, item);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -863,6 +1108,14 @@ luna_RegType LunaTraits< wxConnection >::methods[] = {
 	{"StopAdvise", &luna_wrapper_wxConnection::_bind_StopAdvise},
 	{"IsTextFormat", &luna_wrapper_wxConnection::_bind_IsTextFormat},
 	{"GetTextFromData", &luna_wrapper_wxConnection::_bind_GetTextFromData},
+	{"base_GetClassInfo", &luna_wrapper_wxConnection::_bind_base_GetClassInfo},
+	{"base_OnAdvise", &luna_wrapper_wxConnection::_bind_base_OnAdvise},
+	{"base_OnDisconnect", &luna_wrapper_wxConnection::_bind_base_OnDisconnect},
+	{"base_OnExec", &luna_wrapper_wxConnection::_bind_base_OnExec},
+	{"base_OnPoke", &luna_wrapper_wxConnection::_bind_base_OnPoke},
+	{"base_OnRequest", &luna_wrapper_wxConnection::_bind_base_OnRequest},
+	{"base_OnStartAdvise", &luna_wrapper_wxConnection::_bind_base_OnStartAdvise},
+	{"base_OnStopAdvise", &luna_wrapper_wxConnection::_bind_base_OnStopAdvise},
 	{"__eq", &luna_wrapper_wxConnection::_bind___eq},
 	{0,0}
 };

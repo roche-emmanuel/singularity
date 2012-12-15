@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::EdgeCollector::Edgeloop* ptr= dynamic_cast< osgUtil::EdgeCollector::Edgeloop* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::EdgeCollector::Edgeloop* ptr= dynamic_cast< osgUtil::EdgeCollector::Edgeloop* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edgeloop* ptr= luna_caster< osg::Referenced, osgUtil::EdgeCollector::Edgeloop >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -71,7 +72,7 @@ public:
 		}
 
 
-		osgUtil::EdgeCollector::Edgeloop* self=dynamic_cast< osgUtil::EdgeCollector::Edgeloop* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edgeloop* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edgeloop >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edgeloop::isClosed()");
@@ -90,7 +91,7 @@ public:
 		}
 
 
-		osgUtil::EdgeCollector::Edgeloop* self=dynamic_cast< osgUtil::EdgeCollector::Edgeloop* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edgeloop* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edgeloop >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::UIntArray * osgUtil::EdgeCollector::Edgeloop::toIndexArray() const");

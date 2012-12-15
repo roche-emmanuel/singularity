@@ -473,15 +473,6 @@ public:
 		return wxMenuBar::GetDefaultAttributes();
 	};
 
-	// bool wxWindow::HasTransparentBackground()
-	bool HasTransparentBackground() {
-		if(_obj.pushFunction("HasTransparentBackground")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMenuBar::HasTransparentBackground();
-	};
-
 	// void wxWindow::Update()
 	void Update() {
 		if(_obj.pushFunction("Update")) {
@@ -489,16 +480,6 @@ public:
 		}
 
 		return wxMenuBar::Update();
-	};
-
-	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
-	bool SetBackgroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetBackgroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMenuBar::SetBackgroundColour(colour);
 	};
 
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
@@ -519,16 +500,6 @@ public:
 		}
 
 		return wxMenuBar::SetFont(font);
-	};
-
-	// bool wxWindow::SetForegroundColour(const wxColour & colour)
-	bool SetForegroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetForegroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMenuBar::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const

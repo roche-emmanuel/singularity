@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PagedLOD::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PagedLOD::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PagedLOD::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PagedLOD::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PagedLOD::getUserData();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return PagedLOD::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return PagedLOD::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return PagedLOD::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return PagedLOD::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return PagedLOD::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return PagedLOD::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return PagedLOD::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return PagedLOD::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return PagedLOD::asGroup();
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return PagedLOD::insertChild(index, child);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return PagedLOD::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return PagedLOD::setChild(i, node);
 	};
 
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::releaseGLObjects(arg1);
+		return PagedLOD::releaseGLObjects(arg1);
 	};
 
 	// osg::BoundingSphered osg::LOD::computeBound() const
@@ -196,7 +196,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::LOD::computeBound();
+		return PagedLOD::computeBound();
 	};
 
 	// osg::Object * osg::PagedLOD::cloneType() const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PagedLOD::cloneType();
+		return PagedLOD::cloneType();
 	};
 
 	// osg::Object * osg::PagedLOD::clone(const osg::CopyOp & copyop) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PagedLOD::clone(copyop);
+		return PagedLOD::clone(copyop);
 	};
 
 	// bool osg::PagedLOD::isSameKindAs(const osg::Object * obj) const
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::isSameKindAs(obj);
+		return PagedLOD::isSameKindAs(obj);
 	};
 
 	// const char * osg::PagedLOD::className() const
@@ -234,7 +234,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PagedLOD::className();
+		return PagedLOD::className();
 	};
 
 	// const char * osg::PagedLOD::libraryName() const
@@ -243,7 +243,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PagedLOD::libraryName();
+		return PagedLOD::libraryName();
 	};
 
 	// void osg::PagedLOD::accept(osg::NodeVisitor & nv)
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::PagedLOD::accept(nv);
+		return PagedLOD::accept(nv);
 	};
 
 	// void osg::PagedLOD::traverse(osg::NodeVisitor & arg1)
@@ -263,7 +263,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::PagedLOD::traverse(arg1);
+		return PagedLOD::traverse(arg1);
 	};
 
 	// bool osg::PagedLOD::addChild(osg::Node * child)
@@ -273,7 +273,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::addChild(child);
+		return PagedLOD::addChild(child);
 	};
 
 	// bool osg::PagedLOD::addChild(osg::Node * child, float min, float max)
@@ -285,7 +285,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::addChild(child, min, max);
+		return PagedLOD::addChild(child, min, max);
 	};
 
 	// bool osg::PagedLOD::addChild(osg::Node * child, float min, float max, const std::string & filename, float priorityOffset = 0.0f, float priorityScale = 1.0f)
@@ -300,7 +300,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::addChild(child, min, max, filename, priorityOffset, priorityScale);
+		return PagedLOD::addChild(child, min, max, filename, priorityOffset, priorityScale);
 	};
 
 	// bool osg::PagedLOD::removeChildren(unsigned int pos, unsigned int numChildrenToRemove = 1)
@@ -311,7 +311,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::removeChildren(pos, numChildrenToRemove);
+		return PagedLOD::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::PagedLOD::removeExpiredChildren(double expiryTime, unsigned int expiryFrame, osg::NodeList & removedChildren)
@@ -323,13 +323,32 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PagedLOD::removeExpiredChildren(expiryTime, expiryFrame, removedChildren);
+		return PagedLOD::removeExpiredChildren(expiryTime, expiryFrame, removedChildren);
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return PagedLOD::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return PagedLOD::childInserted(arg1);
+	};
+
 
 };
 

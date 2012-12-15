@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGraphicsBitmap* ptr= dynamic_cast< wxGraphicsBitmap* >(Luna< wxObject >::check(L,1));
+		//wxGraphicsBitmap* ptr= dynamic_cast< wxGraphicsBitmap* >(Luna< wxObject >::check(L,1));
+		wxGraphicsBitmap* ptr= luna_caster< wxObject, wxGraphicsBitmap >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -99,7 +99,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPenList::FindOrCreatePen function");
 		}

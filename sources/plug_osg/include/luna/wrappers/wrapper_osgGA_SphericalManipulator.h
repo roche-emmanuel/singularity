@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return SphericalManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return SphericalManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return SphericalManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SphericalManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SphericalManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return SphericalManipulator::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::cloneType();
+		return SphericalManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::clone(arg1);
+		return SphericalManipulator::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return SphericalManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return SphericalManipulator::libraryName();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return SphericalManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return SphericalManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setCoordinateFrameCallback(cb);
+		return SphericalManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return SphericalManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return SphericalManipulator::getHomePosition(eye, center, up);
 	};
 
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setAutoComputeHomePosition(flag);
+		return SphericalManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// const char * osgGA::SphericalManipulator::className() const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::SphericalManipulator::className();
+		return SphericalManipulator::className();
 	};
 
 	// void osgGA::SphericalManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::setByMatrix(matrix);
+		return SphericalManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::SphericalManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::setByInverseMatrix(matrix);
+		return SphericalManipulator::setByInverseMatrix(matrix);
 	};
 
 	// osg::Matrixd osgGA::SphericalManipulator::getMatrix() const
@@ -214,7 +214,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::SphericalManipulator::getMatrix();
+		return SphericalManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::SphericalManipulator::getInverseMatrix() const
@@ -223,7 +223,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::SphericalManipulator::getInverseMatrix();
+		return SphericalManipulator::getInverseMatrix();
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::SphericalManipulator::getFusionDistanceMode() const
@@ -232,7 +232,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::SphericalManipulator::getFusionDistanceMode();
+		return SphericalManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::SphericalManipulator::getFusionDistanceValue() const
@@ -241,7 +241,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::SphericalManipulator::getFusionDistanceValue();
+		return SphericalManipulator::getFusionDistanceValue();
 	};
 
 	// void osgGA::SphericalManipulator::setNode(osg::Node * arg1)
@@ -251,7 +251,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::setNode(arg1);
+		return SphericalManipulator::setNode(arg1);
 	};
 
 	// const osg::Node * osgGA::SphericalManipulator::getNode() const
@@ -260,7 +260,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::SphericalManipulator::getNode();
+		return SphericalManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::SphericalManipulator::getNode()
@@ -269,7 +269,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::SphericalManipulator::getNode();
+		return SphericalManipulator::getNode();
 	};
 
 	// void osgGA::SphericalManipulator::home(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -280,7 +280,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::home(ea, us);
+		return SphericalManipulator::home(ea, us);
 	};
 
 	// void osgGA::SphericalManipulator::home(double arg1)
@@ -290,7 +290,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::home(arg1);
+		return SphericalManipulator::home(arg1);
 	};
 
 	// void osgGA::SphericalManipulator::init(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -301,7 +301,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::init(ea, us);
+		return SphericalManipulator::init(ea, us);
 	};
 
 	// bool osgGA::SphericalManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -312,7 +312,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::SphericalManipulator::handle(ea, us);
+		return SphericalManipulator::handle(ea, us);
 	};
 
 	// void osgGA::SphericalManipulator::computeHomePosition()
@@ -321,7 +321,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::computeHomePosition();
+		return SphericalManipulator::computeHomePosition();
 	};
 
 	// void osgGA::SphericalManipulator::getUsage(osg::ApplicationUsage & usage) const
@@ -331,7 +331,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::SphericalManipulator::getUsage(usage);
+		return SphericalManipulator::getUsage(usage);
 	};
 
 

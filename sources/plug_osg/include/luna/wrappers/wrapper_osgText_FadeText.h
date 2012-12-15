@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return FadeText::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return FadeText::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FadeText::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FadeText::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return FadeText::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return FadeText::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return FadeText::computeDataVariance();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return FadeText::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return FadeText::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return FadeText::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return FadeText::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return FadeText::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return FadeText::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return FadeText::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return FadeText::setDrawCallback(dc);
 	};
 
 	// osg::BoundingBoxd osgText::TextBase::computeBound() const
@@ -167,7 +167,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osgText::TextBase::computeBound();
+		return FadeText::computeBound();
 	};
 
 	// void osgText::Text::setFont(osgText::Font * font = 0)
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Text::setFont(font);
+		return FadeText::setFont(font);
 	};
 
 	// void osgText::Text::setFont(const std::string & fontfile)
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Text::setFont(fontfile);
+		return FadeText::setFont(fontfile);
 	};
 
 	// void osgText::Text::releaseGLObjects(osg::State * state = 0) const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Text::releaseGLObjects(state);
+		return FadeText::releaseGLObjects(state);
 	};
 
 	// osg::Object * osgText::FadeText::cloneType() const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::FadeText::cloneType();
+		return FadeText::cloneType();
 	};
 
 	// osg::Object * osgText::FadeText::clone(const osg::CopyOp & arg1) const
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::FadeText::clone(arg1);
+		return FadeText::clone(arg1);
 	};
 
 	// bool osgText::FadeText::isSameKindAs(const osg::Object * obj) const
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgText::FadeText::isSameKindAs(obj);
+		return FadeText::isSameKindAs(obj);
 	};
 
 	// const char * osgText::FadeText::libraryName() const
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::FadeText::libraryName();
+		return FadeText::libraryName();
 	};
 
 	// const char * osgText::FadeText::className() const
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::FadeText::className();
+		return FadeText::className();
 	};
 
 	// void osgText::FadeText::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -254,13 +254,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::FadeText::drawImplementation(renderInfo);
+		return FadeText::drawImplementation(renderInfo);
 	};
 
 
 protected:
 	// void osgText::Text::computeGlyphRepresentation()
+	void computeGlyphRepresentation() {
+		if(_obj.pushFunction("computeGlyphRepresentation")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return FadeText::computeGlyphRepresentation();
+	};
+
 	// void osgText::Text::computePositions(unsigned int contextID) const
+	void computePositions(unsigned int contextID) const {
+		if(_obj.pushFunction("computePositions")) {
+			_obj.pushArg(contextID);
+			return (_obj.callFunction<void>());
+		}
+
+		return FadeText::computePositions(contextID);
+	};
+
 
 };
 

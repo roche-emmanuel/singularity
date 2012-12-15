@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxNotifyEvent* ptr= dynamic_cast< wxNotifyEvent* >(Luna< wxObject >::check(L,1));
+		//wxNotifyEvent* ptr= dynamic_cast< wxNotifyEvent* >(Luna< wxObject >::check(L,1));
+		wxNotifyEvent* ptr= luna_caster< wxObject, wxNotifyEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +61,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +86,7 @@ public:
 		}
 
 
-		wxNotifyEvent* self=dynamic_cast< wxNotifyEvent* >(Luna< wxObject >::check(L,1));
+		wxNotifyEvent* self=Luna< wxObject >::checkSubType< wxNotifyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxNotifyEvent::Allow()");
@@ -91,7 +104,7 @@ public:
 		}
 
 
-		wxNotifyEvent* self=dynamic_cast< wxNotifyEvent* >(Luna< wxObject >::check(L,1));
+		wxNotifyEvent* self=Luna< wxObject >::checkSubType< wxNotifyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxNotifyEvent::IsAllowed() const");
@@ -110,7 +123,7 @@ public:
 		}
 
 
-		wxNotifyEvent* self=dynamic_cast< wxNotifyEvent* >(Luna< wxObject >::check(L,1));
+		wxNotifyEvent* self=Luna< wxObject >::checkSubType< wxNotifyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxNotifyEvent::Veto()");
@@ -118,6 +131,46 @@ public:
 		self->Veto();
 
 		return 0;
+	}
+
+	// wxClassInfo * wxNotifyEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxNotifyEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxNotifyEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxNotifyEvent* self=Luna< wxObject >::checkSubType< wxNotifyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxNotifyEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxNotifyEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxNotifyEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxNotifyEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxNotifyEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxNotifyEvent* self=Luna< wxObject >::checkSubType< wxNotifyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxNotifyEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxNotifyEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -146,6 +199,8 @@ luna_RegType LunaTraits< wxNotifyEvent >::methods[] = {
 	{"Allow", &luna_wrapper_wxNotifyEvent::_bind_Allow},
 	{"IsAllowed", &luna_wrapper_wxNotifyEvent::_bind_IsAllowed},
 	{"Veto", &luna_wrapper_wxNotifyEvent::_bind_Veto},
+	{"base_GetClassInfo", &luna_wrapper_wxNotifyEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxNotifyEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxNotifyEvent::_bind___eq},
 	{0,0}
 };

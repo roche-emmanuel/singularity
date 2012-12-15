@@ -21,6 +21,15 @@ public:
 
 protected:
 	// osg::Vec4f osgUtil::ReflectionMapGenerator::compute_color(const osg::Vec3f & R) const
+	osg::Vec4f compute_color(const osg::Vec3f & R) const {
+		if(_obj.pushFunction("compute_color")) {
+			_obj.pushArg(&R);
+			return *(_obj.callFunction<osg::Vec4f*>());
+		}
+
+		return ReflectionMapGenerator::compute_color(R);
+	};
+
 
 };
 

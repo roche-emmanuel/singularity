@@ -48,7 +48,7 @@ public:
 	}
 
 	inline void reset() const {
-		_nargs = 0;
+		_nargs = 1;
 	}
 
 	inline void incrementNArgs() {

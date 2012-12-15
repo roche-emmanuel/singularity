@@ -28,7 +28,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return RefMatrixd::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -37,7 +37,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return RefMatrixd::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return RefMatrixd::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -56,7 +56,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RefMatrixd::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RefMatrixd::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return RefMatrixd::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::RefMatrixd::cloneType() const
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::RefMatrixd::cloneType();
+		return RefMatrixd::cloneType();
 	};
 
 	// osg::Object * osg::RefMatrixd::clone(const osg::CopyOp & arg1) const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::RefMatrixd::clone(arg1);
+		return RefMatrixd::clone(arg1);
 	};
 
 	// bool osg::RefMatrixd::isSameKindAs(const osg::Object * obj) const
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::RefMatrixd::isSameKindAs(obj);
+		return RefMatrixd::isSameKindAs(obj);
 	};
 
 	// const char * osg::RefMatrixd::libraryName() const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::RefMatrixd::libraryName();
+		return RefMatrixd::libraryName();
 	};
 
 	// const char * osg::RefMatrixd::className() const
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::RefMatrixd::className();
+		return RefMatrixd::className();
 	};
 
 

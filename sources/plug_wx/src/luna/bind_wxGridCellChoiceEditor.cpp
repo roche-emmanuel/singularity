@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxGridCellEditor(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellChoiceEditor* ptr= dynamic_cast< wxGridCellChoiceEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		//wxGridCellChoiceEditor* ptr= dynamic_cast< wxGridCellChoiceEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		wxGridCellChoiceEditor* ptr= luna_caster< wxGridCellEditor, wxGridCellChoiceEditor >::cast(Luna< wxGridCellEditor >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -43,6 +44,63 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_SetParameters(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Destroy(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HandleReturn(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_PaintBackground(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25758569)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Show(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25758569)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_StartingClick(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_StartingKey(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -63,12 +121,182 @@ public:
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxGridCellChoiceEditor* self=dynamic_cast< wxGridCellChoiceEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::SetParameters(const wxString &)");
 		}
 		self->SetParameters(params);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_Destroy()
+	static int _bind_base_Destroy(lua_State *L) {
+		if (!_lg_typecheck_base_Destroy(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Destroy() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Destroy()\nClass arguments details:\n");
+		}
+
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Destroy()");
+		}
+		self->wxGridCellChoiceEditor::Destroy();
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event)
+	static int _bind_base_HandleReturn(lua_State *L) {
+		if (!_lg_typecheck_base_HandleReturn(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGridCellChoiceEditor::base_HandleReturn function");
+		}
+		wxKeyEvent & event=*event_ptr;
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent &)");
+		}
+		self->wxGridCellChoiceEditor::HandleReturn(event);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)
+	static int _bind_base_PaintBackground(lua_State *L) {
+		if (!_lg_typecheck_base_PaintBackground(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 25758569\n");
+		}
+
+		const wxRect* rectCell_ptr=(Luna< wxRect >::check(L,2));
+		if( !rectCell_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rectCell in wxGridCellChoiceEditor::base_PaintBackground function");
+		}
+		const wxRect & rectCell=*rectCell_ptr;
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,3));
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *)");
+		}
+		self->wxGridCellChoiceEditor::PaintBackground(rectCell, attr);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_SetSize(const wxRect & rect)
+	static int _bind_base_SetSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetSize(const wxRect & rect) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetSize(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxGridCellChoiceEditor::base_SetSize function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetSize(const wxRect &)");
+		}
+		self->wxGridCellChoiceEditor::SetSize(rect);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)
+	static int _bind_base_Show(lua_State *L) {
+		if (!_lg_typecheck_base_Show(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)\nClass arguments details:\narg 2 ID = 25758569\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool show=(bool)(lua_toboolean(L,2)==1);
+		wxGridCellAttr* attr=luatop>2 ? (Luna< wxGridCellAttr >::check(L,3)) : (wxGridCellAttr*)NULL;
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Show(bool, wxGridCellAttr *)");
+		}
+		self->wxGridCellChoiceEditor::Show(show, attr);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_StartingClick()
+	static int _bind_base_StartingClick(lua_State *L) {
+		if (!_lg_typecheck_base_StartingClick(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingClick() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingClick()\nClass arguments details:\n");
+		}
+
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingClick()");
+		}
+		self->wxGridCellChoiceEditor::StartingClick();
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event)
+	static int _bind_base_StartingKey(lua_State *L) {
+		if (!_lg_typecheck_base_StartingKey(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGridCellChoiceEditor::base_StartingKey function");
+		}
+		wxKeyEvent & event=*event_ptr;
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent &)");
+		}
+		self->wxGridCellChoiceEditor::StartingKey(event);
+
+		return 0;
+	}
+
+	// void wxGridCellChoiceEditor::base_SetParameters(const wxString & params)
+	static int _bind_base_SetParameters(lua_State *L) {
+		if (!_lg_typecheck_base_SetParameters(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString params(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetParameters(const wxString &)");
+		}
+		self->wxGridCellChoiceEditor::SetParameters(params);
 
 		return 0;
 	}
@@ -102,6 +330,14 @@ const int LunaTraits< wxGridCellChoiceEditor >::uniqueIDs[] = {53399133,0};
 
 luna_RegType LunaTraits< wxGridCellChoiceEditor >::methods[] = {
 	{"SetParameters", &luna_wrapper_wxGridCellChoiceEditor::_bind_SetParameters},
+	{"base_Destroy", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_Destroy},
+	{"base_HandleReturn", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_HandleReturn},
+	{"base_PaintBackground", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_PaintBackground},
+	{"base_SetSize", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_SetSize},
+	{"base_Show", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_Show},
+	{"base_StartingClick", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_StartingClick},
+	{"base_StartingKey", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_StartingKey},
+	{"base_SetParameters", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_SetParameters},
 	{"__eq", &luna_wrapper_wxGridCellChoiceEditor::_bind___eq},
 	{0,0}
 };

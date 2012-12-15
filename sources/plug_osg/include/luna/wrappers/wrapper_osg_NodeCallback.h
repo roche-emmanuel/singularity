@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return NodeCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return NodeCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return NodeCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return NodeCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return NodeCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return NodeCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::NodeCallback::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::NodeCallback::cloneType();
+		return NodeCallback::cloneType();
 	};
 
 	// osg::Object * osg::NodeCallback::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::NodeCallback::clone(arg1);
+		return NodeCallback::clone(arg1);
 	};
 
 	// bool osg::NodeCallback::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::NodeCallback::isSameKindAs(obj);
+		return NodeCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::NodeCallback::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeCallback::libraryName();
+		return NodeCallback::libraryName();
 	};
 
 	// const char * osg::NodeCallback::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeCallback::className();
+		return NodeCallback::className();
 	};
 
 	// void osg::NodeCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeCallback::operator()(node, nv);
+		return NodeCallback::operator()(node, nv);
 	};
 
 

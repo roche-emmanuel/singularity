@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(short & arg1)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(int & arg1)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(unsigned short & arg1)
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(unsigned char & arg1)
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(unsigned int & arg1)
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(float & arg1)
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(double & arg1)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec2f & arg1)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec3f & arg1)
@@ -114,7 +114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec4f & arg1)
@@ -124,7 +124,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec4ub & arg1)
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec2b & arg1)
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec3b & arg1)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec4b & arg1)
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec2s & arg1)
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec3s & arg1)
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec4s & arg1)
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec2d & arg1)
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec3d & arg1)
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Vec4d & arg1)
@@ -224,7 +224,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 	// void osg::ValueVisitor::apply(osg::Matrixf & arg1)
@@ -234,7 +234,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueVisitor::apply(arg1);
+		return ValueVisitor::apply(arg1);
 	};
 
 

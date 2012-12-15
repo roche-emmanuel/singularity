@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPGChoiceEntry* ptr= dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,1));
+		//wxPGChoiceEntry* ptr= dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,1));
+		wxPGChoiceEntry* ptr= luna_caster< wxObject, wxPGChoiceEntry >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -65,6 +66,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_GetValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -117,7 +124,7 @@ public:
 
 		int value=(int)lua_tointeger(L,2);
 
-		wxPGChoiceEntry* self=dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,1));
+		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGChoiceEntry::SetValue(int)");
@@ -135,13 +142,34 @@ public:
 		}
 
 
-		wxPGChoiceEntry* self=dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,1));
+		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGChoiceEntry::GetValue() const");
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPGChoiceEntry* self=Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGChoiceEntry::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPGChoiceEntry::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -169,6 +197,7 @@ const int LunaTraits< wxPGChoiceEntry >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxPGChoiceEntry >::methods[] = {
 	{"SetValue", &luna_wrapper_wxPGChoiceEntry::_bind_SetValue},
 	{"GetValue", &luna_wrapper_wxPGChoiceEntry::_bind_GetValue},
+	{"base_GetClassInfo", &luna_wrapper_wxPGChoiceEntry::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxPGChoiceEntry::_bind___eq},
 	{0,0}
 };

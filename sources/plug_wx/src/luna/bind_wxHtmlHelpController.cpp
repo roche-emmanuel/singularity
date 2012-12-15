@@ -181,6 +181,39 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_DisplayContents(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_KeywordSearch(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ReadCustomization(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WriteCustomization(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -196,7 +229,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int style=luatop>0 ? (int)lua_tointeger(L,1) : wxHF_DEFAULT_STYLE;
-		wxWindow* parentWindow=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		wxWindow* parentWindow=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 		return new wxHtmlHelpController(style, parentWindow);
 	}
@@ -211,7 +244,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int style=luatop>1 ? (int)lua_tointeger(L,2) : wxHF_DEFAULT_STYLE;
-		wxWindow* parentWindow=luatop>2 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) : (wxWindow*)NULL;
+		wxWindow* parentWindow=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
 
 		return new wrapper_wxHtmlHelpController(L,NULL, style, parentWindow);
 	}
@@ -405,7 +438,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxConfigBase* cfg=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
@@ -484,7 +517,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxConfigBase* config=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* config=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		wxString rootpath(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
@@ -506,7 +539,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxConfigBase* cfg=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
@@ -515,6 +548,92 @@ public:
 			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::WriteCustomization(wxConfigBase *, const wxString &)");
 		}
 		self->WriteCustomization(cfg, path);
+
+		return 0;
+	}
+
+	// bool wxHtmlHelpController::base_DisplayContents()
+	static int _bind_base_DisplayContents(lua_State *L) {
+		if (!_lg_typecheck_base_DisplayContents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_DisplayContents() function, expected prototype:\nbool wxHtmlHelpController::base_DisplayContents()\nClass arguments details:\n");
+		}
+
+
+		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_DisplayContents()");
+		}
+		bool lret = self->wxHtmlHelpController::DisplayContents();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
+	static int _bind_base_KeywordSearch(lua_State *L) {
+		if (!_lg_typecheck_base_KeywordSearch(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHtmlHelpController::base_KeywordSearch(const wxString & keyword, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString keyword(lua_tostring(L,2),lua_objlen(L,2));
+		wxHelpSearchMode mode=luatop>2 ? (wxHelpSearchMode)lua_tointeger(L,3) : ::wxHELP_SEARCH_ALL;
+
+		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode)");
+		}
+		bool lret = self->wxHtmlHelpController::KeywordSearch(keyword, mode);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
+	static int _bind_base_ReadCustomization(lua_State *L) {
+		if (!_lg_typecheck_base_ReadCustomization(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_ReadCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		wxString path(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_ReadCustomization(wxConfigBase *, const wxString &)");
+		}
+		self->wxHtmlHelpController::ReadCustomization(cfg, path);
+
+		return 0;
+	}
+
+	// void wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)
+	static int _bind_base_WriteCustomization(lua_State *L) {
+		if (!_lg_typecheck_base_WriteCustomization(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString) function, expected prototype:\nvoid wxHtmlHelpController::base_WriteCustomization(wxConfigBase * cfg, const wxString & path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		wxString path(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxHtmlHelpController* self=(Luna< wxHtmlHelpController >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpController::base_WriteCustomization(wxConfigBase *, const wxString &)");
+		}
+		self->wxHtmlHelpController::WriteCustomization(cfg, path);
 
 		return 0;
 	}
@@ -551,6 +670,10 @@ luna_RegType LunaTraits< wxHtmlHelpController >::methods[] = {
 	{"SetTitleFormat", &luna_wrapper_wxHtmlHelpController::_bind_SetTitleFormat},
 	{"UseConfig", &luna_wrapper_wxHtmlHelpController::_bind_UseConfig},
 	{"WriteCustomization", &luna_wrapper_wxHtmlHelpController::_bind_WriteCustomization},
+	{"base_DisplayContents", &luna_wrapper_wxHtmlHelpController::_bind_base_DisplayContents},
+	{"base_KeywordSearch", &luna_wrapper_wxHtmlHelpController::_bind_base_KeywordSearch},
+	{"base_ReadCustomization", &luna_wrapper_wxHtmlHelpController::_bind_base_ReadCustomization},
+	{"base_WriteCustomization", &luna_wrapper_wxHtmlHelpController::_bind_base_WriteCustomization},
 	{"dynCast", &luna_wrapper_wxHtmlHelpController::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHtmlHelpController::_bind___eq},
 	{0,0}

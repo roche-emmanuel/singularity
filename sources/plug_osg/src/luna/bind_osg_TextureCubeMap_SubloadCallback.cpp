@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::TextureCubeMap::SubloadCallback* ptr= dynamic_cast< osg::TextureCubeMap::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::TextureCubeMap::SubloadCallback* ptr= dynamic_cast< osg::TextureCubeMap::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::SubloadCallback* ptr= luna_caster< osg::Referenced, osg::TextureCubeMap::SubloadCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -70,18 +71,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const function, expected prototype:\nvoid osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::TextureCubeMap* texture_ptr=dynamic_cast< osg::TextureCubeMap* >(Luna< osg::Referenced >::check(L,2));
+		const osg::TextureCubeMap* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in osg::TextureCubeMap::SubloadCallback::load function");
 		}
 		const osg::TextureCubeMap & texture=*texture_ptr;
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureCubeMap::SubloadCallback::load function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::TextureCubeMap::SubloadCallback* self=dynamic_cast< osg::TextureCubeMap::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap &, osg::State &) const");
@@ -98,18 +99,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureCubeMap::SubloadCallback::subload(const osg::TextureCubeMap & texture, osg::State & state) const function, expected prototype:\nvoid osg::TextureCubeMap::SubloadCallback::subload(const osg::TextureCubeMap & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::TextureCubeMap* texture_ptr=dynamic_cast< osg::TextureCubeMap* >(Luna< osg::Referenced >::check(L,2));
+		const osg::TextureCubeMap* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in osg::TextureCubeMap::SubloadCallback::subload function");
 		}
 		const osg::TextureCubeMap & texture=*texture_ptr;
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureCubeMap::SubloadCallback::subload function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::TextureCubeMap::SubloadCallback* self=dynamic_cast< osg::TextureCubeMap::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::SubloadCallback::subload(const osg::TextureCubeMap &, osg::State &) const");

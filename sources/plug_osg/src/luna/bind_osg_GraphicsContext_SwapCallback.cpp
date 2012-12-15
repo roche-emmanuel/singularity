@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::GraphicsContext::SwapCallback* ptr= dynamic_cast< osg::GraphicsContext::SwapCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::GraphicsContext::SwapCallback* ptr= dynamic_cast< osg::GraphicsContext::SwapCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::SwapCallback* ptr= luna_caster< osg::Referenced, osg::GraphicsContext::SwapCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,9 +62,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext * gc) function, expected prototype:\nvoid osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext * gc)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* gc=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* gc=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osg::GraphicsContext::SwapCallback* self=dynamic_cast< osg::GraphicsContext::SwapCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::SwapCallback* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::SwapCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext *)");

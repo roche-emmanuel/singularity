@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxAppConsole* ptr= dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		//wxAppConsole* ptr= dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* ptr= luna_caster< wxObject, wxAppConsole >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,7 +43,8 @@ public:
 
 	static int _cast_from_wxEventFilter(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxAppConsole* ptr= dynamic_cast< wxAppConsole* >(Luna< wxEventFilter >::check(L,1));
+		//wxAppConsole* ptr= dynamic_cast< wxAppConsole* >(Luna< wxEventFilter >::check(L,1));
+		wxAppConsole* ptr= luna_caster< wxEventFilter, wxAppConsole >::cast(Luna< wxEventFilter >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -306,6 +308,156 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_MainLoop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ExitMainLoop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FilterEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UsesEventLoop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessPendingEvents(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCmdLineError(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,87987501) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCmdLineHelp(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,87987501) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCmdLineParsed(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,87987501) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEventLoopEnter(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,77241040)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEventLoopExit(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,77241040)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnExceptionInMainLoop(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnExit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnFatalException(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnInit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnInitCmdLine(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,87987501) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnRun(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnUnhandledException(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -321,7 +473,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAppConsole::MainLoop()");
@@ -340,7 +492,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::ExitMainLoop()");
@@ -357,13 +509,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxAppConsole::FilterEvent(wxEvent & event) function, expected prototype:\nint wxAppConsole::FilterEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,2));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAppConsole::FilterEvent function");
 		}
 		wxEvent & event=*event_ptr;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAppConsole::FilterEvent(wxEvent &)");
@@ -382,7 +534,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppConsole::GetMainLoop() const");
@@ -403,7 +555,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::UsesEventLoop() const");
@@ -422,7 +574,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::ProcessPendingEvents()");
@@ -440,7 +592,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::DeletePendingEvents()");
@@ -458,7 +610,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::HasPendingEvents() const");
@@ -477,7 +629,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SuspendProcessingOfPendingEvents()");
@@ -495,7 +647,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::ResumeProcessingOfPendingEvents()");
@@ -514,7 +666,7 @@ public:
 
 		wxObject* object=(Luna< wxObject >::check(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::ScheduleForDestruction(wxObject *)");
@@ -533,7 +685,7 @@ public:
 
 		wxObject* object=(Luna< wxObject >::check(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::IsScheduledForDestruction(wxObject *) const");
@@ -555,7 +707,7 @@ public:
 
 		bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::Yield(bool)");
@@ -579,7 +731,7 @@ public:
 		}
 		wxCmdLineParser & parser=*parser_ptr;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineError(wxCmdLineParser &)");
@@ -603,7 +755,7 @@ public:
 		}
 		wxCmdLineParser & parser=*parser_ptr;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineHelp(wxCmdLineParser &)");
@@ -627,7 +779,7 @@ public:
 		}
 		wxCmdLineParser & parser=*parser_ptr;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnCmdLineParsed(wxCmdLineParser &)");
@@ -647,7 +799,7 @@ public:
 
 		wxEventLoopBase* loop=(Luna< wxEventLoopBase >::check(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopEnter(wxEventLoopBase *)");
@@ -666,7 +818,7 @@ public:
 
 		wxEventLoopBase* loop=(Luna< wxEventLoopBase >::check(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::OnEventLoopExit(wxEventLoopBase *)");
@@ -684,7 +836,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnExceptionInMainLoop()");
@@ -703,7 +855,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAppConsole::OnExit()");
@@ -722,7 +874,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::OnFatalException()");
@@ -740,7 +892,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAppConsole::OnInit()");
@@ -764,7 +916,7 @@ public:
 		}
 		wxCmdLineParser & parser=*parser_ptr;
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::OnInitCmdLine(wxCmdLineParser &)");
@@ -782,7 +934,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAppConsole::OnRun()");
@@ -801,7 +953,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::OnUnhandledException()");
@@ -819,7 +971,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppDisplayName() const");
@@ -838,7 +990,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetAppName() const");
@@ -857,7 +1009,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAppConsole::GetClassName() const");
@@ -876,7 +1028,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAppTraits * wxAppConsole::GetTraits()");
@@ -897,7 +1049,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorDisplayName() const");
@@ -916,7 +1068,7 @@ public:
 		}
 
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxAppConsole::GetVendorName() const");
@@ -936,7 +1088,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppDisplayName(const wxString &)");
@@ -955,7 +1107,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SetAppName(const wxString &)");
@@ -974,7 +1126,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SetClassName(const wxString &)");
@@ -993,7 +1145,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorDisplayName(const wxString &)");
@@ -1012,7 +1164,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxAppConsole* self=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAppConsole::SetVendorName(const wxString &)");
@@ -1029,7 +1181,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxAppConsole::SetInstance(wxAppConsole * app) function, expected prototype:\nstatic void wxAppConsole::SetInstance(wxAppConsole * app)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxAppConsole* app=dynamic_cast< wxAppConsole* >(Luna< wxObject >::check(L,1));
+		wxAppConsole* app=(Luna< wxObject >::checkSubType< wxAppConsole >(L,1));
 
 		wxAppConsole::SetInstance(app);
 
@@ -1064,6 +1216,474 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// wxClassInfo * wxAppConsole::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAppConsole::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAppConsole::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAppConsole::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxAppConsole::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxAppConsole::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_QueueEvent(wxEvent *)");
+		}
+		self->wxAppConsole::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxAppConsole::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxAppConsole::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAppConsole::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxAppConsole::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxAppConsole::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxAppConsole::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAppConsole::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxAppConsole::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAppConsole::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxAppConsole::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxAppConsole::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAppConsole::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxAppConsole::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// int wxAppConsole::base_MainLoop()
+	static int _bind_base_MainLoop(lua_State *L) {
+		if (!_lg_typecheck_base_MainLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAppConsole::base_MainLoop() function, expected prototype:\nint wxAppConsole::base_MainLoop()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_MainLoop()");
+		}
+		int lret = self->wxAppConsole::MainLoop();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_ExitMainLoop()
+	static int _bind_base_ExitMainLoop(lua_State *L) {
+		if (!_lg_typecheck_base_ExitMainLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_ExitMainLoop() function, expected prototype:\nvoid wxAppConsole::base_ExitMainLoop()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_ExitMainLoop()");
+		}
+		self->wxAppConsole::ExitMainLoop();
+
+		return 0;
+	}
+
+	// int wxAppConsole::base_FilterEvent(wxEvent & event)
+	static int _bind_base_FilterEvent(lua_State *L) {
+		if (!_lg_typecheck_base_FilterEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAppConsole::base_FilterEvent(wxEvent & event) function, expected prototype:\nint wxAppConsole::base_FilterEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAppConsole::base_FilterEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_FilterEvent(wxEvent &)");
+		}
+		int lret = self->wxAppConsole::FilterEvent(event);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxAppConsole::base_UsesEventLoop() const
+	static int _bind_base_UsesEventLoop(lua_State *L) {
+		if (!_lg_typecheck_base_UsesEventLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_UsesEventLoop() const function, expected prototype:\nbool wxAppConsole::base_UsesEventLoop() const\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_UsesEventLoop() const");
+		}
+		bool lret = self->wxAppConsole::UsesEventLoop();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_ProcessPendingEvents()
+	static int _bind_base_ProcessPendingEvents(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessPendingEvents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_ProcessPendingEvents() function, expected prototype:\nvoid wxAppConsole::base_ProcessPendingEvents()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_ProcessPendingEvents()");
+		}
+		self->wxAppConsole::ProcessPendingEvents();
+
+		return 0;
+	}
+
+	// bool wxAppConsole::base_OnCmdLineError(wxCmdLineParser & parser)
+	static int _bind_base_OnCmdLineError(lua_State *L) {
+		if (!_lg_typecheck_base_OnCmdLineError(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_OnCmdLineError(wxCmdLineParser & parser) function, expected prototype:\nbool wxAppConsole::base_OnCmdLineError(wxCmdLineParser & parser)\nClass arguments details:\narg 1 ID = 87987501\n");
+		}
+
+		wxCmdLineParser* parser_ptr=(Luna< wxCmdLineParser >::check(L,2));
+		if( !parser_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parser in wxAppConsole::base_OnCmdLineError function");
+		}
+		wxCmdLineParser & parser=*parser_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineError(wxCmdLineParser &)");
+		}
+		bool lret = self->wxAppConsole::OnCmdLineError(parser);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser & parser)
+	static int _bind_base_OnCmdLineHelp(lua_State *L) {
+		if (!_lg_typecheck_base_OnCmdLineHelp(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser & parser) function, expected prototype:\nbool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser & parser)\nClass arguments details:\narg 1 ID = 87987501\n");
+		}
+
+		wxCmdLineParser* parser_ptr=(Luna< wxCmdLineParser >::check(L,2));
+		if( !parser_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parser in wxAppConsole::base_OnCmdLineHelp function");
+		}
+		wxCmdLineParser & parser=*parser_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineHelp(wxCmdLineParser &)");
+		}
+		bool lret = self->wxAppConsole::OnCmdLineHelp(parser);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser & parser)
+	static int _bind_base_OnCmdLineParsed(lua_State *L) {
+		if (!_lg_typecheck_base_OnCmdLineParsed(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser & parser) function, expected prototype:\nbool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser & parser)\nClass arguments details:\narg 1 ID = 87987501\n");
+		}
+
+		wxCmdLineParser* parser_ptr=(Luna< wxCmdLineParser >::check(L,2));
+		if( !parser_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parser in wxAppConsole::base_OnCmdLineParsed function");
+		}
+		wxCmdLineParser & parser=*parser_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnCmdLineParsed(wxCmdLineParser &)");
+		}
+		bool lret = self->wxAppConsole::OnCmdLineParsed(parser);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase * loop)
+	static int _bind_base_OnEventLoopEnter(lua_State *L) {
+		if (!_lg_typecheck_base_OnEventLoopEnter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase * loop) function, expected prototype:\nvoid wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase * loop)\nClass arguments details:\narg 1 ID = 77241040\n");
+		}
+
+		wxEventLoopBase* loop=(Luna< wxEventLoopBase >::check(L,2));
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopEnter(wxEventLoopBase *)");
+		}
+		self->wxAppConsole::OnEventLoopEnter(loop);
+
+		return 0;
+	}
+
+	// void wxAppConsole::base_OnEventLoopExit(wxEventLoopBase * loop)
+	static int _bind_base_OnEventLoopExit(lua_State *L) {
+		if (!_lg_typecheck_base_OnEventLoopExit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_OnEventLoopExit(wxEventLoopBase * loop) function, expected prototype:\nvoid wxAppConsole::base_OnEventLoopExit(wxEventLoopBase * loop)\nClass arguments details:\narg 1 ID = 77241040\n");
+		}
+
+		wxEventLoopBase* loop=(Luna< wxEventLoopBase >::check(L,2));
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnEventLoopExit(wxEventLoopBase *)");
+		}
+		self->wxAppConsole::OnEventLoopExit(loop);
+
+		return 0;
+	}
+
+	// bool wxAppConsole::base_OnExceptionInMainLoop()
+	static int _bind_base_OnExceptionInMainLoop(lua_State *L) {
+		if (!_lg_typecheck_base_OnExceptionInMainLoop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_OnExceptionInMainLoop() function, expected prototype:\nbool wxAppConsole::base_OnExceptionInMainLoop()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnExceptionInMainLoop()");
+		}
+		bool lret = self->wxAppConsole::OnExceptionInMainLoop();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxAppConsole::base_OnExit()
+	static int _bind_base_OnExit(lua_State *L) {
+		if (!_lg_typecheck_base_OnExit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAppConsole::base_OnExit() function, expected prototype:\nint wxAppConsole::base_OnExit()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnExit()");
+		}
+		int lret = self->wxAppConsole::OnExit();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_OnFatalException()
+	static int _bind_base_OnFatalException(lua_State *L) {
+		if (!_lg_typecheck_base_OnFatalException(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_OnFatalException() function, expected prototype:\nvoid wxAppConsole::base_OnFatalException()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnFatalException()");
+		}
+		self->wxAppConsole::OnFatalException();
+
+		return 0;
+	}
+
+	// bool wxAppConsole::base_OnInit()
+	static int _bind_base_OnInit(lua_State *L) {
+		if (!_lg_typecheck_base_OnInit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAppConsole::base_OnInit() function, expected prototype:\nbool wxAppConsole::base_OnInit()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAppConsole::base_OnInit()");
+		}
+		bool lret = self->wxAppConsole::OnInit();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_OnInitCmdLine(wxCmdLineParser & parser)
+	static int _bind_base_OnInitCmdLine(lua_State *L) {
+		if (!_lg_typecheck_base_OnInitCmdLine(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_OnInitCmdLine(wxCmdLineParser & parser) function, expected prototype:\nvoid wxAppConsole::base_OnInitCmdLine(wxCmdLineParser & parser)\nClass arguments details:\narg 1 ID = 87987501\n");
+		}
+
+		wxCmdLineParser* parser_ptr=(Luna< wxCmdLineParser >::check(L,2));
+		if( !parser_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parser in wxAppConsole::base_OnInitCmdLine function");
+		}
+		wxCmdLineParser & parser=*parser_ptr;
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnInitCmdLine(wxCmdLineParser &)");
+		}
+		self->wxAppConsole::OnInitCmdLine(parser);
+
+		return 0;
+	}
+
+	// int wxAppConsole::base_OnRun()
+	static int _bind_base_OnRun(lua_State *L) {
+		if (!_lg_typecheck_base_OnRun(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAppConsole::base_OnRun() function, expected prototype:\nint wxAppConsole::base_OnRun()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAppConsole::base_OnRun()");
+		}
+		int lret = self->wxAppConsole::OnRun();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxAppConsole::base_OnUnhandledException()
+	static int _bind_base_OnUnhandledException(lua_State *L) {
+		if (!_lg_typecheck_base_OnUnhandledException(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAppConsole::base_OnUnhandledException() function, expected prototype:\nvoid wxAppConsole::base_OnUnhandledException()\nClass arguments details:\n");
+		}
+
+
+		wxAppConsole* self=Luna< wxObject >::checkSubType< wxAppConsole >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAppConsole::base_OnUnhandledException()");
+		}
+		self->wxAppConsole::OnUnhandledException();
+
+		return 0;
 	}
 
 
@@ -1126,6 +1746,29 @@ luna_RegType LunaTraits< wxAppConsole >::methods[] = {
 	{"SetInstance", &luna_wrapper_wxAppConsole::_bind_SetInstance},
 	{"GetInstance", &luna_wrapper_wxAppConsole::_bind_GetInstance},
 	{"IsMainLoopRunning", &luna_wrapper_wxAppConsole::_bind_IsMainLoopRunning},
+	{"base_GetClassInfo", &luna_wrapper_wxAppConsole::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxAppConsole::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxAppConsole::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxAppConsole::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxAppConsole::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxAppConsole::_bind_base_SetPreviousHandler},
+	{"base_MainLoop", &luna_wrapper_wxAppConsole::_bind_base_MainLoop},
+	{"base_ExitMainLoop", &luna_wrapper_wxAppConsole::_bind_base_ExitMainLoop},
+	{"base_FilterEvent", &luna_wrapper_wxAppConsole::_bind_base_FilterEvent},
+	{"base_UsesEventLoop", &luna_wrapper_wxAppConsole::_bind_base_UsesEventLoop},
+	{"base_ProcessPendingEvents", &luna_wrapper_wxAppConsole::_bind_base_ProcessPendingEvents},
+	{"base_OnCmdLineError", &luna_wrapper_wxAppConsole::_bind_base_OnCmdLineError},
+	{"base_OnCmdLineHelp", &luna_wrapper_wxAppConsole::_bind_base_OnCmdLineHelp},
+	{"base_OnCmdLineParsed", &luna_wrapper_wxAppConsole::_bind_base_OnCmdLineParsed},
+	{"base_OnEventLoopEnter", &luna_wrapper_wxAppConsole::_bind_base_OnEventLoopEnter},
+	{"base_OnEventLoopExit", &luna_wrapper_wxAppConsole::_bind_base_OnEventLoopExit},
+	{"base_OnExceptionInMainLoop", &luna_wrapper_wxAppConsole::_bind_base_OnExceptionInMainLoop},
+	{"base_OnExit", &luna_wrapper_wxAppConsole::_bind_base_OnExit},
+	{"base_OnFatalException", &luna_wrapper_wxAppConsole::_bind_base_OnFatalException},
+	{"base_OnInit", &luna_wrapper_wxAppConsole::_bind_base_OnInit},
+	{"base_OnInitCmdLine", &luna_wrapper_wxAppConsole::_bind_base_OnInitCmdLine},
+	{"base_OnRun", &luna_wrapper_wxAppConsole::_bind_base_OnRun},
+	{"base_OnUnhandledException", &luna_wrapper_wxAppConsole::_bind_base_OnUnhandledException},
 	{"__eq", &luna_wrapper_wxAppConsole::_bind___eq},
 	{0,0}
 };

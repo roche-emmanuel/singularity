@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlCellEvent* ptr= dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		//wxHtmlCellEvent* ptr= dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		wxHtmlCellEvent* ptr= luna_caster< wxObject, wxHtmlCellEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -67,6 +68,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,7 +93,7 @@ public:
 		}
 
 
-		wxHtmlCellEvent* self=dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlCellEvent::GetCell() const");
@@ -101,7 +114,7 @@ public:
 		}
 
 
-		wxHtmlCellEvent* self=dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlCellEvent::GetLinkClicked() const");
@@ -120,7 +133,7 @@ public:
 		}
 
 
-		wxHtmlCellEvent* self=dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxHtmlCellEvent::GetPoint() const");
@@ -143,7 +156,7 @@ public:
 
 		bool linkclicked=(bool)(lua_toboolean(L,2)==1);
 
-		wxHtmlCellEvent* self=dynamic_cast< wxHtmlCellEvent* >(Luna< wxObject >::check(L,1));
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlCellEvent::SetLinkClicked(bool)");
@@ -151,6 +164,46 @@ public:
 		self->SetLinkClicked(linkclicked);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxHtmlCellEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlCellEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlCellEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlCellEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlCellEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxHtmlCellEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxHtmlCellEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHtmlCellEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlCellEvent* self=Luna< wxObject >::checkSubType< wxHtmlCellEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHtmlCellEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxHtmlCellEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -180,6 +233,8 @@ luna_RegType LunaTraits< wxHtmlCellEvent >::methods[] = {
 	{"GetLinkClicked", &luna_wrapper_wxHtmlCellEvent::_bind_GetLinkClicked},
 	{"GetPoint", &luna_wrapper_wxHtmlCellEvent::_bind_GetPoint},
 	{"SetLinkClicked", &luna_wrapper_wxHtmlCellEvent::_bind_SetLinkClicked},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlCellEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxHtmlCellEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxHtmlCellEvent::_bind___eq},
 	{0,0}
 };

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxBookCtrlEvent* ptr= dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		//wxBookCtrlEvent* ptr= dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxBookCtrlEvent* ptr= luna_caster< wxObject, wxBookCtrlEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -68,6 +69,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -81,7 +94,7 @@ public:
 		}
 
 
-		wxBookCtrlEvent* self=dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetOldSelection() const");
@@ -100,7 +113,7 @@ public:
 		}
 
 
-		wxBookCtrlEvent* self=dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetSelection() const");
@@ -120,7 +133,7 @@ public:
 
 		int page=(int)lua_tointeger(L,2);
 
-		wxBookCtrlEvent* self=dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetOldSelection(int)");
@@ -139,7 +152,7 @@ public:
 
 		int page=(int)lua_tointeger(L,2);
 
-		wxBookCtrlEvent* self=dynamic_cast< wxBookCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetSelection(int)");
@@ -147,6 +160,46 @@ public:
 		self->SetSelection(page);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxBookCtrlEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxBookCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxBookCtrlEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -176,6 +229,8 @@ luna_RegType LunaTraits< wxBookCtrlEvent >::methods[] = {
 	{"GetSelection", &luna_wrapper_wxBookCtrlEvent::_bind_GetSelection},
 	{"SetOldSelection", &luna_wrapper_wxBookCtrlEvent::_bind_SetOldSelection},
 	{"SetSelection", &luna_wrapper_wxBookCtrlEvent::_bind_SetSelection},
+	{"base_GetClassInfo", &luna_wrapper_wxBookCtrlEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxBookCtrlEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxBookCtrlEvent::_bind___eq},
 	{0,0}
 };

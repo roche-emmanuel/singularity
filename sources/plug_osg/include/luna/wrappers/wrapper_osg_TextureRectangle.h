@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TextureRectangle::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TextureRectangle::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TextureRectangle::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextureRectangle::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextureRectangle::getUserData();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return TextureRectangle::getMember();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return TextureRectangle::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Texture * osg::Texture::asTexture()
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return TextureRectangle::asTexture();
 	};
 
 	// const osg::Texture * osg::Texture::asTexture() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return TextureRectangle::asTexture();
 	};
 
 	// bool osg::Texture::isTextureAttribute() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::isTextureAttribute();
+		return TextureRectangle::isTextureAttribute();
 	};
 
 	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::getModeUsage(arg1);
+		return TextureRectangle::getModeUsage(arg1);
 	};
 
 	// void osg::Texture::compileGLObjects(osg::State & state) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::compileGLObjects(state);
+		return TextureRectangle::compileGLObjects(state);
 	};
 
 	// void osg::Texture::releaseGLObjects(osg::State * state = 0) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::releaseGLObjects(state);
+		return TextureRectangle::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::TextureRectangle::cloneType() const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TextureRectangle::cloneType();
+		return TextureRectangle::cloneType();
 	};
 
 	// osg::Object * osg::TextureRectangle::clone(const osg::CopyOp & arg1) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TextureRectangle::clone(arg1);
+		return TextureRectangle::clone(arg1);
 	};
 
 	// bool osg::TextureRectangle::isSameKindAs(const osg::Object * obj) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TextureRectangle::isSameKindAs(obj);
+		return TextureRectangle::isSameKindAs(obj);
 	};
 
 	// const char * osg::TextureRectangle::libraryName() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TextureRectangle::libraryName();
+		return TextureRectangle::libraryName();
 	};
 
 	// const char * osg::TextureRectangle::className() const
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TextureRectangle::className();
+		return TextureRectangle::className();
 	};
 
 	// osg::StateAttribute::Type osg::TextureRectangle::getType() const
@@ -195,7 +195,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::TextureRectangle::getType();
+		return TextureRectangle::getType();
 	};
 
 	// int osg::TextureRectangle::compare(const osg::StateAttribute & rhs) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureRectangle::compare(rhs);
+		return TextureRectangle::compare(rhs);
 	};
 
 	// unsigned int osg::TextureRectangle::getTextureTarget() const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::TextureRectangle::getTextureTarget();
+		return TextureRectangle::getTextureTarget();
 	};
 
 	// void osg::TextureRectangle::setImage(unsigned int arg1, osg::Image * image)
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TextureRectangle::setImage(arg1, image);
+		return TextureRectangle::setImage(arg1, image);
 	};
 
 	// osg::Image * osg::TextureRectangle::getImage(unsigned int arg1)
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::TextureRectangle::getImage(arg1);
+		return TextureRectangle::getImage(arg1);
 	};
 
 	// const osg::Image * osg::TextureRectangle::getImage(unsigned int arg1) const
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::TextureRectangle::getImage(arg1);
+		return TextureRectangle::getImage(arg1);
 	};
 
 	// unsigned int osg::TextureRectangle::getNumImages() const
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::TextureRectangle::getNumImages();
+		return TextureRectangle::getNumImages();
 	};
 
 	// int osg::TextureRectangle::getTextureWidth() const
@@ -263,7 +263,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureRectangle::getTextureWidth();
+		return TextureRectangle::getTextureWidth();
 	};
 
 	// int osg::TextureRectangle::getTextureHeight() const
@@ -272,7 +272,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureRectangle::getTextureHeight();
+		return TextureRectangle::getTextureHeight();
 	};
 
 	// int osg::TextureRectangle::getTextureDepth() const
@@ -281,7 +281,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureRectangle::getTextureDepth();
+		return TextureRectangle::getTextureDepth();
 	};
 
 	// void osg::TextureRectangle::apply(osg::State & state) const
@@ -291,13 +291,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TextureRectangle::apply(state);
+		return TextureRectangle::apply(state);
 	};
 
 
 protected:
 	// void osg::TextureRectangle::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureRectangle::computeInternalFormat();
+	};
+
 	// void osg::TextureRectangle::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureRectangle::allocateMipmap(state);
+	};
+
 
 };
 

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_Texture2DArray_SubloadCallback(lua_State* L, lua_Table* dum) : osg::Texture2DArray::SubloadCallback(), _obj(L,-1) {};
 
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
 	void load(const osg::Texture2DArray & texture, osg::State & state) const {

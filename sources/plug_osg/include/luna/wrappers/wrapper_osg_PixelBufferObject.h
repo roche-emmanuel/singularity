@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PixelBufferObject::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PixelBufferObject::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PixelBufferObject::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PixelBufferObject::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PixelBufferObject::getUserData();
 	};
 
 	// void osg::BufferObject::releaseGLObjects(osg::State * state = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferObject::releaseGLObjects(state);
+		return PixelBufferObject::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::PixelBufferObject::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PixelBufferObject::cloneType();
+		return PixelBufferObject::cloneType();
 	};
 
 	// osg::Object * osg::PixelBufferObject::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PixelBufferObject::clone(arg1);
+		return PixelBufferObject::clone(arg1);
 	};
 
 	// bool osg::PixelBufferObject::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PixelBufferObject::isSameKindAs(obj);
+		return PixelBufferObject::isSameKindAs(obj);
 	};
 
 	// const char * osg::PixelBufferObject::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PixelBufferObject::libraryName();
+		return PixelBufferObject::libraryName();
 	};
 
 	// const char * osg::PixelBufferObject::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PixelBufferObject::className();
+		return PixelBufferObject::className();
 	};
 
 

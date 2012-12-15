@@ -127,6 +127,25 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_flushAll(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_requestDelete(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -321,6 +340,61 @@ public:
 		return 0;
 	}
 
+	// void osg::DeleteHandler::base_flush()
+	static int _bind_base_flush(lua_State *L) {
+		if (!_lg_typecheck_base_flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flush() function, expected prototype:\nvoid osg::DeleteHandler::base_flush()\nClass arguments details:\n");
+		}
+
+
+		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flush()");
+		}
+		self->DeleteHandler::flush();
+
+		return 0;
+	}
+
+	// void osg::DeleteHandler::base_flushAll()
+	static int _bind_base_flushAll(lua_State *L) {
+		if (!_lg_typecheck_base_flushAll(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_flushAll() function, expected prototype:\nvoid osg::DeleteHandler::base_flushAll()\nClass arguments details:\n");
+		}
+
+
+		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_flushAll()");
+		}
+		self->DeleteHandler::flushAll();
+
+		return 0;
+	}
+
+	// void osg::DeleteHandler::base_requestDelete(const osg::Referenced * object)
+	static int _bind_base_requestDelete(lua_State *L) {
+		if (!_lg_typecheck_base_requestDelete(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::DeleteHandler::base_requestDelete(const osg::Referenced * object) function, expected prototype:\nvoid osg::DeleteHandler::base_requestDelete(const osg::Referenced * object)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Referenced* object=(Luna< osg::Referenced >::check(L,2));
+
+		osg::DeleteHandler* self=(Luna< osg::DeleteHandler >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::DeleteHandler::base_requestDelete(const osg::Referenced *)");
+		}
+		self->DeleteHandler::requestDelete(object);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -350,6 +424,9 @@ luna_RegType LunaTraits< osg::DeleteHandler >::methods[] = {
 	{"flush", &luna_wrapper_osg_DeleteHandler::_bind_flush},
 	{"flushAll", &luna_wrapper_osg_DeleteHandler::_bind_flushAll},
 	{"requestDelete", &luna_wrapper_osg_DeleteHandler::_bind_requestDelete},
+	{"base_flush", &luna_wrapper_osg_DeleteHandler::_bind_base_flush},
+	{"base_flushAll", &luna_wrapper_osg_DeleteHandler::_bind_base_flushAll},
+	{"base_requestDelete", &luna_wrapper_osg_DeleteHandler::_bind_base_requestDelete},
 	{"dynCast", &luna_wrapper_osg_DeleteHandler::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_DeleteHandler::_bind___eq},
 	{0,0}

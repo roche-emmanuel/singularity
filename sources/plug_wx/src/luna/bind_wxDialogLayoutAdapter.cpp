@@ -82,7 +82,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDialog* dialog=dynamic_cast< wxDialog* >(Luna< wxObject >::check(L,2));
+		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
@@ -102,7 +102,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDialog* dialog=dynamic_cast< wxDialog* >(Luna< wxObject >::check(L,2));
+		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {

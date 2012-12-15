@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Texture2DMultisample::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Texture2DMultisample::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Texture2DMultisample::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Texture2DMultisample::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Texture2DMultisample::getUserData();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return Texture2DMultisample::getMember();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Texture2DMultisample::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Texture * osg::Texture::asTexture()
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return Texture2DMultisample::asTexture();
 	};
 
 	// const osg::Texture * osg::Texture::asTexture() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return Texture2DMultisample::asTexture();
 	};
 
 	// bool osg::Texture::isTextureAttribute() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::isTextureAttribute();
+		return Texture2DMultisample::isTextureAttribute();
 	};
 
 	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::getModeUsage(arg1);
+		return Texture2DMultisample::getModeUsage(arg1);
 	};
 
 	// void osg::Texture::compileGLObjects(osg::State & state) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::compileGLObjects(state);
+		return Texture2DMultisample::compileGLObjects(state);
 	};
 
 	// void osg::Texture::releaseGLObjects(osg::State * state = 0) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::releaseGLObjects(state);
+		return Texture2DMultisample::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::Texture2DMultisample::cloneType() const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Texture2DMultisample::cloneType();
+		return Texture2DMultisample::cloneType();
 	};
 
 	// osg::Object * osg::Texture2DMultisample::clone(const osg::CopyOp & arg1) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Texture2DMultisample::clone(arg1);
+		return Texture2DMultisample::clone(arg1);
 	};
 
 	// bool osg::Texture2DMultisample::isSameKindAs(const osg::Object * obj) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture2DMultisample::isSameKindAs(obj);
+		return Texture2DMultisample::isSameKindAs(obj);
 	};
 
 	// const char * osg::Texture2DMultisample::libraryName() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Texture2DMultisample::libraryName();
+		return Texture2DMultisample::libraryName();
 	};
 
 	// const char * osg::Texture2DMultisample::className() const
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Texture2DMultisample::className();
+		return Texture2DMultisample::className();
 	};
 
 	// osg::StateAttribute::Type osg::Texture2DMultisample::getType() const
@@ -195,7 +195,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Texture2DMultisample::getType();
+		return Texture2DMultisample::getType();
 	};
 
 	// int osg::Texture2DMultisample::compare(const osg::StateAttribute & rhs) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture2DMultisample::compare(rhs);
+		return Texture2DMultisample::compare(rhs);
 	};
 
 	// unsigned int osg::Texture2DMultisample::getTextureTarget() const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Texture2DMultisample::getTextureTarget();
+		return Texture2DMultisample::getTextureTarget();
 	};
 
 	// void osg::Texture2DMultisample::setImage(unsigned int face, osg::Image * image)
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture2DMultisample::setImage(face, image);
+		return Texture2DMultisample::setImage(face, image);
 	};
 
 	// osg::Image * osg::Texture2DMultisample::getImage(unsigned int face)
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::Texture2DMultisample::getImage(face);
+		return Texture2DMultisample::getImage(face);
 	};
 
 	// const osg::Image * osg::Texture2DMultisample::getImage(unsigned int face) const
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::Texture2DMultisample::getImage(face);
+		return Texture2DMultisample::getImage(face);
 	};
 
 	// unsigned int osg::Texture2DMultisample::getNumImages() const
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Texture2DMultisample::getNumImages();
+		return Texture2DMultisample::getNumImages();
 	};
 
 	// void osg::Texture2DMultisample::allocateMipmap(osg::State & state) const
@@ -264,7 +264,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture2DMultisample::allocateMipmap(state);
+		return Texture2DMultisample::allocateMipmap(state);
 	};
 
 	// int osg::Texture2DMultisample::getTextureWidth() const
@@ -273,7 +273,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture2DMultisample::getTextureWidth();
+		return Texture2DMultisample::getTextureWidth();
 	};
 
 	// int osg::Texture2DMultisample::getTextureHeight() const
@@ -282,7 +282,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture2DMultisample::getTextureHeight();
+		return Texture2DMultisample::getTextureHeight();
 	};
 
 	// int osg::Texture2DMultisample::getTextureDepth() const
@@ -291,7 +291,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture2DMultisample::getTextureDepth();
+		return Texture2DMultisample::getTextureDepth();
 	};
 
 	// void osg::Texture2DMultisample::apply(osg::State & state) const
@@ -301,12 +301,20 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture2DMultisample::apply(state);
+		return Texture2DMultisample::apply(state);
 	};
 
 
 protected:
 	// void osg::Texture2DMultisample::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture2DMultisample::computeInternalFormat();
+	};
+
 
 };
 

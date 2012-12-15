@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFSFile* ptr= dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		//wxFSFile* ptr= dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* ptr= luna_caster< wxObject, wxFSFile >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -107,6 +108,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -119,7 +126,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxFSFile::wxFSFile(wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif) function, expected prototype:\nwxFSFile::wxFSFile(wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 57497519\n");
 		}
 
-		wxInputStream* stream=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,1));
+		wxInputStream* stream=(Luna< wxObject >::checkSubType< wxInputStream >(L,1));
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
 		wxString mimetype(lua_tostring(L,3),lua_objlen(L,3));
 		wxString anchor(lua_tostring(L,4),lua_objlen(L,4));
@@ -139,7 +146,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxFSFile::wxFSFile(lua_Table * data, wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif) function, expected prototype:\nwxFSFile::wxFSFile(lua_Table * data, wxInputStream * stream, const wxString & location, const wxString & mimetype, const wxString & anchor, wxDateTime modif)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 57497519\n");
 		}
 
-		wxInputStream* stream=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2));
+		wxInputStream* stream=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
 		wxString location(lua_tostring(L,3),lua_objlen(L,3));
 		wxString mimetype(lua_tostring(L,4),lua_objlen(L,4));
 		wxString anchor(lua_tostring(L,5),lua_objlen(L,5));
@@ -171,7 +178,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::DetachStream()");
@@ -192,7 +199,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetAnchor() const");
@@ -211,7 +218,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetLocation() const");
@@ -230,7 +237,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFSFile::GetMimeType() const");
@@ -249,7 +256,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDateTime wxFSFile::GetModificationTime() const");
@@ -271,7 +278,7 @@ public:
 		}
 
 
-		wxFSFile* self=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,1));
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxFSFile::GetStream() const");
@@ -280,6 +287,27 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxInputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxFSFile::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFSFile::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFSFile::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFSFile* self=Luna< wxObject >::checkSubType< wxFSFile >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFSFile::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFSFile::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -311,6 +339,7 @@ luna_RegType LunaTraits< wxFSFile >::methods[] = {
 	{"GetMimeType", &luna_wrapper_wxFSFile::_bind_GetMimeType},
 	{"GetModificationTime", &luna_wrapper_wxFSFile::_bind_GetModificationTime},
 	{"GetStream", &luna_wrapper_wxFSFile::_bind_GetStream},
+	{"base_GetClassInfo", &luna_wrapper_wxFSFile::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxFSFile::_bind___eq},
 	{0,0}
 };

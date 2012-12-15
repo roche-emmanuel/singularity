@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Sphere::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Sphere::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Sphere::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Sphere::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Sphere::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Sphere::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Sphere::cloneType() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Sphere::cloneType();
+		return Sphere::cloneType();
 	};
 
 	// osg::Object * osg::Sphere::clone(const osg::CopyOp & arg1) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Sphere::clone(arg1);
+		return Sphere::clone(arg1);
 	};
 
 	// bool osg::Sphere::isSameKindAs(const osg::Object * obj) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Sphere::isSameKindAs(obj);
+		return Sphere::isSameKindAs(obj);
 	};
 
 	// const char * osg::Sphere::libraryName() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Sphere::libraryName();
+		return Sphere::libraryName();
 	};
 
 	// const char * osg::Sphere::className() const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Sphere::className();
+		return Sphere::className();
 	};
 
 	// void osg::Sphere::accept(osg::ShapeVisitor & arg1)
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Sphere::accept(arg1);
+		return Sphere::accept(arg1);
 	};
 
 	// void osg::Sphere::accept(osg::ConstShapeVisitor & arg1) const
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Sphere::accept(arg1);
+		return Sphere::accept(arg1);
 	};
 
 

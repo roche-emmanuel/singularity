@@ -55,3 +55,60 @@ function test_viewer_deletion()
 	
 	log:info("Tests","Viewer deletion done.")
 end
+
+function test_vec3array()
+	log:info("Tests","Creating geode...")
+	local geode = osg.Geode()
+	
+	log:info("Tests","Creating geometry...")
+	local geom = osg.Geometry()
+	geode:addDrawable(geom);
+	
+	log:info("Tests","Creating vertex array...")
+	local vertices = osg.Vec4Array();
+	geom:setVertexArray(vertices);
+
+	log:info("Tests","Adding vertices...")
+	vertices:push_back(osg.Vec4f(-1.0,-1.0,0.0,0.0))
+	vertices:push_back(osg.Vec4f(-1.0,1.0,0.0,1.0))
+	vertices:push_back(osg.Vec4f(1.0,1.0,1.0,1.0))
+	vertices:push_back(osg.Vec4f(1.0,-1.0,1.0,0.0));
+	
+	assert_equal(4,vertices:size(),"Invalid vertex count.")
+	
+	log:info("Tests","Adding primitive set... TRIANGLE_STRIP=",osg.PrimitiveSet.TRIANGLE_STRIP)
+	geom:addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.TRIANGLE_STRIP,0,4));
+	
+	log:info("Tests","Creating program...")
+	local prog = osg.Program();
+	
+	log:info("Tests","Creating vertex shader...")
+	local vs = osg.Shader(osg.Shader.VERTEX);
+	vs:setShaderSource([[
+varying vec2 coords;
+
+void main() {
+    gl_Position = gl_Vertex;
+    coords = (gl_Vertex.xy+vec2(1.0,1.0))/2.0;
+}	
+	]]);
+	
+	log:info("Tests","Creating fragment shader...")
+	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	vs:setShaderSource([[
+void main() {
+    gl_FragColor = vec4(0.0,1.0,0.0,1.0);
+}
+	]]);
+	
+	prog:addShader(vs)
+	prog:addShader(fs)
+	
+	log:info("Tests","Creating state set...")
+	local ss = geode:getOrCreateStateSet()
+	
+	log:info("Tests","Adding program to state set...")
+	ss:setAttributeAndModes(prog)
+	
+	log:info("Tests","Vec3Array test done.")
+end

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DampingOperator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DampingOperator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DampingOperator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DampingOperator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DampingOperator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DampingOperator::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::operateParticles(ps, dt);
+		return DampingOperator::operateParticles(ps, dt);
 	};
 
 	// void osgParticle::Operator::beginOperate(osgParticle::Program * arg1)
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::beginOperate(arg1);
+		return DampingOperator::beginOperate(arg1);
 	};
 
 	// void osgParticle::Operator::endOperate()
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::endOperate();
+		return DampingOperator::endOperate();
 	};
 
 	// osg::Object * osgParticle::DampingOperator::cloneType() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::DampingOperator::cloneType();
+		return DampingOperator::cloneType();
 	};
 
 	// osg::Object * osgParticle::DampingOperator::clone(const osg::CopyOp & arg1) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::DampingOperator::clone(arg1);
+		return DampingOperator::clone(arg1);
 	};
 
 	// bool osgParticle::DampingOperator::isSameKindAs(const osg::Object * obj) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::DampingOperator::isSameKindAs(obj);
+		return DampingOperator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::DampingOperator::libraryName() const
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::DampingOperator::libraryName();
+		return DampingOperator::libraryName();
 	};
 
 	// const char * osgParticle::DampingOperator::className() const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::DampingOperator::className();
+		return DampingOperator::className();
 	};
 
 	// void osgParticle::DampingOperator::operate(osgParticle::Particle * P, double dt)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::DampingOperator::operate(P, dt);
+		return DampingOperator::operate(P, dt);
 	};
 
 

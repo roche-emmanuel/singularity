@@ -1462,7 +1462,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiPaneInfo::Icon(const wxBitmap & b) function, expected prototype:\nwxAuiPaneInfo & wxAuiPaneInfo::Icon(const wxBitmap & b)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* b_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* b_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !b_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg b in wxAuiPaneInfo::Icon function");
 		}
@@ -2328,7 +2328,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiPaneInfo::Window(wxWindow * w) function, expected prototype:\nwxAuiPaneInfo & wxAuiPaneInfo::Window(wxWindow * w)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* w=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* w=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiPaneInfo* self=(Luna< wxAuiPaneInfo >::check(L,1));
 		if(!self) {

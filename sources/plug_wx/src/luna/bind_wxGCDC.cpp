@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGCDC* ptr= dynamic_cast< wxGCDC* >(Luna< wxObject >::check(L,1));
+		//wxGCDC* ptr= dynamic_cast< wxGCDC* >(Luna< wxObject >::check(L,1));
+		wxGCDC* ptr= luna_caster< wxObject, wxGCDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -91,6 +92,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -103,7 +110,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxWindowDC & windowDC)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxWindowDC* windowDC_ptr=dynamic_cast< wxWindowDC* >(Luna< wxObject >::check(L,1));
+		const wxWindowDC* windowDC_ptr=(Luna< wxObject >::checkSubType< wxWindowDC >(L,1));
 		if( !windowDC_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg windowDC in wxGCDC::wxGCDC function");
 		}
@@ -119,7 +126,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(const wxMemoryDC & memoryDC)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxMemoryDC* memoryDC_ptr=dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,1));
+		const wxMemoryDC* memoryDC_ptr=(Luna< wxObject >::checkSubType< wxMemoryDC >(L,1));
 		if( !memoryDC_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg memoryDC in wxGCDC::wxGCDC function");
 		}
@@ -146,7 +153,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxWindowDC & windowDC)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxWindowDC* windowDC_ptr=dynamic_cast< wxWindowDC* >(Luna< wxObject >::check(L,2));
+		const wxWindowDC* windowDC_ptr=(Luna< wxObject >::checkSubType< wxWindowDC >(L,2));
 		if( !windowDC_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg windowDC in wxGCDC::wxGCDC function");
 		}
@@ -162,7 +169,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC) function, expected prototype:\nwxGCDC::wxGCDC(lua_Table * data, const wxMemoryDC & memoryDC)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxMemoryDC* memoryDC_ptr=dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,2));
+		const wxMemoryDC* memoryDC_ptr=(Luna< wxObject >::checkSubType< wxMemoryDC >(L,2));
 		if( !memoryDC_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg memoryDC in wxGCDC::wxGCDC function");
 		}
@@ -197,6 +204,27 @@ public:
 
 
 	// Function binds:
+	// wxClassInfo * wxGCDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGCDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGCDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxGCDC* self=Luna< wxObject >::checkSubType< wxGCDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGCDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxGCDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -218,6 +246,7 @@ const int LunaTraits< wxGCDC >::hash = 19873033;
 const int LunaTraits< wxGCDC >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxGCDC >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxGCDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxGCDC::_bind___eq},
 	{0,0}
 };

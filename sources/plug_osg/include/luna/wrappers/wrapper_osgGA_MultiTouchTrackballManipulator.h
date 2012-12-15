@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return MultiTouchTrackballManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return MultiTouchTrackballManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return MultiTouchTrackballManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MultiTouchTrackballManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MultiTouchTrackballManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return MultiTouchTrackballManipulator::releaseGLObjects(arg1);
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return MultiTouchTrackballManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return MultiTouchTrackballManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setCoordinateFrameCallback(cb);
+		return MultiTouchTrackballManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return MultiTouchTrackballManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return MultiTouchTrackballManipulator::getHomePosition(eye, center, up);
 	};
 
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setAutoComputeHomePosition(flag);
+		return MultiTouchTrackballManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::computeHomePosition(camera, useBoundingBox);
+		return MultiTouchTrackballManipulator::computeHomePosition(camera, useBoundingBox);
 	};
 
 	// void osgGA::StandardManipulator::setNode(osg::Node * arg1)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setNode(arg1);
+		return MultiTouchTrackballManipulator::setNode(arg1);
 	};
 
 	// const osg::Node * osgGA::StandardManipulator::getNode() const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::StandardManipulator::getNode();
+		return MultiTouchTrackballManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::StandardManipulator::getNode()
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::StandardManipulator::getNode();
+		return MultiTouchTrackballManipulator::getNode();
 	};
 
 	// void osgGA::StandardManipulator::setVerticalAxisFixed(bool value)
@@ -188,7 +188,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setVerticalAxisFixed(value);
+		return MultiTouchTrackballManipulator::setVerticalAxisFixed(value);
 	};
 
 	// void osgGA::StandardManipulator::setAllowThrow(bool allowThrow)
@@ -198,7 +198,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setAllowThrow(allowThrow);
+		return MultiTouchTrackballManipulator::setAllowThrow(allowThrow);
 	};
 
 	// void osgGA::StandardManipulator::setAnimationTime(const double t)
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setAnimationTime(t);
+		return MultiTouchTrackballManipulator::setAnimationTime(t);
 	};
 
 	// void osgGA::StandardManipulator::finishAnimation()
@@ -217,7 +217,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::finishAnimation();
+		return MultiTouchTrackballManipulator::finishAnimation();
 	};
 
 	// void osgGA::StandardManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -228,7 +228,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::home(arg1, arg2);
+		return MultiTouchTrackballManipulator::home(arg1, arg2);
 	};
 
 	// void osgGA::StandardManipulator::home(double arg1)
@@ -238,7 +238,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::home(arg1);
+		return MultiTouchTrackballManipulator::home(arg1);
 	};
 
 	// void osgGA::StandardManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -249,7 +249,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::init(arg1, arg2);
+		return MultiTouchTrackballManipulator::init(arg1, arg2);
 	};
 
 	// void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & arg1) const
@@ -259,7 +259,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::getUsage(arg1);
+		return MultiTouchTrackballManipulator::getUsage(arg1);
 	};
 
 	// void osgGA::OrbitManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -269,7 +269,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setByMatrix(matrix);
+		return MultiTouchTrackballManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::OrbitManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
@@ -279,7 +279,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setByInverseMatrix(matrix);
+		return MultiTouchTrackballManipulator::setByInverseMatrix(matrix);
 	};
 
 	// osg::Matrixd osgGA::OrbitManipulator::getMatrix() const
@@ -288,7 +288,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::OrbitManipulator::getMatrix();
+		return MultiTouchTrackballManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::OrbitManipulator::getInverseMatrix() const
@@ -297,7 +297,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::OrbitManipulator::getInverseMatrix();
+		return MultiTouchTrackballManipulator::getInverseMatrix();
 	};
 
 	// void osgGA::OrbitManipulator::setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)
@@ -308,7 +308,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setTransformation(eye, rotation);
+		return MultiTouchTrackballManipulator::setTransformation(eye, rotation);
 	};
 
 	// void osgGA::OrbitManipulator::setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
@@ -320,7 +320,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setTransformation(eye, center, up);
+		return MultiTouchTrackballManipulator::setTransformation(eye, center, up);
 	};
 
 	// void osgGA::OrbitManipulator::getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const
@@ -331,7 +331,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::getTransformation(eye, rotation);
+		return MultiTouchTrackballManipulator::getTransformation(eye, rotation);
 	};
 
 	// void osgGA::OrbitManipulator::getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -343,7 +343,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::getTransformation(eye, center, up);
+		return MultiTouchTrackballManipulator::getTransformation(eye, center, up);
 	};
 
 	// void osgGA::OrbitManipulator::setCenter(const osg::Vec3d & center)
@@ -353,7 +353,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setCenter(center);
+		return MultiTouchTrackballManipulator::setCenter(center);
 	};
 
 	// void osgGA::OrbitManipulator::setRotation(const osg::Quat & rotation)
@@ -363,7 +363,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setRotation(rotation);
+		return MultiTouchTrackballManipulator::setRotation(rotation);
 	};
 
 	// void osgGA::OrbitManipulator::setDistance(double distance)
@@ -373,7 +373,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setDistance(distance);
+		return MultiTouchTrackballManipulator::setDistance(distance);
 	};
 
 	// void osgGA::OrbitManipulator::setTrackballSize(const double & size)
@@ -383,7 +383,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setTrackballSize(size);
+		return MultiTouchTrackballManipulator::setTrackballSize(size);
 	};
 
 	// void osgGA::OrbitManipulator::setWheelZoomFactor(double wheelZoomFactor)
@@ -393,7 +393,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setWheelZoomFactor(wheelZoomFactor);
+		return MultiTouchTrackballManipulator::setWheelZoomFactor(wheelZoomFactor);
 	};
 
 	// void osgGA::OrbitManipulator::setMinimumDistance(const double & minimumDistance, bool relativeToModelSize = NULL)
@@ -404,7 +404,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::OrbitManipulator::setMinimumDistance(minimumDistance, relativeToModelSize);
+		return MultiTouchTrackballManipulator::setMinimumDistance(minimumDistance, relativeToModelSize);
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::OrbitManipulator::getFusionDistanceMode() const
@@ -413,7 +413,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::OrbitManipulator::getFusionDistanceMode();
+		return MultiTouchTrackballManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::OrbitManipulator::getFusionDistanceValue() const
@@ -422,7 +422,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::OrbitManipulator::getFusionDistanceValue();
+		return MultiTouchTrackballManipulator::getFusionDistanceValue();
 	};
 
 	// osg::Object * osgGA::MultiTouchTrackballManipulator::cloneType() const
@@ -431,7 +431,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::cloneType();
+		return MultiTouchTrackballManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::MultiTouchTrackballManipulator::clone(const osg::CopyOp & arg1) const
@@ -441,7 +441,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::clone(arg1);
+		return MultiTouchTrackballManipulator::clone(arg1);
 	};
 
 	// bool osgGA::MultiTouchTrackballManipulator::isSameKindAs(const osg::Object * obj) const
@@ -451,7 +451,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::isSameKindAs(obj);
+		return MultiTouchTrackballManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::MultiTouchTrackballManipulator::libraryName() const
@@ -460,7 +460,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::libraryName();
+		return MultiTouchTrackballManipulator::libraryName();
 	};
 
 	// const char * osgGA::MultiTouchTrackballManipulator::className() const
@@ -469,7 +469,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::className();
+		return MultiTouchTrackballManipulator::className();
 	};
 
 	// bool osgGA::MultiTouchTrackballManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -480,38 +480,310 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::MultiTouchTrackballManipulator::handle(ea, us);
+		return MultiTouchTrackballManipulator::handle(ea, us);
 	};
 
 
 protected:
 	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleFrame")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleFrame(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleResize")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleResize(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseMove")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMouseMove(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDrag")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMouseDrag(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMousePush")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMousePush(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseRelease")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMouseRelease(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyDown")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleKeyDown(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyUp")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleKeyUp(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDeltaMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMouseDeltaMovement(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::performMovement()
+	bool performMovement() {
+		if(_obj.pushFunction("performMovement")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performMovement();
+	};
+
 	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("performAnimationMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performAnimationMovement(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::isMouseMoving() const
+	bool isMouseMoving() const {
+		if(_obj.pushFunction("isMouseMoving")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::isMouseMoving();
+	};
+
 	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("centerMousePointer")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::centerMousePointer(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::setCenterByMousePointerIntersection(ea, us);
+	};
+
 	// bool osgGA::OrbitManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseWheel")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::handleMouseWheel(ea, us);
+	};
+
 	// bool osgGA::OrbitManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementLeftMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::OrbitManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::OrbitManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementRightMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::OrbitManipulator::performMouseDeltaMovement(const float dx, const float dy)
+	bool performMouseDeltaMovement(const float dx, const float dy) {
+		if(_obj.pushFunction("performMouseDeltaMovement")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::performMouseDeltaMovement(dx, dy);
+	};
+
 	// void osgGA::OrbitManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
+	void applyAnimationStep(const double currentProgress, const double prevProgress) {
+		if(_obj.pushFunction("applyAnimationStep")) {
+			_obj.pushArg(currentProgress);
+			_obj.pushArg(prevProgress);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::applyAnimationStep(currentProgress, prevProgress);
+	};
+
 	// void osgGA::OrbitManipulator::rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale)
+	void rotateTrackball(const float px0, const float py0, const float px1, const float py1, const float scale) {
+		if(_obj.pushFunction("rotateTrackball")) {
+			_obj.pushArg(px0);
+			_obj.pushArg(py0);
+			_obj.pushArg(px1);
+			_obj.pushArg(py1);
+			_obj.pushArg(scale);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::rotateTrackball(px0, py0, px1, py1, scale);
+	};
+
 	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy)
+	void rotateWithFixedVertical(const float dx, const float dy) {
+		if(_obj.pushFunction("rotateWithFixedVertical")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::rotateWithFixedVertical(dx, dy);
+	};
+
 	// void osgGA::OrbitManipulator::rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up)
+	void rotateWithFixedVertical(const float dx, const float dy, const osg::Vec3f & up) {
+		if(_obj.pushFunction("rotateWithFixedVertical")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			_obj.pushArg(&up);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::rotateWithFixedVertical(dx, dy, up);
+	};
+
 	// void osgGA::OrbitManipulator::panModel(const float dx, const float dy, const float dz = 0.f)
+	void panModel(const float dx, const float dy, const float dz = 0.f) {
+		if(_obj.pushFunction("panModel")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			_obj.pushArg(dz);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::panModel(dx, dy, dz);
+	};
+
 	// void osgGA::OrbitManipulator::zoomModel(const float dy, bool pushForwardIfNeeded = true)
+	void zoomModel(const float dy, bool pushForwardIfNeeded = true) {
+		if(_obj.pushFunction("zoomModel")) {
+			_obj.pushArg(dy);
+			_obj.pushArg(pushForwardIfNeeded);
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::zoomModel(dy, pushForwardIfNeeded);
+	};
+
 	// bool osgGA::OrbitManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return MultiTouchTrackballManipulator::startAnimationByMousePointerIntersection(ea, us);
+	};
+
 	// void osgGA::OrbitManipulator::allocAnimationData()
+	void allocAnimationData() {
+		if(_obj.pushFunction("allocAnimationData")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return MultiTouchTrackballManipulator::allocAnimationData();
+	};
+
 
 };
 

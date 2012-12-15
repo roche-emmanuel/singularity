@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return PickVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return PickVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return PickVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::IntersectVisitor::libraryName() const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectVisitor::libraryName();
+		return PickVisitor::libraryName();
 	};
 
 	// const char * osgUtil::IntersectVisitor::className() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectVisitor::className();
+		return PickVisitor::className();
 	};
 
 	// void osgUtil::IntersectVisitor::reset()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::reset();
+		return PickVisitor::reset();
 	};
 
 	// osg::Vec3f osgUtil::IntersectVisitor::getEyePoint() const
@@ -81,7 +81,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgUtil::IntersectVisitor::getEyePoint();
+		return PickVisitor::getEyePoint();
 	};
 
 	// float osgUtil::IntersectVisitor::getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::IntersectVisitor::getDistanceToEyePoint(pos, withLODScale);
+		return PickVisitor::getDistanceToEyePoint(pos, withLODScale);
 	};
 
 	// void osgUtil::PickVisitor::apply(osg::Projection & projection)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PickVisitor::apply(projection);
+		return PickVisitor::apply(projection);
 	};
 
 	// void osgUtil::PickVisitor::apply(osg::Camera & camera)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PickVisitor::apply(camera);
+		return PickVisitor::apply(camera);
 	};
 
 

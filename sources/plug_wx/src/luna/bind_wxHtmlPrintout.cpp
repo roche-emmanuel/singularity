@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlPrintout* ptr= dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		//wxHtmlPrintout* ptr= dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* ptr= luna_caster< wxObject, wxHtmlPrintout >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -106,6 +107,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -124,7 +131,7 @@ public:
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
 		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFonts(const wxString &, const wxString &, const int *)");
@@ -146,7 +153,7 @@ public:
 		wxString footer(lua_tostring(L,2),lua_objlen(L,2));
 		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetFooter(const wxString &, int)");
@@ -168,7 +175,7 @@ public:
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
 		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHeader(const wxString &, int)");
@@ -187,7 +194,7 @@ public:
 
 		wxString htmlfile(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlFile(const wxString &)");
@@ -210,7 +217,7 @@ public:
 		wxString basepath(lua_tostring(L,3),lua_objlen(L,3));
 		bool isdir=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetHtmlText(const wxString &, const wxString &, bool)");
@@ -235,7 +242,7 @@ public:
 		float right=luatop>4 ? (float)lua_tonumber(L,5) : 25.2;
 		float spaces=luatop>5 ? (float)lua_tonumber(L,6) : 5;
 
-		wxHtmlPrintout* self=dynamic_cast< wxHtmlPrintout* >(Luna< wxObject >::check(L,1));
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlPrintout::SetMargins(float, float, float, float, float)");
@@ -252,11 +259,32 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxHtmlPrintout::AddFilter(wxHtmlFilter * filter) function, expected prototype:\nstatic void wxHtmlPrintout::AddFilter(wxHtmlFilter * filter)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxHtmlFilter* filter=dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		wxHtmlFilter* filter=(Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1));
 
 		wxHtmlPrintout::AddFilter(filter);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxHtmlPrintout::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlPrintout::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlPrintout::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlPrintout* self=Luna< wxObject >::checkSubType< wxHtmlPrintout >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlPrintout::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlPrintout::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -289,6 +317,7 @@ luna_RegType LunaTraits< wxHtmlPrintout >::methods[] = {
 	{"SetHtmlText", &luna_wrapper_wxHtmlPrintout::_bind_SetHtmlText},
 	{"SetMargins", &luna_wrapper_wxHtmlPrintout::_bind_SetMargins},
 	{"AddFilter", &luna_wrapper_wxHtmlPrintout::_bind_AddFilter},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlPrintout::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxHtmlPrintout::_bind___eq},
 	{0,0}
 };

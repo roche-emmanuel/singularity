@@ -458,6 +458,9 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osg::View::Slave >::Register(L);
 	Luna< osg::View::Slave::UpdateSlaveCallback >::Register(L);
 	Luna< osg::Viewport >::Register(L);
+	Luna< osg::Vec2Array >::Register(L);
+	Luna< osg::Vec3Array >::Register(L);
+	Luna< osg::Vec4Array >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osgDB");
 	Luna< std::deque< std::string > >::Register(L);

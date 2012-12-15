@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::ReflectionMapGenerator* ptr= dynamic_cast< osgUtil::ReflectionMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::ReflectionMapGenerator* ptr= dynamic_cast< osgUtil::ReflectionMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::ReflectionMapGenerator* ptr= luna_caster< osg::Referenced, osgUtil::ReflectionMapGenerator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -112,7 +113,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::ReflectionMapGenerator* copy_ptr=dynamic_cast< osgUtil::ReflectionMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		const osgUtil::ReflectionMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::ReflectionMapGenerator >(L,1));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::ReflectionMapGenerator::ReflectionMapGenerator function");
 		}
@@ -149,7 +150,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::ReflectionMapGenerator* copy_ptr=dynamic_cast< osgUtil::ReflectionMapGenerator* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::ReflectionMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::ReflectionMapGenerator >(L,2));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::ReflectionMapGenerator::ReflectionMapGenerator function");
 		}

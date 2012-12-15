@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_ValueObject_GetValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueObject::GetValueVisitor(), _obj(L,-1) {};
 
 
 

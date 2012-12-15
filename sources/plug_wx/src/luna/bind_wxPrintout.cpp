@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPrintout* ptr= dynamic_cast< wxPrintout* >(Luna< wxObject >::check(L,1));
+		//wxPrintout* ptr= dynamic_cast< wxPrintout* >(Luna< wxObject >::check(L,1));
+		wxPrintout* ptr= luna_caster< wxObject, wxPrintout >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

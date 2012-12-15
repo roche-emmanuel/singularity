@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgGA_KeySwitchMatrixManipulator(lua_State* L, lua_Table* dum) : osgGA::KeySwitchMatrixManipulator(), _obj(L,-1) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -24,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return KeySwitchMatrixManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return KeySwitchMatrixManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +42,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return KeySwitchMatrixManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +51,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return KeySwitchMatrixManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +60,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return KeySwitchMatrixManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return KeySwitchMatrixManipulator::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
@@ -80,7 +79,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::cloneType();
+		return KeySwitchMatrixManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
@@ -90,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::clone(arg1);
+		return KeySwitchMatrixManipulator::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return KeySwitchMatrixManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +108,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return KeySwitchMatrixManipulator::libraryName();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -120,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return KeySwitchMatrixManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -131,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return KeySwitchMatrixManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -143,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return KeySwitchMatrixManipulator::getHomePosition(eye, center, up);
 	};
 
 	// const char * osgGA::KeySwitchMatrixManipulator::className() const
@@ -152,7 +151,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::className();
+		return KeySwitchMatrixManipulator::className();
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -162,7 +161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setCoordinateFrameCallback(cb);
+		return KeySwitchMatrixManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -172,7 +171,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setByMatrix(matrix);
+		return KeySwitchMatrixManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
@@ -182,7 +181,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setByInverseMatrix(matrix);
+		return KeySwitchMatrixManipulator::setByInverseMatrix(matrix);
 	};
 
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::getMatrix() const
@@ -191,7 +190,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getMatrix();
+		return KeySwitchMatrixManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::KeySwitchMatrixManipulator::getInverseMatrix() const
@@ -200,7 +199,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getInverseMatrix();
+		return KeySwitchMatrixManipulator::getInverseMatrix();
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode() const
@@ -209,7 +208,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getFusionDistanceMode();
+		return KeySwitchMatrixManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue() const
@@ -218,7 +217,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getFusionDistanceValue();
+		return KeySwitchMatrixManipulator::getFusionDistanceValue();
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setNode(osg::Node * arg1)
@@ -228,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setNode(arg1);
+		return KeySwitchMatrixManipulator::setNode(arg1);
 	};
 
 	// const osg::Node * osgGA::KeySwitchMatrixManipulator::getNode() const
@@ -237,7 +236,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getNode();
+		return KeySwitchMatrixManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::KeySwitchMatrixManipulator::getNode()
@@ -246,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getNode();
+		return KeySwitchMatrixManipulator::getNode();
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -259,7 +258,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return KeySwitchMatrixManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(bool flag)
@@ -269,7 +268,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::setAutoComputeHomePosition(flag);
+		return KeySwitchMatrixManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::computeHomePosition()
@@ -278,7 +277,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::computeHomePosition();
+		return KeySwitchMatrixManipulator::computeHomePosition();
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -289,7 +288,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::home(arg1, arg2);
+		return KeySwitchMatrixManipulator::home(arg1, arg2);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -300,7 +299,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::init(arg1, arg2);
+		return KeySwitchMatrixManipulator::init(arg1, arg2);
 	};
 
 	// bool osgGA::KeySwitchMatrixManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -311,7 +310,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::handle(ea, us);
+		return KeySwitchMatrixManipulator::handle(ea, us);
 	};
 
 	// void osgGA::KeySwitchMatrixManipulator::getUsage(osg::ApplicationUsage & usage) const
@@ -321,7 +320,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::KeySwitchMatrixManipulator::getUsage(usage);
+		return KeySwitchMatrixManipulator::getUsage(usage);
 	};
 
 

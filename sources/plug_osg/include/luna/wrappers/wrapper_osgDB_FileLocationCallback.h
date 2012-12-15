@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_FileLocationCallback(lua_State* L, lua_Table* dum) : osgDB::FileLocationCallback(), _obj(L,-1) {};
 
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
 	osgDB::FileLocationCallback::Location fileLocation(const std::string & filename, const osgDB::Options * options) {

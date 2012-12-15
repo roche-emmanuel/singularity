@@ -275,17 +275,17 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign) function, expected prototype:\nwxGridCellAttr::wxGridCellAttr(const wxColour & colText, const wxColour & colBack, const wxFont & font, int hAlign, int vAlign)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
-		const wxColour* colText_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
 		if( !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxGridCellAttr::wxGridCellAttr function");
 		}
 		const wxColour & colText=*colText_ptr;
-		const wxColour* colBack_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxGridCellAttr::wxGridCellAttr function");
 		}
 		const wxColour & colBack=*colBack_ptr;
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,3));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,3));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxGridCellAttr::wxGridCellAttr function");
 		}
@@ -675,7 +675,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxGridCellAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colBack_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxGridCellAttr::SetBackgroundColour function");
 		}
@@ -736,7 +736,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxGridCellAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxGridCellAttr::SetFont function");
 		}
@@ -799,7 +799,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridCellAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxGridCellAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colText_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxGridCellAttr::SetTextColour function");
 		}

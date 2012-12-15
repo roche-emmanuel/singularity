@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ReaderWriter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ReaderWriter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ReaderWriter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ReaderWriter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ReaderWriter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ReaderWriter::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgDB::ReaderWriter::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ReaderWriter::cloneType();
+		return ReaderWriter::cloneType();
 	};
 
 	// osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ReaderWriter::clone(arg1);
+		return ReaderWriter::clone(arg1);
 	};
 
 	// bool osgDB::ReaderWriter::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ReaderWriter::isSameKindAs(obj);
+		return ReaderWriter::isSameKindAs(obj);
 	};
 
 	// const char * osgDB::ReaderWriter::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::ReaderWriter::libraryName();
+		return ReaderWriter::libraryName();
 	};
 
 	// const char * osgDB::ReaderWriter::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::ReaderWriter::className();
+		return ReaderWriter::className();
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedProtocols() const
@@ -128,7 +128,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedProtocols();
+		return ReaderWriter::supportedProtocols();
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedExtensions() const
@@ -137,7 +137,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedExtensions();
+		return ReaderWriter::supportedExtensions();
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedOptions() const
@@ -146,7 +146,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedOptions();
+		return ReaderWriter::supportedOptions();
 	};
 
 	// bool osgDB::ReaderWriter::acceptsExtension(const std::string & arg1) const
@@ -156,7 +156,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ReaderWriter::acceptsExtension(arg1);
+		return ReaderWriter::acceptsExtension(arg1);
 	};
 
 	// osgDB::ReaderWriter::Features osgDB::ReaderWriter::supportedFeatures() const
@@ -165,7 +165,7 @@ public:
 			return (osgDB::ReaderWriter::Features)(_obj.callFunction<int>());
 		}
 
-		return osgDB::ReaderWriter::supportedFeatures();
+		return ReaderWriter::supportedFeatures();
 	};
 
 	// bool osgDB::ReaderWriter::fileExists(const std::string & filename, const osgDB::Options * options) const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ReaderWriter::fileExists(filename, options);
+		return ReaderWriter::fileExists(filename, options);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const
@@ -189,7 +189,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::openArchive(arg1, arg2, arg3, arg4);
+		return ReaderWriter::openArchive(arg1, arg2, arg3, arg4);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
@@ -200,7 +200,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::readObject(arg1, arg2);
+		return ReaderWriter::readObject(arg1, arg2);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
@@ -211,7 +211,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::readImage(arg1, arg2);
+		return ReaderWriter::readImage(arg1, arg2);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
@@ -222,7 +222,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::readHeightField(arg1, arg2);
+		return ReaderWriter::readHeightField(arg1, arg2);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
@@ -233,7 +233,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::readNode(arg1, arg2);
+		return ReaderWriter::readNode(arg1, arg2);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
@@ -244,7 +244,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::readShader(arg1, arg2);
+		return ReaderWriter::readShader(arg1, arg2);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
@@ -256,7 +256,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::ReaderWriter::writeObject(arg1, arg2, arg3);
+		return ReaderWriter::writeObject(arg1, arg2, arg3);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
@@ -268,7 +268,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::ReaderWriter::writeImage(arg1, arg2, arg3);
+		return ReaderWriter::writeImage(arg1, arg2, arg3);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
@@ -280,7 +280,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::ReaderWriter::writeHeightField(arg1, arg2, arg3);
+		return ReaderWriter::writeHeightField(arg1, arg2, arg3);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
@@ -292,7 +292,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::ReaderWriter::writeNode(arg1, arg2, arg3);
+		return ReaderWriter::writeNode(arg1, arg2, arg3);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & arg1, const std::string & arg2, const osgDB::Options * arg3 = NULL) const
@@ -304,7 +304,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::ReaderWriter::writeShader(arg1, arg2, arg3);
+		return ReaderWriter::writeShader(arg1, arg2, arg3);
 	};
 
 

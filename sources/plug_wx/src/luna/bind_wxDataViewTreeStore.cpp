@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataViewModel(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataViewTreeStore* ptr= dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		//wxDataViewTreeStore* ptr= dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* ptr= luna_caster< wxDataViewModel, wxDataViewTreeStore >::cast(Luna< wxDataViewModel >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -200,6 +201,66 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Cleared(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Compare(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,11709329) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetAttr(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,11637659) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsEnabled(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasContainerColumns(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasDefaultCompare(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Resort(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ValueChanged(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -220,19 +281,19 @@ public:
 		}
 		const wxDataViewItem & parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		const wxIcon* icon_ptr=luatop>3 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxIcon* icon_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxIcon >(L,4)) : NULL;
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::AppendContainer function");
 		}
 		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
-		const wxIcon* expanded_ptr=luatop>4 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,5)) : NULL;
+		const wxIcon* expanded_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::AppendContainer function");
 		}
 		const wxIcon & expanded=luatop>4 ? *expanded_ptr : wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *)");
@@ -261,14 +322,14 @@ public:
 		}
 		const wxDataViewItem & parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		const wxIcon* icon_ptr=luatop>3 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxIcon* icon_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxIcon >(L,4)) : NULL;
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::AppendItem function");
 		}
 		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
 		wxClientData* data=luatop>4 ? (Luna< wxClientData >::check(L,5)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *)");
@@ -290,7 +351,7 @@ public:
 		}
 
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteAllItems()");
@@ -313,7 +374,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem &)");
@@ -336,7 +397,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteItem(const wxDataViewItem &)");
@@ -359,7 +420,7 @@ public:
 		}
 		const wxDataViewItem & parent=*parent_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::GetChildCount(const wxDataViewItem &) const");
@@ -383,7 +444,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem &) const");
@@ -409,7 +470,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem &) const");
@@ -435,7 +496,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem &) const");
@@ -461,7 +522,7 @@ public:
 		}
 		const wxDataViewItem & item=*item_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem &) const");
@@ -486,7 +547,7 @@ public:
 		const wxDataViewItem & parent=*parent_ptr;
 		unsigned int pos=(unsigned int)lua_tointeger(L,3);
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem &, unsigned int) const");
@@ -520,19 +581,19 @@ public:
 		}
 		const wxDataViewItem & previous=*previous_ptr;
 		wxString text(lua_tostring(L,4),lua_objlen(L,4));
-		const wxIcon* icon_ptr=luatop>4 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,5)) : NULL;
+		const wxIcon* icon_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::InsertContainer function");
 		}
 		const wxIcon & icon=luatop>4 ? *icon_ptr : wxNullIcon;
-		const wxIcon* expanded_ptr=luatop>5 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,6)) : NULL;
+		const wxIcon* expanded_ptr=luatop>5 ? (Luna< wxObject >::checkSubType< wxIcon >(L,6)) : NULL;
 		if( luatop>5 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::InsertContainer function");
 		}
 		const wxIcon & expanded=luatop>5 ? *expanded_ptr : wxNullIcon;
 		wxClientData* data=luatop>6 ? (Luna< wxClientData >::check(L,7)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *)");
@@ -566,14 +627,14 @@ public:
 		}
 		const wxDataViewItem & previous=*previous_ptr;
 		wxString text(lua_tostring(L,4),lua_objlen(L,4));
-		const wxIcon* icon_ptr=luatop>4 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,5)) : NULL;
+		const wxIcon* icon_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::InsertItem function");
 		}
 		const wxIcon & icon=luatop>4 ? *icon_ptr : wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *)");
@@ -602,19 +663,19 @@ public:
 		}
 		const wxDataViewItem & parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		const wxIcon* icon_ptr=luatop>3 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxIcon* icon_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxIcon >(L,4)) : NULL;
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::PrependContainer function");
 		}
 		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
-		const wxIcon* expanded_ptr=luatop>4 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,5)) : NULL;
+		const wxIcon* expanded_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxIcon >(L,5)) : NULL;
 		if( luatop>4 && !expanded_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg expanded in wxDataViewTreeStore::PrependContainer function");
 		}
 		const wxIcon & expanded=luatop>4 ? *expanded_ptr : wxNullIcon;
 		wxClientData* data=luatop>5 ? (Luna< wxClientData >::check(L,6)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *)");
@@ -643,14 +704,14 @@ public:
 		}
 		const wxDataViewItem & parent=*parent_ptr;
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
-		const wxIcon* icon_ptr=luatop>3 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxIcon* icon_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxIcon >(L,4)) : NULL;
 		if( luatop>3 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::PrependItem function");
 		}
 		const wxIcon & icon=luatop>3 ? *icon_ptr : wxNullIcon;
 		wxClientData* data=luatop>4 ? (Luna< wxClientData >::check(L,5)) : (wxClientData*)NULL;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *)");
@@ -678,7 +739,7 @@ public:
 		const wxDataViewItem & item=*item_ptr;
 		wxClientData* data=(Luna< wxClientData >::check(L,3));
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemData(const wxDataViewItem &, wxClientData *)");
@@ -700,13 +761,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::SetItemExpandedIcon function");
 		}
 		const wxDataViewItem & item=*item_ptr;
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,3));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::SetItemExpandedIcon function");
 		}
 		const wxIcon & icon=*icon_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem &, const wxIcon &)");
@@ -728,13 +789,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::SetItemIcon function");
 		}
 		const wxDataViewItem & item=*item_ptr;
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,3));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewTreeStore::SetItemIcon function");
 		}
 		const wxIcon & icon=*icon_ptr;
 
-		wxDataViewTreeStore* self=dynamic_cast< wxDataViewTreeStore* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem &, const wxIcon &)");
@@ -742,6 +803,197 @@ public:
 		self->SetItemIcon(item, icon);
 
 		return 0;
+	}
+
+	// bool wxDataViewTreeStore::base_Cleared()
+	static int _bind_base_Cleared(lua_State *L) {
+		if (!_lg_typecheck_base_Cleared(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_Cleared() function, expected prototype:\nbool wxDataViewTreeStore::base_Cleared()\nClass arguments details:\n");
+		}
+
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_Cleared()");
+		}
+		bool lret = self->wxDataViewTreeStore::Cleared();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const
+	static int _bind_base_Compare(lua_State *L) {
+		if (!_lg_typecheck_base_Compare(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const function, expected prototype:\nint wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n");
+		}
+
+		const wxDataViewItem* item1_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !item1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item1 in wxDataViewTreeStore::base_Compare function");
+		}
+		const wxDataViewItem & item1=*item1_ptr;
+		const wxDataViewItem* item2_ptr=(Luna< wxDataViewItem >::check(L,3));
+		if( !item2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item2 in wxDataViewTreeStore::base_Compare function");
+		}
+		const wxDataViewItem & item2=*item2_ptr;
+		unsigned int column=(unsigned int)lua_tointeger(L,4);
+		bool ascending=(bool)(lua_toboolean(L,5)==1);
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const");
+		}
+		int lret = self->wxDataViewTreeStore::Compare(item1, item2, column, ascending);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const
+	static int _bind_base_GetAttr(lua_State *L) {
+		if (!_lg_typecheck_base_GetAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const function, expected prototype:\nbool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const\nClass arguments details:\narg 1 ID = 11709329\narg 3 ID = 11637659\n");
+		}
+
+		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !item_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::base_GetAttr function");
+		}
+		const wxDataViewItem & item=*item_ptr;
+		unsigned int col=(unsigned int)lua_tointeger(L,3);
+		wxDataViewItemAttr* attr_ptr=(Luna< wxDataViewItemAttr >::check(L,4));
+		if( !attr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxDataViewTreeStore::base_GetAttr function");
+		}
+		wxDataViewItemAttr & attr=*attr_ptr;
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const");
+		}
+		bool lret = self->wxDataViewTreeStore::GetAttr(item, col, attr);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const
+	static int _bind_base_IsEnabled(lua_State *L) {
+		if (!_lg_typecheck_base_IsEnabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const function, expected prototype:\nbool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const\nClass arguments details:\narg 1 ID = 11709329\n");
+		}
+
+		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !item_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::base_IsEnabled function");
+		}
+		const wxDataViewItem & item=*item_ptr;
+		unsigned int col=(unsigned int)lua_tointeger(L,3);
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem &, unsigned int) const");
+		}
+		bool lret = self->wxDataViewTreeStore::IsEnabled(item, col);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const
+	static int _bind_base_HasContainerColumns(lua_State *L) {
+		if (!_lg_typecheck_base_HasContainerColumns(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const function, expected prototype:\nbool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+		}
+
+		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !item_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::base_HasContainerColumns function");
+		}
+		const wxDataViewItem & item=*item_ptr;
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem &) const");
+		}
+		bool lret = self->wxDataViewTreeStore::HasContainerColumns(item);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDataViewTreeStore::base_HasDefaultCompare() const
+	static int _bind_base_HasDefaultCompare(lua_State *L) {
+		if (!_lg_typecheck_base_HasDefaultCompare(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasDefaultCompare() const function, expected prototype:\nbool wxDataViewTreeStore::base_HasDefaultCompare() const\nClass arguments details:\n");
+		}
+
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasDefaultCompare() const");
+		}
+		bool lret = self->wxDataViewTreeStore::HasDefaultCompare();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxDataViewTreeStore::base_Resort()
+	static int _bind_base_Resort(lua_State *L) {
+		if (!_lg_typecheck_base_Resort(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::base_Resort() function, expected prototype:\nvoid wxDataViewTreeStore::base_Resort()\nClass arguments details:\n");
+		}
+
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::base_Resort()");
+		}
+		self->wxDataViewTreeStore::Resort();
+
+		return 0;
+	}
+
+	// bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col)
+	static int _bind_base_ValueChanged(lua_State *L) {
+		if (!_lg_typecheck_base_ValueChanged(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 11709329\n");
+		}
+
+		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !item_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item in wxDataViewTreeStore::base_ValueChanged function");
+		}
+		const wxDataViewItem & item=*item_ptr;
+		unsigned int col=(unsigned int)lua_tointeger(L,3);
+
+		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem &, unsigned int)");
+		}
+		bool lret = self->wxDataViewTreeStore::ValueChanged(item, col);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -791,6 +1043,14 @@ luna_RegType LunaTraits< wxDataViewTreeStore >::methods[] = {
 	{"SetItemData", &luna_wrapper_wxDataViewTreeStore::_bind_SetItemData},
 	{"SetItemExpandedIcon", &luna_wrapper_wxDataViewTreeStore::_bind_SetItemExpandedIcon},
 	{"SetItemIcon", &luna_wrapper_wxDataViewTreeStore::_bind_SetItemIcon},
+	{"base_Cleared", &luna_wrapper_wxDataViewTreeStore::_bind_base_Cleared},
+	{"base_Compare", &luna_wrapper_wxDataViewTreeStore::_bind_base_Compare},
+	{"base_GetAttr", &luna_wrapper_wxDataViewTreeStore::_bind_base_GetAttr},
+	{"base_IsEnabled", &luna_wrapper_wxDataViewTreeStore::_bind_base_IsEnabled},
+	{"base_HasContainerColumns", &luna_wrapper_wxDataViewTreeStore::_bind_base_HasContainerColumns},
+	{"base_HasDefaultCompare", &luna_wrapper_wxDataViewTreeStore::_bind_base_HasDefaultCompare},
+	{"base_Resort", &luna_wrapper_wxDataViewTreeStore::_bind_base_Resort},
+	{"base_ValueChanged", &luna_wrapper_wxDataViewTreeStore::_bind_base_ValueChanged},
 	{"__eq", &luna_wrapper_wxDataViewTreeStore::_bind___eq},
 	{0,0}
 };

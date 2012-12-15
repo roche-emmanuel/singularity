@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::GraphicsContext::ResizedCallback* ptr= dynamic_cast< osg::GraphicsContext::ResizedCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::GraphicsContext::ResizedCallback* ptr= dynamic_cast< osg::GraphicsContext::ResizedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::ResizedCallback* ptr= luna_caster< osg::Referenced, osg::GraphicsContext::ResizedCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -65,13 +66,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height) function, expected prototype:\nvoid osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* gc=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* gc=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 		int x=(int)lua_tointeger(L,3);
 		int y=(int)lua_tointeger(L,4);
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
 
-		osg::GraphicsContext::ResizedCallback* self=dynamic_cast< osg::GraphicsContext::ResizedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::ResizedCallback* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::ResizedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext *, int, int, int, int)");

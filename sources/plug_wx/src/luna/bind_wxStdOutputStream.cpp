@@ -75,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxStdOutputStream::wxStdOutputStream(wxOutputStream & stream) function, expected prototype:\nwxStdOutputStream::wxStdOutputStream(wxOutputStream & stream)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxOutputStream* stream_ptr=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,1));
+		wxOutputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxOutputStream >(L,1));
 		if( !stream_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxStdOutputStream::wxStdOutputStream function");
 		}

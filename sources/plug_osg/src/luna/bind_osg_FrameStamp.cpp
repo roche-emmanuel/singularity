@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::FrameStamp* ptr= dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		//osg::FrameStamp* ptr= dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* ptr= luna_caster< osg::Referenced, osg::FrameStamp >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -136,7 +137,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::FrameStamp::FrameStamp(const osg::FrameStamp & fs) function, expected prototype:\nosg::FrameStamp::FrameStamp(const osg::FrameStamp & fs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::FrameStamp* fs_ptr=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		const osg::FrameStamp* fs_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1));
 		if( !fs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fs in osg::FrameStamp::FrameStamp function");
 		}
@@ -163,7 +164,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::FrameStamp::FrameStamp(lua_Table * data, const osg::FrameStamp & fs) function, expected prototype:\nosg::FrameStamp::FrameStamp(lua_Table * data, const osg::FrameStamp & fs)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osg::FrameStamp* fs_ptr=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		const osg::FrameStamp* fs_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 		if( !fs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fs in osg::FrameStamp::FrameStamp function");
 		}
@@ -194,7 +195,7 @@ public:
 
 		unsigned int fnum=(unsigned int)lua_tointeger(L,2);
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setFrameNumber(unsigned int)");
@@ -212,7 +213,7 @@ public:
 		}
 
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::FrameStamp::getFrameNumber() const");
@@ -232,7 +233,7 @@ public:
 
 		double refTime=(double)lua_tonumber(L,2);
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setReferenceTime(double)");
@@ -250,7 +251,7 @@ public:
 		}
 
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getReferenceTime() const");
@@ -270,7 +271,7 @@ public:
 
 		double refTime=(double)lua_tonumber(L,2);
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::FrameStamp::setSimulationTime(double)");
@@ -288,7 +289,7 @@ public:
 		}
 
 
-		osg::FrameStamp* self=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,1));
+		osg::FrameStamp* self=Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::FrameStamp::getSimulationTime() const");

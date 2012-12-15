@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BlockAndFlushOperation* ptr= dynamic_cast< osg::BlockAndFlushOperation* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BlockAndFlushOperation* ptr= dynamic_cast< osg::BlockAndFlushOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlockAndFlushOperation* ptr= luna_caster< osg::Referenced, osg::BlockAndFlushOperation >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -58,6 +59,12 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_release(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -116,12 +123,30 @@ public:
 		}
 
 
-		osg::BlockAndFlushOperation* self=dynamic_cast< osg::BlockAndFlushOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::release()");
 		}
 		self->release();
+
+		return 0;
+	}
+
+	// void osg::BlockAndFlushOperation::base_release()
+	static int _bind_base_release(lua_State *L) {
+		if (!_lg_typecheck_base_release(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlockAndFlushOperation::base_release() function, expected prototype:\nvoid osg::BlockAndFlushOperation::base_release()\nClass arguments details:\n");
+		}
+
+
+		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::base_release()");
+		}
+		self->BlockAndFlushOperation::release();
 
 		return 0;
 	}
@@ -135,9 +160,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1) function, expected prototype:\nvoid osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* _arg1=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* _arg1=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osg::BlockAndFlushOperation* self=dynamic_cast< osg::BlockAndFlushOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlockAndFlushOperation* self=Luna< osg::Referenced >::checkSubType< osg::BlockAndFlushOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext *)");
@@ -167,6 +192,7 @@ const int LunaTraits< osg::BlockAndFlushOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::BlockAndFlushOperation >::methods[] = {
 	{"release", &luna_wrapper_osg_BlockAndFlushOperation::_bind_release},
+	{"base_release", &luna_wrapper_osg_BlockAndFlushOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_BlockAndFlushOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_BlockAndFlushOperation::_bind___eq},
 	{0,0}

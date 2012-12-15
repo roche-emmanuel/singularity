@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::FieldReader::eof();
+		return FieldReader::eof();
 	};
 
 	// osgDB::FieldReader & osgDB::FieldReader::operator=(const osgDB::FieldReader & ic)
@@ -34,7 +34,7 @@ public:
 			return *(_obj.callFunction<osgDB::FieldReader*>());
 		}
 
-		return osgDB::FieldReader::operator=(ic);
+		return FieldReader::operator=(ic);
 	};
 
 

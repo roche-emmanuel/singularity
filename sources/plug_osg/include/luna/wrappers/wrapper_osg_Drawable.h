@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Drawable::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Drawable::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Drawable::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Drawable::getUserData();
 	};
 
 	// bool osg::Drawable::isSameKindAs(const osg::Object * obj) const
@@ -76,7 +76,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Drawable::isSameKindAs(obj);
+		return Drawable::isSameKindAs(obj);
 	};
 
 	// const char * osg::Drawable::libraryName() const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::libraryName();
+		return Drawable::libraryName();
 	};
 
 	// const char * osg::Drawable::className() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::className();
+		return Drawable::className();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return Drawable::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return Drawable::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return Drawable::computeDataVariance();
 	};
 
 	// osg::BoundingBoxd osg::Drawable::computeBound() const
@@ -130,7 +130,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osg::Drawable::computeBound();
+		return Drawable::computeBound();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return Drawable::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return Drawable::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return Drawable::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return Drawable::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::releaseGLObjects(state);
+		return Drawable::releaseGLObjects(state);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -188,7 +188,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return Drawable::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -198,7 +198,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return Drawable::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return Drawable::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -218,7 +218,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return Drawable::setDrawCallback(dc);
 	};
 
 	// void osg::Drawable::drawImplementation(osg::RenderInfo & renderInfo) const

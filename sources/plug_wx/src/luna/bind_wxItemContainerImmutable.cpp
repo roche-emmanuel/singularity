@@ -131,6 +131,21 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_FindString(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetStringSelection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -355,6 +370,48 @@ public:
 		return 0;
 	}
 
+	// int wxItemContainerImmutable::base_FindString(const wxString & string, bool caseSensitive = false) const
+	static int _bind_base_FindString(lua_State *L) {
+		if (!_lg_typecheck_base_FindString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxItemContainerImmutable::base_FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxItemContainerImmutable::base_FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString string(lua_tostring(L,2),lua_objlen(L,2));
+		bool caseSensitive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxItemContainerImmutable::base_FindString(const wxString &, bool) const");
+		}
+		int lret = self->wxItemContainerImmutable::FindString(string, caseSensitive);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxItemContainerImmutable::base_GetStringSelection() const
+	static int _bind_base_GetStringSelection(lua_State *L) {
+		if (!_lg_typecheck_base_GetStringSelection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxItemContainerImmutable::base_GetStringSelection() const function, expected prototype:\nwxString wxItemContainerImmutable::base_GetStringSelection() const\nClass arguments details:\n");
+		}
+
+
+		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxItemContainerImmutable::base_GetStringSelection() const");
+		}
+		wxString lret = self->wxItemContainerImmutable::GetStringSelection();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -393,6 +450,8 @@ luna_RegType LunaTraits< wxItemContainerImmutable >::methods[] = {
 	{"SetStringSelection", &luna_wrapper_wxItemContainerImmutable::_bind_SetStringSelection},
 	{"GetStringSelection", &luna_wrapper_wxItemContainerImmutable::_bind_GetStringSelection},
 	{"Select", &luna_wrapper_wxItemContainerImmutable::_bind_Select},
+	{"base_FindString", &luna_wrapper_wxItemContainerImmutable::_bind_base_FindString},
+	{"base_GetStringSelection", &luna_wrapper_wxItemContainerImmutable::_bind_base_GetStringSelection},
 	{"dynCast", &luna_wrapper_wxItemContainerImmutable::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxItemContainerImmutable::_bind___eq},
 	{0,0}

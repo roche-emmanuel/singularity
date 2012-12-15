@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::View::Slave::updateSlaveImplementation(view);
+		return Slave::updateSlaveImplementation(view);
 	};
 
 

@@ -75,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxEventFilter::FilterEvent(wxEvent & event) function, expected prototype:\nint wxEventFilter::FilterEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,2));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxEventFilter::FilterEvent function");
 		}

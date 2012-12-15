@@ -25,14 +25,11 @@ public:
 
 	// wxDragResult wxDropTarget::OnData(int x, int y, wxDragResult def)
 	wxDragResult OnData(int x, int y, wxDragResult def) {
-		if(_obj.pushFunction("OnData")) {
-			_obj.pushArg(x);
-			_obj.pushArg(y);
-			_obj.pushArg(def);
-			return (wxDragResult)(_obj.callFunction<int>());
-		}
-
-		return wxFileDropTarget::OnData(x, y, def);
+		THROW_IF(!_obj.pushFunction("OnData"),"No implementation for abstract function wxDropTarget::OnData");
+		_obj.pushArg(x);
+		_obj.pushArg(y);
+		_obj.pushArg(def);
+		return (wxDragResult)(_obj.callFunction<int>());
 	};
 
 	// wxDragResult wxDropTarget::OnDragOver(int x, int y, wxDragResult def)

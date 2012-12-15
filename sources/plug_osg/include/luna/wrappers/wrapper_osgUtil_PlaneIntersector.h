@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
 
-		return osgUtil::PlaneIntersector::clone(iv);
+		return PlaneIntersector::clone(iv);
 	};
 
 	// bool osgUtil::PlaneIntersector::enter(const osg::Node & node)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::PlaneIntersector::enter(node);
+		return PlaneIntersector::enter(node);
 	};
 
 	// void osgUtil::PlaneIntersector::leave()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PlaneIntersector::leave();
+		return PlaneIntersector::leave();
 	};
 
 	// void osgUtil::PlaneIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PlaneIntersector::intersect(iv, drawable);
+		return PlaneIntersector::intersect(iv, drawable);
 	};
 
 	// void osgUtil::PlaneIntersector::reset()
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PlaneIntersector::reset();
+		return PlaneIntersector::reset();
 	};
 
 	// bool osgUtil::PlaneIntersector::containsIntersections()
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::PlaneIntersector::containsIntersections();
+		return PlaneIntersector::containsIntersections();
 	};
 
 

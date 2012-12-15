@@ -80,7 +80,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString msg(lua_tostring(L,1),lua_objlen(L,1));
-		wxWindow* parent=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 		return new wxBusyInfo(msg, parent);
 	}

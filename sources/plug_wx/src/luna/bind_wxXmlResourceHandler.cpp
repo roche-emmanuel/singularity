@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxXmlResourceHandler* ptr= dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		//wxXmlResourceHandler* ptr= dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		wxXmlResourceHandler* ptr= luna_caster< wxObject, wxXmlResourceHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -71,6 +72,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -87,7 +94,7 @@ public:
 		wxObject* parent=(Luna< wxObject >::check(L,3));
 		wxObject* instance=(Luna< wxObject >::check(L,4));
 
-		wxXmlResourceHandler* self=dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::CreateResource(wxXmlNode *, wxObject *, wxObject *)");
@@ -108,7 +115,7 @@ public:
 		}
 
 
-		wxXmlResourceHandler* self=dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::DoCreateResource()");
@@ -130,7 +137,7 @@ public:
 
 		wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
 
-		wxXmlResourceHandler* self=dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::CanHandle(wxXmlNode *)");
@@ -148,9 +155,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::SetParentResource(wxXmlResource * res) function, expected prototype:\nvoid wxXmlResourceHandler::SetParentResource(wxXmlResource * res)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxXmlResource* res=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,2));
+		wxXmlResource* res=(Luna< wxObject >::checkSubType< wxXmlResource >(L,2));
 
-		wxXmlResourceHandler* self=dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,1));
+		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::SetParentResource(wxXmlResource *)");
@@ -158,6 +165,27 @@ public:
 		self->SetParentResource(res);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxXmlResourceHandler* self=Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxXmlResourceHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxXmlResourceHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -188,6 +216,7 @@ luna_RegType LunaTraits< wxXmlResourceHandler >::methods[] = {
 	{"DoCreateResource", &luna_wrapper_wxXmlResourceHandler::_bind_DoCreateResource},
 	{"CanHandle", &luna_wrapper_wxXmlResourceHandler::_bind_CanHandle},
 	{"SetParentResource", &luna_wrapper_wxXmlResourceHandler::_bind_SetParentResource},
+	{"base_GetClassInfo", &luna_wrapper_wxXmlResourceHandler::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxXmlResourceHandler::_bind___eq},
 	{0,0}
 };

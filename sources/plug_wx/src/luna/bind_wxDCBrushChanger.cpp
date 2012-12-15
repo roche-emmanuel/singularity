@@ -76,12 +76,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCBrushChanger::wxDCBrushChanger(wxDC & dc, const wxBrush & brush) function, expected prototype:\nwxDCBrushChanger::wxDCBrushChanger(wxDC & dc, const wxBrush & brush)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCBrushChanger::wxDCBrushChanger function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxBrush* brush_ptr=dynamic_cast< wxBrush* >(Luna< wxObject >::check(L,2));
+		const wxBrush* brush_ptr=(Luna< wxObject >::checkSubType< wxBrush >(L,2));
 		if( !brush_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg brush in wxDCBrushChanger::wxDCBrushChanger function");
 		}

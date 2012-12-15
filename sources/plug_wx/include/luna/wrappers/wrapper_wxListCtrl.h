@@ -474,15 +474,6 @@ public:
 		return wxListCtrl::GetDefaultAttributes();
 	};
 
-	// bool wxWindow::HasTransparentBackground()
-	bool HasTransparentBackground() {
-		if(_obj.pushFunction("HasTransparentBackground")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::HasTransparentBackground();
-	};
-
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	void Refresh(bool eraseBackground = true, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("Refresh")) {
@@ -521,16 +512,6 @@ public:
 		}
 
 		return wxListCtrl::SetFont(font);
-	};
-
-	// bool wxWindow::SetForegroundColour(const wxColour & colour)
-	bool SetForegroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetForegroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const
@@ -1012,16 +993,6 @@ public:
 		}
 
 		return wxListCtrl::SetLabel(label);
-	};
-
-	// bool wxListCtrl::SetBackgroundColour(const wxColour & col)
-	bool SetBackgroundColour(const wxColour & col) {
-		if(_obj.pushFunction("SetBackgroundColour")) {
-			_obj.pushArg(&col);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxListCtrl::SetBackgroundColour(col);
 	};
 
 	// void wxListCtrl::SetWindowStyleFlag(long style)

@@ -181,6 +181,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_optimize(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -244,7 +252,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Optimizer::optimize(osg::Node * node) function, expected prototype:\nvoid osgUtil::Optimizer::optimize(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
@@ -263,7 +271,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Optimizer::optimize(osg::Node * node, unsigned int options) function, expected prototype:\nvoid osgUtil::Optimizer::optimize(osg::Node * node, unsigned int options)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		unsigned int options=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -292,7 +300,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Optimizer::setPermissibleOptimizationsForObject(const osg::Object * object, unsigned int options) function, expected prototype:\nvoid osgUtil::Optimizer::setPermissibleOptimizationsForObject(const osg::Object * object, unsigned int options)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* object=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* object=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		unsigned int options=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -312,7 +320,7 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned int osgUtil::Optimizer::getPermissibleOptimizationsForObject(const osg::Object * object) const function, expected prototype:\nunsigned int osgUtil::Optimizer::getPermissibleOptimizationsForObject(const osg::Object * object) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* object=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* object=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
 		if(!self) {
@@ -332,7 +340,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateSet * object, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateSet * object, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateSet* object=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateSet* object=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -353,7 +361,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateAttribute * object, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::StateAttribute * object, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* object=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* object=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -374,7 +382,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Drawable * object, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Drawable * object, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Drawable* object=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Drawable* object=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -395,7 +403,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Node * object, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObject(const osg::Node * object, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Node* object=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Node* object=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -427,7 +435,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateSet * stateset, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateSet * stateset, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateSet* stateset=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateSet* stateset=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -448,7 +456,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateAttribute * attribute, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::StateAttribute * attribute, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -469,7 +477,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Drawable * drawable, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Drawable * drawable, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -490,7 +498,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Node * node, unsigned int option) const function, expected prototype:\nbool osgUtil::Optimizer::isOperationPermissibleForObjectImplementation(const osg::Node * node, unsigned int option) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		unsigned int option=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
@@ -512,6 +520,26 @@ public:
 		if (_lg_typecheck_isOperationPermissibleForObjectImplementation_overload_4(L)) return _bind_isOperationPermissibleForObjectImplementation_overload_4(L);
 
 		luaL_error(L, "error in function isOperationPermissibleForObjectImplementation, cannot match any of the overloads for function isOperationPermissibleForObjectImplementation:\n  isOperationPermissibleForObjectImplementation(const osg::StateSet *, unsigned int)\n  isOperationPermissibleForObjectImplementation(const osg::StateAttribute *, unsigned int)\n  isOperationPermissibleForObjectImplementation(const osg::Drawable *, unsigned int)\n  isOperationPermissibleForObjectImplementation(const osg::Node *, unsigned int)\n");
+		return 0;
+	}
+
+	// void osgUtil::Optimizer::base_optimize(osg::Node * node, unsigned int options)
+	static int _bind_base_optimize(lua_State *L) {
+		if (!_lg_typecheck_base_optimize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Optimizer::base_optimize(osg::Node * node, unsigned int options) function, expected prototype:\nvoid osgUtil::Optimizer::base_optimize(osg::Node * node, unsigned int options)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		unsigned int options=(unsigned int)lua_tointeger(L,3);
+
+		osgUtil::Optimizer* self=(Luna< osgUtil::Optimizer >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Optimizer::base_optimize(osg::Node *, unsigned int)");
+		}
+		self->Optimizer::optimize(node, options);
+
 		return 0;
 	}
 
@@ -542,6 +570,7 @@ luna_RegType LunaTraits< osgUtil::Optimizer >::methods[] = {
 	{"getPermissibleOptimizationsForObject", &luna_wrapper_osgUtil_Optimizer::_bind_getPermissibleOptimizationsForObject},
 	{"isOperationPermissibleForObject", &luna_wrapper_osgUtil_Optimizer::_bind_isOperationPermissibleForObject},
 	{"isOperationPermissibleForObjectImplementation", &luna_wrapper_osgUtil_Optimizer::_bind_isOperationPermissibleForObjectImplementation},
+	{"base_optimize", &luna_wrapper_osgUtil_Optimizer::_bind_base_optimize},
 	{"dynCast", &luna_wrapper_osgUtil_Optimizer::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_Optimizer::_bind___eq},
 	{0,0}

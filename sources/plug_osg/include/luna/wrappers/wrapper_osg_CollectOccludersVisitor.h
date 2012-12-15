@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return CollectOccludersVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return CollectOccludersVisitor::getViewPoint();
 	};
 
 	// void osg::CullSettings::setDefaults()
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::setDefaults();
+		return CollectOccludersVisitor::setDefaults();
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings);
+		return CollectOccludersVisitor::inheritCullSettings(settings);
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings, inheritanceMask);
+		return CollectOccludersVisitor::inheritCullSettings(settings, inheritanceMask);
 	};
 
 	// const char * osg::CollectOccludersVisitor::libraryName() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CollectOccludersVisitor::libraryName();
+		return CollectOccludersVisitor::libraryName();
 	};
 
 	// const char * osg::CollectOccludersVisitor::className() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CollectOccludersVisitor::className();
+		return CollectOccludersVisitor::className();
 	};
 
 	// osg::CollectOccludersVisitor * osg::CollectOccludersVisitor::cloneType() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::CollectOccludersVisitor*>());
 		}
 
-		return osg::CollectOccludersVisitor::cloneType();
+		return CollectOccludersVisitor::cloneType();
 	};
 
 	// void osg::CollectOccludersVisitor::reset()
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::reset();
+		return CollectOccludersVisitor::reset();
 	};
 
 	// float osg::CollectOccludersVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::CollectOccludersVisitor::getDistanceToEyePoint(arg1, arg2);
+		return CollectOccludersVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::CollectOccludersVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::CollectOccludersVisitor::getDistanceToViewPoint(arg1, arg2);
+		return CollectOccludersVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// float osg::CollectOccludersVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::CollectOccludersVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return CollectOccludersVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::Node & arg1)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(arg1);
+		return CollectOccludersVisitor::apply(arg1);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::Transform & node)
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(node);
+		return CollectOccludersVisitor::apply(node);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::Projection & node)
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(node);
+		return CollectOccludersVisitor::apply(node);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::Switch & node)
@@ -171,7 +171,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(node);
+		return CollectOccludersVisitor::apply(node);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::LOD & node)
@@ -181,7 +181,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(node);
+		return CollectOccludersVisitor::apply(node);
 	};
 
 	// void osg::CollectOccludersVisitor::apply(osg::OccluderNode & node)
@@ -191,7 +191,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CollectOccludersVisitor::apply(node);
+		return CollectOccludersVisitor::apply(node);
 	};
 
 

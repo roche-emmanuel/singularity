@@ -84,6 +84,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_asView(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -169,6 +175,27 @@ public:
 		return 0;
 	}
 
+	// osg::View * osgGA::GUIActionAdapter::base_asView()
+	static int _bind_base_asView(lua_State *L) {
+		if (!_lg_typecheck_base_asView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::View * osgGA::GUIActionAdapter::base_asView() function, expected prototype:\nosg::View * osgGA::GUIActionAdapter::base_asView()\nClass arguments details:\n");
+		}
+
+
+		osgGA::GUIActionAdapter* self=(Luna< osgGA::GUIActionAdapter >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::View * osgGA::GUIActionAdapter::base_asView()");
+		}
+		osg::View * lret = self->GUIActionAdapter::asView();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::View >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -198,6 +225,7 @@ luna_RegType LunaTraits< osgGA::GUIActionAdapter >::methods[] = {
 	{"requestRedraw", &luna_wrapper_osgGA_GUIActionAdapter::_bind_requestRedraw},
 	{"requestContinuousUpdate", &luna_wrapper_osgGA_GUIActionAdapter::_bind_requestContinuousUpdate},
 	{"requestWarpPointer", &luna_wrapper_osgGA_GUIActionAdapter::_bind_requestWarpPointer},
+	{"base_asView", &luna_wrapper_osgGA_GUIActionAdapter::_bind_base_asView},
 	{"dynCast", &luna_wrapper_osgGA_GUIActionAdapter::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgGA_GUIActionAdapter::_bind___eq},
 	{0,0}

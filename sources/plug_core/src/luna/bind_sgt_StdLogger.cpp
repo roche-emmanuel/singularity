@@ -71,6 +71,31 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_process(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_output(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -136,6 +161,67 @@ public:
 		return 0;
 	}
 
+	// void sgt::StdLogger::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::StdLogger::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::StdLogger::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_setThreadSafeRefUnref(bool)");
+		}
+		self->StdLogger::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
+	// void sgt::StdLogger::base_process(int level, std::string trace, std::string msg)
+	static int _bind_base_process(lua_State *L) {
+		if (!_lg_typecheck_base_process(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::StdLogger::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::StdLogger::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_process(int, std::string, std::string)");
+		}
+		self->StdLogger::process(level, trace, msg);
+
+		return 0;
+	}
+
+	// void sgt::StdLogger::base_output(int level, std::string trace, std::string msg)
+	static int _bind_base_output(lua_State *L) {
+		if (!_lg_typecheck_base_output(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::StdLogger::base_output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::StdLogger::base_output(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::StdLogger* self=Luna< osg::Referenced >::checkSubType< sgt::StdLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::StdLogger::base_output(int, std::string, std::string)");
+		}
+		self->StdLogger::output(level, trace, msg);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -158,6 +244,9 @@ const int LunaTraits< sgt::StdLogger >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< sgt::StdLogger >::methods[] = {
 	{"output", &luna_wrapper_sgt_StdLogger::_bind_output},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_sgt_StdLogger::_bind_base_setThreadSafeRefUnref},
+	{"base_process", &luna_wrapper_sgt_StdLogger::_bind_base_process},
+	{"base_output", &luna_wrapper_sgt_StdLogger::_bind_base_output},
 	{"__eq", &luna_wrapper_sgt_StdLogger::_bind___eq},
 	{0,0}
 };

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::ObserverSet* ptr= dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		//osg::ObserverSet* ptr= dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* ptr= luna_caster< osg::Referenced, osg::ObserverSet >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -160,7 +161,7 @@ public:
 		}
 
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::getObserverdObject()");
@@ -181,7 +182,7 @@ public:
 		}
 
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::ObserverSet::getObserverdObject() const");
@@ -211,7 +212,7 @@ public:
 		}
 
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Referenced * osg::ObserverSet::addRefLock()");
@@ -233,7 +234,7 @@ public:
 
 		osg::Observer* observer=(Luna< osg::Observer >::check(L,2));
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ObserverSet::addObserver(osg::Observer *)");
@@ -252,7 +253,7 @@ public:
 
 		osg::Observer* observer=(Luna< osg::Observer >::check(L,2));
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ObserverSet::removeObserver(osg::Observer *)");
@@ -271,7 +272,7 @@ public:
 
 		void* ptr=(Luna< void >::check(L,2));
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ObserverSet::signalObjectDeleted(void *)");
@@ -289,7 +290,7 @@ public:
 		}
 
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::ObserverSet::Observers & osg::ObserverSet::getObservers()");
@@ -310,7 +311,7 @@ public:
 		}
 
 
-		osg::ObserverSet* self=dynamic_cast< osg::ObserverSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::ObserverSet* self=Luna< osg::Referenced >::checkSubType< osg::ObserverSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ObserverSet::Observers & osg::ObserverSet::getObservers() const");

@@ -1270,7 +1270,7 @@ static int _bind_wxAboutBox(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg info in wxAboutBox function");
 	}
 	const wxAboutDialogInfo & info=*info_ptr;
-	wxWindow* parent=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 	wxAboutBox(info, parent);
 
@@ -1379,7 +1379,7 @@ static int _bind_wxSafeYield(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	wxWindow* win=luatop>0 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) : (wxWindow*)NULL;
+	wxWindow* win=luatop>0 ? (Luna< wxObject >::checkSubType< wxWindow >(L,1)) : (wxWindow*)NULL;
 	bool onlyIfNeeded=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
 	bool lret = wxSafeYield(win, onlyIfNeeded);
@@ -1466,7 +1466,7 @@ static int _bind_wxCreatePersistentObject_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	wxBookCtrlBase* book=dynamic_cast< wxBookCtrlBase* >(Luna< wxObject >::check(L,1));
+	wxBookCtrlBase* book=(Luna< wxObject >::checkSubType< wxBookCtrlBase >(L,1));
 
 	wxPersistentObject * lret = wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -1483,7 +1483,7 @@ static int _bind_wxCreatePersistentObject_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	wxTopLevelWindow* book=dynamic_cast< wxTopLevelWindow* >(Luna< wxObject >::check(L,1));
+	wxTopLevelWindow* book=(Luna< wxObject >::checkSubType< wxTopLevelWindow >(L,1));
 
 	wxPersistentObject * lret = wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -1500,7 +1500,7 @@ static int _bind_wxCreatePersistentObject_overload_3(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTreebook * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTreebook * book)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	wxTreebook* book=dynamic_cast< wxTreebook* >(Luna< wxObject >::check(L,1));
+	wxTreebook* book=(Luna< wxObject >::checkSubType< wxTreebook >(L,1));
 
 	wxPersistentObject * lret = wxCreatePersistentObject(book);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -1536,7 +1536,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_1(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg aChoices in wxGetSingleChoiceIndex function");
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
-	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : -1;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
@@ -1567,7 +1567,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_2(lua_State *L) {
 	}
 	const wxArrayString & choices=*choices_ptr;
 	int initialSelection=(int)lua_tointeger(L,4);
-	wxWindow* parent=luatop>4 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
 	int lret = wxGetSingleChoiceIndex(message, caption, choices, initialSelection, parent);
 	lua_pushnumber(L,lret);
@@ -1589,7 +1589,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_3(lua_State *L) {
 	int n=(int)lua_tointeger(L,3);
 	wxString choices(lua_tostring(L,4),lua_objlen(L,4));
 	int initialSelection=(int)lua_tointeger(L,5);
-	wxWindow* parent=luatop>5 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,6)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>5 ? (Luna< wxObject >::checkSubType< wxWindow >(L,6)) : (wxWindow*)NULL;
 
 	int lret = wxGetSingleChoiceIndex(message, caption, n, &choices, initialSelection, parent);
 	lua_pushnumber(L,lret);
@@ -1623,7 +1623,7 @@ static int _bind_wxGetSingleChoice_overload_1(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg aChoices in wxGetSingleChoice function");
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
-	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : -1;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
@@ -1654,7 +1654,7 @@ static int _bind_wxGetSingleChoice_overload_2(lua_State *L) {
 	}
 	const wxArrayString & choices=*choices_ptr;
 	int initialSelection=(int)lua_tointeger(L,4);
-	wxWindow* parent=luatop>4 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
 	wxString lret = wxGetSingleChoice(message, caption, choices, initialSelection, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -1676,7 +1676,7 @@ static int _bind_wxGetSingleChoice_overload_3(lua_State *L) {
 	int n=(int)lua_tointeger(L,3);
 	wxString choices(lua_tostring(L,4),lua_objlen(L,4));
 	int initialSelection=(int)lua_tointeger(L,5);
-	wxWindow* parent=luatop>5 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,6)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>5 ? (Luna< wxObject >::checkSubType< wxWindow >(L,6)) : (wxWindow*)NULL;
 
 	wxString lret = wxGetSingleChoice(message, caption, n, &choices, initialSelection, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -1715,7 +1715,7 @@ static int _bind_wxGetSelectedChoices(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg aChoices in wxGetSelectedChoices function");
 	}
 	const wxArrayString & aChoices=*aChoices_ptr;
-	wxWindow* parent=luatop>4 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 	int x=luatop>5 ? (int)lua_tointeger(L,6) : -1;
 	int y=luatop>6 ? (int)lua_tointeger(L,7) : -1;
 	bool centre=luatop>7 ? (bool)(lua_toboolean(L,8)==1) : true;
@@ -1737,14 +1737,14 @@ static int _bind_wxGetColourFromUser(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-	const wxColour* colInit_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+	const wxColour* colInit_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 	if( !colInit_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg colInit in wxGetColourFromUser function");
 	}
 	const wxColour & colInit=*colInit_ptr;
 	wxString caption(lua_tostring(L,3),lua_objlen(L,3));
-	wxColourData* data=luatop>3 ? dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,4)) : (wxColourData*)NULL;
+	wxColourData* data=luatop>3 ? (Luna< wxObject >::checkSubType< wxColourData >(L,4)) : (wxColourData*)NULL;
 
 	wxColour stack_lret = wxGetColourFromUser(parent, colInit, caption, data);
 	wxColour* lret = new wxColour(stack_lret);
@@ -1763,7 +1763,7 @@ static int _bind_wxFromString_overload_1(lua_State *L) {
 	}
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
-	wxColour* colour=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+	wxColour* colour=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 
 	bool lret = wxFromString(string, colour);
 	lua_pushboolean(L,lret?1:0);
@@ -1779,7 +1779,7 @@ static int _bind_wxFromString_overload_2(lua_State *L) {
 	}
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
-	wxFont* font=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+	wxFont* font=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 
 	bool lret = wxFromString(string, font);
 	lua_pushboolean(L,lret?1:0);
@@ -1803,7 +1803,7 @@ static int _bind_wxToString_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxColour & colour) function, expected prototype:\nwxString wxToString(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+	const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
 	if( !colour_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg colour in wxToString function");
 	}
@@ -1822,7 +1822,7 @@ static int _bind_wxToString_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxFont & font) function, expected prototype:\nwxString wxToString(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,1));
+	const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,1));
 	if( !font_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg font in wxToString function");
 	}
@@ -1939,7 +1939,7 @@ static int _bind_wxDirSelector(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDirSelector function");
 	}
 	const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
-	wxWindow* parent=luatop>4 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,5)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>4 ? (Luna< wxObject >::checkSubType< wxWindow >(L,5)) : (wxWindow*)NULL;
 
 	wxString lret = wxDirSelector(message, default_path, style, pos, parent);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -1968,8 +1968,8 @@ static int _bind_wxPostEvent(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxPostEvent(wxEvtHandler * dest, const wxEvent & event) function, expected prototype:\nvoid wxPostEvent(wxEvtHandler * dest, const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 	}
 
-	wxEvtHandler* dest=dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1));
-	const wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,2));
+	wxEvtHandler* dest=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
+	const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 	if( !event_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg event in wxPostEvent function");
 	}
@@ -1987,8 +1987,8 @@ static int _bind_wxQueueEvent(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxQueueEvent(wxEvtHandler * dest, wxEvent * event) function, expected prototype:\nvoid wxQueueEvent(wxEvtHandler * dest, wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 	}
 
-	wxEvtHandler* dest=dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1));
-	wxEvent* event=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,2));
+	wxEvtHandler* dest=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
+	wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 	wxQueueEvent(dest, event);
 
@@ -2010,7 +2010,7 @@ static int _bind_wxFileSelector(lua_State *L) {
 	wxString default_extension(lua_tostring(L,4),lua_objlen(L,4));
 	wxString wildcard(lua_tostring(L,5),lua_objlen(L,5));
 	int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0;
-	wxWindow* parent=luatop>6 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,7)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>6 ? (Luna< wxObject >::checkSubType< wxWindow >(L,7)) : (wxWindow*)NULL;
 	int x=luatop>7 ? (int)lua_tointeger(L,8) : -1;
 	int y=luatop>8 ? (int)lua_tointeger(L,9) : -1;
 
@@ -2336,8 +2336,8 @@ static int _bind_wxGetFontFromUser(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
-	const wxFont* fontInit_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+	const wxFont* fontInit_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 	if( !fontInit_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg fontInit in wxGetFontFromUser function");
 	}
@@ -2388,7 +2388,7 @@ static int _bind_wxSetCursor(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxSetCursor(const wxCursor & cursor) function, expected prototype:\nvoid wxSetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	const wxCursor* cursor_ptr=dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,1));
+	const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,1));
 	if( !cursor_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxSetCursor function");
 	}
@@ -2658,7 +2658,7 @@ static int _bind_wxMessageBox(lua_State *L) {
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	int style=luatop>2 ? (int)lua_tointeger(L,3) : wxOK;
-	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 
@@ -2683,7 +2683,7 @@ static int _bind_wxGetNumberFromUser(lua_State *L) {
 	long value=(long)lua_tointeger(L,4);
 	long min=luatop>4 ? (long)lua_tointeger(L,5) : 0;
 	long max=luatop>5 ? (long)lua_tointeger(L,6) : 100;
-	wxWindow* parent=luatop>6 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,7)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>6 ? (Luna< wxObject >::checkSubType< wxWindow >(L,7)) : (wxWindow*)NULL;
 	const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
 	if( luatop>7 && !pos_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGetNumberFromUser function");
@@ -2776,7 +2776,7 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
-	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
@@ -2799,7 +2799,7 @@ static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString caption(lua_tostring(L,2),lua_objlen(L,2));
 	wxString default_value(lua_tostring(L,3),lua_objlen(L,3));
-	wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 	int x=luatop>4 ? (int)lua_tointeger(L,5) : ::wxDefaultCoord;
 	int y=luatop>5 ? (int)lua_tointeger(L,6) : ::wxDefaultCoord;
 	bool centre=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : true;
@@ -2944,7 +2944,7 @@ static int _bind_wxShowTip(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 	wxTipProvider* tipProvider=(Luna< wxTipProvider >::check(L,2));
 	bool showAtStartup=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
@@ -3025,7 +3025,7 @@ static int _bind_wxBeginBusyCursor(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const wxCursor* cursor=luatop>0 ? dynamic_cast< wxCursor* >(Luna< wxObject >::check(L,1)) : (const wxCursor*)wxHOURGLASS_CURSOR;
+	const wxCursor* cursor=luatop>0 ? (Luna< wxObject >::checkSubType< wxCursor >(L,1)) : (const wxCursor*)wxHOURGLASS_CURSOR;
 
 	wxBeginBusyCursor(cursor);
 
@@ -3079,7 +3079,7 @@ static int _bind_wxInfoMessageBox(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void wxInfoMessageBox(wxWindow * parent) function, expected prototype:\nvoid wxInfoMessageBox(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 	wxInfoMessageBox(parent);
 
@@ -3257,7 +3257,7 @@ static int _bind_wxFindWindowByLabel(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString label(lua_tostring(L,1),lua_objlen(L,1));
-	wxWindow* parent=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 	wxWindow * lret = wxFindWindowByLabel(label, parent);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -3277,7 +3277,7 @@ static int _bind_wxFindWindowByName(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	wxString name(lua_tostring(L,1),lua_objlen(L,1));
-	wxWindow* parent=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+	wxWindow* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 	wxWindow * lret = wxFindWindowByName(name, parent);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -3294,7 +3294,7 @@ static int _bind_wxFindMenuItemId(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in int wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString) function, expected prototype:\nint wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 	}
 
-	wxFrame* frame=dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,1));
+	wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,1));
 	wxString menuString(lua_tostring(L,2),lua_objlen(L,2));
 	wxString itemString(lua_tostring(L,3),lua_objlen(L,3));
 
@@ -3536,7 +3536,7 @@ static int _bind_wxExecute_overload_1(lua_State *L) {
 
 	wxString command(lua_tostring(L,1),lua_objlen(L,1));
 	int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
-	wxProcess* callback=luatop>2 ? dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,3)) : (wxProcess*)NULL;
+	wxProcess* callback=luatop>2 ? (Luna< wxObject >::checkSubType< wxProcess >(L,3)) : (wxProcess*)NULL;
 	const wxExecuteEnv* env=luatop>3 ? (Luna< wxExecuteEnv >::check(L,4)) : (const wxExecuteEnv*)NULL;
 
 	long lret = wxExecute(command, flags, callback, env);
@@ -3770,7 +3770,7 @@ static int _bind_wxGetTopLevelParent(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in wxWindow * wxGetTopLevelParent(wxWindow * window) function, expected prototype:\nwxWindow * wxGetTopLevelParent(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 	}
 
-	wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+	wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 	wxWindow * lret = wxGetTopLevelParent(window);
 	if(!lret) return 0; // Do not write NULL pointers.

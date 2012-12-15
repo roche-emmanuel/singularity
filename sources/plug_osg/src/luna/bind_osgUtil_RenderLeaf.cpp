@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::RenderLeaf* ptr= dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::RenderLeaf* ptr= dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderLeaf* ptr= luna_caster< osg::Referenced, osgUtil::RenderLeaf >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -107,6 +108,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_render(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2286263) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -121,9 +130,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,1));
-		osg::RefMatrixd* projection=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
-		osg::RefMatrixd* modelview=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3));
+		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,1));
+		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
+		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
 		float depth=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
 		unsigned int traversalNumber=luatop>4 ? (unsigned int)lua_tointeger(L,5) : 0;
 
@@ -139,9 +148,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
-		osg::RefMatrixd* projection=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3));
-		osg::RefMatrixd* modelview=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,4));
+		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
+		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,4));
 		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
 		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
 
@@ -168,13 +177,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Drawable* drawable=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
-		osg::RefMatrixd* projection=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,3));
-		osg::RefMatrixd* modelview=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,4));
+		osg::Drawable* drawable=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+		osg::RefMatrixd* projection=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,3));
+		osg::RefMatrixd* modelview=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,4));
 		float depth=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
 		unsigned int traversalNumber=luatop>5 ? (unsigned int)lua_tointeger(L,6) : 0;
 
-		osgUtil::RenderLeaf* self=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::set(osg::Drawable *, osg::RefMatrixd *, osg::RefMatrixd *, float, unsigned int)");
@@ -192,7 +201,7 @@ public:
 		}
 
 
-		osgUtil::RenderLeaf* self=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::reset()");
@@ -214,9 +223,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg renderInfo in osgUtil::RenderLeaf::render function");
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
-		osgUtil::RenderLeaf* previous=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,3));
+		osgUtil::RenderLeaf* previous=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,3));
 
-		osgUtil::RenderLeaf* self=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::render(osg::RenderInfo &, osgUtil::RenderLeaf *)");
@@ -234,7 +243,7 @@ public:
 		}
 
 
-		osgUtil::RenderLeaf* self=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Drawable * osgUtil::RenderLeaf::getDrawable() const");
@@ -245,6 +254,30 @@ public:
 		Luna< osg::Drawable >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// void osgUtil::RenderLeaf::base_render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous)
+	static int _bind_base_render(lua_State *L) {
+		if (!_lg_typecheck_base_render(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::RenderLeaf::base_render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous) function, expected prototype:\nvoid osgUtil::RenderLeaf::base_render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous)\nClass arguments details:\narg 1 ID = 2286263\narg 2 ID = 50169651\n");
+		}
+
+		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
+		if( !renderInfo_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg renderInfo in osgUtil::RenderLeaf::base_render function");
+		}
+		osg::RenderInfo & renderInfo=*renderInfo_ptr;
+		osgUtil::RenderLeaf* previous=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,3));
+
+		osgUtil::RenderLeaf* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::RenderLeaf::base_render(osg::RenderInfo &, osgUtil::RenderLeaf *)");
+		}
+		self->RenderLeaf::render(renderInfo, previous);
+
+		return 0;
 	}
 
 
@@ -272,6 +305,7 @@ luna_RegType LunaTraits< osgUtil::RenderLeaf >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_RenderLeaf::_bind_reset},
 	{"render", &luna_wrapper_osgUtil_RenderLeaf::_bind_render},
 	{"getDrawable", &luna_wrapper_osgUtil_RenderLeaf::_bind_getDrawable},
+	{"base_render", &luna_wrapper_osgUtil_RenderLeaf::_bind_base_render},
 	{"__eq", &luna_wrapper_osgUtil_RenderLeaf::_bind___eq},
 	{0,0}
 };

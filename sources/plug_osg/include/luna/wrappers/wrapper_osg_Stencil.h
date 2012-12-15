@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Stencil::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Stencil::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Stencil::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Stencil::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Stencil::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Stencil::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Stencil::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return Stencil::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return Stencil::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Stencil::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return Stencil::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return Stencil::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Stencil::cloneType() const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Stencil::cloneType();
+		return Stencil::cloneType();
 	};
 
 	// osg::Object * osg::Stencil::clone(const osg::CopyOp & arg1) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Stencil::clone(arg1);
+		return Stencil::clone(arg1);
 	};
 
 	// bool osg::Stencil::isSameKindAs(const osg::Object * obj) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Stencil::isSameKindAs(obj);
+		return Stencil::isSameKindAs(obj);
 	};
 
 	// const char * osg::Stencil::libraryName() const
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Stencil::libraryName();
+		return Stencil::libraryName();
 	};
 
 	// const char * osg::Stencil::className() const
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Stencil::className();
+		return Stencil::className();
 	};
 
 	// osg::StateAttribute::Type osg::Stencil::getType() const
@@ -184,7 +184,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Stencil::getType();
+		return Stencil::getType();
 	};
 
 	// int osg::Stencil::compare(const osg::StateAttribute & sa) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Stencil::compare(sa);
+		return Stencil::compare(sa);
 	};
 
 	// bool osg::Stencil::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Stencil::getModeUsage(arg1);
+		return Stencil::getModeUsage(arg1);
 	};
 
 	// void osg::Stencil::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Stencil::apply(arg1);
+		return Stencil::apply(arg1);
 	};
 
 

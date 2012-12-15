@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return BlendFunc::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return BlendFunc::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return BlendFunc::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BlendFunc::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BlendFunc::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return BlendFunc::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return BlendFunc::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return BlendFunc::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return BlendFunc::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return BlendFunc::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return BlendFunc::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return BlendFunc::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::BlendFunc::cloneType() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::BlendFunc::cloneType();
+		return BlendFunc::cloneType();
 	};
 
 	// osg::Object * osg::BlendFunc::clone(const osg::CopyOp & arg1) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::BlendFunc::clone(arg1);
+		return BlendFunc::clone(arg1);
 	};
 
 	// bool osg::BlendFunc::isSameKindAs(const osg::Object * obj) const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::BlendFunc::isSameKindAs(obj);
+		return BlendFunc::isSameKindAs(obj);
 	};
 
 	// const char * osg::BlendFunc::libraryName() const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BlendFunc::libraryName();
+		return BlendFunc::libraryName();
 	};
 
 	// const char * osg::BlendFunc::className() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BlendFunc::className();
+		return BlendFunc::className();
 	};
 
 	// osg::StateAttribute::Type osg::BlendFunc::getType() const
@@ -186,7 +186,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::BlendFunc::getType();
+		return BlendFunc::getType();
 	};
 
 	// int osg::BlendFunc::compare(const osg::StateAttribute & sa) const
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::BlendFunc::compare(sa);
+		return BlendFunc::compare(sa);
 	};
 
 	// bool osg::BlendFunc::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::BlendFunc::getModeUsage(arg1);
+		return BlendFunc::getModeUsage(arg1);
 	};
 
 	// void osg::BlendFunc::apply(osg::State & arg1) const
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BlendFunc::apply(arg1);
+		return BlendFunc::apply(arg1);
 	};
 
 

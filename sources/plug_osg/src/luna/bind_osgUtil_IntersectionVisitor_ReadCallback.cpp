@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::IntersectionVisitor::ReadCallback* ptr= dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::IntersectionVisitor::ReadCallback* ptr= dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor::ReadCallback* ptr= luna_caster< osg::Referenced, osgUtil::IntersectionVisitor::ReadCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -63,7 +64,7 @@ public:
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgUtil::IntersectionVisitor::ReadCallback* self=dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor::ReadCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor::ReadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string &)");

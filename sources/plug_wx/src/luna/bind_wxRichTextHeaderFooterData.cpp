@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextHeaderFooterData* ptr= dynamic_cast< wxRichTextHeaderFooterData* >(Luna< wxObject >::check(L,1));
+		//wxRichTextHeaderFooterData* ptr= dynamic_cast< wxRichTextHeaderFooterData* >(Luna< wxObject >::check(L,1));
+		wxRichTextHeaderFooterData* ptr= luna_caster< wxObject, wxRichTextHeaderFooterData >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

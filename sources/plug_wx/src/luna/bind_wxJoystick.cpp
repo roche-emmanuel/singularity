@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxJoystick* ptr= dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		//wxJoystick* ptr= dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* ptr= luna_caster< wxObject, wxJoystick >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -319,6 +320,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -371,7 +378,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetButtonState() const");
@@ -391,7 +398,7 @@ public:
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::GetButtonState(unsigned int) const");
@@ -419,7 +426,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetManufacturerId() const");
@@ -438,7 +445,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetMovementThreshold() const");
@@ -457,7 +464,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetNumberAxes() const");
@@ -476,7 +483,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetNumberButtons() const");
@@ -495,7 +502,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetPOVCTSPosition() const");
@@ -514,7 +521,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetPOVPosition() const");
@@ -533,7 +540,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetPollingMax() const");
@@ -552,7 +559,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetPollingMin() const");
@@ -571,7 +578,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxJoystick::GetPosition() const");
@@ -594,7 +601,7 @@ public:
 
 		unsigned int axis=(unsigned int)lua_tointeger(L,2);
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetPosition(unsigned int) const");
@@ -622,7 +629,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetProductId() const");
@@ -641,7 +648,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxJoystick::GetProductName() const");
@@ -660,7 +667,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetRudderMax() const");
@@ -679,7 +686,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetRudderMin() const");
@@ -698,7 +705,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetRudderPosition() const");
@@ -717,7 +724,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetUMax() const");
@@ -736,7 +743,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetUMin() const");
@@ -755,7 +762,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetUPosition() const");
@@ -774,7 +781,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetVMax() const");
@@ -793,7 +800,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetVMin() const");
@@ -812,7 +819,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetVPosition() const");
@@ -831,7 +838,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetXMax() const");
@@ -850,7 +857,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetXMin() const");
@@ -869,7 +876,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetYMax() const");
@@ -888,7 +895,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetYMin() const");
@@ -907,7 +914,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetZMax() const");
@@ -926,7 +933,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetZMin() const");
@@ -945,7 +952,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxJoystick::GetZPosition() const");
@@ -964,7 +971,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasPOV() const");
@@ -983,7 +990,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasPOV4Dir() const");
@@ -1002,7 +1009,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasPOVCTS() const");
@@ -1021,7 +1028,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasRudder() const");
@@ -1040,7 +1047,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasU() const");
@@ -1059,7 +1066,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasV() const");
@@ -1078,7 +1085,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::HasZ() const");
@@ -1097,7 +1104,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::IsOk() const");
@@ -1116,7 +1123,7 @@ public:
 		}
 
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::ReleaseCapture()");
@@ -1136,10 +1143,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int pollingFreq=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxJoystick::SetCapture(wxWindow *, int)");
@@ -1159,7 +1166,7 @@ public:
 
 		int threshold=(int)lua_tointeger(L,2);
 
-		wxJoystick* self=dynamic_cast< wxJoystick* >(Luna< wxObject >::check(L,1));
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxJoystick::SetMovementThreshold(int)");
@@ -1179,6 +1186,27 @@ public:
 
 		int lret = wxJoystick::GetNumberJoysticks();
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxJoystick::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxJoystick::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxJoystick::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxJoystick* self=Luna< wxObject >::checkSubType< wxJoystick >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxJoystick::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxJoystick::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1244,6 +1272,7 @@ luna_RegType LunaTraits< wxJoystick >::methods[] = {
 	{"SetCapture", &luna_wrapper_wxJoystick::_bind_SetCapture},
 	{"SetMovementThreshold", &luna_wrapper_wxJoystick::_bind_SetMovementThreshold},
 	{"GetNumberJoysticks", &luna_wrapper_wxJoystick::_bind_GetNumberJoysticks},
+	{"base_GetClassInfo", &luna_wrapper_wxJoystick::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxJoystick::_bind___eq},
 	{0,0}
 };

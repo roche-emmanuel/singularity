@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CullFace::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CullFace::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CullFace::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CullFace::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CullFace::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return CullFace::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return CullFace::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return CullFace::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return CullFace::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return CullFace::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return CullFace::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return CullFace::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::CullFace::cloneType() const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CullFace::cloneType();
+		return CullFace::cloneType();
 	};
 
 	// osg::Object * osg::CullFace::clone(const osg::CopyOp & arg1) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CullFace::clone(arg1);
+		return CullFace::clone(arg1);
 	};
 
 	// bool osg::CullFace::isSameKindAs(const osg::Object * obj) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CullFace::isSameKindAs(obj);
+		return CullFace::isSameKindAs(obj);
 	};
 
 	// const char * osg::CullFace::libraryName() const
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CullFace::libraryName();
+		return CullFace::libraryName();
 	};
 
 	// const char * osg::CullFace::className() const
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CullFace::className();
+		return CullFace::className();
 	};
 
 	// osg::StateAttribute::Type osg::CullFace::getType() const
@@ -184,7 +184,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::CullFace::getType();
+		return CullFace::getType();
 	};
 
 	// int osg::CullFace::compare(const osg::StateAttribute & sa) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::CullFace::compare(sa);
+		return CullFace::compare(sa);
 	};
 
 	// bool osg::CullFace::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CullFace::getModeUsage(arg1);
+		return CullFace::getModeUsage(arg1);
 	};
 
 	// void osg::CullFace::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullFace::apply(arg1);
+		return CullFace::apply(arg1);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDropTarget(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTextDropTarget* ptr= dynamic_cast< wxTextDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		//wxTextDropTarget* ptr= dynamic_cast< wxTextDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxTextDropTarget* ptr= luna_caster< wxDropTarget, wxTextDropTarget >::cast(Luna< wxDropTarget >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -59,6 +60,38 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_OnDragOver(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEnter(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnLeave(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDrop(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -74,7 +107,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxTextDropTarget* self=dynamic_cast< wxTextDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDrop(int, int)");
@@ -96,12 +129,95 @@ public:
 		int y=(int)lua_tointeger(L,3);
 		wxString data(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxTextDropTarget* self=dynamic_cast< wxTextDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::OnDropText(int, int, const wxString &)");
 		}
 		bool lret = self->OnDropText(x, y, data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxDragResult wxTextDropTarget::base_OnDragOver(int x, int y, wxDragResult def)
+	static int _bind_base_OnDragOver(lua_State *L) {
+		if (!_lg_typecheck_base_OnDragOver(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxTextDropTarget::base_OnDragOver(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxTextDropTarget::base_OnDragOver(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnDragOver(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxTextDropTarget::OnDragOver(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxDragResult wxTextDropTarget::base_OnEnter(int x, int y, wxDragResult def)
+	static int _bind_base_OnEnter(lua_State *L) {
+		if (!_lg_typecheck_base_OnEnter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxTextDropTarget::base_OnEnter(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxTextDropTarget::base_OnEnter(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxTextDropTarget::base_OnEnter(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxTextDropTarget::OnEnter(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxTextDropTarget::base_OnLeave()
+	static int _bind_base_OnLeave(lua_State *L) {
+		if (!_lg_typecheck_base_OnLeave(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextDropTarget::base_OnLeave() function, expected prototype:\nvoid wxTextDropTarget::base_OnLeave()\nClass arguments details:\n");
+		}
+
+
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextDropTarget::base_OnLeave()");
+		}
+		self->wxTextDropTarget::OnLeave();
+
+		return 0;
+	}
+
+	// bool wxTextDropTarget::base_OnDrop(int x, int y)
+	static int _bind_base_OnDrop(lua_State *L) {
+		if (!_lg_typecheck_base_OnDrop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTextDropTarget::base_OnDrop(int x, int y) function, expected prototype:\nbool wxTextDropTarget::base_OnDrop(int x, int y)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxTextDropTarget* self=Luna< wxDropTarget >::checkSubType< wxTextDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTextDropTarget::base_OnDrop(int, int)");
+		}
+		bool lret = self->wxTextDropTarget::OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -117,6 +233,7 @@ wxTextDropTarget* LunaTraits< wxTextDropTarget >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxTextDropTarget::OnDropText(int x, int y, const wxString & data)
 	// bool wxDropTarget::GetData()
+	// wxDragResult wxDropTarget::OnData(int x, int y, wxDragResult def)
 }
 
 void LunaTraits< wxTextDropTarget >::_bind_dtor(wxTextDropTarget* obj) {
@@ -133,6 +250,10 @@ const int LunaTraits< wxTextDropTarget >::uniqueIDs[] = {93694316,0};
 luna_RegType LunaTraits< wxTextDropTarget >::methods[] = {
 	{"OnDrop", &luna_wrapper_wxTextDropTarget::_bind_OnDrop},
 	{"OnDropText", &luna_wrapper_wxTextDropTarget::_bind_OnDropText},
+	{"base_OnDragOver", &luna_wrapper_wxTextDropTarget::_bind_base_OnDragOver},
+	{"base_OnEnter", &luna_wrapper_wxTextDropTarget::_bind_base_OnEnter},
+	{"base_OnLeave", &luna_wrapper_wxTextDropTarget::_bind_base_OnLeave},
+	{"base_OnDrop", &luna_wrapper_wxTextDropTarget::_bind_base_OnDrop},
 	{"__eq", &luna_wrapper_wxTextDropTarget::_bind___eq},
 	{0,0}
 };

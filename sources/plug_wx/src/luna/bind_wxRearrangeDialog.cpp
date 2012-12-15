@@ -138,7 +138,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 		wxString title(lua_tostring(L,3),lua_objlen(L,3));
 		const wxArrayInt* order_ptr=(Luna< wxArrayInt >::check(L,4));
@@ -181,7 +181,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString message(lua_tostring(L,3),lua_objlen(L,3));
 		wxString title(lua_tostring(L,4),lua_objlen(L,4));
 		const wxArrayInt* order_ptr=(Luna< wxArrayInt >::check(L,5));
@@ -219,7 +219,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRearrangeDialog::AddExtraControls(wxWindow * win) function, expected prototype:\nvoid wxRearrangeDialog::AddExtraControls(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRearrangeDialog* self=(Luna< wxRearrangeDialog >::check(L,1));
 		if(!self) {

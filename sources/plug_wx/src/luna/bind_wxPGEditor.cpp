@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPGEditor* ptr= dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		//wxPGEditor* ptr= dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* ptr= luna_caster< wxObject, wxPGEditor >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -155,6 +156,89 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DrawValue(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,20234418) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetControlAppearance(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
+		if( lua_isboolean(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetControlStringValue(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetControlIntValue(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InsertItem(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteItem(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnFocus(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanContainCustomImage(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -168,7 +252,7 @@ public:
 		}
 
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGEditor::GetName() const");
@@ -186,8 +270,8 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const function, expected prototype:\nwxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
 		}
 
-		wxPropertyGrid* propgrid=dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2));
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,3));
+		wxPropertyGrid* propgrid=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,3));
 		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPGEditor::CreateControls function");
@@ -199,7 +283,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid *, wxPGProperty *, const wxPoint &, const wxSize &) const");
@@ -219,10 +303,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::UpdateControl(wxPGProperty * property, wxWindow * ctrl) const function, expected prototype:\nvoid wxPGEditor::UpdateControl(wxPGProperty * property, wxWindow * ctrl) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::UpdateControl(wxPGProperty *, wxWindow *) const");
@@ -239,7 +323,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::DrawValue(wxDC & dc, const wxRect & rect, wxPGProperty * property, const wxString & text) const function, expected prototype:\nvoid wxPGEditor::DrawValue(wxDC & dc, const wxRect & rect, wxPGProperty * property, const wxString & text) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxPGEditor::DrawValue function");
 		}
@@ -249,10 +333,10 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxPGEditor::DrawValue function");
 		}
 		const wxRect & rect=*rect_ptr;
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,4));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,4));
 		wxString text(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::DrawValue(wxDC &, const wxRect &, wxPGProperty *, const wxString &) const");
@@ -269,16 +353,16 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxPGEditor::OnEvent(wxPropertyGrid * propgrid, wxPGProperty * property, wxWindow * wnd_primary, wxEvent & event) const function, expected prototype:\nbool wxPGEditor::OnEvent(wxPropertyGrid * propgrid, wxPGProperty * property, wxWindow * wnd_primary, wxEvent & event) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
 		}
 
-		wxPropertyGrid* propgrid=dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2));
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,3));
-		wxWindow* wnd_primary=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4));
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,5));
+		wxPropertyGrid* propgrid=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,3));
+		wxWindow* wnd_primary=(Luna< wxObject >::checkSubType< wxWindow >(L,4));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,5));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPGEditor::OnEvent function");
 		}
 		wxEvent & event=*event_ptr;
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGEditor::OnEvent(wxPropertyGrid *, wxPGProperty *, wxWindow *, wxEvent &) const");
@@ -296,10 +380,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::SetValueToUnspecified(wxPGProperty * property, wxWindow * ctrl) const function, expected prototype:\nvoid wxPGEditor::SetValueToUnspecified(wxPGProperty * property, wxWindow * ctrl) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::SetValueToUnspecified(wxPGProperty *, wxWindow *) const");
@@ -316,22 +400,22 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::SetControlAppearance(wxPropertyGrid * pg, wxPGProperty * property, wxWindow * ctrl, const wxPGCell & appearance, const wxPGCell & oldAppearance, bool unspecified) const function, expected prototype:\nvoid wxPGEditor::SetControlAppearance(wxPropertyGrid * pg, wxPGProperty * property, wxWindow * ctrl, const wxPGCell & appearance, const wxPGCell & oldAppearance, bool unspecified) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
 		}
 
-		wxPropertyGrid* pg=dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2));
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,3));
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4));
-		const wxPGCell* appearance_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,5));
+		wxPropertyGrid* pg=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,3));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,4));
+		const wxPGCell* appearance_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,5));
 		if( !appearance_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg appearance in wxPGEditor::SetControlAppearance function");
 		}
 		const wxPGCell & appearance=*appearance_ptr;
-		const wxPGCell* oldAppearance_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,6));
+		const wxPGCell* oldAppearance_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,6));
 		if( !oldAppearance_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg oldAppearance in wxPGEditor::SetControlAppearance function");
 		}
 		const wxPGCell & oldAppearance=*oldAppearance_ptr;
 		bool unspecified=(bool)(lua_toboolean(L,7)==1);
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::SetControlAppearance(wxPropertyGrid *, wxPGProperty *, wxWindow *, const wxPGCell &, const wxPGCell &, bool) const");
@@ -348,11 +432,11 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::SetControlStringValue(wxPGProperty * property, wxWindow * ctrl, const wxString & txt) const function, expected prototype:\nvoid wxPGEditor::SetControlStringValue(wxPGProperty * property, wxWindow * ctrl, const wxString & txt) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString txt(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::SetControlStringValue(wxPGProperty *, wxWindow *, const wxString &) const");
@@ -369,11 +453,11 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::SetControlIntValue(wxPGProperty * property, wxWindow * ctrl, int value) const function, expected prototype:\nvoid wxPGEditor::SetControlIntValue(wxPGProperty * property, wxWindow * ctrl, int value) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		int value=(int)lua_tointeger(L,4);
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::SetControlIntValue(wxPGProperty *, wxWindow *, int) const");
@@ -390,11 +474,11 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxPGEditor::InsertItem(wxWindow * ctrl, const wxString & label, int index) const function, expected prototype:\nint wxPGEditor::InsertItem(wxWindow * ctrl, const wxString & label, int index) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 		int index=(int)lua_tointeger(L,4);
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGEditor::InsertItem(wxWindow *, const wxString &, int) const");
@@ -412,10 +496,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::DeleteItem(wxWindow * ctrl, int index) const function, expected prototype:\nvoid wxPGEditor::DeleteItem(wxWindow * ctrl, int index) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* ctrl=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int index=(int)lua_tointeger(L,3);
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::DeleteItem(wxWindow *, int) const");
@@ -432,10 +516,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGEditor::OnFocus(wxPGProperty * property, wxWindow * wnd) const function, expected prototype:\nvoid wxPGEditor::OnFocus(wxPGProperty * property, wxWindow * wnd) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGEditor::OnFocus(wxPGProperty *, wxWindow *) const");
@@ -453,12 +537,237 @@ public:
 		}
 
 
-		wxPGEditor* self=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,1));
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGEditor::CanContainCustomImage() const");
 		}
 		bool lret = self->CanContainCustomImage();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPGEditor::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGEditor::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGEditor::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGEditor::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPGEditor::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxString wxPGEditor::base_GetName() const
+	static int _bind_base_GetName(lua_State *L) {
+		if (!_lg_typecheck_base_GetName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxPGEditor::base_GetName() const function, expected prototype:\nwxString wxPGEditor::base_GetName() const\nClass arguments details:\n");
+		}
+
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxPGEditor::base_GetName() const");
+		}
+		wxString lret = self->wxPGEditor::GetName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxPGEditor::base_DrawValue(wxDC & dc, const wxRect & rect, wxPGProperty * property, const wxString & text) const
+	static int _bind_base_DrawValue(lua_State *L) {
+		if (!_lg_typecheck_base_DrawValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_DrawValue(wxDC & dc, const wxRect & rect, wxPGProperty * property, const wxString & text) const function, expected prototype:\nvoid wxPGEditor::base_DrawValue(wxDC & dc, const wxRect & rect, wxPGProperty * property, const wxString & text) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\narg 3 ID = 56813631\narg 4 ID = 88196105\n");
+		}
+
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
+		if( !dc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxPGEditor::base_DrawValue function");
+		}
+		wxDC & dc=*dc_ptr;
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,3));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxPGEditor::base_DrawValue function");
+		}
+		const wxRect & rect=*rect_ptr;
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,4));
+		wxString text(lua_tostring(L,5),lua_objlen(L,5));
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_DrawValue(wxDC &, const wxRect &, wxPGProperty *, const wxString &) const");
+		}
+		self->wxPGEditor::DrawValue(dc, rect, property, text);
+
+		return 0;
+	}
+
+	// void wxPGEditor::base_SetControlAppearance(wxPropertyGrid * pg, wxPGProperty * property, wxWindow * ctrl, const wxPGCell & appearance, const wxPGCell & oldAppearance, bool unspecified) const
+	static int _bind_base_SetControlAppearance(lua_State *L) {
+		if (!_lg_typecheck_base_SetControlAppearance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_SetControlAppearance(wxPropertyGrid * pg, wxPGProperty * property, wxWindow * ctrl, const wxPGCell & appearance, const wxPGCell & oldAppearance, bool unspecified) const function, expected prototype:\nvoid wxPGEditor::base_SetControlAppearance(wxPropertyGrid * pg, wxPGProperty * property, wxWindow * ctrl, const wxPGCell & appearance, const wxPGCell & oldAppearance, bool unspecified) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+		}
+
+		wxPropertyGrid* pg=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,3));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,4));
+		const wxPGCell* appearance_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,5));
+		if( !appearance_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg appearance in wxPGEditor::base_SetControlAppearance function");
+		}
+		const wxPGCell & appearance=*appearance_ptr;
+		const wxPGCell* oldAppearance_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,6));
+		if( !oldAppearance_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg oldAppearance in wxPGEditor::base_SetControlAppearance function");
+		}
+		const wxPGCell & oldAppearance=*oldAppearance_ptr;
+		bool unspecified=(bool)(lua_toboolean(L,7)==1);
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_SetControlAppearance(wxPropertyGrid *, wxPGProperty *, wxWindow *, const wxPGCell &, const wxPGCell &, bool) const");
+		}
+		self->wxPGEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
+
+		return 0;
+	}
+
+	// void wxPGEditor::base_SetControlStringValue(wxPGProperty * property, wxWindow * ctrl, const wxString & txt) const
+	static int _bind_base_SetControlStringValue(lua_State *L) {
+		if (!_lg_typecheck_base_SetControlStringValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_SetControlStringValue(wxPGProperty * property, wxWindow * ctrl, const wxString & txt) const function, expected prototype:\nvoid wxPGEditor::base_SetControlStringValue(wxPGProperty * property, wxWindow * ctrl, const wxString & txt) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+		}
+
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxString txt(lua_tostring(L,4),lua_objlen(L,4));
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_SetControlStringValue(wxPGProperty *, wxWindow *, const wxString &) const");
+		}
+		self->wxPGEditor::SetControlStringValue(property, ctrl, txt);
+
+		return 0;
+	}
+
+	// void wxPGEditor::base_SetControlIntValue(wxPGProperty * property, wxWindow * ctrl, int value) const
+	static int _bind_base_SetControlIntValue(lua_State *L) {
+		if (!_lg_typecheck_base_SetControlIntValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_SetControlIntValue(wxPGProperty * property, wxWindow * ctrl, int value) const function, expected prototype:\nvoid wxPGEditor::base_SetControlIntValue(wxPGProperty * property, wxWindow * ctrl, int value) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		int value=(int)lua_tointeger(L,4);
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_SetControlIntValue(wxPGProperty *, wxWindow *, int) const");
+		}
+		self->wxPGEditor::SetControlIntValue(property, ctrl, value);
+
+		return 0;
+	}
+
+	// int wxPGEditor::base_InsertItem(wxWindow * ctrl, const wxString & label, int index) const
+	static int _bind_base_InsertItem(lua_State *L) {
+		if (!_lg_typecheck_base_InsertItem(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPGEditor::base_InsertItem(wxWindow * ctrl, const wxString & label, int index) const function, expected prototype:\nint wxPGEditor::base_InsertItem(wxWindow * ctrl, const wxString & label, int index) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxString label(lua_tostring(L,3),lua_objlen(L,3));
+		int index=(int)lua_tointeger(L,4);
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxPGEditor::base_InsertItem(wxWindow *, const wxString &, int) const");
+		}
+		int lret = self->wxPGEditor::InsertItem(ctrl, label, index);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxPGEditor::base_DeleteItem(wxWindow * ctrl, int index) const
+	static int _bind_base_DeleteItem(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteItem(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_DeleteItem(wxWindow * ctrl, int index) const function, expected prototype:\nvoid wxPGEditor::base_DeleteItem(wxWindow * ctrl, int index) const\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* ctrl=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		int index=(int)lua_tointeger(L,3);
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_DeleteItem(wxWindow *, int) const");
+		}
+		self->wxPGEditor::DeleteItem(ctrl, index);
+
+		return 0;
+	}
+
+	// void wxPGEditor::base_OnFocus(wxPGProperty * property, wxWindow * wnd) const
+	static int _bind_base_OnFocus(lua_State *L) {
+		if (!_lg_typecheck_base_OnFocus(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGEditor::base_OnFocus(wxPGProperty * property, wxWindow * wnd) const function, expected prototype:\nvoid wxPGEditor::base_OnFocus(wxPGProperty * property, wxWindow * wnd) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGEditor::base_OnFocus(wxPGProperty *, wxWindow *) const");
+		}
+		self->wxPGEditor::OnFocus(property, wnd);
+
+		return 0;
+	}
+
+	// bool wxPGEditor::base_CanContainCustomImage() const
+	static int _bind_base_CanContainCustomImage(lua_State *L) {
+		if (!_lg_typecheck_base_CanContainCustomImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxPGEditor::base_CanContainCustomImage() const function, expected prototype:\nbool wxPGEditor::base_CanContainCustomImage() const\nClass arguments details:\n");
+		}
+
+
+		wxPGEditor* self=Luna< wxObject >::checkSubType< wxPGEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxPGEditor::base_CanContainCustomImage() const");
+		}
+		bool lret = self->wxPGEditor::CanContainCustomImage();
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -503,6 +812,16 @@ luna_RegType LunaTraits< wxPGEditor >::methods[] = {
 	{"DeleteItem", &luna_wrapper_wxPGEditor::_bind_DeleteItem},
 	{"OnFocus", &luna_wrapper_wxPGEditor::_bind_OnFocus},
 	{"CanContainCustomImage", &luna_wrapper_wxPGEditor::_bind_CanContainCustomImage},
+	{"base_GetClassInfo", &luna_wrapper_wxPGEditor::_bind_base_GetClassInfo},
+	{"base_GetName", &luna_wrapper_wxPGEditor::_bind_base_GetName},
+	{"base_DrawValue", &luna_wrapper_wxPGEditor::_bind_base_DrawValue},
+	{"base_SetControlAppearance", &luna_wrapper_wxPGEditor::_bind_base_SetControlAppearance},
+	{"base_SetControlStringValue", &luna_wrapper_wxPGEditor::_bind_base_SetControlStringValue},
+	{"base_SetControlIntValue", &luna_wrapper_wxPGEditor::_bind_base_SetControlIntValue},
+	{"base_InsertItem", &luna_wrapper_wxPGEditor::_bind_base_InsertItem},
+	{"base_DeleteItem", &luna_wrapper_wxPGEditor::_bind_base_DeleteItem},
+	{"base_OnFocus", &luna_wrapper_wxPGEditor::_bind_base_OnFocus},
+	{"base_CanContainCustomImage", &luna_wrapper_wxPGEditor::_bind_base_CanContainCustomImage},
 	{"__eq", &luna_wrapper_wxPGEditor::_bind___eq},
 	{0,0}
 };

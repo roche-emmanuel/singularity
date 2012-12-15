@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TextureCubeMap::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TextureCubeMap::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TextureCubeMap::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextureCubeMap::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextureCubeMap::getUserData();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return TextureCubeMap::getMember();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return TextureCubeMap::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Texture * osg::Texture::asTexture()
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return TextureCubeMap::asTexture();
 	};
 
 	// const osg::Texture * osg::Texture::asTexture() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return TextureCubeMap::asTexture();
 	};
 
 	// bool osg::Texture::isTextureAttribute() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::isTextureAttribute();
+		return TextureCubeMap::isTextureAttribute();
 	};
 
 	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::getModeUsage(arg1);
+		return TextureCubeMap::getModeUsage(arg1);
 	};
 
 	// void osg::Texture::compileGLObjects(osg::State & state) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::compileGLObjects(state);
+		return TextureCubeMap::compileGLObjects(state);
 	};
 
 	// void osg::Texture::releaseGLObjects(osg::State * state = 0) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::releaseGLObjects(state);
+		return TextureCubeMap::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::TextureCubeMap::cloneType() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TextureCubeMap::cloneType();
+		return TextureCubeMap::cloneType();
 	};
 
 	// osg::Object * osg::TextureCubeMap::clone(const osg::CopyOp & arg1) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TextureCubeMap::clone(arg1);
+		return TextureCubeMap::clone(arg1);
 	};
 
 	// bool osg::TextureCubeMap::isSameKindAs(const osg::Object * obj) const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TextureCubeMap::isSameKindAs(obj);
+		return TextureCubeMap::isSameKindAs(obj);
 	};
 
 	// const char * osg::TextureCubeMap::libraryName() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TextureCubeMap::libraryName();
+		return TextureCubeMap::libraryName();
 	};
 
 	// const char * osg::TextureCubeMap::className() const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TextureCubeMap::className();
+		return TextureCubeMap::className();
 	};
 
 	// osg::StateAttribute::Type osg::TextureCubeMap::getType() const
@@ -194,7 +194,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::TextureCubeMap::getType();
+		return TextureCubeMap::getType();
 	};
 
 	// int osg::TextureCubeMap::compare(const osg::StateAttribute & rhs) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureCubeMap::compare(rhs);
+		return TextureCubeMap::compare(rhs);
 	};
 
 	// unsigned int osg::TextureCubeMap::getTextureTarget() const
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::TextureCubeMap::getTextureTarget();
+		return TextureCubeMap::getTextureTarget();
 	};
 
 	// void osg::TextureCubeMap::setImage(unsigned int face, osg::Image * image)
@@ -224,7 +224,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TextureCubeMap::setImage(face, image);
+		return TextureCubeMap::setImage(face, image);
 	};
 
 	// osg::Image * osg::TextureCubeMap::getImage(unsigned int face)
@@ -234,7 +234,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::TextureCubeMap::getImage(face);
+		return TextureCubeMap::getImage(face);
 	};
 
 	// const osg::Image * osg::TextureCubeMap::getImage(unsigned int face) const
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::TextureCubeMap::getImage(face);
+		return TextureCubeMap::getImage(face);
 	};
 
 	// unsigned int osg::TextureCubeMap::getNumImages() const
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::TextureCubeMap::getNumImages();
+		return TextureCubeMap::getNumImages();
 	};
 
 	// int osg::TextureCubeMap::getTextureWidth() const
@@ -262,7 +262,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureCubeMap::getTextureWidth();
+		return TextureCubeMap::getTextureWidth();
 	};
 
 	// int osg::TextureCubeMap::getTextureHeight() const
@@ -271,7 +271,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureCubeMap::getTextureHeight();
+		return TextureCubeMap::getTextureHeight();
 	};
 
 	// int osg::TextureCubeMap::getTextureDepth() const
@@ -280,7 +280,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TextureCubeMap::getTextureDepth();
+		return TextureCubeMap::getTextureDepth();
 	};
 
 	// void osg::TextureCubeMap::apply(osg::State & state) const
@@ -290,13 +290,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TextureCubeMap::apply(state);
+		return TextureCubeMap::apply(state);
 	};
 
 
 protected:
 	// void osg::TextureCubeMap::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureCubeMap::computeInternalFormat();
+	};
+
 	// void osg::TextureCubeMap::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return TextureCubeMap::allocateMipmap(state);
+	};
+
 
 };
 

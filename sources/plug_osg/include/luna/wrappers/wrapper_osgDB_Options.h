@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Options::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Options::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Options::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Options::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Options::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Options::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgDB::Options::cloneType() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::Options::cloneType();
+		return Options::cloneType();
 	};
 
 	// osg::Object * osgDB::Options::clone(const osg::CopyOp & arg1) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::Options::clone(arg1);
+		return Options::clone(arg1);
 	};
 
 	// bool osgDB::Options::isSameKindAs(const osg::Object * obj) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::Options::isSameKindAs(obj);
+		return Options::isSameKindAs(obj);
 	};
 
 	// const char * osgDB::Options::libraryName() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::Options::libraryName();
+		return Options::libraryName();
 	};
 
 	// const char * osgDB::Options::className() const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::Options::className();
+		return Options::className();
 	};
 
 

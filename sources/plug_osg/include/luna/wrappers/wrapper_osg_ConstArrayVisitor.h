@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::ByteArray & arg1)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::ShortArray & arg1)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::IntArray & arg1)
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::UByteArray & arg1)
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::UShortArray & arg1)
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::UIntArray & arg1)
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::FloatArray & arg1)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::DoubleArray & arg1)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec2Array & arg1)
@@ -114,7 +114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec3Array & arg1)
@@ -124,7 +124,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec4Array & arg1)
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec4ubArray & arg1)
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec2bArray & arg1)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec3bArray & arg1)
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec4bArray & arg1)
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec2sArray & arg1)
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec3sArray & arg1)
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec4sArray & arg1)
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec2dArray & arg1)
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec3dArray & arg1)
@@ -224,7 +224,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Vec4dArray & arg1)
@@ -234,7 +234,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 	// void osg::ConstArrayVisitor::apply(const osg::MatrixfArray & arg1)
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstArrayVisitor::apply(arg1);
+		return ConstArrayVisitor::apply(arg1);
 	};
 
 

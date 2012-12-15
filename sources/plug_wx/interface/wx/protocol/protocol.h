@@ -55,7 +55,7 @@ public:
         Returns the type of the content of the last opened stream. It is a mime-type.
         May be an empty string if the content-type is unknown.
     */
-    virtual wxString GetContentType() const;
+    virtual wxString GetContentType() const = 0;
 
     /**
         Returns the last occurred error.

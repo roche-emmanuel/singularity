@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxClipboard* ptr= dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		//wxClipboard* ptr= dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* ptr= luna_caster< wxObject, wxClipboard >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -129,6 +130,78 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,55398761)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Close(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,55398761) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsOpened(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSupported(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Open(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,55398761)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UsePrimarySelection(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -176,7 +249,7 @@ public:
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::AddData(wxDataObject *)");
@@ -195,7 +268,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxClipboard::Clear()");
@@ -213,7 +286,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxClipboard::Close()");
@@ -231,7 +304,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::Flush()");
@@ -255,7 +328,7 @@ public:
 		}
 		wxDataObject & data=*data_ptr;
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::GetData(wxDataObject &)");
@@ -274,7 +347,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::IsOpened() const");
@@ -298,7 +371,7 @@ public:
 		}
 		const wxDataFormat & format=*format_ptr;
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::IsSupported(const wxDataFormat &)");
@@ -317,7 +390,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::IsUsingPrimarySelection() const");
@@ -336,7 +409,7 @@ public:
 		}
 
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::Open()");
@@ -356,7 +429,7 @@ public:
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClipboard::SetData(wxDataObject *)");
@@ -378,12 +451,235 @@ public:
 
 		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxClipboard* self=dynamic_cast< wxClipboard* >(Luna< wxObject >::check(L,1));
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxClipboard::UsePrimarySelection(bool)");
 		}
 		self->UsePrimarySelection(primary);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxClipboard::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxClipboard::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxClipboard::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxClipboard::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxClipboard::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_AddData(wxDataObject * data)
+	static int _bind_base_AddData(lua_State *L) {
+		if (!_lg_typecheck_base_AddData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_AddData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_AddData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+		}
+
+		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_AddData(wxDataObject *)");
+		}
+		bool lret = self->wxClipboard::AddData(data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxClipboard::base_Clear()
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Clear() function, expected prototype:\nvoid wxClipboard::base_Clear()\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_Clear()");
+		}
+		self->wxClipboard::Clear();
+
+		return 0;
+	}
+
+	// void wxClipboard::base_Close()
+	static int _bind_base_Close(lua_State *L) {
+		if (!_lg_typecheck_base_Close(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Close() function, expected prototype:\nvoid wxClipboard::base_Close()\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_Close()");
+		}
+		self->wxClipboard::Close();
+
+		return 0;
+	}
+
+	// bool wxClipboard::base_Flush()
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Flush() function, expected prototype:\nbool wxClipboard::base_Flush()\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Flush()");
+		}
+		bool lret = self->wxClipboard::Flush();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_GetData(wxDataObject & data)
+	static int _bind_base_GetData(lua_State *L) {
+		if (!_lg_typecheck_base_GetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_GetData(wxDataObject & data) function, expected prototype:\nbool wxClipboard::base_GetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n");
+		}
+
+		wxDataObject* data_ptr=(Luna< wxDataObject >::check(L,2));
+		if( !data_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg data in wxClipboard::base_GetData function");
+		}
+		wxDataObject & data=*data_ptr;
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_GetData(wxDataObject &)");
+		}
+		bool lret = self->wxClipboard::GetData(data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_IsOpened() const
+	static int _bind_base_IsOpened(lua_State *L) {
+		if (!_lg_typecheck_base_IsOpened(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsOpened() const function, expected prototype:\nbool wxClipboard::base_IsOpened() const\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsOpened() const");
+		}
+		bool lret = self->wxClipboard::IsOpened();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_IsSupported(const wxDataFormat & format)
+	static int _bind_base_IsSupported(lua_State *L) {
+		if (!_lg_typecheck_base_IsSupported(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsSupported(const wxDataFormat & format) function, expected prototype:\nbool wxClipboard::base_IsSupported(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n");
+		}
+
+		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
+		if( !format_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg format in wxClipboard::base_IsSupported function");
+		}
+		const wxDataFormat & format=*format_ptr;
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsSupported(const wxDataFormat &)");
+		}
+		bool lret = self->wxClipboard::IsSupported(format);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_Open()
+	static int _bind_base_Open(lua_State *L) {
+		if (!_lg_typecheck_base_Open(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Open() function, expected prototype:\nbool wxClipboard::base_Open()\nClass arguments details:\n");
+		}
+
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Open()");
+		}
+		bool lret = self->wxClipboard::Open();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxClipboard::base_SetData(wxDataObject * data)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_SetData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_SetData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+		}
+
+		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_SetData(wxDataObject *)");
+		}
+		bool lret = self->wxClipboard::SetData(data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxClipboard::base_UsePrimarySelection(bool primary = false)
+	static int _bind_base_UsePrimarySelection(lua_State *L) {
+		if (!_lg_typecheck_base_UsePrimarySelection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_UsePrimarySelection(bool primary = false) function, expected prototype:\nvoid wxClipboard::base_UsePrimarySelection(bool primary = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool primary=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_UsePrimarySelection(bool)");
+		}
+		self->wxClipboard::UsePrimarySelection(primary);
 
 		return 0;
 	}
@@ -420,6 +716,17 @@ luna_RegType LunaTraits< wxClipboard >::methods[] = {
 	{"Open", &luna_wrapper_wxClipboard::_bind_Open},
 	{"SetData", &luna_wrapper_wxClipboard::_bind_SetData},
 	{"UsePrimarySelection", &luna_wrapper_wxClipboard::_bind_UsePrimarySelection},
+	{"base_GetClassInfo", &luna_wrapper_wxClipboard::_bind_base_GetClassInfo},
+	{"base_AddData", &luna_wrapper_wxClipboard::_bind_base_AddData},
+	{"base_Clear", &luna_wrapper_wxClipboard::_bind_base_Clear},
+	{"base_Close", &luna_wrapper_wxClipboard::_bind_base_Close},
+	{"base_Flush", &luna_wrapper_wxClipboard::_bind_base_Flush},
+	{"base_GetData", &luna_wrapper_wxClipboard::_bind_base_GetData},
+	{"base_IsOpened", &luna_wrapper_wxClipboard::_bind_base_IsOpened},
+	{"base_IsSupported", &luna_wrapper_wxClipboard::_bind_base_IsSupported},
+	{"base_Open", &luna_wrapper_wxClipboard::_bind_base_Open},
+	{"base_SetData", &luna_wrapper_wxClipboard::_bind_base_SetData},
+	{"base_UsePrimarySelection", &luna_wrapper_wxClipboard::_bind_base_UsePrimarySelection},
 	{"__eq", &luna_wrapper_wxClipboard::_bind___eq},
 	{0,0}
 };

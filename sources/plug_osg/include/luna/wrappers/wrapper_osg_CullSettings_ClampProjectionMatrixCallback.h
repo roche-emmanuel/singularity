@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_CullSettings_ClampProjectionMatrixCallback(lua_State* L, lua_Table* dum) : osg::CullSettings::ClampProjectionMatrixCallback(), _obj(L,-1) {};
 
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const {

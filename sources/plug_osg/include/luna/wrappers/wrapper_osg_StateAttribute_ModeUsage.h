@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_StateAttribute_ModeUsage(lua_State* L, lua_Table* dum) : osg::StateAttribute::ModeUsage(), _obj(L,-1) {};
 
 	// void osg::StateAttribute::ModeUsage::usesMode(unsigned int mode)
 	void usesMode(unsigned int mode) {

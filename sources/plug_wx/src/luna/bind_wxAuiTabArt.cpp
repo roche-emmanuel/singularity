@@ -209,12 +209,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiTabArt::DrawBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiTabArt::DrawBackground function");
@@ -238,12 +238,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect) function, expected prototype:\nvoid wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 7 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiTabArt::DrawButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* in_rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !in_rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg in_rect in wxAuiTabArt::DrawButton function");
@@ -271,12 +271,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent) function, expected prototype:\nvoid wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 43006525\narg 4 ID = 20234418\narg 6 ID = 20234418\narg 7 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiTabArt::DrawTab function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiNotebookPage* page_ptr=(Luna< wxAuiNotebookPage >::check(L,4));
 		if( !page_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg page in wxAuiTabArt::DrawTab function");
@@ -309,7 +309,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3) function, expected prototype:\nint wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\narg 3 ID = 20268751\n");
 		}
 
-		wxWindow* _arg1=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* _arg1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxAuiNotebookPageArray* _arg2_ptr=(Luna< wxAuiNotebookPageArray >::check(L,3));
 		if( !_arg2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in wxAuiTabArt::GetBestTabCtrlSize function");
@@ -358,14 +358,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent) function, expected prototype:\nwxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiTabArt::GetTabSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,5));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAuiTabArt::GetTabSize function");
 		}
@@ -414,7 +414,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetMeasuringFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetMeasuringFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiTabArt::SetMeasuringFont function");
 		}
@@ -437,7 +437,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetNormalFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetNormalFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiTabArt::SetNormalFont function");
 		}
@@ -460,7 +460,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetSelectedFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetSelectedFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiTabArt::SetSelectedFont function");
 		}
@@ -483,7 +483,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxAuiTabArt::SetColour function");
 		}
@@ -506,7 +506,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetActiveColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetActiveColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxAuiTabArt::SetActiveColour function");
 		}

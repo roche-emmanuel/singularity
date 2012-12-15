@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPropertyGridEvent* ptr= dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		//wxPropertyGridEvent* ptr= dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* ptr= luna_caster< wxObject, wxPropertyGridEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -120,6 +121,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -133,7 +146,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPropertyGridEvent::CanVeto() const");
@@ -152,7 +165,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPropertyGridEvent::GetColumn() const");
@@ -171,7 +184,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridEvent::GetMainParent() const");
@@ -192,7 +205,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridEvent::GetProperty() const");
@@ -213,7 +226,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char wxPropertyGridEvent::GetValidationFailureBehavior() const");
@@ -232,7 +245,7 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPropertyGridEvent::GetPropertyName() const");
@@ -252,7 +265,7 @@ public:
 
 		bool canVeto=(bool)(lua_toboolean(L,2)==1);
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPropertyGridEvent::SetCanVeto(bool)");
@@ -269,9 +282,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPropertyGridEvent::SetProperty(wxPGProperty * p) function, expected prototype:\nvoid wxPropertyGridEvent::SetProperty(wxPGProperty * p)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* p=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* p=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPropertyGridEvent::SetProperty(wxPGProperty *)");
@@ -290,7 +303,7 @@ public:
 
 		unsigned char flags = (unsigned char)(lua_tointeger(L,2));
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPropertyGridEvent::SetValidationFailureBehavior(unsigned char)");
@@ -309,7 +322,7 @@ public:
 
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPropertyGridEvent::SetValidationFailureMessage(const wxString &)");
@@ -330,7 +343,7 @@ public:
 
 		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPropertyGridEvent::Veto(bool)");
@@ -348,13 +361,53 @@ public:
 		}
 
 
-		wxPropertyGridEvent* self=dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,1));
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPropertyGridEvent::WasVetoed() const");
 		}
 		bool lret = self->WasVetoed();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPropertyGridEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPropertyGridEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPropertyGridEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPropertyGridEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPropertyGridEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxPropertyGridEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxPropertyGridEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPropertyGridEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxPropertyGridEvent* self=Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPropertyGridEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxPropertyGridEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -394,6 +447,8 @@ luna_RegType LunaTraits< wxPropertyGridEvent >::methods[] = {
 	{"SetValidationFailureMessage", &luna_wrapper_wxPropertyGridEvent::_bind_SetValidationFailureMessage},
 	{"Veto", &luna_wrapper_wxPropertyGridEvent::_bind_Veto},
 	{"WasVetoed", &luna_wrapper_wxPropertyGridEvent::_bind_WasVetoed},
+	{"base_GetClassInfo", &luna_wrapper_wxPropertyGridEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxPropertyGridEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxPropertyGridEvent::_bind___eq},
 	{0,0}
 };

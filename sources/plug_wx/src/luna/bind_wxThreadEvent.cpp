@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxThreadEvent* ptr= dynamic_cast< wxThreadEvent* >(Luna< wxObject >::check(L,1));
+		//wxThreadEvent* ptr= dynamic_cast< wxThreadEvent* >(Luna< wxObject >::check(L,1));
+		wxThreadEvent* ptr= luna_caster< wxObject, wxThreadEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::setDefaults();
+		return CullStack::setDefaults();
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings);
+		return CullStack::inheritCullSettings(settings);
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings, inheritanceMask);
+		return CullStack::inheritCullSettings(settings, inheritanceMask);
 	};
 
 

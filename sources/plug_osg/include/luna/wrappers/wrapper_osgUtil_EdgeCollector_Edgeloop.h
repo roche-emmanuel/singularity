@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_EdgeCollector_Edgeloop(lua_State* L, lua_Table* dum) : osgUtil::EdgeCollector::Edgeloop(), _obj(L,-1) {};
 
 
 

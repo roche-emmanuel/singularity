@@ -194,7 +194,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ObserverNodePath::setNodePathTo(osg::Node * node) function, expected prototype:\nvoid osg::ObserverNodePath::setNodePathTo(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
 		osg::ObserverNodePath* self=(Luna< osg::ObserverNodePath >::check(L,1));
 		if(!self) {

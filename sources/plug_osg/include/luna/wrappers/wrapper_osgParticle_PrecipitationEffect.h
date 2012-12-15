@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PrecipitationEffect::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PrecipitationEffect::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PrecipitationEffect::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PrecipitationEffect::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PrecipitationEffect::getUserData();
 	};
 
 	// osg::Object * osg::Node::cloneType() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::cloneType();
+		return PrecipitationEffect::cloneType();
 	};
 
 	// osg::Object * osg::Node::clone(const osg::CopyOp & copyop) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::clone(copyop);
+		return PrecipitationEffect::clone(copyop);
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return PrecipitationEffect::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return PrecipitationEffect::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return PrecipitationEffect::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return PrecipitationEffect::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return PrecipitationEffect::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return PrecipitationEffect::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return PrecipitationEffect::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -153,7 +153,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return PrecipitationEffect::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return PrecipitationEffect::ascend(nv);
 	};
 
 	// osg::BoundingSphered osg::Node::computeBound() const
@@ -172,7 +172,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Node::computeBound();
+		return PrecipitationEffect::computeBound();
 	};
 
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::releaseGLObjects(arg1);
+		return PrecipitationEffect::releaseGLObjects(arg1);
 	};
 
 	// const char * osgParticle::PrecipitationEffect::libraryName() const
@@ -191,7 +191,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PrecipitationEffect::libraryName();
+		return PrecipitationEffect::libraryName();
 	};
 
 	// const char * osgParticle::PrecipitationEffect::className() const
@@ -200,7 +200,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PrecipitationEffect::className();
+		return PrecipitationEffect::className();
 	};
 
 	// bool osgParticle::PrecipitationEffect::isSameKindAs(const osg::Object * obj) const
@@ -210,7 +210,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::PrecipitationEffect::isSameKindAs(obj);
+		return PrecipitationEffect::isSameKindAs(obj);
 	};
 
 	// void osgParticle::PrecipitationEffect::accept(osg::NodeVisitor & nv)
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::PrecipitationEffect::accept(nv);
+		return PrecipitationEffect::accept(nv);
 	};
 
 	// void osgParticle::PrecipitationEffect::traverse(osg::NodeVisitor & arg1)
@@ -230,7 +230,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::PrecipitationEffect::traverse(arg1);
+		return PrecipitationEffect::traverse(arg1);
 	};
 
 

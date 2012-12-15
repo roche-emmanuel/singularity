@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return FlushDeletedGLObjectsOperation::release();
 	};
 
 	// void osg::FlushDeletedGLObjectsOperation::operator()(osg::GraphicsContext * arg1)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::FlushDeletedGLObjectsOperation::operator()(arg1);
+		return FlushDeletedGLObjectsOperation::operator()(arg1);
 	};
 
 

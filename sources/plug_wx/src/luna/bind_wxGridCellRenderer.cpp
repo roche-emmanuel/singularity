@@ -129,7 +129,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxGridCellRenderer::Draw function");
 		}
 		wxGridCellAttr & attr=*attr_ptr;
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,4));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,4));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxGridCellRenderer::Draw function");
 		}
@@ -170,7 +170,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxGridCellRenderer::GetBestSize function");
 		}
 		wxGridCellAttr & attr=*attr_ptr;
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,4));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,4));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxGridCellRenderer::GetBestSize function");
 		}

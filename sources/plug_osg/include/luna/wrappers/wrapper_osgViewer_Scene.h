@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::Scene::className();
+		return Scene::className();
 	};
 
 

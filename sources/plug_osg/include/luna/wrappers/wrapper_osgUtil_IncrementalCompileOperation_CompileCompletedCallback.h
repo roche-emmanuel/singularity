@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_IncrementalCompileOperation_CompileCompletedCallback(lua_State* L, lua_Table* dum) : osgUtil::IncrementalCompileOperation::CompileCompletedCallback(), _obj(L,-1) {};
 
 
 

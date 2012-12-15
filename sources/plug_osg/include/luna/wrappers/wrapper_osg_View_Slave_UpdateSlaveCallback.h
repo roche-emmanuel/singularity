@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_View_Slave_UpdateSlaveCallback(lua_State* L, lua_Table* dum) : osg::View::Slave::UpdateSlaveCallback(), _obj(L,-1) {};
 
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
 	void updateSlave(osg::View & view, osg::View::Slave & slave) {

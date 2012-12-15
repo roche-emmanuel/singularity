@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgViewer::DepthPartitionSettings* ptr= dynamic_cast< osgViewer::DepthPartitionSettings* >(Luna< osg::Referenced >::check(L,1));
+		//osgViewer::DepthPartitionSettings* ptr= dynamic_cast< osgViewer::DepthPartitionSettings* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::DepthPartitionSettings* ptr= luna_caster< osg::Referenced, osgViewer::DepthPartitionSettings >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -62,6 +63,16 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_getDepthRange(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDepthRange(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
@@ -122,7 +133,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osgViewer::DepthPartitionSettings::getDepthRange function");
 		}
@@ -131,12 +142,39 @@ public:
 		double zNear=(double)lua_tonumber(L,4);
 		double zFar=(double)lua_tonumber(L,5);
 
-		osgViewer::DepthPartitionSettings* self=dynamic_cast< osgViewer::DepthPartitionSettings* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View &, unsigned int, double &, double &)");
 		}
 		bool lret = self->getDepthRange(view, partition, zNear, zFar);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
+	static int _bind_base_getDepthRange(lua_State *L) {
+		if (!_lg_typecheck_base_getDepthRange(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) function, expected prototype:\nbool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
+		if( !view_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg view in osgViewer::DepthPartitionSettings::base_getDepthRange function");
+		}
+		osg::View & view=*view_ptr;
+		unsigned int partition=(unsigned int)lua_tointeger(L,3);
+		double zNear=(double)lua_tonumber(L,4);
+		double zFar=(double)lua_tonumber(L,5);
+
+		osgViewer::DepthPartitionSettings* self=Luna< osg::Referenced >::checkSubType< osgViewer::DepthPartitionSettings >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgViewer::DepthPartitionSettings::base_getDepthRange(osg::View &, unsigned int, double &, double &)");
+		}
+		bool lret = self->DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -164,6 +202,7 @@ const int LunaTraits< osgViewer::DepthPartitionSettings >::uniqueIDs[] = {501696
 
 luna_RegType LunaTraits< osgViewer::DepthPartitionSettings >::methods[] = {
 	{"getDepthRange", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_getDepthRange},
+	{"base_getDepthRange", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind_base_getDepthRange},
 	{"__eq", &luna_wrapper_osgViewer_DepthPartitionSettings::_bind___eq},
 	{0,0}
 };

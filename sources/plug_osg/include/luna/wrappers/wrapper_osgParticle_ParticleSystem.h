@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ParticleSystem::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ParticleSystem::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ParticleSystem::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ParticleSystem::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return ParticleSystem::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return ParticleSystem::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return ParticleSystem::computeDataVariance();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return ParticleSystem::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return ParticleSystem::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return ParticleSystem::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return ParticleSystem::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::releaseGLObjects(state);
+		return ParticleSystem::releaseGLObjects(state);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return ParticleSystem::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return ParticleSystem::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return ParticleSystem::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return ParticleSystem::setDrawCallback(dc);
 	};
 
 	// osg::Object * osgParticle::ParticleSystem::cloneType() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ParticleSystem::cloneType();
+		return ParticleSystem::cloneType();
 	};
 
 	// osg::Object * osgParticle::ParticleSystem::clone(const osg::CopyOp & arg1) const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ParticleSystem::clone(arg1);
+		return ParticleSystem::clone(arg1);
 	};
 
 	// bool osgParticle::ParticleSystem::isSameKindAs(const osg::Object * obj) const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystem::isSameKindAs(obj);
+		return ParticleSystem::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::ParticleSystem::libraryName() const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ParticleSystem::libraryName();
+		return ParticleSystem::libraryName();
 	};
 
 	// const char * osgParticle::ParticleSystem::className() const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ParticleSystem::className();
+		return ParticleSystem::className();
 	};
 
 	// osgParticle::Particle * osgParticle::ParticleSystem::createParticle(const osgParticle::Particle * ptemplate)
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<osgParticle::Particle*>());
 		}
 
-		return osgParticle::ParticleSystem::createParticle(ptemplate);
+		return ParticleSystem::createParticle(ptemplate);
 	};
 
 	// void osgParticle::ParticleSystem::destroyParticle(int i)
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystem::destroyParticle(i);
+		return ParticleSystem::destroyParticle(i);
 	};
 
 	// void osgParticle::ParticleSystem::reuseParticle(int i)
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystem::reuseParticle(i);
+		return ParticleSystem::reuseParticle(i);
 	};
 
 	// void osgParticle::ParticleSystem::update(double dt, osg::NodeVisitor & nv)
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystem::update(dt, nv);
+		return ParticleSystem::update(dt, nv);
 	};
 
 	// void osgParticle::ParticleSystem::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -266,7 +266,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystem::drawImplementation(renderInfo);
+		return ParticleSystem::drawImplementation(renderInfo);
 	};
 
 	// osg::BoundingBoxd osgParticle::ParticleSystem::computeBound() const
@@ -275,7 +275,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osgParticle::ParticleSystem::computeBound();
+		return ParticleSystem::computeBound();
 	};
 
 

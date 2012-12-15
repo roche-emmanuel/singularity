@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return LightModel::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return LightModel::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return LightModel::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LightModel::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LightModel::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return LightModel::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return LightModel::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return LightModel::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return LightModel::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return LightModel::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return LightModel::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return LightModel::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return LightModel::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::LightModel::cloneType() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LightModel::cloneType();
+		return LightModel::cloneType();
 	};
 
 	// osg::Object * osg::LightModel::clone(const osg::CopyOp & arg1) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LightModel::clone(arg1);
+		return LightModel::clone(arg1);
 	};
 
 	// bool osg::LightModel::isSameKindAs(const osg::Object * obj) const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::LightModel::isSameKindAs(obj);
+		return LightModel::isSameKindAs(obj);
 	};
 
 	// const char * osg::LightModel::libraryName() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LightModel::libraryName();
+		return LightModel::libraryName();
 	};
 
 	// const char * osg::LightModel::className() const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LightModel::className();
+		return LightModel::className();
 	};
 
 	// osg::StateAttribute::Type osg::LightModel::getType() const
@@ -194,7 +194,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::LightModel::getType();
+		return LightModel::getType();
 	};
 
 	// int osg::LightModel::compare(const osg::StateAttribute & sa) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::LightModel::compare(sa);
+		return LightModel::compare(sa);
 	};
 
 	// void osg::LightModel::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::LightModel::apply(arg1);
+		return LightModel::apply(arg1);
 	};
 
 

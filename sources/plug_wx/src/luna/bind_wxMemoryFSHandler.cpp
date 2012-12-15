@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMemoryFSHandler* ptr= dynamic_cast< wxMemoryFSHandler* >(Luna< wxObject >::check(L,1));
+		//wxMemoryFSHandler* ptr= dynamic_cast< wxMemoryFSHandler* >(Luna< wxObject >::check(L,1));
+		wxMemoryFSHandler* ptr= luna_caster< wxObject, wxMemoryFSHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -88,6 +89,27 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindFirst(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindNext(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -101,7 +123,7 @@ public:
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		wxImage* image_ptr=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
+		wxImage* image_ptr=(Luna< wxObject >::checkSubType< wxImage >(L,2));
 		if( !image_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg image in wxMemoryFSHandler::AddFile function");
 		}
@@ -121,7 +143,7 @@ public:
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryFSHandler::AddFile function");
 		}
@@ -198,6 +220,69 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMemoryFSHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0)
+	static int _bind_base_FindFirst(lua_State *L) {
+		if (!_lg_typecheck_base_FindFirst(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString wildcard(lua_tostring(L,2),lua_objlen(L,2));
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindFirst(const wxString &, int)");
+		}
+		wxString lret = self->wxMemoryFSHandler::FindFirst(wildcard, flags);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxMemoryFSHandler::base_FindNext()
+	static int _bind_base_FindNext(lua_State *L) {
+		if (!_lg_typecheck_base_FindNext(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindNext() function, expected prototype:\nwxString wxMemoryFSHandler::base_FindNext()\nClass arguments details:\n");
+		}
+
+
+		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindNext()");
+		}
+		wxString lret = self->wxMemoryFSHandler::FindNext();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -225,6 +310,9 @@ luna_RegType LunaTraits< wxMemoryFSHandler >::methods[] = {
 	{"AddFile", &luna_wrapper_wxMemoryFSHandler::_bind_AddFile},
 	{"AddFileWithMimeType", &luna_wrapper_wxMemoryFSHandler::_bind_AddFileWithMimeType},
 	{"RemoveFile", &luna_wrapper_wxMemoryFSHandler::_bind_RemoveFile},
+	{"base_GetClassInfo", &luna_wrapper_wxMemoryFSHandler::_bind_base_GetClassInfo},
+	{"base_FindFirst", &luna_wrapper_wxMemoryFSHandler::_bind_base_FindFirst},
+	{"base_FindNext", &luna_wrapper_wxMemoryFSHandler::_bind_base_FindNext},
 	{"__eq", &luna_wrapper_wxMemoryFSHandler::_bind___eq},
 	{0,0}
 };

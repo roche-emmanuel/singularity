@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Archive::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Archive::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Archive::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Archive::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Archive::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Archive::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgDB::ReaderWriter::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ReaderWriter::cloneType();
+		return Archive::cloneType();
 	};
 
 	// osg::Object * osgDB::ReaderWriter::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ReaderWriter::clone(arg1);
+		return Archive::clone(arg1);
 	};
 
 	// bool osgDB::ReaderWriter::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ReaderWriter::isSameKindAs(obj);
+		return Archive::isSameKindAs(obj);
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedProtocols() const
@@ -109,7 +109,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedProtocols();
+		return Archive::supportedProtocols();
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedExtensions() const
@@ -118,7 +118,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedExtensions();
+		return Archive::supportedExtensions();
 	};
 
 	// const osgDB::ReaderWriter::FormatDescriptionMap & osgDB::ReaderWriter::supportedOptions() const
@@ -127,7 +127,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::FormatDescriptionMap*>());
 		}
 
-		return osgDB::ReaderWriter::supportedOptions();
+		return Archive::supportedOptions();
 	};
 
 	// osgDB::ReaderWriter::Features osgDB::ReaderWriter::supportedFeatures() const
@@ -136,7 +136,7 @@ public:
 			return (osgDB::ReaderWriter::Features)(_obj.callFunction<int>());
 		}
 
-		return osgDB::ReaderWriter::supportedFeatures();
+		return Archive::supportedFeatures();
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const
@@ -149,7 +149,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReaderWriter::openArchive(arg1, arg2, arg3, arg4);
+		return Archive::openArchive(arg1, arg2, arg3, arg4);
 	};
 
 	// const char * osgDB::Archive::libraryName() const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::Archive::libraryName();
+		return Archive::libraryName();
 	};
 
 	// const char * osgDB::Archive::className() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::Archive::className();
+		return Archive::className();
 	};
 
 	// bool osgDB::Archive::acceptsExtension(const std::string & arg1) const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::Archive::acceptsExtension(arg1);
+		return Archive::acceptsExtension(arg1);
 	};
 
 	// void osgDB::Archive::close()
@@ -219,7 +219,7 @@ public:
 			return *(_obj.callFunction<osgDB::DirectoryContents*>());
 		}
 
-		return osgDB::Archive::getDirectoryContents(dirName);
+		return Archive::getDirectoryContents(dirName);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::Archive::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const

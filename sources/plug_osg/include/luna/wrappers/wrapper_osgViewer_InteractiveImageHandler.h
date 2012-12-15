@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return InteractiveImageHandler::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return InteractiveImageHandler::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return InteractiveImageHandler::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return InteractiveImageHandler::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return InteractiveImageHandler::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return InteractiveImageHandler::releaseGLObjects(arg1);
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return InteractiveImageHandler::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::getUsage(osg::ApplicationUsage & arg1) const
@@ -95,7 +95,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::getUsage(arg1);
+		return InteractiveImageHandler::getUsage(arg1);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -106,7 +106,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return InteractiveImageHandler::operator()(node, nv);
 	};
 
 	// osg::Object * osgViewer::InteractiveImageHandler::cloneType() const
@@ -115,7 +115,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::InteractiveImageHandler::cloneType();
+		return InteractiveImageHandler::cloneType();
 	};
 
 	// osg::Object * osgViewer::InteractiveImageHandler::clone(const osg::CopyOp & arg1) const
@@ -125,7 +125,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::InteractiveImageHandler::clone(arg1);
+		return InteractiveImageHandler::clone(arg1);
 	};
 
 	// bool osgViewer::InteractiveImageHandler::isSameKindAs(const osg::Object * obj) const
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::InteractiveImageHandler::isSameKindAs(obj);
+		return InteractiveImageHandler::isSameKindAs(obj);
 	};
 
 	// const char * osgViewer::InteractiveImageHandler::libraryName() const
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::InteractiveImageHandler::libraryName();
+		return InteractiveImageHandler::libraryName();
 	};
 
 	// const char * osgViewer::InteractiveImageHandler::className() const
@@ -153,7 +153,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::InteractiveImageHandler::className();
+		return InteractiveImageHandler::className();
 	};
 
 	// bool osgViewer::InteractiveImageHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa, osg::Object * arg3, osg::NodeVisitor * arg4)
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::InteractiveImageHandler::handle(ea, aa, arg3, arg4);
+		return InteractiveImageHandler::handle(ea, aa, arg3, arg4);
 	};
 
 	// bool osgViewer::InteractiveImageHandler::cull(osg::NodeVisitor * nv, osg::Drawable * drawable, osg::RenderInfo * renderInfo) const
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::InteractiveImageHandler::cull(nv, drawable, renderInfo);
+		return InteractiveImageHandler::cull(nv, drawable, renderInfo);
 	};
 
 

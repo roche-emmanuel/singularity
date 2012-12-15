@@ -241,7 +241,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorders::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxTextAttrBorders::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxTextAttrBorders::SetColour function");
 		}

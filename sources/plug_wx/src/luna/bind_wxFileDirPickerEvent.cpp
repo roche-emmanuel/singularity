@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileDirPickerEvent* ptr= dynamic_cast< wxFileDirPickerEvent* >(Luna< wxObject >::check(L,1));
+		//wxFileDirPickerEvent* ptr= dynamic_cast< wxFileDirPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxFileDirPickerEvent* ptr= luna_caster< wxObject, wxFileDirPickerEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -68,7 +81,7 @@ public:
 		}
 
 
-		wxFileDirPickerEvent* self=dynamic_cast< wxFileDirPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxFileDirPickerEvent* self=Luna< wxObject >::checkSubType< wxFileDirPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileDirPickerEvent::GetPath() const");
@@ -88,7 +101,7 @@ public:
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileDirPickerEvent* self=dynamic_cast< wxFileDirPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxFileDirPickerEvent* self=Luna< wxObject >::checkSubType< wxFileDirPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileDirPickerEvent::SetPath(const wxString &)");
@@ -96,6 +109,46 @@ public:
 		self->SetPath(path);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxFileDirPickerEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileDirPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileDirPickerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileDirPickerEvent* self=Luna< wxObject >::checkSubType< wxFileDirPickerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileDirPickerEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileDirPickerEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxFileDirPickerEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxFileDirPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFileDirPickerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxFileDirPickerEvent* self=Luna< wxObject >::checkSubType< wxFileDirPickerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFileDirPickerEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxFileDirPickerEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -123,6 +176,8 @@ const int LunaTraits< wxFileDirPickerEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxFileDirPickerEvent >::methods[] = {
 	{"GetPath", &luna_wrapper_wxFileDirPickerEvent::_bind_GetPath},
 	{"SetPath", &luna_wrapper_wxFileDirPickerEvent::_bind_SetPath},
+	{"base_GetClassInfo", &luna_wrapper_wxFileDirPickerEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxFileDirPickerEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxFileDirPickerEvent::_bind___eq},
 	{0,0}
 };

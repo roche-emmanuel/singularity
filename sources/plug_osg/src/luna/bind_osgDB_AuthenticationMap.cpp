@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::AuthenticationMap* ptr= dynamic_cast< osgDB::AuthenticationMap* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::AuthenticationMap* ptr= dynamic_cast< osgDB::AuthenticationMap* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::AuthenticationMap* ptr= luna_caster< osg::Referenced, osgDB::AuthenticationMap >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -66,6 +67,21 @@ public:
 	}
 
 	inline static bool _lg_typecheck_getAuthenticationDetails(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_addAuthenticationDetails(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getAuthenticationDetails(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -118,9 +134,9 @@ public:
 		}
 
 		std::string path(lua_tostring(L,2),lua_objlen(L,2));
-		osgDB::AuthenticationDetails* details=dynamic_cast< osgDB::AuthenticationDetails* >(Luna< osg::Referenced >::check(L,3));
+		osgDB::AuthenticationDetails* details=(Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,3));
 
-		osgDB::AuthenticationMap* self=dynamic_cast< osgDB::AuthenticationMap* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *)");
@@ -139,12 +155,54 @@ public:
 
 		std::string path(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::AuthenticationMap* self=dynamic_cast< osgDB::AuthenticationMap* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::getAuthenticationDetails(const std::string &) const");
 		}
 		const osgDB::AuthenticationDetails * lret = self->getAuthenticationDetails(path);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::AuthenticationDetails >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)
+	static int _bind_base_addAuthenticationDetails(lua_State *L) {
+		if (!_lg_typecheck_base_addAuthenticationDetails(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details) function, expected prototype:\nvoid osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string path(lua_tostring(L,2),lua_objlen(L,2));
+		osgDB::AuthenticationDetails* details=(Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationDetails >(L,3));
+
+		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::AuthenticationMap::base_addAuthenticationDetails(const std::string &, osgDB::AuthenticationDetails *)");
+		}
+		self->AuthenticationMap::addAuthenticationDetails(path, details);
+
+		return 0;
+	}
+
+	// const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string & path) const
+	static int _bind_base_getAuthenticationDetails(lua_State *L) {
+		if (!_lg_typecheck_base_getAuthenticationDetails(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string & path) const function, expected prototype:\nconst osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string & path) const\nClass arguments details:\n");
+		}
+
+		std::string path(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::AuthenticationMap* self=Luna< osg::Referenced >::checkSubType< osgDB::AuthenticationMap >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::base_getAuthenticationDetails(const std::string &) const");
+		}
+		const osgDB::AuthenticationDetails * lret = self->AuthenticationMap::getAuthenticationDetails(path);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osgDB::AuthenticationDetails >::push(L,lret,false);
@@ -175,6 +233,8 @@ const int LunaTraits< osgDB::AuthenticationMap >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::AuthenticationMap >::methods[] = {
 	{"addAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_addAuthenticationDetails},
 	{"getAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_getAuthenticationDetails},
+	{"base_addAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_base_addAuthenticationDetails},
+	{"base_getAuthenticationDetails", &luna_wrapper_osgDB_AuthenticationMap::_bind_base_getAuthenticationDetails},
 	{"__eq", &luna_wrapper_osgDB_AuthenticationMap::_bind___eq},
 	{0,0}
 };

@@ -77,6 +77,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_CloseEntry(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -148,6 +154,25 @@ public:
 		return 1;
 	}
 
+	// bool wxTarInputStream::base_CloseEntry()
+	static int _bind_base_CloseEntry(lua_State *L) {
+		if (!_lg_typecheck_base_CloseEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTarInputStream::base_CloseEntry() function, expected prototype:\nbool wxTarInputStream::base_CloseEntry()\nClass arguments details:\n");
+		}
+
+
+		wxTarInputStream* self=(Luna< wxTarInputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTarInputStream::base_CloseEntry()");
+		}
+		bool lret = self->wxTarInputStream::CloseEntry();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -172,6 +197,7 @@ luna_RegType LunaTraits< wxTarInputStream >::methods[] = {
 	{"CloseEntry", &luna_wrapper_wxTarInputStream::_bind_CloseEntry},
 	{"GetNextEntry", &luna_wrapper_wxTarInputStream::_bind_GetNextEntry},
 	{"OpenEntry", &luna_wrapper_wxTarInputStream::_bind_OpenEntry},
+	{"base_CloseEntry", &luna_wrapper_wxTarInputStream::_bind_base_CloseEntry},
 	{"dynCast", &luna_wrapper_wxTarInputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTarInputStream::_bind___eq},
 	{0,0}

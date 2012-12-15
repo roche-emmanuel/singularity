@@ -73,11 +73,8 @@ public:
 
 	// wxString wxProtocol::GetContentType() const
 	wxString GetContentType() const {
-		if(_obj.pushFunction("GetContentType")) {
-			return *(_obj.callFunction<wxString*>());
-		}
-
-		return wxHTTP::GetContentType();
+		THROW_IF(!_obj.pushFunction("GetContentType"),"No implementation for abstract function wxProtocol::GetContentType");
+		return *(_obj.callFunction<wxString*>());
 	};
 
 	// wxProtocolError wxProtocol::GetError() const

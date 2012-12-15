@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileConfig* ptr= dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		//wxFileConfig* ptr= dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* ptr= luna_caster< wxObject, wxFileConfig >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -204,6 +205,140 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEntryType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPath(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetPath(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetFirstGroup(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetNextGroup(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetFirstEntry(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetNextEntry(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetNumberOfEntries(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetNumberOfGroups(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasGroup(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasEntry(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RenameEntry(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RenameGroup(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteEntry(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteGroup(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteAll(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -220,7 +355,7 @@ public:
 
 		int mode=(int)lua_tointeger(L,2);
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileConfig::SetUmask(int)");
@@ -239,7 +374,7 @@ public:
 
 		wxString strPath(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileConfig::SetPath(const wxString &)");
@@ -257,7 +392,7 @@ public:
 		}
 
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::GetPath() const");
@@ -278,7 +413,7 @@ public:
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 		long index=(long)lua_tointeger(L,3);
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstGroup(wxString &, long &) const");
@@ -299,7 +434,7 @@ public:
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 		long index=(long)lua_tointeger(L,3);
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextGroup(wxString &, long &) const");
@@ -320,7 +455,7 @@ public:
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 		long index=(long)lua_tointeger(L,3);
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetFirstEntry(wxString &, long &) const");
@@ -341,7 +476,7 @@ public:
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 		long index=(long)lua_tointeger(L,3);
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::GetNextEntry(wxString &, long &) const");
@@ -363,7 +498,7 @@ public:
 
 		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfEntries(bool) const");
@@ -385,7 +520,7 @@ public:
 
 		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxFileConfig::GetNumberOfGroups(bool) const");
@@ -405,7 +540,7 @@ public:
 
 		wxString strName(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasGroup(const wxString &) const");
@@ -425,7 +560,7 @@ public:
 
 		wxString strName(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::HasEntry(const wxString &) const");
@@ -447,7 +582,7 @@ public:
 
 		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::Flush(bool)");
@@ -468,7 +603,7 @@ public:
 		wxString oldName(lua_tostring(L,2),lua_objlen(L,2));
 		wxString newName(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameEntry(const wxString &, const wxString &)");
@@ -489,7 +624,7 @@ public:
 		wxString oldName(lua_tostring(L,2),lua_objlen(L,2));
 		wxString newName(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::RenameGroup(const wxString &, const wxString &)");
@@ -512,7 +647,7 @@ public:
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
 		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteEntry(const wxString &, bool)");
@@ -532,7 +667,7 @@ public:
 
 		wxString key(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteGroup(const wxString &)");
@@ -551,7 +686,7 @@ public:
 		}
 
 
-		wxFileConfig* self=dynamic_cast< wxFileConfig* >(Luna< wxObject >::check(L,1));
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileConfig::DeleteAll()");
@@ -634,6 +769,379 @@ public:
 		return 1;
 	}
 
+	// wxClassInfo * wxFileConfig::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileConfig::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileConfig::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileConfig::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileConfig::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString & name) const
+	static int _bind_base_GetEntryType(lua_State *L) {
+		if (!_lg_typecheck_base_GetEntryType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString & name) const function, expected prototype:\nwxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxFileConfig::base_GetEntryType(const wxString &) const");
+		}
+		wxConfigBase::EntryType lret = self->wxFileConfig::GetEntryType(name);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxFileConfig::base_SetPath(const wxString & strPath)
+	static int _bind_base_SetPath(lua_State *L) {
+		if (!_lg_typecheck_base_SetPath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileConfig::base_SetPath(const wxString & strPath) function, expected prototype:\nvoid wxFileConfig::base_SetPath(const wxString & strPath)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString strPath(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileConfig::base_SetPath(const wxString &)");
+		}
+		self->wxFileConfig::SetPath(strPath);
+
+		return 0;
+	}
+
+	// const wxString & wxFileConfig::base_GetPath() const
+	static int _bind_base_GetPath(lua_State *L) {
+		if (!_lg_typecheck_base_GetPath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxString & wxFileConfig::base_GetPath() const function, expected prototype:\nconst wxString & wxFileConfig::base_GetPath() const\nClass arguments details:\n");
+		}
+
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxString & wxFileConfig::base_GetPath() const");
+		}
+		const wxString & lret = self->wxFileConfig::GetPath();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_GetFirstGroup(wxString & str, long & index) const
+	static int _bind_base_GetFirstGroup(lua_State *L) {
+		if (!_lg_typecheck_base_GetFirstGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_GetFirstGroup(wxString & str, long & index) const function, expected prototype:\nbool wxFileConfig::base_GetFirstGroup(wxString & str, long & index) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString str(lua_tostring(L,2),lua_objlen(L,2));
+		long index=(long)lua_tointeger(L,3);
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstGroup(wxString &, long &) const");
+		}
+		bool lret = self->wxFileConfig::GetFirstGroup(str, index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_GetNextGroup(wxString & str, long & index) const
+	static int _bind_base_GetNextGroup(lua_State *L) {
+		if (!_lg_typecheck_base_GetNextGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_GetNextGroup(wxString & str, long & index) const function, expected prototype:\nbool wxFileConfig::base_GetNextGroup(wxString & str, long & index) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString str(lua_tostring(L,2),lua_objlen(L,2));
+		long index=(long)lua_tointeger(L,3);
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextGroup(wxString &, long &) const");
+		}
+		bool lret = self->wxFileConfig::GetNextGroup(str, index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_GetFirstEntry(wxString & str, long & index) const
+	static int _bind_base_GetFirstEntry(lua_State *L) {
+		if (!_lg_typecheck_base_GetFirstEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_GetFirstEntry(wxString & str, long & index) const function, expected prototype:\nbool wxFileConfig::base_GetFirstEntry(wxString & str, long & index) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString str(lua_tostring(L,2),lua_objlen(L,2));
+		long index=(long)lua_tointeger(L,3);
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetFirstEntry(wxString &, long &) const");
+		}
+		bool lret = self->wxFileConfig::GetFirstEntry(str, index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_GetNextEntry(wxString & str, long & index) const
+	static int _bind_base_GetNextEntry(lua_State *L) {
+		if (!_lg_typecheck_base_GetNextEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_GetNextEntry(wxString & str, long & index) const function, expected prototype:\nbool wxFileConfig::base_GetNextEntry(wxString & str, long & index) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString str(lua_tostring(L,2),lua_objlen(L,2));
+		long index=(long)lua_tointeger(L,3);
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_GetNextEntry(wxString &, long &) const");
+		}
+		bool lret = self->wxFileConfig::GetNextEntry(str, index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxFileConfig::base_GetNumberOfEntries(bool bRecursive = false) const
+	static int _bind_base_GetNumberOfEntries(lua_State *L) {
+		if (!_lg_typecheck_base_GetNumberOfEntries(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxFileConfig::base_GetNumberOfEntries(bool bRecursive = false) const function, expected prototype:\nsize_t wxFileConfig::base_GetNumberOfEntries(bool bRecursive = false) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfEntries(bool) const");
+		}
+		size_t lret = self->wxFileConfig::GetNumberOfEntries(bRecursive);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// size_t wxFileConfig::base_GetNumberOfGroups(bool bRecursive = false) const
+	static int _bind_base_GetNumberOfGroups(lua_State *L) {
+		if (!_lg_typecheck_base_GetNumberOfGroups(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxFileConfig::base_GetNumberOfGroups(bool bRecursive = false) const function, expected prototype:\nsize_t wxFileConfig::base_GetNumberOfGroups(bool bRecursive = false) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool bRecursive=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxFileConfig::base_GetNumberOfGroups(bool) const");
+		}
+		size_t lret = self->wxFileConfig::GetNumberOfGroups(bRecursive);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_HasGroup(const wxString & strName) const
+	static int _bind_base_HasGroup(lua_State *L) {
+		if (!_lg_typecheck_base_HasGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_HasGroup(const wxString & strName) const function, expected prototype:\nbool wxFileConfig::base_HasGroup(const wxString & strName) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString strName(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasGroup(const wxString &) const");
+		}
+		bool lret = self->wxFileConfig::HasGroup(strName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_HasEntry(const wxString & strName) const
+	static int _bind_base_HasEntry(lua_State *L) {
+		if (!_lg_typecheck_base_HasEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_HasEntry(const wxString & strName) const function, expected prototype:\nbool wxFileConfig::base_HasEntry(const wxString & strName) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString strName(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_HasEntry(const wxString &) const");
+		}
+		bool lret = self->wxFileConfig::HasEntry(strName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_Flush(bool bCurrentOnly = false)
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_Flush(bool bCurrentOnly = false) function, expected prototype:\nbool wxFileConfig::base_Flush(bool bCurrentOnly = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool bCurrentOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_Flush(bool)");
+		}
+		bool lret = self->wxFileConfig::Flush(bCurrentOnly);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_RenameEntry(const wxString & oldName, const wxString & newName)
+	static int _bind_base_RenameEntry(lua_State *L) {
+		if (!_lg_typecheck_base_RenameEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_RenameEntry(const wxString & oldName, const wxString & newName) function, expected prototype:\nbool wxFileConfig::base_RenameEntry(const wxString & oldName, const wxString & newName)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString oldName(lua_tostring(L,2),lua_objlen(L,2));
+		wxString newName(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameEntry(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxFileConfig::RenameEntry(oldName, newName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_RenameGroup(const wxString & oldName, const wxString & newName)
+	static int _bind_base_RenameGroup(lua_State *L) {
+		if (!_lg_typecheck_base_RenameGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_RenameGroup(const wxString & oldName, const wxString & newName) function, expected prototype:\nbool wxFileConfig::base_RenameGroup(const wxString & oldName, const wxString & newName)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString oldName(lua_tostring(L,2),lua_objlen(L,2));
+		wxString newName(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_RenameGroup(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxFileConfig::RenameGroup(oldName, newName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true)
+	static int _bind_base_DeleteEntry(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteEntry(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true) function, expected prototype:\nbool wxFileConfig::base_DeleteEntry(const wxString & key, bool bDeleteGroupIfEmpty = true)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString key(lua_tostring(L,2),lua_objlen(L,2));
+		bool bDeleteGroupIfEmpty=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteEntry(const wxString &, bool)");
+		}
+		bool lret = self->wxFileConfig::DeleteEntry(key, bDeleteGroupIfEmpty);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_DeleteGroup(const wxString & key)
+	static int _bind_base_DeleteGroup(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteGroup(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_DeleteGroup(const wxString & key) function, expected prototype:\nbool wxFileConfig::base_DeleteGroup(const wxString & key)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString key(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteGroup(const wxString &)");
+		}
+		bool lret = self->wxFileConfig::DeleteGroup(key);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFileConfig::base_DeleteAll()
+	static int _bind_base_DeleteAll(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteAll(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileConfig::base_DeleteAll() function, expected prototype:\nbool wxFileConfig::base_DeleteAll()\nClass arguments details:\n");
+		}
+
+
+		wxFileConfig* self=Luna< wxObject >::checkSubType< wxFileConfig >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileConfig::base_DeleteAll()");
+		}
+		bool lret = self->wxFileConfig::DeleteAll();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -676,6 +1184,24 @@ luna_RegType LunaTraits< wxFileConfig >::methods[] = {
 	{"GetLocalFile", &luna_wrapper_wxFileConfig::_bind_GetLocalFile},
 	{"GetGlobalFileName", &luna_wrapper_wxFileConfig::_bind_GetGlobalFileName},
 	{"GetLocalFileName", &luna_wrapper_wxFileConfig::_bind_GetLocalFileName},
+	{"base_GetClassInfo", &luna_wrapper_wxFileConfig::_bind_base_GetClassInfo},
+	{"base_GetEntryType", &luna_wrapper_wxFileConfig::_bind_base_GetEntryType},
+	{"base_SetPath", &luna_wrapper_wxFileConfig::_bind_base_SetPath},
+	{"base_GetPath", &luna_wrapper_wxFileConfig::_bind_base_GetPath},
+	{"base_GetFirstGroup", &luna_wrapper_wxFileConfig::_bind_base_GetFirstGroup},
+	{"base_GetNextGroup", &luna_wrapper_wxFileConfig::_bind_base_GetNextGroup},
+	{"base_GetFirstEntry", &luna_wrapper_wxFileConfig::_bind_base_GetFirstEntry},
+	{"base_GetNextEntry", &luna_wrapper_wxFileConfig::_bind_base_GetNextEntry},
+	{"base_GetNumberOfEntries", &luna_wrapper_wxFileConfig::_bind_base_GetNumberOfEntries},
+	{"base_GetNumberOfGroups", &luna_wrapper_wxFileConfig::_bind_base_GetNumberOfGroups},
+	{"base_HasGroup", &luna_wrapper_wxFileConfig::_bind_base_HasGroup},
+	{"base_HasEntry", &luna_wrapper_wxFileConfig::_bind_base_HasEntry},
+	{"base_Flush", &luna_wrapper_wxFileConfig::_bind_base_Flush},
+	{"base_RenameEntry", &luna_wrapper_wxFileConfig::_bind_base_RenameEntry},
+	{"base_RenameGroup", &luna_wrapper_wxFileConfig::_bind_base_RenameGroup},
+	{"base_DeleteEntry", &luna_wrapper_wxFileConfig::_bind_base_DeleteEntry},
+	{"base_DeleteGroup", &luna_wrapper_wxFileConfig::_bind_base_DeleteGroup},
+	{"base_DeleteAll", &luna_wrapper_wxFileConfig::_bind_base_DeleteAll},
 	{"__eq", &luna_wrapper_wxFileConfig::_bind___eq},
 	{0,0}
 };

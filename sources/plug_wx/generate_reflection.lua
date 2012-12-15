@@ -238,7 +238,7 @@ ReflectionGenerator.generate{
 		"wxExtHelpController",
 		"wxFFile",
 		"wxLL",
-		"wxULL"
+		"wxULL",
 	},
 	ignoreWrappers={
 		"wxBitmapComboBox::IsEmpty",
@@ -275,6 +275,11 @@ ReflectionGenerator.generate{
 		"wxPGEditorDialogAdapter",
 		"wxRibbonToolBarToolBase",
 		"wxDirFilterListCtrl",
+		
+		"HasTransparentBackground",
+		"SetBackgroundColour",
+		"SetForegroundColour",	
+		"wxTreeListEvent::GetClassInfo",		
 	},
 	ignoreDefines={"wxACC_"},
 	ignoreConverters={

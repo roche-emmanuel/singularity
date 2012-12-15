@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMirrorDC* ptr= dynamic_cast< wxMirrorDC* >(Luna< wxObject >::check(L,1));
+		//wxMirrorDC* ptr= dynamic_cast< wxMirrorDC* >(Luna< wxObject >::check(L,1));
+		wxMirrorDC* ptr= luna_caster< wxObject, wxMirrorDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -63,6 +64,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -75,7 +82,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMirrorDC::wxMirrorDC(wxDC & dc, bool mirror) function, expected prototype:\nwxMirrorDC::wxMirrorDC(wxDC & dc, bool mirror)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxMirrorDC::wxMirrorDC function");
 		}
@@ -92,7 +99,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMirrorDC::wxMirrorDC(lua_Table * data, wxDC & dc, bool mirror) function, expected prototype:\nwxMirrorDC::wxMirrorDC(lua_Table * data, wxDC & dc, bool mirror)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxMirrorDC::wxMirrorDC function");
 		}
@@ -113,6 +120,27 @@ public:
 
 
 	// Function binds:
+	// wxClassInfo * wxMirrorDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMirrorDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMirrorDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMirrorDC* self=Luna< wxObject >::checkSubType< wxMirrorDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMirrorDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMirrorDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -134,6 +162,7 @@ const int LunaTraits< wxMirrorDC >::hash = 26593093;
 const int LunaTraits< wxMirrorDC >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxMirrorDC >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxMirrorDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxMirrorDC::_bind___eq},
 	{0,0}
 };

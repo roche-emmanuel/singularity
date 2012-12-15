@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return SegmentPlacer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return SegmentPlacer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return SegmentPlacer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SegmentPlacer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return SegmentPlacer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return SegmentPlacer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::SegmentPlacer::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::SegmentPlacer::cloneType();
+		return SegmentPlacer::cloneType();
 	};
 
 	// osg::Object * osgParticle::SegmentPlacer::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::SegmentPlacer::clone(arg1);
+		return SegmentPlacer::clone(arg1);
 	};
 
 	// bool osgParticle::SegmentPlacer::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::SegmentPlacer::isSameKindAs(obj);
+		return SegmentPlacer::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::SegmentPlacer::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::SegmentPlacer::libraryName();
+		return SegmentPlacer::libraryName();
 	};
 
 	// const char * osgParticle::SegmentPlacer::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::SegmentPlacer::className();
+		return SegmentPlacer::className();
 	};
 
 	// void osgParticle::SegmentPlacer::place(osgParticle::Particle * P) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::SegmentPlacer::place(P);
+		return SegmentPlacer::place(P);
 	};
 
 	// float osgParticle::SegmentPlacer::volume() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::SegmentPlacer::volume();
+		return SegmentPlacer::volume();
 	};
 
 	// osg::Vec3f osgParticle::SegmentPlacer::getControlPosition() const
@@ -147,7 +147,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgParticle::SegmentPlacer::getControlPosition();
+		return SegmentPlacer::getControlPosition();
 	};
 
 

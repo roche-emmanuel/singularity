@@ -166,6 +166,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getPrimitiveIndex(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -579,6 +585,25 @@ public:
 		return 1;
 	}
 
+	// int osgUtil::Hit::getPrimitiveIndex() const
+	static int _bind_getPrimitiveIndex(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveIndex(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgUtil::Hit::getPrimitiveIndex() const function, expected prototype:\nint osgUtil::Hit::getPrimitiveIndex() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Hit* self=(Luna< osgUtil::Hit >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgUtil::Hit::getPrimitiveIndex() const");
+		}
+		int lret = self->getPrimitiveIndex();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 	// bool osgUtil::Hit::operator<(const osgUtil::Hit & hit) const
@@ -637,6 +662,7 @@ luna_RegType LunaTraits< osgUtil::Hit >::methods[] = {
 	{"getMatrix", &luna_wrapper_osgUtil_Hit::_bind_getMatrix},
 	{"getInverseMatrix", &luna_wrapper_osgUtil_Hit::_bind_getInverseMatrix},
 	{"getVecIndexList", &luna_wrapper_osgUtil_Hit::_bind_getVecIndexList},
+	{"getPrimitiveIndex", &luna_wrapper_osgUtil_Hit::_bind_getPrimitiveIndex},
 	{"__lt", &luna_wrapper_osgUtil_Hit::_bind___lt},
 	{"dynCast", &luna_wrapper_osgUtil_Hit::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_Hit::_bind___eq},

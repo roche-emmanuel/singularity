@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ImageStream::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ImageStream::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ImageStream::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageStream::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageStream::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return ImageStream::releaseGLObjects(state);
 	};
 
 	// const void * osg::Image::getDataPointer() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void*>());
 		}
 
-		return osg::Image::getDataPointer();
+		return ImageStream::getDataPointer();
 	};
 
 	// unsigned int osg::Image::getTotalDataSize() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Image::getTotalDataSize();
+		return ImageStream::getTotalDataSize();
 	};
 
 	// void osg::Image::allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)
@@ -105,7 +105,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::allocateImage(s, t, r, pixelFormat, type, packing);
+		return ImageStream::allocateImage(s, t, r, pixelFormat, type, packing);
 	};
 
 	// void osg::Image::setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
@@ -123,7 +123,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
+		return ImageStream::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
 	};
 
 	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readPixels(x, y, width, height, pixelFormat, type);
+		return ImageStream::readPixels(x, y, width, height, pixelFormat, type);
 	};
 
 	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		return ImageStream::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
 	};
 
 	// void osg::Image::scaleImage(int s, int t, int r, unsigned int newDataType)
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::scaleImage(s, t, r, newDataType);
+		return ImageStream::scaleImage(s, t, r, newDataType);
 	};
 
 	// void osg::Image::copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::copySubImage(s_offset, t_offset, r_offset, source);
+		return ImageStream::copySubImage(s_offset, t_offset, r_offset, source);
 	};
 
 	// bool osg::Image::isImageTranslucent() const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::isImageTranslucent();
+		return ImageStream::isImageTranslucent();
 	};
 
 	// bool osg::Image::requiresUpdateCall() const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::requiresUpdateCall();
+		return ImageStream::requiresUpdateCall();
 	};
 
 	// void osg::Image::update(osg::NodeVisitor * arg1)
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::update(arg1);
+		return ImageStream::update(arg1);
 	};
 
 	// bool osg::Image::sendFocusHint(bool arg1)
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendFocusHint(arg1);
+		return ImageStream::sendFocusHint(arg1);
 	};
 
 	// bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendPointerEvent(arg1, arg2, arg3);
+		return ImageStream::sendPointerEvent(arg1, arg2, arg3);
 	};
 
 	// bool osg::Image::sendKeyEvent(int arg1, bool arg2)
@@ -237,7 +237,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendKeyEvent(arg1, arg2);
+		return ImageStream::sendKeyEvent(arg1, arg2);
 	};
 
 	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)
@@ -247,7 +247,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::setFrameLastRendered(arg1);
+		return ImageStream::setFrameLastRendered(arg1);
 	};
 
 	// osg::Object * osg::ImageStream::cloneType() const
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ImageStream::cloneType();
+		return ImageStream::cloneType();
 	};
 
 	// osg::Object * osg::ImageStream::clone(const osg::CopyOp & arg1) const
@@ -266,7 +266,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ImageStream::clone(arg1);
+		return ImageStream::clone(arg1);
 	};
 
 	// bool osg::ImageStream::isSameKindAs(const osg::Object * obj) const
@@ -276,7 +276,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ImageStream::isSameKindAs(obj);
+		return ImageStream::isSameKindAs(obj);
 	};
 
 	// const char * osg::ImageStream::libraryName() const
@@ -285,7 +285,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ImageStream::libraryName();
+		return ImageStream::libraryName();
 	};
 
 	// const char * osg::ImageStream::className() const
@@ -294,7 +294,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ImageStream::className();
+		return ImageStream::className();
 	};
 
 	// int osg::ImageStream::compare(const osg::Image & rhs) const
@@ -304,7 +304,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::ImageStream::compare(rhs);
+		return ImageStream::compare(rhs);
 	};
 
 	// void osg::ImageStream::seek(double arg1)
@@ -314,7 +314,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::seek(arg1);
+		return ImageStream::seek(arg1);
 	};
 
 	// void osg::ImageStream::play()
@@ -323,7 +323,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::play();
+		return ImageStream::play();
 	};
 
 	// void osg::ImageStream::pause()
@@ -332,7 +332,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::pause();
+		return ImageStream::pause();
 	};
 
 	// void osg::ImageStream::rewind()
@@ -341,7 +341,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::rewind();
+		return ImageStream::rewind();
 	};
 
 	// void osg::ImageStream::quit(bool arg1 = true)
@@ -351,7 +351,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::quit(arg1);
+		return ImageStream::quit(arg1);
 	};
 
 	// double osg::ImageStream::getCreationTime() const
@@ -360,7 +360,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getCreationTime();
+		return ImageStream::getCreationTime();
 	};
 
 	// double osg::ImageStream::getLength() const
@@ -369,7 +369,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getLength();
+		return ImageStream::getLength();
 	};
 
 	// double osg::ImageStream::getFrameRate() const
@@ -378,7 +378,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getFrameRate();
+		return ImageStream::getFrameRate();
 	};
 
 	// void osg::ImageStream::setReferenceTime(double arg1)
@@ -388,7 +388,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::setReferenceTime(arg1);
+		return ImageStream::setReferenceTime(arg1);
 	};
 
 	// double osg::ImageStream::getReferenceTime() const
@@ -397,7 +397,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getReferenceTime();
+		return ImageStream::getReferenceTime();
 	};
 
 	// void osg::ImageStream::setTimeMultiplier(double arg1)
@@ -407,7 +407,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::setTimeMultiplier(arg1);
+		return ImageStream::setTimeMultiplier(arg1);
 	};
 
 	// double osg::ImageStream::getTimeMultiplier() const
@@ -416,7 +416,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getTimeMultiplier();
+		return ImageStream::getTimeMultiplier();
 	};
 
 	// void osg::ImageStream::setVolume(float arg1)
@@ -426,7 +426,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::setVolume(arg1);
+		return ImageStream::setVolume(arg1);
 	};
 
 	// float osg::ImageStream::getVolume() const
@@ -435,12 +435,20 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::ImageStream::getVolume();
+		return ImageStream::getVolume();
 	};
 
 
 protected:
 	// void osg::ImageStream::applyLoopingMode()
+	void applyLoopingMode() {
+		if(_obj.pushFunction("applyLoopingMode")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageStream::applyLoopingMode();
+	};
+
 
 };
 

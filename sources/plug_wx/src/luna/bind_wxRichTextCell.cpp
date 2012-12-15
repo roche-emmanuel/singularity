@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextCell* ptr= dynamic_cast< wxRichTextCell* >(Luna< wxObject >::check(L,1));
+		//wxRichTextCell* ptr= dynamic_cast< wxRichTextCell* >(Luna< wxObject >::check(L,1));
+		wxRichTextCell* ptr= luna_caster< wxObject, wxRichTextCell >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

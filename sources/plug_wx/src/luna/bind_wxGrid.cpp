@@ -1811,6 +1811,62 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetColGridLinePen(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultGridLinePen(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetRowGridLinePen(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultEditorForCell(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultEditorForType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultRendererForCell(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultRendererForType(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Fit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -1836,7 +1892,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int id=(int)lua_tointeger(L,2);
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
@@ -1874,7 +1930,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=(int)lua_tointeger(L,3);
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
@@ -1914,7 +1970,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=(int)lua_tointeger(L,3);
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
@@ -1973,7 +2029,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxGridTableBase* table=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,2));
+		wxGridTableBase* table=(Luna< wxObject >::checkSubType< wxGridTableBase >(L,2));
 		bool takeOwnership=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 		wxGrid::wxGridSelectionModes selmode=luatop>3 ? (wxGrid::wxGridSelectionModes)lua_tointeger(L,4) : wxGrid::wxGridSelectCells;
 
@@ -2125,7 +2181,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetGridLineColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetGridLineColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetGridLineColour function");
 		}
@@ -2408,7 +2464,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetLabelBackgroundColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetLabelBackgroundColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetLabelBackgroundColour function");
 		}
@@ -2431,7 +2487,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetLabelFont(const wxFont & font) function, expected prototype:\nvoid wxGrid::SetLabelFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxGrid::SetLabelFont function");
 		}
@@ -2454,7 +2510,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetLabelTextColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetLabelTextColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetLabelTextColour function");
 		}
@@ -2793,7 +2849,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetCellBackgroundColour function");
 		}
@@ -2818,7 +2874,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,4));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,4));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxGrid::SetCellFont function");
 		}
@@ -2843,7 +2899,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetCellTextColour function");
 		}
@@ -2866,7 +2922,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetCellTextColour(const wxColour & val, int row, int col) function, expected prototype:\nvoid wxGrid::SetCellTextColour(const wxColour & val, int row, int col)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* val_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* val_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !val_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg val in wxGrid::SetCellTextColour function");
 		}
@@ -2891,7 +2947,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetCellTextColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetCellTextColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetCellTextColour function");
 		}
@@ -2944,7 +3000,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetDefaultCellBackgroundColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetDefaultCellBackgroundColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetDefaultCellBackgroundColour function");
 		}
@@ -2967,7 +3023,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetDefaultCellFont(const wxFont & font) function, expected prototype:\nvoid wxGrid::SetDefaultCellFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxGrid::SetDefaultCellFont function");
 		}
@@ -2990,7 +3046,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetDefaultCellTextColour(const wxColour & colour) function, expected prototype:\nvoid wxGrid::SetDefaultCellTextColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxGrid::SetDefaultCellTextColour function");
 		}
@@ -5732,7 +5788,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetSelectionBackground(const wxColour & c) function, expected prototype:\nvoid wxGrid::SetSelectionBackground(const wxColour & c)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* c_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* c_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in wxGrid::SetSelectionBackground function");
 		}
@@ -5755,7 +5811,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGrid::SetSelectionForeground(const wxColour & c) function, expected prototype:\nvoid wxGrid::SetSelectionForeground(const wxColour & c)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* c_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* c_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !c_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg c in wxGrid::SetSelectionForeground function");
 		}
@@ -6908,6 +6964,182 @@ public:
 		return 1;
 	}
 
+	// wxPen wxGrid::base_GetColGridLinePen(int col)
+	static int _bind_base_GetColGridLinePen(lua_State *L) {
+		if (!_lg_typecheck_base_GetColGridLinePen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen wxGrid::base_GetColGridLinePen(int col) function, expected prototype:\nwxPen wxGrid::base_GetColGridLinePen(int col)\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPen wxGrid::base_GetColGridLinePen(int)");
+		}
+		wxPen stack_lret = self->wxGrid::GetColGridLinePen(col);
+		wxPen* lret = new wxPen(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPen >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxPen wxGrid::base_GetDefaultGridLinePen()
+	static int _bind_base_GetDefaultGridLinePen(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultGridLinePen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen wxGrid::base_GetDefaultGridLinePen() function, expected prototype:\nwxPen wxGrid::base_GetDefaultGridLinePen()\nClass arguments details:\n");
+		}
+
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPen wxGrid::base_GetDefaultGridLinePen()");
+		}
+		wxPen stack_lret = self->wxGrid::GetDefaultGridLinePen();
+		wxPen* lret = new wxPen(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPen >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxPen wxGrid::base_GetRowGridLinePen(int row)
+	static int _bind_base_GetRowGridLinePen(lua_State *L) {
+		if (!_lg_typecheck_base_GetRowGridLinePen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPen wxGrid::base_GetRowGridLinePen(int row) function, expected prototype:\nwxPen wxGrid::base_GetRowGridLinePen(int row)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPen wxGrid::base_GetRowGridLinePen(int)");
+		}
+		wxPen stack_lret = self->wxGrid::GetRowGridLinePen(row);
+		wxPen* lret = new wxPen(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPen >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxGridCellEditor * wxGrid::base_GetDefaultEditorForCell(int row, int col) const
+	static int _bind_base_GetDefaultEditorForCell(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultEditorForCell(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGrid::base_GetDefaultEditorForCell(int row, int col) const function, expected prototype:\nwxGridCellEditor * wxGrid::base_GetDefaultEditorForCell(int row, int col) const\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellEditor * wxGrid::base_GetDefaultEditorForCell(int, int) const");
+		}
+		wxGridCellEditor * lret = self->wxGrid::GetDefaultEditorForCell(row, col);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellEditor >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxGridCellEditor * wxGrid::base_GetDefaultEditorForType(const wxString & typeName) const
+	static int _bind_base_GetDefaultEditorForType(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultEditorForType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGrid::base_GetDefaultEditorForType(const wxString & typeName) const function, expected prototype:\nwxGridCellEditor * wxGrid::base_GetDefaultEditorForType(const wxString & typeName) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString typeName(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellEditor * wxGrid::base_GetDefaultEditorForType(const wxString &) const");
+		}
+		wxGridCellEditor * lret = self->wxGrid::GetDefaultEditorForType(typeName);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellEditor >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxGridCellRenderer * wxGrid::base_GetDefaultRendererForCell(int row, int col) const
+	static int _bind_base_GetDefaultRendererForCell(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultRendererForCell(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGrid::base_GetDefaultRendererForCell(int row, int col) const function, expected prototype:\nwxGridCellRenderer * wxGrid::base_GetDefaultRendererForCell(int row, int col) const\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGrid::base_GetDefaultRendererForCell(int, int) const");
+		}
+		wxGridCellRenderer * lret = self->wxGrid::GetDefaultRendererForCell(row, col);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellRenderer >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxGridCellRenderer * wxGrid::base_GetDefaultRendererForType(const wxString & typeName) const
+	static int _bind_base_GetDefaultRendererForType(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultRendererForType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGrid::base_GetDefaultRendererForType(const wxString & typeName) const function, expected prototype:\nwxGridCellRenderer * wxGrid::base_GetDefaultRendererForType(const wxString & typeName) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString typeName(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellRenderer * wxGrid::base_GetDefaultRendererForType(const wxString &) const");
+		}
+		wxGridCellRenderer * lret = self->wxGrid::GetDefaultRendererForType(typeName);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellRenderer >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGrid::base_Fit()
+	static int _bind_base_Fit(lua_State *L) {
+		if (!_lg_typecheck_base_Fit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGrid::base_Fit() function, expected prototype:\nvoid wxGrid::base_Fit()\nClass arguments details:\n");
+		}
+
+
+		wxGrid* self=(Luna< wxGrid >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGrid::base_Fit()");
+		}
+		self->wxGrid::Fit();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -7145,6 +7377,14 @@ luna_RegType LunaTraits< wxGrid >::methods[] = {
 	{"GetGridColLabelWindow", &luna_wrapper_wxGrid::_bind_GetGridColLabelWindow},
 	{"GetGridCornerLabelWindow", &luna_wrapper_wxGrid::_bind_GetGridCornerLabelWindow},
 	{"GetGridColHeader", &luna_wrapper_wxGrid::_bind_GetGridColHeader},
+	{"base_GetColGridLinePen", &luna_wrapper_wxGrid::_bind_base_GetColGridLinePen},
+	{"base_GetDefaultGridLinePen", &luna_wrapper_wxGrid::_bind_base_GetDefaultGridLinePen},
+	{"base_GetRowGridLinePen", &luna_wrapper_wxGrid::_bind_base_GetRowGridLinePen},
+	{"base_GetDefaultEditorForCell", &luna_wrapper_wxGrid::_bind_base_GetDefaultEditorForCell},
+	{"base_GetDefaultEditorForType", &luna_wrapper_wxGrid::_bind_base_GetDefaultEditorForType},
+	{"base_GetDefaultRendererForCell", &luna_wrapper_wxGrid::_bind_base_GetDefaultRendererForCell},
+	{"base_GetDefaultRendererForType", &luna_wrapper_wxGrid::_bind_base_GetDefaultRendererForType},
+	{"base_Fit", &luna_wrapper_wxGrid::_bind_base_Fit},
 	{"dynCast", &luna_wrapper_wxGrid::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxGrid::_bind___eq},
 	{0,0}

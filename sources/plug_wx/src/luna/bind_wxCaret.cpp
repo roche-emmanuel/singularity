@@ -238,6 +238,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Hide(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Show(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -261,7 +275,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxCaret::wxCaret(wxWindow * window, int width, int height) function, expected prototype:\nwxCaret::wxCaret(wxWindow * window, int width, int height)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 
@@ -275,7 +289,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxCaret::wxCaret(wxWindow * window, const wxSize & size) function, expected prototype:\nwxCaret::wxCaret(wxWindow * window, const wxSize & size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20268751\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxCaret::wxCaret function");
@@ -303,7 +317,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxCaret::wxCaret(lua_Table * data, wxWindow * window, int width, int height) function, expected prototype:\nwxCaret::wxCaret(lua_Table * data, wxWindow * window, int width, int height)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
@@ -317,7 +331,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxCaret::wxCaret(lua_Table * data, wxWindow * window, const wxSize & size) function, expected prototype:\nwxCaret::wxCaret(lua_Table * data, wxWindow * window, const wxSize & size)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,3));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxCaret::wxCaret function");
@@ -349,7 +363,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxCaret::Create(wxWindow * window, int width, int height) function, expected prototype:\nbool wxCaret::Create(wxWindow * window, int width, int height)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
@@ -371,7 +385,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxCaret::Create(wxWindow * window, const wxSize & size) function, expected prototype:\nbool wxCaret::Create(wxWindow * window, const wxSize & size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20268751\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,3));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxCaret::Create function");
@@ -730,6 +744,45 @@ public:
 		return 0;
 	}
 
+	// void wxCaret::base_Hide()
+	static int _bind_base_Hide(lua_State *L) {
+		if (!_lg_typecheck_base_Hide(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxCaret::base_Hide() function, expected prototype:\nvoid wxCaret::base_Hide()\nClass arguments details:\n");
+		}
+
+
+		wxCaret* self=(Luna< wxCaret >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxCaret::base_Hide()");
+		}
+		self->wxCaret::Hide();
+
+		return 0;
+	}
+
+	// void wxCaret::base_Show(bool show = true)
+	static int _bind_base_Show(lua_State *L) {
+		if (!_lg_typecheck_base_Show(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxCaret::base_Show(bool show = true) function, expected prototype:\nvoid wxCaret::base_Show(bool show = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		wxCaret* self=(Luna< wxCaret >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxCaret::base_Show(bool)");
+		}
+		self->wxCaret::Show(show);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -763,6 +816,8 @@ luna_RegType LunaTraits< wxCaret >::methods[] = {
 	{"Show", &luna_wrapper_wxCaret::_bind_Show},
 	{"GetBlinkTime", &luna_wrapper_wxCaret::_bind_GetBlinkTime},
 	{"SetBlinkTime", &luna_wrapper_wxCaret::_bind_SetBlinkTime},
+	{"base_Hide", &luna_wrapper_wxCaret::_bind_base_Hide},
+	{"base_Show", &luna_wrapper_wxCaret::_bind_base_Show},
 	{"dynCast", &luna_wrapper_wxCaret::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxCaret::_bind___eq},
 	{0,0}

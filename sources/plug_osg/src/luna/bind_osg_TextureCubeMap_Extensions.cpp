@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::TextureCubeMap::Extensions* ptr= dynamic_cast< osg::TextureCubeMap::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::TextureCubeMap::Extensions* ptr= dynamic_cast< osg::TextureCubeMap::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::Extensions* ptr= luna_caster< osg::Referenced, osg::TextureCubeMap::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -128,7 +129,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::TextureCubeMap::Extensions* self=dynamic_cast< osg::TextureCubeMap::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setupGLExtensions(unsigned int)");
@@ -147,7 +148,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::TextureCubeMap::Extensions* self=dynamic_cast< osg::TextureCubeMap::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCubeMap::Extensions::setCubeMapSupported(bool)");
@@ -165,7 +166,7 @@ public:
 		}
 
 
-		osg::TextureCubeMap::Extensions* self=dynamic_cast< osg::TextureCubeMap::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::TextureCubeMap::Extensions::isCubeMapSupported() const");

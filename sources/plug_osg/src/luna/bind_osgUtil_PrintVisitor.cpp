@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::PrintVisitor* ptr= dynamic_cast< osgUtil::PrintVisitor* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::PrintVisitor* ptr= dynamic_cast< osgUtil::PrintVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::PrintVisitor* ptr= luna_caster< osg::Referenced, osgUtil::PrintVisitor >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -63,6 +64,67 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_reset(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getViewPoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceToEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceFromEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceToViewPoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -77,13 +139,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::PrintVisitor::apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::PrintVisitor::apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		if( !node_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg node in osgUtil::PrintVisitor::apply function");
 		}
 		osg::Node & node=*node_ptr;
 
-		osgUtil::PrintVisitor* self=dynamic_cast< osgUtil::PrintVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::apply(osg::Node &)");
@@ -101,7 +163,7 @@ public:
 		}
 
 
-		osgUtil::PrintVisitor* self=dynamic_cast< osgUtil::PrintVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::enter()");
@@ -119,12 +181,210 @@ public:
 		}
 
 
-		osgUtil::PrintVisitor* self=dynamic_cast< osgUtil::PrintVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::leave()");
 		}
 		self->leave();
+
+		return 0;
+	}
+
+	// const char * osgUtil::PrintVisitor::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PrintVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::PrintVisitor::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_libraryName() const");
+		}
+		const char * lret = self->PrintVisitor::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osgUtil::PrintVisitor::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::PrintVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::PrintVisitor::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgUtil::PrintVisitor::base_className() const");
+		}
+		const char * lret = self->PrintVisitor::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::PrintVisitor::base_reset()
+	static int _bind_base_reset(lua_State *L) {
+		if (!_lg_typecheck_base_reset(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::PrintVisitor::base_reset() function, expected prototype:\nvoid osgUtil::PrintVisitor::base_reset()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_reset()");
+		}
+		self->PrintVisitor::reset();
+
+		return 0;
+	}
+
+	// osg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const
+	static int _bind_base_getEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getEyePoint() const");
+		}
+		osg::Vec3f stack_lret = self->PrintVisitor::getEyePoint();
+		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const
+	static int _bind_base_getViewPoint(lua_State *L) {
+		if (!_lg_typecheck_base_getViewPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::PrintVisitor::base_getViewPoint() const");
+		}
+		osg::Vec3f stack_lret = self->PrintVisitor::getViewPoint();
+		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// float osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
+	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::PrintVisitor::base_getDistanceToEyePoint function");
+		}
+		const osg::Vec3f & _arg1=*_arg1_ptr;
+		bool _arg2=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->PrintVisitor::getDistanceToEyePoint(_arg1, _arg2);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
+	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::PrintVisitor::base_getDistanceFromEyePoint function");
+		}
+		const osg::Vec3f & _arg1=*_arg1_ptr;
+		bool _arg2=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->PrintVisitor::getDistanceFromEyePoint(_arg1, _arg2);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
+	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::PrintVisitor::base_getDistanceToViewPoint function");
+		}
+		const osg::Vec3f & _arg1=*_arg1_ptr;
+		bool _arg2=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::PrintVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->PrintVisitor::getDistanceToViewPoint(_arg1, _arg2);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::PrintVisitor::base_apply(osg::Node & node)
+	static int _bind_base_apply(lua_State *L) {
+		if (!_lg_typecheck_base_apply(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::PrintVisitor::base_apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::PrintVisitor::base_apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		if( !node_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg node in osgUtil::PrintVisitor::base_apply function");
+		}
+		osg::Node & node=*node_ptr;
+
+		osgUtil::PrintVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::PrintVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::PrintVisitor::base_apply(osg::Node &)");
+		}
+		self->PrintVisitor::apply(node);
 
 		return 0;
 	}
@@ -153,6 +413,15 @@ luna_RegType LunaTraits< osgUtil::PrintVisitor >::methods[] = {
 	{"apply", &luna_wrapper_osgUtil_PrintVisitor::_bind_apply},
 	{"enter", &luna_wrapper_osgUtil_PrintVisitor::_bind_enter},
 	{"leave", &luna_wrapper_osgUtil_PrintVisitor::_bind_leave},
+	{"base_libraryName", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_className},
+	{"base_reset", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_reset},
+	{"base_getEyePoint", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_getEyePoint},
+	{"base_getViewPoint", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_getViewPoint},
+	{"base_getDistanceToEyePoint", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_getDistanceToEyePoint},
+	{"base_getDistanceFromEyePoint", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_getDistanceFromEyePoint},
+	{"base_getDistanceToViewPoint", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_getDistanceToViewPoint},
+	{"base_apply", &luna_wrapper_osgUtil_PrintVisitor::_bind_base_apply},
 	{"__eq", &luna_wrapper_osgUtil_PrintVisitor::_bind___eq},
 	{0,0}
 };

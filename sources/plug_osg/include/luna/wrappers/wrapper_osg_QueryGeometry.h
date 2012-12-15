@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return QueryGeometry::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return QueryGeometry::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return QueryGeometry::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return QueryGeometry::getUserData();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return QueryGeometry::computeDataVariance();
 	};
 
 	// osg::BoundingBoxd osg::Drawable::computeBound() const
@@ -69,7 +69,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osg::Drawable::computeBound();
+		return QueryGeometry::computeBound();
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -79,7 +79,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return QueryGeometry::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return QueryGeometry::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return QueryGeometry::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return QueryGeometry::setDrawCallback(dc);
 	};
 
 	// osg::Object * osg::Geometry::cloneType() const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geometry::cloneType();
+		return QueryGeometry::cloneType();
 	};
 
 	// osg::Object * osg::Geometry::clone(const osg::CopyOp & arg1) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geometry::clone(arg1);
+		return QueryGeometry::clone(arg1);
 	};
 
 	// bool osg::Geometry::isSameKindAs(const osg::Object * obj) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geometry::isSameKindAs(obj);
+		return QueryGeometry::isSameKindAs(obj);
 	};
 
 	// const char * osg::Geometry::libraryName() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geometry::libraryName();
+		return QueryGeometry::libraryName();
 	};
 
 	// const char * osg::Geometry::className() const
@@ -156,7 +156,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geometry::className();
+		return QueryGeometry::className();
 	};
 
 	// osg::Geometry * osg::Geometry::asGeometry()
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Geometry::asGeometry();
+		return QueryGeometry::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Geometry::asGeometry() const
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Geometry::asGeometry();
+		return QueryGeometry::asGeometry();
 	};
 
 	// void osg::Geometry::setUseVertexBufferObjects(bool flag)
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::setUseVertexBufferObjects(flag);
+		return QueryGeometry::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Geometry::dirtyDisplayList()
@@ -193,7 +193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::dirtyDisplayList();
+		return QueryGeometry::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Geometry::getGLObjectSizeHint() const
@@ -202,7 +202,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Geometry::getGLObjectSizeHint();
+		return QueryGeometry::getGLObjectSizeHint();
 	};
 
 	// void osg::Geometry::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -212,7 +212,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::compileGLObjects(renderInfo);
+		return QueryGeometry::compileGLObjects(renderInfo);
 	};
 
 

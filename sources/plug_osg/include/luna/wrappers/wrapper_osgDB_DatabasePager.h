@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::DatabasePager::className();
+		return DatabasePager::className();
 	};
 
 	// osgDB::DatabasePager * osgDB::DatabasePager::clone() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<osgDB::DatabasePager*>());
 		}
 
-		return osgDB::DatabasePager::clone();
+		return DatabasePager::clone();
 	};
 
 	// void osgDB::DatabasePager::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
+		return DatabasePager::requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
 	};
 
 	// int osgDB::DatabasePager::cancel()
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osgDB::DatabasePager::cancel();
+		return DatabasePager::cancel();
 	};
 
 	// bool osgDB::DatabasePager::isRunning() const
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::DatabasePager::isRunning();
+		return DatabasePager::isRunning();
 	};
 
 	// void osgDB::DatabasePager::clear()
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::clear();
+		return DatabasePager::clear();
 	};
 
 	// void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::signalBeginFrame(framestamp);
+		return DatabasePager::signalBeginFrame(framestamp);
 	};
 
 	// void osgDB::DatabasePager::signalEndFrame()
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::signalEndFrame();
+		return DatabasePager::signalEndFrame();
 	};
 
 	// void osgDB::DatabasePager::registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)
@@ -105,7 +105,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::registerPagedLODs(subgraph, frameNumber);
+		return DatabasePager::registerPagedLODs(subgraph, frameNumber);
 	};
 
 	// void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
@@ -115,12 +115,21 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::DatabasePager::updateSceneGraph(frameStamp);
+		return DatabasePager::updateSceneGraph(frameStamp);
 	};
 
 
 protected:
 	// void osgDB::DatabasePager::removeExpiredSubgraphs(const osg::FrameStamp & frameStamp)
+	void removeExpiredSubgraphs(const osg::FrameStamp & frameStamp) {
+		if(_obj.pushFunction("removeExpiredSubgraphs")) {
+			_obj.pushArg(&frameStamp);
+			return (_obj.callFunction<void>());
+		}
+
+		return DatabasePager::removeExpiredSubgraphs(frameStamp);
+	};
+
 
 };
 

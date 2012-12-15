@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::DatabasePager* ptr= dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::DatabasePager* ptr= dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* ptr= luna_caster< osg::Referenced, osgDB::DatabasePager >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -314,6 +315,77 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_requestNodeFile(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,52841328) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,84922662) ) return false;
+		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cancel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isRunning(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_signalBeginFrame(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_signalEndFrame(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_registerPagedLODs(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_updateSceneGraph(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -337,7 +409,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgDB::DatabasePager* rhs_ptr=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		const osgDB::DatabasePager* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgDB::DatabasePager::DatabasePager function");
 		}
@@ -364,7 +436,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs) function, expected prototype:\nosgDB::DatabasePager::DatabasePager(lua_Table * data, const osgDB::DatabasePager & rhs)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osgDB::DatabasePager* rhs_ptr=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,2));
+		const osgDB::DatabasePager* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgDB::DatabasePager::DatabasePager function");
 		}
@@ -394,7 +466,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::className() const");
@@ -413,7 +485,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::clone() const");
@@ -440,11 +512,11 @@ public:
 		}
 		osg::NodePath & nodePath=*nodePath_ptr;
 		float priority=(float)lua_tonumber(L,4);
-		const osg::FrameStamp* framestamp=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,5));
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,5));
 		osg::ref_ptr< osg::Referenced > databaseRequest = dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,6));
 		const osg::Referenced* options=(Luna< osg::Referenced >::check(L,7));
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *)");
@@ -462,7 +534,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::cancel()");
@@ -481,7 +553,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::isRunning() const");
@@ -500,7 +572,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::clear()");
@@ -519,7 +591,7 @@ public:
 
 		bool acceptNewRequests=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setAcceptNewDatabaseRequests(bool)");
@@ -537,7 +609,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getAcceptNewDatabaseRequests() const");
@@ -556,7 +628,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::getNumFramesActive() const");
@@ -574,9 +646,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::FrameStamp* framestamp=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalBeginFrame(const osg::FrameStamp *)");
@@ -594,7 +666,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::signalEndFrame()");
@@ -613,10 +685,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Node* subgraph=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::registerPagedLODs(osg::Node *, unsigned int)");
@@ -635,7 +707,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDoPreCompile(bool)");
@@ -653,7 +725,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getDoPreCompile() const");
@@ -673,7 +745,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD(unsigned int)");
@@ -691,7 +763,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD() const");
@@ -711,7 +783,7 @@ public:
 
 		osgDB::DatabasePager::DrawablePolicy policy=(osgDB::DatabasePager::DrawablePolicy)lua_tointeger(L,2);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setDrawablePolicy(osgDB::DatabasePager::DrawablePolicy)");
@@ -729,7 +801,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::DatabasePager::DrawablePolicy osgDB::DatabasePager::getDrawablePolicy() const");
@@ -749,7 +821,7 @@ public:
 
 		bool assignPBOToImages=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setApplyPBOToImages(bool)");
@@ -767,7 +839,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getApplyPBOToImages() const");
@@ -788,7 +860,7 @@ public:
 		bool changeAutoUnRef=(bool)(lua_toboolean(L,2)==1);
 		bool valueAutoUnRef=(bool)(lua_toboolean(L,3)==1);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy(bool, bool)");
@@ -808,7 +880,7 @@ public:
 		bool changeAutoUnRef=(bool)(lua_toboolean(L,2)==1);
 		bool valueAutoUnRef=(bool)(lua_toboolean(L,3)==1);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy(bool &, bool &) const");
@@ -828,7 +900,7 @@ public:
 		bool changeAnisotropy=(bool)(lua_toboolean(L,2)==1);
 		float valueAnisotropy=(float)lua_tonumber(L,3);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::setMaxAnisotropyPolicy(bool, float)");
@@ -848,7 +920,7 @@ public:
 		bool changeAnisotropy=(bool)(lua_toboolean(L,2)==1);
 		float valueAnisotropy=(float)lua_tonumber(L,3);
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::getMaxAnisotropyPolicy(bool &, float &) const");
@@ -866,7 +938,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::requiresUpdateSceneGraph() const");
@@ -884,13 +956,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::FrameStamp* frameStamp_ptr=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 		if( !frameStamp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg frameStamp in osgDB::DatabasePager::updateSceneGraph function");
 		}
 		const osg::FrameStamp & frameStamp=*frameStamp_ptr;
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::updateSceneGraph(const osg::FrameStamp &)");
@@ -908,7 +980,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getFileRequestListSize() const");
@@ -927,7 +999,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToCompileListSize() const");
@@ -946,7 +1018,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgDB::DatabasePager::getDataToMergeListSize() const");
@@ -965,7 +1037,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::getRequestsInProgress() const");
@@ -984,7 +1056,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMinimumTimeToMergeTile() const");
@@ -1003,7 +1075,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getMaximumTimeToMergeTile() const");
@@ -1022,7 +1094,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osgDB::DatabasePager::getAverageTimeToMergeTiles() const");
@@ -1041,7 +1113,7 @@ public:
 		}
 
 
-		osgDB::DatabasePager* self=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::resetStats()");
@@ -1079,6 +1151,212 @@ public:
 		Luna< osgDB::DatabasePager >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// const char * osgDB::DatabasePager::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgDB::DatabasePager::base_className() const function, expected prototype:\nconst char * osgDB::DatabasePager::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgDB::DatabasePager::base_className() const");
+		}
+		const char * lret = self->DatabasePager::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const function, expected prototype:\nosgDB::DatabasePager * osgDB::DatabasePager::base_clone() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgDB::DatabasePager::base_clone() const");
+		}
+		osgDB::DatabasePager * lret = self->DatabasePager::clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::DatabasePager >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)
+	static int _bind_base_requestNodeFile(lua_State *L) {
+		if (!_lg_typecheck_base_requestNodeFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options) function, expected prototype:\nvoid osgDB::DatabasePager::base_requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options)\nClass arguments details:\narg 2 ID = 52841328\narg 4 ID = 50169651\narg 5 ID = [unknown]\narg 6 ID = 50169651\n");
+		}
+
+		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
+		osg::NodePath* nodePath_ptr=(Luna< osg::NodePath >::check(L,3));
+		if( !nodePath_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osgDB::DatabasePager::base_requestNodeFile function");
+		}
+		osg::NodePath & nodePath=*nodePath_ptr;
+		float priority=(float)lua_tonumber(L,4);
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,5));
+		osg::ref_ptr< osg::Referenced > databaseRequest = dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,6));
+		const osg::Referenced* options=(Luna< osg::Referenced >::check(L,7));
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *)");
+		}
+		self->DatabasePager::requestNodeFile(fileName, nodePath, priority, framestamp, databaseRequest, options);
+
+		return 0;
+	}
+
+	// int osgDB::DatabasePager::base_cancel()
+	static int _bind_base_cancel(lua_State *L) {
+		if (!_lg_typecheck_base_cancel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgDB::DatabasePager::base_cancel() function, expected prototype:\nint osgDB::DatabasePager::base_cancel()\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osgDB::DatabasePager::base_cancel()");
+		}
+		int lret = self->DatabasePager::cancel();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osgDB::DatabasePager::base_isRunning() const
+	static int _bind_base_isRunning(lua_State *L) {
+		if (!_lg_typecheck_base_isRunning(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::DatabasePager::base_isRunning() const function, expected prototype:\nbool osgDB::DatabasePager::base_isRunning() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::DatabasePager::base_isRunning() const");
+		}
+		bool lret = self->DatabasePager::isRunning();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osgDB::DatabasePager::base_clear()
+	static int _bind_base_clear(lua_State *L) {
+		if (!_lg_typecheck_base_clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_clear() function, expected prototype:\nvoid osgDB::DatabasePager::base_clear()\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_clear()");
+		}
+		self->DatabasePager::clear();
+
+		return 0;
+	}
+
+	// void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)
+	static int _bind_base_signalBeginFrame(lua_State *L) {
+		if (!_lg_typecheck_base_signalBeginFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp * framestamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalBeginFrame(const osg::FrameStamp *)");
+		}
+		self->DatabasePager::signalBeginFrame(framestamp);
+
+		return 0;
+	}
+
+	// void osgDB::DatabasePager::base_signalEndFrame()
+	static int _bind_base_signalEndFrame(lua_State *L) {
+		if (!_lg_typecheck_base_signalEndFrame(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_signalEndFrame() function, expected prototype:\nvoid osgDB::DatabasePager::base_signalEndFrame()\nClass arguments details:\n");
+		}
+
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_signalEndFrame()");
+		}
+		self->DatabasePager::signalEndFrame();
+
+		return 0;
+	}
+
+	// void osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)
+	static int _bind_base_registerPagedLODs(lua_State *L) {
+		if (!_lg_typecheck_base_registerPagedLODs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0) function, expected prototype:\nvoid osgDB::DatabasePager::base_registerPagedLODs(osg::Node * subgraph, unsigned int frameNumber = 0)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		unsigned int frameNumber=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_registerPagedLODs(osg::Node *, unsigned int)");
+		}
+		self->DatabasePager::registerPagedLODs(subgraph, frameNumber);
+
+		return 0;
+	}
+
+	// void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)
+	static int _bind_base_updateSceneGraph(lua_State *L) {
+		if (!_lg_typecheck_base_updateSceneGraph(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp) function, expected prototype:\nvoid osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp & frameStamp)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::FrameStamp* frameStamp_ptr=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
+		if( !frameStamp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg frameStamp in osgDB::DatabasePager::base_updateSceneGraph function");
+		}
+		const osg::FrameStamp & frameStamp=*frameStamp_ptr;
+
+		osgDB::DatabasePager* self=Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::DatabasePager::base_updateSceneGraph(const osg::FrameStamp &)");
+		}
+		self->DatabasePager::updateSceneGraph(frameStamp);
+
+		return 0;
 	}
 
 
@@ -1138,6 +1416,16 @@ luna_RegType LunaTraits< osgDB::DatabasePager >::methods[] = {
 	{"resetStats", &luna_wrapper_osgDB_DatabasePager::_bind_resetStats},
 	{"prototype", &luna_wrapper_osgDB_DatabasePager::_bind_prototype},
 	{"create", &luna_wrapper_osgDB_DatabasePager::_bind_create},
+	{"base_className", &luna_wrapper_osgDB_DatabasePager::_bind_base_className},
+	{"base_clone", &luna_wrapper_osgDB_DatabasePager::_bind_base_clone},
+	{"base_requestNodeFile", &luna_wrapper_osgDB_DatabasePager::_bind_base_requestNodeFile},
+	{"base_cancel", &luna_wrapper_osgDB_DatabasePager::_bind_base_cancel},
+	{"base_isRunning", &luna_wrapper_osgDB_DatabasePager::_bind_base_isRunning},
+	{"base_clear", &luna_wrapper_osgDB_DatabasePager::_bind_base_clear},
+	{"base_signalBeginFrame", &luna_wrapper_osgDB_DatabasePager::_bind_base_signalBeginFrame},
+	{"base_signalEndFrame", &luna_wrapper_osgDB_DatabasePager::_bind_base_signalEndFrame},
+	{"base_registerPagedLODs", &luna_wrapper_osgDB_DatabasePager::_bind_base_registerPagedLODs},
+	{"base_updateSceneGraph", &luna_wrapper_osgDB_DatabasePager::_bind_base_updateSceneGraph},
 	{"__eq", &luna_wrapper_osgDB_DatabasePager::_bind___eq},
 	{0,0}
 };

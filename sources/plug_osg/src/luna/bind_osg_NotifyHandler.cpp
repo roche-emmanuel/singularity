@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::NotifyHandler* ptr= dynamic_cast< osg::NotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		//osg::NotifyHandler* ptr= dynamic_cast< osg::NotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NotifyHandler* ptr= luna_caster< osg::Referenced, osg::NotifyHandler >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -65,7 +66,7 @@ public:
 		osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,2);
 		const char * message=(const char *)lua_tostring(L,3);
 
-		osg::NotifyHandler* self=dynamic_cast< osg::NotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::NotifyHandler::notify(osg::NotifySeverity, const char *)");

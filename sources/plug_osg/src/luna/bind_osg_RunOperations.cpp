@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::RunOperations* ptr= dynamic_cast< osg::RunOperations* >(Luna< osg::Referenced >::check(L,1));
+		//osg::RunOperations* ptr= dynamic_cast< osg::RunOperations* >(Luna< osg::Referenced >::check(L,1));
+		osg::RunOperations* ptr= luna_caster< osg::Referenced, osg::RunOperations >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -57,6 +58,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -102,6 +109,24 @@ public:
 
 
 	// Function binds:
+	// void osg::RunOperations::base_release()
+	static int _bind_base_release(lua_State *L) {
+		if (!_lg_typecheck_base_release(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::RunOperations::base_release() function, expected prototype:\nvoid osg::RunOperations::base_release()\nClass arguments details:\n");
+		}
+
+
+		osg::RunOperations* self=Luna< osg::Referenced >::checkSubType< osg::RunOperations >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::RunOperations::base_release()");
+		}
+		self->RunOperations::release();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// void osg::RunOperations::operator()(osg::GraphicsContext * context)
@@ -111,9 +136,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::RunOperations::operator()(osg::GraphicsContext * context) function, expected prototype:\nvoid osg::RunOperations::operator()(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* context=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osg::RunOperations* self=dynamic_cast< osg::RunOperations* >(Luna< osg::Referenced >::check(L,1));
+		osg::RunOperations* self=Luna< osg::Referenced >::checkSubType< osg::RunOperations >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::RunOperations::operator()(osg::GraphicsContext *)");
@@ -142,6 +167,7 @@ const int LunaTraits< osg::RunOperations >::hash = 88523164;
 const int LunaTraits< osg::RunOperations >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::RunOperations >::methods[] = {
+	{"base_release", &luna_wrapper_osg_RunOperations::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_RunOperations::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_RunOperations::_bind___eq},
 	{0,0}

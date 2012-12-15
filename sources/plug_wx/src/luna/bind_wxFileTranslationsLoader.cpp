@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxTranslationsLoader(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileTranslationsLoader* ptr= dynamic_cast< wxFileTranslationsLoader* >(Luna< wxTranslationsLoader >::check(L,1));
+		//wxFileTranslationsLoader* ptr= dynamic_cast< wxFileTranslationsLoader* >(Luna< wxTranslationsLoader >::check(L,1));
+		wxFileTranslationsLoader* ptr= luna_caster< wxTranslationsLoader, wxFileTranslationsLoader >::cast(Luna< wxTranslationsLoader >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGenericValidator* ptr= dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		//wxGenericValidator* ptr= dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		wxGenericValidator* ptr= luna_caster< wxObject, wxGenericValidator >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -205,6 +206,72 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Validate(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferFromWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferToWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -217,7 +284,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(const wxGenericValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxGenericValidator* validator_ptr=dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		const wxGenericValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxGenericValidator >(L,1));
 		if( !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxGenericValidator::wxGenericValidator function");
 		}
@@ -329,7 +396,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator) function, expected prototype:\nwxGenericValidator::wxGenericValidator(lua_Table * data, const wxGenericValidator & validator)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxGenericValidator* validator_ptr=dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,2));
+		const wxGenericValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxGenericValidator >(L,2));
 		if( !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxGenericValidator::wxGenericValidator function");
 		}
@@ -469,7 +536,7 @@ public:
 		}
 
 
-		wxGenericValidator* self=dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::Clone() const");
@@ -490,7 +557,7 @@ public:
 		}
 
 
-		wxGenericValidator* self=dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferFromWindow()");
@@ -509,12 +576,216 @@ public:
 		}
 
 
-		wxGenericValidator* self=dynamic_cast< wxGenericValidator* >(Luna< wxObject >::check(L,1));
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGenericValidator::TransferToWindow()");
 		}
 		bool lret = self->TransferToWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxGenericValidator::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGenericValidator::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGenericValidator::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGenericValidator::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxGenericValidator::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGenericValidator::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxGenericValidator::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_QueueEvent(wxEvent *)");
+		}
+		self->wxGenericValidator::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxGenericValidator::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxGenericValidator::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGenericValidator::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxGenericValidator::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxGenericValidator::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxGenericValidator::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGenericValidator::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxGenericValidator::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxGenericValidator::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxGenericValidator::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGenericValidator::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxGenericValidator::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// bool wxGenericValidator::base_Validate(wxWindow * parent)
+	static int _bind_base_Validate(lua_State *L) {
+		if (!_lg_typecheck_base_Validate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_Validate(wxWindow * parent) function, expected prototype:\nbool wxGenericValidator::base_Validate(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_Validate(wxWindow *)");
+		}
+		bool lret = self->wxGenericValidator::Validate(parent);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxObject * wxGenericValidator::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxObject * wxGenericValidator::base_Clone() const function, expected prototype:\nwxObject * wxGenericValidator::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxObject * wxGenericValidator::base_Clone() const");
+		}
+		wxObject * lret = self->wxGenericValidator::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxObject >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxGenericValidator::base_TransferFromWindow()
+	static int _bind_base_TransferFromWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferFromWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferFromWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferFromWindow()\nClass arguments details:\n");
+		}
+
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferFromWindow()");
+		}
+		bool lret = self->wxGenericValidator::TransferFromWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGenericValidator::base_TransferToWindow()
+	static int _bind_base_TransferToWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferToWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGenericValidator::base_TransferToWindow() function, expected prototype:\nbool wxGenericValidator::base_TransferToWindow()\nClass arguments details:\n");
+		}
+
+
+		wxGenericValidator* self=Luna< wxObject >::checkSubType< wxGenericValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGenericValidator::base_TransferToWindow()");
+		}
+		bool lret = self->wxGenericValidator::TransferToWindow();
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -544,6 +815,16 @@ luna_RegType LunaTraits< wxGenericValidator >::methods[] = {
 	{"Clone", &luna_wrapper_wxGenericValidator::_bind_Clone},
 	{"TransferFromWindow", &luna_wrapper_wxGenericValidator::_bind_TransferFromWindow},
 	{"TransferToWindow", &luna_wrapper_wxGenericValidator::_bind_TransferToWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxGenericValidator::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxGenericValidator::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxGenericValidator::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxGenericValidator::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxGenericValidator::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxGenericValidator::_bind_base_SetPreviousHandler},
+	{"base_Validate", &luna_wrapper_wxGenericValidator::_bind_base_Validate},
+	{"base_Clone", &luna_wrapper_wxGenericValidator::_bind_base_Clone},
+	{"base_TransferFromWindow", &luna_wrapper_wxGenericValidator::_bind_base_TransferFromWindow},
+	{"base_TransferToWindow", &luna_wrapper_wxGenericValidator::_bind_base_TransferToWindow},
 	{"__eq", &luna_wrapper_wxGenericValidator::_bind___eq},
 	{0,0}
 };

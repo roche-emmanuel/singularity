@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataViewModel(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataViewListModel* ptr= dynamic_cast< wxDataViewListModel* >(Luna< wxDataViewModel >::check(L,1));
+		//wxDataViewListModel* ptr= dynamic_cast< wxDataViewListModel* >(Luna< wxDataViewModel >::check(L,1));
+		wxDataViewListModel* ptr= luna_caster< wxDataViewModel, wxDataViewListModel >::cast(Luna< wxDataViewModel >::check(L,1));
 		if(!ptr)
 			return 0;
 		

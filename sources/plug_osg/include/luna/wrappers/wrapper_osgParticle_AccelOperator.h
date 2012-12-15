@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AccelOperator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AccelOperator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AccelOperator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AccelOperator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AccelOperator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AccelOperator::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::operateParticles(ps, dt);
+		return AccelOperator::operateParticles(ps, dt);
 	};
 
 	// void osgParticle::Operator::endOperate()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::endOperate();
+		return AccelOperator::endOperate();
 	};
 
 	// osg::Object * osgParticle::AccelOperator::cloneType() const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::AccelOperator::cloneType();
+		return AccelOperator::cloneType();
 	};
 
 	// osg::Object * osgParticle::AccelOperator::clone(const osg::CopyOp & arg1) const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::AccelOperator::clone(arg1);
+		return AccelOperator::clone(arg1);
 	};
 
 	// bool osgParticle::AccelOperator::isSameKindAs(const osg::Object * obj) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::AccelOperator::isSameKindAs(obj);
+		return AccelOperator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::AccelOperator::libraryName() const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::AccelOperator::libraryName();
+		return AccelOperator::libraryName();
 	};
 
 	// const char * osgParticle::AccelOperator::className() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::AccelOperator::className();
+		return AccelOperator::className();
 	};
 
 	// void osgParticle::AccelOperator::operate(osgParticle::Particle * P, double dt)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::AccelOperator::operate(P, dt);
+		return AccelOperator::operate(P, dt);
 	};
 
 	// void osgParticle::AccelOperator::beginOperate(osgParticle::Program * prg)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::AccelOperator::beginOperate(prg);
+		return AccelOperator::beginOperate(prg);
 	};
 
 

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_DrawElementTypeSimplifierVisitor(lua_State* L, lua_Table* dum) : osgUtil::DrawElementTypeSimplifierVisitor(), _obj(L,-1) {};
 
 	// void osg::NodeVisitor::reset()
 	void reset() {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return DrawElementTypeSimplifierVisitor::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -32,7 +31,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return DrawElementTypeSimplifierVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -41,7 +40,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return DrawElementTypeSimplifierVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -52,7 +51,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return DrawElementTypeSimplifierVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -63,7 +62,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return DrawElementTypeSimplifierVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -74,7 +73,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return DrawElementTypeSimplifierVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::DrawElementTypeSimplifierVisitor::libraryName() const
@@ -83,7 +82,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::DrawElementTypeSimplifierVisitor::libraryName();
+		return DrawElementTypeSimplifierVisitor::libraryName();
 	};
 
 	// const char * osgUtil::DrawElementTypeSimplifierVisitor::className() const
@@ -92,7 +91,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::DrawElementTypeSimplifierVisitor::className();
+		return DrawElementTypeSimplifierVisitor::className();
 	};
 
 	// void osgUtil::DrawElementTypeSimplifierVisitor::apply(osg::Geode & node)
@@ -102,7 +101,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::DrawElementTypeSimplifierVisitor::apply(node);
+		return DrawElementTypeSimplifierVisitor::apply(node);
 	};
 
 

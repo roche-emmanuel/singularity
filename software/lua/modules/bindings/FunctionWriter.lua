@@ -241,14 +241,17 @@ function Class:writeFunctionCall(cname,func,args)
 	
 	local force_gc = false;
 	local prefix = (useself and "self->") or ((func:isGlobal() or func:isExtension()) and "") or (func:getParent():getFullName().."::")
+	--local useBase =  --func:getName():sub(1,5)=="base_"; --func:getUseBase()
+	
+	local fname = func:getUseBase() and (func:getParent():getName() .. "::" ..func:getName():sub(6)) or func:getName()
 	
 	if rt:isInteger() and func:hasLuaState() then
 		-- assume this function is just returning its number of results as a regular lua cfunction;
-		self:writeSubLine("return ${3}${1}(${2});",func:getName(),args,prefix);
+		self:writeSubLine("return ${3}${1}(${2});",fname,args,prefix);
 		-- No need to proceed in that case:
 		return;
 	elseif rt:isVoid() and not rt:isPointer() then
-		self:writeSubLine("${3}${1}(${2});",func:getName(),args,prefix);
+		self:writeSubLine("${3}${1}(${2});",fname,args,prefix);
 	else
 		-- in case we return an object this object can only be pushed on the lua stack if we use a pointer to it.
 		-- we cannot use a pointer to temporary memory so if the result is on the stack we need to create
@@ -256,14 +259,14 @@ function Class:writeFunctionCall(cname,func,args)
 		-- if there is a converter, it is responsible for performing the proper convertion.
 		if not rt:isPointer() and rt:isClass() and not converter then
 			if rt:isReference() then
-				self:writeSubLine("const ${1}* ${4} = &${5}${2}(${3});",rt:getBaseName(),func:getName(),args,argname,prefix);		
+				self:writeSubLine("const ${1}* ${4} = &${5}${2}(${3});",rt:getBaseName(),fname,args,argname,prefix);		
 			else
-				self:writeSubLine("${1} stack_${4} = ${5}${2}(${3});",rt:getName(),func:getName(),args,argname,prefix);
+				self:writeSubLine("${1} stack_${4} = ${5}${2}(${3});",rt:getName(),fname,args,argname,prefix);
 				self:writeSubLine("${1}* ${2} = new ${1}(stack_${2});",rt:getName(),argname);
 				force_gc = true
 			end
 		else
-			self:writeSubLine("${1} ${4} = ${5}${2}(${3});",rt:getName(),func:getName(),args,argname,prefix);
+			self:writeSubLine("${1} ${4} = ${5}${2}(${3});",rt:getName(),fname,args,argname,prefix);
 		end
 	end
 	

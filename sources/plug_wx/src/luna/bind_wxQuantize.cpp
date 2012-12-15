@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxQuantize* ptr= dynamic_cast< wxQuantize* >(Luna< wxObject >::check(L,1));
+		//wxQuantize* ptr= dynamic_cast< wxQuantize* >(Luna< wxObject >::check(L,1));
+		wxQuantize* ptr= luna_caster< wxObject, wxQuantize >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -57,6 +58,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -95,6 +102,27 @@ public:
 
 
 	// Function binds:
+	// wxClassInfo * wxQuantize::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxQuantize::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxQuantize::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxQuantize* self=Luna< wxObject >::checkSubType< wxQuantize >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxQuantize::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxQuantize::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -116,6 +144,7 @@ const int LunaTraits< wxQuantize >::hash = 36836222;
 const int LunaTraits< wxQuantize >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxQuantize >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxQuantize::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxQuantize::_bind___eq},
 	{0,0}
 };

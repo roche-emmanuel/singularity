@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_basic_type_wrapper(lua_State* L, lua_Table* dum) : osgDB::basic_type_wrapper(), _obj(L,-1) {};
 
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
 	bool matches(const osg::Object * proto) const {

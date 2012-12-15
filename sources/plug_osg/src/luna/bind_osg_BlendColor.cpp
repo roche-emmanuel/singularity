@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BlendColor* ptr= dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BlendColor* ptr= dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* ptr= luna_caster< osg::Referenced, osg::BlendColor >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -191,6 +192,143 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTexture_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTexture_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getMember(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isTextureAttribute(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_checkValidityOfAssociatedModes(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_compileGLObjects(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_compare(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getModeUsage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,48108040) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -232,7 +370,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::BlendColor* trans_ptr=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		const osg::BlendColor* trans_ptr=(Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1));
 		if( !trans_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg trans in osg::BlendColor::BlendColor function");
 		}
@@ -282,7 +420,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::BlendColor* trans_ptr=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,2));
+		const osg::BlendColor* trans_ptr=(Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,2));
 		if( !trans_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg trans in osg::BlendColor::BlendColor function");
 		}
@@ -319,7 +457,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendColor::cloneType() const");
@@ -345,7 +483,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendColor::clone(const osg::CopyOp &) const");
@@ -365,9 +503,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::BlendColor::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::BlendColor::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendColor::isSameKindAs(const osg::Object *) const");
@@ -386,7 +524,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::BlendColor::libraryName() const");
@@ -405,7 +543,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::BlendColor::className() const");
@@ -424,7 +562,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendColor::getType() const");
@@ -442,13 +580,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::BlendColor::compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::BlendColor::compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* sa_ptr=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 		if( !sa_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg sa in osg::BlendColor::compare function");
 		}
 		const osg::StateAttribute & sa=*sa_ptr;
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::BlendColor::compare(const osg::StateAttribute &) const");
@@ -472,7 +610,7 @@ public:
 		}
 		osg::StateAttribute::ModeUsage & _arg1=*_arg1_ptr;
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendColor::getModeUsage(osg::StateAttribute::ModeUsage &) const");
@@ -496,7 +634,7 @@ public:
 		}
 		const osg::Vec4f & color=*color_ptr;
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendColor::setConstantColor(const osg::Vec4f &)");
@@ -514,7 +652,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::BlendColor::getConstantColor()");
@@ -535,7 +673,7 @@ public:
 		}
 
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::BlendColor::getConstantColor() const");
@@ -564,13 +702,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::BlendColor::apply(osg::State & arg1) const function, expected prototype:\nvoid osg::BlendColor::apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* _arg1_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::apply function");
 		}
 		osg::State & _arg1=*_arg1_ptr;
 
-		osg::BlendColor* self=dynamic_cast< osg::BlendColor* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendColor::apply(osg::State &) const");
@@ -606,9 +744,468 @@ public:
 		}
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,1);
-		osg::BlendColor::Extensions* extensions=dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,2));
+		osg::BlendColor::Extensions* extensions=(Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,2));
 
 		osg::BlendColor::setExtensions(contextID, extensions);
+
+		return 0;
+	}
+
+	// void osg::BlendColor::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_setName(const std::string & name) function, expected prototype:\nvoid osg::BlendColor::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_setName(const std::string &)");
+		}
+		self->BlendColor::setName(name);
+
+		return 0;
+	}
+
+	// void osg::BlendColor::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_computeDataVariance() function, expected prototype:\nvoid osg::BlendColor::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_computeDataVariance()");
+		}
+		self->BlendColor::computeDataVariance();
+
+		return 0;
+	}
+
+	// void osg::BlendColor::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::BlendColor::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_setUserData(osg::Referenced *)");
+		}
+		self->BlendColor::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::BlendColor::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::BlendColor::base_getUserData() function, expected prototype:\nosg::Referenced * osg::BlendColor::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::BlendColor::base_getUserData()");
+		}
+		osg::Referenced * lret = self->BlendColor::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::BlendColor::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::BlendColor::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::BlendColor::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::BlendColor::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->BlendColor::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::BlendColor::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// osg::Texture * osg::BlendColor::base_asTexture()
+	static int _bind_base_asTexture_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::BlendColor::base_asTexture() function, expected prototype:\nosg::Texture * osg::BlendColor::base_asTexture()\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::BlendColor::base_asTexture()");
+		}
+		osg::Texture * lret = self->BlendColor::asTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Texture * osg::BlendColor::base_asTexture() const
+	static int _bind_base_asTexture_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::BlendColor::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::BlendColor::base_asTexture() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::BlendColor::base_asTexture() const");
+		}
+		const osg::Texture * lret = self->BlendColor::asTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::BlendColor::base_asTexture
+	static int _bind_base_asTexture(lua_State *L) {
+		if (_lg_typecheck_base_asTexture_overload_1(L)) return _bind_base_asTexture_overload_1(L);
+		if (_lg_typecheck_base_asTexture_overload_2(L)) return _bind_base_asTexture_overload_2(L);
+
+		luaL_error(L, "error in function base_asTexture, cannot match any of the overloads for function base_asTexture:\n  base_asTexture()\n  base_asTexture()\n");
+		return 0;
+	}
+
+	// unsigned int osg::BlendColor::base_getMember() const
+	static int _bind_base_getMember(lua_State *L) {
+		if (!_lg_typecheck_base_getMember(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::BlendColor::base_getMember() const function, expected prototype:\nunsigned int osg::BlendColor::base_getMember() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::BlendColor::base_getMember() const");
+		}
+		unsigned int lret = self->BlendColor::getMember();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osg::BlendColor::base_isTextureAttribute() const
+	static int _bind_base_isTextureAttribute(lua_State *L) {
+		if (!_lg_typecheck_base_isTextureAttribute(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::BlendColor::base_isTextureAttribute() const function, expected prototype:\nbool osg::BlendColor::base_isTextureAttribute() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::BlendColor::base_isTextureAttribute() const");
+		}
+		bool lret = self->BlendColor::isTextureAttribute();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::BlendColor::base_checkValidityOfAssociatedModes(osg::State & arg1) const
+	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
+		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::BlendColor::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::BlendColor::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::base_checkValidityOfAssociatedModes function");
+		}
+		osg::State & _arg1=*_arg1_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::BlendColor::base_checkValidityOfAssociatedModes(osg::State &) const");
+		}
+		bool lret = self->BlendColor::checkValidityOfAssociatedModes(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::BlendColor::base_compileGLObjects(osg::State & arg1) const
+	static int _bind_base_compileGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_compileGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_compileGLObjects(osg::State & arg1) const function, expected prototype:\nvoid osg::BlendColor::base_compileGLObjects(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::base_compileGLObjects function");
+		}
+		osg::State & _arg1=*_arg1_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_compileGLObjects(osg::State &) const");
+		}
+		self->BlendColor::compileGLObjects(_arg1);
+
+		return 0;
+	}
+
+	// void osg::BlendColor::base_releaseGLObjects(osg::State * arg1 = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::BlendColor::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* _arg1=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_releaseGLObjects(osg::State *) const");
+		}
+		self->BlendColor::releaseGLObjects(_arg1);
+
+		return 0;
+	}
+
+	// osg::Object * osg::BlendColor::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::BlendColor::base_cloneType() const function, expected prototype:\nosg::Object * osg::BlendColor::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendColor::base_cloneType() const");
+		}
+		osg::Object * lret = self->BlendColor::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::BlendColor::base_clone(const osg::CopyOp & arg1) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::BlendColor::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::BlendColor::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::base_clone function");
+		}
+		const osg::CopyOp & _arg1=*_arg1_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::BlendColor::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->BlendColor::clone(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::BlendColor::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::BlendColor::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::BlendColor::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::BlendColor::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->BlendColor::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::BlendColor::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::BlendColor::base_libraryName() const function, expected prototype:\nconst char * osg::BlendColor::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::BlendColor::base_libraryName() const");
+		}
+		const char * lret = self->BlendColor::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::BlendColor::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::BlendColor::base_className() const function, expected prototype:\nconst char * osg::BlendColor::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::BlendColor::base_className() const");
+		}
+		const char * lret = self->BlendColor::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// osg::StateAttribute::Type osg::BlendColor::base_getType() const
+	static int _bind_base_getType(lua_State *L) {
+		if (!_lg_typecheck_base_getType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::BlendColor::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::BlendColor::base_getType() const\nClass arguments details:\n");
+		}
+
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::BlendColor::base_getType() const");
+		}
+		osg::StateAttribute::Type lret = self->BlendColor::getType();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osg::BlendColor::base_compare(const osg::StateAttribute & sa) const
+	static int _bind_base_compare(lua_State *L) {
+		if (!_lg_typecheck_base_compare(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::BlendColor::base_compare(const osg::StateAttribute & sa) const function, expected prototype:\nint osg::BlendColor::base_compare(const osg::StateAttribute & sa) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
+		if( !sa_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sa in osg::BlendColor::base_compare function");
+		}
+		const osg::StateAttribute & sa=*sa_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::BlendColor::base_compare(const osg::StateAttribute &) const");
+		}
+		int lret = self->BlendColor::compare(sa);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osg::BlendColor::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
+	static int _bind_base_getModeUsage(lua_State *L) {
+		if (!_lg_typecheck_base_getModeUsage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::BlendColor::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::BlendColor::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+		}
+
+		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::base_getModeUsage function");
+		}
+		osg::StateAttribute::ModeUsage & _arg1=*_arg1_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::BlendColor::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+		}
+		bool lret = self->BlendColor::getModeUsage(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::BlendColor::base_apply(osg::State & arg1) const
+	static int _bind_base_apply(lua_State *L) {
+		if (!_lg_typecheck_base_apply(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BlendColor::base_apply(osg::State & arg1) const function, expected prototype:\nvoid osg::BlendColor::base_apply(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::BlendColor::base_apply function");
+		}
+		osg::State & _arg1=*_arg1_ptr;
+
+		osg::BlendColor* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BlendColor::base_apply(osg::State &) const");
+		}
+		self->BlendColor::apply(_arg1);
 
 		return 0;
 	}
@@ -647,6 +1244,25 @@ luna_RegType LunaTraits< osg::BlendColor >::methods[] = {
 	{"apply", &luna_wrapper_osg_BlendColor::_bind_apply},
 	{"getExtensions", &luna_wrapper_osg_BlendColor::_bind_getExtensions},
 	{"setExtensions", &luna_wrapper_osg_BlendColor::_bind_setExtensions},
+	{"base_setName", &luna_wrapper_osg_BlendColor::_bind_base_setName},
+	{"base_computeDataVariance", &luna_wrapper_osg_BlendColor::_bind_base_computeDataVariance},
+	{"base_setUserData", &luna_wrapper_osg_BlendColor::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_BlendColor::_bind_base_getUserData},
+	{"base_asTexture", &luna_wrapper_osg_BlendColor::_bind_base_asTexture},
+	{"base_getMember", &luna_wrapper_osg_BlendColor::_bind_base_getMember},
+	{"base_isTextureAttribute", &luna_wrapper_osg_BlendColor::_bind_base_isTextureAttribute},
+	{"base_checkValidityOfAssociatedModes", &luna_wrapper_osg_BlendColor::_bind_base_checkValidityOfAssociatedModes},
+	{"base_compileGLObjects", &luna_wrapper_osg_BlendColor::_bind_base_compileGLObjects},
+	{"base_releaseGLObjects", &luna_wrapper_osg_BlendColor::_bind_base_releaseGLObjects},
+	{"base_cloneType", &luna_wrapper_osg_BlendColor::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_BlendColor::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_BlendColor::_bind_base_isSameKindAs},
+	{"base_libraryName", &luna_wrapper_osg_BlendColor::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osg_BlendColor::_bind_base_className},
+	{"base_getType", &luna_wrapper_osg_BlendColor::_bind_base_getType},
+	{"base_compare", &luna_wrapper_osg_BlendColor::_bind_base_compare},
+	{"base_getModeUsage", &luna_wrapper_osg_BlendColor::_bind_base_getModeUsage},
+	{"base_apply", &luna_wrapper_osg_BlendColor::_bind_base_apply},
 	{"__eq", &luna_wrapper_osg_BlendColor::_bind___eq},
 	{0,0}
 };

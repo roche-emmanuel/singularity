@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::IntersectionVisitor* ptr= dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::IntersectionVisitor* ptr= dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* ptr= luna_caster< osg::Referenced, osgUtil::IntersectionVisitor >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -383,6 +384,132 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_getViewPoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceFromEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceToViewPoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_reset(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getDistanceToEyePoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Billboard* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Group* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::LOD* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::PagedLOD* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Projection* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -397,8 +524,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgUtil::Intersector* intersector=luatop>0 ? dynamic_cast< osgUtil::Intersector* >(Luna< osg::Referenced >::check(L,1)) : (osgUtil::Intersector*)0;
-		osgUtil::IntersectionVisitor::ReadCallback* readCallback=luatop>1 ? dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,2)) : (osgUtil::IntersectionVisitor::ReadCallback*)0;
+		osgUtil::Intersector* intersector=luatop>0 ? (Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,1)) : (osgUtil::Intersector*)0;
+		osgUtil::IntersectionVisitor::ReadCallback* readCallback=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor::ReadCallback >(L,2)) : (osgUtil::IntersectionVisitor::ReadCallback*)0;
 
 		return new osgUtil::IntersectionVisitor(intersector, readCallback);
 	}
@@ -412,8 +539,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osgUtil::Intersector* intersector=luatop>1 ? dynamic_cast< osgUtil::Intersector* >(Luna< osg::Referenced >::check(L,2)) : (osgUtil::Intersector*)0;
-		osgUtil::IntersectionVisitor::ReadCallback* readCallback=luatop>2 ? dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,3)) : (osgUtil::IntersectionVisitor::ReadCallback*)0;
+		osgUtil::Intersector* intersector=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,2)) : (osgUtil::Intersector*)0;
+		osgUtil::IntersectionVisitor::ReadCallback* readCallback=luatop>2 ? (Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor::ReadCallback >(L,3)) : (osgUtil::IntersectionVisitor::ReadCallback*)0;
 
 		return new wrapper_osgUtil_IntersectionVisitor(L,NULL, intersector, readCallback);
 	}
@@ -437,7 +564,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectionVisitor::libraryName() const");
@@ -456,7 +583,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectionVisitor::className() const");
@@ -475,7 +602,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::reset()");
@@ -492,9 +619,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::setIntersector(osgUtil::Intersector * intersector) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::setIntersector(osgUtil::Intersector * intersector)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::Intersector* intersector=dynamic_cast< osgUtil::Intersector* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::Intersector* intersector=(Luna< osg::Referenced >::checkSubType< osgUtil::Intersector >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setIntersector(osgUtil::Intersector *)");
@@ -512,7 +639,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::Intersector * osgUtil::IntersectionVisitor::getIntersector()");
@@ -533,7 +660,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgUtil::Intersector * osgUtil::IntersectionVisitor::getIntersector() const");
@@ -564,7 +691,7 @@ public:
 
 		bool useKdTrees=(bool)(lua_toboolean(L,2)==1);
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setUseKdTreeWhenAvailable(bool)");
@@ -582,7 +709,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectionVisitor::getUseKdTreeWhenAvailable() const");
@@ -602,7 +729,7 @@ public:
 
 		bool dummy=(bool)(lua_toboolean(L,2)==1);
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setDoDummyTraversal(bool)");
@@ -620,7 +747,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::IntersectionVisitor::getDoDummyTraversal() const");
@@ -638,9 +765,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::setReadCallback(osgUtil::IntersectionVisitor::ReadCallback * rc) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::setReadCallback(osgUtil::IntersectionVisitor::ReadCallback * rc)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::IntersectionVisitor::ReadCallback* rc=dynamic_cast< osgUtil::IntersectionVisitor::ReadCallback* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::IntersectionVisitor::ReadCallback* rc=(Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor::ReadCallback >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setReadCallback(osgUtil::IntersectionVisitor::ReadCallback *)");
@@ -658,7 +785,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::IntersectionVisitor::ReadCallback * osgUtil::IntersectionVisitor::getReadCallback()");
@@ -679,7 +806,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgUtil::IntersectionVisitor::ReadCallback * osgUtil::IntersectionVisitor::getReadCallback() const");
@@ -708,9 +835,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::pushWindowMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::pushWindowMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::pushWindowMatrix(osg::RefMatrixd *)");
@@ -727,9 +854,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::pushWindowMatrix(osg::Viewport * viewport) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::pushWindowMatrix(osg::Viewport * viewport)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Viewport* viewport=dynamic_cast< osg::Viewport* >(Luna< osg::Referenced >::check(L,2));
+		osg::Viewport* viewport=(Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::pushWindowMatrix(osg::Viewport *)");
@@ -756,7 +883,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::popWindowMatrix()");
@@ -774,7 +901,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osgUtil::IntersectionVisitor::getWindowMatrix()");
@@ -795,7 +922,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::IntersectionVisitor::getWindowMatrix() const");
@@ -824,9 +951,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::pushProjectionMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::pushProjectionMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::pushProjectionMatrix(osg::RefMatrixd *)");
@@ -844,7 +971,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::popProjectionMatrix()");
@@ -862,7 +989,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osgUtil::IntersectionVisitor::getProjectionMatrix()");
@@ -883,7 +1010,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::IntersectionVisitor::getProjectionMatrix() const");
@@ -912,9 +1039,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::pushViewMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::pushViewMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::pushViewMatrix(osg::RefMatrixd *)");
@@ -932,7 +1059,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::popViewMatrix()");
@@ -950,7 +1077,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osgUtil::IntersectionVisitor::getViewMatrix()");
@@ -971,7 +1098,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::IntersectionVisitor::getViewMatrix() const");
@@ -1000,9 +1127,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::pushModelMatrix(osg::RefMatrixd * matrix) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::pushModelMatrix(osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::pushModelMatrix(osg::RefMatrixd *)");
@@ -1020,7 +1147,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::popModelMatrix()");
@@ -1038,7 +1165,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::RefMatrixd * osgUtil::IntersectionVisitor::getModelMatrix()");
@@ -1059,7 +1186,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::RefMatrixd * osgUtil::IntersectionVisitor::getModelMatrix() const");
@@ -1094,7 +1221,7 @@ public:
 		}
 		const osg::Vec3f & ep=*ep_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setReferenceEyePoint(const osg::Vec3f &)");
@@ -1112,7 +1239,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3f & osgUtil::IntersectionVisitor::getReferenceEyePoint() const");
@@ -1134,7 +1261,7 @@ public:
 
 		osgUtil::Intersector::CoordinateFrame cf=(osgUtil::Intersector::CoordinateFrame)lua_tointeger(L,2);
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setReferenceEyePointCoordinateFrame(osgUtil::Intersector::CoordinateFrame)");
@@ -1152,7 +1279,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::Intersector::CoordinateFrame osgUtil::IntersectionVisitor::getReferenceEyePointCoordinateFrame() const");
@@ -1171,7 +1298,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectionVisitor::getEyePoint() const");
@@ -1194,7 +1321,7 @@ public:
 
 		osgUtil::IntersectionVisitor::LODSelectionMode mode=(osgUtil::IntersectionVisitor::LODSelectionMode)lua_tointeger(L,2);
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::setLODSelectionMode(osgUtil::IntersectionVisitor::LODSelectionMode)");
@@ -1212,7 +1339,7 @@ public:
 		}
 
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::IntersectionVisitor::LODSelectionMode osgUtil::IntersectionVisitor::getLODSelectionMode() const");
@@ -1237,7 +1364,7 @@ public:
 		const osg::Vec3f & pos=*pos_ptr;
 		bool withLODScale=(bool)(lua_toboolean(L,3)==1);
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osgUtil::IntersectionVisitor::getDistanceToEyePoint(const osg::Vec3f &, bool) const");
@@ -1255,13 +1382,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		if( !node_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg node in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Node & node=*node_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Node &)");
@@ -1278,13 +1405,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geode* geode_ptr=dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
 		if( !geode_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg geode in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Geode & geode=*geode_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Geode &)");
@@ -1301,13 +1428,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Billboard & geode) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Billboard & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Billboard* geode_ptr=dynamic_cast< osg::Billboard* >(Luna< osg::Referenced >::check(L,2));
+		osg::Billboard* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,2));
 		if( !geode_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg geode in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Billboard & geode=*geode_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Billboard &)");
@@ -1324,13 +1451,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Group & group) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Group & group)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Group* group_ptr=dynamic_cast< osg::Group* >(Luna< osg::Referenced >::check(L,2));
+		osg::Group* group_ptr=(Luna< osg::Referenced >::checkSubType< osg::Group >(L,2));
 		if( !group_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg group in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Group & group=*group_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Group &)");
@@ -1347,13 +1474,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::LOD & lod) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::LOD & lod)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::LOD* lod_ptr=dynamic_cast< osg::LOD* >(Luna< osg::Referenced >::check(L,2));
+		osg::LOD* lod_ptr=(Luna< osg::Referenced >::checkSubType< osg::LOD >(L,2));
 		if( !lod_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lod in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::LOD & lod=*lod_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::LOD &)");
@@ -1370,13 +1497,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::PagedLOD & lod) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::PagedLOD & lod)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::PagedLOD* lod_ptr=dynamic_cast< osg::PagedLOD* >(Luna< osg::Referenced >::check(L,2));
+		osg::PagedLOD* lod_ptr=(Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,2));
 		if( !lod_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg lod in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::PagedLOD & lod=*lod_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::PagedLOD &)");
@@ -1393,13 +1520,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Transform & transform) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Transform & transform)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Transform* transform_ptr=dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2));
+		osg::Transform* transform_ptr=(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,2));
 		if( !transform_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg transform in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Transform & transform=*transform_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Transform &)");
@@ -1416,13 +1543,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Projection & projection) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Projection & projection)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Projection* projection_ptr=dynamic_cast< osg::Projection* >(Luna< osg::Referenced >::check(L,2));
+		osg::Projection* projection_ptr=(Luna< osg::Referenced >::checkSubType< osg::Projection >(L,2));
 		if( !projection_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projection in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Projection & projection=*projection_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Projection &)");
@@ -1439,13 +1566,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::apply(osg::Camera & camera) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::apply(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Camera* camera_ptr=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 		if( !camera_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgUtil::IntersectionVisitor::apply function");
 		}
 		osg::Camera & camera=*camera_ptr;
 
-		osgUtil::IntersectionVisitor* self=dynamic_cast< osgUtil::IntersectionVisitor* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::apply(osg::Camera &)");
@@ -1468,6 +1595,404 @@ public:
 		if (_lg_typecheck_apply_overload_9(L)) return _bind_apply_overload_9(L);
 
 		luaL_error(L, "error in function apply, cannot match any of the overloads for function apply:\n  apply(osg::Node &)\n  apply(osg::Geode &)\n  apply(osg::Billboard &)\n  apply(osg::Group &)\n  apply(osg::LOD &)\n  apply(osg::PagedLOD &)\n  apply(osg::Transform &)\n  apply(osg::Projection &)\n  apply(osg::Camera &)\n");
+		return 0;
+	}
+
+	// osg::Vec3f osgUtil::IntersectionVisitor::base_getViewPoint() const
+	static int _bind_base_getViewPoint(lua_State *L) {
+		if (!_lg_typecheck_base_getViewPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::IntersectionVisitor::base_getViewPoint() const function, expected prototype:\nosg::Vec3f osgUtil::IntersectionVisitor::base_getViewPoint() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectionVisitor::base_getViewPoint() const");
+		}
+		osg::Vec3f stack_lret = self->IntersectionVisitor::getViewPoint();
+		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// float osgUtil::IntersectionVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
+	static int _bind_base_getDistanceFromEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceFromEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::IntersectionVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::IntersectionVisitor::base_getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::IntersectionVisitor::base_getDistanceFromEyePoint function");
+		}
+		const osg::Vec3f & _arg1=*_arg1_ptr;
+		bool _arg2=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectionVisitor::base_getDistanceFromEyePoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->IntersectionVisitor::getDistanceFromEyePoint(_arg1, _arg2);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// float osgUtil::IntersectionVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
+	static int _bind_base_getDistanceToViewPoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceToViewPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::IntersectionVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const function, expected prototype:\nfloat osgUtil::IntersectionVisitor::base_getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* _arg1_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgUtil::IntersectionVisitor::base_getDistanceToViewPoint function");
+		}
+		const osg::Vec3f & _arg1=*_arg1_ptr;
+		bool _arg2=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectionVisitor::base_getDistanceToViewPoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->IntersectionVisitor::getDistanceToViewPoint(_arg1, _arg2);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// const char * osgUtil::IntersectionVisitor::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::IntersectionVisitor::base_libraryName() const function, expected prototype:\nconst char * osgUtil::IntersectionVisitor::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectionVisitor::base_libraryName() const");
+		}
+		const char * lret = self->IntersectionVisitor::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osgUtil::IntersectionVisitor::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgUtil::IntersectionVisitor::base_className() const function, expected prototype:\nconst char * osgUtil::IntersectionVisitor::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgUtil::IntersectionVisitor::base_className() const");
+		}
+		const char * lret = self->IntersectionVisitor::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_reset()
+	static int _bind_base_reset(lua_State *L) {
+		if (!_lg_typecheck_base_reset(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_reset() function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_reset()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_reset()");
+		}
+		self->IntersectionVisitor::reset();
+
+		return 0;
+	}
+
+	// osg::Vec3f osgUtil::IntersectionVisitor::base_getEyePoint() const
+	static int _bind_base_getEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgUtil::IntersectionVisitor::base_getEyePoint() const function, expected prototype:\nosg::Vec3f osgUtil::IntersectionVisitor::base_getEyePoint() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Vec3f osgUtil::IntersectionVisitor::base_getEyePoint() const");
+		}
+		osg::Vec3f stack_lret = self->IntersectionVisitor::getEyePoint();
+		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// float osgUtil::IntersectionVisitor::base_getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const
+	static int _bind_base_getDistanceToEyePoint(lua_State *L) {
+		if (!_lg_typecheck_base_getDistanceToEyePoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in float osgUtil::IntersectionVisitor::base_getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const function, expected prototype:\nfloat osgUtil::IntersectionVisitor::base_getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* pos_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in osgUtil::IntersectionVisitor::base_getDistanceToEyePoint function");
+		}
+		const osg::Vec3f & pos=*pos_ptr;
+		bool withLODScale=(bool)(lua_toboolean(L,3)==1);
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call float osgUtil::IntersectionVisitor::base_getDistanceToEyePoint(const osg::Vec3f &, bool) const");
+		}
+		float lret = self->IntersectionVisitor::getDistanceToEyePoint(pos, withLODScale);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Node & node)
+	static int _bind_base_apply_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Node & node) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Node & node)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		if( !node_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg node in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Node & node=*node_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Node &)");
+		}
+		self->IntersectionVisitor::apply(node);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Geode & geode)
+	static int _bind_base_apply_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Geode & geode) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Geode & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Geode* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2));
+		if( !geode_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg geode in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Geode & geode=*geode_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Geode &)");
+		}
+		self->IntersectionVisitor::apply(geode);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Billboard & geode)
+	static int _bind_base_apply_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Billboard & geode) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Billboard & geode)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Billboard* geode_ptr=(Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,2));
+		if( !geode_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg geode in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Billboard & geode=*geode_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Billboard &)");
+		}
+		self->IntersectionVisitor::apply(geode);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Group & group)
+	static int _bind_base_apply_overload_4(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Group & group) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Group & group)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Group* group_ptr=(Luna< osg::Referenced >::checkSubType< osg::Group >(L,2));
+		if( !group_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg group in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Group & group=*group_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Group &)");
+		}
+		self->IntersectionVisitor::apply(group);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::LOD & lod)
+	static int _bind_base_apply_overload_5(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::LOD & lod) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::LOD & lod)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::LOD* lod_ptr=(Luna< osg::Referenced >::checkSubType< osg::LOD >(L,2));
+		if( !lod_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg lod in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::LOD & lod=*lod_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::LOD &)");
+		}
+		self->IntersectionVisitor::apply(lod);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::PagedLOD & lod)
+	static int _bind_base_apply_overload_6(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::PagedLOD & lod) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::PagedLOD & lod)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::PagedLOD* lod_ptr=(Luna< osg::Referenced >::checkSubType< osg::PagedLOD >(L,2));
+		if( !lod_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg lod in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::PagedLOD & lod=*lod_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::PagedLOD &)");
+		}
+		self->IntersectionVisitor::apply(lod);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Transform & transform)
+	static int _bind_base_apply_overload_7(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_7(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Transform & transform) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Transform & transform)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Transform* transform_ptr=(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,2));
+		if( !transform_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg transform in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Transform & transform=*transform_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Transform &)");
+		}
+		self->IntersectionVisitor::apply(transform);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Projection & projection)
+	static int _bind_base_apply_overload_8(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_8(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Projection & projection) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Projection & projection)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Projection* projection_ptr=(Luna< osg::Referenced >::checkSubType< osg::Projection >(L,2));
+		if( !projection_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg projection in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Projection & projection=*projection_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Projection &)");
+		}
+		self->IntersectionVisitor::apply(projection);
+
+		return 0;
+	}
+
+	// void osgUtil::IntersectionVisitor::base_apply(osg::Camera & camera)
+	static int _bind_base_apply_overload_9(lua_State *L) {
+		if (!_lg_typecheck_base_apply_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::IntersectionVisitor::base_apply(osg::Camera & camera) function, expected prototype:\nvoid osgUtil::IntersectionVisitor::base_apply(osg::Camera & camera)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Camera* camera_ptr=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
+		if( !camera_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg camera in osgUtil::IntersectionVisitor::base_apply function");
+		}
+		osg::Camera & camera=*camera_ptr;
+
+		osgUtil::IntersectionVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::IntersectionVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::IntersectionVisitor::base_apply(osg::Camera &)");
+		}
+		self->IntersectionVisitor::apply(camera);
+
+		return 0;
+	}
+
+	// Overload binder for osgUtil::IntersectionVisitor::base_apply
+	static int _bind_base_apply(lua_State *L) {
+		if (_lg_typecheck_base_apply_overload_1(L)) return _bind_base_apply_overload_1(L);
+		if (_lg_typecheck_base_apply_overload_2(L)) return _bind_base_apply_overload_2(L);
+		if (_lg_typecheck_base_apply_overload_3(L)) return _bind_base_apply_overload_3(L);
+		if (_lg_typecheck_base_apply_overload_4(L)) return _bind_base_apply_overload_4(L);
+		if (_lg_typecheck_base_apply_overload_5(L)) return _bind_base_apply_overload_5(L);
+		if (_lg_typecheck_base_apply_overload_6(L)) return _bind_base_apply_overload_6(L);
+		if (_lg_typecheck_base_apply_overload_7(L)) return _bind_base_apply_overload_7(L);
+		if (_lg_typecheck_base_apply_overload_8(L)) return _bind_base_apply_overload_8(L);
+		if (_lg_typecheck_base_apply_overload_9(L)) return _bind_base_apply_overload_9(L);
+
+		luaL_error(L, "error in function base_apply, cannot match any of the overloads for function base_apply:\n  base_apply(osg::Node &)\n  base_apply(osg::Geode &)\n  base_apply(osg::Billboard &)\n  base_apply(osg::Group &)\n  base_apply(osg::LOD &)\n  base_apply(osg::PagedLOD &)\n  base_apply(osg::Transform &)\n  base_apply(osg::Projection &)\n  base_apply(osg::Camera &)\n");
 		return 0;
 	}
 
@@ -1524,6 +2049,15 @@ luna_RegType LunaTraits< osgUtil::IntersectionVisitor >::methods[] = {
 	{"getLODSelectionMode", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_getLODSelectionMode},
 	{"getDistanceToEyePoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_getDistanceToEyePoint},
 	{"apply", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_apply},
+	{"base_getViewPoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_getViewPoint},
+	{"base_getDistanceFromEyePoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_getDistanceFromEyePoint},
+	{"base_getDistanceToViewPoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_getDistanceToViewPoint},
+	{"base_libraryName", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_className},
+	{"base_reset", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_reset},
+	{"base_getEyePoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_getEyePoint},
+	{"base_getDistanceToEyePoint", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_getDistanceToEyePoint},
+	{"base_apply", &luna_wrapper_osgUtil_IntersectionVisitor::_bind_base_apply},
 	{"__eq", &luna_wrapper_osgUtil_IntersectionVisitor::_bind___eq},
 	{0,0}
 };

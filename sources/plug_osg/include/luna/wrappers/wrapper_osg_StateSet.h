@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return StateSet::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return StateSet::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateSet::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateSet::getUserData();
 	};
 
 	// osg::Object * osg::StateSet::cloneType() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateSet::cloneType();
+		return StateSet::cloneType();
 	};
 
 	// osg::Object * osg::StateSet::clone(const osg::CopyOp & arg1) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateSet::clone(arg1);
+		return StateSet::clone(arg1);
 	};
 
 	// bool osg::StateSet::isSameKindAs(const osg::Object * obj) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateSet::isSameKindAs(obj);
+		return StateSet::isSameKindAs(obj);
 	};
 
 	// const char * osg::StateSet::libraryName() const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateSet::libraryName();
+		return StateSet::libraryName();
 	};
 
 	// const char * osg::StateSet::className() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateSet::className();
+		return StateSet::className();
 	};
 
 	// void osg::StateSet::computeDataVariance()
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateSet::computeDataVariance();
+		return StateSet::computeDataVariance();
 	};
 
 	// void osg::StateSet::releaseGLObjects(osg::State * state = 0) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateSet::releaseGLObjects(state);
+		return StateSet::releaseGLObjects(state);
 	};
 
 

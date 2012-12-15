@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DefaultUserDataContainer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DefaultUserDataContainer::computeDataVariance();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DefaultUserDataContainer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::DefaultUserDataContainer::cloneType() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DefaultUserDataContainer::cloneType();
+		return DefaultUserDataContainer::cloneType();
 	};
 
 	// osg::Object * osg::DefaultUserDataContainer::clone(const osg::CopyOp & arg1) const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DefaultUserDataContainer::clone(arg1);
+		return DefaultUserDataContainer::clone(arg1);
 	};
 
 	// bool osg::DefaultUserDataContainer::isSameKindAs(const osg::Object * obj) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::DefaultUserDataContainer::isSameKindAs(obj);
+		return DefaultUserDataContainer::isSameKindAs(obj);
 	};
 
 	// const char * osg::DefaultUserDataContainer::libraryName() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DefaultUserDataContainer::libraryName();
+		return DefaultUserDataContainer::libraryName();
 	};
 
 	// const char * osg::DefaultUserDataContainer::className() const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DefaultUserDataContainer::className();
+		return DefaultUserDataContainer::className();
 	};
 
 	// void osg::DefaultUserDataContainer::setUserData(osg::Referenced * obj)
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DefaultUserDataContainer::setUserData(obj);
+		return DefaultUserDataContainer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::DefaultUserDataContainer::getUserData()
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserData();
+		return DefaultUserDataContainer::getUserData();
 	};
 
 	// const osg::Referenced * osg::DefaultUserDataContainer::getUserData() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserData();
+		return DefaultUserDataContainer::getUserData();
 	};
 
 	// unsigned int osg::DefaultUserDataContainer::addUserObject(osg::Object * obj)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DefaultUserDataContainer::addUserObject(obj);
+		return DefaultUserDataContainer::addUserObject(obj);
 	};
 
 	// void osg::DefaultUserDataContainer::setUserObject(unsigned int i, osg::Object * obj)
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DefaultUserDataContainer::setUserObject(i, obj);
+		return DefaultUserDataContainer::setUserObject(i, obj);
 	};
 
 	// void osg::DefaultUserDataContainer::removeUserObject(unsigned int i)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DefaultUserDataContainer::removeUserObject(i);
+		return DefaultUserDataContainer::removeUserObject(i);
 	};
 
 	// osg::Object * osg::DefaultUserDataContainer::getUserObject(unsigned int i)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserObject(i);
+		return DefaultUserDataContainer::getUserObject(i);
 	};
 
 	// const osg::Object * osg::DefaultUserDataContainer::getUserObject(unsigned int i) const
@@ -170,7 +170,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserObject(i);
+		return DefaultUserDataContainer::getUserObject(i);
 	};
 
 	// unsigned int osg::DefaultUserDataContainer::getNumUserObjects() const
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DefaultUserDataContainer::getNumUserObjects();
+		return DefaultUserDataContainer::getNumUserObjects();
 	};
 
 	// unsigned int osg::DefaultUserDataContainer::getUserObjectIndex(const osg::Object * obj, unsigned int startPos = 0) const
@@ -190,7 +190,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserObjectIndex(obj, startPos);
+		return DefaultUserDataContainer::getUserObjectIndex(obj, startPos);
 	};
 
 	// unsigned int osg::DefaultUserDataContainer::getUserObjectIndex(const std::string & name, unsigned int startPos = 0) const
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DefaultUserDataContainer::getUserObjectIndex(name, startPos);
+		return DefaultUserDataContainer::getUserObjectIndex(name, startPos);
 	};
 
 	// void osg::DefaultUserDataContainer::setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions)
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DefaultUserDataContainer::setDescriptions(descriptions);
+		return DefaultUserDataContainer::setDescriptions(descriptions);
 	};
 
 	// osg::UserDataContainer::DescriptionList & osg::DefaultUserDataContainer::getDescriptions()
@@ -220,7 +220,7 @@ public:
 			return *(_obj.callFunction<osg::UserDataContainer::DescriptionList*>());
 		}
 
-		return osg::DefaultUserDataContainer::getDescriptions();
+		return DefaultUserDataContainer::getDescriptions();
 	};
 
 	// const osg::UserDataContainer::DescriptionList & osg::DefaultUserDataContainer::getDescriptions() const
@@ -229,7 +229,7 @@ public:
 			return *(_obj.callFunction<osg::UserDataContainer::DescriptionList*>());
 		}
 
-		return osg::DefaultUserDataContainer::getDescriptions();
+		return DefaultUserDataContainer::getDescriptions();
 	};
 
 	// unsigned int osg::DefaultUserDataContainer::getNumDescriptions() const
@@ -238,7 +238,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DefaultUserDataContainer::getNumDescriptions();
+		return DefaultUserDataContainer::getNumDescriptions();
 	};
 
 	// void osg::DefaultUserDataContainer::addDescription(const std::string & desc)
@@ -248,7 +248,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DefaultUserDataContainer::addDescription(desc);
+		return DefaultUserDataContainer::addDescription(desc);
 	};
 
 

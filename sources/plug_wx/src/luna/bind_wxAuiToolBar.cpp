@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxAuiToolBar* ptr= dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		//wxAuiToolBar* ptr= dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* ptr= luna_caster< wxObject, wxAuiToolBar >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -577,6 +578,707 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AcceptsFocus(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AcceptsFocusFromKeyboard(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AcceptsFocusRecursively(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasFocus(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetCanFocus(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetFocus(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetFocusFromKbd(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddChild(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RemoveChild(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Reparent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AlwaysShowScrollbars(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetScrollPos(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetScrollRange(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetScrollThumb(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsScrollbarAlwaysShown(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ScrollLines(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ScrollPages(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ScrollWindow(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,20234418)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetScrollPos(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetScrollbar(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ClientToWindowSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WindowToClientSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Fit(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FitInside(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEffectiveMinSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMaxClientSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMaxSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMinClientSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMinSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetBestVirtualSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetWindowBorderSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InformFirstDirection(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SendSizeEvent(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetMaxClientSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetMaxSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetMinClientSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetMinSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSizeHints_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSizeHints_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClientAreaOrigin(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ClearBackground(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetBackgroundStyle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCharHeight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCharWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDefaultAttributes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Refresh(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,20234418)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Update(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetBackgroundStyle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ShouldInheritColours(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetThemeEnabled(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetThemeEnabled(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanSetTransparent(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetTransparent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Lower(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Raise(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HideWithEffect(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsShown(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsShownOnScreen(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Enable(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Show(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ShowWithEffect(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetHelpTextAtPoint(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValidator(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetValidator(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferDataFromWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferDataToWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Validate(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLayoutDirection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetLayoutDirection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetAcceleratorTable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Destroy(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDropTarget(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetDropTarget(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,93694316)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DragAcceptFiles(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Layout(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasCapture(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetCursor(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WarpPointer(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DoUpdateWindowUI(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HasMultiplePages(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InheritAttributes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InitDialog(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsRetained(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsTopLevel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_MakeModal(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnInternalIdle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RegisterHotKey(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UnregisterHotKey(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UpdateWindowUI(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Command(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLabel(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetLabel(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetWindowStyleFlag(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetFont(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -591,7 +1293,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int id=luatop>1 ? (int)lua_tointeger(L,2) : -1;
 		const wxPoint* position_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !position_ptr ) {
@@ -617,7 +1319,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
 		const wxPoint* position_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !position_ptr ) {
@@ -654,7 +1356,7 @@ public:
 
 		long style=(long)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetWindowStyleFlag(long)");
@@ -672,7 +1374,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxAuiToolBar::GetWindowStyleFlag() const");
@@ -692,7 +1394,7 @@ public:
 
 		wxAuiToolBarArt* art=(Luna< wxAuiToolBarArt >::check(L,2));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetArtProvider(wxAuiToolBarArt *)");
@@ -710,7 +1412,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarArt * wxAuiToolBar::GetArtProvider() const");
@@ -730,13 +1432,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiToolBar::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiToolBar::SetFont function");
 		}
 		const wxFont & font=*font_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::SetFont(const wxFont &)");
@@ -758,7 +1460,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,4));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAuiToolBar::AddTool function");
 		}
@@ -766,7 +1468,7 @@ public:
 		wxString short_help_string(lua_tostring(L,5),lua_objlen(L,5));
 		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddTool(int, const wxString &, const wxBitmap &, const wxString &, wxItemKind)");
@@ -788,12 +1490,12 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,4));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAuiToolBar::AddTool function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxBitmap* disabled_bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5));
+		const wxBitmap* disabled_bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,5));
 		if( !disabled_bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg disabled_bitmap in wxAuiToolBar::AddTool function");
 		}
@@ -803,7 +1505,7 @@ public:
 		wxString long_help_string(lua_tostring(L,8),lua_objlen(L,8));
 		wxObject* client_data=(Luna< wxObject >::check(L,9));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddTool(int, const wxString &, const wxBitmap &, const wxBitmap &, wxItemKind, const wxString &, const wxString &, wxObject *)");
@@ -826,12 +1528,12 @@ public:
 		int luatop = lua_gettop(L);
 
 		int tool_id=(int)lua_tointeger(L,2);
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,3));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAuiToolBar::AddTool function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxBitmap* disabled_bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4));
+		const wxBitmap* disabled_bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,4));
 		if( !disabled_bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg disabled_bitmap in wxAuiToolBar::AddTool function");
 		}
@@ -841,7 +1543,7 @@ public:
 		wxString short_help_string(lua_tostring(L,7),lua_objlen(L,7));
 		wxString long_help_string(lua_tostring(L,8),lua_objlen(L,8));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddTool(int, const wxBitmap &, const wxBitmap &, bool, wxObject *, const wxString &, const wxString &)");
@@ -877,7 +1579,7 @@ public:
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 		int width=luatop>3 ? (int)lua_tointeger(L,4) : -1;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddLabel(int, const wxString &, const int)");
@@ -899,10 +1601,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxControl* control=dynamic_cast< wxControl* >(Luna< wxObject >::check(L,2));
+		wxControl* control=(Luna< wxObject >::checkSubType< wxControl >(L,2));
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddControl(wxControl *, const wxString &)");
@@ -923,7 +1625,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddSeparator()");
@@ -945,7 +1647,7 @@ public:
 
 		int pixels=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddSpacer(int)");
@@ -969,7 +1671,7 @@ public:
 
 		int proportion=luatop>1 ? (int)lua_tointeger(L,2) : 1;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::AddStretchSpacer(int)");
@@ -990,7 +1692,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::Realize()");
@@ -1010,7 +1712,7 @@ public:
 
 		int window_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxControl * wxAuiToolBar::FindControl(int)");
@@ -1033,7 +1735,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::FindToolByPosition(int, int) const");
@@ -1055,7 +1757,7 @@ public:
 
 		int idx=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::FindToolByIndex(int) const");
@@ -1077,7 +1779,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiToolBarItem * wxAuiToolBar::FindTool(int) const");
@@ -1098,7 +1800,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::ClearTools()");
@@ -1116,7 +1818,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::Clear()");
@@ -1135,7 +1837,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::DeleteTool(int)");
@@ -1155,7 +1857,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::DeleteByIndex(int)");
@@ -1174,7 +1876,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxAuiToolBar::GetToolCount() const");
@@ -1194,7 +1896,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolPos(int) const");
@@ -1214,7 +1916,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolIndex(int) const");
@@ -1234,7 +1936,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolFits(int) const");
@@ -1254,7 +1956,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRect wxAuiToolBar::GetToolRect(int) const");
@@ -1277,7 +1979,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolFitsByIndex(int) const");
@@ -1296,7 +1998,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolBarFits() const");
@@ -1320,7 +2022,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetMargins(const wxSize &)");
@@ -1340,7 +2042,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetMargins(int, int)");
@@ -1362,7 +2064,7 @@ public:
 		int top=(int)lua_tointeger(L,4);
 		int bottom=(int)lua_tointeger(L,5);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetMargins(int, int, int, int)");
@@ -1395,7 +2097,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolBitmapSize(const wxSize &)");
@@ -1413,7 +2115,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::GetToolBitmapSize() const");
@@ -1435,7 +2137,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetOverflowVisible() const");
@@ -1455,7 +2157,7 @@ public:
 
 		bool visible=(bool)(lua_toboolean(L,2)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetOverflowVisible(bool)");
@@ -1473,7 +2175,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetGripperVisible() const");
@@ -1493,7 +2195,7 @@ public:
 
 		bool visible=(bool)(lua_toboolean(L,2)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetGripperVisible(bool)");
@@ -1513,7 +2215,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		bool state=(bool)(lua_toboolean(L,3)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::ToggleTool(int, bool)");
@@ -1532,7 +2234,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolToggled(int) const");
@@ -1553,7 +2255,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		bool state=(bool)(lua_toboolean(L,3)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::EnableTool(int, bool)");
@@ -1572,7 +2274,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolEnabled(int) const");
@@ -1593,7 +2295,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		bool dropdown=(bool)(lua_toboolean(L,3)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolDropDown(int, bool)");
@@ -1612,7 +2314,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolDropDown(int) const");
@@ -1632,7 +2334,7 @@ public:
 
 		int padding=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolBorderPadding(int)");
@@ -1650,7 +2352,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolBorderPadding() const");
@@ -1670,7 +2372,7 @@ public:
 
 		int orientation=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolTextOrientation(int)");
@@ -1688,7 +2390,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolTextOrientation() const");
@@ -1708,7 +2410,7 @@ public:
 
 		int packing=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolPacking(int)");
@@ -1726,7 +2428,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolPacking() const");
@@ -1747,7 +2449,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		int proportion=(int)lua_tointeger(L,3);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolProportion(int, int)");
@@ -1766,7 +2468,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolProportion(int) const");
@@ -1786,7 +2488,7 @@ public:
 
 		int separation=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolSeparation(int)");
@@ -1804,7 +2506,7 @@ public:
 		}
 
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiToolBar::GetToolSeparation() const");
@@ -1825,7 +2527,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		bool sticky=(bool)(lua_toboolean(L,3)==1);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolSticky(int, bool)");
@@ -1844,7 +2546,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::GetToolSticky(int) const");
@@ -1864,7 +2566,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::GetToolLabel(int) const");
@@ -1885,7 +2587,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolLabel(int, const wxString &)");
@@ -1904,7 +2606,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap wxAuiToolBar::GetToolBitmap(int) const");
@@ -1926,13 +2628,13 @@ public:
 		}
 
 		int tool_id=(int)lua_tointeger(L,2);
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,3));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxAuiToolBar::SetToolBitmap function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolBitmap(int, const wxBitmap &)");
@@ -1951,7 +2653,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::GetToolShortHelp(int) const");
@@ -1972,7 +2674,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		wxString help_string(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolShortHelp(int, const wxString &)");
@@ -1991,7 +2693,7 @@ public:
 
 		int tool_id=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::GetToolLongHelp(int) const");
@@ -2012,7 +2714,7 @@ public:
 		int tool_id=(int)lua_tointeger(L,2);
 		wxString help_string(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetToolLongHelp(int, const wxString &)");
@@ -2040,7 +2742,7 @@ public:
 		}
 		const wxAuiToolBarItemArray & append=*append_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiToolBar::SetCustomOverflowItems(const wxAuiToolBarItemArray &, const wxAuiToolBarItemArray &)");
@@ -2059,7 +2761,7 @@ public:
 
 		int dock_direction=(int)lua_tointeger(L,2);
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::GetHintSize(int) const");
@@ -2086,12 +2788,2106 @@ public:
 		}
 		const wxAuiPaneInfo & pane=*pane_ptr;
 
-		wxAuiToolBar* self=dynamic_cast< wxAuiToolBar* >(Luna< wxObject >::check(L,1));
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::IsPaneValid(const wxAuiPaneInfo &) const");
 		}
 		bool lret = self->IsPaneValid(pane);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxAuiToolBar::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiToolBar::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiToolBar::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiToolBar::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxAuiToolBar::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_AcceptsFocus() const
+	static int _bind_base_AcceptsFocus(lua_State *L) {
+		if (!_lg_typecheck_base_AcceptsFocus(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_AcceptsFocus() const function, expected prototype:\nbool wxAuiToolBar::base_AcceptsFocus() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_AcceptsFocus() const");
+		}
+		bool lret = self->wxAuiToolBar::AcceptsFocus();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_AcceptsFocusFromKeyboard() const
+	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
+		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxAuiToolBar::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_AcceptsFocusFromKeyboard() const");
+		}
+		bool lret = self->wxAuiToolBar::AcceptsFocusFromKeyboard();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_AcceptsFocusRecursively() const
+	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
+		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxAuiToolBar::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_AcceptsFocusRecursively() const");
+		}
+		bool lret = self->wxAuiToolBar::AcceptsFocusRecursively();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_HasFocus() const
+	static int _bind_base_HasFocus(lua_State *L) {
+		if (!_lg_typecheck_base_HasFocus(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_HasFocus() const function, expected prototype:\nbool wxAuiToolBar::base_HasFocus() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_HasFocus() const");
+		}
+		bool lret = self->wxAuiToolBar::HasFocus();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetCanFocus(bool canFocus)
+	static int _bind_base_SetCanFocus(lua_State *L) {
+		if (!_lg_typecheck_base_SetCanFocus(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxAuiToolBar::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+		}
+
+		bool canFocus=(bool)(lua_toboolean(L,2)==1);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetCanFocus(bool)");
+		}
+		self->wxAuiToolBar::SetCanFocus(canFocus);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetFocus()
+	static int _bind_base_SetFocus(lua_State *L) {
+		if (!_lg_typecheck_base_SetFocus(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetFocus() function, expected prototype:\nvoid wxAuiToolBar::base_SetFocus()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetFocus()");
+		}
+		self->wxAuiToolBar::SetFocus();
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetFocusFromKbd()
+	static int _bind_base_SetFocusFromKbd(lua_State *L) {
+		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetFocusFromKbd() function, expected prototype:\nvoid wxAuiToolBar::base_SetFocusFromKbd()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetFocusFromKbd()");
+		}
+		self->wxAuiToolBar::SetFocusFromKbd();
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_AddChild(wxWindow * child)
+	static int _bind_base_AddChild(lua_State *L) {
+		if (!_lg_typecheck_base_AddChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxAuiToolBar::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_AddChild(wxWindow *)");
+		}
+		self->wxAuiToolBar::AddChild(child);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_RemoveChild(wxWindow * child)
+	static int _bind_base_RemoveChild(lua_State *L) {
+		if (!_lg_typecheck_base_RemoveChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxAuiToolBar::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_RemoveChild(wxWindow *)");
+		}
+		self->wxAuiToolBar::RemoveChild(child);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_Reparent(wxWindow * newParent)
+	static int _bind_base_Reparent(lua_State *L) {
+		if (!_lg_typecheck_base_Reparent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxAuiToolBar::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Reparent(wxWindow *)");
+		}
+		bool lret = self->wxAuiToolBar::Reparent(newParent);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
+	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
+		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxAuiToolBar::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool hflag=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		bool vflag=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_AlwaysShowScrollbars(bool, bool)");
+		}
+		self->wxAuiToolBar::AlwaysShowScrollbars(hflag, vflag);
+
+		return 0;
+	}
+
+	// int wxAuiToolBar::base_GetScrollPos(int orientation) const
+	static int _bind_base_GetScrollPos(lua_State *L) {
+		if (!_lg_typecheck_base_GetScrollPos(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiToolBar::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxAuiToolBar::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+		}
+
+		int orientation=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiToolBar::base_GetScrollPos(int) const");
+		}
+		int lret = self->wxAuiToolBar::GetScrollPos(orientation);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxAuiToolBar::base_GetScrollRange(int orientation) const
+	static int _bind_base_GetScrollRange(lua_State *L) {
+		if (!_lg_typecheck_base_GetScrollRange(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiToolBar::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxAuiToolBar::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+		}
+
+		int orientation=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiToolBar::base_GetScrollRange(int) const");
+		}
+		int lret = self->wxAuiToolBar::GetScrollRange(orientation);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxAuiToolBar::base_GetScrollThumb(int orientation) const
+	static int _bind_base_GetScrollThumb(lua_State *L) {
+		if (!_lg_typecheck_base_GetScrollThumb(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiToolBar::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxAuiToolBar::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+		}
+
+		int orientation=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiToolBar::base_GetScrollThumb(int) const");
+		}
+		int lret = self->wxAuiToolBar::GetScrollThumb(orientation);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_IsScrollbarAlwaysShown(int orient) const
+	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
+		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxAuiToolBar::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+		}
+
+		int orient=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_IsScrollbarAlwaysShown(int) const");
+		}
+		bool lret = self->wxAuiToolBar::IsScrollbarAlwaysShown(orient);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_ScrollLines(int lines)
+	static int _bind_base_ScrollLines(lua_State *L) {
+		if (!_lg_typecheck_base_ScrollLines(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_ScrollLines(int lines) function, expected prototype:\nbool wxAuiToolBar::base_ScrollLines(int lines)\nClass arguments details:\n");
+		}
+
+		int lines=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_ScrollLines(int)");
+		}
+		bool lret = self->wxAuiToolBar::ScrollLines(lines);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_ScrollPages(int pages)
+	static int _bind_base_ScrollPages(lua_State *L) {
+		if (!_lg_typecheck_base_ScrollPages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_ScrollPages(int pages) function, expected prototype:\nbool wxAuiToolBar::base_ScrollPages(int pages)\nClass arguments details:\n");
+		}
+
+		int pages=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_ScrollPages(int)");
+		}
+		bool lret = self->wxAuiToolBar::ScrollPages(pages);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
+	static int _bind_base_ScrollWindow(lua_State *L) {
+		if (!_lg_typecheck_base_ScrollWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiToolBar::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int dx=(int)lua_tointeger(L,2);
+		int dy=(int)lua_tointeger(L,3);
+		const wxRect* rect=luatop>3 ? (Luna< wxRect >::check(L,4)) : (const wxRect*)NULL;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_ScrollWindow(int, int, const wxRect *)");
+		}
+		self->wxAuiToolBar::ScrollWindow(dx, dy, rect);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetScrollPos(int orientation, int pos, bool refresh = true)
+	static int _bind_base_SetScrollPos(lua_State *L) {
+		if (!_lg_typecheck_base_SetScrollPos(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxAuiToolBar::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int orientation=(int)lua_tointeger(L,2);
+		int pos=(int)lua_tointeger(L,3);
+		bool refresh=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetScrollPos(int, int, bool)");
+		}
+		self->wxAuiToolBar::SetScrollPos(orientation, pos, refresh);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
+	static int _bind_base_SetScrollbar(lua_State *L) {
+		if (!_lg_typecheck_base_SetScrollbar(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxAuiToolBar::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int orientation=(int)lua_tointeger(L,2);
+		int position=(int)lua_tointeger(L,3);
+		int thumbSize=(int)lua_tointeger(L,4);
+		int range=(int)lua_tointeger(L,5);
+		bool refresh=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetScrollbar(int, int, int, int, bool)");
+		}
+		self->wxAuiToolBar::SetScrollbar(orientation, position, thumbSize, range, refresh);
+
+		return 0;
+	}
+
+	// wxSize wxAuiToolBar::base_ClientToWindowSize(const wxSize & size) const
+	static int _bind_base_ClientToWindowSize(lua_State *L) {
+		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiToolBar::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_ClientToWindowSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_ClientToWindowSize(const wxSize &) const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::ClientToWindowSize(size);
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_WindowToClientSize(const wxSize & size) const
+	static int _bind_base_WindowToClientSize(lua_State *L) {
+		if (!_lg_typecheck_base_WindowToClientSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiToolBar::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_WindowToClientSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_WindowToClientSize(const wxSize &) const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::WindowToClientSize(size);
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_Fit()
+	static int _bind_base_Fit(lua_State *L) {
+		if (!_lg_typecheck_base_Fit(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Fit() function, expected prototype:\nvoid wxAuiToolBar::base_Fit()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Fit()");
+		}
+		self->wxAuiToolBar::Fit();
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_FitInside()
+	static int _bind_base_FitInside(lua_State *L) {
+		if (!_lg_typecheck_base_FitInside(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_FitInside() function, expected prototype:\nvoid wxAuiToolBar::base_FitInside()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_FitInside()");
+		}
+		self->wxAuiToolBar::FitInside();
+
+		return 0;
+	}
+
+	// wxSize wxAuiToolBar::base_GetEffectiveMinSize() const
+	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetEffectiveMinSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetEffectiveMinSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetMaxClientSize() const
+	static int _bind_base_GetMaxClientSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetMaxClientSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetMaxClientSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetMaxClientSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetMaxSize() const
+	static int _bind_base_GetMaxSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetMaxSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetMaxSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetMaxSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetMaxSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetMaxSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetMinClientSize() const
+	static int _bind_base_GetMinClientSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetMinClientSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetMinClientSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetMinClientSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetMinClientSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetMinClientSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetMinSize() const
+	static int _bind_base_GetMinSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetMinSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetMinSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetMinSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetMinSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetMinSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetBestVirtualSize() const
+	static int _bind_base_GetBestVirtualSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetBestVirtualSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetBestVirtualSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetBestVirtualSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxSize wxAuiToolBar::base_GetWindowBorderSize() const
+	static int _bind_base_GetWindowBorderSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBar::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxAuiToolBar::base_GetWindowBorderSize() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxAuiToolBar::base_GetWindowBorderSize() const");
+		}
+		wxSize stack_lret = self->wxAuiToolBar::GetWindowBorderSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_InformFirstDirection(int direction, int size, int availableOtherDir)
+	static int _bind_base_InformFirstDirection(lua_State *L) {
+		if (!_lg_typecheck_base_InformFirstDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxAuiToolBar::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+		}
+
+		int direction=(int)lua_tointeger(L,2);
+		int size=(int)lua_tointeger(L,3);
+		int availableOtherDir=(int)lua_tointeger(L,4);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_InformFirstDirection(int, int, int)");
+		}
+		bool lret = self->wxAuiToolBar::InformFirstDirection(direction, size, availableOtherDir);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SendSizeEvent(int flags = 0)
+	static int _bind_base_SendSizeEvent(lua_State *L) {
+		if (!_lg_typecheck_base_SendSizeEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxAuiToolBar::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SendSizeEvent(int)");
+		}
+		self->wxAuiToolBar::SendSizeEvent(flags);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetMaxClientSize(const wxSize & size)
+	static int _bind_base_SetMaxClientSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiToolBar::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_SetMaxClientSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetMaxClientSize(const wxSize &)");
+		}
+		self->wxAuiToolBar::SetMaxClientSize(size);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetMaxSize(const wxSize & size)
+	static int _bind_base_SetMaxSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetMaxSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxAuiToolBar::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_SetMaxSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetMaxSize(const wxSize &)");
+		}
+		self->wxAuiToolBar::SetMaxSize(size);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetMinClientSize(const wxSize & size)
+	static int _bind_base_SetMinClientSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetMinClientSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiToolBar::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_SetMinClientSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetMinClientSize(const wxSize &)");
+		}
+		self->wxAuiToolBar::SetMinClientSize(size);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetMinSize(const wxSize & size)
+	static int _bind_base_SetMinSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetMinSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxAuiToolBar::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+		}
+
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiToolBar::base_SetMinSize function");
+		}
+		const wxSize & size=*size_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetMinSize(const wxSize &)");
+		}
+		self->wxAuiToolBar::SetMinSize(size);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
+	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxAuiToolBar::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSize* minSize_ptr=(Luna< wxSize >::check(L,2));
+		if( !minSize_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg minSize in wxAuiToolBar::base_SetSizeHints function");
+		}
+		const wxSize & minSize=*minSize_ptr;
+		const wxSize* maxSize_ptr=luatop>2 ? (Luna< wxSize >::check(L,3)) : NULL;
+		if( luatop>2 && !maxSize_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg maxSize in wxAuiToolBar::base_SetSizeHints function");
+		}
+		const wxSize & maxSize=luatop>2 ? *maxSize_ptr : wxDefaultSize;
+		const wxSize* incSize_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
+		if( luatop>3 && !incSize_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg incSize in wxAuiToolBar::base_SetSizeHints function");
+		}
+		const wxSize & incSize=luatop>3 ? *incSize_ptr : wxDefaultSize;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)");
+		}
+		self->wxAuiToolBar::SetSizeHints(minSize, maxSize, incSize);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
+	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxAuiToolBar::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int minW=(int)lua_tointeger(L,2);
+		int minH=(int)lua_tointeger(L,3);
+		int maxW=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+		int maxH=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		int incW=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int incH=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetSizeHints(int, int, int, int, int, int)");
+		}
+		self->wxAuiToolBar::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
+
+		return 0;
+	}
+
+	// Overload binder for wxAuiToolBar::base_SetSizeHints
+	static int _bind_base_SetSizeHints(lua_State *L) {
+		if (_lg_typecheck_base_SetSizeHints_overload_1(L)) return _bind_base_SetSizeHints_overload_1(L);
+		if (_lg_typecheck_base_SetSizeHints_overload_2(L)) return _bind_base_SetSizeHints_overload_2(L);
+
+		luaL_error(L, "error in function base_SetSizeHints, cannot match any of the overloads for function base_SetSizeHints:\n  base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &)\n  base_SetSizeHints(int, int, int, int, int, int)\n");
+		return 0;
+	}
+
+	// wxPoint wxAuiToolBar::base_GetClientAreaOrigin() const
+	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
+		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPoint wxAuiToolBar::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxAuiToolBar::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPoint wxAuiToolBar::base_GetClientAreaOrigin() const");
+		}
+		wxPoint stack_lret = self->wxAuiToolBar::GetClientAreaOrigin();
+		wxPoint* lret = new wxPoint(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPoint >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_ClearBackground()
+	static int _bind_base_ClearBackground(lua_State *L) {
+		if (!_lg_typecheck_base_ClearBackground(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_ClearBackground() function, expected prototype:\nvoid wxAuiToolBar::base_ClearBackground()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_ClearBackground()");
+		}
+		self->wxAuiToolBar::ClearBackground();
+
+		return 0;
+	}
+
+	// wxBackgroundStyle wxAuiToolBar::base_GetBackgroundStyle() const
+	static int _bind_base_GetBackgroundStyle(lua_State *L) {
+		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxAuiToolBar::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxAuiToolBar::base_GetBackgroundStyle() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxAuiToolBar::base_GetBackgroundStyle() const");
+		}
+		wxBackgroundStyle lret = self->wxAuiToolBar::GetBackgroundStyle();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxAuiToolBar::base_GetCharHeight() const
+	static int _bind_base_GetCharHeight(lua_State *L) {
+		if (!_lg_typecheck_base_GetCharHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiToolBar::base_GetCharHeight() const function, expected prototype:\nint wxAuiToolBar::base_GetCharHeight() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiToolBar::base_GetCharHeight() const");
+		}
+		int lret = self->wxAuiToolBar::GetCharHeight();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxAuiToolBar::base_GetCharWidth() const
+	static int _bind_base_GetCharWidth(lua_State *L) {
+		if (!_lg_typecheck_base_GetCharWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiToolBar::base_GetCharWidth() const function, expected prototype:\nint wxAuiToolBar::base_GetCharWidth() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiToolBar::base_GetCharWidth() const");
+		}
+		int lret = self->wxAuiToolBar::GetCharWidth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxVisualAttributes wxAuiToolBar::base_GetDefaultAttributes() const
+	static int _bind_base_GetDefaultAttributes(lua_State *L) {
+		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxAuiToolBar::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxAuiToolBar::base_GetDefaultAttributes() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxAuiToolBar::base_GetDefaultAttributes() const");
+		}
+		wxVisualAttributes stack_lret = self->wxAuiToolBar::GetDefaultAttributes();
+		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxVisualAttributes >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
+	static int _bind_base_Refresh(lua_State *L) {
+		if (!_lg_typecheck_base_Refresh(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiToolBar::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool eraseBackground=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+		const wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (const wxRect*)NULL;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Refresh(bool, const wxRect *)");
+		}
+		self->wxAuiToolBar::Refresh(eraseBackground, rect);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_Update()
+	static int _bind_base_Update(lua_State *L) {
+		if (!_lg_typecheck_base_Update(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Update() function, expected prototype:\nvoid wxAuiToolBar::base_Update()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Update()");
+		}
+		self->wxAuiToolBar::Update();
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_SetBackgroundStyle(wxBackgroundStyle style)
+	static int _bind_base_SetBackgroundStyle(lua_State *L) {
+		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxAuiToolBar::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+		}
+
+		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_SetBackgroundStyle(wxBackgroundStyle)");
+		}
+		bool lret = self->wxAuiToolBar::SetBackgroundStyle(style);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_ShouldInheritColours() const
+	static int _bind_base_ShouldInheritColours(lua_State *L) {
+		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_ShouldInheritColours() const function, expected prototype:\nbool wxAuiToolBar::base_ShouldInheritColours() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_ShouldInheritColours() const");
+		}
+		bool lret = self->wxAuiToolBar::ShouldInheritColours();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetThemeEnabled(bool enable)
+	static int _bind_base_SetThemeEnabled(lua_State *L) {
+		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxAuiToolBar::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+		}
+
+		bool enable=(bool)(lua_toboolean(L,2)==1);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetThemeEnabled(bool)");
+		}
+		self->wxAuiToolBar::SetThemeEnabled(enable);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_GetThemeEnabled() const
+	static int _bind_base_GetThemeEnabled(lua_State *L) {
+		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_GetThemeEnabled() const function, expected prototype:\nbool wxAuiToolBar::base_GetThemeEnabled() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_GetThemeEnabled() const");
+		}
+		bool lret = self->wxAuiToolBar::GetThemeEnabled();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_CanSetTransparent()
+	static int _bind_base_CanSetTransparent(lua_State *L) {
+		if (!_lg_typecheck_base_CanSetTransparent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_CanSetTransparent() function, expected prototype:\nbool wxAuiToolBar::base_CanSetTransparent()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_CanSetTransparent()");
+		}
+		bool lret = self->wxAuiToolBar::CanSetTransparent();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_SetTransparent(unsigned char alpha)
+	static int _bind_base_SetTransparent(lua_State *L) {
+		if (!_lg_typecheck_base_SetTransparent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxAuiToolBar::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+		}
+
+		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_SetTransparent(unsigned char)");
+		}
+		bool lret = self->wxAuiToolBar::SetTransparent(alpha);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiToolBar::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxAuiToolBar::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiToolBar::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxAuiToolBar::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetExtraStyle(long exStyle)
+	static int _bind_base_SetExtraStyle(lua_State *L) {
+		if (!_lg_typecheck_base_SetExtraStyle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxAuiToolBar::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+		}
+
+		long exStyle=(long)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetExtraStyle(long)");
+		}
+		self->wxAuiToolBar::SetExtraStyle(exStyle);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_Lower()
+	static int _bind_base_Lower(lua_State *L) {
+		if (!_lg_typecheck_base_Lower(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Lower() function, expected prototype:\nvoid wxAuiToolBar::base_Lower()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Lower()");
+		}
+		self->wxAuiToolBar::Lower();
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_Raise()
+	static int _bind_base_Raise(lua_State *L) {
+		if (!_lg_typecheck_base_Raise(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Raise() function, expected prototype:\nvoid wxAuiToolBar::base_Raise()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Raise()");
+		}
+		self->wxAuiToolBar::Raise();
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
+	static int _bind_base_HideWithEffect(lua_State *L) {
+		if (!_lg_typecheck_base_HideWithEffect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiToolBar::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_HideWithEffect(wxShowEffect, unsigned int)");
+		}
+		bool lret = self->wxAuiToolBar::HideWithEffect(effect, timeout);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_IsShown() const
+	static int _bind_base_IsShown(lua_State *L) {
+		if (!_lg_typecheck_base_IsShown(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_IsShown() const function, expected prototype:\nbool wxAuiToolBar::base_IsShown() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_IsShown() const");
+		}
+		bool lret = self->wxAuiToolBar::IsShown();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_IsShownOnScreen() const
+	static int _bind_base_IsShownOnScreen(lua_State *L) {
+		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_IsShownOnScreen() const function, expected prototype:\nbool wxAuiToolBar::base_IsShownOnScreen() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_IsShownOnScreen() const");
+		}
+		bool lret = self->wxAuiToolBar::IsShownOnScreen();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_Enable(bool enable = true)
+	static int _bind_base_Enable(lua_State *L) {
+		if (!_lg_typecheck_base_Enable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Enable(bool enable = true) function, expected prototype:\nbool wxAuiToolBar::base_Enable(bool enable = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Enable(bool)");
+		}
+		bool lret = self->wxAuiToolBar::Enable(enable);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_Show(bool show = true)
+	static int _bind_base_Show(lua_State *L) {
+		if (!_lg_typecheck_base_Show(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Show(bool show = true) function, expected prototype:\nbool wxAuiToolBar::base_Show(bool show = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool show=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Show(bool)");
+		}
+		bool lret = self->wxAuiToolBar::Show(show);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
+	static int _bind_base_ShowWithEffect(lua_State *L) {
+		if (!_lg_typecheck_base_ShowWithEffect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiToolBar::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxShowEffect effect=(wxShowEffect)lua_tointeger(L,2);
+		unsigned int timeout=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_ShowWithEffect(wxShowEffect, unsigned int)");
+		}
+		bool lret = self->wxAuiToolBar::ShowWithEffect(effect, timeout);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxAuiToolBar::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
+	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
+		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxAuiToolBar::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxAuiToolBar::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+		}
+
+		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
+		if( !point_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg point in wxAuiToolBar::base_GetHelpTextAtPoint function");
+		}
+		const wxPoint & point=*point_ptr;
+		wxHelpEvent::Origin origin=(wxHelpEvent::Origin)lua_tointeger(L,3);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const");
+		}
+		wxString lret = self->wxAuiToolBar::GetHelpTextAtPoint(point, origin);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxValidator * wxAuiToolBar::base_GetValidator()
+	static int _bind_base_GetValidator(lua_State *L) {
+		if (!_lg_typecheck_base_GetValidator(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxValidator * wxAuiToolBar::base_GetValidator() function, expected prototype:\nwxValidator * wxAuiToolBar::base_GetValidator()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxValidator * wxAuiToolBar::base_GetValidator()");
+		}
+		wxValidator * lret = self->wxAuiToolBar::GetValidator();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxValidator >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetValidator(const wxValidator & validator)
+	static int _bind_base_SetValidator(lua_State *L) {
+		if (!_lg_typecheck_base_SetValidator(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxAuiToolBar::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
+		if( !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxAuiToolBar::base_SetValidator function");
+		}
+		const wxValidator & validator=*validator_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetValidator(const wxValidator &)");
+		}
+		self->wxAuiToolBar::SetValidator(validator);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_TransferDataFromWindow()
+	static int _bind_base_TransferDataFromWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_TransferDataFromWindow() function, expected prototype:\nbool wxAuiToolBar::base_TransferDataFromWindow()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_TransferDataFromWindow()");
+		}
+		bool lret = self->wxAuiToolBar::TransferDataFromWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_TransferDataToWindow()
+	static int _bind_base_TransferDataToWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_TransferDataToWindow() function, expected prototype:\nbool wxAuiToolBar::base_TransferDataToWindow()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_TransferDataToWindow()");
+		}
+		bool lret = self->wxAuiToolBar::TransferDataToWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_Validate()
+	static int _bind_base_Validate(lua_State *L) {
+		if (!_lg_typecheck_base_Validate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Validate() function, expected prototype:\nbool wxAuiToolBar::base_Validate()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Validate()");
+		}
+		bool lret = self->wxAuiToolBar::Validate();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxLayoutDirection wxAuiToolBar::base_GetLayoutDirection() const
+	static int _bind_base_GetLayoutDirection(lua_State *L) {
+		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxAuiToolBar::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxAuiToolBar::base_GetLayoutDirection() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxAuiToolBar::base_GetLayoutDirection() const");
+		}
+		wxLayoutDirection lret = self->wxAuiToolBar::GetLayoutDirection();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxAuiToolBar::base_GetName() const
+	static int _bind_base_GetName(lua_State *L) {
+		if (!_lg_typecheck_base_GetName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxAuiToolBar::base_GetName() const function, expected prototype:\nwxString wxAuiToolBar::base_GetName() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::base_GetName() const");
+		}
+		wxString lret = self->wxAuiToolBar::GetName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetLayoutDirection(wxLayoutDirection dir)
+	static int _bind_base_SetLayoutDirection(lua_State *L) {
+		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxAuiToolBar::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+		}
+
+		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetLayoutDirection(wxLayoutDirection)");
+		}
+		self->wxAuiToolBar::SetLayoutDirection(dir);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetName(const wxString & name)
+	static int _bind_base_SetName(lua_State *L) {
+		if (!_lg_typecheck_base_SetName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetName(const wxString & name) function, expected prototype:\nvoid wxAuiToolBar::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetName(const wxString &)");
+		}
+		self->wxAuiToolBar::SetName(name);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
+	static int _bind_base_SetAcceleratorTable(lua_State *L) {
+		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxAuiToolBar::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
+		if( !accel_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg accel in wxAuiToolBar::base_SetAcceleratorTable function");
+		}
+		const wxAcceleratorTable & accel=*accel_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetAcceleratorTable(const wxAcceleratorTable &)");
+		}
+		self->wxAuiToolBar::SetAcceleratorTable(accel);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_Destroy()
+	static int _bind_base_Destroy(lua_State *L) {
+		if (!_lg_typecheck_base_Destroy(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Destroy() function, expected prototype:\nbool wxAuiToolBar::base_Destroy()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Destroy()");
+		}
+		bool lret = self->wxAuiToolBar::Destroy();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxDropTarget * wxAuiToolBar::base_GetDropTarget() const
+	static int _bind_base_GetDropTarget(lua_State *L) {
+		if (!_lg_typecheck_base_GetDropTarget(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxAuiToolBar::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxAuiToolBar::base_GetDropTarget() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxAuiToolBar::base_GetDropTarget() const");
+		}
+		wxDropTarget * lret = self->wxAuiToolBar::GetDropTarget();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDropTarget >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetDropTarget(wxDropTarget * target)
+	static int _bind_base_SetDropTarget(lua_State *L) {
+		if (!_lg_typecheck_base_SetDropTarget(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxAuiToolBar::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+		}
+
+		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetDropTarget(wxDropTarget *)");
+		}
+		self->wxAuiToolBar::SetDropTarget(target);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_DragAcceptFiles(bool accept)
+	static int _bind_base_DragAcceptFiles(lua_State *L) {
+		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxAuiToolBar::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+		}
+
+		bool accept=(bool)(lua_toboolean(L,2)==1);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_DragAcceptFiles(bool)");
+		}
+		self->wxAuiToolBar::DragAcceptFiles(accept);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_Layout()
+	static int _bind_base_Layout(lua_State *L) {
+		if (!_lg_typecheck_base_Layout(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_Layout() function, expected prototype:\nbool wxAuiToolBar::base_Layout()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_Layout()");
+		}
+		bool lret = self->wxAuiToolBar::Layout();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_HasCapture() const
+	static int _bind_base_HasCapture(lua_State *L) {
+		if (!_lg_typecheck_base_HasCapture(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_HasCapture() const function, expected prototype:\nbool wxAuiToolBar::base_HasCapture() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_HasCapture() const");
+		}
+		bool lret = self->wxAuiToolBar::HasCapture();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_SetCursor(const wxCursor & cursor)
+	static int _bind_base_SetCursor(lua_State *L) {
+		if (!_lg_typecheck_base_SetCursor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxAuiToolBar::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
+		if( !cursor_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg cursor in wxAuiToolBar::base_SetCursor function");
+		}
+		const wxCursor & cursor=*cursor_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_SetCursor(const wxCursor &)");
+		}
+		bool lret = self->wxAuiToolBar::SetCursor(cursor);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_WarpPointer(int x, int y)
+	static int _bind_base_WarpPointer(lua_State *L) {
+		if (!_lg_typecheck_base_WarpPointer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxAuiToolBar::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_WarpPointer(int, int)");
+		}
+		self->wxAuiToolBar::WarpPointer(x, y);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
+	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
+		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxAuiToolBar::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAuiToolBar::base_DoUpdateWindowUI function");
+		}
+		wxUpdateUIEvent & event=*event_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_DoUpdateWindowUI(wxUpdateUIEvent &)");
+		}
+		self->wxAuiToolBar::DoUpdateWindowUI(event);
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_HasMultiplePages() const
+	static int _bind_base_HasMultiplePages(lua_State *L) {
+		if (!_lg_typecheck_base_HasMultiplePages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_HasMultiplePages() const function, expected prototype:\nbool wxAuiToolBar::base_HasMultiplePages() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_HasMultiplePages() const");
+		}
+		bool lret = self->wxAuiToolBar::HasMultiplePages();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_InheritAttributes()
+	static int _bind_base_InheritAttributes(lua_State *L) {
+		if (!_lg_typecheck_base_InheritAttributes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_InheritAttributes() function, expected prototype:\nvoid wxAuiToolBar::base_InheritAttributes()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_InheritAttributes()");
+		}
+		self->wxAuiToolBar::InheritAttributes();
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_InitDialog()
+	static int _bind_base_InitDialog(lua_State *L) {
+		if (!_lg_typecheck_base_InitDialog(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_InitDialog() function, expected prototype:\nvoid wxAuiToolBar::base_InitDialog()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_InitDialog()");
+		}
+		self->wxAuiToolBar::InitDialog();
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_IsRetained() const
+	static int _bind_base_IsRetained(lua_State *L) {
+		if (!_lg_typecheck_base_IsRetained(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_IsRetained() const function, expected prototype:\nbool wxAuiToolBar::base_IsRetained() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_IsRetained() const");
+		}
+		bool lret = self->wxAuiToolBar::IsRetained();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_IsTopLevel() const
+	static int _bind_base_IsTopLevel(lua_State *L) {
+		if (!_lg_typecheck_base_IsTopLevel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_IsTopLevel() const function, expected prototype:\nbool wxAuiToolBar::base_IsTopLevel() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_IsTopLevel() const");
+		}
+		bool lret = self->wxAuiToolBar::IsTopLevel();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_MakeModal(bool modal = true)
+	static int _bind_base_MakeModal(lua_State *L) {
+		if (!_lg_typecheck_base_MakeModal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxAuiToolBar::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool modal=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_MakeModal(bool)");
+		}
+		self->wxAuiToolBar::MakeModal(modal);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_OnInternalIdle()
+	static int _bind_base_OnInternalIdle(lua_State *L) {
+		if (!_lg_typecheck_base_OnInternalIdle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_OnInternalIdle() function, expected prototype:\nvoid wxAuiToolBar::base_OnInternalIdle()\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_OnInternalIdle()");
+		}
+		self->wxAuiToolBar::OnInternalIdle();
+
+		return 0;
+	}
+
+	// bool wxAuiToolBar::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
+	static int _bind_base_RegisterHotKey(lua_State *L) {
+		if (!_lg_typecheck_base_RegisterHotKey(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxAuiToolBar::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+		}
+
+		int hotkeyId=(int)lua_tointeger(L,2);
+		int modifiers=(int)lua_tointeger(L,3);
+		int virtualKeyCode=(int)lua_tointeger(L,4);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_RegisterHotKey(int, int, int)");
+		}
+		bool lret = self->wxAuiToolBar::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_UnregisterHotKey(int hotkeyId)
+	static int _bind_base_UnregisterHotKey(lua_State *L) {
+		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxAuiToolBar::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+		}
+
+		int hotkeyId=(int)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_UnregisterHotKey(int)");
+		}
+		bool lret = self->wxAuiToolBar::UnregisterHotKey(hotkeyId);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
+	static int _bind_base_UpdateWindowUI(lua_State *L) {
+		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxAuiToolBar::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		long flags=luatop>1 ? (long)lua_tointeger(L,2) : ::wxUPDATE_UI_NONE;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_UpdateWindowUI(long)");
+		}
+		self->wxAuiToolBar::UpdateWindowUI(flags);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_Command(wxCommandEvent & event)
+	static int _bind_base_Command(lua_State *L) {
+		if (!_lg_typecheck_base_Command(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxAuiToolBar::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxAuiToolBar::base_Command function");
+		}
+		wxCommandEvent & event=*event_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_Command(wxCommandEvent &)");
+		}
+		self->wxAuiToolBar::Command(event);
+
+		return 0;
+	}
+
+	// wxString wxAuiToolBar::base_GetLabel() const
+	static int _bind_base_GetLabel(lua_State *L) {
+		if (!_lg_typecheck_base_GetLabel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxAuiToolBar::base_GetLabel() const function, expected prototype:\nwxString wxAuiToolBar::base_GetLabel() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxAuiToolBar::base_GetLabel() const");
+		}
+		wxString lret = self->wxAuiToolBar::GetLabel();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxAuiToolBar::base_SetLabel(const wxString & label)
+	static int _bind_base_SetLabel(lua_State *L) {
+		if (!_lg_typecheck_base_SetLabel(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxAuiToolBar::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString label(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetLabel(const wxString &)");
+		}
+		self->wxAuiToolBar::SetLabel(label);
+
+		return 0;
+	}
+
+	// void wxAuiToolBar::base_SetWindowStyleFlag(long style)
+	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
+		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxAuiToolBar::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxAuiToolBar::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+		}
+
+		long style=(long)lua_tointeger(L,2);
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxAuiToolBar::base_SetWindowStyleFlag(long)");
+		}
+		self->wxAuiToolBar::SetWindowStyleFlag(style);
+
+		return 0;
+	}
+
+	// long wxAuiToolBar::base_GetWindowStyleFlag() const
+	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
+		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long wxAuiToolBar::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxAuiToolBar::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long wxAuiToolBar::base_GetWindowStyleFlag() const");
+		}
+		long lret = self->wxAuiToolBar::GetWindowStyleFlag();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxAuiToolBar::base_SetFont(const wxFont & font)
+	static int _bind_base_SetFont(lua_State *L) {
+		if (!_lg_typecheck_base_SetFont(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxAuiToolBar::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiToolBar::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
+		if( !font_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiToolBar::base_SetFont function");
+		}
+		const wxFont & font=*font_ptr;
+
+		wxAuiToolBar* self=Luna< wxObject >::checkSubType< wxAuiToolBar >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxAuiToolBar::base_SetFont(const wxFont &)");
+		}
+		bool lret = self->wxAuiToolBar::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -2181,6 +4977,106 @@ luna_RegType LunaTraits< wxAuiToolBar >::methods[] = {
 	{"SetCustomOverflowItems", &luna_wrapper_wxAuiToolBar::_bind_SetCustomOverflowItems},
 	{"GetHintSize", &luna_wrapper_wxAuiToolBar::_bind_GetHintSize},
 	{"IsPaneValid", &luna_wrapper_wxAuiToolBar::_bind_IsPaneValid},
+	{"base_GetClassInfo", &luna_wrapper_wxAuiToolBar::_bind_base_GetClassInfo},
+	{"base_AcceptsFocus", &luna_wrapper_wxAuiToolBar::_bind_base_AcceptsFocus},
+	{"base_AcceptsFocusFromKeyboard", &luna_wrapper_wxAuiToolBar::_bind_base_AcceptsFocusFromKeyboard},
+	{"base_AcceptsFocusRecursively", &luna_wrapper_wxAuiToolBar::_bind_base_AcceptsFocusRecursively},
+	{"base_HasFocus", &luna_wrapper_wxAuiToolBar::_bind_base_HasFocus},
+	{"base_SetCanFocus", &luna_wrapper_wxAuiToolBar::_bind_base_SetCanFocus},
+	{"base_SetFocus", &luna_wrapper_wxAuiToolBar::_bind_base_SetFocus},
+	{"base_SetFocusFromKbd", &luna_wrapper_wxAuiToolBar::_bind_base_SetFocusFromKbd},
+	{"base_AddChild", &luna_wrapper_wxAuiToolBar::_bind_base_AddChild},
+	{"base_RemoveChild", &luna_wrapper_wxAuiToolBar::_bind_base_RemoveChild},
+	{"base_Reparent", &luna_wrapper_wxAuiToolBar::_bind_base_Reparent},
+	{"base_AlwaysShowScrollbars", &luna_wrapper_wxAuiToolBar::_bind_base_AlwaysShowScrollbars},
+	{"base_GetScrollPos", &luna_wrapper_wxAuiToolBar::_bind_base_GetScrollPos},
+	{"base_GetScrollRange", &luna_wrapper_wxAuiToolBar::_bind_base_GetScrollRange},
+	{"base_GetScrollThumb", &luna_wrapper_wxAuiToolBar::_bind_base_GetScrollThumb},
+	{"base_IsScrollbarAlwaysShown", &luna_wrapper_wxAuiToolBar::_bind_base_IsScrollbarAlwaysShown},
+	{"base_ScrollLines", &luna_wrapper_wxAuiToolBar::_bind_base_ScrollLines},
+	{"base_ScrollPages", &luna_wrapper_wxAuiToolBar::_bind_base_ScrollPages},
+	{"base_ScrollWindow", &luna_wrapper_wxAuiToolBar::_bind_base_ScrollWindow},
+	{"base_SetScrollPos", &luna_wrapper_wxAuiToolBar::_bind_base_SetScrollPos},
+	{"base_SetScrollbar", &luna_wrapper_wxAuiToolBar::_bind_base_SetScrollbar},
+	{"base_ClientToWindowSize", &luna_wrapper_wxAuiToolBar::_bind_base_ClientToWindowSize},
+	{"base_WindowToClientSize", &luna_wrapper_wxAuiToolBar::_bind_base_WindowToClientSize},
+	{"base_Fit", &luna_wrapper_wxAuiToolBar::_bind_base_Fit},
+	{"base_FitInside", &luna_wrapper_wxAuiToolBar::_bind_base_FitInside},
+	{"base_GetEffectiveMinSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetEffectiveMinSize},
+	{"base_GetMaxClientSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetMaxClientSize},
+	{"base_GetMaxSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetMaxSize},
+	{"base_GetMinClientSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetMinClientSize},
+	{"base_GetMinSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetMinSize},
+	{"base_GetBestVirtualSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetBestVirtualSize},
+	{"base_GetWindowBorderSize", &luna_wrapper_wxAuiToolBar::_bind_base_GetWindowBorderSize},
+	{"base_InformFirstDirection", &luna_wrapper_wxAuiToolBar::_bind_base_InformFirstDirection},
+	{"base_SendSizeEvent", &luna_wrapper_wxAuiToolBar::_bind_base_SendSizeEvent},
+	{"base_SetMaxClientSize", &luna_wrapper_wxAuiToolBar::_bind_base_SetMaxClientSize},
+	{"base_SetMaxSize", &luna_wrapper_wxAuiToolBar::_bind_base_SetMaxSize},
+	{"base_SetMinClientSize", &luna_wrapper_wxAuiToolBar::_bind_base_SetMinClientSize},
+	{"base_SetMinSize", &luna_wrapper_wxAuiToolBar::_bind_base_SetMinSize},
+	{"base_SetSizeHints", &luna_wrapper_wxAuiToolBar::_bind_base_SetSizeHints},
+	{"base_GetClientAreaOrigin", &luna_wrapper_wxAuiToolBar::_bind_base_GetClientAreaOrigin},
+	{"base_ClearBackground", &luna_wrapper_wxAuiToolBar::_bind_base_ClearBackground},
+	{"base_GetBackgroundStyle", &luna_wrapper_wxAuiToolBar::_bind_base_GetBackgroundStyle},
+	{"base_GetCharHeight", &luna_wrapper_wxAuiToolBar::_bind_base_GetCharHeight},
+	{"base_GetCharWidth", &luna_wrapper_wxAuiToolBar::_bind_base_GetCharWidth},
+	{"base_GetDefaultAttributes", &luna_wrapper_wxAuiToolBar::_bind_base_GetDefaultAttributes},
+	{"base_Refresh", &luna_wrapper_wxAuiToolBar::_bind_base_Refresh},
+	{"base_Update", &luna_wrapper_wxAuiToolBar::_bind_base_Update},
+	{"base_SetBackgroundStyle", &luna_wrapper_wxAuiToolBar::_bind_base_SetBackgroundStyle},
+	{"base_ShouldInheritColours", &luna_wrapper_wxAuiToolBar::_bind_base_ShouldInheritColours},
+	{"base_SetThemeEnabled", &luna_wrapper_wxAuiToolBar::_bind_base_SetThemeEnabled},
+	{"base_GetThemeEnabled", &luna_wrapper_wxAuiToolBar::_bind_base_GetThemeEnabled},
+	{"base_CanSetTransparent", &luna_wrapper_wxAuiToolBar::_bind_base_CanSetTransparent},
+	{"base_SetTransparent", &luna_wrapper_wxAuiToolBar::_bind_base_SetTransparent},
+	{"base_SetNextHandler", &luna_wrapper_wxAuiToolBar::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxAuiToolBar::_bind_base_SetPreviousHandler},
+	{"base_SetExtraStyle", &luna_wrapper_wxAuiToolBar::_bind_base_SetExtraStyle},
+	{"base_Lower", &luna_wrapper_wxAuiToolBar::_bind_base_Lower},
+	{"base_Raise", &luna_wrapper_wxAuiToolBar::_bind_base_Raise},
+	{"base_HideWithEffect", &luna_wrapper_wxAuiToolBar::_bind_base_HideWithEffect},
+	{"base_IsShown", &luna_wrapper_wxAuiToolBar::_bind_base_IsShown},
+	{"base_IsShownOnScreen", &luna_wrapper_wxAuiToolBar::_bind_base_IsShownOnScreen},
+	{"base_Enable", &luna_wrapper_wxAuiToolBar::_bind_base_Enable},
+	{"base_Show", &luna_wrapper_wxAuiToolBar::_bind_base_Show},
+	{"base_ShowWithEffect", &luna_wrapper_wxAuiToolBar::_bind_base_ShowWithEffect},
+	{"base_GetHelpTextAtPoint", &luna_wrapper_wxAuiToolBar::_bind_base_GetHelpTextAtPoint},
+	{"base_GetValidator", &luna_wrapper_wxAuiToolBar::_bind_base_GetValidator},
+	{"base_SetValidator", &luna_wrapper_wxAuiToolBar::_bind_base_SetValidator},
+	{"base_TransferDataFromWindow", &luna_wrapper_wxAuiToolBar::_bind_base_TransferDataFromWindow},
+	{"base_TransferDataToWindow", &luna_wrapper_wxAuiToolBar::_bind_base_TransferDataToWindow},
+	{"base_Validate", &luna_wrapper_wxAuiToolBar::_bind_base_Validate},
+	{"base_GetLayoutDirection", &luna_wrapper_wxAuiToolBar::_bind_base_GetLayoutDirection},
+	{"base_GetName", &luna_wrapper_wxAuiToolBar::_bind_base_GetName},
+	{"base_SetLayoutDirection", &luna_wrapper_wxAuiToolBar::_bind_base_SetLayoutDirection},
+	{"base_SetName", &luna_wrapper_wxAuiToolBar::_bind_base_SetName},
+	{"base_SetAcceleratorTable", &luna_wrapper_wxAuiToolBar::_bind_base_SetAcceleratorTable},
+	{"base_Destroy", &luna_wrapper_wxAuiToolBar::_bind_base_Destroy},
+	{"base_GetDropTarget", &luna_wrapper_wxAuiToolBar::_bind_base_GetDropTarget},
+	{"base_SetDropTarget", &luna_wrapper_wxAuiToolBar::_bind_base_SetDropTarget},
+	{"base_DragAcceptFiles", &luna_wrapper_wxAuiToolBar::_bind_base_DragAcceptFiles},
+	{"base_Layout", &luna_wrapper_wxAuiToolBar::_bind_base_Layout},
+	{"base_HasCapture", &luna_wrapper_wxAuiToolBar::_bind_base_HasCapture},
+	{"base_SetCursor", &luna_wrapper_wxAuiToolBar::_bind_base_SetCursor},
+	{"base_WarpPointer", &luna_wrapper_wxAuiToolBar::_bind_base_WarpPointer},
+	{"base_DoUpdateWindowUI", &luna_wrapper_wxAuiToolBar::_bind_base_DoUpdateWindowUI},
+	{"base_HasMultiplePages", &luna_wrapper_wxAuiToolBar::_bind_base_HasMultiplePages},
+	{"base_InheritAttributes", &luna_wrapper_wxAuiToolBar::_bind_base_InheritAttributes},
+	{"base_InitDialog", &luna_wrapper_wxAuiToolBar::_bind_base_InitDialog},
+	{"base_IsRetained", &luna_wrapper_wxAuiToolBar::_bind_base_IsRetained},
+	{"base_IsTopLevel", &luna_wrapper_wxAuiToolBar::_bind_base_IsTopLevel},
+	{"base_MakeModal", &luna_wrapper_wxAuiToolBar::_bind_base_MakeModal},
+	{"base_OnInternalIdle", &luna_wrapper_wxAuiToolBar::_bind_base_OnInternalIdle},
+	{"base_RegisterHotKey", &luna_wrapper_wxAuiToolBar::_bind_base_RegisterHotKey},
+	{"base_UnregisterHotKey", &luna_wrapper_wxAuiToolBar::_bind_base_UnregisterHotKey},
+	{"base_UpdateWindowUI", &luna_wrapper_wxAuiToolBar::_bind_base_UpdateWindowUI},
+	{"base_Command", &luna_wrapper_wxAuiToolBar::_bind_base_Command},
+	{"base_GetLabel", &luna_wrapper_wxAuiToolBar::_bind_base_GetLabel},
+	{"base_SetLabel", &luna_wrapper_wxAuiToolBar::_bind_base_SetLabel},
+	{"base_SetWindowStyleFlag", &luna_wrapper_wxAuiToolBar::_bind_base_SetWindowStyleFlag},
+	{"base_GetWindowStyleFlag", &luna_wrapper_wxAuiToolBar::_bind_base_GetWindowStyleFlag},
+	{"base_SetFont", &luna_wrapper_wxAuiToolBar::_bind_base_SetFont},
 	{"__eq", &luna_wrapper_wxAuiToolBar::_bind___eq},
 	{0,0}
 };

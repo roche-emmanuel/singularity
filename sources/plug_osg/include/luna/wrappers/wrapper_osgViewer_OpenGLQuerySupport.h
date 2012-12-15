@@ -49,7 +49,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::OpenGLQuerySupport::initialize(state, startTick);
+		return OpenGLQuerySupport::initialize(state, startTick);
 	};
 
 

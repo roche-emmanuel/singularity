@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return BlendColor::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return BlendColor::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return BlendColor::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BlendColor::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BlendColor::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return BlendColor::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return BlendColor::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return BlendColor::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return BlendColor::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return BlendColor::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return BlendColor::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return BlendColor::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::BlendColor::cloneType() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::BlendColor::cloneType();
+		return BlendColor::cloneType();
 	};
 
 	// osg::Object * osg::BlendColor::clone(const osg::CopyOp & arg1) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::BlendColor::clone(arg1);
+		return BlendColor::clone(arg1);
 	};
 
 	// bool osg::BlendColor::isSameKindAs(const osg::Object * obj) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::BlendColor::isSameKindAs(obj);
+		return BlendColor::isSameKindAs(obj);
 	};
 
 	// const char * osg::BlendColor::libraryName() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BlendColor::libraryName();
+		return BlendColor::libraryName();
 	};
 
 	// const char * osg::BlendColor::className() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BlendColor::className();
+		return BlendColor::className();
 	};
 
 	// osg::StateAttribute::Type osg::BlendColor::getType() const
@@ -185,7 +185,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::BlendColor::getType();
+		return BlendColor::getType();
 	};
 
 	// int osg::BlendColor::compare(const osg::StateAttribute & sa) const
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::BlendColor::compare(sa);
+		return BlendColor::compare(sa);
 	};
 
 	// bool osg::BlendColor::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::BlendColor::getModeUsage(arg1);
+		return BlendColor::getModeUsage(arg1);
 	};
 
 	// void osg::BlendColor::apply(osg::State & arg1) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BlendColor::apply(arg1);
+		return BlendColor::apply(arg1);
 	};
 
 

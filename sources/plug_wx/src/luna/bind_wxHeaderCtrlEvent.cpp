@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHeaderCtrlEvent* ptr= dynamic_cast< wxHeaderCtrlEvent* >(Luna< wxObject >::check(L,1));
+		//wxHeaderCtrlEvent* ptr= dynamic_cast< wxHeaderCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxHeaderCtrlEvent* ptr= luna_caster< wxObject, wxHeaderCtrlEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +61,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +86,7 @@ public:
 		}
 
 
-		wxHeaderCtrlEvent* self=dynamic_cast< wxHeaderCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetColumn() const");
@@ -92,7 +105,7 @@ public:
 		}
 
 
-		wxHeaderCtrlEvent* self=dynamic_cast< wxHeaderCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxHeaderCtrlEvent::GetWidth() const");
@@ -111,12 +124,52 @@ public:
 		}
 
 
-		wxHeaderCtrlEvent* self=dynamic_cast< wxHeaderCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxHeaderCtrlEvent::GetNewOrder() const");
 		}
 		unsigned int lret = self->GetNewOrder();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHeaderCtrlEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHeaderCtrlEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderCtrlEvent* self=Luna< wxObject >::checkSubType< wxHeaderCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHeaderCtrlEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxHeaderCtrlEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -148,6 +201,8 @@ luna_RegType LunaTraits< wxHeaderCtrlEvent >::methods[] = {
 	{"GetColumn", &luna_wrapper_wxHeaderCtrlEvent::_bind_GetColumn},
 	{"GetWidth", &luna_wrapper_wxHeaderCtrlEvent::_bind_GetWidth},
 	{"GetNewOrder", &luna_wrapper_wxHeaderCtrlEvent::_bind_GetNewOrder},
+	{"base_GetClassInfo", &luna_wrapper_wxHeaderCtrlEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxHeaderCtrlEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxHeaderCtrlEvent::_bind___eq},
 	{0,0}
 };

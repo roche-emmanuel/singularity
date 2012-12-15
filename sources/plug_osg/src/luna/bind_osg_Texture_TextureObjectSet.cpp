@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Texture::TextureObjectSet* ptr= dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Texture::TextureObjectSet* ptr= dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* ptr= luna_caster< osg::Referenced, osg::Texture::TextureObjectSet >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -220,7 +221,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObjectSet::TextureObjectSet(osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) function, expected prototype:\nosg::Texture::TextureObjectSet::TextureObjectSet(osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 69361645\n");
 		}
 
-		osg::Texture::TextureObjectManager* parent=dynamic_cast< osg::Texture::TextureObjectManager* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectManager* parent=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectManager >(L,1));
 		const osg::Texture::TextureProfile* profile_ptr=(Luna< osg::Texture::TextureProfile >::check(L,2));
 		if( !profile_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg profile in osg::Texture::TextureObjectSet::TextureObjectSet function");
@@ -237,7 +238,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObjectSet::TextureObjectSet(lua_Table * data, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) function, expected prototype:\nosg::Texture::TextureObjectSet::TextureObjectSet(lua_Table * data, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 69361645\n");
 		}
 
-		osg::Texture::TextureObjectManager* parent=dynamic_cast< osg::Texture::TextureObjectManager* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture::TextureObjectManager* parent=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectManager >(L,2));
 		const osg::Texture::TextureProfile* profile_ptr=(Luna< osg::Texture::TextureProfile >::check(L,3));
 		if( !profile_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg profile in osg::Texture::TextureObjectSet::TextureObjectSet function");
@@ -266,7 +267,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Texture::TextureProfile & osg::Texture::TextureObjectSet::getProfile() const");
@@ -287,7 +288,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::handlePendingOrphandedTextureObjects()");
@@ -305,7 +306,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::deleteAllTextureObjects()");
@@ -323,7 +324,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::discardAllTextureObjects()");
@@ -341,7 +342,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::flushAllDeletedTextureObjects()");
@@ -359,7 +360,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::discardAllDeletedTextureObjects()");
@@ -379,7 +380,7 @@ public:
 		double currentTime=(double)lua_tonumber(L,2);
 		double availableTime=(double)lua_tonumber(L,3);
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::flushDeletedTextureObjects(double, double &)");
@@ -396,9 +397,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeFromOrphans(osg::Texture * texture) function, expected prototype:\nosg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeFromOrphans(osg::Texture * texture)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeFromOrphans(osg::Texture *)");
@@ -418,9 +419,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeOrGenerate(osg::Texture * texture) function, expected prototype:\nosg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeOrGenerate(osg::Texture * texture)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Texture::TextureObject * osg::Texture::TextureObjectSet::takeOrGenerate(osg::Texture *)");
@@ -440,9 +441,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectSet::moveToBack(osg::Texture::TextureObject * to) function, expected prototype:\nvoid osg::Texture::TextureObjectSet::moveToBack(osg::Texture::TextureObject * to)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture::TextureObject* to=dynamic_cast< osg::Texture::TextureObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture::TextureObject* to=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::moveToBack(osg::Texture::TextureObject *)");
@@ -459,9 +460,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectSet::addToBack(osg::Texture::TextureObject * to) function, expected prototype:\nvoid osg::Texture::TextureObjectSet::addToBack(osg::Texture::TextureObject * to)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture::TextureObject* to=dynamic_cast< osg::Texture::TextureObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture::TextureObject* to=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::addToBack(osg::Texture::TextureObject *)");
@@ -478,9 +479,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectSet::orphan(osg::Texture::TextureObject * to) function, expected prototype:\nvoid osg::Texture::TextureObjectSet::orphan(osg::Texture::TextureObject * to)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture::TextureObject* to=dynamic_cast< osg::Texture::TextureObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture::TextureObject* to=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::orphan(osg::Texture::TextureObject *)");
@@ -497,9 +498,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectSet::remove(osg::Texture::TextureObject * to) function, expected prototype:\nvoid osg::Texture::TextureObjectSet::remove(osg::Texture::TextureObject * to)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Texture::TextureObject* to=dynamic_cast< osg::Texture::TextureObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::Texture::TextureObject* to=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,2));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::remove(osg::Texture::TextureObject *)");
@@ -516,10 +517,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectSet::moveToSet(osg::Texture::TextureObject * to, osg::Texture::TextureObjectSet * set) function, expected prototype:\nvoid osg::Texture::TextureObjectSet::moveToSet(osg::Texture::TextureObject * to, osg::Texture::TextureObjectSet * set)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		osg::Texture::TextureObject* to=dynamic_cast< osg::Texture::TextureObject* >(Luna< osg::Referenced >::check(L,2));
-		osg::Texture::TextureObjectSet* set=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,3));
+		osg::Texture::TextureObject* to=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObject >(L,2));
+		osg::Texture::TextureObjectSet* set=(Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,3));
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectSet::moveToSet(osg::Texture::TextureObject *, osg::Texture::TextureObjectSet *)");
@@ -537,7 +538,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::TextureObjectSet::size() const");
@@ -557,7 +558,7 @@ public:
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureObjectSet::makeSpace(unsigned int &)");
@@ -576,7 +577,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture::TextureObjectSet::checkConsistency() const");
@@ -595,7 +596,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Texture::TextureObjectManager * osg::Texture::TextureObjectSet::getParent()");
@@ -616,7 +617,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::TextureObjectSet::computeNumTextureObjectsInList() const");
@@ -635,7 +636,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::TextureObjectSet::getNumOfTextureObjects() const");
@@ -654,7 +655,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::TextureObjectSet::getNumOrphans() const");
@@ -673,7 +674,7 @@ public:
 		}
 
 
-		osg::Texture::TextureObjectSet* self=dynamic_cast< osg::Texture::TextureObjectSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture::TextureObjectSet* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Texture::TextureObjectSet::getNumPendingOrphans() const");

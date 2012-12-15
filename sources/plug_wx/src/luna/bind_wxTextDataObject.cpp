@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTextDataObject* ptr= dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		//wxTextDataObject* ptr= dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* ptr= luna_caster< wxDataObject, wxTextDataObject >::cast(Luna< wxDataObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -84,6 +85,54 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetDataHere(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDataSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetText(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetTextLength(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetFormatCount(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetText(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -97,7 +146,7 @@ public:
 		}
 
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::GetText() const");
@@ -116,7 +165,7 @@ public:
 		}
 
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetTextLength() const");
@@ -138,7 +187,7 @@ public:
 
 		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::GetFormatCount(wxDataObject::Direction)");
@@ -157,7 +206,7 @@ public:
 		}
 
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxDataFormat & wxTextDataObject::GetFormat() const");
@@ -182,7 +231,7 @@ public:
 		wxDataFormat* formats=(Luna< wxDataFormat >::check(L,2));
 		wxDataObject::Direction dir=luatop>2 ? (wxDataObject::Direction)lua_tointeger(L,3) : wxDataObject::Get;
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTextDataObject::GetAllFormats(wxDataFormat *, wxDataObject::Direction) const");
@@ -201,12 +250,151 @@ public:
 
 		wxString strText(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxTextDataObject* self=dynamic_cast< wxTextDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTextDataObject::SetText(const wxString &)");
 		}
 		self->SetText(strText);
+
+		return 0;
+	}
+
+	// bool wxTextDataObject::base_GetDataHere(void * buf) const
+	static int _bind_base_GetDataHere(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataHere(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTextDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxTextDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+		}
+
+		void* buf=(Luna< void >::check(L,2));
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_GetDataHere(void *) const");
+		}
+		bool lret = self->wxTextDataObject::GetDataHere(buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxTextDataObject::base_GetDataSize() const
+	static int _bind_base_GetDataSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxTextDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxTextDataObject::base_GetDataSize() const\nClass arguments details:\n");
+		}
+
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetDataSize() const");
+		}
+		size_t lret = self->wxTextDataObject::GetDataSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxTextDataObject::base_SetData(size_t len, const void * buf)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxTextDataObject::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxTextDataObject::base_SetData(size_t len, const void * buf)\nClass arguments details:\n");
+		}
+
+		size_t len=(size_t)lua_tointeger(L,2);
+		void* buf=(Luna< void >::check(L,3));
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxTextDataObject::base_SetData(size_t, const void *)");
+		}
+		bool lret = self->wxTextDataObject::SetData(len, buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxTextDataObject::base_GetText() const
+	static int _bind_base_GetText(lua_State *L) {
+		if (!_lg_typecheck_base_GetText(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxTextDataObject::base_GetText() const function, expected prototype:\nwxString wxTextDataObject::base_GetText() const\nClass arguments details:\n");
+		}
+
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxTextDataObject::base_GetText() const");
+		}
+		wxString lret = self->wxTextDataObject::GetText();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// size_t wxTextDataObject::base_GetTextLength() const
+	static int _bind_base_GetTextLength(lua_State *L) {
+		if (!_lg_typecheck_base_GetTextLength(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxTextDataObject::base_GetTextLength() const function, expected prototype:\nsize_t wxTextDataObject::base_GetTextLength() const\nClass arguments details:\n");
+		}
+
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetTextLength() const");
+		}
+		size_t lret = self->wxTextDataObject::GetTextLength();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// size_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get)
+	static int _bind_base_GetFormatCount(lua_State *L) {
+		if (!_lg_typecheck_base_GetFormatCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) function, expected prototype:\nsize_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDataObject::Direction dir=luatop>1 ? (wxDataObject::Direction)lua_tointeger(L,2) : wxDataObject::Get;
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxTextDataObject::base_GetFormatCount(wxDataObject::Direction)");
+		}
+		size_t lret = self->wxTextDataObject::GetFormatCount(dir);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxTextDataObject::base_SetText(const wxString & strText)
+	static int _bind_base_SetText(lua_State *L) {
+		if (!_lg_typecheck_base_SetText(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextDataObject::base_SetText(const wxString & strText) function, expected prototype:\nvoid wxTextDataObject::base_SetText(const wxString & strText)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString strText(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxTextDataObject* self=Luna< wxDataObject >::checkSubType< wxTextDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextDataObject::base_SetText(const wxString &)");
+		}
+		self->wxTextDataObject::SetText(strText);
 
 		return 0;
 	}
@@ -245,6 +433,13 @@ luna_RegType LunaTraits< wxTextDataObject >::methods[] = {
 	{"GetFormat", &luna_wrapper_wxTextDataObject::_bind_GetFormat},
 	{"GetAllFormats", &luna_wrapper_wxTextDataObject::_bind_GetAllFormats},
 	{"SetText", &luna_wrapper_wxTextDataObject::_bind_SetText},
+	{"base_GetDataHere", &luna_wrapper_wxTextDataObject::_bind_base_GetDataHere},
+	{"base_GetDataSize", &luna_wrapper_wxTextDataObject::_bind_base_GetDataSize},
+	{"base_SetData", &luna_wrapper_wxTextDataObject::_bind_base_SetData},
+	{"base_GetText", &luna_wrapper_wxTextDataObject::_bind_base_GetText},
+	{"base_GetTextLength", &luna_wrapper_wxTextDataObject::_bind_base_GetTextLength},
+	{"base_GetFormatCount", &luna_wrapper_wxTextDataObject::_bind_base_GetFormatCount},
+	{"base_SetText", &luna_wrapper_wxTextDataObject::_bind_base_SetText},
 	{"__eq", &luna_wrapper_wxTextDataObject::_bind___eq},
 	{0,0}
 };

@@ -57,6 +57,8 @@ function Class:writeFile()
 			buf:newLine()
 			-- self:info_v("Adding wrapper constructors...")
 			class:addWrapperConstructors()
+			
+			class:addDefaultVirtuals();
 		end
 		
 		-- self:info_v("Virtual class tested for: ",cname)

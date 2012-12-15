@@ -123,6 +123,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_ShowModal(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -137,7 +143,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 		wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 		long style=luatop>3 ? (long)lua_tointeger(L,4) : wxOK | ::wxCENTRE;
@@ -154,7 +160,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString message(lua_tostring(L,3),lua_objlen(L,3));
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
 		long style=luatop>4 ? (long)lua_tointeger(L,5) : wxOK | ::wxCENTRE;
@@ -290,6 +296,25 @@ public:
 		return 1;
 	}
 
+	// int wxRichMessageDialog::base_ShowModal()
+	static int _bind_base_ShowModal(lua_State *L) {
+		if (!_lg_typecheck_base_ShowModal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxRichMessageDialog::base_ShowModal() function, expected prototype:\nint wxRichMessageDialog::base_ShowModal()\nClass arguments details:\n");
+		}
+
+
+		wxRichMessageDialog* self=(Luna< wxRichMessageDialog >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxRichMessageDialog::base_ShowModal()");
+		}
+		int lret = self->wxRichMessageDialog::ShowModal();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -317,6 +342,7 @@ luna_RegType LunaTraits< wxRichMessageDialog >::methods[] = {
 	{"GetDetailedText", &luna_wrapper_wxRichMessageDialog::_bind_GetDetailedText},
 	{"IsCheckBoxChecked", &luna_wrapper_wxRichMessageDialog::_bind_IsCheckBoxChecked},
 	{"ShowModal", &luna_wrapper_wxRichMessageDialog::_bind_ShowModal},
+	{"base_ShowModal", &luna_wrapper_wxRichMessageDialog::_bind_base_ShowModal},
 	{"dynCast", &luna_wrapper_wxRichMessageDialog::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxRichMessageDialog::_bind___eq},
 	{0,0}

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::State* ptr= dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		//osg::State* ptr= dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* ptr= luna_caster< osg::Referenced, osg::State >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,7 +43,8 @@ public:
 
 	static int _cast_from_Observer(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::State* ptr= dynamic_cast< osg::State* >(Luna< osg::Observer >::check(L,1));
+		//osg::State* ptr= dynamic_cast< osg::State* >(Luna< osg::Observer >::check(L,1));
+		osg::State* ptr= luna_caster< osg::Observer, osg::State >::cast(Luna< osg::Observer >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -1400,6 +1402,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_objectDeleted(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_frameCompleted(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -1445,9 +1460,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setGraphicsContext(osg::GraphicsContext * context) function, expected prototype:\nvoid osg::State::setGraphicsContext(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* context=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGraphicsContext(osg::GraphicsContext *)");
@@ -1465,7 +1480,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::State::getGraphicsContext()");
@@ -1486,7 +1501,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::GraphicsContext * osg::State::getGraphicsContext() const");
@@ -1517,7 +1532,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setContextID(unsigned int)");
@@ -1535,7 +1550,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getContextID() const");
@@ -1555,7 +1570,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setShaderCompositionEnabled(bool)");
@@ -1573,7 +1588,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getShaderCompositionEnabled() const");
@@ -1591,9 +1606,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setShaderComposer(osg::ShaderComposer * sc) function, expected prototype:\nvoid osg::State::setShaderComposer(osg::ShaderComposer * sc)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::ShaderComposer* sc=dynamic_cast< osg::ShaderComposer* >(Luna< osg::Referenced >::check(L,2));
+		osg::ShaderComposer* sc=(Luna< osg::Referenced >::checkSubType< osg::ShaderComposer >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setShaderComposer(osg::ShaderComposer *)");
@@ -1611,7 +1626,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::ShaderComposer * osg::State::getShaderComposer()");
@@ -1632,7 +1647,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ShaderComposer * osg::State::getShaderComposer() const");
@@ -1663,10 +1678,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Uniform* uniform=dynamic_cast< osg::Uniform* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Uniform* uniform=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
 		unsigned int value=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::StateAttribute::ON;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyShaderCompositionUniform(const osg::Uniform *, unsigned int)");
@@ -1683,9 +1698,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::pushStateSet(const osg::StateSet * dstate) function, expected prototype:\nvoid osg::State::pushStateSet(const osg::StateSet * dstate)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateSet* dstate=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateSet* dstate=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::pushStateSet(const osg::StateSet *)");
@@ -1703,7 +1718,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::popStateSet()");
@@ -1721,7 +1736,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::popAllStateSets()");
@@ -1739,9 +1754,9 @@ public:
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
-		const osg::StateSet* dstate=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,3));
+		const osg::StateSet* dstate=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,3));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::insertStateSet(unsigned int, const osg::StateSet *)");
@@ -1760,7 +1775,7 @@ public:
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::removeStateSet(unsigned int)");
@@ -1778,7 +1793,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getStateSetStackSize()");
@@ -1798,7 +1813,7 @@ public:
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::popStateSetStackToSize(unsigned int)");
@@ -1816,7 +1831,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::State::StateSetStack & osg::State::getStateSetStack()");
@@ -1836,13 +1851,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::captureCurrentState(osg::StateSet & stateset) const function, expected prototype:\nvoid osg::State::captureCurrentState(osg::StateSet & stateset) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::StateSet* stateset_ptr=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		osg::StateSet* stateset_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 		if( !stateset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stateset in osg::State::captureCurrentState function");
 		}
 		osg::StateSet & stateset=*stateset_ptr;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::captureCurrentState(osg::StateSet &) const");
@@ -1860,7 +1875,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::reset()");
@@ -1878,7 +1893,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Viewport * osg::State::getCurrentViewport() const");
@@ -1898,9 +1913,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setInitialViewMatrix(const osg::RefMatrixd * matrix) function, expected prototype:\nvoid osg::State::setInitialViewMatrix(const osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		const osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setInitialViewMatrix(const osg::RefMatrixd *)");
@@ -1918,7 +1933,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::State::getInitialViewMatrix() const");
@@ -1939,7 +1954,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::State::getInitialInverseViewMatrix() const");
@@ -1959,9 +1974,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::applyProjectionMatrix(const osg::RefMatrixd * matrix) function, expected prototype:\nvoid osg::State::applyProjectionMatrix(const osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		const osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyProjectionMatrix(const osg::RefMatrixd *)");
@@ -1979,7 +1994,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::State::getProjectionMatrix() const");
@@ -1999,9 +2014,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::applyModelViewMatrix(const osg::RefMatrixd * matrix) function, expected prototype:\nvoid osg::State::applyModelViewMatrix(const osg::RefMatrixd * matrix)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::RefMatrixd* matrix=dynamic_cast< osg::RefMatrixd* >(Luna< osg::Referenced >::check(L,2));
+		const osg::RefMatrixd* matrix=(Luna< osg::Referenced >::checkSubType< osg::RefMatrixd >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyModelViewMatrix(const osg::RefMatrixd *)");
@@ -2024,7 +2039,7 @@ public:
 		}
 		const osg::Matrixd & _arg1=*_arg1_ptr;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyModelViewMatrix(const osg::Matrixd &)");
@@ -2051,7 +2066,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Matrixd & osg::State::getModelViewMatrix() const");
@@ -2073,7 +2088,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setUseModelViewAndProjectionUniforms(bool)");
@@ -2091,7 +2106,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getUseModelViewAndProjectionUniforms() const");
@@ -2110,7 +2125,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::updateModelViewAndProjectionMatrixUniforms()");
@@ -2128,7 +2143,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyModelViewAndProjectionUniformsIfRequired()");
@@ -2146,7 +2161,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Uniform * osg::State::getModelViewMatrixUniform()");
@@ -2167,7 +2182,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Uniform * osg::State::getProjectionMatrixUniform()");
@@ -2188,7 +2203,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Uniform * osg::State::getModelViewProjectionMatrixUniform()");
@@ -2209,7 +2224,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Uniform * osg::State::getNormalMatrixUniform()");
@@ -2230,7 +2245,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Polytope osg::State::getViewFrustum() const");
@@ -2253,7 +2268,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setUseVertexAttributeAliasing(bool)");
@@ -2271,7 +2286,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getUseVertexAttributeAliasing() const");
@@ -2290,7 +2305,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::VertexAttribAlias & osg::State::getVertexAlias()");
@@ -2311,7 +2326,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::VertexAttribAlias & osg::State::getNormalAlias()");
@@ -2332,7 +2347,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::VertexAttribAlias & osg::State::getColorAlias()");
@@ -2353,7 +2368,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::VertexAttribAlias & osg::State::getSecondaryColorAlias()");
@@ -2374,7 +2389,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::VertexAttribAlias & osg::State::getFogCoordAlias()");
@@ -2396,7 +2411,7 @@ public:
 
 		std::string source(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::convertVertexShaderSourceToOsgBuiltIns(std::string &) const");
@@ -2414,9 +2429,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::apply(const osg::StateSet * dstate) function, expected prototype:\nvoid osg::State::apply(const osg::StateSet * dstate)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateSet* dstate=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateSet* dstate=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::apply(const osg::StateSet *)");
@@ -2434,7 +2449,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::apply()");
@@ -2461,7 +2476,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyShaderComposition()");
@@ -2481,7 +2496,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		bool valid=(bool)(lua_toboolean(L,3)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setModeValidity(unsigned int, bool)");
@@ -2500,7 +2515,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getModeValidity(unsigned int)");
@@ -2521,7 +2536,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		bool enabled=(bool)(lua_toboolean(L,3)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGlobalDefaultModeValue(unsigned int, bool)");
@@ -2540,7 +2555,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getGlobalDefaultModeValue(unsigned int)");
@@ -2561,7 +2576,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		bool enabled=(bool)(lua_toboolean(L,3)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::applyMode(unsigned int, bool)");
@@ -2583,7 +2598,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 		bool enabled=(bool)(lua_toboolean(L,4)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGlobalDefaultTextureModeValue(unsigned int, unsigned int, bool)");
@@ -2603,7 +2618,7 @@ public:
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getGlobalDefaultTextureModeValue(unsigned int, unsigned int)");
@@ -2625,7 +2640,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 		bool enabled=(bool)(lua_toboolean(L,4)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::applyTextureMode(unsigned int, unsigned int, bool)");
@@ -2643,9 +2658,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setGlobalDefaultAttribute(const osg::StateAttribute * attribute) function, expected prototype:\nvoid osg::State::setGlobalDefaultAttribute(const osg::StateAttribute * attribute)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGlobalDefaultAttribute(const osg::StateAttribute *)");
@@ -2667,7 +2682,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
 		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::State::getGlobalDefaultAttribute(osg::StateAttribute::Type, unsigned int)");
@@ -2687,9 +2702,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::State::applyAttribute(const osg::StateAttribute * attribute) function, expected prototype:\nbool osg::State::applyAttribute(const osg::StateAttribute * attribute)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::applyAttribute(const osg::StateAttribute *)");
@@ -2708,9 +2723,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,3));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGlobalDefaultTextureAttribute(unsigned int, const osg::StateAttribute *)");
@@ -2733,7 +2748,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
 		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::State::getGlobalDefaultTextureAttribute(unsigned int, osg::StateAttribute::Type, unsigned int)");
@@ -2754,9 +2769,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,3));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::applyTextureAttribute(unsigned int, const osg::StateAttribute *)");
@@ -2777,7 +2792,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 		unsigned int value=(unsigned int)lua_tointeger(L,3);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedMode(unsigned int, unsigned int)");
@@ -2796,7 +2811,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedMode(unsigned int)");
@@ -2822,9 +2837,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::haveAppliedAttribute(const osg::StateAttribute * attribute) function, expected prototype:\nvoid osg::State::haveAppliedAttribute(const osg::StateAttribute * attribute)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedAttribute(const osg::StateAttribute *)");
@@ -2846,7 +2861,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
 		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedAttribute(osg::StateAttribute::Type, unsigned int)");
@@ -2874,7 +2889,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getLastAppliedMode(unsigned int) const");
@@ -2897,7 +2912,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,2);
 		unsigned int member=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::State::getLastAppliedAttribute(osg::StateAttribute::Type, unsigned int) const");
@@ -2921,7 +2936,7 @@ public:
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 		unsigned int value=(unsigned int)lua_tointeger(L,4);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedTextureMode(unsigned int, unsigned int, unsigned int)");
@@ -2941,7 +2956,7 @@ public:
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedTextureMode(unsigned int, unsigned int)");
@@ -2968,9 +2983,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,3));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,3));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedTextureAttribute(unsigned int, const osg::StateAttribute *)");
@@ -2993,7 +3008,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
 		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::haveAppliedTextureAttribute(unsigned int, osg::StateAttribute::Type, unsigned int)");
@@ -3022,7 +3037,7 @@ public:
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getLastAppliedTextureMode(unsigned int, unsigned int) const");
@@ -3046,7 +3061,7 @@ public:
 		osg::StateAttribute::Type type=(osg::StateAttribute::Type)lua_tointeger(L,3);
 		unsigned int member=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::StateAttribute * osg::State::getLastAppliedTextureAttribute(unsigned int, osg::StateAttribute::Type, unsigned int) const");
@@ -3067,7 +3082,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyAllModes()");
@@ -3085,7 +3100,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyAllAttributes()");
@@ -3103,7 +3118,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableAllVertexArrays()");
@@ -3121,7 +3136,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyAllVertexArrays()");
@@ -3138,9 +3153,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setCurrentVertexBufferObject(osg::GLBufferObject * vbo) function, expected prototype:\nvoid osg::State::setCurrentVertexBufferObject(osg::GLBufferObject * vbo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* vbo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* vbo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setCurrentVertexBufferObject(osg::GLBufferObject *)");
@@ -3158,7 +3173,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::GLBufferObject * osg::State::getCurrentVertexBufferObject()");
@@ -3178,9 +3193,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::bindVertexBufferObject(osg::GLBufferObject * vbo) function, expected prototype:\nvoid osg::State::bindVertexBufferObject(osg::GLBufferObject * vbo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* vbo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* vbo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::bindVertexBufferObject(osg::GLBufferObject *)");
@@ -3198,7 +3213,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::unbindVertexBufferObject()");
@@ -3215,9 +3230,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setCurrentElementBufferObject(osg::GLBufferObject * ebo) function, expected prototype:\nvoid osg::State::setCurrentElementBufferObject(osg::GLBufferObject * ebo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* ebo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* ebo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setCurrentElementBufferObject(osg::GLBufferObject *)");
@@ -3235,7 +3250,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::GLBufferObject * osg::State::getCurrentElementBufferObject()");
@@ -3255,9 +3270,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::bindElementBufferObject(osg::GLBufferObject * ebo) function, expected prototype:\nvoid osg::State::bindElementBufferObject(osg::GLBufferObject * ebo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* ebo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* ebo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::bindElementBufferObject(osg::GLBufferObject *)");
@@ -3275,7 +3290,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::unbindElementBufferObject()");
@@ -3292,9 +3307,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setCurrentPixelBufferObject(osg::GLBufferObject * pbo) function, expected prototype:\nvoid osg::State::setCurrentPixelBufferObject(osg::GLBufferObject * pbo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* pbo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* pbo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setCurrentPixelBufferObject(osg::GLBufferObject *)");
@@ -3312,7 +3327,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::GLBufferObject * osg::State::getCurrentPixelBufferObject()");
@@ -3332,9 +3347,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::bindPixelBufferObject(osg::GLBufferObject * pbo) function, expected prototype:\nvoid osg::State::bindPixelBufferObject(osg::GLBufferObject * pbo)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GLBufferObject* pbo=dynamic_cast< osg::GLBufferObject* >(Luna< osg::Referenced >::check(L,2));
+		osg::GLBufferObject* pbo=(Luna< osg::Referenced >::checkSubType< osg::GLBufferObject >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::bindPixelBufferObject(osg::GLBufferObject *)");
@@ -3352,7 +3367,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::unbindPixelBufferObject()");
@@ -3375,7 +3390,7 @@ public:
 		int count=(int)lua_tointeger(L,3);
 		int primCount=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::drawQuads(int, int, int)");
@@ -3397,7 +3412,7 @@ public:
 		int count=(int)lua_tointeger(L,4);
 		int primcount=(int)lua_tointeger(L,5);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::glDrawArraysInstanced(unsigned int, int, int, int)");
@@ -3420,7 +3435,7 @@ public:
 		void* indices=(Luna< void >::check(L,5));
 		int primcount=(int)lua_tointeger(L,6);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::glDrawElementsInstanced(unsigned int, int, unsigned int, const void *, int)");
@@ -3444,7 +3459,7 @@ public:
 		float z=(float)lua_tonumber(L,4);
 		float w=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::Vertex(float, float, float, float)");
@@ -3468,7 +3483,7 @@ public:
 		float b=(float)lua_tonumber(L,4);
 		float a=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::Color(float, float, float, float)");
@@ -3489,7 +3504,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		float z=(float)lua_tonumber(L,4);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::Normal(float, float, float)");
@@ -3513,7 +3528,7 @@ public:
 		float z=luatop>3 ? (float)lua_tonumber(L,4) : 0.0f;
 		float w=luatop>4 ? (float)lua_tonumber(L,5) : 1.0f;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::TexCoord(float, float, float, float)");
@@ -3538,7 +3553,7 @@ public:
 		float z=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
 		float w=luatop>5 ? (float)lua_tonumber(L,6) : 1.0f;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::MultiTexCoord(unsigned int, float, float, float, float)");
@@ -3563,7 +3578,7 @@ public:
 		float z=luatop>4 ? (float)lua_tonumber(L,5) : 0.0f;
 		float w=luatop>5 ? (float)lua_tonumber(L,6) : 0.0f;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::VerteAttrib(unsigned int, float, float, float, float)");
@@ -3581,7 +3596,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::lazyDisablingOfVertexAttributes()");
@@ -3599,7 +3614,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::applyDisablingOfVertexAttributes()");
@@ -3620,7 +3635,7 @@ public:
 		int stride=(int)lua_tointeger(L,3);
 		void* pointer=(Luna< void >::check(L,4));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setInterleavedArrays(unsigned int, int, const void *)");
@@ -3637,9 +3652,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setVertexPointer(const osg::Array * array) function, expected prototype:\nvoid osg::State::setVertexPointer(const osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setVertexPointer(const osg::Array *)");
@@ -3661,7 +3676,7 @@ public:
 		int stride=(int)lua_tointeger(L,4);
 		void* ptr=(Luna< void >::check(L,5));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setVertexPointer(int, unsigned int, int, const void *)");
@@ -3688,7 +3703,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableVertexPointer()");
@@ -3706,7 +3721,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyVertexPointer()");
@@ -3723,9 +3738,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setNormalPointer(const osg::Array * array) function, expected prototype:\nvoid osg::State::setNormalPointer(const osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setNormalPointer(const osg::Array *)");
@@ -3746,7 +3761,7 @@ public:
 		int stride=(int)lua_tointeger(L,3);
 		void* ptr=(Luna< void >::check(L,4));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setNormalPointer(unsigned int, int, const void *)");
@@ -3773,7 +3788,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableNormalPointer()");
@@ -3791,7 +3806,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyNormalPointer()");
@@ -3808,9 +3823,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setColorPointer(const osg::Array * array) function, expected prototype:\nvoid osg::State::setColorPointer(const osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setColorPointer(const osg::Array *)");
@@ -3832,7 +3847,7 @@ public:
 		int stride=(int)lua_tointeger(L,4);
 		void* ptr=(Luna< void >::check(L,5));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setColorPointer(int, unsigned int, int, const void *)");
@@ -3859,7 +3874,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableColorPointer()");
@@ -3877,7 +3892,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyColorPointer()");
@@ -3895,7 +3910,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::isSecondaryColorSupported() const");
@@ -3913,9 +3928,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setSecondaryColorPointer(const osg::Array * array) function, expected prototype:\nvoid osg::State::setSecondaryColorPointer(const osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setSecondaryColorPointer(const osg::Array *)");
@@ -3937,7 +3952,7 @@ public:
 		int stride=(int)lua_tointeger(L,4);
 		void* ptr=(Luna< void >::check(L,5));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setSecondaryColorPointer(int, unsigned int, int, const void *)");
@@ -3964,7 +3979,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableSecondaryColorPointer()");
@@ -3982,7 +3997,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtySecondaryColorPointer()");
@@ -4000,7 +4015,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::isFogCoordSupported() const");
@@ -4018,9 +4033,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setFogCoordPointer(const osg::Array * array) function, expected prototype:\nvoid osg::State::setFogCoordPointer(const osg::Array * array)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setFogCoordPointer(const osg::Array *)");
@@ -4041,7 +4056,7 @@ public:
 		int stride=(int)lua_tointeger(L,3);
 		void* ptr=(Luna< void >::check(L,4));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setFogCoordPointer(unsigned int, int, const void *)");
@@ -4068,7 +4083,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableFogCoordPointer()");
@@ -4086,7 +4101,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyFogCoordPointer()");
@@ -4104,9 +4119,9 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setTexCoordPointer(unsigned int, const osg::Array *)");
@@ -4129,7 +4144,7 @@ public:
 		int stride=(int)lua_tointeger(L,5);
 		void* ptr=(Luna< void >::check(L,6));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setTexCoordPointer(unsigned int, int, unsigned int, int, const void *)");
@@ -4157,7 +4172,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableTexCoordPointer(unsigned int)");
@@ -4176,7 +4191,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyTexCoordPointer(unsigned int)");
@@ -4195,7 +4210,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableTexCoordPointersAboveAndIncluding(unsigned int)");
@@ -4214,7 +4229,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyTexCoordPointersAboveAndIncluding(unsigned int)");
@@ -4233,7 +4248,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::setActiveTextureUnit(unsigned int)");
@@ -4252,7 +4267,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getActiveTextureUnit() const");
@@ -4272,7 +4287,7 @@ public:
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::setClientActiveTextureUnit(unsigned int)");
@@ -4291,7 +4306,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getClientActiveTextureUnit() const");
@@ -4310,10 +4325,10 @@ public:
 		}
 
 		unsigned int unit=(unsigned int)lua_tointeger(L,2);
-		const osg::Array* array=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,3));
+		const osg::Array* array=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,3));
 		unsigned char normalized = (unsigned char)(lua_tointeger(L,4));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setVertexAttribPointer(unsigned int, const osg::Array *, unsigned char)");
@@ -4337,7 +4352,7 @@ public:
 		int stride=(int)lua_tointeger(L,6);
 		void* ptr=(Luna< void >::check(L,7));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setVertexAttribPointer(unsigned int, int, unsigned int, unsigned char, int, const void *)");
@@ -4365,7 +4380,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableVertexAttribPointer(unsigned int)");
@@ -4384,7 +4399,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::disableVertexAttribPointersAboveAndIncluding(unsigned int)");
@@ -4403,7 +4418,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyVertexAttribPointer(unsigned int)");
@@ -4422,7 +4437,7 @@ public:
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::dirtyVertexAttribPointersAboveAndIncluding(unsigned int)");
@@ -4440,7 +4455,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::isVertexBufferObjectSupported() const");
@@ -4458,9 +4473,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setLastAppliedProgramObject(const osg::Program::PerContextProgram * program) function, expected prototype:\nvoid osg::State::setLastAppliedProgramObject(const osg::Program::PerContextProgram * program)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Program::PerContextProgram* program=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Program::PerContextProgram* program=(Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setLastAppliedProgramObject(const osg::Program::PerContextProgram *)");
@@ -4478,7 +4493,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Program::PerContextProgram * osg::State::getLastAppliedProgramObject() const");
@@ -4500,7 +4515,7 @@ public:
 
 		unsigned int uniformNameID=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::State::getUniformLocation(unsigned int) const");
@@ -4520,7 +4535,7 @@ public:
 
 		std::string uniformName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::State::getUniformLocation(const std::string &) const");
@@ -4549,7 +4564,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::State::getAttribLocation(const std::string &) const");
@@ -4567,9 +4582,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute * attribute) function, expected prototype:\nosg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute * attribute)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::State::AttributeVec & osg::State::getAttributeVec(const osg::StateAttribute *)");
@@ -4589,9 +4604,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setFrameStamp(osg::FrameStamp * fs) function, expected prototype:\nvoid osg::State::setFrameStamp(osg::FrameStamp * fs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::FrameStamp* fs=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		osg::FrameStamp* fs=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setFrameStamp(osg::FrameStamp *)");
@@ -4609,7 +4624,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::FrameStamp * osg::State::getFrameStamp()");
@@ -4630,7 +4645,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::FrameStamp * osg::State::getFrameStamp() const");
@@ -4659,9 +4674,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setDisplaySettings(osg::DisplaySettings * vs) function, expected prototype:\nvoid osg::State::setDisplaySettings(osg::DisplaySettings * vs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::DisplaySettings* vs=dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2));
+		osg::DisplaySettings* vs=(Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setDisplaySettings(osg::DisplaySettings *)");
@@ -4679,7 +4694,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::DisplaySettings * osg::State::getDisplaySettings() const");
@@ -4701,7 +4716,7 @@ public:
 
 		bool abortPtr=(bool)(lua_toboolean(L,2)==1);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setAbortRenderingPtr(bool *)");
@@ -4719,7 +4734,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::getAbortRendering() const");
@@ -4737,9 +4752,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setDynamicObjectRenderingCompletedCallback(osg::State::DynamicObjectRenderingCompletedCallback * cb) function, expected prototype:\nvoid osg::State::setDynamicObjectRenderingCompletedCallback(osg::State::DynamicObjectRenderingCompletedCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State::DynamicObjectRenderingCompletedCallback* cb=dynamic_cast< osg::State::DynamicObjectRenderingCompletedCallback* >(Luna< osg::Referenced >::check(L,2));
+		osg::State::DynamicObjectRenderingCompletedCallback* cb=(Luna< osg::Referenced >::checkSubType< osg::State::DynamicObjectRenderingCompletedCallback >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setDynamicObjectRenderingCompletedCallback(osg::State::DynamicObjectRenderingCompletedCallback *)");
@@ -4757,7 +4772,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::State::DynamicObjectRenderingCompletedCallback * osg::State::getDynamicObjectRenderingCompletedCallback()");
@@ -4782,7 +4797,7 @@ public:
 		unsigned int count=(unsigned int)lua_tointeger(L,2);
 		bool callCallbackOnZero=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setDynamicObjectCount(unsigned int, bool)");
@@ -4800,7 +4815,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getDynamicObjectCount() const");
@@ -4819,7 +4834,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::decrementDynamicObjectCount()");
@@ -4838,7 +4853,7 @@ public:
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setMaxTexturePoolSize(unsigned int)");
@@ -4856,7 +4871,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getMaxTexturePoolSize() const");
@@ -4876,7 +4891,7 @@ public:
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setMaxBufferObjectPoolSize(unsigned int)");
@@ -4894,7 +4909,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::State::getMaxBufferObjectPoolSize() const");
@@ -4914,7 +4929,7 @@ public:
 
 		osg::State::CheckForGLErrors check=(osg::State::CheckForGLErrors)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setCheckForGLErrors(osg::State::CheckForGLErrors)");
@@ -4932,7 +4947,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::State::CheckForGLErrors osg::State::getCheckForGLErrors() const");
@@ -4952,7 +4967,7 @@ public:
 
 		const char * str=(const char *)lua_tostring(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::checkGLErrors(const char *) const");
@@ -4972,7 +4987,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::checkGLErrors(unsigned int) const");
@@ -4990,9 +5005,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::State::checkGLErrors(const osg::StateAttribute * attribute) const function, expected prototype:\nbool osg::State::checkGLErrors(const osg::StateAttribute * attribute) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* attribute=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* attribute=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::State::checkGLErrors(const osg::StateAttribute *) const");
@@ -5021,7 +5036,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::initializeExtensionProcs()");
@@ -5040,7 +5055,7 @@ public:
 
 		void* _arg1=(Luna< void >::check(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::objectDeleted(void *)");
@@ -5058,7 +5073,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::GLBeginEndAdapter & osg::State::getGLBeginEndAdapter()");
@@ -5079,7 +5094,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::ArrayDispatchers & osg::State::getArrayDispatchers()");
@@ -5099,9 +5114,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::setGraphicsCostEstimator(osg::GraphicsCostEstimator * gce) function, expected prototype:\nvoid osg::State::setGraphicsCostEstimator(osg::GraphicsCostEstimator * gce)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsCostEstimator* gce=dynamic_cast< osg::GraphicsCostEstimator* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsCostEstimator* gce=(Luna< osg::Referenced >::checkSubType< osg::GraphicsCostEstimator >(L,2));
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGraphicsCostEstimator(osg::GraphicsCostEstimator *)");
@@ -5119,7 +5134,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::GraphicsCostEstimator * osg::State::getGraphicsCostEstimator()");
@@ -5140,7 +5155,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::GraphicsCostEstimator * osg::State::getGraphicsCostEstimator() const");
@@ -5170,7 +5185,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned long long osg::State::getStartTick() const");
@@ -5190,7 +5205,7 @@ public:
 
 		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setStartTick(unsigned long long)");
@@ -5208,7 +5223,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned long long osg::State::getGpuTick() const");
@@ -5227,7 +5242,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::State::getGpuTime() const");
@@ -5246,7 +5261,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned long long int osg::State::getGpuTimestamp() const");
@@ -5267,7 +5282,7 @@ public:
 		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
 		unsigned long long int timestamp=(unsigned long long int)lua_tointeger(L,3);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setGpuTimestamp(unsigned long long, unsigned long long int)");
@@ -5285,7 +5300,7 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::State::getTimestampBits() const");
@@ -5305,7 +5320,7 @@ public:
 
 		int bits=(int)lua_tointeger(L,2);
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::setTimestampBits(int)");
@@ -5323,12 +5338,49 @@ public:
 		}
 
 
-		osg::State* self=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::frameCompleted()");
 		}
 		self->frameCompleted();
+
+		return 0;
+	}
+
+	// void osg::State::base_objectDeleted(void * arg1)
+	static int _bind_base_objectDeleted(lua_State *L) {
+		if (!_lg_typecheck_base_objectDeleted(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::State::base_objectDeleted(void * arg1) function, expected prototype:\nvoid osg::State::base_objectDeleted(void * arg1)\nClass arguments details:\n");
+		}
+
+		void* _arg1=(Luna< void >::check(L,2));
+
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::State::base_objectDeleted(void *)");
+		}
+		self->State::objectDeleted(_arg1);
+
+		return 0;
+	}
+
+	// void osg::State::base_frameCompleted()
+	static int _bind_base_frameCompleted(lua_State *L) {
+		if (!_lg_typecheck_base_frameCompleted(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::State::base_frameCompleted() function, expected prototype:\nvoid osg::State::base_frameCompleted()\nClass arguments details:\n");
+		}
+
+
+		osg::State* self=Luna< osg::Referenced >::checkSubType< osg::State >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::State::base_frameCompleted()");
+		}
+		self->State::frameCompleted();
 
 		return 0;
 	}
@@ -5520,6 +5572,8 @@ luna_RegType LunaTraits< osg::State >::methods[] = {
 	{"getTimestampBits", &luna_wrapper_osg_State::_bind_getTimestampBits},
 	{"setTimestampBits", &luna_wrapper_osg_State::_bind_setTimestampBits},
 	{"frameCompleted", &luna_wrapper_osg_State::_bind_frameCompleted},
+	{"base_objectDeleted", &luna_wrapper_osg_State::_bind_base_objectDeleted},
+	{"base_frameCompleted", &luna_wrapper_osg_State::_bind_base_frameCompleted},
 	{"__eq", &luna_wrapper_osg_State::_bind___eq},
 	{0,0}
 };

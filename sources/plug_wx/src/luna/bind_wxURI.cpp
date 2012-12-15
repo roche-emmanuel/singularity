@@ -9,7 +9,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxURI* ptr= dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		//wxURI* ptr= dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* ptr= luna_caster< wxObject, wxURI >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -204,6 +205,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -246,7 +253,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxURI::wxURI(const wxURI & uri) function, expected prototype:\nwxURI::wxURI(const wxURI & uri)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxURI* uri_ptr=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		const wxURI* uri_ptr=(Luna< wxObject >::checkSubType< wxURI >(L,1));
 		if( !uri_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg uri in wxURI::wxURI function");
 		}
@@ -285,7 +292,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxURI::wxURI(lua_Table * data, const wxURI & uri) function, expected prototype:\nwxURI::wxURI(lua_Table * data, const wxURI & uri)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxURI* uri_ptr=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,2));
+		const wxURI* uri_ptr=(Luna< wxObject >::checkSubType< wxURI >(L,2));
 		if( !uri_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg uri in wxURI::wxURI function");
 		}
@@ -317,7 +324,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxURI::BuildURI() const");
@@ -336,7 +343,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxURI::BuildUnescapedURI() const");
@@ -356,7 +363,7 @@ public:
 
 		wxString uri(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::Create(const wxString &)");
@@ -375,7 +382,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetFragment() const");
@@ -394,7 +401,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxURIHostType wxURI::GetHostType() const");
@@ -413,7 +420,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxURI::GetPassword() const");
@@ -432,7 +439,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPath() const");
@@ -451,7 +458,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetPort() const");
@@ -470,7 +477,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetQuery() const");
@@ -489,7 +496,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetScheme() const");
@@ -508,7 +515,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetServer() const");
@@ -527,7 +534,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxURI::GetUser() const");
@@ -546,7 +553,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxURI::GetUserInfo() const");
@@ -565,7 +572,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasFragment() const");
@@ -584,7 +591,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasPath() const");
@@ -603,7 +610,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasPort() const");
@@ -622,7 +629,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasQuery() const");
@@ -641,7 +648,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasScheme() const");
@@ -660,7 +667,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::HasServer() const");
@@ -679,7 +686,7 @@ public:
 		}
 
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::IsReference() const");
@@ -699,14 +706,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxURI* base_ptr=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,2));
+		const wxURI* base_ptr=(Luna< wxObject >::checkSubType< wxURI >(L,2));
 		if( !base_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg base in wxURI::Resolve function");
 		}
 		const wxURI & base=*base_ptr;
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxURI_STRICT;
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxURI::Resolve(const wxURI &, int)");
@@ -731,6 +738,27 @@ public:
 		return 1;
 	}
 
+	// wxClassInfo * wxURI::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxURI::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxURI::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxURI::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxURI::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 	// bool wxURI::operator==(const wxURI & uricomp) const
@@ -740,13 +768,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxURI::operator==(const wxURI & uricomp) const function, expected prototype:\nbool wxURI::operator==(const wxURI & uricomp) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxURI* uricomp_ptr=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,2));
+		const wxURI* uricomp_ptr=(Luna< wxObject >::checkSubType< wxURI >(L,2));
 		if( !uricomp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg uricomp in wxURI::operator== function");
 		}
 		const wxURI & uricomp=*uricomp_ptr;
 
-		wxURI* self=dynamic_cast< wxURI* >(Luna< wxObject >::check(L,1));
+		wxURI* self=Luna< wxObject >::checkSubType< wxURI >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURI::operator==(const wxURI &) const");
@@ -798,6 +826,7 @@ luna_RegType LunaTraits< wxURI >::methods[] = {
 	{"IsReference", &luna_wrapper_wxURI::_bind_IsReference},
 	{"Resolve", &luna_wrapper_wxURI::_bind_Resolve},
 	{"Unescape", &luna_wrapper_wxURI::_bind_Unescape},
+	{"base_GetClassInfo", &luna_wrapper_wxURI::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxURI::_bind___eq},
 	{0,0}
 };

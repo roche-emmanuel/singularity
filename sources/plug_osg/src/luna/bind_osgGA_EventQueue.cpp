@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgGA::EventQueue* ptr= dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		//osgGA::EventQueue* ptr= dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* ptr= luna_caster< osg::Referenced, osgGA::EventQueue >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -576,7 +577,7 @@ public:
 		}
 		osgGA::EventQueue::Events & events=*events_ptr;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setEvents(osgGA::EventQueue::Events &)");
@@ -599,7 +600,7 @@ public:
 		}
 		osgGA::EventQueue::Events & events=*events_ptr;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &)");
@@ -624,7 +625,7 @@ public:
 		osgGA::EventQueue::Events & events=*events_ptr;
 		double cutOffTime=(double)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::takeEvents(osgGA::EventQueue::Events &, double)");
@@ -657,7 +658,7 @@ public:
 		}
 		osgGA::EventQueue::Events & events=*events_ptr;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::copyEvents(osgGA::EventQueue::Events &) const");
@@ -681,7 +682,7 @@ public:
 		}
 		osgGA::EventQueue::Events & events=*events_ptr;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::appendEvents(osgGA::EventQueue::Events &)");
@@ -698,9 +699,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event) function, expected prototype:\nvoid osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter * event)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgGA::GUIEventAdapter* event=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
+		osgGA::GUIEventAdapter* event=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::addEvent(osgGA::GUIEventAdapter *)");
@@ -719,7 +720,7 @@ public:
 
 		bool useFixedMouseInputRange=(bool)(lua_toboolean(L,2)==1);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setUseFixedMouseInputRange(bool)");
@@ -737,7 +738,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgGA::EventQueue::getUseFixedMouseInputRange()");
@@ -755,9 +756,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context) function, expected prototype:\nvoid osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* context=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setGraphicsContext(osg::GraphicsContext *)");
@@ -779,7 +780,7 @@ public:
 		float xMax=(float)lua_tonumber(L,4);
 		float yMax=(float)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setMouseInputRange(float, float, float, float)");
@@ -801,7 +802,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int)");
@@ -824,7 +825,7 @@ public:
 		int height=(int)lua_tointeger(L,5);
 		double time=(double)lua_tonumber(L,6);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::windowResize(int, int, int, int, double)");
@@ -852,7 +853,7 @@ public:
 
 		osgGA::GUIEventAdapter::ScrollingMotion sm=(osgGA::GUIEventAdapter::ScrollingMotion)lua_tointeger(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion)");
@@ -872,7 +873,7 @@ public:
 		osgGA::GUIEventAdapter::ScrollingMotion sm=(osgGA::GUIEventAdapter::ScrollingMotion)lua_tointeger(L,2);
 		double time=(double)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll(osgGA::GUIEventAdapter::ScrollingMotion, double)");
@@ -901,7 +902,7 @@ public:
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float)");
@@ -922,7 +923,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		double time=(double)lua_tonumber(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseScroll2D(float, float, double)");
@@ -950,7 +951,7 @@ public:
 
 		float pressure=(float)lua_tonumber(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float)");
@@ -970,7 +971,7 @@ public:
 		float pressure=(float)lua_tonumber(L,2);
 		double time=(double)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penPressure(float, double)");
@@ -1000,7 +1001,7 @@ public:
 		float tiltY=(float)lua_tonumber(L,3);
 		float rotation=(float)lua_tonumber(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float)");
@@ -1022,7 +1023,7 @@ public:
 		float rotation=(float)lua_tonumber(L,4);
 		double time=(double)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penOrientation(float, float, float, double)");
@@ -1051,7 +1052,7 @@ public:
 		osgGA::GUIEventAdapter::TabletPointerType pt=(osgGA::GUIEventAdapter::TabletPointerType)lua_tointeger(L,2);
 		bool isEntering=(bool)(lua_toboolean(L,3)==1);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool)");
@@ -1072,7 +1073,7 @@ public:
 		bool isEntering=(bool)(lua_toboolean(L,3)==1);
 		double time=(double)lua_tonumber(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::penProximity(osgGA::GUIEventAdapter::TabletPointerType, bool, double)");
@@ -1101,7 +1102,7 @@ public:
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseWarped(float, float)");
@@ -1121,7 +1122,7 @@ public:
 		float x=(float)lua_tonumber(L,2);
 		float y=(float)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float)");
@@ -1142,7 +1143,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		double time=(double)lua_tonumber(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseMotion(float, float, double)");
@@ -1172,7 +1173,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int)");
@@ -1194,7 +1195,7 @@ public:
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 		double time=(double)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonPress(float, float, unsigned int, double)");
@@ -1224,7 +1225,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int)");
@@ -1246,7 +1247,7 @@ public:
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 		double time=(double)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseDoubleButtonPress(float, float, unsigned int, double)");
@@ -1276,7 +1277,7 @@ public:
 		float y=(float)lua_tonumber(L,3);
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int)");
@@ -1298,7 +1299,7 @@ public:
 		unsigned int button=(unsigned int)lua_tointeger(L,4);
 		double time=(double)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::mouseButtonRelease(float, float, unsigned int, double)");
@@ -1329,7 +1330,7 @@ public:
 		int key=(int)lua_tointeger(L,2);
 		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, int)");
@@ -1352,7 +1353,7 @@ public:
 		double time=(double)lua_tonumber(L,3);
 		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyPress(int, double, int)");
@@ -1383,7 +1384,7 @@ public:
 		int key=(int)lua_tointeger(L,2);
 		int unmodifiedKey=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, int)");
@@ -1406,7 +1407,7 @@ public:
 		double time=(double)lua_tonumber(L,3);
 		int unmodifiedKey=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::keyRelease(int, double, int)");
@@ -1438,7 +1439,7 @@ public:
 		float y=(float)lua_tonumber(L,5);
 		double time=(double)lua_tonumber(L,6);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double)");
@@ -1463,7 +1464,7 @@ public:
 		float x=(float)lua_tonumber(L,4);
 		float y=(float)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchBegan(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float)");
@@ -1498,7 +1499,7 @@ public:
 		float y=(float)lua_tonumber(L,5);
 		double time=(double)lua_tonumber(L,6);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, double)");
@@ -1523,7 +1524,7 @@ public:
 		float x=(float)lua_tonumber(L,4);
 		float y=(float)lua_tonumber(L,5);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchMoved(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float)");
@@ -1559,7 +1560,7 @@ public:
 		unsigned int tap_count=(unsigned int)lua_tointeger(L,6);
 		double time=(double)lua_tonumber(L,7);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int, double)");
@@ -1585,7 +1586,7 @@ public:
 		float y=(float)lua_tonumber(L,5);
 		unsigned int tap_count=(unsigned int)lua_tointeger(L,6);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::touchEnded(unsigned int, osgGA::GUIEventAdapter::TouchPhase, float, float, unsigned int)");
@@ -1615,7 +1616,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow()");
@@ -1634,7 +1635,7 @@ public:
 
 		double time=(double)lua_tonumber(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::closeWindow(double)");
@@ -1661,7 +1662,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication()");
@@ -1680,7 +1681,7 @@ public:
 
 		double time=(double)lua_tonumber(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::quitApplication(double)");
@@ -1708,7 +1709,7 @@ public:
 
 		double time=(double)lua_tonumber(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::frame(double)");
@@ -1727,7 +1728,7 @@ public:
 
 		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setStartTick(unsigned long long)");
@@ -1745,7 +1746,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned long long osgGA::EventQueue::getStartTick() const");
@@ -1764,7 +1765,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osgGA::EventQueue::getTime() const");
@@ -1783,7 +1784,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::createEvent()");
@@ -1803,9 +1804,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea) function, expected prototype:\nvoid osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter * ea)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgGA::GUIEventAdapter* ea=dynamic_cast< osgGA::GUIEventAdapter* >(Luna< osg::Referenced >::check(L,2));
+		osgGA::GUIEventAdapter* ea=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setCurrentEventState(osgGA::GUIEventAdapter *)");
@@ -1823,7 +1824,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState()");
@@ -1844,7 +1845,7 @@ public:
 		}
 
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter * osgGA::EventQueue::getCurrentEventState() const");
@@ -1875,7 +1876,7 @@ public:
 
 		osg::Referenced* userEventData=(Luna< osg::Referenced >::check(L,2));
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *)");
@@ -1895,7 +1896,7 @@ public:
 		osg::Referenced* userEventData=(Luna< osg::Referenced >::check(L,2));
 		double time=(double)lua_tonumber(L,3);
 
-		osgGA::EventQueue* self=dynamic_cast< osgGA::EventQueue* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::userEvent(osg::Referenced *, double)");

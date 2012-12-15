@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgViewer::Scene* ptr= dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		//osgViewer::Scene* ptr= dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* ptr= luna_caster< osg::Referenced, osgViewer::Scene >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -121,6 +122,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -136,7 +143,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::className() const");
@@ -154,9 +161,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::Scene::setSceneData(osg::Node * node) function, expected prototype:\nvoid osgViewer::Scene::setSceneData(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setSceneData(osg::Node *)");
@@ -174,7 +181,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Node * osgViewer::Scene::getSceneData()");
@@ -195,7 +202,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Node * osgViewer::Scene::getSceneData() const");
@@ -224,9 +231,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::Scene::setDatabasePager(osgDB::DatabasePager * dp) function, expected prototype:\nvoid osgViewer::Scene::setDatabasePager(osgDB::DatabasePager * dp)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgDB::DatabasePager* dp=dynamic_cast< osgDB::DatabasePager* >(Luna< osg::Referenced >::check(L,2));
+		osgDB::DatabasePager* dp=(Luna< osg::Referenced >::checkSubType< osgDB::DatabasePager >(L,2));
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setDatabasePager(osgDB::DatabasePager *)");
@@ -244,7 +251,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::DatabasePager * osgViewer::Scene::getDatabasePager()");
@@ -265,7 +272,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgDB::DatabasePager * osgViewer::Scene::getDatabasePager() const");
@@ -294,9 +301,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::Scene::setImagePager(osgDB::ImagePager * ip) function, expected prototype:\nvoid osgViewer::Scene::setImagePager(osgDB::ImagePager * ip)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgDB::ImagePager* ip=dynamic_cast< osgDB::ImagePager* >(Luna< osg::Referenced >::check(L,2));
+		osgDB::ImagePager* ip=(Luna< osg::Referenced >::checkSubType< osgDB::ImagePager >(L,2));
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::Scene::setImagePager(osgDB::ImagePager *)");
@@ -314,7 +321,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ImagePager * osgViewer::Scene::getImagePager()");
@@ -335,7 +342,7 @@ public:
 		}
 
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgDB::ImagePager * osgViewer::Scene::getImagePager() const");
@@ -364,13 +371,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::Scene::updateSceneGraph(osg::NodeVisitor & updateVisitor) function, expected prototype:\nvoid osgViewer::Scene::updateSceneGraph(osg::NodeVisitor & updateVisitor)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::NodeVisitor* updateVisitor_ptr=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));
+		osg::NodeVisitor* updateVisitor_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
 		if( !updateVisitor_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg updateVisitor in osgViewer::Scene::updateSceneGraph function");
 		}
 		osg::NodeVisitor & updateVisitor=*updateVisitor_ptr;
 
-		osgViewer::Scene* self=dynamic_cast< osgViewer::Scene* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::Scene::updateSceneGraph(osg::NodeVisitor &)");
@@ -387,12 +394,31 @@ public:
 			luaL_error(L, "luna typecheck failed in static osgViewer::Scene * osgViewer::Scene::getScene(osg::Node * node) function, expected prototype:\nstatic osgViewer::Scene * osgViewer::Scene::getScene(osg::Node * node)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* node=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1));
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
 
 		osgViewer::Scene * lret = osgViewer::Scene::getScene(node);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< osgViewer::Scene >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const char * osgViewer::Scene::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osgViewer::Scene::base_className() const function, expected prototype:\nconst char * osgViewer::Scene::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osgViewer::Scene* self=Luna< osg::Referenced >::checkSubType< osgViewer::Scene >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osgViewer::Scene::base_className() const");
+		}
+		const char * lret = self->Scene::className();
+		lua_pushstring(L,lret);
 
 		return 1;
 	}
@@ -427,6 +453,7 @@ luna_RegType LunaTraits< osgViewer::Scene >::methods[] = {
 	{"getImagePager", &luna_wrapper_osgViewer_Scene::_bind_getImagePager},
 	{"updateSceneGraph", &luna_wrapper_osgViewer_Scene::_bind_updateSceneGraph},
 	{"getScene", &luna_wrapper_osgViewer_Scene::_bind_getScene},
+	{"base_className", &luna_wrapper_osgViewer_Scene::_bind_base_className},
 	{"__eq", &luna_wrapper_osgViewer_Scene::_bind___eq},
 	{0,0}
 };

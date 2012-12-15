@@ -56,6 +56,8 @@ function Class:writeFunctionCall(func)
 	end
 	
 	local rt = func:getReturnType()
+	self:check(rt,"Invalid return type for function: ",func:getFullName())
+	
 	local rtype = rt:getBaseName() .. ((rt:isPointer() or rt:isClass()) and "*" or "")
 	local conv = (rt:isEnum() or rtype=="char") and "("..rtype..")" or ""
 	

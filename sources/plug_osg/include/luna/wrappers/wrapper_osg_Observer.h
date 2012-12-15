@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Observer::objectDeleted(arg1);
+		return Observer::objectDeleted(arg1);
 	};
 
 

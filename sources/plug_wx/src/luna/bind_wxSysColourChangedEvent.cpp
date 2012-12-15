@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSysColourChangedEvent* ptr= dynamic_cast< wxSysColourChangedEvent* >(Luna< wxObject >::check(L,1));
+		//wxSysColourChangedEvent* ptr= dynamic_cast< wxSysColourChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxSysColourChangedEvent* ptr= luna_caster< wxObject, wxSysColourChangedEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,11 +43,63 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Function binds:
+	// wxClassInfo * wxSysColourChangedEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSysColourChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSysColourChangedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSysColourChangedEvent* self=Luna< wxObject >::checkSubType< wxSysColourChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSysColourChangedEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSysColourChangedEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxSysColourChangedEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxSysColourChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxSysColourChangedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxSysColourChangedEvent* self=Luna< wxObject >::checkSubType< wxSysColourChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSysColourChangedEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxSysColourChangedEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -70,6 +123,8 @@ const int LunaTraits< wxSysColourChangedEvent >::hash = 19204438;
 const int LunaTraits< wxSysColourChangedEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxSysColourChangedEvent >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxSysColourChangedEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxSysColourChangedEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxSysColourChangedEvent::_bind___eq},
 	{0,0}
 };

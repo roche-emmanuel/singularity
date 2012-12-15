@@ -75,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPropagateOnce::wxPropagateOnce(wxEvent & event) function, expected prototype:\nwxPropagateOnce::wxPropagateOnce(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,1));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,1));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPropagateOnce::wxPropagateOnce function");
 		}

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::CullingSet* ptr= dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		//osg::CullingSet* ptr= dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* ptr= luna_caster< osg::Referenced, osg::CullingSet >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -334,7 +335,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(const osg::CullingSet & cs) function, expected prototype:\nosg::CullingSet::CullingSet(const osg::CullingSet & cs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
 		}
@@ -350,7 +351,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector) function, expected prototype:\nosg::CullingSet::CullingSet(const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\narg 3 ID = 92303235\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
 		}
@@ -387,7 +388,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs) function, expected prototype:\nosg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,2));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
 		}
@@ -403,7 +404,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector) function, expected prototype:\nosg::CullingSet::CullingSet(lua_Table * data, const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 18903838\narg 4 ID = 92303235\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,2));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::CullingSet function");
 		}
@@ -444,13 +445,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::set(const osg::CullingSet & cs) function, expected prototype:\nvoid osg::CullingSet::set(const osg::CullingSet & cs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,2));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::set function");
 		}
 		const osg::CullingSet & cs=*cs_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &)");
@@ -467,7 +468,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::set(const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector) function, expected prototype:\nvoid osg::CullingSet::set(const osg::CullingSet & cs, const osg::Matrixd & matrix, const osg::Vec4f & pixelSizeVector)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\narg 3 ID = 92303235\n");
 		}
 
-		const osg::CullingSet* cs_ptr=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,2));
+		const osg::CullingSet* cs_ptr=(Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,2));
 		if( !cs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cs in osg::CullingSet::set function");
 		}
@@ -483,7 +484,7 @@ public:
 		}
 		const osg::Vec4f & pixelSizeVector=*pixelSizeVector_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::set(const osg::CullingSet &, const osg::Matrixd &, const osg::Vec4f &)");
@@ -511,7 +512,7 @@ public:
 
 		int mask=(int)lua_tointeger(L,2);
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::setCullingMask(int)");
@@ -529,7 +530,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::CullingSet::getCullingMask() const");
@@ -553,7 +554,7 @@ public:
 		}
 		osg::Polytope & cv=*cv_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::setFrustum(osg::Polytope &)");
@@ -571,7 +572,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Polytope & osg::CullingSet::getFrustum()");
@@ -592,7 +593,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Polytope & osg::CullingSet::getFrustum() const");
@@ -621,14 +622,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullingSet::addStateFrustum(osg::StateSet * stateset, osg::Polytope & polytope) function, expected prototype:\nvoid osg::CullingSet::addStateFrustum(osg::StateSet * stateset, osg::Polytope & polytope)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 26652350\n");
 		}
 
-		osg::StateSet* stateset=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,2));
+		osg::StateSet* stateset=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,2));
 		osg::Polytope* polytope_ptr=(Luna< osg::Polytope >::check(L,3));
 		if( !polytope_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg polytope in osg::CullingSet::addStateFrustum function");
 		}
 		osg::Polytope & polytope=*polytope_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::addStateFrustum(osg::StateSet *, osg::Polytope &)");
@@ -651,7 +652,7 @@ public:
 		}
 		osg::CullingSet::StateFrustumList & sfl=*sfl_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::getStateFrustumList(osg::CullingSet::StateFrustumList &)");
@@ -669,7 +670,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::CullingSet::StateFrustumList & osg::CullingSet::getStateFrustumList()");
@@ -704,7 +705,7 @@ public:
 		}
 		osg::ShadowVolumeOccluder & cv=*cv_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::addOccluder(osg::ShadowVolumeOccluder &)");
@@ -727,7 +728,7 @@ public:
 		}
 		const osg::Vec4f & v=*v_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::setPixelSizeVector(const osg::Vec4f &)");
@@ -745,7 +746,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec4f & osg::CullingSet::getPixelSizeVector()");
@@ -766,7 +767,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec4f & osg::CullingSet::getPixelSizeVector() const");
@@ -797,7 +798,7 @@ public:
 
 		float value=(float)lua_tonumber(L,2);
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::setSmallFeatureCullingPixelSize(float)");
@@ -815,7 +816,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float & osg::CullingSet::getSmallFeatureCullingPixelSize()");
@@ -834,7 +835,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::CullingSet::getSmallFeatureCullingPixelSize() const");
@@ -868,7 +869,7 @@ public:
 		const osg::Vec3f & v=*v_ptr;
 		float radius=(float)lua_tonumber(L,3);
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::Vec3f &, float) const");
@@ -892,7 +893,7 @@ public:
 		}
 		const osg::BoundingSphered & bs=*bs_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::CullingSet::pixelSize(const osg::BoundingSphered &) const");
@@ -926,7 +927,7 @@ public:
 		const osg::Vec3f & v=*v_ptr;
 		float radius=(float)lua_tonumber(L,3);
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::Vec3f &, float) const");
@@ -950,7 +951,7 @@ public:
 		}
 		const osg::BoundingSphered & bs=*bs_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::CullingSet::clampedPixelSize(const osg::BoundingSphered &) const");
@@ -983,7 +984,7 @@ public:
 		}
 		const std::vector< osg::Vec3f > & vertices=*vertices_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const std::vector< osg::Vec3f > &)");
@@ -1007,7 +1008,7 @@ public:
 		}
 		const osg::BoundingBoxd & bb=*bb_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingBoxd &)");
@@ -1031,7 +1032,7 @@ public:
 		}
 		const osg::BoundingSphered & bs=*bs_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::CullingSet::isCulled(const osg::BoundingSphered &)");
@@ -1060,7 +1061,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::pushCurrentMask()");
@@ -1078,7 +1079,7 @@ public:
 		}
 
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::popCurrentMask()");
@@ -1101,7 +1102,7 @@ public:
 		}
 		osg::NodePath & nodePath=*nodePath_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::disableAndPushOccludersCurrentMask(osg::NodePath &)");
@@ -1124,7 +1125,7 @@ public:
 		}
 		osg::NodePath & nodePath=*nodePath_ptr;
 
-		osg::CullingSet* self=dynamic_cast< osg::CullingSet* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullingSet* self=Luna< osg::Referenced >::checkSubType< osg::CullingSet >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::CullingSet::popOccludersCurrentMask(osg::NodePath &)");
@@ -1141,7 +1142,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static osg::Vec4f osg::CullingSet::computePixelSizeVector(const osg::Viewport & W, const osg::Matrixd & P, const osg::Matrixd & M) function, expected prototype:\nstatic osg::Vec4f osg::CullingSet::computePixelSizeVector(const osg::Viewport & W, const osg::Matrixd & P, const osg::Matrixd & M)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\narg 3 ID = 18903838\n");
 		}
 
-		const osg::Viewport* W_ptr=dynamic_cast< osg::Viewport* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Viewport* W_ptr=(Luna< osg::Referenced >::checkSubType< osg::Viewport >(L,1));
 		if( !W_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg W in osg::CullingSet::computePixelSizeVector function");
 		}

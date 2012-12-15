@@ -8,6 +8,14 @@ int GetY(wxPoint* point) {
 	return point->y;
 }
 
+bool disconnect(wxEvtHandler* handler, int eventType) {
+	return handler->Disconnect((wxEventType)eventType);
+}
+
+bool disconnect(wxEvtHandler* handler, int id, int eventType) {
+	return handler->Disconnect(id, (wxEventType)eventType);
+}
+
 bool disconnect(wxEvtHandler* handler, int id, int id2, int eventType) {
 	return handler->Disconnect(id, id2, (wxEventType)eventType);
 }

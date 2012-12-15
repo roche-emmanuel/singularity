@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMenu* ptr= dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		//wxMenu* ptr= dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* ptr= luna_caster< wxObject, wxMenu >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -490,6 +491,95 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Break(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindItem(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetHelpString(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetHelpString(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetTitle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Attach(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -600,7 +690,7 @@ public:
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
 		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, const wxString &, wxItemKind)");
@@ -624,10 +714,10 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
-		wxMenu* subMenu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,4));
+		wxMenu* subMenu=(Luna< wxObject >::checkSubType< wxMenu >(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(int, const wxString &, wxMenu *, const wxString &)");
@@ -647,9 +737,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Append(wxMenuItem * menuItem) function, expected prototype:\nwxMenuItem * wxMenu::Append(wxMenuItem * menuItem)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuItem* menuItem=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,2));
+		wxMenuItem* menuItem=(Luna< wxObject >::checkSubType< wxMenuItem >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Append(wxMenuItem *)");
@@ -685,7 +775,7 @@ public:
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString help(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendCheckItem(int, const wxString &, const wxString &)");
@@ -711,7 +801,7 @@ public:
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString help(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendRadioItem(int, const wxString &, const wxString &)");
@@ -732,7 +822,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSeparator()");
@@ -754,11 +844,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMenu* submenu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* submenu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
 		wxString help(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::AppendSubMenu(wxMenu *, const wxString &, const wxString &)");
@@ -779,7 +869,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::Break()");
@@ -799,7 +889,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		bool check=(bool)(lua_toboolean(L,3)==1);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::Check(int, bool)");
@@ -818,7 +908,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(int)");
@@ -836,9 +926,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxMenu::Delete(wxMenuItem * item) function, expected prototype:\nbool wxMenu::Delete(wxMenuItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuItem* item=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,2));
+		wxMenuItem* item=(Luna< wxObject >::checkSubType< wxMenuItem >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::Delete(wxMenuItem *)");
@@ -867,7 +957,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(int)");
@@ -885,9 +975,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxMenu::Destroy(wxMenuItem * item) function, expected prototype:\nbool wxMenu::Destroy(wxMenuItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuItem* item=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,2));
+		wxMenuItem* item=(Luna< wxObject >::checkSubType< wxMenuItem >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::Destroy(wxMenuItem *)");
@@ -917,7 +1007,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		bool enable=(bool)(lua_toboolean(L,3)==1);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::Enable(int, bool)");
@@ -939,7 +1029,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		size_t pos=luatop>2 ? (size_t)lua_tointeger(L,3) : NULL;
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindChildItem(int, size_t *) const");
@@ -961,7 +1051,7 @@ public:
 
 		wxString itemString(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxMenu::FindItem(const wxString &) const");
@@ -981,7 +1071,7 @@ public:
 
 		size_t position=(size_t)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::FindItemByPosition(size_t) const");
@@ -1003,7 +1093,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxMenu::GetHelpString(int) const");
@@ -1023,7 +1113,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabel(int) const");
@@ -1043,7 +1133,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxMenu::GetLabelText(int) const");
@@ -1062,7 +1152,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxMenu::GetMenuItemCount() const");
@@ -1081,7 +1171,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItemList & wxMenu::GetMenuItems() const");
@@ -1102,7 +1192,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxMenuItemList & wxMenu::GetMenuItems() const");
@@ -1132,7 +1222,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxMenu::GetTitle() const");
@@ -1151,9 +1241,9 @@ public:
 		}
 
 		size_t pos=(size_t)lua_tointeger(L,2);
-		wxMenuItem* menuItem=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,3));
+		wxMenuItem* menuItem=(Luna< wxObject >::checkSubType< wxMenuItem >(L,3));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, wxMenuItem *)");
@@ -1181,7 +1271,7 @@ public:
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
 		wxItemKind kind=luatop>5 ? (wxItemKind)lua_tointeger(L,6) : ::wxITEM_NORMAL;
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Insert(size_t, int, const wxString &, const wxString &, wxItemKind)");
@@ -1217,7 +1307,7 @@ public:
 		wxString item(lua_tostring(L,4),lua_objlen(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertCheckItem(size_t, int, const wxString &, const wxString &)");
@@ -1244,7 +1334,7 @@ public:
 		wxString item(lua_tostring(L,4),lua_objlen(L,4));
 		wxString helpString(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertRadioItem(size_t, int, const wxString &, const wxString &)");
@@ -1266,7 +1356,7 @@ public:
 
 		size_t pos=(size_t)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::InsertSeparator(size_t)");
@@ -1288,7 +1378,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::IsChecked(int) const");
@@ -1308,7 +1398,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::IsEnabled(int) const");
@@ -1326,9 +1416,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Prepend(wxMenuItem * item) function, expected prototype:\nwxMenuItem * wxMenu::Prepend(wxMenuItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuItem* item=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,2));
+		wxMenuItem* item=(Luna< wxObject >::checkSubType< wxMenuItem >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(wxMenuItem *)");
@@ -1355,7 +1445,7 @@ public:
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
 		wxItemKind kind=luatop>4 ? (wxItemKind)lua_tointeger(L,5) : ::wxITEM_NORMAL;
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Prepend(int, const wxString &, const wxString &, wxItemKind)");
@@ -1390,7 +1480,7 @@ public:
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependCheckItem(int, const wxString &, const wxString &)");
@@ -1416,7 +1506,7 @@ public:
 		wxString item(lua_tostring(L,3),lua_objlen(L,3));
 		wxString helpString(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependRadioItem(int, const wxString &, const wxString &)");
@@ -1437,7 +1527,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::PrependSeparator()");
@@ -1459,7 +1549,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(int)");
@@ -1479,9 +1569,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMenuItem * wxMenu::Remove(wxMenuItem * item) function, expected prototype:\nwxMenuItem * wxMenu::Remove(wxMenuItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuItem* item=dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,2));
+		wxMenuItem* item=(Luna< wxObject >::checkSubType< wxMenuItem >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuItem * wxMenu::Remove(wxMenuItem *)");
@@ -1513,7 +1603,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString helpString(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::SetHelpString(int, const wxString &)");
@@ -1533,7 +1623,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::SetLabel(int, const wxString &)");
@@ -1552,7 +1642,7 @@ public:
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::SetTitle(const wxString &)");
@@ -1571,9 +1661,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxEvtHandler* source=luatop>1 ? dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,2)) : (wxEvtHandler*)NULL;
+		wxEvtHandler* source=luatop>1 ? (Luna< wxObject >::checkSubType< wxEvtHandler >(L,2)) : (wxEvtHandler*)NULL;
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::UpdateUI(wxEvtHandler *)");
@@ -1590,9 +1680,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxMenu::SetInvokingWindow(wxWindow * win) function, expected prototype:\nvoid wxMenu::SetInvokingWindow(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::SetInvokingWindow(wxWindow *)");
@@ -1610,7 +1700,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetInvokingWindow() const");
@@ -1631,7 +1721,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxMenu::GetWindow() const");
@@ -1652,7 +1742,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxMenu::GetStyle() const");
@@ -1670,9 +1760,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxMenu::SetParent(wxMenu * parent) function, expected prototype:\nvoid wxMenu::SetParent(wxMenu * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* parent=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* parent=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::SetParent(wxMenu *)");
@@ -1690,7 +1780,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenu * wxMenu::GetParent() const");
@@ -1710,9 +1800,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxMenu::Attach(wxMenuBar * menubar) function, expected prototype:\nvoid wxMenu::Attach(wxMenuBar * menubar)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenuBar* menubar=dynamic_cast< wxMenuBar* >(Luna< wxObject >::check(L,2));
+		wxMenuBar* menubar=(Luna< wxObject >::checkSubType< wxMenuBar >(L,2));
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::Attach(wxMenuBar *)");
@@ -1730,7 +1820,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMenu::Detach()");
@@ -1748,7 +1838,7 @@ public:
 		}
 
 
-		wxMenu* self=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,1));
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxMenu::IsAttached() const");
@@ -1757,6 +1847,265 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// wxClassInfo * wxMenu::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMenu::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMenu::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMenu::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMenu::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxMenu::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxMenu::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_QueueEvent(wxEvent *)");
+		}
+		self->wxMenu::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxMenu::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxMenu::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxMenu::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxMenu::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxMenu::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxMenu::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxMenu::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxMenu::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxMenu::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxMenu::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxMenu::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxMenu::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxMenu::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxMenu::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxMenu::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxMenu::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// void wxMenu::base_Break()
+	static int _bind_base_Break(lua_State *L) {
+		if (!_lg_typecheck_base_Break(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_Break() function, expected prototype:\nvoid wxMenu::base_Break()\nClass arguments details:\n");
+		}
+
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Break()");
+		}
+		self->wxMenu::Break();
+
+		return 0;
+	}
+
+	// int wxMenu::base_FindItem(const wxString & itemString) const
+	static int _bind_base_FindItem(lua_State *L) {
+		if (!_lg_typecheck_base_FindItem(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxMenu::base_FindItem(const wxString & itemString) const function, expected prototype:\nint wxMenu::base_FindItem(const wxString & itemString) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString itemString(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxMenu::base_FindItem(const wxString &) const");
+		}
+		int lret = self->wxMenu::FindItem(itemString);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxMenu::base_GetHelpString(int id) const
+	static int _bind_base_GetHelpString(lua_State *L) {
+		if (!_lg_typecheck_base_GetHelpString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxMenu::base_GetHelpString(int id) const function, expected prototype:\nwxString wxMenu::base_GetHelpString(int id) const\nClass arguments details:\n");
+		}
+
+		int id=(int)lua_tointeger(L,2);
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxMenu::base_GetHelpString(int) const");
+		}
+		wxString lret = self->wxMenu::GetHelpString(id);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxMenu::base_SetHelpString(int id, const wxString & helpString)
+	static int _bind_base_SetHelpString(lua_State *L) {
+		if (!_lg_typecheck_base_SetHelpString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_SetHelpString(int id, const wxString & helpString) function, expected prototype:\nvoid wxMenu::base_SetHelpString(int id, const wxString & helpString)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int id=(int)lua_tointeger(L,2);
+		wxString helpString(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetHelpString(int, const wxString &)");
+		}
+		self->wxMenu::SetHelpString(id, helpString);
+
+		return 0;
+	}
+
+	// void wxMenu::base_SetTitle(const wxString & title)
+	static int _bind_base_SetTitle(lua_State *L) {
+		if (!_lg_typecheck_base_SetTitle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_SetTitle(const wxString & title) function, expected prototype:\nvoid wxMenu::base_SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_SetTitle(const wxString &)");
+		}
+		self->wxMenu::SetTitle(title);
+
+		return 0;
+	}
+
+	// void wxMenu::base_Attach(wxMenuBar * menubar)
+	static int _bind_base_Attach(lua_State *L) {
+		if (!_lg_typecheck_base_Attach(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_Attach(wxMenuBar * menubar) function, expected prototype:\nvoid wxMenu::base_Attach(wxMenuBar * menubar)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenuBar* menubar=(Luna< wxObject >::checkSubType< wxMenuBar >(L,2));
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Attach(wxMenuBar *)");
+		}
+		self->wxMenu::Attach(menubar);
+
+		return 0;
+	}
+
+	// void wxMenu::base_Detach()
+	static int _bind_base_Detach(lua_State *L) {
+		if (!_lg_typecheck_base_Detach(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxMenu::base_Detach() function, expected prototype:\nvoid wxMenu::base_Detach()\nClass arguments details:\n");
+		}
+
+
+		wxMenu* self=Luna< wxObject >::checkSubType< wxMenu >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxMenu::base_Detach()");
+		}
+		self->wxMenu::Detach();
+
+		return 0;
 	}
 
 
@@ -1823,6 +2172,19 @@ luna_RegType LunaTraits< wxMenu >::methods[] = {
 	{"Attach", &luna_wrapper_wxMenu::_bind_Attach},
 	{"Detach", &luna_wrapper_wxMenu::_bind_Detach},
 	{"IsAttached", &luna_wrapper_wxMenu::_bind_IsAttached},
+	{"base_GetClassInfo", &luna_wrapper_wxMenu::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxMenu::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxMenu::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxMenu::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxMenu::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxMenu::_bind_base_SetPreviousHandler},
+	{"base_Break", &luna_wrapper_wxMenu::_bind_base_Break},
+	{"base_FindItem", &luna_wrapper_wxMenu::_bind_base_FindItem},
+	{"base_GetHelpString", &luna_wrapper_wxMenu::_bind_base_GetHelpString},
+	{"base_SetHelpString", &luna_wrapper_wxMenu::_bind_base_SetHelpString},
+	{"base_SetTitle", &luna_wrapper_wxMenu::_bind_base_SetTitle},
+	{"base_Attach", &luna_wrapper_wxMenu::_bind_base_Attach},
+	{"base_Detach", &luna_wrapper_wxMenu::_bind_base_Detach},
 	{"__eq", &luna_wrapper_wxMenu::_bind___eq},
 	{0,0}
 };

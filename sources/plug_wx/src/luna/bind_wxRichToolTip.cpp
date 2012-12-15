@@ -139,12 +139,12 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxRichToolTip::SetBackgroundColour function");
 		}
 		const wxColour & col=*col_ptr;
-		const wxColour* colEnd_ptr=luatop>2 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxColour* colEnd_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxColour >(L,3)) : NULL;
 		if( luatop>2 && !colEnd_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colEnd in wxRichToolTip::SetBackgroundColour function");
 		}
@@ -188,7 +188,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetIcon(const wxIcon & icon) function, expected prototype:\nvoid wxRichToolTip::SetIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRichToolTip::SetIcon function");
 		}
@@ -258,7 +258,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRichToolTip::ShowFor(wxWindow * win) function, expected prototype:\nvoid wxRichToolTip::ShowFor(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {

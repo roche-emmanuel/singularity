@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTreeListEvent* ptr= dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
+		//wxTreeListEvent* ptr= dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeListEvent* ptr= luna_caster< wxObject, wxTreeListEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +61,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +80,7 @@ public:
 		}
 
 
-		wxTreeListEvent* self=dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxTreeListItem wxTreeListEvent::GetItem() const");
@@ -95,7 +102,7 @@ public:
 		}
 
 
-		wxTreeListEvent* self=dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxCheckBoxState wxTreeListEvent::GetOldCheckedState() const");
@@ -114,12 +121,31 @@ public:
 		}
 
 
-		wxTreeListEvent* self=dynamic_cast< wxTreeListEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxTreeListEvent::GetColumn() const");
 		}
 		unsigned int lret = self->GetColumn();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxEventCategory wxTreeListEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxTreeListEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxTreeListEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxTreeListEvent* self=Luna< wxObject >::checkSubType< wxTreeListEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxTreeListEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxTreeListEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -151,6 +177,7 @@ luna_RegType LunaTraits< wxTreeListEvent >::methods[] = {
 	{"GetItem", &luna_wrapper_wxTreeListEvent::_bind_GetItem},
 	{"GetOldCheckedState", &luna_wrapper_wxTreeListEvent::_bind_GetOldCheckedState},
 	{"GetColumn", &luna_wrapper_wxTreeListEvent::_bind_GetColumn},
+	{"base_GetEventCategory", &luna_wrapper_wxTreeListEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxTreeListEvent::_bind___eq},
 	{0,0}
 };

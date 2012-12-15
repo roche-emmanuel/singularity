@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::Sphere & arg1)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::Box & arg1)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::Cone & arg1)
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::Cylinder & arg1)
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::Capsule & arg1)
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::InfinitePlane & arg1)
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::TriangleMesh & arg1)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::ConvexHull & arg1)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::HeightField & arg1)
@@ -114,7 +114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 	// void osg::ConstShapeVisitor::apply(const osg::CompositeShape & arg1)
@@ -124,7 +124,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ConstShapeVisitor::apply(arg1);
+		return ConstShapeVisitor::apply(arg1);
 	};
 
 

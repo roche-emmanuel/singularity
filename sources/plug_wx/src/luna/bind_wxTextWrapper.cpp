@@ -77,7 +77,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextWrapper::Wrap(wxWindow * win, const wxString & text, int widthMax) function, expected prototype:\nvoid wxTextWrapper::Wrap(wxWindow * win, const wxString & text, int widthMax)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
 		int widthMax=(int)lua_tointeger(L,4);
 

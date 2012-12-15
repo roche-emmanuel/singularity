@@ -397,7 +397,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarItem::SetWindow(wxWindow * w) function, expected prototype:\nvoid wxAuiToolBarItem::SetWindow(wxWindow * w)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* w=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* w=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiToolBarItem* self=(Luna< wxAuiToolBarItem >::check(L,1));
 		if(!self) {
@@ -551,7 +551,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarItem::SetSizerItem(wxSizerItem * s) function, expected prototype:\nvoid wxAuiToolBarItem::SetSizerItem(wxSizerItem * s)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizerItem* s=dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,2));
+		wxSizerItem* s=(Luna< wxObject >::checkSubType< wxSizerItem >(L,2));
 
 		wxAuiToolBarItem* self=(Luna< wxAuiToolBarItem >::check(L,1));
 		if(!self) {
@@ -629,7 +629,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarItem::SetBitmap(const wxBitmap & bmp) function, expected prototype:\nvoid wxAuiToolBarItem::SetBitmap(const wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxAuiToolBarItem::SetBitmap function");
 		}
@@ -673,7 +673,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarItem::SetDisabledBitmap(const wxBitmap & bmp) function, expected prototype:\nvoid wxAuiToolBarItem::SetDisabledBitmap(const wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxAuiToolBarItem::SetDisabledBitmap function");
 		}
@@ -717,7 +717,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarItem::SetHoverBitmap(const wxBitmap & bmp) function, expected prototype:\nvoid wxAuiToolBarItem::SetHoverBitmap(const wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxAuiToolBarItem::SetHoverBitmap function");
 		}

@@ -289,7 +289,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxNativeFontInfo::InitFromFont(const wxFont & font) function, expected prototype:\nvoid wxNativeFontInfo::InitFromFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxNativeFontInfo::InitFromFont function");
 		}

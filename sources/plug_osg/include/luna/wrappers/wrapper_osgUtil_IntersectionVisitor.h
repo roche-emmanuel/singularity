@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return IntersectionVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return IntersectionVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return IntersectionVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::IntersectionVisitor::libraryName() const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectionVisitor::libraryName();
+		return IntersectionVisitor::libraryName();
 	};
 
 	// const char * osgUtil::IntersectionVisitor::className() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectionVisitor::className();
+		return IntersectionVisitor::className();
 	};
 
 	// void osgUtil::IntersectionVisitor::reset()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::reset();
+		return IntersectionVisitor::reset();
 	};
 
 	// osg::Vec3f osgUtil::IntersectionVisitor::getEyePoint() const
@@ -81,7 +81,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgUtil::IntersectionVisitor::getEyePoint();
+		return IntersectionVisitor::getEyePoint();
 	};
 
 	// float osgUtil::IntersectionVisitor::getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::IntersectionVisitor::getDistanceToEyePoint(pos, withLODScale);
+		return IntersectionVisitor::getDistanceToEyePoint(pos, withLODScale);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(node);
+		return IntersectionVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Geode & geode)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(geode);
+		return IntersectionVisitor::apply(geode);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Billboard & geode)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(geode);
+		return IntersectionVisitor::apply(geode);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Group & group)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(group);
+		return IntersectionVisitor::apply(group);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::LOD & lod)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(lod);
+		return IntersectionVisitor::apply(lod);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::PagedLOD & lod)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(lod);
+		return IntersectionVisitor::apply(lod);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Transform & transform)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(transform);
+		return IntersectionVisitor::apply(transform);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Projection & projection)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(projection);
+		return IntersectionVisitor::apply(projection);
 	};
 
 	// void osgUtil::IntersectionVisitor::apply(osg::Camera & camera)
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectionVisitor::apply(camera);
+		return IntersectionVisitor::apply(camera);
 	};
 
 

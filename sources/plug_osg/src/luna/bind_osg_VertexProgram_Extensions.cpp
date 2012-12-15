@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::VertexProgram::Extensions* ptr= dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::VertexProgram::Extensions* ptr= dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* ptr= luna_caster< osg::Referenced, osg::VertexProgram::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -171,7 +172,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::setupGLExtensions(unsigned int)");
@@ -190,7 +191,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::setVertexProgramSupported(bool)");
@@ -208,7 +209,7 @@ public:
 		}
 
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::VertexProgram::Extensions::isVertexProgramSupported() const");
@@ -229,7 +230,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int id=(unsigned int)lua_tointeger(L,3);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::glBindProgram(unsigned int, unsigned int) const");
@@ -249,7 +250,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int programs=(unsigned int)lua_tointeger(L,3);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::glGenPrograms(int, unsigned int *) const");
@@ -269,7 +270,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int programs=(unsigned int)lua_tointeger(L,3);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::glDeletePrograms(int, unsigned int *) const");
@@ -291,7 +292,7 @@ public:
 		int len=(int)lua_tointeger(L,4);
 		void* string=(Luna< void >::check(L,5));
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::glProgramString(unsigned int, unsigned int, int, const void *) const");
@@ -312,7 +313,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,3);
 		float params=(float)lua_tonumber(L,4);
 
-		osg::VertexProgram::Extensions* self=dynamic_cast< osg::VertexProgram::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::VertexProgram::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::VertexProgram::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::VertexProgram::Extensions::glProgramLocalParameter4fv(unsigned int, unsigned int, const float *) const");

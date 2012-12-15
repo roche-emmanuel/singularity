@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxObject >::check(L,1));
+		//wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxObject >::check(L,1));
+		wxRichTextStyleListBox* ptr= luna_caster< wxObject, wxRichTextStyleListBox >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,7 +43,8 @@ public:
 
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		//wxRichTextStyleListBox* ptr= dynamic_cast< wxRichTextStyleListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		wxRichTextStyleListBox* ptr= luna_caster< wxVarScrollHelperBase, wxRichTextStyleListBox >::cast(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!ptr)
 			return 0;
 		

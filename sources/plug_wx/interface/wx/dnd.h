@@ -105,7 +105,7 @@ public:
         Called after OnDrop() returns @true. By default this will usually
         GetData() and will return the suggested default value @a def.
     */
-    virtual wxDragResult OnData(wxCoord x, wxCoord y, wxDragResult def);
+    virtual wxDragResult OnData(wxCoord x, wxCoord y, wxDragResult def) = 0;
 
     /**
         Called when the mouse is being dragged over the drop target. By

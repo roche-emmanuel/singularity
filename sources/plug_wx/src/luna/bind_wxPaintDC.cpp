@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPaintDC* ptr= dynamic_cast< wxPaintDC* >(Luna< wxObject >::check(L,1));
+		//wxPaintDC* ptr= dynamic_cast< wxPaintDC* >(Luna< wxObject >::check(L,1));
+		wxPaintDC* ptr= luna_caster< wxObject, wxPaintDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,6 +62,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +80,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPaintDC::wxPaintDC(wxWindow * window) function, expected prototype:\nwxPaintDC::wxPaintDC(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 		return new wxPaintDC(window);
 	}
@@ -85,7 +92,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPaintDC::wxPaintDC(lua_Table * data, wxWindow * window) function, expected prototype:\nwxPaintDC::wxPaintDC(lua_Table * data, wxWindow * window)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		return new wrapper_wxPaintDC(L,NULL, window);
 	}
@@ -101,6 +108,27 @@ public:
 
 
 	// Function binds:
+	// wxClassInfo * wxPaintDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPaintDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPaintDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPaintDC* self=Luna< wxObject >::checkSubType< wxPaintDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaintDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPaintDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -122,6 +150,7 @@ const int LunaTraits< wxPaintDC >::hash = 19456371;
 const int LunaTraits< wxPaintDC >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxPaintDC >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxPaintDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxPaintDC::_bind___eq},
 	{0,0}
 };

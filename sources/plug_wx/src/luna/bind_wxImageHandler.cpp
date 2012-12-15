@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxImageHandler* ptr= dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		//wxImageHandler* ptr= dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* ptr= luna_caster< wxObject, wxImageHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -143,6 +144,33 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_LoadFile(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SaveFile(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -155,13 +183,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxImageHandler::CanRead(wxInputStream & stream) function, expected prototype:\nbool wxImageHandler::CanRead(wxInputStream & stream)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxInputStream* stream_ptr=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2));
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
 		if( !stream_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::CanRead function");
 		}
 		wxInputStream & stream=*stream_ptr;
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(wxInputStream &)");
@@ -181,7 +209,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageHandler::CanRead(const wxString &)");
@@ -209,7 +237,7 @@ public:
 		}
 
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetExtension() const");
@@ -228,7 +256,7 @@ public:
 		}
 
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxArrayString & wxImageHandler::GetAltExtensions() const");
@@ -248,13 +276,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxImageHandler::GetImageCount(wxInputStream & stream) function, expected prototype:\nint wxImageHandler::GetImageCount(wxInputStream & stream)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxInputStream* stream_ptr=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2));
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
 		if( !stream_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::GetImageCount function");
 		}
 		wxInputStream & stream=*stream_ptr;
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxImageHandler::GetImageCount(wxInputStream &)");
@@ -273,7 +301,7 @@ public:
 		}
 
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetMimeType() const");
@@ -292,7 +320,7 @@ public:
 		}
 
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxImageHandler::GetName() const");
@@ -311,7 +339,7 @@ public:
 		}
 
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmapType wxImageHandler::GetType() const");
@@ -331,8 +359,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxImage* image=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
-		wxInputStream* stream_ptr=dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,3));
+		wxImage* image=(Luna< wxObject >::checkSubType< wxImage >(L,2));
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,3));
 		if( !stream_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::LoadFile function");
 		}
@@ -340,7 +368,7 @@ public:
 		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 		int index=luatop>4 ? (int)lua_tointeger(L,5) : -1;
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageHandler::LoadFile(wxImage *, wxInputStream &, bool, int)");
@@ -360,15 +388,15 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxImage* image=dynamic_cast< wxImage* >(Luna< wxObject >::check(L,2));
-		wxOutputStream* stream_ptr=dynamic_cast< wxOutputStream* >(Luna< wxObject >::check(L,3));
+		wxImage* image=(Luna< wxObject >::checkSubType< wxImage >(L,2));
+		wxOutputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxOutputStream >(L,3));
 		if( !stream_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::SaveFile function");
 		}
 		wxOutputStream & stream=*stream_ptr;
 		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageHandler::SaveFile(wxImage *, wxOutputStream &, bool)");
@@ -388,7 +416,7 @@ public:
 
 		wxString extension(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxImageHandler::SetExtension(const wxString &)");
@@ -411,7 +439,7 @@ public:
 		}
 		const wxArrayString & extensions=*extensions_ptr;
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxImageHandler::SetAltExtensions(const wxArrayString &)");
@@ -430,7 +458,7 @@ public:
 
 		wxString mimetype(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxImageHandler::SetMimeType(const wxString &)");
@@ -449,7 +477,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxImageHandler* self=dynamic_cast< wxImageHandler* >(Luna< wxObject >::check(L,1));
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxImageHandler::SetName(const wxString &)");
@@ -457,6 +485,84 @@ public:
 		self->SetName(name);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxImageHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxImageHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxImageHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxImageHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxImageHandler::base_LoadFile(wxImage * image, wxInputStream & stream, bool verbose = true, int index = -1)
+	static int _bind_base_LoadFile(lua_State *L) {
+		if (!_lg_typecheck_base_LoadFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImageHandler::base_LoadFile(wxImage * image, wxInputStream & stream, bool verbose = true, int index = -1) function, expected prototype:\nbool wxImageHandler::base_LoadFile(wxImage * image, wxInputStream & stream, bool verbose = true, int index = -1)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxImage* image=(Luna< wxObject >::checkSubType< wxImage >(L,2));
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,3));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::base_LoadFile function");
+		}
+		wxInputStream & stream=*stream_ptr;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int index=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_LoadFile(wxImage *, wxInputStream &, bool, int)");
+		}
+		bool lret = self->wxImageHandler::LoadFile(image, stream, verbose, index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxImageHandler::base_SaveFile(wxImage * image, wxOutputStream & stream, bool verbose = true)
+	static int _bind_base_SaveFile(lua_State *L) {
+		if (!_lg_typecheck_base_SaveFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImageHandler::base_SaveFile(wxImage * image, wxOutputStream & stream, bool verbose = true) function, expected prototype:\nbool wxImageHandler::base_SaveFile(wxImage * image, wxOutputStream & stream, bool verbose = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxImage* image=(Luna< wxObject >::checkSubType< wxImage >(L,2));
+		wxOutputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxOutputStream >(L,3));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxImageHandler::base_SaveFile function");
+		}
+		wxOutputStream & stream=*stream_ptr;
+		bool verbose=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+
+		wxImageHandler* self=Luna< wxObject >::checkSubType< wxImageHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImageHandler::base_SaveFile(wxImage *, wxOutputStream &, bool)");
+		}
+		bool lret = self->wxImageHandler::SaveFile(image, stream, verbose);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -495,6 +601,9 @@ luna_RegType LunaTraits< wxImageHandler >::methods[] = {
 	{"SetAltExtensions", &luna_wrapper_wxImageHandler::_bind_SetAltExtensions},
 	{"SetMimeType", &luna_wrapper_wxImageHandler::_bind_SetMimeType},
 	{"SetName", &luna_wrapper_wxImageHandler::_bind_SetName},
+	{"base_GetClassInfo", &luna_wrapper_wxImageHandler::_bind_base_GetClassInfo},
+	{"base_LoadFile", &luna_wrapper_wxImageHandler::_bind_base_LoadFile},
+	{"base_SaveFile", &luna_wrapper_wxImageHandler::_bind_base_SaveFile},
 	{"__eq", &luna_wrapper_wxImageHandler::_bind___eq},
 	{0,0}
 };

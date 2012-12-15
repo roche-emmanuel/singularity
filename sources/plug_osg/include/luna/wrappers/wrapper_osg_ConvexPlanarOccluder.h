@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ConvexPlanarOccluder::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ConvexPlanarOccluder::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ConvexPlanarOccluder::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConvexPlanarOccluder::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConvexPlanarOccluder::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ConvexPlanarOccluder::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ConvexPlanarOccluder::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ConvexPlanarOccluder::cloneType();
+		return ConvexPlanarOccluder::cloneType();
 	};
 
 	// osg::Object * osg::ConvexPlanarOccluder::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ConvexPlanarOccluder::clone(arg1);
+		return ConvexPlanarOccluder::clone(arg1);
 	};
 
 	// bool osg::ConvexPlanarOccluder::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ConvexPlanarOccluder::isSameKindAs(obj);
+		return ConvexPlanarOccluder::isSameKindAs(obj);
 	};
 
 	// const char * osg::ConvexPlanarOccluder::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ConvexPlanarOccluder::libraryName();
+		return ConvexPlanarOccluder::libraryName();
 	};
 
 	// const char * osg::ConvexPlanarOccluder::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ConvexPlanarOccluder::className();
+		return ConvexPlanarOccluder::className();
 	};
 
 

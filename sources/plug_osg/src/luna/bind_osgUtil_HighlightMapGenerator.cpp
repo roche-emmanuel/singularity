@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::HighlightMapGenerator* ptr= dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::HighlightMapGenerator* ptr= dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::HighlightMapGenerator* ptr= luna_caster< osg::Referenced, osgUtil::HighlightMapGenerator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -133,7 +134,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::HighlightMapGenerator* copy_ptr=dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		const osgUtil::HighlightMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HighlightMapGenerator >(L,1));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
 		}
@@ -181,7 +182,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::HighlightMapGenerator* copy_ptr=dynamic_cast< osgUtil::HighlightMapGenerator* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::HighlightMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HighlightMapGenerator >(L,2));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HighlightMapGenerator::HighlightMapGenerator function");
 		}

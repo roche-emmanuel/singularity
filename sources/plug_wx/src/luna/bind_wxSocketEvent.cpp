@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSocketEvent* ptr= dynamic_cast< wxSocketEvent* >(Luna< wxObject >::check(L,1));
+		//wxSocketEvent* ptr= dynamic_cast< wxSocketEvent* >(Luna< wxObject >::check(L,1));
+		wxSocketEvent* ptr= luna_caster< wxObject, wxSocketEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +61,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +86,7 @@ public:
 		}
 
 
-		wxSocketEvent* self=dynamic_cast< wxSocketEvent* >(Luna< wxObject >::check(L,1));
+		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxSocketEvent::GetClientData() const");
@@ -94,7 +107,7 @@ public:
 		}
 
 
-		wxSocketEvent* self=dynamic_cast< wxSocketEvent* >(Luna< wxObject >::check(L,1));
+		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSocketBase * wxSocketEvent::GetSocket() const");
@@ -115,12 +128,52 @@ public:
 		}
 
 
-		wxSocketEvent* self=dynamic_cast< wxSocketEvent* >(Luna< wxObject >::check(L,1));
+		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSocketNotify wxSocketEvent::GetSocketEvent() const");
 		}
 		wxSocketNotify lret = self->GetSocketEvent();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxSocketEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSocketEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSocketEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSocketEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxSocketEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxSocketEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxSocketEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxSocketEvent* self=Luna< wxObject >::checkSubType< wxSocketEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSocketEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxSocketEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -152,6 +205,8 @@ luna_RegType LunaTraits< wxSocketEvent >::methods[] = {
 	{"GetClientData", &luna_wrapper_wxSocketEvent::_bind_GetClientData},
 	{"GetSocket", &luna_wrapper_wxSocketEvent::_bind_GetSocket},
 	{"GetSocketEvent", &luna_wrapper_wxSocketEvent::_bind_GetSocketEvent},
+	{"base_GetClassInfo", &luna_wrapper_wxSocketEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxSocketEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxSocketEvent::_bind___eq},
 	{0,0}
 };

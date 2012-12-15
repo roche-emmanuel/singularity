@@ -139,7 +139,7 @@ public:
 		int flags=luatop>0 ? (int)lua_tointeger(L,1) : 0;
 		int keyCode=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 		int cmd=luatop>2 ? (int)lua_tointeger(L,3) : 0;
-		wxMenuItem* item=luatop>3 ? dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,4)) : (wxMenuItem*)NULL;
+		wxMenuItem* item=luatop>3 ? (Luna< wxObject >::checkSubType< wxMenuItem >(L,4)) : (wxMenuItem*)NULL;
 
 		return new wxAcceleratorEntry(flags, keyCode, cmd, item);
 	}
@@ -261,7 +261,7 @@ public:
 		int flags=(int)lua_tointeger(L,2);
 		int keyCode=(int)lua_tointeger(L,3);
 		int cmd=(int)lua_tointeger(L,4);
-		wxMenuItem* item=luatop>4 ? dynamic_cast< wxMenuItem* >(Luna< wxObject >::check(L,5)) : (wxMenuItem*)NULL;
+		wxMenuItem* item=luatop>4 ? (Luna< wxObject >::checkSubType< wxMenuItem >(L,5)) : (wxMenuItem*)NULL;
 
 		wxAcceleratorEntry* self=(Luna< wxAcceleratorEntry >::check(L,1));
 		if(!self) {

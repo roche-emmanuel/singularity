@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return LinearInterpolator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return LinearInterpolator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return LinearInterpolator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LinearInterpolator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LinearInterpolator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return LinearInterpolator::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::LinearInterpolator::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::LinearInterpolator::cloneType();
+		return LinearInterpolator::cloneType();
 	};
 
 	// osg::Object * osgParticle::LinearInterpolator::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::LinearInterpolator::clone(arg1);
+		return LinearInterpolator::clone(arg1);
 	};
 
 	// bool osgParticle::LinearInterpolator::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::LinearInterpolator::isSameKindAs(obj);
+		return LinearInterpolator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::LinearInterpolator::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::LinearInterpolator::libraryName();
+		return LinearInterpolator::libraryName();
 	};
 
 	// const char * osgParticle::LinearInterpolator::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::LinearInterpolator::className();
+		return LinearInterpolator::className();
 	};
 
 	// float osgParticle::LinearInterpolator::interpolate(float t, float y1, float y2) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::LinearInterpolator::interpolate(t, y1, y2);
+		return LinearInterpolator::interpolate(t, y1, y2);
 	};
 
 

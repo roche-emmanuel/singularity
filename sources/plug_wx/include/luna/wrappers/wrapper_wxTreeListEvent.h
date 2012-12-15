@@ -16,15 +16,6 @@ public:
 	
 
 
-	// wxClassInfo * wxObject::GetClassInfo() const
-	wxClassInfo * GetClassInfo() const {
-		if(_obj.pushFunction("GetClassInfo")) {
-			return (_obj.callFunction<wxClassInfo*>());
-		}
-
-		return wxTreeListEvent::GetClassInfo();
-	};
-
 	// wxEvent * wxEvent::Clone() const
 	wxEvent * Clone() const {
 		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxEvent::Clone");

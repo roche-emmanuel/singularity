@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataObjectSimple* ptr= dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		//wxDataObjectSimple* ptr= dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* ptr= luna_caster< wxDataObject, wxDataObjectSimple >::cast(Luna< wxDataObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -76,6 +77,27 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetDataHere(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDataSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -90,7 +112,7 @@ public:
 
 		void* buf=(Luna< void >::check(L,2));
 
-		wxDataObjectSimple* self=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::GetDataHere(void *) const");
@@ -109,7 +131,7 @@ public:
 		}
 
 
-		wxDataObjectSimple* self=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::GetDataSize() const");
@@ -128,7 +150,7 @@ public:
 		}
 
 
-		wxDataObjectSimple* self=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxDataFormat & wxDataObjectSimple::GetFormat() const");
@@ -151,7 +173,7 @@ public:
 		size_t len=(size_t)lua_tointeger(L,2);
 		void* buf=(Luna< void >::check(L,3));
 
-		wxDataObjectSimple* self=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::SetData(size_t, const void *)");
@@ -175,7 +197,7 @@ public:
 		}
 		const wxDataFormat & format=*format_ptr;
 
-		wxDataObjectSimple* self=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataObjectSimple::SetFormat(const wxDataFormat &)");
@@ -183,6 +205,66 @@ public:
 		self->SetFormat(format);
 
 		return 0;
+	}
+
+	// bool wxDataObjectSimple::base_GetDataHere(void * buf) const
+	static int _bind_base_GetDataHere(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataHere(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxDataObjectSimple::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+		}
+
+		void* buf=(Luna< void >::check(L,2));
+
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_GetDataHere(void *) const");
+		}
+		bool lret = self->wxDataObjectSimple::GetDataHere(buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxDataObjectSimple::base_GetDataSize() const
+	static int _bind_base_GetDataSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxDataObjectSimple::base_GetDataSize() const function, expected prototype:\nsize_t wxDataObjectSimple::base_GetDataSize() const\nClass arguments details:\n");
+		}
+
+
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxDataObjectSimple::base_GetDataSize() const");
+		}
+		size_t lret = self->wxDataObjectSimple::GetDataSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxDataObjectSimple::base_SetData(size_t len, const void * buf)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectSimple::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectSimple::base_SetData(size_t len, const void * buf)\nClass arguments details:\n");
+		}
+
+		size_t len=(size_t)lua_tointeger(L,2);
+		void* buf=(Luna< void >::check(L,3));
+
+		wxDataObjectSimple* self=Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataObjectSimple::base_SetData(size_t, const void *)");
+		}
+		bool lret = self->wxDataObjectSimple::SetData(len, buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -217,6 +299,9 @@ luna_RegType LunaTraits< wxDataObjectSimple >::methods[] = {
 	{"GetFormat", &luna_wrapper_wxDataObjectSimple::_bind_GetFormat},
 	{"SetData", &luna_wrapper_wxDataObjectSimple::_bind_SetData},
 	{"SetFormat", &luna_wrapper_wxDataObjectSimple::_bind_SetFormat},
+	{"base_GetDataHere", &luna_wrapper_wxDataObjectSimple::_bind_base_GetDataHere},
+	{"base_GetDataSize", &luna_wrapper_wxDataObjectSimple::_bind_base_GetDataSize},
+	{"base_SetData", &luna_wrapper_wxDataObjectSimple::_bind_base_SetData},
 	{"__eq", &luna_wrapper_wxDataObjectSimple::_bind___eq},
 	{0,0}
 };

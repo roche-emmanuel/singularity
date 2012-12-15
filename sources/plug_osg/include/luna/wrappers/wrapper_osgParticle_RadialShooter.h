@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return RadialShooter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return RadialShooter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return RadialShooter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RadialShooter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RadialShooter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return RadialShooter::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::RadialShooter::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::RadialShooter::cloneType();
+		return RadialShooter::cloneType();
 	};
 
 	// osg::Object * osgParticle::RadialShooter::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::RadialShooter::clone(arg1);
+		return RadialShooter::clone(arg1);
 	};
 
 	// bool osgParticle::RadialShooter::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::RadialShooter::isSameKindAs(obj);
+		return RadialShooter::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::RadialShooter::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::RadialShooter::libraryName();
+		return RadialShooter::libraryName();
 	};
 
 	// const char * osgParticle::RadialShooter::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::RadialShooter::className();
+		return RadialShooter::className();
 	};
 
 	// void osgParticle::RadialShooter::shoot(osgParticle::Particle * P) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::RadialShooter::shoot(P);
+		return RadialShooter::shoot(P);
 	};
 
 

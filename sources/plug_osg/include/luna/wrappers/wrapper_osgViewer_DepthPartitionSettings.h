@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
+		return DepthPartitionSettings::getDepthRange(view, partition, zNear, zFar);
 	};
 
 

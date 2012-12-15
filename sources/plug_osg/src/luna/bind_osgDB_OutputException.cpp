@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::OutputException* ptr= dynamic_cast< osgDB::OutputException* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::OutputException* ptr= dynamic_cast< osgDB::OutputException* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::OutputException* ptr= luna_caster< osg::Referenced, osgDB::OutputException >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		

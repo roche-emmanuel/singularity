@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileCtrlEvent* ptr= dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		//wxFileCtrlEvent* ptr= dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* ptr= luna_caster< wxObject, wxFileCtrlEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,6 +88,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -100,7 +113,7 @@ public:
 		}
 
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetDirectory() const");
@@ -119,7 +132,7 @@ public:
 		}
 
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileCtrlEvent::GetFile() const");
@@ -138,7 +151,7 @@ public:
 		}
 
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxArrayString wxFileCtrlEvent::GetFiles() const");
@@ -160,7 +173,7 @@ public:
 		}
 
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxFileCtrlEvent::GetFilterIndex() const");
@@ -184,7 +197,7 @@ public:
 		}
 		const wxArrayString & files=*files_ptr;
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFiles(const wxArrayString &)");
@@ -203,7 +216,7 @@ public:
 
 		wxString directory(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetDirectory(const wxString &)");
@@ -222,7 +235,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxFileCtrlEvent* self=dynamic_cast< wxFileCtrlEvent* >(Luna< wxObject >::check(L,1));
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileCtrlEvent::SetFilterIndex(int)");
@@ -230,6 +243,46 @@ public:
 		self->SetFilterIndex(index);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileCtrlEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileCtrlEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxFileCtrlEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxFileCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFileCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxFileCtrlEvent* self=Luna< wxObject >::checkSubType< wxFileCtrlEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFileCtrlEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxFileCtrlEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -262,6 +315,8 @@ luna_RegType LunaTraits< wxFileCtrlEvent >::methods[] = {
 	{"SetFiles", &luna_wrapper_wxFileCtrlEvent::_bind_SetFiles},
 	{"SetDirectory", &luna_wrapper_wxFileCtrlEvent::_bind_SetDirectory},
 	{"SetFilterIndex", &luna_wrapper_wxFileCtrlEvent::_bind_SetFilterIndex},
+	{"base_GetClassInfo", &luna_wrapper_wxFileCtrlEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxFileCtrlEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxFileCtrlEvent::_bind___eq},
 	{0,0}
 };

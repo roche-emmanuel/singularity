@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return Operation::release();
 	};
 
 	// void osg::Operation::operator()(osg::Object * arg1)

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ShadeModel::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ShadeModel::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ShadeModel::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShadeModel::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShadeModel::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ShadeModel::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ShadeModel::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return ShadeModel::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return ShadeModel::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return ShadeModel::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return ShadeModel::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return ShadeModel::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return ShadeModel::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ShadeModel::cloneType() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShadeModel::cloneType();
+		return ShadeModel::cloneType();
 	};
 
 	// osg::Object * osg::ShadeModel::clone(const osg::CopyOp & arg1) const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShadeModel::clone(arg1);
+		return ShadeModel::clone(arg1);
 	};
 
 	// bool osg::ShadeModel::isSameKindAs(const osg::Object * obj) const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ShadeModel::isSameKindAs(obj);
+		return ShadeModel::isSameKindAs(obj);
 	};
 
 	// const char * osg::ShadeModel::libraryName() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShadeModel::libraryName();
+		return ShadeModel::libraryName();
 	};
 
 	// const char * osg::ShadeModel::className() const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShadeModel::className();
+		return ShadeModel::className();
 	};
 
 	// osg::StateAttribute::Type osg::ShadeModel::getType() const
@@ -194,7 +194,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::ShadeModel::getType();
+		return ShadeModel::getType();
 	};
 
 	// int osg::ShadeModel::compare(const osg::StateAttribute & sa) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::ShadeModel::compare(sa);
+		return ShadeModel::compare(sa);
 	};
 
 	// void osg::ShadeModel::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ShadeModel::apply(arg1);
+		return ShadeModel::apply(arg1);
 	};
 
 

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_StandardNotifyHandler(lua_State* L, lua_Table* dum) : osg::StandardNotifyHandler(), _obj(L,-1) {};
 
 	// void osg::StandardNotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	void notify(osg::NotifySeverity severity, const char * message) {
@@ -25,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StandardNotifyHandler::notify(severity, message);
+		return StandardNotifyHandler::notify(severity, message);
 	};
 
 

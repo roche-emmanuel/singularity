@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Program::PerContextProgram* ptr= dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Program::PerContextProgram* ptr= dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* ptr= luna_caster< osg::Referenced, osg::Program::PerContextProgram >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -198,7 +199,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program::PerContextProgram::PerContextProgram(const osg::Program * program, unsigned int contextID) function, expected prototype:\nosg::Program::PerContextProgram::PerContextProgram(const osg::Program * program, unsigned int contextID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Program* program=dynamic_cast< osg::Program* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,1));
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		return new osg::Program::PerContextProgram(program, contextID);
@@ -211,7 +212,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program::PerContextProgram::PerContextProgram(lua_Table * data, const osg::Program * program, unsigned int contextID) function, expected prototype:\nosg::Program::PerContextProgram::PerContextProgram(lua_Table * data, const osg::Program * program, unsigned int contextID)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Program* program=dynamic_cast< osg::Program* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,2));
 		unsigned int contextID=(unsigned int)lua_tointeger(L,3);
 
 		return new wrapper_osg_Program_PerContextProgram(L,NULL, program, contextID);
@@ -236,7 +237,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Program::PerContextProgram::getHandle() const");
@@ -255,7 +256,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::requestLink()");
@@ -272,13 +273,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Program::PerContextProgram::linkProgram(osg::State & state) function, expected prototype:\nvoid osg::Program::PerContextProgram::linkProgram(osg::State & state)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Program::PerContextProgram::linkProgram function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::linkProgram(osg::State &)");
@@ -296,7 +297,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::validateProgram()");
@@ -315,7 +316,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::needsLink() const");
@@ -334,7 +335,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::isLinked() const");
@@ -354,7 +355,7 @@ public:
 
 		std::string infoLog(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::getInfoLog(std::string &) const");
@@ -373,7 +374,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Program::PerContextProgram::loadedBinary() const");
@@ -391,13 +392,13 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Program::ProgramBinary * osg::Program::PerContextProgram::compileProgramBinary(osg::State & state) function, expected prototype:\nosg::Program::ProgramBinary * osg::Program::PerContextProgram::compileProgramBinary(osg::State & state)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Program::PerContextProgram::compileProgramBinary function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Program::ProgramBinary * osg::Program::PerContextProgram::compileProgramBinary(osg::State &)");
@@ -418,7 +419,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::useProgram() const");
@@ -436,7 +437,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::resetAppliedUniforms() const");
@@ -453,13 +454,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Program::PerContextProgram::apply(const osg::Uniform & uniform) const function, expected prototype:\nvoid osg::Program::PerContextProgram::apply(const osg::Uniform & uniform) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Uniform* uniform_ptr=dynamic_cast< osg::Uniform* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Uniform* uniform_ptr=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,2));
 		if( !uniform_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg uniform in osg::Program::PerContextProgram::apply function");
 		}
 		const osg::Uniform & uniform=*uniform_ptr;
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::apply(const osg::Uniform &) const");
@@ -477,7 +478,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Program::ActiveUniformMap & osg::Program::PerContextProgram::getActiveUniforms() const");
@@ -498,7 +499,7 @@ public:
 		}
 
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Program::ActiveVarInfoMap & osg::Program::PerContextProgram::getActiveAttribs() const");
@@ -520,7 +521,7 @@ public:
 
 		unsigned int uniformNameID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(unsigned int) const");
@@ -540,7 +541,7 @@ public:
 
 		std::string uniformName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getUniformLocation(const std::string &) const");
@@ -569,7 +570,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Program::PerContextProgram::getAttribLocation(const std::string &) const");
@@ -587,9 +588,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Program::PerContextProgram::addShaderToAttach(osg::Shader * shader) function, expected prototype:\nvoid osg::Program::PerContextProgram::addShaderToAttach(osg::Shader * shader)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Shader* shader=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		osg::Shader* shader=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToAttach(osg::Shader *)");
@@ -606,9 +607,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Program::PerContextProgram::addShaderToDetach(osg::Shader * shader) function, expected prototype:\nvoid osg::Program::PerContextProgram::addShaderToDetach(osg::Shader * shader)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Shader* shader=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		osg::Shader* shader=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
 
-		osg::Program::PerContextProgram* self=dynamic_cast< osg::Program::PerContextProgram* >(Luna< osg::Referenced >::check(L,1));
+		osg::Program::PerContextProgram* self=Luna< osg::Referenced >::checkSubType< osg::Program::PerContextProgram >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Program::PerContextProgram::addShaderToDetach(osg::Shader *)");

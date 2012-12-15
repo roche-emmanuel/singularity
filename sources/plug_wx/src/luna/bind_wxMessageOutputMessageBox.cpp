@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxMessageOutput(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMessageOutputMessageBox* ptr= dynamic_cast< wxMessageOutputMessageBox* >(Luna< wxMessageOutput >::check(L,1));
+		//wxMessageOutputMessageBox* ptr= dynamic_cast< wxMessageOutputMessageBox* >(Luna< wxMessageOutput >::check(L,1));
+		wxMessageOutputMessageBox* ptr= luna_caster< wxMessageOutput, wxMessageOutputMessageBox >::cast(Luna< wxMessageOutput >::check(L,1));
 		if(!ptr)
 			return 0;
 		

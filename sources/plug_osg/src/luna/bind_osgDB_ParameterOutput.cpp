@@ -103,7 +103,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw)\nClass arguments details:\narg 1 ID = 78216342\n");
 		}
 
-		osgDB::Output* fw_ptr=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* fw_ptr=(Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1));
 		if( !fw_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fw in osgDB::ParameterOutput::ParameterOutput function");
 		}
@@ -119,7 +119,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine) function, expected prototype:\nosgDB::ParameterOutput::ParameterOutput(osgDB::Output & fw, int numItemsPerLine)\nClass arguments details:\narg 1 ID = 78216342\n");
 		}
 
-		osgDB::Output* fw_ptr=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* fw_ptr=(Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1));
 		if( !fw_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fw in osgDB::ParameterOutput::ParameterOutput function");
 		}

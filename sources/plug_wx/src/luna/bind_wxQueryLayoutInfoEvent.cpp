@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxQueryLayoutInfoEvent* ptr= dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		//wxQueryLayoutInfoEvent* ptr= dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* ptr= luna_caster< wxObject, wxQueryLayoutInfoEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -107,6 +108,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -120,7 +133,7 @@ public:
 		}
 
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxLayoutAlignment wxQueryLayoutInfoEvent::GetAlignment() const");
@@ -139,7 +152,7 @@ public:
 		}
 
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxQueryLayoutInfoEvent::GetFlags() const");
@@ -158,7 +171,7 @@ public:
 		}
 
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxLayoutOrientation wxQueryLayoutInfoEvent::GetOrientation() const");
@@ -177,7 +190,7 @@ public:
 		}
 
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxQueryLayoutInfoEvent::GetRequestedLength() const");
@@ -196,7 +209,7 @@ public:
 		}
 
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxQueryLayoutInfoEvent::GetSize() const");
@@ -219,7 +232,7 @@ public:
 
 		wxLayoutAlignment alignment=(wxLayoutAlignment)lua_tointeger(L,2);
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryLayoutInfoEvent::SetAlignment(wxLayoutAlignment)");
@@ -238,7 +251,7 @@ public:
 
 		int flags=(int)lua_tointeger(L,2);
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryLayoutInfoEvent::SetFlags(int)");
@@ -257,7 +270,7 @@ public:
 
 		wxLayoutOrientation orientation=(wxLayoutOrientation)lua_tointeger(L,2);
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryLayoutInfoEvent::SetOrientation(wxLayoutOrientation)");
@@ -276,7 +289,7 @@ public:
 
 		int length=(int)lua_tointeger(L,2);
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryLayoutInfoEvent::SetRequestedLength(int)");
@@ -299,7 +312,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxQueryLayoutInfoEvent* self=dynamic_cast< wxQueryLayoutInfoEvent* >(Luna< wxObject >::check(L,1));
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxQueryLayoutInfoEvent::SetSize(const wxSize &)");
@@ -307,6 +320,46 @@ public:
 		self->SetSize(size);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxQueryLayoutInfoEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxQueryLayoutInfoEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxQueryLayoutInfoEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxQueryLayoutInfoEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxQueryLayoutInfoEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxQueryLayoutInfoEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxQueryLayoutInfoEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxQueryLayoutInfoEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxQueryLayoutInfoEvent* self=Luna< wxObject >::checkSubType< wxQueryLayoutInfoEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxQueryLayoutInfoEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxQueryLayoutInfoEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -342,6 +395,8 @@ luna_RegType LunaTraits< wxQueryLayoutInfoEvent >::methods[] = {
 	{"SetOrientation", &luna_wrapper_wxQueryLayoutInfoEvent::_bind_SetOrientation},
 	{"SetRequestedLength", &luna_wrapper_wxQueryLayoutInfoEvent::_bind_SetRequestedLength},
 	{"SetSize", &luna_wrapper_wxQueryLayoutInfoEvent::_bind_SetSize},
+	{"base_GetClassInfo", &luna_wrapper_wxQueryLayoutInfoEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxQueryLayoutInfoEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxQueryLayoutInfoEvent::_bind___eq},
 	{0,0}
 };

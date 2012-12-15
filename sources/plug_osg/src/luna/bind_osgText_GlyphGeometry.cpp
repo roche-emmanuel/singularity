@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgText::GlyphGeometry* ptr= dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		//osgText::GlyphGeometry* ptr= dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* ptr= luna_caster< osg::Referenced, osgText::GlyphGeometry >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +88,7 @@ public:
 	inline static bool _lg_typecheck_setVertexArray(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -100,7 +101,7 @@ public:
 	inline static bool _lg_typecheck_setNormalArray(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -155,10 +156,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgText::GlyphGeometry::setup(const osgText::Glyph3D * glyph, const osgText::Style * style) function, expected prototype:\nvoid osgText::GlyphGeometry::setup(const osgText::Glyph3D * glyph, const osgText::Style * style)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osgText::Glyph3D* glyph=dynamic_cast< osgText::Glyph3D* >(Luna< osg::Referenced >::check(L,2));
-		const osgText::Style* style=dynamic_cast< osgText::Style* >(Luna< osg::Referenced >::check(L,3));
+		const osgText::Glyph3D* glyph=(Luna< osg::Referenced >::checkSubType< osgText::Glyph3D >(L,2));
+		const osgText::Style* style=(Luna< osg::Referenced >::checkSubType< osgText::Style >(L,3));
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setup(const osgText::Glyph3D *, const osgText::Style *)");
@@ -175,9 +176,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgText::GlyphGeometry::match(const osgText::Style * style) const function, expected prototype:\nbool osgText::GlyphGeometry::match(const osgText::Style * style) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgText::Style* style=dynamic_cast< osgText::Style* >(Luna< osg::Referenced >::check(L,2));
+		const osgText::Style* style=(Luna< osg::Referenced >::checkSubType< osgText::Style >(L,2));
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgText::GlyphGeometry::match(const osgText::Style *) const");
@@ -196,7 +197,7 @@ public:
 		}
 
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geode * osgText::GlyphGeometry::getGeode() const");
@@ -217,7 +218,7 @@ public:
 		}
 
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Geometry * osgText::GlyphGeometry::getGeometry() const");
@@ -234,12 +235,12 @@ public:
 	static int _bind_setVertexArray(lua_State *L) {
 		if (!_lg_typecheck_setVertexArray(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphGeometry::setVertexArray(osg::Vec3Array * va) function, expected prototype:\nvoid osgText::GlyphGeometry::setVertexArray(osg::Vec3Array * va)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphGeometry::setVertexArray(osg::Vec3Array * va) function, expected prototype:\nvoid osgText::GlyphGeometry::setVertexArray(osg::Vec3Array * va)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Vec3Array* va=(Luna< osg::Vec3Array >::check(L,2));
+		osg::Vec3Array* va=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setVertexArray(osg::Vec3Array *)");
@@ -257,7 +258,7 @@ public:
 		}
 
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getVertexArray() const");
@@ -274,12 +275,12 @@ public:
 	static int _bind_setNormalArray(lua_State *L) {
 		if (!_lg_typecheck_setNormalArray(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgText::GlyphGeometry::setNormalArray(osg::Vec3Array * na) function, expected prototype:\nvoid osgText::GlyphGeometry::setNormalArray(osg::Vec3Array * na)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osgText::GlyphGeometry::setNormalArray(osg::Vec3Array * na) function, expected prototype:\nvoid osgText::GlyphGeometry::setNormalArray(osg::Vec3Array * na)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Vec3Array* na=(Luna< osg::Vec3Array >::check(L,2));
+		osg::Vec3Array* na=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::GlyphGeometry::setNormalArray(osg::Vec3Array *)");
@@ -297,7 +298,7 @@ public:
 		}
 
 
-		osgText::GlyphGeometry* self=dynamic_cast< osgText::GlyphGeometry* >(Luna< osg::Referenced >::check(L,1));
+		osgText::GlyphGeometry* self=Luna< osg::Referenced >::checkSubType< osgText::GlyphGeometry >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgText::GlyphGeometry::getNormalArray() const");

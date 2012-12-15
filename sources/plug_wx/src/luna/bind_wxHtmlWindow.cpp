@@ -315,6 +315,52 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_LoadPage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnLinkClicked(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnSetTitle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ReadCustomization(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WriteCustomization(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -340,7 +386,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int id=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
 		if( luatop>2 && !pos_ptr ) {
@@ -378,7 +424,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
 		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 		if( luatop>3 && !pos_ptr ) {
@@ -673,7 +719,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::OnLinkClicked(const wxHtmlLinkInfo & link) function, expected prototype:\nvoid wxHtmlWindow::OnLinkClicked(const wxHtmlLinkInfo & link)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxHtmlLinkInfo* link_ptr=dynamic_cast< wxHtmlLinkInfo* >(Luna< wxObject >::check(L,2));
+		const wxHtmlLinkInfo* link_ptr=(Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,2));
 		if( !link_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg link in wxHtmlWindow::OnLinkClicked function");
 		}
@@ -717,7 +763,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxConfigBase* cfg=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
@@ -905,7 +951,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::SetRelatedFrame(wxFrame * frame, const wxString & format) function, expected prototype:\nvoid wxHtmlWindow::SetRelatedFrame(wxFrame * frame, const wxString & format)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxFrame* frame=dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,2));
+		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 		wxString format(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
@@ -946,7 +992,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxStatusBar* statusbar=dynamic_cast< wxStatusBar* >(Luna< wxObject >::check(L,2));
+		wxStatusBar* statusbar=(Luna< wxObject >::checkSubType< wxStatusBar >(L,2));
 		int index=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
@@ -996,7 +1042,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxConfigBase* cfg=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		wxString path(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
@@ -1016,9 +1062,135 @@ public:
 			luaL_error(L, "luna typecheck failed in static void wxHtmlWindow::AddFilter(wxHtmlFilter * filter) function, expected prototype:\nstatic void wxHtmlWindow::AddFilter(wxHtmlFilter * filter)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxHtmlFilter* filter=dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		wxHtmlFilter* filter=(Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1));
 
 		wxHtmlWindow::AddFilter(filter);
+
+		return 0;
+	}
+
+	// bool wxHtmlWindow::base_LoadPage(const wxString & location)
+	static int _bind_base_LoadPage(lua_State *L) {
+		if (!_lg_typecheck_base_LoadPage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHtmlWindow::base_LoadPage(const wxString & location) function, expected prototype:\nbool wxHtmlWindow::base_LoadPage(const wxString & location)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString location(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHtmlWindow::base_LoadPage(const wxString &)");
+		}
+		bool lret = self->wxHtmlWindow::LoadPage(location);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHtmlWindow::base_OnLinkClicked(const wxHtmlLinkInfo & link)
+	static int _bind_base_OnLinkClicked(lua_State *L) {
+		if (!_lg_typecheck_base_OnLinkClicked(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::base_OnLinkClicked(const wxHtmlLinkInfo & link) function, expected prototype:\nvoid wxHtmlWindow::base_OnLinkClicked(const wxHtmlLinkInfo & link)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxHtmlLinkInfo* link_ptr=(Luna< wxObject >::checkSubType< wxHtmlLinkInfo >(L,2));
+		if( !link_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg link in wxHtmlWindow::base_OnLinkClicked function");
+		}
+		const wxHtmlLinkInfo & link=*link_ptr;
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlWindow::base_OnLinkClicked(const wxHtmlLinkInfo &)");
+		}
+		self->wxHtmlWindow::OnLinkClicked(link);
+
+		return 0;
+	}
+
+	// void wxHtmlWindow::base_OnSetTitle(const wxString & title)
+	static int _bind_base_OnSetTitle(lua_State *L) {
+		if (!_lg_typecheck_base_OnSetTitle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::base_OnSetTitle(const wxString & title) function, expected prototype:\nvoid wxHtmlWindow::base_OnSetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlWindow::base_OnSetTitle(const wxString &)");
+		}
+		self->wxHtmlWindow::OnSetTitle(title);
+
+		return 0;
+	}
+
+	// void wxHtmlWindow::base_ReadCustomization(wxConfigBase * cfg, wxString path = wxEmptyString)
+	static int _bind_base_ReadCustomization(lua_State *L) {
+		if (!_lg_typecheck_base_ReadCustomization(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::base_ReadCustomization(wxConfigBase * cfg, wxString path = wxEmptyString) function, expected prototype:\nvoid wxHtmlWindow::base_ReadCustomization(wxConfigBase * cfg, wxString path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		wxString path(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlWindow::base_ReadCustomization(wxConfigBase *, wxString)");
+		}
+		self->wxHtmlWindow::ReadCustomization(cfg, path);
+
+		return 0;
+	}
+
+	// bool wxHtmlWindow::base_SetPage(const wxString & source)
+	static int _bind_base_SetPage(lua_State *L) {
+		if (!_lg_typecheck_base_SetPage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHtmlWindow::base_SetPage(const wxString & source) function, expected prototype:\nbool wxHtmlWindow::base_SetPage(const wxString & source)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString source(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHtmlWindow::base_SetPage(const wxString &)");
+		}
+		bool lret = self->wxHtmlWindow::SetPage(source);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHtmlWindow::base_WriteCustomization(wxConfigBase * cfg, wxString path = wxEmptyString)
+	static int _bind_base_WriteCustomization(lua_State *L) {
+		if (!_lg_typecheck_base_WriteCustomization(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlWindow::base_WriteCustomization(wxConfigBase * cfg, wxString path = wxEmptyString) function, expected prototype:\nvoid wxHtmlWindow::base_WriteCustomization(wxConfigBase * cfg, wxString path = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxConfigBase* cfg=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		wxString path(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxHtmlWindow* self=(Luna< wxHtmlWindow >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlWindow::base_WriteCustomization(wxConfigBase *, wxString)");
+		}
+		self->wxHtmlWindow::WriteCustomization(cfg, path);
 
 		return 0;
 	}
@@ -1073,6 +1245,12 @@ luna_RegType LunaTraits< wxHtmlWindow >::methods[] = {
 	{"ToText", &luna_wrapper_wxHtmlWindow::_bind_ToText},
 	{"WriteCustomization", &luna_wrapper_wxHtmlWindow::_bind_WriteCustomization},
 	{"AddFilter", &luna_wrapper_wxHtmlWindow::_bind_AddFilter},
+	{"base_LoadPage", &luna_wrapper_wxHtmlWindow::_bind_base_LoadPage},
+	{"base_OnLinkClicked", &luna_wrapper_wxHtmlWindow::_bind_base_OnLinkClicked},
+	{"base_OnSetTitle", &luna_wrapper_wxHtmlWindow::_bind_base_OnSetTitle},
+	{"base_ReadCustomization", &luna_wrapper_wxHtmlWindow::_bind_base_ReadCustomization},
+	{"base_SetPage", &luna_wrapper_wxHtmlWindow::_bind_base_SetPage},
+	{"base_WriteCustomization", &luna_wrapper_wxHtmlWindow::_bind_base_WriteCustomization},
 	{"dynCast", &luna_wrapper_wxHtmlWindow::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHtmlWindow::_bind___eq},
 	{0,0}

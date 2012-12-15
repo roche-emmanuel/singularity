@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxKeyEvent* ptr= dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		//wxKeyEvent* ptr= dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* ptr= luna_caster< wxObject, wxKeyEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -105,6 +106,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -118,7 +131,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetKeyCode() const");
@@ -138,7 +151,7 @@ public:
 
 		int category=(int)lua_tointeger(L,2);
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsKeyInCategory(int) const");
@@ -157,7 +170,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxKeyEvent::GetPosition() const");
@@ -181,7 +194,7 @@ public:
 		long x=(long)lua_tointeger(L,2);
 		long y=(long)lua_tointeger(L,3);
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyEvent::GetPosition(long *, long *) const");
@@ -208,7 +221,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyCode() const");
@@ -227,7 +240,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxKeyEvent::GetRawKeyFlags() const");
@@ -246,7 +259,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetX() const");
@@ -265,7 +278,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxKeyEvent::GetY() const");
@@ -284,7 +297,7 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxKeyEvent::DoAllowNextEvent()");
@@ -302,13 +315,53 @@ public:
 		}
 
 
-		wxKeyEvent* self=dynamic_cast< wxKeyEvent* >(Luna< wxObject >::check(L,1));
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxKeyEvent::IsNextEventAllowed() const");
 		}
 		bool lret = self->IsNextEventAllowed();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxKeyEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxKeyEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxKeyEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxKeyEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxKeyEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxKeyEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxKeyEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxKeyEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxKeyEvent* self=Luna< wxObject >::checkSubType< wxKeyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxKeyEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxKeyEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -345,6 +398,8 @@ luna_RegType LunaTraits< wxKeyEvent >::methods[] = {
 	{"GetY", &luna_wrapper_wxKeyEvent::_bind_GetY},
 	{"DoAllowNextEvent", &luna_wrapper_wxKeyEvent::_bind_DoAllowNextEvent},
 	{"IsNextEventAllowed", &luna_wrapper_wxKeyEvent::_bind_IsNextEventAllowed},
+	{"base_GetClassInfo", &luna_wrapper_wxKeyEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxKeyEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxKeyEvent::_bind___eq},
 	{0,0}
 };

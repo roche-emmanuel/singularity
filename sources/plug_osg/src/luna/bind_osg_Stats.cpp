@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Stats* ptr= dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Stats* ptr= dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* ptr= luna_caster< osg::Referenced, osg::Stats >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -254,7 +255,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Stats::setName(const std::string &)");
@@ -272,7 +273,7 @@ public:
 		}
 
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::Stats::getName() const");
@@ -292,7 +293,7 @@ public:
 
 		unsigned int numberOfFrames=(unsigned int)lua_tointeger(L,2);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Stats::allocate(unsigned int)");
@@ -310,7 +311,7 @@ public:
 		}
 
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getEarliestFrameNumber() const");
@@ -329,7 +330,7 @@ public:
 		}
 
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Stats::getLatestFrameNumber() const");
@@ -351,7 +352,7 @@ public:
 		std::string attributeName(lua_tostring(L,3),lua_objlen(L,3));
 		double value=(double)lua_tonumber(L,4);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stats::setAttribute(unsigned int, const std::string &, double)");
@@ -373,7 +374,7 @@ public:
 		std::string attributeName(lua_tostring(L,3),lua_objlen(L,3));
 		double value=(double)lua_tonumber(L,4);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stats::getAttribute(unsigned int, const std::string &, double &) const");
@@ -397,7 +398,7 @@ public:
 		double value=(double)lua_tonumber(L,3);
 		bool averageInInverseSpace=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(const std::string &, double &, bool) const");
@@ -423,7 +424,7 @@ public:
 		double value=(double)lua_tonumber(L,5);
 		bool averageInInverseSpace=luatop>5 ? (bool)(lua_toboolean(L,6)==1) : false;
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stats::getAveragedAttribute(unsigned int, unsigned int, const std::string &, double &, bool) const");
@@ -452,7 +453,7 @@ public:
 
 		unsigned int frameNumber=(unsigned int)lua_tointeger(L,2);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int)");
@@ -474,7 +475,7 @@ public:
 
 		unsigned int frameNumber=(unsigned int)lua_tointeger(L,2);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Stats::AttributeMap & osg::Stats::getAttributeMap(unsigned int) const");
@@ -506,7 +507,7 @@ public:
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 		bool flag=(bool)(lua_toboolean(L,3)==1);
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Stats::collectStats(const std::string &, bool)");
@@ -525,7 +526,7 @@ public:
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Stats* self=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stats::collectStats(const std::string &) const");

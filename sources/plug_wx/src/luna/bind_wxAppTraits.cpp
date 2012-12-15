@@ -132,6 +132,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_CreateConfig(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetStandardPaths(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -384,6 +396,48 @@ public:
 		return 1;
 	}
 
+	// wxConfigBase * wxAppTraits::base_CreateConfig()
+	static int _bind_base_CreateConfig(lua_State *L) {
+		if (!_lg_typecheck_base_CreateConfig(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConfigBase * wxAppTraits::base_CreateConfig() function, expected prototype:\nwxConfigBase * wxAppTraits::base_CreateConfig()\nClass arguments details:\n");
+		}
+
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::base_CreateConfig()");
+		}
+		wxConfigBase * lret = self->wxAppTraits::CreateConfig();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxConfigBase >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxStandardPaths & wxAppTraits::base_GetStandardPaths()
+	static int _bind_base_GetStandardPaths(lua_State *L) {
+		if (!_lg_typecheck_base_GetStandardPaths(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStandardPaths & wxAppTraits::base_GetStandardPaths() function, expected prototype:\nwxStandardPaths & wxAppTraits::base_GetStandardPaths()\nClass arguments details:\n");
+		}
+
+
+		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::base_GetStandardPaths()");
+		}
+		const wxStandardPaths* lret = &self->wxAppTraits::GetStandardPaths();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxStandardPaths >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -428,6 +482,8 @@ luna_RegType LunaTraits< wxAppTraits >::methods[] = {
 	{"HasStderr", &luna_wrapper_wxAppTraits::_bind_HasStderr},
 	{"IsUsingUniversalWidgets", &luna_wrapper_wxAppTraits::_bind_IsUsingUniversalWidgets},
 	{"ShowAssertDialog", &luna_wrapper_wxAppTraits::_bind_ShowAssertDialog},
+	{"base_CreateConfig", &luna_wrapper_wxAppTraits::_bind_base_CreateConfig},
+	{"base_GetStandardPaths", &luna_wrapper_wxAppTraits::_bind_base_GetStandardPaths},
 	{"dynCast", &luna_wrapper_wxAppTraits::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxAppTraits::_bind___eq},
 	{0,0}

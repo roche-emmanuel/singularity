@@ -526,7 +526,7 @@ public:
 		}
 
 		int id=(int)lua_tointeger(L,2);
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,3));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,3));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxRibbonArtProvider::SetFont function");
 		}
@@ -596,7 +596,7 @@ public:
 		}
 
 		int id=(int)lua_tointeger(L,2);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxRibbonArtProvider::SetColour function");
 		}
@@ -643,7 +643,7 @@ public:
 		}
 
 		int id=(int)lua_tointeger(L,2);
-		const wxColour* color_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* color_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !color_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg color in wxRibbonArtProvider::SetColor function");
 		}
@@ -666,9 +666,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::GetColourScheme(wxColour * primary, wxColour * secondary, wxColour * tertiary) const function, expected prototype:\nvoid wxRibbonArtProvider::GetColourScheme(wxColour * primary, wxColour * secondary, wxColour * tertiary) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
-		wxColour* primary=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
-		wxColour* secondary=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
-		wxColour* tertiary=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		wxColour* primary=(Luna< wxObject >::checkSubType< wxColour >(L,2));
+		wxColour* secondary=(Luna< wxObject >::checkSubType< wxColour >(L,3));
+		wxColour* tertiary=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
 		if(!self) {
@@ -687,17 +687,17 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::SetColourScheme(const wxColour & primary, const wxColour & secondary, const wxColour & tertiary) function, expected prototype:\nvoid wxRibbonArtProvider::SetColourScheme(const wxColour & primary, const wxColour & secondary, const wxColour & tertiary)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
-		const wxColour* primary_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* primary_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !primary_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg primary in wxRibbonArtProvider::SetColourScheme function");
 		}
 		const wxColour & primary=*primary_ptr;
-		const wxColour* secondary_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* secondary_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !secondary_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg secondary in wxRibbonArtProvider::SetColourScheme function");
 		}
 		const wxColour & secondary=*secondary_ptr;
-		const wxColour* tertiary_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4));
+		const wxColour* tertiary_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,4));
 		if( !tertiary_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tertiary in wxRibbonArtProvider::SetColourScheme function");
 		}
@@ -720,12 +720,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawTabCtrlBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawTabCtrlBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawTabCtrlBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawTabCtrlBackground function");
@@ -749,12 +749,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawTab(wxDC & dc, wxWindow * wnd, const wxRibbonPageTabInfo & tab) function, expected prototype:\nvoid wxRibbonArtProvider::DrawTab(wxDC & dc, wxWindow * wnd, const wxRibbonPageTabInfo & tab)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 51496344\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawTab function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRibbonPageTabInfo* tab_ptr=(Luna< wxRibbonPageTabInfo >::check(L,4));
 		if( !tab_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg tab in wxRibbonArtProvider::DrawTab function");
@@ -778,12 +778,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawTabSeparator(wxDC & dc, wxWindow * wnd, const wxRect & rect, double visibility) function, expected prototype:\nvoid wxRibbonArtProvider::DrawTabSeparator(wxDC & dc, wxWindow * wnd, const wxRect & rect, double visibility)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawTabSeparator function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawTabSeparator function");
@@ -808,12 +808,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawPageBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawPageBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawPageBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawPageBackground function");
@@ -837,12 +837,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawScrollButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, long style) function, expected prototype:\nvoid wxRibbonArtProvider::DrawScrollButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, long style)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawScrollButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawScrollButton function");
@@ -867,12 +867,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawPanelBackground(wxDC & dc, wxRibbonPanel * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawPanelBackground(wxDC & dc, wxRibbonPanel * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawPanelBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxRibbonPanel* wnd=dynamic_cast< wxRibbonPanel* >(Luna< wxObject >::check(L,3));
+		wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawPanelBackground function");
@@ -896,12 +896,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawGalleryBackground(wxDC & dc, wxRibbonGallery * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawGalleryBackground(wxDC & dc, wxRibbonGallery * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawGalleryBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxRibbonGallery* wnd=dynamic_cast< wxRibbonGallery* >(Luna< wxObject >::check(L,3));
+		wxRibbonGallery* wnd=(Luna< wxObject >::checkSubType< wxRibbonGallery >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawGalleryBackground function");
@@ -925,12 +925,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawGalleryItemBackground(wxDC & dc, wxRibbonGallery * wnd, const wxRect & rect, wxRibbonGalleryItem * item) function, expected prototype:\nvoid wxRibbonArtProvider::DrawGalleryItemBackground(wxDC & dc, wxRibbonGallery * wnd, const wxRect & rect, wxRibbonGalleryItem * item)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 4 ID = 56057674\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawGalleryItemBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxRibbonGallery* wnd=dynamic_cast< wxRibbonGallery* >(Luna< wxObject >::check(L,3));
+		wxRibbonGallery* wnd=(Luna< wxObject >::checkSubType< wxRibbonGallery >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawGalleryItemBackground function");
@@ -955,18 +955,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawMinimisedPanel(wxDC & dc, wxRibbonPanel * wnd, const wxRect & rect, wxBitmap & bitmap) function, expected prototype:\nvoid wxRibbonArtProvider::DrawMinimisedPanel(wxDC & dc, wxRibbonPanel * wnd, const wxRect & rect, wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 4 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawMinimisedPanel function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxRibbonPanel* wnd=dynamic_cast< wxRibbonPanel* >(Luna< wxObject >::check(L,3));
+		wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawMinimisedPanel function");
 		}
 		const wxRect & rect=*rect_ptr;
-		wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5));
+		wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,5));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxRibbonArtProvider::DrawMinimisedPanel function");
 		}
@@ -989,12 +989,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawButtonBarBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawButtonBarBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawButtonBarBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawButtonBarBackground function");
@@ -1018,12 +1018,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawButtonBarButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, wxRibbonButtonKind kind, long state, const wxString & label, const wxBitmap & bitmap_large, const wxBitmap & bitmap_small) function, expected prototype:\nvoid wxRibbonArtProvider::DrawButtonBarButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, wxRibbonButtonKind kind, long state, const wxString & label, const wxBitmap & bitmap_large, const wxBitmap & bitmap_small)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 88196105\narg 7 ID = 56813631\narg 8 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawButtonBarButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawButtonBarButton function");
@@ -1032,12 +1032,12 @@ public:
 		wxRibbonButtonKind kind=(wxRibbonButtonKind)lua_tointeger(L,5);
 		long state=(long)lua_tointeger(L,6);
 		wxString label(lua_tostring(L,7),lua_objlen(L,7));
-		const wxBitmap* bitmap_large_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,8));
+		const wxBitmap* bitmap_large_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,8));
 		if( !bitmap_large_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_large in wxRibbonArtProvider::DrawButtonBarButton function");
 		}
 		const wxBitmap & bitmap_large=*bitmap_large_ptr;
-		const wxBitmap* bitmap_small_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,9));
+		const wxBitmap* bitmap_small_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,9));
 		if( !bitmap_small_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_small in wxRibbonArtProvider::DrawButtonBarButton function");
 		}
@@ -1060,12 +1060,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawToolBarBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawToolBarBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawToolBarBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawToolBarBackground function");
@@ -1089,12 +1089,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawToolGroupBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxRibbonArtProvider::DrawToolGroupBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawToolGroupBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawToolGroupBackground function");
@@ -1118,18 +1118,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::DrawTool(wxDC & dc, wxWindow * wnd, const wxRect & rect, const wxBitmap & bitmap, wxRibbonButtonKind kind, long state) function, expected prototype:\nvoid wxRibbonArtProvider::DrawTool(wxDC & dc, wxWindow * wnd, const wxRect & rect, const wxBitmap & bitmap, wxRibbonButtonKind kind, long state)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 4 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::DrawTool function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRibbonArtProvider::DrawTool function");
 		}
 		const wxRect & rect=*rect_ptr;
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,5));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxRibbonArtProvider::DrawTool function");
 		}
@@ -1154,14 +1154,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxRibbonArtProvider::GetBarTabWidth(wxDC & dc, wxWindow * wnd, const wxString & label, const wxBitmap & bitmap, int * ideal, int * small_begin_need_separator, int * small_must_have_separator, int * minimum) function, expected prototype:\nvoid wxRibbonArtProvider::GetBarTabWidth(wxDC & dc, wxWindow * wnd, const wxString & label, const wxBitmap & bitmap, int * ideal, int * small_begin_need_separator, int * small_must_have_separator, int * minimum)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetBarTabWidth function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString label(lua_tostring(L,4),lua_objlen(L,4));
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,5));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,5));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxRibbonArtProvider::GetBarTabWidth function");
 		}
@@ -1188,12 +1188,12 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxRibbonArtProvider::GetTabCtrlHeight(wxDC & dc, wxWindow * wnd, const wxRibbonPageTabInfoArray & pages) function, expected prototype:\nint wxRibbonArtProvider::GetTabCtrlHeight(wxDC & dc, wxWindow * wnd, const wxRibbonPageTabInfoArray & pages)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 76085772\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetTabCtrlHeight function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRibbonPageTabInfoArray* pages_ptr=(Luna< wxRibbonPageTabInfoArray >::check(L,4));
 		if( !pages_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pages in wxRibbonArtProvider::GetTabCtrlHeight function");
@@ -1218,12 +1218,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetScrollButtonMinimumSize(wxDC & dc, wxWindow * wnd, long style) function, expected prototype:\nwxSize wxRibbonArtProvider::GetScrollButtonMinimumSize(wxDC & dc, wxWindow * wnd, long style)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetScrollButtonMinimumSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		long style=(long)lua_tointeger(L,4);
 
 		wxRibbonArtProvider* self=(Luna< wxRibbonArtProvider >::check(L,1));
@@ -1247,12 +1247,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetPanelSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize client_size, wxPoint * client_offset) function, expected prototype:\nwxSize wxRibbonArtProvider::GetPanelSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize client_size, wxPoint * client_offset)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\narg 4 ID = 25723480\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetPanelSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonPanel* wnd=dynamic_cast< wxRibbonPanel* >(Luna< wxObject >::check(L,3));
+		const wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		wxSize* client_size_ptr=(Luna< wxSize >::check(L,4));
 		if( !client_size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg client_size in wxRibbonArtProvider::GetPanelSize function");
@@ -1281,12 +1281,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetPanelClientSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize size, wxPoint * client_offset) function, expected prototype:\nwxSize wxRibbonArtProvider::GetPanelClientSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize size, wxPoint * client_offset)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\narg 4 ID = 25723480\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetPanelClientSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonPanel* wnd=dynamic_cast< wxRibbonPanel* >(Luna< wxObject >::check(L,3));
+		const wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		wxSize* size_ptr=(Luna< wxSize >::check(L,4));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonArtProvider::GetPanelClientSize function");
@@ -1315,12 +1315,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetGallerySize(wxDC & dc, const wxRibbonGallery * wnd, wxSize client_size) function, expected prototype:\nwxSize wxRibbonArtProvider::GetGallerySize(wxDC & dc, const wxRibbonGallery * wnd, wxSize client_size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetGallerySize function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonGallery* wnd=dynamic_cast< wxRibbonGallery* >(Luna< wxObject >::check(L,3));
+		const wxRibbonGallery* wnd=(Luna< wxObject >::checkSubType< wxRibbonGallery >(L,3));
 		wxSize* client_size_ptr=(Luna< wxSize >::check(L,4));
 		if( !client_size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg client_size in wxRibbonArtProvider::GetGallerySize function");
@@ -1348,12 +1348,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetGalleryClientSize(wxDC & dc, const wxRibbonGallery * wnd, wxSize size, wxPoint * client_offset, wxRect * scroll_up_button, wxRect * scroll_down_button, wxRect * extension_button) function, expected prototype:\nwxSize wxRibbonArtProvider::GetGalleryClientSize(wxDC & dc, const wxRibbonGallery * wnd, wxSize size, wxPoint * client_offset, wxRect * scroll_up_button, wxRect * scroll_down_button, wxRect * extension_button)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\narg 4 ID = 25723480\narg 5 ID = 20234418\narg 6 ID = 20234418\narg 7 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetGalleryClientSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonGallery* wnd=dynamic_cast< wxRibbonGallery* >(Luna< wxObject >::check(L,3));
+		const wxRibbonGallery* wnd=(Luna< wxObject >::checkSubType< wxRibbonGallery >(L,3));
 		wxSize* size_ptr=(Luna< wxSize >::check(L,4));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxRibbonArtProvider::GetGalleryClientSize function");
@@ -1385,12 +1385,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxRect wxRibbonArtProvider::GetPageBackgroundRedrawArea(wxDC & dc, const wxRibbonPage * wnd, wxSize page_old_size, wxSize page_new_size) function, expected prototype:\nwxRect wxRibbonArtProvider::GetPageBackgroundRedrawArea(wxDC & dc, const wxRibbonPage * wnd, wxSize page_old_size, wxSize page_new_size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\narg 4 ID = 20268751\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetPageBackgroundRedrawArea function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonPage* wnd=dynamic_cast< wxRibbonPage* >(Luna< wxObject >::check(L,3));
+		const wxRibbonPage* wnd=(Luna< wxObject >::checkSubType< wxRibbonPage >(L,3));
 		wxSize* page_old_size_ptr=(Luna< wxSize >::check(L,4));
 		if( !page_old_size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg page_old_size in wxRibbonArtProvider::GetPageBackgroundRedrawArea function");
@@ -1423,12 +1423,12 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRibbonArtProvider::GetButtonBarButtonSize(wxDC & dc, wxWindow * wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString & label, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize * button_size, wxRect * normal_region, wxRect * dropdown_region) function, expected prototype:\nbool wxRibbonArtProvider::GetButtonBarButtonSize(wxDC & dc, wxWindow * wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString & label, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize * button_size, wxRect * normal_region, wxRect * dropdown_region)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 5 ID = 88196105\narg 6 ID = 20268751\narg 7 ID = 20268751\narg 8 ID = 20268751\narg 9 ID = 20234418\narg 10 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetButtonBarButtonSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxRibbonButtonKind kind=(wxRibbonButtonKind)lua_tointeger(L,4);
 		wxRibbonButtonBarButtonState size=(wxRibbonButtonBarButtonState)lua_tointeger(L,5);
 		wxString label(lua_tostring(L,6),lua_objlen(L,6));
@@ -1464,12 +1464,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize * desired_bitmap_size, wxDirection * expanded_panel_direction) function, expected prototype:\nwxSize wxRibbonArtProvider::GetMinimisedPanelMinimumSize(wxDC & dc, const wxRibbonPanel * wnd, wxSize * desired_bitmap_size, wxDirection * expanded_panel_direction)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetMinimisedPanelMinimumSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRibbonPanel* wnd=dynamic_cast< wxRibbonPanel* >(Luna< wxObject >::check(L,3));
+		const wxRibbonPanel* wnd=(Luna< wxObject >::checkSubType< wxRibbonPanel >(L,3));
 		wxSize* desired_bitmap_size=(Luna< wxSize >::check(L,4));
 		wxDirection expanded_panel_direction=(wxDirection)lua_tointeger(L,5);
 
@@ -1494,12 +1494,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRibbonArtProvider::GetToolSize(wxDC & dc, wxWindow * wnd, wxSize bitmap_size, wxRibbonButtonKind kind, bool is_first, bool is_last, wxRect * dropdown_region) function, expected prototype:\nwxSize wxRibbonArtProvider::GetToolSize(wxDC & dc, wxWindow * wnd, wxSize bitmap_size, wxRibbonButtonKind kind, bool is_first, bool is_last, wxRect * dropdown_region)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20268751\narg 7 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRibbonArtProvider::GetToolSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxSize* bitmap_size_ptr=(Luna< wxSize >::check(L,4));
 		if( !bitmap_size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap_size in wxRibbonArtProvider::GetToolSize function");

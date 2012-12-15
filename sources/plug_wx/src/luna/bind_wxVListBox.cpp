@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxObject >::check(L,1));
+		//wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxObject >::check(L,1));
+		wxVListBox* ptr= luna_caster< wxObject, wxVListBox >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,7 +43,8 @@ public:
 
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		//wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		wxVListBox* ptr= luna_caster< wxVarScrollHelperBase, wxVListBox >::cast(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!ptr)
 			return 0;
 		

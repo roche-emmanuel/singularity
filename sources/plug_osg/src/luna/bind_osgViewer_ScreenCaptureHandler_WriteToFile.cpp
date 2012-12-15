@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgViewer::ScreenCaptureHandler::WriteToFile* ptr= dynamic_cast< osgViewer::ScreenCaptureHandler::WriteToFile* >(Luna< osg::Referenced >::check(L,1));
+		//osgViewer::ScreenCaptureHandler::WriteToFile* ptr= dynamic_cast< osgViewer::ScreenCaptureHandler::WriteToFile* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::ScreenCaptureHandler::WriteToFile* ptr= luna_caster< osg::Referenced, osgViewer::ScreenCaptureHandler::WriteToFile >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -143,7 +144,7 @@ public:
 
 		osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)lua_tointeger(L,2);
 
-		osgViewer::ScreenCaptureHandler::WriteToFile* self=dynamic_cast< osgViewer::ScreenCaptureHandler::WriteToFile* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy(osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy)");
@@ -161,7 +162,7 @@ public:
 		}
 
 
-		osgViewer::ScreenCaptureHandler::WriteToFile* self=dynamic_cast< osgViewer::ScreenCaptureHandler::WriteToFile* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy() const");
@@ -181,14 +182,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id) function, expected prototype:\nvoid osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Image* image_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 		if( !image_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg image in osgViewer::ScreenCaptureHandler::WriteToFile::operator() function");
 		}
 		const osg::Image & image=*image_ptr;
 		unsigned int context_id=(unsigned int)lua_tointeger(L,3);
 
-		osgViewer::ScreenCaptureHandler::WriteToFile* self=dynamic_cast< osgViewer::ScreenCaptureHandler::WriteToFile* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::ScreenCaptureHandler::WriteToFile* self=Luna< osg::Referenced >::checkSubType< osgViewer::ScreenCaptureHandler::WriteToFile >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image &, const unsigned int)");

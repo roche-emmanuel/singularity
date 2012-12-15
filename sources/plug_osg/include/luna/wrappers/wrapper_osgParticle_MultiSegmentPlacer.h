@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return MultiSegmentPlacer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return MultiSegmentPlacer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return MultiSegmentPlacer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MultiSegmentPlacer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MultiSegmentPlacer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return MultiSegmentPlacer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::MultiSegmentPlacer::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::cloneType();
+		return MultiSegmentPlacer::cloneType();
 	};
 
 	// osg::Object * osgParticle::MultiSegmentPlacer::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::clone(arg1);
+		return MultiSegmentPlacer::clone(arg1);
 	};
 
 	// bool osgParticle::MultiSegmentPlacer::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::isSameKindAs(obj);
+		return MultiSegmentPlacer::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::MultiSegmentPlacer::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::libraryName();
+		return MultiSegmentPlacer::libraryName();
 	};
 
 	// const char * osgParticle::MultiSegmentPlacer::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::className();
+		return MultiSegmentPlacer::className();
 	};
 
 	// void osgParticle::MultiSegmentPlacer::place(osgParticle::Particle * P) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::place(P);
+		return MultiSegmentPlacer::place(P);
 	};
 
 	// float osgParticle::MultiSegmentPlacer::volume() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::volume();
+		return MultiSegmentPlacer::volume();
 	};
 
 	// osg::Vec3f osgParticle::MultiSegmentPlacer::getControlPosition() const
@@ -147,7 +147,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgParticle::MultiSegmentPlacer::getControlPosition();
+		return MultiSegmentPlacer::getControlPosition();
 	};
 
 

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Image::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Image::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Image::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Image::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Image::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return Image::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::Image::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Image::cloneType();
+		return Image::cloneType();
 	};
 
 	// osg::Object * osg::Image::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Image::clone(arg1);
+		return Image::clone(arg1);
 	};
 
 	// bool osg::Image::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::isSameKindAs(obj);
+		return Image::isSameKindAs(obj);
 	};
 
 	// const char * osg::Image::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Image::libraryName();
+		return Image::libraryName();
 	};
 
 	// const char * osg::Image::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Image::className();
+		return Image::className();
 	};
 
 	// const void * osg::Image::getDataPointer() const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void*>());
 		}
 
-		return osg::Image::getDataPointer();
+		return Image::getDataPointer();
 	};
 
 	// unsigned int osg::Image::getTotalDataSize() const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Image::getTotalDataSize();
+		return Image::getTotalDataSize();
 	};
 
 	// int osg::Image::compare(const osg::Image & rhs) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Image::compare(rhs);
+		return Image::compare(rhs);
 	};
 
 	// void osg::Image::allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::allocateImage(s, t, r, pixelFormat, type, packing);
+		return Image::allocateImage(s, t, r, pixelFormat, type, packing);
 	};
 
 	// void osg::Image::setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
@@ -180,7 +180,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
+		return Image::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
 	};
 
 	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readPixels(x, y, width, height, pixelFormat, type);
+		return Image::readPixels(x, y, width, height, pixelFormat, type);
 	};
 
 	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
@@ -207,7 +207,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		return Image::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
 	};
 
 	// void osg::Image::scaleImage(int s, int t, int r, unsigned int newDataType)
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::scaleImage(s, t, r, newDataType);
+		return Image::scaleImage(s, t, r, newDataType);
 	};
 
 	// void osg::Image::copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)
@@ -233,7 +233,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::copySubImage(s_offset, t_offset, r_offset, source);
+		return Image::copySubImage(s_offset, t_offset, r_offset, source);
 	};
 
 	// bool osg::Image::isImageTranslucent() const
@@ -242,7 +242,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::isImageTranslucent();
+		return Image::isImageTranslucent();
 	};
 
 	// bool osg::Image::requiresUpdateCall() const
@@ -251,7 +251,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::requiresUpdateCall();
+		return Image::requiresUpdateCall();
 	};
 
 	// void osg::Image::update(osg::NodeVisitor * arg1)
@@ -261,7 +261,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::update(arg1);
+		return Image::update(arg1);
 	};
 
 	// bool osg::Image::sendFocusHint(bool arg1)
@@ -271,7 +271,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendFocusHint(arg1);
+		return Image::sendFocusHint(arg1);
 	};
 
 	// bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)
@@ -283,7 +283,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendPointerEvent(arg1, arg2, arg3);
+		return Image::sendPointerEvent(arg1, arg2, arg3);
 	};
 
 	// bool osg::Image::sendKeyEvent(int arg1, bool arg2)
@@ -294,7 +294,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendKeyEvent(arg1, arg2);
+		return Image::sendKeyEvent(arg1, arg2);
 	};
 
 	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)
@@ -304,7 +304,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::setFrameLastRendered(arg1);
+		return Image::setFrameLastRendered(arg1);
 	};
 
 

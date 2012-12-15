@@ -15,6 +15,7 @@ protected:
 public:
 	
 
+	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::DrawElements(primType, mode, numInstances), _obj(L,-1) {};
 	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElements(copy, copyop), _obj(L,-1) {};
 
 	// osg::Object * osg::Object::cloneType() const
@@ -37,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DrawElements::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -46,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DrawElements::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -56,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DrawElements::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -65,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawElements::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -74,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawElements::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -84,7 +85,108 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return DrawElements::releaseGLObjects(state);
+	};
+
+	// bool osg::PrimitiveSet::isSameKindAs(const osg::Object * obj) const
+	bool isSameKindAs(const osg::Object * obj) const {
+		if(_obj.pushFunction("isSameKindAs")) {
+			_obj.pushArg(obj);
+			return (_obj.callFunction<bool>());
+		}
+
+		return DrawElements::isSameKindAs(obj);
+	};
+
+	// const char * osg::PrimitiveSet::libraryName() const
+	const char * libraryName() const {
+		if(_obj.pushFunction("libraryName")) {
+			return (_obj.callFunction<const char*>());
+		}
+
+		return DrawElements::libraryName();
+	};
+
+	// const char * osg::PrimitiveSet::className() const
+	const char * className() const {
+		if(_obj.pushFunction("className")) {
+			return (_obj.callFunction<const char*>());
+		}
+
+		return DrawElements::className();
+	};
+
+	// const void * osg::PrimitiveSet::getDataPointer() const
+	const void * getDataPointer() const {
+		if(_obj.pushFunction("getDataPointer")) {
+			return (_obj.callFunction<void*>());
+		}
+
+		return DrawElements::getDataPointer();
+	};
+
+	// unsigned int osg::PrimitiveSet::getTotalDataSize() const
+	unsigned int getTotalDataSize() const {
+		if(_obj.pushFunction("getTotalDataSize")) {
+			return (_obj.callFunction<unsigned int>());
+		}
+
+		return DrawElements::getTotalDataSize();
+	};
+
+	// bool osg::PrimitiveSet::supportsBufferObject() const
+	bool supportsBufferObject() const {
+		if(_obj.pushFunction("supportsBufferObject")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return DrawElements::supportsBufferObject();
+	};
+
+	// void osg::PrimitiveSet::draw(osg::State & state, bool useVertexBufferObjects) const
+	void draw(osg::State & state, bool useVertexBufferObjects) const {
+		THROW_IF(!_obj.pushFunction("draw"),"No implementation for abstract function osg::PrimitiveSet::draw");
+		_obj.pushArg(&state);
+		_obj.pushArg(useVertexBufferObjects);
+		return (_obj.callFunction<void>());
+	};
+
+	// unsigned int osg::PrimitiveSet::index(unsigned int pos) const
+	unsigned int index(unsigned int pos) const {
+		THROW_IF(!_obj.pushFunction("index"),"No implementation for abstract function osg::PrimitiveSet::index");
+		_obj.pushArg(pos);
+		return (_obj.callFunction<unsigned int>());
+	};
+
+	// unsigned int osg::PrimitiveSet::getNumIndices() const
+	unsigned int getNumIndices() const {
+		THROW_IF(!_obj.pushFunction("getNumIndices"),"No implementation for abstract function osg::PrimitiveSet::getNumIndices");
+		return (_obj.callFunction<unsigned int>());
+	};
+
+	// void osg::PrimitiveSet::offsetIndices(int offset)
+	void offsetIndices(int offset) {
+		THROW_IF(!_obj.pushFunction("offsetIndices"),"No implementation for abstract function osg::PrimitiveSet::offsetIndices");
+		_obj.pushArg(offset);
+		return (_obj.callFunction<void>());
+	};
+
+	// unsigned int osg::PrimitiveSet::getNumPrimitives() const
+	unsigned int getNumPrimitives() const {
+		if(_obj.pushFunction("getNumPrimitives")) {
+			return (_obj.callFunction<unsigned int>());
+		}
+
+		return DrawElements::getNumPrimitives();
+	};
+
+	// void osg::PrimitiveSet::computeRange() const
+	void computeRange() const {
+		if(_obj.pushFunction("computeRange")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return DrawElements::computeRange();
 	};
 
 	// osg::DrawElements * osg::DrawElements::getDrawElements()
@@ -93,7 +195,7 @@ public:
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
-		return osg::DrawElements::getDrawElements();
+		return DrawElements::getDrawElements();
 	};
 
 	// const osg::DrawElements * osg::DrawElements::getDrawElements() const
@@ -102,7 +204,7 @@ public:
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
-		return osg::DrawElements::getDrawElements();
+		return DrawElements::getDrawElements();
 	};
 
 	// void osg::DrawElements::reserveElements(unsigned int numIndices)

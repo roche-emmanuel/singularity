@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::DynamicLibrary* ptr= dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::DynamicLibrary* ptr= dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DynamicLibrary* ptr= luna_caster< osg::Referenced, osgDB::DynamicLibrary >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -108,7 +109,7 @@ public:
 		}
 
 
-		osgDB::DynamicLibrary* self=dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getName() const");
@@ -127,7 +128,7 @@ public:
 		}
 
 
-		osgDB::DynamicLibrary* self=dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osgDB::DynamicLibrary::getFullName() const");
@@ -146,7 +147,7 @@ public:
 		}
 
 
-		osgDB::DynamicLibrary* self=dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getHandle() const");
@@ -168,7 +169,7 @@ public:
 
 		std::string procName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::DynamicLibrary* self=dynamic_cast< osgDB::DynamicLibrary* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DynamicLibrary* self=Luna< osg::Referenced >::checkSubType< osgDB::DynamicLibrary >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * osgDB::DynamicLibrary::getProcAddress(const std::string &)");

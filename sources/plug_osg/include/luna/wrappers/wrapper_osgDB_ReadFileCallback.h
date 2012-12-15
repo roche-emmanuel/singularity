@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_ReadFileCallback(lua_State* L, lua_Table* dum) : osgDB::ReadFileCallback(), _obj(L,-1) {};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache)
 	osgDB::ReaderWriter::ReadResult openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache) {
@@ -27,7 +26,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::openArchive(filename, status, indexBlockSizeHint, useObjectCache);
+		return ReadFileCallback::openArchive(filename, status, indexBlockSizeHint, useObjectCache);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readObject(const std::string & filename, const osgDB::Options * options)
@@ -38,7 +37,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::readObject(filename, options);
+		return ReadFileCallback::readObject(filename, options);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readImage(const std::string & filename, const osgDB::Options * options)
@@ -49,7 +48,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::readImage(filename, options);
+		return ReadFileCallback::readImage(filename, options);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readHeightField(const std::string & filename, const osgDB::Options * options)
@@ -60,7 +59,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::readHeightField(filename, options);
+		return ReadFileCallback::readHeightField(filename, options);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readNode(const std::string & filename, const osgDB::Options * options)
@@ -71,7 +70,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::readNode(filename, options);
+		return ReadFileCallback::readNode(filename, options);
 	};
 
 	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readShader(const std::string & filename, const osgDB::Options * options)
@@ -82,7 +81,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
 		}
 
-		return osgDB::ReadFileCallback::readShader(filename, options);
+		return ReadFileCallback::readShader(filename, options);
 	};
 
 

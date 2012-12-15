@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxColourPickerEvent* ptr= dynamic_cast< wxColourPickerEvent* >(Luna< wxObject >::check(L,1));
+		//wxColourPickerEvent* ptr= dynamic_cast< wxColourPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxColourPickerEvent* ptr= luna_caster< wxObject, wxColourPickerEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -68,7 +81,7 @@ public:
 		}
 
 
-		wxColourPickerEvent* self=dynamic_cast< wxColourPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxColour wxColourPickerEvent::GetColour() const");
@@ -89,13 +102,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxColourPickerEvent::SetColour(const wxColour & pos) function, expected prototype:\nvoid wxColourPickerEvent::SetColour(const wxColour & pos)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* pos_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* pos_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxColourPickerEvent::SetColour function");
 		}
 		const wxColour & pos=*pos_ptr;
 
-		wxColourPickerEvent* self=dynamic_cast< wxColourPickerEvent* >(Luna< wxObject >::check(L,1));
+		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxColourPickerEvent::SetColour(const wxColour &)");
@@ -103,6 +116,46 @@ public:
 		self->SetColour(pos);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColourPickerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourPickerEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxColourPickerEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxColourPickerEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxColourPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxColourPickerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxColourPickerEvent* self=Luna< wxObject >::checkSubType< wxColourPickerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxColourPickerEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxColourPickerEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -130,6 +183,8 @@ const int LunaTraits< wxColourPickerEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxColourPickerEvent >::methods[] = {
 	{"GetColour", &luna_wrapper_wxColourPickerEvent::_bind_GetColour},
 	{"SetColour", &luna_wrapper_wxColourPickerEvent::_bind_SetColour},
+	{"base_GetClassInfo", &luna_wrapper_wxColourPickerEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxColourPickerEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxColourPickerEvent::_bind___eq},
 	{0,0}
 };

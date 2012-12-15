@@ -120,6 +120,54 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_Transform_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15778700)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Transform_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,81619599) ) return false;
+		if( (!dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Transform_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,15778700) ) return false;
+		if( (!dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InverseTransform_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15778700)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InverseTransform_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,81619599) ) return false;
+		if( (!dynamic_cast< wxPoint2DInt* >(Luna< wxPoint2DInt >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InverseTransform_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,15778700) ) return false;
+		if( (!dynamic_cast< wxRect2DInt* >(Luna< wxRect2DInt >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -331,6 +379,172 @@ public:
 		return 0;
 	}
 
+	// void wxTransform2D::base_Transform(wxRect2DInt * r) const
+	static int _bind_base_Transform_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Transform_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTransform2D::base_Transform(wxRect2DInt * r) const function, expected prototype:\nvoid wxTransform2D::base_Transform(wxRect2DInt * r) const\nClass arguments details:\narg 1 ID = 15778700\n");
+		}
+
+		wxRect2DInt* r=(Luna< wxRect2DInt >::check(L,2));
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTransform2D::base_Transform(wxRect2DInt *) const");
+		}
+		self->wxTransform2D::Transform(r);
+
+		return 0;
+	}
+
+	// wxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt & pt) const
+	static int _bind_base_Transform_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Transform_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt & pt) const function, expected prototype:\nwxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt & pt) const\nClass arguments details:\narg 1 ID = 81619599\n");
+		}
+
+		const wxPoint2DInt* pt_ptr=(Luna< wxPoint2DInt >::check(L,2));
+		if( !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxTransform2D::base_Transform function");
+		}
+		const wxPoint2DInt & pt=*pt_ptr;
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_Transform(const wxPoint2DInt &) const");
+		}
+		wxPoint2DInt stack_lret = self->wxTransform2D::Transform(pt);
+		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPoint2DInt >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt & r) const
+	static int _bind_base_Transform_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Transform_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt & r) const function, expected prototype:\nwxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt & r) const\nClass arguments details:\narg 1 ID = 15778700\n");
+		}
+
+		const wxRect2DInt* r_ptr=(Luna< wxRect2DInt >::check(L,2));
+		if( !r_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg r in wxTransform2D::base_Transform function");
+		}
+		const wxRect2DInt & r=*r_ptr;
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_Transform(const wxRect2DInt &) const");
+		}
+		wxRect2DInt stack_lret = self->wxTransform2D::Transform(r);
+		wxRect2DInt* lret = new wxRect2DInt(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRect2DInt >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// Overload binder for wxTransform2D::base_Transform
+	static int _bind_base_Transform(lua_State *L) {
+		if (_lg_typecheck_base_Transform_overload_1(L)) return _bind_base_Transform_overload_1(L);
+		if (_lg_typecheck_base_Transform_overload_2(L)) return _bind_base_Transform_overload_2(L);
+		if (_lg_typecheck_base_Transform_overload_3(L)) return _bind_base_Transform_overload_3(L);
+
+		luaL_error(L, "error in function base_Transform, cannot match any of the overloads for function base_Transform:\n  base_Transform(wxRect2DInt *)\n  base_Transform(const wxPoint2DInt &)\n  base_Transform(const wxRect2DInt &)\n");
+		return 0;
+	}
+
+	// void wxTransform2D::base_InverseTransform(wxRect2DInt * r) const
+	static int _bind_base_InverseTransform_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_InverseTransform_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTransform2D::base_InverseTransform(wxRect2DInt * r) const function, expected prototype:\nvoid wxTransform2D::base_InverseTransform(wxRect2DInt * r) const\nClass arguments details:\narg 1 ID = 15778700\n");
+		}
+
+		wxRect2DInt* r=(Luna< wxRect2DInt >::check(L,2));
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTransform2D::base_InverseTransform(wxRect2DInt *) const");
+		}
+		self->wxTransform2D::InverseTransform(r);
+
+		return 0;
+	}
+
+	// wxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt & pt) const
+	static int _bind_base_InverseTransform_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_InverseTransform_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt & pt) const function, expected prototype:\nwxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt & pt) const\nClass arguments details:\narg 1 ID = 81619599\n");
+		}
+
+		const wxPoint2DInt* pt_ptr=(Luna< wxPoint2DInt >::check(L,2));
+		if( !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxTransform2D::base_InverseTransform function");
+		}
+		const wxPoint2DInt & pt=*pt_ptr;
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxPoint2DInt wxTransform2D::base_InverseTransform(const wxPoint2DInt &) const");
+		}
+		wxPoint2DInt stack_lret = self->wxTransform2D::InverseTransform(pt);
+		wxPoint2DInt* lret = new wxPoint2DInt(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPoint2DInt >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt & r) const
+	static int _bind_base_InverseTransform_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_InverseTransform_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt & r) const function, expected prototype:\nwxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt & r) const\nClass arguments details:\narg 1 ID = 15778700\n");
+		}
+
+		const wxRect2DInt* r_ptr=(Luna< wxRect2DInt >::check(L,2));
+		if( !r_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg r in wxTransform2D::base_InverseTransform function");
+		}
+		const wxRect2DInt & r=*r_ptr;
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxRect2DInt wxTransform2D::base_InverseTransform(const wxRect2DInt &) const");
+		}
+		wxRect2DInt stack_lret = self->wxTransform2D::InverseTransform(r);
+		wxRect2DInt* lret = new wxRect2DInt(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxRect2DInt >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// Overload binder for wxTransform2D::base_InverseTransform
+	static int _bind_base_InverseTransform(lua_State *L) {
+		if (_lg_typecheck_base_InverseTransform_overload_1(L)) return _bind_base_InverseTransform_overload_1(L);
+		if (_lg_typecheck_base_InverseTransform_overload_2(L)) return _bind_base_InverseTransform_overload_2(L);
+		if (_lg_typecheck_base_InverseTransform_overload_3(L)) return _bind_base_InverseTransform_overload_3(L);
+
+		luaL_error(L, "error in function base_InverseTransform, cannot match any of the overloads for function base_InverseTransform:\n  base_InverseTransform(wxRect2DInt *)\n  base_InverseTransform(const wxPoint2DInt &)\n  base_InverseTransform(const wxRect2DInt &)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -357,6 +571,8 @@ const int LunaTraits< wxTransform2D >::uniqueIDs[] = {13863894,0};
 luna_RegType LunaTraits< wxTransform2D >::methods[] = {
 	{"Transform", &luna_wrapper_wxTransform2D::_bind_Transform},
 	{"InverseTransform", &luna_wrapper_wxTransform2D::_bind_InverseTransform},
+	{"base_Transform", &luna_wrapper_wxTransform2D::_bind_base_Transform},
+	{"base_InverseTransform", &luna_wrapper_wxTransform2D::_bind_base_InverseTransform},
 	{"dynCast", &luna_wrapper_wxTransform2D::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTransform2D::_bind___eq},
 	{0,0}

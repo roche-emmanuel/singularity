@@ -119,6 +119,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_WriteDouble(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_WriteString(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -300,6 +314,44 @@ public:
 		return 0;
 	}
 
+	// void wxTextOutputStream::base_WriteDouble(double f)
+	static int _bind_base_WriteDouble(lua_State *L) {
+		if (!_lg_typecheck_base_WriteDouble(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteDouble(double f) function, expected prototype:\nvoid wxTextOutputStream::base_WriteDouble(double f)\nClass arguments details:\n");
+		}
+
+		double f=(double)lua_tonumber(L,2);
+
+		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteDouble(double)");
+		}
+		self->wxTextOutputStream::WriteDouble(f);
+
+		return 0;
+	}
+
+	// void wxTextOutputStream::base_WriteString(const wxString & string)
+	static int _bind_base_WriteString(lua_State *L) {
+		if (!_lg_typecheck_base_WriteString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteString(const wxString & string) function, expected prototype:\nvoid wxTextOutputStream::base_WriteString(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString string(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteString(const wxString &)");
+		}
+		self->wxTextOutputStream::WriteString(string);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -330,6 +382,8 @@ luna_RegType LunaTraits< wxTextOutputStream >::methods[] = {
 	{"Write8", &luna_wrapper_wxTextOutputStream::_bind_Write8},
 	{"WriteDouble", &luna_wrapper_wxTextOutputStream::_bind_WriteDouble},
 	{"WriteString", &luna_wrapper_wxTextOutputStream::_bind_WriteString},
+	{"base_WriteDouble", &luna_wrapper_wxTextOutputStream::_bind_base_WriteDouble},
+	{"base_WriteString", &luna_wrapper_wxTextOutputStream::_bind_base_WriteString},
 	{"dynCast", &luna_wrapper_wxTextOutputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTextOutputStream::_bind___eq},
 	{0,0}

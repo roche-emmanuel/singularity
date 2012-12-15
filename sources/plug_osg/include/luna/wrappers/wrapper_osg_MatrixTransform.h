@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return MatrixTransform::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return MatrixTransform::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return MatrixTransform::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MatrixTransform::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return MatrixTransform::getUserData();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return MatrixTransform::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return MatrixTransform::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return MatrixTransform::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return MatrixTransform::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return MatrixTransform::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return MatrixTransform::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return MatrixTransform::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return MatrixTransform::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return MatrixTransform::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return MatrixTransform::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return MatrixTransform::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -180,7 +180,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return MatrixTransform::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -191,7 +191,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return MatrixTransform::setChild(i, node);
 	};
 
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::releaseGLObjects(arg1);
+		return MatrixTransform::releaseGLObjects(arg1);
 	};
 
 	// osg::Transform * osg::Transform::asTransform()
@@ -210,7 +210,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return MatrixTransform::asTransform();
 	};
 
 	// const osg::Transform * osg::Transform::asTransform() const
@@ -219,7 +219,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return MatrixTransform::asTransform();
 	};
 
 	// osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform()
@@ -228,7 +228,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return MatrixTransform::asPositionAttitudeTransform();
 	};
 
 	// const osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform() const
@@ -237,7 +237,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return MatrixTransform::asPositionAttitudeTransform();
 	};
 
 	// osg::BoundingSphered osg::Transform::computeBound() const
@@ -246,7 +246,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Transform::computeBound();
+		return MatrixTransform::computeBound();
 	};
 
 	// osg::Object * osg::MatrixTransform::cloneType() const
@@ -255,7 +255,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::MatrixTransform::cloneType();
+		return MatrixTransform::cloneType();
 	};
 
 	// osg::Object * osg::MatrixTransform::clone(const osg::CopyOp & copyop) const
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::MatrixTransform::clone(copyop);
+		return MatrixTransform::clone(copyop);
 	};
 
 	// bool osg::MatrixTransform::isSameKindAs(const osg::Object * obj) const
@@ -275,7 +275,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::MatrixTransform::isSameKindAs(obj);
+		return MatrixTransform::isSameKindAs(obj);
 	};
 
 	// const char * osg::MatrixTransform::className() const
@@ -284,7 +284,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::MatrixTransform::className();
+		return MatrixTransform::className();
 	};
 
 	// const char * osg::MatrixTransform::libraryName() const
@@ -293,7 +293,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::MatrixTransform::libraryName();
+		return MatrixTransform::libraryName();
 	};
 
 	// void osg::MatrixTransform::accept(osg::NodeVisitor & nv)
@@ -303,7 +303,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::MatrixTransform::accept(nv);
+		return MatrixTransform::accept(nv);
 	};
 
 	// osg::MatrixTransform * osg::MatrixTransform::asMatrixTransform()
@@ -312,7 +312,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::MatrixTransform::asMatrixTransform();
+		return MatrixTransform::asMatrixTransform();
 	};
 
 	// const osg::MatrixTransform * osg::MatrixTransform::asMatrixTransform() const
@@ -321,7 +321,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::MatrixTransform::asMatrixTransform();
+		return MatrixTransform::asMatrixTransform();
 	};
 
 	// bool osg::MatrixTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * arg2) const
@@ -332,7 +332,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::MatrixTransform::computeLocalToWorldMatrix(matrix, arg2);
+		return MatrixTransform::computeLocalToWorldMatrix(matrix, arg2);
 	};
 
 	// bool osg::MatrixTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * arg2) const
@@ -343,13 +343,32 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::MatrixTransform::computeWorldToLocalMatrix(matrix, arg2);
+		return MatrixTransform::computeWorldToLocalMatrix(matrix, arg2);
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return MatrixTransform::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return MatrixTransform::childInserted(arg1);
+	};
+
 
 };
 

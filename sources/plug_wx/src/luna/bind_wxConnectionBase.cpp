@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxConnectionBase* ptr= dynamic_cast< wxConnectionBase* >(Luna< wxObject >::check(L,1));
+		//wxConnectionBase* ptr= dynamic_cast< wxConnectionBase* >(Luna< wxObject >::check(L,1));
+		wxConnectionBase* ptr= luna_caster< wxObject, wxConnectionBase >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -44,6 +45,12 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -51,6 +58,27 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// wxClassInfo * wxConnectionBase::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxConnectionBase::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxConnectionBase::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxConnectionBase* self=Luna< wxObject >::checkSubType< wxConnectionBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxConnectionBase::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxConnectionBase::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -72,6 +100,7 @@ const int LunaTraits< wxConnectionBase >::hash = 67238063;
 const int LunaTraits< wxConnectionBase >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxConnectionBase >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxConnectionBase::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxConnectionBase::_bind___eq},
 	{0,0}
 };

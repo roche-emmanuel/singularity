@@ -1967,7 +1967,7 @@ static int _bind_createGeodeForImage_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 
 	osg::Geode * lret = createGeodeForImage(image);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -1984,7 +1984,7 @@ static int _bind_createGeodeForImage_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in osg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t) function, expected prototype:\nosg::Geode * osg::createGeodeForImage(osg::Image * image, float s, float t)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	float s=(float)lua_tonumber(L,2);
 	float t=(float)lua_tonumber(L,3);
 
@@ -2012,7 +2012,7 @@ static int _bind_computeMinMax(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max) function, expected prototype:\nbool osg::computeMinMax(const osg::Image * image, osg::Vec4f & min, osg::Vec4f & max)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n");
 	}
 
-	const osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	osg::Vec4f* min_ptr=(Luna< osg::Vec4f >::check(L,2));
 	if( !min_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg min in osg::computeMinMax function");
@@ -2037,7 +2037,7 @@ static int _bind_offsetAndScaleImage(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale) function, expected prototype:\nbool osg::offsetAndScaleImage(osg::Image * image, const osg::Vec4f & offset, const osg::Vec4f & scale)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\narg 3 ID = 92303235\n");
 	}
 
-	osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	const osg::Vec4f* offset_ptr=(Luna< osg::Vec4f >::check(L,2));
 	if( !offset_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg offset in osg::offsetAndScaleImage function");
@@ -2064,14 +2064,14 @@ static int _bind_copyImage(lua_State *L) {
 
 	int luatop = lua_gettop(L);
 
-	const osg::Image* srcImage=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Image* srcImage=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	int src_s=(int)lua_tointeger(L,2);
 	int src_t=(int)lua_tointeger(L,3);
 	int src_r=(int)lua_tointeger(L,4);
 	int width=(int)lua_tointeger(L,5);
 	int height=(int)lua_tointeger(L,6);
 	int depth=(int)lua_tointeger(L,7);
-	osg::Image* destImage=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,8));
+	osg::Image* destImage=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,8));
 	int dest_s=(int)lua_tointeger(L,9);
 	int dest_t=(int)lua_tointeger(L,10);
 	int dest_r=(int)lua_tointeger(L,11);
@@ -2090,7 +2090,7 @@ static int _bind_clearImageToColor(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour) function, expected prototype:\nbool osg::clearImageToColor(osg::Image * image, const osg::Vec4f & colour)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 92303235\n");
 	}
 
-	osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	const osg::Vec4f* colour_ptr=(Luna< osg::Vec4f >::check(L,2));
 	if( !colour_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg colour in osg::clearImageToColor function");
@@ -2543,7 +2543,7 @@ static int _bind_setNotifyHandler(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in void osg::setNotifyHandler(osg::NotifyHandler * handler) function, expected prototype:\nvoid osg::setNotifyHandler(osg::NotifyHandler * handler)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	osg::NotifyHandler* handler=dynamic_cast< osg::NotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+	osg::NotifyHandler* handler=(Luna< osg::Referenced >::checkSubType< osg::NotifyHandler >(L,1));
 
 	setNotifyHandler(handler);
 
@@ -3988,7 +3988,7 @@ static int _bind_openArchive_overload_2(lua_State *L) {
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
 	osgDB::ReaderWriter::ArchiveStatus status=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,2);
 	unsigned int indexBlockSizeHint=(unsigned int)lua_tointeger(L,3);
-	osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,4));
+	osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,4));
 
 	osgDB::Archive * lret = openArchive(filename, status, indexBlockSizeHint, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -4759,7 +4759,7 @@ static int _bind_findDataFile_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 	osgDB::CaseSensitivity caseSensitivity=luatop>2 ? (osgDB::CaseSensitivity)lua_tointeger(L,3) : osgDB::CASE_SENSITIVE;
 
 	std::string lret = findDataFile(filename, options, caseSensitivity);
@@ -4974,7 +4974,7 @@ static int _bind_readObjectFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::Object * lret = readObjectFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5018,7 +5018,7 @@ static int _bind_readImageFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::Image * lret = readImageFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5062,7 +5062,7 @@ static int _bind_readHeightFieldFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::HeightField * lret = readHeightFieldFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5106,7 +5106,7 @@ static int _bind_readNodeFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::Node * lret = readNodeFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5150,7 +5150,7 @@ static int _bind_readShaderFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::Shader * lret = readShaderFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5186,7 +5186,7 @@ static int _bind_readShaderFile_overload_3(lua_State *L) {
 
 	osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	osg::Shader * lret = readShaderFile(type, filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5233,7 +5233,7 @@ static int _bind_readRefObjectFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::ref_ptr< osg::Object > lret = readRefObjectFile(filename, options);
 	Luna< osg::Object >::push(L,lret.get(),false);
@@ -5273,7 +5273,7 @@ static int _bind_readRefImageFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::ref_ptr< osg::Image > lret = readRefImageFile(filename, options);
 	Luna< osg::Image >::push(L,lret.get(),false);
@@ -5313,7 +5313,7 @@ static int _bind_readRefHeightFieldFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::ref_ptr< osg::HeightField > lret = readRefHeightFieldFile(filename, options);
 	Luna< osg::HeightField >::push(L,lret.get(),false);
@@ -5353,7 +5353,7 @@ static int _bind_readRefNodeFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::ref_ptr< osg::Node > lret = readRefNodeFile(filename, options);
 	Luna< osg::Node >::push(L,lret.get(),false);
@@ -5393,7 +5393,7 @@ static int _bind_readRefShaderFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osg::ref_ptr< osg::Shader > lret = readRefShaderFile(filename, options);
 	Luna< osg::Shader >::push(L,lret.get(),false);
@@ -5450,13 +5450,13 @@ static int _bind_writeObjectFile_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 	}
 
-	const osg::Object* object_ptr=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Object* object_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1));
 	if( !object_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg object in osgDB::writeObjectFile function");
 	}
 	const osg::Object & object=*object_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	bool lret = writeObjectFile(object, filename, options);
 	lua_pushboolean(L,lret?1:0);
@@ -5471,7 +5471,7 @@ static int _bind_writeObjectFile_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename) function, expected prototype:\nbool osgDB::writeObjectFile(const osg::Object & object, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	const osg::Object* object_ptr=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Object* object_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1));
 	if( !object_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg object in osgDB::writeObjectFile function");
 	}
@@ -5500,13 +5500,13 @@ static int _bind_writeImageFile_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 	}
 
-	const osg::Image* image_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	if( !image_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg image in osgDB::writeImageFile function");
 	}
 	const osg::Image & image=*image_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	bool lret = writeImageFile(image, filename, options);
 	lua_pushboolean(L,lret?1:0);
@@ -5521,7 +5521,7 @@ static int _bind_writeImageFile_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeImageFile(const osg::Image & image, const std::string & filename) function, expected prototype:\nbool osgDB::writeImageFile(const osg::Image & image, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	const osg::Image* image_ptr=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Image* image_ptr=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 	if( !image_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg image in osgDB::writeImageFile function");
 	}
@@ -5550,13 +5550,13 @@ static int _bind_writeHeightFieldFile_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 	}
 
-	const osg::HeightField* hf_ptr=dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,1));
+	const osg::HeightField* hf_ptr=(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1));
 	if( !hf_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg hf in osgDB::writeHeightFieldFile function");
 	}
 	const osg::HeightField & hf=*hf_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	bool lret = writeHeightFieldFile(hf, filename, options);
 	lua_pushboolean(L,lret?1:0);
@@ -5571,7 +5571,7 @@ static int _bind_writeHeightFieldFile_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename) function, expected prototype:\nbool osgDB::writeHeightFieldFile(const osg::HeightField & hf, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	const osg::HeightField* hf_ptr=dynamic_cast< osg::HeightField* >(Luna< osg::Referenced >::check(L,1));
+	const osg::HeightField* hf_ptr=(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1));
 	if( !hf_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg hf in osgDB::writeHeightFieldFile function");
 	}
@@ -5600,13 +5600,13 @@ static int _bind_writeNodeFile_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 	}
 
-	const osg::Node* node_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
 	if( !node_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg node in osgDB::writeNodeFile function");
 	}
 	const osg::Node & node=*node_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	bool lret = writeNodeFile(node, filename, options);
 	lua_pushboolean(L,lret?1:0);
@@ -5621,7 +5621,7 @@ static int _bind_writeNodeFile_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename) function, expected prototype:\nbool osgDB::writeNodeFile(const osg::Node & node, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	const osg::Node* node_ptr=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Node* node_ptr=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
 	if( !node_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg node in osgDB::writeNodeFile function");
 	}
@@ -5650,13 +5650,13 @@ static int _bind_writeShaderFile_overload_1(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\narg 3 ID = 50169651\n");
 	}
 
-	const osg::Shader* shader_ptr=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Shader* shader_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
 	if( !shader_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg shader in osgDB::writeShaderFile function");
 	}
 	const osg::Shader & shader=*shader_ptr;
 	std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
 	bool lret = writeShaderFile(shader, filename, options);
 	lua_pushboolean(L,lret?1:0);
@@ -5671,7 +5671,7 @@ static int _bind_writeShaderFile_overload_2(lua_State *L) {
 		luaL_error(L, "luna typecheck failed in bool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename) function, expected prototype:\nbool osgDB::writeShaderFile(const osg::Shader & shader, const std::string & filename)\nClass arguments details:\narg 1 ID = 50169651\n");
 	}
 
-	const osg::Shader* shader_ptr=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+	const osg::Shader* shader_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
 	if( !shader_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg shader in osgDB::writeShaderFile function");
 	}
@@ -5701,7 +5701,7 @@ static int _bind_readXmlFile_overload_1(lua_State *L) {
 	}
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+	const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
 	osgDB::XmlNode * lret = readXmlFile(filename, options);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5820,7 +5820,7 @@ static int _bind_readFontFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osgText::Font * lret = readFontFile(filename, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5840,7 +5840,7 @@ static int _bind_readRefFontFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osg::ref_ptr< osgText::Font > lret = readRefFontFile(filename, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
@@ -5873,7 +5873,7 @@ static int _bind_readFont3DFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osgText::Font * lret = readFont3DFile(filename, userOptions);
 	if(!lret) return 0; // Do not write NULL pointers.
@@ -5893,7 +5893,7 @@ static int _bind_readRefFont3DFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 
 	std::string filename(lua_tostring(L,1),lua_objlen(L,1));
-	const osgDB::Options* userOptions=luatop>1 ? dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2)) : (const osgDB::Options*)0;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osg::ref_ptr< osgText::Font > lret = readRefFont3DFile(filename, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);

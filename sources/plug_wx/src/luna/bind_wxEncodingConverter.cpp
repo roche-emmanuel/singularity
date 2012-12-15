@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxEncodingConverter* ptr= dynamic_cast< wxEncodingConverter* >(Luna< wxObject >::check(L,1));
+		//wxEncodingConverter* ptr= dynamic_cast< wxEncodingConverter* >(Luna< wxObject >::check(L,1));
+		wxEncodingConverter* ptr= luna_caster< wxObject, wxEncodingConverter >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -98,6 +99,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -145,7 +152,7 @@ public:
 
 		wxString input(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxEncodingConverter* self=dynamic_cast< wxEncodingConverter* >(Luna< wxObject >::check(L,1));
+		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxEncodingConverter::Convert(const wxString &) const");
@@ -169,7 +176,7 @@ public:
 		wxFontEncoding output_enc=(wxFontEncoding)lua_tointeger(L,3);
 		int method=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCONVERT_STRICT;
 
-		wxEncodingConverter* self=dynamic_cast< wxEncodingConverter* >(Luna< wxObject >::check(L,1));
+		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxEncodingConverter::Init(wxFontEncoding, wxFontEncoding, int)");
@@ -233,6 +240,27 @@ public:
 		return 1;
 	}
 
+	// wxClassInfo * wxEncodingConverter::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEncodingConverter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEncodingConverter::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEncodingConverter::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxEncodingConverter::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -259,6 +287,7 @@ luna_RegType LunaTraits< wxEncodingConverter >::methods[] = {
 	{"GetAllEquivalents", &luna_wrapper_wxEncodingConverter::_bind_GetAllEquivalents},
 	{"GetPlatformEquivalents", &luna_wrapper_wxEncodingConverter::_bind_GetPlatformEquivalents},
 	{"CanConvert", &luna_wrapper_wxEncodingConverter::_bind_CanConvert},
+	{"base_GetClassInfo", &luna_wrapper_wxEncodingConverter::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxEncodingConverter::_bind___eq},
 	{0,0}
 };

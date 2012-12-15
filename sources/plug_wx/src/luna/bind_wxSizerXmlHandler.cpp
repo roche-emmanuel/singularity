@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSizerXmlHandler* ptr= dynamic_cast< wxSizerXmlHandler* >(Luna< wxObject >::check(L,1));
+		//wxSizerXmlHandler* ptr= dynamic_cast< wxSizerXmlHandler* >(Luna< wxObject >::check(L,1));
+		wxSizerXmlHandler* ptr= luna_caster< wxObject, wxSizerXmlHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -64,6 +65,25 @@ public:
 	}
 
 	inline static bool _lg_typecheck_CanHandle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DoCreateResource(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanHandle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,64848530)) ) return false;
@@ -116,7 +136,7 @@ public:
 		}
 
 
-		wxSizerXmlHandler* self=dynamic_cast< wxSizerXmlHandler* >(Luna< wxObject >::check(L,1));
+		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::DoCreateResource()");
@@ -138,12 +158,74 @@ public:
 
 		wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
 
-		wxSizerXmlHandler* self=dynamic_cast< wxSizerXmlHandler* >(Luna< wxObject >::check(L,1));
+		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::CanHandle(wxXmlNode *)");
 		}
 		bool lret = self->CanHandle(node);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizerXmlHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSizerXmlHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxObject * wxSizerXmlHandler::base_DoCreateResource()
+	static int _bind_base_DoCreateResource(lua_State *L) {
+		if (!_lg_typecheck_base_DoCreateResource(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxObject * wxSizerXmlHandler::base_DoCreateResource() function, expected prototype:\nwxObject * wxSizerXmlHandler::base_DoCreateResource()\nClass arguments details:\n");
+		}
+
+
+		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxObject * wxSizerXmlHandler::base_DoCreateResource()");
+		}
+		wxObject * lret = self->wxSizerXmlHandler::DoCreateResource();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxObject >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxSizerXmlHandler::base_CanHandle(wxXmlNode * node)
+	static int _bind_base_CanHandle(lua_State *L) {
+		if (!_lg_typecheck_base_CanHandle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizerXmlHandler::base_CanHandle(wxXmlNode * node) function, expected prototype:\nbool wxSizerXmlHandler::base_CanHandle(wxXmlNode * node)\nClass arguments details:\narg 1 ID = 64848530\n");
+		}
+
+		wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
+
+		wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wxSizerXmlHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizerXmlHandler::base_CanHandle(wxXmlNode *)");
+		}
+		bool lret = self->wxSizerXmlHandler::CanHandle(node);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -172,6 +254,9 @@ const int LunaTraits< wxSizerXmlHandler >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxSizerXmlHandler >::methods[] = {
 	{"DoCreateResource", &luna_wrapper_wxSizerXmlHandler::_bind_DoCreateResource},
 	{"CanHandle", &luna_wrapper_wxSizerXmlHandler::_bind_CanHandle},
+	{"base_GetClassInfo", &luna_wrapper_wxSizerXmlHandler::_bind_base_GetClassInfo},
+	{"base_DoCreateResource", &luna_wrapper_wxSizerXmlHandler::_bind_base_DoCreateResource},
+	{"base_CanHandle", &luna_wrapper_wxSizerXmlHandler::_bind_base_CanHandle},
 	{"__eq", &luna_wrapper_wxSizerXmlHandler::_bind___eq},
 	{0,0}
 };

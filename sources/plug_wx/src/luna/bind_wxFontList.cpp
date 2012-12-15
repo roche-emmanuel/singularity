@@ -29,7 +29,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxList(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFontList* ptr= dynamic_cast< wxFontList* >(Luna< wxList >::check(L,1));
+		//wxFontList* ptr= dynamic_cast< wxFontList* >(Luna< wxList >::check(L,1));
+		wxFontList* ptr= luna_caster< wxList, wxFontList >::cast(Luna< wxList >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -97,7 +98,7 @@ public:
 		wxString facename(lua_tostring(L,7),lua_objlen(L,7));
 		wxFontEncoding encoding=luatop>7 ? (wxFontEncoding)lua_tointeger(L,8) : ::wxFONTENCODING_DEFAULT;
 
-		wxFontList* self=dynamic_cast< wxFontList* >(Luna< wxList >::check(L,1));
+		wxFontList* self=Luna< wxList >::checkSubType< wxFontList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFont * wxFontList::FindOrCreateFont(int, wxFontFamily, wxFontStyle, wxFontWeight, bool, const wxString &, wxFontEncoding)");

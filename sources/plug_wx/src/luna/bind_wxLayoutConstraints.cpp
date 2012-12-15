@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxLayoutConstraints* ptr= dynamic_cast< wxLayoutConstraints* >(Luna< wxObject >::check(L,1));
+		//wxLayoutConstraints* ptr= dynamic_cast< wxLayoutConstraints* >(Luna< wxObject >::check(L,1));
+		wxLayoutConstraints* ptr= luna_caster< wxObject, wxLayoutConstraints >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -66,6 +67,12 @@ public:
 	}
 
 	inline static bool _lg_typecheck_AreSatisfied(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -116,10 +123,10 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxLayoutConstraints::SatisfyConstraints(wxWindow * win, int * noChanges) function, expected prototype:\nbool wxLayoutConstraints::SatisfyConstraints(wxWindow * win, int * noChanges)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int noChanges=(int)lua_tointeger(L,3);
 
-		wxLayoutConstraints* self=dynamic_cast< wxLayoutConstraints* >(Luna< wxObject >::check(L,1));
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::SatisfyConstraints(wxWindow *, int *)");
@@ -138,13 +145,34 @@ public:
 		}
 
 
-		wxLayoutConstraints* self=dynamic_cast< wxLayoutConstraints* >(Luna< wxObject >::check(L,1));
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutConstraints::AreSatisfied() const");
 		}
 		bool lret = self->AreSatisfied();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxLayoutConstraints::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxLayoutConstraints* self=Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutConstraints::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxLayoutConstraints::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -172,6 +200,7 @@ const int LunaTraits< wxLayoutConstraints >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxLayoutConstraints >::methods[] = {
 	{"SatisfyConstraints", &luna_wrapper_wxLayoutConstraints::_bind_SatisfyConstraints},
 	{"AreSatisfied", &luna_wrapper_wxLayoutConstraints::_bind_AreSatisfied},
+	{"base_GetClassInfo", &luna_wrapper_wxLayoutConstraints::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxLayoutConstraints::_bind___eq},
 	{0,0}
 };

@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ClampColor::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ClampColor::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ClampColor::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ClampColor::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ClampColor::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ClampColor::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ClampColor::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return ClampColor::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return ClampColor::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return ClampColor::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return ClampColor::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return ClampColor::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return ClampColor::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ClampColor::cloneType() const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ClampColor::cloneType();
+		return ClampColor::cloneType();
 	};
 
 	// osg::Object * osg::ClampColor::clone(const osg::CopyOp & arg1) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ClampColor::clone(arg1);
+		return ClampColor::clone(arg1);
 	};
 
 	// bool osg::ClampColor::isSameKindAs(const osg::Object * obj) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ClampColor::isSameKindAs(obj);
+		return ClampColor::isSameKindAs(obj);
 	};
 
 	// const char * osg::ClampColor::libraryName() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ClampColor::libraryName();
+		return ClampColor::libraryName();
 	};
 
 	// const char * osg::ClampColor::className() const
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ClampColor::className();
+		return ClampColor::className();
 	};
 
 	// osg::StateAttribute::Type osg::ClampColor::getType() const
@@ -195,7 +195,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::ClampColor::getType();
+		return ClampColor::getType();
 	};
 
 	// int osg::ClampColor::compare(const osg::StateAttribute & sa) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::ClampColor::compare(sa);
+		return ClampColor::compare(sa);
 	};
 
 	// void osg::ClampColor::apply(osg::State & arg1) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ClampColor::apply(arg1);
+		return ClampColor::apply(arg1);
 	};
 
 

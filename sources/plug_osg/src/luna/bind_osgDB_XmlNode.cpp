@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::XmlNode* ptr= dynamic_cast< osgDB::XmlNode* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::XmlNode* ptr= dynamic_cast< osgDB::XmlNode* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::XmlNode* ptr= luna_caster< osg::Referenced, osgDB::XmlNode >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -109,7 +110,7 @@ public:
 		}
 
 
-		osgDB::XmlNode* self=dynamic_cast< osgDB::XmlNode* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::XmlNode::getTrimmedContents() const");

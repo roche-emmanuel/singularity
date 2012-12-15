@@ -25,7 +25,7 @@ public:
 			return *(_obj.callFunction<osgDB::Field*>());
 		}
 
-		return osgDB::Field::operator=(ic);
+		return Field::operator=(ic);
 	};
 
 

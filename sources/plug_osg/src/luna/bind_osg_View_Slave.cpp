@@ -135,6 +135,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_updateSlaveImplementation(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -163,7 +170,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,1));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,1));
 		const osg::Matrixd* projectionOffset_ptr=(Luna< osg::Matrixd >::check(L,2));
 		if( !projectionOffset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projectionOffset in osg::View::Slave::Slave function");
@@ -218,7 +225,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 		const osg::Matrixd* projectionOffset_ptr=(Luna< osg::Matrixd >::check(L,3));
 		if( !projectionOffset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projectionOffset in osg::View::Slave::Slave function");
@@ -272,7 +279,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::Slave::updateSlave(osg::View & view) function, expected prototype:\nvoid osg::View::Slave::updateSlave(osg::View & view)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::Slave::updateSlave function");
 		}
@@ -295,7 +302,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::Slave::updateSlaveImplementation(osg::View & view) function, expected prototype:\nvoid osg::View::Slave::updateSlaveImplementation(osg::View & view)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::Slave::updateSlaveImplementation function");
 		}
@@ -307,6 +314,29 @@ public:
 			luaL_error(L, "Invalid object in function call void osg::View::Slave::updateSlaveImplementation(osg::View &)");
 		}
 		self->updateSlaveImplementation(view);
+
+		return 0;
+	}
+
+	// void osg::View::Slave::base_updateSlaveImplementation(osg::View & view)
+	static int _bind_base_updateSlaveImplementation(lua_State *L) {
+		if (!_lg_typecheck_base_updateSlaveImplementation(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::Slave::base_updateSlaveImplementation(osg::View & view) function, expected prototype:\nvoid osg::View::Slave::base_updateSlaveImplementation(osg::View & view)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
+		if( !view_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::Slave::base_updateSlaveImplementation function");
+		}
+		osg::View & view=*view_ptr;
+
+		osg::View::Slave* self=(Luna< osg::View::Slave >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::Slave::base_updateSlaveImplementation(osg::View &)");
+		}
+		self->Slave::updateSlaveImplementation(view);
 
 		return 0;
 	}
@@ -334,6 +364,7 @@ const int LunaTraits< osg::View::Slave >::uniqueIDs[] = {94812983,0};
 luna_RegType LunaTraits< osg::View::Slave >::methods[] = {
 	{"updateSlave", &luna_wrapper_osg_View_Slave::_bind_updateSlave},
 	{"updateSlaveImplementation", &luna_wrapper_osg_View_Slave::_bind_updateSlaveImplementation},
+	{"base_updateSlaveImplementation", &luna_wrapper_osg_View_Slave::_bind_base_updateSlaveImplementation},
 	{"dynCast", &luna_wrapper_osg_View_Slave::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_View_Slave::_bind___eq},
 	{0,0}

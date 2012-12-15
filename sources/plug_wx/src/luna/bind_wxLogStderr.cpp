@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxLog(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxLogStderr* ptr= dynamic_cast< wxLogStderr* >(Luna< wxLog >::check(L,1));
+		//wxLogStderr* ptr= dynamic_cast< wxLogStderr* >(Luna< wxLog >::check(L,1));
+		wxLogStderr* ptr= luna_caster< wxLog, wxLogStderr >::cast(Luna< wxLog >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -44,6 +45,12 @@ public:
 	// Constructor checkers:
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -51,6 +58,24 @@ public:
 	// Constructor binds:
 
 	// Function binds:
+	// void wxLogStderr::base_Flush()
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLogStderr::base_Flush() function, expected prototype:\nvoid wxLogStderr::base_Flush()\nClass arguments details:\n");
+		}
+
+
+		wxLogStderr* self=Luna< wxLog >::checkSubType< wxLogStderr >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLogStderr::base_Flush()");
+		}
+		self->wxLogStderr::Flush();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -72,6 +97,7 @@ const int LunaTraits< wxLogStderr >::hash = 63255974;
 const int LunaTraits< wxLogStderr >::uniqueIDs[] = {13550494,0};
 
 luna_RegType LunaTraits< wxLogStderr >::methods[] = {
+	{"base_Flush", &luna_wrapper_wxLogStderr::_bind_base_Flush},
 	{"__eq", &luna_wrapper_wxLogStderr::_bind___eq},
 	{0,0}
 };

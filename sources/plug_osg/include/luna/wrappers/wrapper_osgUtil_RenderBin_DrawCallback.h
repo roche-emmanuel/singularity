@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_RenderBin_DrawCallback(lua_State* L, lua_Table* dum) : osgUtil::RenderBin::DrawCallback(), _obj(L,-1) {};
 
 	// void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {

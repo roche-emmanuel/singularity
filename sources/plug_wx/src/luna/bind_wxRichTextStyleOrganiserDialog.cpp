@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleOrganiserDialog* ptr= dynamic_cast< wxRichTextStyleOrganiserDialog* >(Luna< wxObject >::check(L,1));
+		//wxRichTextStyleOrganiserDialog* ptr= dynamic_cast< wxRichTextStyleOrganiserDialog* >(Luna< wxObject >::check(L,1));
+		wxRichTextStyleOrganiserDialog* ptr= luna_caster< wxObject, wxRichTextStyleOrganiserDialog >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -178,6 +178,87 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetAppDocumentsDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetConfigDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDataDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDocumentsDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetExecutablePath(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLocalDataDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLocalizedResourcesDir(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetPluginsDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetResourcesDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetTempDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetUserConfigDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetUserDataDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetUserLocalDataDir(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -541,6 +622,257 @@ public:
 		return 1;
 	}
 
+	// wxString wxStandardPaths::base_GetAppDocumentsDir() const
+	static int _bind_base_GetAppDocumentsDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetAppDocumentsDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetAppDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetAppDocumentsDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetAppDocumentsDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetAppDocumentsDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetConfigDir() const
+	static int _bind_base_GetConfigDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetConfigDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetConfigDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetConfigDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetConfigDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetDataDir() const
+	static int _bind_base_GetDataDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDataDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDataDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetDataDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetDocumentsDir() const
+	static int _bind_base_GetDocumentsDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetDocumentsDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetDocumentsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetDocumentsDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetDocumentsDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetDocumentsDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetExecutablePath() const
+	static int _bind_base_GetExecutablePath(lua_State *L) {
+		if (!_lg_typecheck_base_GetExecutablePath(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetExecutablePath() const function, expected prototype:\nwxString wxStandardPaths::base_GetExecutablePath() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetExecutablePath() const");
+		}
+		wxString lret = self->wxStandardPaths::GetExecutablePath();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetLocalDataDir() const
+	static int _bind_base_GetLocalDataDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetLocalDataDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalDataDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalDataDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetLocalDataDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const
+	static int _bind_base_GetLocalizedResourcesDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetLocalizedResourcesDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const function, expected prototype:\nwxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString & lang, wxStandardPaths::ResourceCat category = wxStandardPaths::ResourceCat_None) const\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString lang(lua_tostring(L,2),lua_objlen(L,2));
+		wxStandardPaths::ResourceCat category=luatop>2 ? (wxStandardPaths::ResourceCat)lua_tointeger(L,3) : wxStandardPaths::ResourceCat_None;
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetLocalizedResourcesDir(const wxString &, wxStandardPaths::ResourceCat) const");
+		}
+		wxString lret = self->wxStandardPaths::GetLocalizedResourcesDir(lang, category);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetPluginsDir() const
+	static int _bind_base_GetPluginsDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetPluginsDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetPluginsDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetPluginsDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetPluginsDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetPluginsDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetResourcesDir() const
+	static int _bind_base_GetResourcesDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetResourcesDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetResourcesDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetResourcesDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetResourcesDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetResourcesDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetTempDir() const
+	static int _bind_base_GetTempDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetTempDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetTempDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetTempDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetTempDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetTempDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetUserConfigDir() const
+	static int _bind_base_GetUserConfigDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetUserConfigDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserConfigDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserConfigDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserConfigDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetUserConfigDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetUserDataDir() const
+	static int _bind_base_GetUserDataDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetUserDataDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserDataDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserDataDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetUserDataDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxStandardPaths::base_GetUserLocalDataDir() const
+	static int _bind_base_GetUserLocalDataDir(lua_State *L) {
+		if (!_lg_typecheck_base_GetUserLocalDataDir(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxStandardPaths::base_GetUserLocalDataDir() const function, expected prototype:\nwxString wxStandardPaths::base_GetUserLocalDataDir() const\nClass arguments details:\n");
+		}
+
+
+		wxStandardPaths* self=(Luna< wxStandardPaths >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxStandardPaths::base_GetUserLocalDataDir() const");
+		}
+		wxString lret = self->wxStandardPaths::GetUserLocalDataDir();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -581,6 +913,19 @@ luna_RegType LunaTraits< wxStandardPaths >::methods[] = {
 	{"UseAppInfo", &luna_wrapper_wxStandardPaths::_bind_UseAppInfo},
 	{"Get", &luna_wrapper_wxStandardPaths::_bind_Get},
 	{"MSWGetShellDir", &luna_wrapper_wxStandardPaths::_bind_MSWGetShellDir},
+	{"base_GetAppDocumentsDir", &luna_wrapper_wxStandardPaths::_bind_base_GetAppDocumentsDir},
+	{"base_GetConfigDir", &luna_wrapper_wxStandardPaths::_bind_base_GetConfigDir},
+	{"base_GetDataDir", &luna_wrapper_wxStandardPaths::_bind_base_GetDataDir},
+	{"base_GetDocumentsDir", &luna_wrapper_wxStandardPaths::_bind_base_GetDocumentsDir},
+	{"base_GetExecutablePath", &luna_wrapper_wxStandardPaths::_bind_base_GetExecutablePath},
+	{"base_GetLocalDataDir", &luna_wrapper_wxStandardPaths::_bind_base_GetLocalDataDir},
+	{"base_GetLocalizedResourcesDir", &luna_wrapper_wxStandardPaths::_bind_base_GetLocalizedResourcesDir},
+	{"base_GetPluginsDir", &luna_wrapper_wxStandardPaths::_bind_base_GetPluginsDir},
+	{"base_GetResourcesDir", &luna_wrapper_wxStandardPaths::_bind_base_GetResourcesDir},
+	{"base_GetTempDir", &luna_wrapper_wxStandardPaths::_bind_base_GetTempDir},
+	{"base_GetUserConfigDir", &luna_wrapper_wxStandardPaths::_bind_base_GetUserConfigDir},
+	{"base_GetUserDataDir", &luna_wrapper_wxStandardPaths::_bind_base_GetUserDataDir},
+	{"base_GetUserLocalDataDir", &luna_wrapper_wxStandardPaths::_bind_base_GetUserLocalDataDir},
 	{"dynCast", &luna_wrapper_wxStandardPaths::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxStandardPaths::_bind___eq},
 	{0,0}

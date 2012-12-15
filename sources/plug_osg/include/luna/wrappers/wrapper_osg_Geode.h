@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Geode::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Geode::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Geode::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Geode::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Geode::getUserData();
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Geode::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Geode::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Geode::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Geode::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Geode::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Geode::asSwitch();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return Geode::ascend(nv);
 	};
 
 	// void osg::Node::traverse(osg::NodeVisitor & arg1)
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::traverse(arg1);
+		return Geode::traverse(arg1);
 	};
 
 	// osg::Object * osg::Geode::cloneType() const
@@ -145,7 +145,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geode::cloneType();
+		return Geode::cloneType();
 	};
 
 	// osg::Object * osg::Geode::clone(const osg::CopyOp & copyop) const
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geode::clone(copyop);
+		return Geode::clone(copyop);
 	};
 
 	// bool osg::Geode::isSameKindAs(const osg::Object * obj) const
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::isSameKindAs(obj);
+		return Geode::isSameKindAs(obj);
 	};
 
 	// const char * osg::Geode::className() const
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geode::className();
+		return Geode::className();
 	};
 
 	// const char * osg::Geode::libraryName() const
@@ -183,7 +183,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geode::libraryName();
+		return Geode::libraryName();
 	};
 
 	// void osg::Geode::accept(osg::NodeVisitor & nv)
@@ -193,7 +193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geode::accept(nv);
+		return Geode::accept(nv);
 	};
 
 	// osg::Geode * osg::Geode::asGeode()
@@ -202,7 +202,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Geode::asGeode();
+		return Geode::asGeode();
 	};
 
 	// const osg::Geode * osg::Geode::asGeode() const
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Geode::asGeode();
+		return Geode::asGeode();
 	};
 
 	// bool osg::Geode::addDrawable(osg::Drawable * drawable)
@@ -221,7 +221,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::addDrawable(drawable);
+		return Geode::addDrawable(drawable);
 	};
 
 	// bool osg::Geode::removeDrawable(osg::Drawable * drawable)
@@ -231,7 +231,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::removeDrawable(drawable);
+		return Geode::removeDrawable(drawable);
 	};
 
 	// bool osg::Geode::removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)
@@ -242,7 +242,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::removeDrawables(i, numDrawablesToRemove);
+		return Geode::removeDrawables(i, numDrawablesToRemove);
 	};
 
 	// bool osg::Geode::replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::replaceDrawable(origDraw, newDraw);
+		return Geode::replaceDrawable(origDraw, newDraw);
 	};
 
 	// bool osg::Geode::setDrawable(unsigned int i, osg::Drawable * drawable)
@@ -264,7 +264,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::setDrawable(i, drawable);
+		return Geode::setDrawable(i, drawable);
 	};
 
 	// osg::BoundingSphered osg::Geode::computeBound() const
@@ -273,7 +273,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Geode::computeBound();
+		return Geode::computeBound();
 	};
 
 	// void osg::Geode::releaseGLObjects(osg::State * arg1 = 0) const
@@ -283,7 +283,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geode::releaseGLObjects(arg1);
+		return Geode::releaseGLObjects(arg1);
 	};
 
 

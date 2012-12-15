@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AudioStream::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AudioStream::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AudioStream::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AudioStream::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AudioStream::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AudioStream::releaseGLObjects(arg1);
 	};
 
 	// bool osg::AudioStream::isSameKindAs(const osg::Object * obj) const
@@ -95,7 +95,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AudioStream::isSameKindAs(obj);
+		return AudioStream::isSameKindAs(obj);
 	};
 
 	// const char * osg::AudioStream::libraryName() const
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AudioStream::libraryName();
+		return AudioStream::libraryName();
 	};
 
 	// const char * osg::AudioStream::className() const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AudioStream::className();
+		return AudioStream::className();
 	};
 
 	// void osg::AudioStream::setAudioSink(osg::AudioSink * audio_sink)

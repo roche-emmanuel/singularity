@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_GraphicsContext_SwapCallback(lua_State* L, lua_Table* dum) : osg::GraphicsContext::SwapCallback(), _obj(L,-1) {};
 
 	// void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext * gc)
 	void swapBuffersImplementation(osg::GraphicsContext * gc) {

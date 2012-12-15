@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxURL* ptr= dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		//wxURL* ptr= dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* ptr= luna_caster< wxObject, wxURL >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -106,6 +107,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -158,7 +165,7 @@ public:
 		}
 
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxURLError wxURL::GetError() const");
@@ -177,7 +184,7 @@ public:
 		}
 
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxURL::GetInputStream()");
@@ -198,7 +205,7 @@ public:
 		}
 
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxProtocol & wxURL::GetProtocol()");
@@ -219,7 +226,7 @@ public:
 		}
 
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxURL::IsOk() const");
@@ -239,7 +246,7 @@ public:
 
 		wxString url_proxy(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxURL::SetProxy(const wxString &)");
@@ -258,7 +265,7 @@ public:
 
 		wxString url(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxURL* self=dynamic_cast< wxURL* >(Luna< wxObject >::check(L,1));
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxURLError wxURL::SetURL(const wxString &)");
@@ -281,6 +288,27 @@ public:
 		wxURL::SetDefaultProxy(url_proxy);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxURL::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxURL::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxURL::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxURL* self=Luna< wxObject >::checkSubType< wxURL >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxURL::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxURL::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -311,6 +339,7 @@ luna_RegType LunaTraits< wxURL >::methods[] = {
 	{"SetProxy", &luna_wrapper_wxURL::_bind_SetProxy},
 	{"SetURL", &luna_wrapper_wxURL::_bind_SetURL},
 	{"SetDefaultProxy", &luna_wrapper_wxURL::_bind_SetDefaultProxy},
+	{"base_GetClassInfo", &luna_wrapper_wxURL::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxURL::_bind___eq},
 	{0,0}
 };

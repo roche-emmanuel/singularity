@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return GLObjectsVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return GLObjectsVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return GLObjectsVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return GLObjectsVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return GLObjectsVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::GLObjectsVisitor::libraryName() const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::GLObjectsVisitor::libraryName();
+		return GLObjectsVisitor::libraryName();
 	};
 
 	// const char * osgUtil::GLObjectsVisitor::className() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::GLObjectsVisitor::className();
+		return GLObjectsVisitor::className();
 	};
 
 	// void osgUtil::GLObjectsVisitor::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GLObjectsVisitor::reset();
+		return GLObjectsVisitor::reset();
 	};
 
 	// void osgUtil::GLObjectsVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GLObjectsVisitor::apply(node);
+		return GLObjectsVisitor::apply(node);
 	};
 
 	// void osgUtil::GLObjectsVisitor::apply(osg::Geode & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GLObjectsVisitor::apply(node);
+		return GLObjectsVisitor::apply(node);
 	};
 
 

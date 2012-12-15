@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CullCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CullCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CullCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CullCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CullCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return CullCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Drawable::CullCallback::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Drawable::CullCallback::cloneType();
+		return CullCallback::cloneType();
 	};
 
 	// osg::Object * osg::Drawable::CullCallback::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Drawable::CullCallback::clone(arg1);
+		return CullCallback::clone(arg1);
 	};
 
 	// bool osg::Drawable::CullCallback::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Drawable::CullCallback::isSameKindAs(obj);
+		return CullCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::Drawable::CullCallback::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::CullCallback::libraryName();
+		return CullCallback::libraryName();
 	};
 
 	// const char * osg::Drawable::CullCallback::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::CullCallback::className();
+		return CullCallback::className();
 	};
 
 	// bool osg::Drawable::CullCallback::cull(osg::NodeVisitor * arg1, osg::Drawable * arg2, osg::State * arg3) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Drawable::CullCallback::cull(arg1, arg2, arg3);
+		return CullCallback::cull(arg1, arg2, arg3);
 	};
 
 	// bool osg::Drawable::CullCallback::cull(osg::NodeVisitor * nv, osg::Drawable * drawable, osg::RenderInfo * renderInfo) const
@@ -143,7 +143,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Drawable::CullCallback::cull(nv, drawable, renderInfo);
+		return CullCallback::cull(nv, drawable, renderInfo);
 	};
 
 

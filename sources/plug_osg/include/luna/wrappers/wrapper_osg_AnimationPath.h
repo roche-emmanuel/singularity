@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AnimationPath::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AnimationPath::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AnimationPath::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnimationPath::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnimationPath::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AnimationPath::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::AnimationPath::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AnimationPath::cloneType();
+		return AnimationPath::cloneType();
 	};
 
 	// osg::Object * osg::AnimationPath::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AnimationPath::clone(arg1);
+		return AnimationPath::clone(arg1);
 	};
 
 	// bool osg::AnimationPath::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AnimationPath::isSameKindAs(obj);
+		return AnimationPath::isSameKindAs(obj);
 	};
 
 	// const char * osg::AnimationPath::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AnimationPath::libraryName();
+		return AnimationPath::libraryName();
 	};
 
 	// const char * osg::AnimationPath::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AnimationPath::className();
+		return AnimationPath::className();
 	};
 
 	// bool osg::AnimationPath::getInterpolatedControlPoint(double time, osg::AnimationPath::ControlPoint & controlPoint) const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AnimationPath::getInterpolatedControlPoint(time, controlPoint);
+		return AnimationPath::getInterpolatedControlPoint(time, controlPoint);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::State::DynamicObjectRenderingCompletedCallback* ptr= dynamic_cast< osg::State::DynamicObjectRenderingCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::State::DynamicObjectRenderingCompletedCallback* ptr= dynamic_cast< osg::State::DynamicObjectRenderingCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::State::DynamicObjectRenderingCompletedCallback* ptr= luna_caster< osg::Referenced, osg::State::DynamicObjectRenderingCompletedCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,9 +62,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1) function, expected prototype:\nvoid osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* _arg1=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* _arg1=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 
-		osg::State::DynamicObjectRenderingCompletedCallback* self=dynamic_cast< osg::State::DynamicObjectRenderingCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::State::DynamicObjectRenderingCompletedCallback* self=Luna< osg::Referenced >::checkSubType< osg::State::DynamicObjectRenderingCompletedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State *)");

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::AttributeDispatch* ptr= dynamic_cast< osg::AttributeDispatch* >(Luna< osg::Referenced >::check(L,1));
+		//osg::AttributeDispatch* ptr= dynamic_cast< osg::AttributeDispatch* >(Luna< osg::Referenced >::check(L,1));
+		osg::AttributeDispatch* ptr= luna_caster< osg::Referenced, osg::AttributeDispatch >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -45,6 +46,14 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_assign(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_assign(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
@@ -74,14 +83,34 @@ public:
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));
-		const osg::IndexArray* _arg2=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,3));
+		const osg::IndexArray* _arg2=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
 
-		osg::AttributeDispatch* self=dynamic_cast< osg::AttributeDispatch* >(Luna< osg::Referenced >::check(L,1));
+		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::assign(const void *, const osg::IndexArray *)");
 		}
 		self->assign(_arg1, _arg2);
+
+		return 0;
+	}
+
+	// void osg::AttributeDispatch::base_assign(const void * arg1, const osg::IndexArray * arg2)
+	static int _bind_base_assign(lua_State *L) {
+		if (!_lg_typecheck_base_assign(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::base_assign(const void * arg1, const osg::IndexArray * arg2) function, expected prototype:\nvoid osg::AttributeDispatch::base_assign(const void * arg1, const osg::IndexArray * arg2)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		void* _arg1=(Luna< void >::check(L,2));
+		const osg::IndexArray* _arg2=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
+
+		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::base_assign(const void *, const osg::IndexArray *)");
+		}
+		self->AttributeDispatch::assign(_arg1, _arg2);
 
 		return 0;
 	}
@@ -97,7 +126,7 @@ public:
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
-		osg::AttributeDispatch* self=dynamic_cast< osg::AttributeDispatch* >(Luna< osg::Referenced >::check(L,1));
+		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::AttributeDispatch::operator()(unsigned int)");
@@ -127,6 +156,7 @@ const int LunaTraits< osg::AttributeDispatch >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::AttributeDispatch >::methods[] = {
 	{"assign", &luna_wrapper_osg_AttributeDispatch::_bind_assign},
+	{"base_assign", &luna_wrapper_osg_AttributeDispatch::_bind_base_assign},
 	{"op_call", &luna_wrapper_osg_AttributeDispatch::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_AttributeDispatch::_bind___eq},
 	{0,0}

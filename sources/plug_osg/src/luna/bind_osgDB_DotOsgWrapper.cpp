@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::DotOsgWrapper* ptr= dynamic_cast< osgDB::DotOsgWrapper* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::DotOsgWrapper* ptr= dynamic_cast< osgDB::DotOsgWrapper* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::DotOsgWrapper* ptr= luna_caster< osg::Referenced, osgDB::DotOsgWrapper >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		

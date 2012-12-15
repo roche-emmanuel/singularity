@@ -187,4 +187,12 @@ function Object:setProperty(pname,val)
 	return self:getProperties():set(pname,val);
 end
 
+function Object:getEventManager()
+	if not self._eventManager then
+		self._eventManager = require("base.EventManager")
+	end
+	
+	return self._eventManager;
+end
+
 return Object

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AutoTransform::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AutoTransform::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AutoTransform::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AutoTransform::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AutoTransform::getUserData();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return AutoTransform::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return AutoTransform::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return AutoTransform::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return AutoTransform::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return AutoTransform::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return AutoTransform::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return AutoTransform::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return AutoTransform::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return AutoTransform::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return AutoTransform::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return AutoTransform::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return AutoTransform::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -190,7 +190,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return AutoTransform::setChild(i, node);
 	};
 
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
@@ -200,7 +200,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::releaseGLObjects(arg1);
+		return AutoTransform::releaseGLObjects(arg1);
 	};
 
 	// osg::Transform * osg::Transform::asTransform()
@@ -209,7 +209,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return AutoTransform::asTransform();
 	};
 
 	// const osg::Transform * osg::Transform::asTransform() const
@@ -218,7 +218,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return AutoTransform::asTransform();
 	};
 
 	// osg::MatrixTransform * osg::Transform::asMatrixTransform()
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return AutoTransform::asMatrixTransform();
 	};
 
 	// const osg::MatrixTransform * osg::Transform::asMatrixTransform() const
@@ -236,7 +236,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return AutoTransform::asMatrixTransform();
 	};
 
 	// osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform()
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return AutoTransform::asPositionAttitudeTransform();
 	};
 
 	// const osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform() const
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return AutoTransform::asPositionAttitudeTransform();
 	};
 
 	// osg::Object * osg::AutoTransform::cloneType() const
@@ -263,7 +263,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AutoTransform::cloneType();
+		return AutoTransform::cloneType();
 	};
 
 	// osg::Object * osg::AutoTransform::clone(const osg::CopyOp & copyop) const
@@ -273,7 +273,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AutoTransform::clone(copyop);
+		return AutoTransform::clone(copyop);
 	};
 
 	// bool osg::AutoTransform::isSameKindAs(const osg::Object * obj) const
@@ -283,7 +283,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AutoTransform::isSameKindAs(obj);
+		return AutoTransform::isSameKindAs(obj);
 	};
 
 	// const char * osg::AutoTransform::className() const
@@ -292,7 +292,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AutoTransform::className();
+		return AutoTransform::className();
 	};
 
 	// const char * osg::AutoTransform::libraryName() const
@@ -301,7 +301,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AutoTransform::libraryName();
+		return AutoTransform::libraryName();
 	};
 
 	// void osg::AutoTransform::accept(osg::NodeVisitor & nv)
@@ -311,7 +311,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AutoTransform::accept(nv);
+		return AutoTransform::accept(nv);
 	};
 
 	// osg::AutoTransform * osg::AutoTransform::asAutoTransform()
@@ -320,7 +320,7 @@ public:
 			return (_obj.callFunction<osg::AutoTransform*>());
 		}
 
-		return osg::AutoTransform::asAutoTransform();
+		return AutoTransform::asAutoTransform();
 	};
 
 	// const osg::AutoTransform * osg::AutoTransform::asAutoTransform() const
@@ -329,7 +329,7 @@ public:
 			return (_obj.callFunction<osg::AutoTransform*>());
 		}
 
-		return osg::AutoTransform::asAutoTransform();
+		return AutoTransform::asAutoTransform();
 	};
 
 	// bool osg::AutoTransform::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
@@ -340,7 +340,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AutoTransform::computeLocalToWorldMatrix(matrix, nv);
+		return AutoTransform::computeLocalToWorldMatrix(matrix, nv);
 	};
 
 	// bool osg::AutoTransform::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
@@ -351,7 +351,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AutoTransform::computeWorldToLocalMatrix(matrix, nv);
+		return AutoTransform::computeWorldToLocalMatrix(matrix, nv);
 	};
 
 	// osg::BoundingSphered osg::AutoTransform::computeBound() const
@@ -360,13 +360,32 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::AutoTransform::computeBound();
+		return AutoTransform::computeBound();
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return AutoTransform::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return AutoTransform::childInserted(arg1);
+	};
+
 
 };
 

@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Shader::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Shader::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Shader::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Shader::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Shader::getUserData();
 	};
 
 	// osg::Object * osg::Shader::cloneType() const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Shader::cloneType();
+		return Shader::cloneType();
 	};
 
 	// osg::Object * osg::Shader::clone(const osg::CopyOp & arg1) const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Shader::clone(arg1);
+		return Shader::clone(arg1);
 	};
 
 	// bool osg::Shader::isSameKindAs(const osg::Object * obj) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Shader::isSameKindAs(obj);
+		return Shader::isSameKindAs(obj);
 	};
 
 	// const char * osg::Shader::libraryName() const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Shader::libraryName();
+		return Shader::libraryName();
 	};
 
 	// const char * osg::Shader::className() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Shader::className();
+		return Shader::className();
 	};
 
 	// void osg::Shader::releaseGLObjects(osg::State * state = 0) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Shader::releaseGLObjects(state);
+		return Shader::releaseGLObjects(state);
 	};
 
 

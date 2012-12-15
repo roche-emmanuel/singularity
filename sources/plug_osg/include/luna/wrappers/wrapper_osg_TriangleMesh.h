@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TriangleMesh::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TriangleMesh::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TriangleMesh::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TriangleMesh::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TriangleMesh::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return TriangleMesh::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::TriangleMesh::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TriangleMesh::cloneType();
+		return TriangleMesh::cloneType();
 	};
 
 	// osg::Object * osg::TriangleMesh::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TriangleMesh::clone(arg1);
+		return TriangleMesh::clone(arg1);
 	};
 
 	// bool osg::TriangleMesh::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TriangleMesh::isSameKindAs(obj);
+		return TriangleMesh::isSameKindAs(obj);
 	};
 
 	// const char * osg::TriangleMesh::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TriangleMesh::libraryName();
+		return TriangleMesh::libraryName();
 	};
 
 	// const char * osg::TriangleMesh::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TriangleMesh::className();
+		return TriangleMesh::className();
 	};
 
 	// void osg::TriangleMesh::accept(osg::ShapeVisitor & arg1)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TriangleMesh::accept(arg1);
+		return TriangleMesh::accept(arg1);
 	};
 
 	// void osg::TriangleMesh::accept(osg::ConstShapeVisitor & arg1) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TriangleMesh::accept(arg1);
+		return TriangleMesh::accept(arg1);
 	};
 
 

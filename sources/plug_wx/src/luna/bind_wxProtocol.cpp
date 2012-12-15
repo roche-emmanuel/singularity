@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxProtocol* ptr= dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		//wxProtocol* ptr= dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* ptr= luna_caster< wxObject, wxProtocol >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -127,6 +128,68 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLocal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetPeer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Close(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetLocal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Connect(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetError(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPassword(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetUser(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -140,7 +203,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxProtocol::Abort()");
@@ -159,7 +222,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxProtocol::GetContentType() const");
@@ -178,7 +241,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::GetError() const");
@@ -198,7 +261,7 @@ public:
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxProtocol::GetInputStream(const wxString &)");
@@ -219,7 +282,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxProtocol::Reconnect()");
@@ -239,7 +302,7 @@ public:
 
 		wxString user(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::SetPassword(const wxString &)");
@@ -258,7 +321,7 @@ public:
 
 		wxString user(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::SetUser(const wxString &)");
@@ -277,7 +340,7 @@ public:
 
 		unsigned int Value=(unsigned int)lua_tointeger(L,2);
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::SetDefaultTimeout(unsigned int)");
@@ -296,7 +359,7 @@ public:
 
 		wxProtocolLog* log=(Luna< wxProtocolLog >::check(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::SetLog(wxProtocolLog *)");
@@ -314,7 +377,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::GetLog() const");
@@ -335,7 +398,7 @@ public:
 		}
 
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxProtocolLog * wxProtocol::DetachLog()");
@@ -357,7 +420,7 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::LogRequest(const wxString &)");
@@ -376,12 +439,208 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxProtocol* self=dynamic_cast< wxProtocol* >(Luna< wxObject >::check(L,1));
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProtocol::LogResponse(const wxString &)");
 		}
 		self->LogResponse(str);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxProtocol::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxProtocol::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxProtocol::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProtocol::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxProtocol::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxProtocol::base_GetLocal(wxSockAddress & addr) const
+	static int _bind_base_GetLocal(lua_State *L) {
+		if (!_lg_typecheck_base_GetLocal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProtocol::base_GetLocal(wxSockAddress & addr) const function, expected prototype:\nbool wxProtocol::base_GetLocal(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !addr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxProtocol::base_GetLocal function");
+		}
+		wxSockAddress & addr=*addr_ptr;
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetLocal(wxSockAddress &) const");
+		}
+		bool lret = self->wxProtocol::GetLocal(addr);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxProtocol::base_GetPeer(wxSockAddress & addr) const
+	static int _bind_base_GetPeer(lua_State *L) {
+		if (!_lg_typecheck_base_GetPeer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProtocol::base_GetPeer(wxSockAddress & addr) const function, expected prototype:\nbool wxProtocol::base_GetPeer(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !addr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxProtocol::base_GetPeer function");
+		}
+		wxSockAddress & addr=*addr_ptr;
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_GetPeer(wxSockAddress &) const");
+		}
+		bool lret = self->wxProtocol::GetPeer(addr);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxProtocol::base_Close()
+	static int _bind_base_Close(lua_State *L) {
+		if (!_lg_typecheck_base_Close(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProtocol::base_Close() function, expected prototype:\nbool wxProtocol::base_Close()\nClass arguments details:\n");
+		}
+
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Close()");
+		}
+		bool lret = self->wxProtocol::Close();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxProtocol::base_SetLocal(const wxIPV4address & local)
+	static int _bind_base_SetLocal(lua_State *L) {
+		if (!_lg_typecheck_base_SetLocal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProtocol::base_SetLocal(const wxIPV4address & local) function, expected prototype:\nbool wxProtocol::base_SetLocal(const wxIPV4address & local)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxIPV4address* local_ptr=(Luna< wxObject >::checkSubType< wxIPV4address >(L,2));
+		if( !local_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg local in wxProtocol::base_SetLocal function");
+		}
+		const wxIPV4address & local=*local_ptr;
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_SetLocal(const wxIPV4address &)");
+		}
+		bool lret = self->wxProtocol::SetLocal(local);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxProtocol::base_Connect(const wxSockAddress & address, bool wait = true)
+	static int _bind_base_Connect(lua_State *L) {
+		if (!_lg_typecheck_base_Connect(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProtocol::base_Connect(const wxSockAddress & address, bool wait = true) function, expected prototype:\nbool wxProtocol::base_Connect(const wxSockAddress & address, bool wait = true)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSockAddress* address_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !address_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg address in wxProtocol::base_Connect function");
+		}
+		const wxSockAddress & address=*address_ptr;
+		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProtocol::base_Connect(const wxSockAddress &, bool)");
+		}
+		bool lret = self->wxProtocol::Connect(address, wait);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxProtocolError wxProtocol::base_GetError() const
+	static int _bind_base_GetError(lua_State *L) {
+		if (!_lg_typecheck_base_GetError(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProtocolError wxProtocol::base_GetError() const function, expected prototype:\nwxProtocolError wxProtocol::base_GetError() const\nClass arguments details:\n");
+		}
+
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxProtocolError wxProtocol::base_GetError() const");
+		}
+		wxProtocolError lret = self->wxProtocol::GetError();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxProtocol::base_SetPassword(const wxString & user)
+	static int _bind_base_SetPassword(lua_State *L) {
+		if (!_lg_typecheck_base_SetPassword(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProtocol::base_SetPassword(const wxString & user) function, expected prototype:\nvoid wxProtocol::base_SetPassword(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString user(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetPassword(const wxString &)");
+		}
+		self->wxProtocol::SetPassword(user);
+
+		return 0;
+	}
+
+	// void wxProtocol::base_SetUser(const wxString & user)
+	static int _bind_base_SetUser(lua_State *L) {
+		if (!_lg_typecheck_base_SetUser(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProtocol::base_SetUser(const wxString & user) function, expected prototype:\nvoid wxProtocol::base_SetUser(const wxString & user)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString user(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxProtocol* self=Luna< wxObject >::checkSubType< wxProtocol >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProtocol::base_SetUser(const wxString &)");
+		}
+		self->wxProtocol::SetUser(user);
 
 		return 0;
 	}
@@ -395,6 +654,7 @@ wxProtocol* LunaTraits< wxProtocol >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxProtocol::Abort()
+	// wxString wxProtocol::GetContentType() const
 	// wxInputStream * wxProtocol::GetInputStream(const wxString & path)
 }
 
@@ -423,6 +683,15 @@ luna_RegType LunaTraits< wxProtocol >::methods[] = {
 	{"DetachLog", &luna_wrapper_wxProtocol::_bind_DetachLog},
 	{"LogRequest", &luna_wrapper_wxProtocol::_bind_LogRequest},
 	{"LogResponse", &luna_wrapper_wxProtocol::_bind_LogResponse},
+	{"base_GetClassInfo", &luna_wrapper_wxProtocol::_bind_base_GetClassInfo},
+	{"base_GetLocal", &luna_wrapper_wxProtocol::_bind_base_GetLocal},
+	{"base_GetPeer", &luna_wrapper_wxProtocol::_bind_base_GetPeer},
+	{"base_Close", &luna_wrapper_wxProtocol::_bind_base_Close},
+	{"base_SetLocal", &luna_wrapper_wxProtocol::_bind_base_SetLocal},
+	{"base_Connect", &luna_wrapper_wxProtocol::_bind_base_Connect},
+	{"base_GetError", &luna_wrapper_wxProtocol::_bind_base_GetError},
+	{"base_SetPassword", &luna_wrapper_wxProtocol::_bind_base_SetPassword},
+	{"base_SetUser", &luna_wrapper_wxProtocol::_bind_base_SetUser},
 	{"__eq", &luna_wrapper_wxProtocol::_bind___eq},
 	{0,0}
 };

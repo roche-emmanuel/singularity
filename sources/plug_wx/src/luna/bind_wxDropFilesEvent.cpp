@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDropFilesEvent* ptr= dynamic_cast< wxDropFilesEvent* >(Luna< wxObject >::check(L,1));
+		//wxDropFilesEvent* ptr= dynamic_cast< wxDropFilesEvent* >(Luna< wxObject >::check(L,1));
+		wxDropFilesEvent* ptr= luna_caster< wxObject, wxDropFilesEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +61,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +86,7 @@ public:
 		}
 
 
-		wxDropFilesEvent* self=dynamic_cast< wxDropFilesEvent* >(Luna< wxObject >::check(L,1));
+		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString * wxDropFilesEvent::GetFiles() const");
@@ -92,7 +105,7 @@ public:
 		}
 
 
-		wxDropFilesEvent* self=dynamic_cast< wxDropFilesEvent* >(Luna< wxObject >::check(L,1));
+		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDropFilesEvent::GetNumberOfFiles() const");
@@ -111,7 +124,7 @@ public:
 		}
 
 
-		wxDropFilesEvent* self=dynamic_cast< wxDropFilesEvent* >(Luna< wxObject >::check(L,1));
+		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxDropFilesEvent::GetPosition() const");
@@ -121,6 +134,46 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxPoint >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxDropFilesEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDropFilesEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDropFilesEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDropFilesEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDropFilesEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxDropFilesEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxDropFilesEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDropFilesEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxDropFilesEvent* self=Luna< wxObject >::checkSubType< wxDropFilesEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDropFilesEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxDropFilesEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -151,6 +204,8 @@ luna_RegType LunaTraits< wxDropFilesEvent >::methods[] = {
 	{"GetFiles", &luna_wrapper_wxDropFilesEvent::_bind_GetFiles},
 	{"GetNumberOfFiles", &luna_wrapper_wxDropFilesEvent::_bind_GetNumberOfFiles},
 	{"GetPosition", &luna_wrapper_wxDropFilesEvent::_bind_GetPosition},
+	{"base_GetClassInfo", &luna_wrapper_wxDropFilesEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxDropFilesEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxDropFilesEvent::_bind___eq},
 	{0,0}
 };

@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TextBase::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -48,7 +48,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TextBase::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextBase::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TextBase::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return TextBase::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return TextBase::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return TextBase::computeDataVariance();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return TextBase::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return TextBase::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return TextBase::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return TextBase::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return TextBase::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return TextBase::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return TextBase::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -171,7 +171,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return TextBase::setDrawCallback(dc);
 	};
 
 	// void osg::Drawable::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -188,7 +188,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgText::TextBase::isSameKindAs(obj);
+		return TextBase::isSameKindAs(obj);
 	};
 
 	// const char * osgText::TextBase::className() const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::TextBase::className();
+		return TextBase::className();
 	};
 
 	// const char * osgText::TextBase::libraryName() const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::TextBase::libraryName();
+		return TextBase::libraryName();
 	};
 
 	// void osgText::TextBase::setFont(osgText::Font * font = 0)
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::TextBase::setFont(font);
+		return TextBase::setFont(font);
 	};
 
 	// void osgText::TextBase::setFont(const std::string & fontfile)
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::TextBase::setFont(fontfile);
+		return TextBase::setFont(fontfile);
 	};
 
 	// void osgText::TextBase::releaseGLObjects(osg::State * state = 0) const
@@ -236,7 +236,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::TextBase::releaseGLObjects(state);
+		return TextBase::releaseGLObjects(state);
 	};
 
 	// osg::BoundingBoxd osgText::TextBase::computeBound() const
@@ -245,13 +245,24 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osgText::TextBase::computeBound();
+		return TextBase::computeBound();
 	};
 
 
 protected:
 	// void osgText::TextBase::computePositions(unsigned int contextID) const
+	void computePositions(unsigned int contextID) const {
+		THROW_IF(!_obj.pushFunction("computePositions"),"No implementation for abstract function osgText::TextBase::computePositions");
+		_obj.pushArg(contextID);
+		return (_obj.callFunction<void>());
+	};
+
 	// void osgText::TextBase::computeGlyphRepresentation()
+	void computeGlyphRepresentation() {
+		THROW_IF(!_obj.pushFunction("computeGlyphRepresentation"),"No implementation for abstract function osgText::TextBase::computeGlyphRepresentation");
+		return (_obj.callFunction<void>());
+	};
+
 
 };
 

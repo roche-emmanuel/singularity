@@ -469,7 +469,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::State* state=luatop>0 ? dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1)) : (osg::State*)0;
+		osg::State* state=luatop>0 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,1)) : (osg::State*)0;
 
 		return new osg::GLBeginEndAdapter(state);
 	}
@@ -483,7 +483,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::GLBeginEndAdapter::setState(osg::State * state) function, expected prototype:\nvoid osg::GLBeginEndAdapter::setState(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 
 		osg::GLBeginEndAdapter* self=(Luna< osg::GLBeginEndAdapter >::check(L,1));
 		if(!self) {

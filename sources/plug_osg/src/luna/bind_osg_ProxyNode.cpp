@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::ProxyNode* ptr= dynamic_cast< osg::ProxyNode* >(Luna< osg::Referenced >::check(L,1));
+		//osg::ProxyNode* ptr= dynamic_cast< osg::ProxyNode* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProxyNode* ptr= luna_caster< osg::Referenced, osg::ProxyNode >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		

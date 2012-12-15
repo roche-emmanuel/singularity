@@ -78,7 +78,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) function, expected prototype:\nint wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 75268455\narg 4 ID = 75268455\n");
 		}
 
-		wxTreeListCtrl* treelist=dynamic_cast< wxTreeListCtrl* >(Luna< wxObject >::check(L,2));
+		wxTreeListCtrl* treelist=(Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,2));
 		unsigned column=(unsigned)lua_tointeger(L,3);
 		wxTreeListItem* first_ptr=(Luna< wxTreeListItem >::check(L,4));
 		if( !first_ptr ) {

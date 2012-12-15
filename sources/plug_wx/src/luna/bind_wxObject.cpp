@@ -140,6 +140,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -376,6 +382,27 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxObject::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxObject::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxObject::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxObject::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -405,6 +432,7 @@ luna_RegType LunaTraits< wxObject >::methods[] = {
 	{"SetRefData", &luna_wrapper_wxObject::_bind_SetRefData},
 	{"UnRef", &luna_wrapper_wxObject::_bind_UnRef},
 	{"UnShare", &luna_wrapper_wxObject::_bind_UnShare},
+	{"base_GetClassInfo", &luna_wrapper_wxObject::_bind_base_GetClassInfo},
 	{"dynCast", &luna_wrapper_wxObject::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxObject::_bind___eq},
 	{0,0}

@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return RenderBuffer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return RenderBuffer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return RenderBuffer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderBuffer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderBuffer::getUserData();
 	};
 
 	// osg::Object * osg::RenderBuffer::cloneType() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::RenderBuffer::cloneType();
+		return RenderBuffer::cloneType();
 	};
 
 	// osg::Object * osg::RenderBuffer::clone(const osg::CopyOp & arg1) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::RenderBuffer::clone(arg1);
+		return RenderBuffer::clone(arg1);
 	};
 
 	// bool osg::RenderBuffer::isSameKindAs(const osg::Object * obj) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::RenderBuffer::isSameKindAs(obj);
+		return RenderBuffer::isSameKindAs(obj);
 	};
 
 	// const char * osg::RenderBuffer::libraryName() const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::RenderBuffer::libraryName();
+		return RenderBuffer::libraryName();
 	};
 
 	// const char * osg::RenderBuffer::className() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::RenderBuffer::className();
+		return RenderBuffer::className();
 	};
 
 	// void osg::RenderBuffer::releaseGLObjects(osg::State * arg1 = 0) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::RenderBuffer::releaseGLObjects(arg1);
+		return RenderBuffer::releaseGLObjects(arg1);
 	};
 
 

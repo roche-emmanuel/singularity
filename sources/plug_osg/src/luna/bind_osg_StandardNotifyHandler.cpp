@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::StandardNotifyHandler* ptr= dynamic_cast< osg::StandardNotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		//osg::StandardNotifyHandler* ptr= dynamic_cast< osg::StandardNotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::StandardNotifyHandler* ptr= luna_caster< osg::Referenced, osg::StandardNotifyHandler >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -45,6 +46,14 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_notify(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_notify(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -69,12 +78,32 @@ public:
 		osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,2);
 		const char * message=(const char *)lua_tostring(L,3);
 
-		osg::StandardNotifyHandler* self=dynamic_cast< osg::StandardNotifyHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::StandardNotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::StandardNotifyHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::StandardNotifyHandler::notify(osg::NotifySeverity, const char *)");
 		}
 		self->notify(severity, message);
+
+		return 0;
+	}
+
+	// void osg::StandardNotifyHandler::base_notify(osg::NotifySeverity severity, const char * message)
+	static int _bind_base_notify(lua_State *L) {
+		if (!_lg_typecheck_base_notify(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::StandardNotifyHandler::base_notify(osg::NotifySeverity severity, const char * message) function, expected prototype:\nvoid osg::StandardNotifyHandler::base_notify(osg::NotifySeverity severity, const char * message)\nClass arguments details:\n");
+		}
+
+		osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,2);
+		const char * message=(const char *)lua_tostring(L,3);
+
+		osg::StandardNotifyHandler* self=Luna< osg::Referenced >::checkSubType< osg::StandardNotifyHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::StandardNotifyHandler::base_notify(osg::NotifySeverity, const char *)");
+		}
+		self->StandardNotifyHandler::notify(severity, message);
 
 		return 0;
 	}
@@ -101,6 +130,7 @@ const int LunaTraits< osg::StandardNotifyHandler >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::StandardNotifyHandler >::methods[] = {
 	{"notify", &luna_wrapper_osg_StandardNotifyHandler::_bind_notify},
+	{"base_notify", &luna_wrapper_osg_StandardNotifyHandler::_bind_base_notify},
 	{"__eq", &luna_wrapper_osg_StandardNotifyHandler::_bind___eq},
 	{0,0}
 };

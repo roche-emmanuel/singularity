@@ -6,6 +6,8 @@ local Map = require "std.Map"
 local fs = require "base.FileSystem"
 local evtman = require "base.EventManager"
 
+local Event = require "base.Event"
+
 function Class:initialize(options)
 	-- The images are saved locally in a map.
 	self._images = Map();
@@ -17,7 +19,7 @@ function Class:initialize(options)
 	self._defaultQuality = wx.wxIMAGE_QUALITY_HIGH
 	self._defaultLinkProp = 0.5 -- link taking half of the size of the image.
 	
-	evtman:addListener("AppClosing",self)
+	evtman:addListener(Event.APP_CLOSING,self)
 end
 
 function Class:onAppClosing()

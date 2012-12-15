@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::ClampColor::Extensions* ptr= dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::ClampColor::Extensions* ptr= dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::ClampColor::Extensions* ptr= luna_caster< osg::Referenced, osg::ClampColor::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -136,7 +137,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::ClampColor::Extensions* self=dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setupGLExtensions(unsigned int)");
@@ -155,7 +156,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::ClampColor::Extensions* self=dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::setClampColorSupported(bool)");
@@ -173,7 +174,7 @@ public:
 		}
 
 
-		osg::ClampColor::Extensions* self=dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::ClampColor::Extensions::isClampColorSupported() const");
@@ -194,7 +195,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int mode=(unsigned int)lua_tointeger(L,3);
 
-		osg::ClampColor::Extensions* self=dynamic_cast< osg::ClampColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::ClampColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::ClampColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ClampColor::Extensions::glClampColor(unsigned int, unsigned int) const");

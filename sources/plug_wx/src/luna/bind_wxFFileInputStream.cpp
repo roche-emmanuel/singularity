@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFFileInputStream* ptr= dynamic_cast< wxFFileInputStream* >(Luna< wxObject >::check(L,1));
+		//wxFFileInputStream* ptr= dynamic_cast< wxFFileInputStream* >(Luna< wxObject >::check(L,1));
+		wxFFileInputStream* ptr= luna_caster< wxObject, wxFFileInputStream >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

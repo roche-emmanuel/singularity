@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxCloseEvent* ptr= dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		//wxCloseEvent* ptr= dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* ptr= luna_caster< wxObject, wxCloseEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -76,6 +77,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -89,7 +102,7 @@ public:
 		}
 
 
-		wxCloseEvent* self=dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCloseEvent::CanVeto() const");
@@ -108,7 +121,7 @@ public:
 		}
 
 
-		wxCloseEvent* self=dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCloseEvent::GetLoggingOff() const");
@@ -128,7 +141,7 @@ public:
 
 		bool canVeto=(bool)(lua_toboolean(L,2)==1);
 
-		wxCloseEvent* self=dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetCanVeto(bool)");
@@ -147,7 +160,7 @@ public:
 
 		bool loggingOff=(bool)(lua_toboolean(L,2)==1);
 
-		wxCloseEvent* self=dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetLoggingOff(bool)");
@@ -168,7 +181,7 @@ public:
 
 		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxCloseEvent* self=dynamic_cast< wxCloseEvent* >(Luna< wxObject >::check(L,1));
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCloseEvent::Veto(bool)");
@@ -176,6 +189,46 @@ public:
 		self->Veto(veto);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxCloseEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCloseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCloseEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCloseEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxCloseEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxCloseEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxCloseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCloseEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCloseEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxCloseEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -206,6 +259,8 @@ luna_RegType LunaTraits< wxCloseEvent >::methods[] = {
 	{"SetCanVeto", &luna_wrapper_wxCloseEvent::_bind_SetCanVeto},
 	{"SetLoggingOff", &luna_wrapper_wxCloseEvent::_bind_SetLoggingOff},
 	{"Veto", &luna_wrapper_wxCloseEvent::_bind_Veto},
+	{"base_GetClassInfo", &luna_wrapper_wxCloseEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxCloseEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxCloseEvent::_bind___eq},
 	{0,0}
 };

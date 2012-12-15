@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleComboCtrl* ptr= dynamic_cast< wxRichTextStyleComboCtrl* >(Luna< wxObject >::check(L,1));
+		//wxRichTextStyleComboCtrl* ptr= dynamic_cast< wxRichTextStyleComboCtrl* >(Luna< wxObject >::check(L,1));
+		wxRichTextStyleComboCtrl* ptr= luna_caster< wxObject, wxRichTextStyleComboCtrl >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -42,7 +43,8 @@ public:
 
 	static int _cast_from_wxTextEntry(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleComboCtrl* ptr= dynamic_cast< wxRichTextStyleComboCtrl* >(Luna< wxTextEntry >::check(L,1));
+		//wxRichTextStyleComboCtrl* ptr= dynamic_cast< wxRichTextStyleComboCtrl* >(Luna< wxTextEntry >::check(L,1));
+		wxRichTextStyleComboCtrl* ptr= luna_caster< wxTextEntry, wxRichTextStyleComboCtrl >::cast(Luna< wxTextEntry >::check(L,1));
 		if(!ptr)
 			return 0;
 		

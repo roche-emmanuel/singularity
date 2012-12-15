@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxURLDataObject* ptr= dynamic_cast< wxURLDataObject* >(Luna< wxDataObject >::check(L,1));
+		//wxURLDataObject* ptr= dynamic_cast< wxURLDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxURLDataObject* ptr= luna_caster< wxDataObject, wxURLDataObject >::cast(Luna< wxDataObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -68,7 +69,7 @@ public:
 		}
 
 
-		wxURLDataObject* self=dynamic_cast< wxURLDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxURLDataObject::GetURL() const");
@@ -88,7 +89,7 @@ public:
 
 		wxString url(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxURLDataObject* self=dynamic_cast< wxURLDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxURLDataObject::SetURL(const wxString &)");

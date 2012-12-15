@@ -134,6 +134,32 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_AddTagHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DoneParser(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InitParser(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_StopParsing(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -146,7 +172,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler) function, expected prototype:\nvoid wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxHtmlTagHandler* handler=dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,2));
+		wxHtmlTagHandler* handler=(Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,2));
 
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
@@ -321,7 +347,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlParser::PushTagHandler(wxHtmlTagHandler * handler, const wxString & tags) function, expected prototype:\nvoid wxHtmlParser::PushTagHandler(wxHtmlTagHandler * handler, const wxString & tags)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxHtmlTagHandler* handler=dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,2));
+		wxHtmlTagHandler* handler=(Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,2));
 		wxString tags(lua_tostring(L,3),lua_objlen(L,3));
 
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
@@ -341,7 +367,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlParser::SetFS(wxFileSystem * fs) function, expected prototype:\nvoid wxHtmlParser::SetFS(wxFileSystem * fs)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxFileSystem* fs=dynamic_cast< wxFileSystem* >(Luna< wxObject >::check(L,2));
+		wxFileSystem* fs=(Luna< wxObject >::checkSubType< wxFileSystem >(L,2));
 
 		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
 		if(!self) {
@@ -367,6 +393,80 @@ public:
 			luaL_error(L, "Invalid object in function call void wxHtmlParser::StopParsing()");
 		}
 		self->StopParsing();
+
+		return 0;
+	}
+
+	// void wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler * handler)
+	static int _bind_base_AddTagHandler(lua_State *L) {
+		if (!_lg_typecheck_base_AddTagHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler * handler) function, expected prototype:\nvoid wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxHtmlTagHandler* handler=(Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,2));
+
+		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_AddTagHandler(wxHtmlTagHandler *)");
+		}
+		self->wxHtmlParser::AddTagHandler(handler);
+
+		return 0;
+	}
+
+	// void wxHtmlParser::base_DoneParser()
+	static int _bind_base_DoneParser(lua_State *L) {
+		if (!_lg_typecheck_base_DoneParser(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlParser::base_DoneParser() function, expected prototype:\nvoid wxHtmlParser::base_DoneParser()\nClass arguments details:\n");
+		}
+
+
+		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_DoneParser()");
+		}
+		self->wxHtmlParser::DoneParser();
+
+		return 0;
+	}
+
+	// void wxHtmlParser::base_InitParser(const wxString & source)
+	static int _bind_base_InitParser(lua_State *L) {
+		if (!_lg_typecheck_base_InitParser(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlParser::base_InitParser(const wxString & source) function, expected prototype:\nvoid wxHtmlParser::base_InitParser(const wxString & source)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString source(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_InitParser(const wxString &)");
+		}
+		self->wxHtmlParser::InitParser(source);
+
+		return 0;
+	}
+
+	// void wxHtmlParser::base_StopParsing()
+	static int _bind_base_StopParsing(lua_State *L) {
+		if (!_lg_typecheck_base_StopParsing(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlParser::base_StopParsing() function, expected prototype:\nvoid wxHtmlParser::base_StopParsing()\nClass arguments details:\n");
+		}
+
+
+		wxHtmlParser* self=(Luna< wxHtmlParser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlParser::base_StopParsing()");
+		}
+		self->wxHtmlParser::StopParsing();
 
 		return 0;
 	}
@@ -406,6 +506,10 @@ luna_RegType LunaTraits< wxHtmlParser >::methods[] = {
 	{"PushTagHandler", &luna_wrapper_wxHtmlParser::_bind_PushTagHandler},
 	{"SetFS", &luna_wrapper_wxHtmlParser::_bind_SetFS},
 	{"StopParsing", &luna_wrapper_wxHtmlParser::_bind_StopParsing},
+	{"base_AddTagHandler", &luna_wrapper_wxHtmlParser::_bind_base_AddTagHandler},
+	{"base_DoneParser", &luna_wrapper_wxHtmlParser::_bind_base_DoneParser},
+	{"base_InitParser", &luna_wrapper_wxHtmlParser::_bind_base_InitParser},
+	{"base_StopParsing", &luna_wrapper_wxHtmlParser::_bind_base_StopParsing},
 	{"dynCast", &luna_wrapper_wxHtmlParser::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHtmlParser::_bind___eq},
 	{0,0}

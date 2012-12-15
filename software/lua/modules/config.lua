@@ -21,4 +21,7 @@ cfg.mainframe_ribbon_enabled = false
 -- Display the standard menus.
 cfg.mainframe_menus_enabled = true
 
+-- Master framerate given in Hz.
+cfg.master_framerate = 30;
+
 return cfg

@@ -97,6 +97,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_process(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -240,6 +256,46 @@ public:
 		return 0;
 	}
 
+	// void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_setThreadSafeRefUnref(bool)");
+		}
+		self->LogSink::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
+	// void sgt::LogSink::base_process(int level, std::string trace, std::string msg)
+	static int _bind_base_process(lua_State *L) {
+		if (!_lg_typecheck_base_process(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::LogSink::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::base_process(int, std::string, std::string)");
+		}
+		self->LogSink::process(level, trace, msg);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -270,6 +326,8 @@ luna_RegType LunaTraits< sgt::LogSink >::methods[] = {
 	{"removeTrace", &luna_wrapper_sgt_LogSink::_bind_removeTrace},
 	{"setLogTraceList", &luna_wrapper_sgt_LogSink::_bind_setLogTraceList},
 	{"process", &luna_wrapper_sgt_LogSink::_bind_process},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_sgt_LogSink::_bind_base_setThreadSafeRefUnref},
+	{"base_process", &luna_wrapper_sgt_LogSink::_bind_base_process},
 	{"__eq", &luna_wrapper_sgt_LogSink::_bind___eq},
 	{0,0}
 };

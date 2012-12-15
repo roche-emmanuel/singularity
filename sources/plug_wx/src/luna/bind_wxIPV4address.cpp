@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxIPV4address* ptr= dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		//wxIPV4address* ptr= dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* ptr= luna_caster< wxObject, wxIPV4address >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -93,6 +94,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Hostname(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IPAddress(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -106,7 +125,7 @@ public:
 		}
 
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIPV4address::AnyAddress()");
@@ -126,7 +145,7 @@ public:
 
 		wxString hostname(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIPV4address::Hostname(const wxString &)");
@@ -145,7 +164,7 @@ public:
 		}
 
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxIPV4address::Hostname() const");
@@ -173,7 +192,7 @@ public:
 		}
 
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxIPV4address::IPAddress() const");
@@ -192,7 +211,7 @@ public:
 		}
 
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIPV4address::LocalHost()");
@@ -212,7 +231,7 @@ public:
 
 		wxString service(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIPV4address::Service(const wxString &)");
@@ -232,7 +251,7 @@ public:
 
 		unsigned short service=(unsigned short)lua_tointeger(L,2);
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIPV4address::Service(unsigned short)");
@@ -251,7 +270,7 @@ public:
 		}
 
 
-		wxIPV4address* self=dynamic_cast< wxIPV4address* >(Luna< wxObject >::check(L,1));
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned short wxIPV4address::Service() const");
@@ -270,6 +289,65 @@ public:
 
 		luaL_error(L, "error in function Service, cannot match any of the overloads for function Service:\n  Service(const wxString &)\n  Service(unsigned short)\n  Service()\n");
 		return 0;
+	}
+
+	// wxClassInfo * wxIPV4address::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIPV4address::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIPV4address::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIPV4address::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxIPV4address::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxString wxIPV4address::base_Hostname() const
+	static int _bind_base_Hostname(lua_State *L) {
+		if (!_lg_typecheck_base_Hostname(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxIPV4address::base_Hostname() const function, expected prototype:\nwxString wxIPV4address::base_Hostname() const\nClass arguments details:\n");
+		}
+
+
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxIPV4address::base_Hostname() const");
+		}
+		wxString lret = self->wxIPV4address::Hostname();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxIPV4address::base_IPAddress() const
+	static int _bind_base_IPAddress(lua_State *L) {
+		if (!_lg_typecheck_base_IPAddress(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxIPV4address::base_IPAddress() const function, expected prototype:\nwxString wxIPV4address::base_IPAddress() const\nClass arguments details:\n");
+		}
+
+
+		wxIPV4address* self=Luna< wxObject >::checkSubType< wxIPV4address >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxIPV4address::base_IPAddress() const");
+		}
+		wxString lret = self->wxIPV4address::IPAddress();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
 	}
 
 
@@ -302,6 +380,9 @@ luna_RegType LunaTraits< wxIPV4address >::methods[] = {
 	{"IPAddress", &luna_wrapper_wxIPV4address::_bind_IPAddress},
 	{"LocalHost", &luna_wrapper_wxIPV4address::_bind_LocalHost},
 	{"Service", &luna_wrapper_wxIPV4address::_bind_Service},
+	{"base_GetClassInfo", &luna_wrapper_wxIPV4address::_bind_base_GetClassInfo},
+	{"base_Hostname", &luna_wrapper_wxIPV4address::_bind_base_Hostname},
+	{"base_IPAddress", &luna_wrapper_wxIPV4address::_bind_base_IPAddress},
 	{"__eq", &luna_wrapper_wxIPV4address::_bind___eq},
 	{0,0}
 };

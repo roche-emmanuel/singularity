@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxCustomDataObject* ptr= dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		//wxCustomDataObject* ptr= dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* ptr= luna_caster< wxDataObject, wxCustomDataObject >::cast(Luna< wxDataObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -83,6 +84,52 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetDataHere(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDataSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Alloc(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Free(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetData(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -97,7 +144,7 @@ public:
 
 		size_t size=(size_t)lua_tointeger(L,2);
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::Alloc(size_t)");
@@ -118,7 +165,7 @@ public:
 		}
 
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCustomDataObject::Free()");
@@ -136,7 +183,7 @@ public:
 		}
 
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::GetData() const");
@@ -157,7 +204,7 @@ public:
 		}
 
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::GetSize() const");
@@ -178,7 +225,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,2);
 		void* data=(Luna< void >::check(L,3));
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::SetData(size_t, const void *)");
@@ -199,7 +246,7 @@ public:
 		size_t size=(size_t)lua_tointeger(L,2);
 		void* data=(Luna< void >::check(L,3));
 
-		wxCustomDataObject* self=dynamic_cast< wxCustomDataObject* >(Luna< wxDataObject >::check(L,1));
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxCustomDataObject::TakeData(size_t, void *)");
@@ -207,6 +254,146 @@ public:
 		self->TakeData(size, data);
 
 		return 0;
+	}
+
+	// bool wxCustomDataObject::base_GetDataHere(void * buf) const
+	static int _bind_base_GetDataHere(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataHere(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxCustomDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+		}
+
+		void* buf=(Luna< void >::check(L,2));
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_GetDataHere(void *) const");
+		}
+		bool lret = self->wxCustomDataObject::GetDataHere(buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxCustomDataObject::base_GetDataSize() const
+	static int _bind_base_GetDataSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetDataSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetDataSize() const\nClass arguments details:\n");
+		}
+
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetDataSize() const");
+		}
+		size_t lret = self->wxCustomDataObject::GetDataSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void * wxCustomDataObject::base_Alloc(size_t size)
+	static int _bind_base_Alloc(lua_State *L) {
+		if (!_lg_typecheck_base_Alloc(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_Alloc(size_t size) function, expected prototype:\nvoid * wxCustomDataObject::base_Alloc(size_t size)\nClass arguments details:\n");
+		}
+
+		size_t size=(size_t)lua_tointeger(L,2);
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_Alloc(size_t)");
+		}
+		void * lret = self->wxCustomDataObject::Alloc(size);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxCustomDataObject::base_Free()
+	static int _bind_base_Free(lua_State *L) {
+		if (!_lg_typecheck_base_Free(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::base_Free() function, expected prototype:\nvoid wxCustomDataObject::base_Free()\nClass arguments details:\n");
+		}
+
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::base_Free()");
+		}
+		self->wxCustomDataObject::Free();
+
+		return 0;
+	}
+
+	// void * wxCustomDataObject::base_GetData() const
+	static int _bind_base_GetData(lua_State *L) {
+		if (!_lg_typecheck_base_GetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_GetData() const function, expected prototype:\nvoid * wxCustomDataObject::base_GetData() const\nClass arguments details:\n");
+		}
+
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_GetData() const");
+		}
+		void * lret = self->wxCustomDataObject::GetData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// size_t wxCustomDataObject::base_GetSize() const
+	static int _bind_base_GetSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetSize() const\nClass arguments details:\n");
+		}
+
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetSize() const");
+		}
+		size_t lret = self->wxCustomDataObject::GetSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxCustomDataObject::base_SetData(size_t size, const void * data)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_SetData(size_t size, const void * data) function, expected prototype:\nbool wxCustomDataObject::base_SetData(size_t size, const void * data)\nClass arguments details:\n");
+		}
+
+		size_t size=(size_t)lua_tointeger(L,2);
+		void* data=(Luna< void >::check(L,3));
+
+		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_SetData(size_t, const void *)");
+		}
+		bool lret = self->wxCustomDataObject::SetData(size, data);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -242,6 +429,13 @@ luna_RegType LunaTraits< wxCustomDataObject >::methods[] = {
 	{"GetSize", &luna_wrapper_wxCustomDataObject::_bind_GetSize},
 	{"SetData", &luna_wrapper_wxCustomDataObject::_bind_SetData},
 	{"TakeData", &luna_wrapper_wxCustomDataObject::_bind_TakeData},
+	{"base_GetDataHere", &luna_wrapper_wxCustomDataObject::_bind_base_GetDataHere},
+	{"base_GetDataSize", &luna_wrapper_wxCustomDataObject::_bind_base_GetDataSize},
+	{"base_Alloc", &luna_wrapper_wxCustomDataObject::_bind_base_Alloc},
+	{"base_Free", &luna_wrapper_wxCustomDataObject::_bind_base_Free},
+	{"base_GetData", &luna_wrapper_wxCustomDataObject::_bind_base_GetData},
+	{"base_GetSize", &luna_wrapper_wxCustomDataObject::_bind_base_GetSize},
+	{"base_SetData", &luna_wrapper_wxCustomDataObject::_bind_base_SetData},
 	{"__eq", &luna_wrapper_wxCustomDataObject::_bind___eq},
 	{0,0}
 };

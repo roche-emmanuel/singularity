@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxLayoutAlgorithm* ptr= dynamic_cast< wxLayoutAlgorithm* >(Luna< wxObject >::check(L,1));
+		//wxLayoutAlgorithm* ptr= dynamic_cast< wxLayoutAlgorithm* >(Luna< wxObject >::check(L,1));
+		wxLayoutAlgorithm* ptr= luna_caster< wxObject, wxLayoutAlgorithm >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -84,6 +85,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -131,10 +138,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxFrame* frame=dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,2));
-		wxWindow* mainWindow=luatop>2 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) : (wxWindow*)NULL;
+		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
+		wxWindow* mainWindow=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
 
-		wxLayoutAlgorithm* self=dynamic_cast< wxLayoutAlgorithm* >(Luna< wxObject >::check(L,1));
+		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutFrame(wxFrame *, wxWindow *)");
@@ -154,10 +161,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxMDIParentFrame* frame=dynamic_cast< wxMDIParentFrame* >(Luna< wxObject >::check(L,2));
+		wxMDIParentFrame* frame=(Luna< wxObject >::checkSubType< wxMDIParentFrame >(L,2));
 		wxRect* rect=luatop>2 ? (Luna< wxRect >::check(L,3)) : (wxRect*)NULL;
 
-		wxLayoutAlgorithm* self=dynamic_cast< wxLayoutAlgorithm* >(Luna< wxObject >::check(L,1));
+		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutMDIFrame(wxMDIParentFrame *, wxRect *)");
@@ -177,16 +184,37 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxWindow* mainWindow=luatop>2 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) : (wxWindow*)NULL;
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxWindow* mainWindow=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
 
-		wxLayoutAlgorithm* self=dynamic_cast< wxLayoutAlgorithm* >(Luna< wxObject >::check(L,1));
+		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxLayoutAlgorithm::LayoutWindow(wxWindow *, wxWindow *)");
 		}
 		bool lret = self->LayoutWindow(parent, mainWindow);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxLayoutAlgorithm* self=Luna< wxObject >::checkSubType< wxLayoutAlgorithm >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxLayoutAlgorithm::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxLayoutAlgorithm::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -215,6 +243,7 @@ luna_RegType LunaTraits< wxLayoutAlgorithm >::methods[] = {
 	{"LayoutFrame", &luna_wrapper_wxLayoutAlgorithm::_bind_LayoutFrame},
 	{"LayoutMDIFrame", &luna_wrapper_wxLayoutAlgorithm::_bind_LayoutMDIFrame},
 	{"LayoutWindow", &luna_wrapper_wxLayoutAlgorithm::_bind_LayoutWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxLayoutAlgorithm::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxLayoutAlgorithm::_bind___eq},
 	{0,0}
 };

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return GLObjectsOperation::release();
 	};
 
 	// void osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext * context)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GLObjectsOperation::operator()(context);
+		return GLObjectsOperation::operator()(context);
 	};
 
 

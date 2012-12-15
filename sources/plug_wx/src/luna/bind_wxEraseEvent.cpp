@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxEraseEvent* ptr= dynamic_cast< wxEraseEvent* >(Luna< wxObject >::check(L,1));
+		//wxEraseEvent* ptr= dynamic_cast< wxEraseEvent* >(Luna< wxObject >::check(L,1));
+		wxEraseEvent* ptr= luna_caster< wxObject, wxEraseEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -43,6 +44,18 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetDC(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -61,7 +74,7 @@ public:
 		}
 
 
-		wxEraseEvent* self=dynamic_cast< wxEraseEvent* >(Luna< wxObject >::check(L,1));
+		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDC * wxEraseEvent::GetDC() const");
@@ -70,6 +83,46 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxDC >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxEraseEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEraseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEraseEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEraseEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxEraseEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxEraseEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxEraseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxEraseEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxEraseEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxEraseEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -98,6 +151,8 @@ const int LunaTraits< wxEraseEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxEraseEvent >::methods[] = {
 	{"GetDC", &luna_wrapper_wxEraseEvent::_bind_GetDC},
+	{"base_GetClassInfo", &luna_wrapper_wxEraseEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxEraseEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxEraseEvent::_bind___eq},
 	{0,0}
 };

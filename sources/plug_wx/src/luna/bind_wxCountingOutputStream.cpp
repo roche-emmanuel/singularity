@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxCountingOutputStream* ptr= dynamic_cast< wxCountingOutputStream* >(Luna< wxObject >::check(L,1));
+		//wxCountingOutputStream* ptr= dynamic_cast< wxCountingOutputStream* >(Luna< wxObject >::check(L,1));
+		wxCountingOutputStream* ptr= luna_caster< wxObject, wxCountingOutputStream >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -58,6 +59,71 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLength(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsOk(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSeekable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Close(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_LastWrite(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SeekO(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TellO(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Write(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSize(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -109,12 +175,212 @@ public:
 		}
 
 
-		wxCountingOutputStream* self=dynamic_cast< wxCountingOutputStream* >(Luna< wxObject >::check(L,1));
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxCountingOutputStream::GetSize() const");
 		}
 		size_t lret = self->GetSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxCountingOutputStream::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCountingOutputStream::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCountingOutputStream::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCountingOutputStream::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxCountingOutputStream::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// long long wxCountingOutputStream::base_GetLength() const
+	static int _bind_base_GetLength(lua_State *L) {
+		if (!_lg_typecheck_base_GetLength(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxCountingOutputStream::base_GetLength() const function, expected prototype:\nlong long wxCountingOutputStream::base_GetLength() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxCountingOutputStream::base_GetLength() const");
+		}
+		long long lret = self->wxCountingOutputStream::GetLength();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxCountingOutputStream::base_IsOk() const
+	static int _bind_base_IsOk(lua_State *L) {
+		if (!_lg_typecheck_base_IsOk(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCountingOutputStream::base_IsOk() const function, expected prototype:\nbool wxCountingOutputStream::base_IsOk() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCountingOutputStream::base_IsOk() const");
+		}
+		bool lret = self->wxCountingOutputStream::IsOk();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxCountingOutputStream::base_IsSeekable() const
+	static int _bind_base_IsSeekable(lua_State *L) {
+		if (!_lg_typecheck_base_IsSeekable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCountingOutputStream::base_IsSeekable() const function, expected prototype:\nbool wxCountingOutputStream::base_IsSeekable() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCountingOutputStream::base_IsSeekable() const");
+		}
+		bool lret = self->wxCountingOutputStream::IsSeekable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxCountingOutputStream::base_Close()
+	static int _bind_base_Close(lua_State *L) {
+		if (!_lg_typecheck_base_Close(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCountingOutputStream::base_Close() function, expected prototype:\nbool wxCountingOutputStream::base_Close()\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCountingOutputStream::base_Close()");
+		}
+		bool lret = self->wxCountingOutputStream::Close();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// size_t wxCountingOutputStream::base_LastWrite() const
+	static int _bind_base_LastWrite(lua_State *L) {
+		if (!_lg_typecheck_base_LastWrite(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxCountingOutputStream::base_LastWrite() const function, expected prototype:\nsize_t wxCountingOutputStream::base_LastWrite() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxCountingOutputStream::base_LastWrite() const");
+		}
+		size_t lret = self->wxCountingOutputStream::LastWrite();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// long long wxCountingOutputStream::base_SeekO(long long pos, wxSeekMode mode = ::wxFromStart)
+	static int _bind_base_SeekO(lua_State *L) {
+		if (!_lg_typecheck_base_SeekO(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxCountingOutputStream::base_SeekO(long long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxCountingOutputStream::base_SeekO(long long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		long long pos=(long long)lua_tointeger(L,2);
+		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : ::wxFromStart;
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxCountingOutputStream::base_SeekO(long long, wxSeekMode)");
+		}
+		long long lret = self->wxCountingOutputStream::SeekO(pos, mode);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// long long wxCountingOutputStream::base_TellO() const
+	static int _bind_base_TellO(lua_State *L) {
+		if (!_lg_typecheck_base_TellO(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxCountingOutputStream::base_TellO() const function, expected prototype:\nlong long wxCountingOutputStream::base_TellO() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxCountingOutputStream::base_TellO() const");
+		}
+		long long lret = self->wxCountingOutputStream::TellO();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxOutputStream & wxCountingOutputStream::base_Write(const void * buffer, size_t size)
+	static int _bind_base_Write(lua_State *L) {
+		if (!_lg_typecheck_base_Write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxOutputStream & wxCountingOutputStream::base_Write(const void * buffer, size_t size) function, expected prototype:\nwxOutputStream & wxCountingOutputStream::base_Write(const void * buffer, size_t size)\nClass arguments details:\n");
+		}
+
+		void* buffer=(Luna< void >::check(L,2));
+		size_t size=(size_t)lua_tointeger(L,3);
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxOutputStream & wxCountingOutputStream::base_Write(const void *, size_t)");
+		}
+		const wxOutputStream* lret = &self->wxCountingOutputStream::Write(buffer, size);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxOutputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// size_t wxCountingOutputStream::base_GetSize() const
+	static int _bind_base_GetSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxCountingOutputStream::base_GetSize() const function, expected prototype:\nsize_t wxCountingOutputStream::base_GetSize() const\nClass arguments details:\n");
+		}
+
+
+		wxCountingOutputStream* self=Luna< wxObject >::checkSubType< wxCountingOutputStream >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxCountingOutputStream::base_GetSize() const");
+		}
+		size_t lret = self->wxCountingOutputStream::GetSize();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -142,6 +408,16 @@ const int LunaTraits< wxCountingOutputStream >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxCountingOutputStream >::methods[] = {
 	{"GetSize", &luna_wrapper_wxCountingOutputStream::_bind_GetSize},
+	{"base_GetClassInfo", &luna_wrapper_wxCountingOutputStream::_bind_base_GetClassInfo},
+	{"base_GetLength", &luna_wrapper_wxCountingOutputStream::_bind_base_GetLength},
+	{"base_IsOk", &luna_wrapper_wxCountingOutputStream::_bind_base_IsOk},
+	{"base_IsSeekable", &luna_wrapper_wxCountingOutputStream::_bind_base_IsSeekable},
+	{"base_Close", &luna_wrapper_wxCountingOutputStream::_bind_base_Close},
+	{"base_LastWrite", &luna_wrapper_wxCountingOutputStream::_bind_base_LastWrite},
+	{"base_SeekO", &luna_wrapper_wxCountingOutputStream::_bind_base_SeekO},
+	{"base_TellO", &luna_wrapper_wxCountingOutputStream::_bind_base_TellO},
+	{"base_Write", &luna_wrapper_wxCountingOutputStream::_bind_base_Write},
+	{"base_GetSize", &luna_wrapper_wxCountingOutputStream::_bind_base_GetSize},
 	{"__eq", &luna_wrapper_wxCountingOutputStream::_bind___eq},
 	{0,0}
 };

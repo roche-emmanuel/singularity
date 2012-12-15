@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return VariableRateCounter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return VariableRateCounter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return VariableRateCounter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return VariableRateCounter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return VariableRateCounter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return VariableRateCounter::releaseGLObjects(arg1);
 	};
 
 	// int osgParticle::Counter::numParticlesToCreate(double dt) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::VariableRateCounter::libraryName();
+		return VariableRateCounter::libraryName();
 	};
 
 	// const char * osgParticle::VariableRateCounter::className() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::VariableRateCounter::className();
+		return VariableRateCounter::className();
 	};
 
 	// bool osgParticle::VariableRateCounter::isSameKindAs(const osg::Object * obj) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::VariableRateCounter::isSameKindAs(obj);
+		return VariableRateCounter::isSameKindAs(obj);
 	};
 
 

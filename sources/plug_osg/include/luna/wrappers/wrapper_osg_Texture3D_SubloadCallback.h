@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_Texture3D_SubloadCallback(lua_State* L, lua_Table* dum) : osg::Texture3D::SubloadCallback(), _obj(L,-1) {};
 
 	// void osg::Texture3D::SubloadCallback::load(const osg::Texture3D & texture, osg::State & state) const
 	void load(const osg::Texture3D & texture, osg::State & state) const {

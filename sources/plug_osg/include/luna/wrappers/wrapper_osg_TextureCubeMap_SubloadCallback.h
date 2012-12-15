@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_TextureCubeMap_SubloadCallback(lua_State* L, lua_Table* dum) : osg::TextureCubeMap::SubloadCallback(), _obj(L,-1) {};
 
 	// void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const
 	void load(const osg::TextureCubeMap & texture, osg::State & state) const {

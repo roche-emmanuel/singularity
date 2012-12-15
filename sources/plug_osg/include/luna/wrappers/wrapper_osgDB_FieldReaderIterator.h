@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::FieldReaderIterator::eof();
+		return FieldReaderIterator::eof();
 	};
 
 

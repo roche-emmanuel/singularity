@@ -176,12 +176,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) function, expected prototype:\nvoid wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		int orientation=(int)lua_tointeger(L,4);
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,5));
 		if( !rect_ptr ) {
@@ -206,12 +206,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiDockArt::DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 4 ID = 42930508\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawBorder function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiDockArt::DrawBorder function");
@@ -240,12 +240,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawCaption(wxDC & dc, wxWindow * window, const wxString & text, const wxRect & rect, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiDockArt::DrawCaption(wxDC & dc, wxWindow * window, const wxString & text, const wxRect & rect, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 20234418\narg 5 ID = 42930508\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawCaption function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString text(lua_tostring(L,4),lua_objlen(L,4));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,5));
 		if( !rect_ptr ) {
@@ -275,12 +275,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawGripper(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiDockArt::DrawGripper(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 4 ID = 42930508\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawGripper function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiDockArt::DrawGripper function");
@@ -309,12 +309,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawPaneButton(wxDC & dc, wxWindow * window, int button, int button_state, const wxRect & rect, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiDockArt::DrawPaneButton(wxDC & dc, wxWindow * window, int button, int button_state, const wxRect & rect, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 5 ID = 20234418\narg 6 ID = 42930508\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawPaneButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		int button=(int)lua_tointeger(L,4);
 		int button_state=(int)lua_tointeger(L,5);
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,6));
@@ -345,12 +345,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiDockArt::DrawSash(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) function, expected prototype:\nvoid wxAuiDockArt::DrawSash(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiDockArt::DrawSash function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		int orientation=(int)lua_tointeger(L,4);
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,5));
 		if( !rect_ptr ) {
@@ -442,7 +442,7 @@ public:
 		}
 
 		int id=(int)lua_tointeger(L,2);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxAuiDockArt::SetColour function");
 		}
@@ -466,7 +466,7 @@ public:
 		}
 
 		int id=(int)lua_tointeger(L,2);
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,3));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,3));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiDockArt::SetFont function");
 		}

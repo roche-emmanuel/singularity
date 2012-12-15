@@ -75,8 +75,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,7204710)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
@@ -86,8 +86,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,7204710)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
@@ -146,12 +146,12 @@ public:
 	static osg::Geometry::Vec3ArrayData* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE) function, expected prototype:\nosg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE) function, expected prototype:\nosg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		osg::Vec3Array* a=(Luna< osg::Vec3Array >::check(L,1));
+		osg::Vec3Array* a=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,1));
 		osg::Geometry::AttributeBinding b=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 		unsigned char n = (unsigned char)(lua_tointeger(L,3));
 
@@ -162,13 +162,13 @@ public:
 	static osg::Geometry::Vec3ArrayData* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::IndexArray * i, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE) function, expected prototype:\nosg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::IndexArray * i, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE)\nClass arguments details:\narg 1 ID = 7204710\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::IndexArray * i, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE) function, expected prototype:\nosg::Geometry::Vec3ArrayData::Vec3ArrayData(osg::Vec3Array * a, osg::IndexArray * i, osg::Geometry::AttributeBinding b, unsigned char n = GL_FALSE)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		osg::Vec3Array* a=(Luna< osg::Vec3Array >::check(L,1));
-		osg::IndexArray* i=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::Vec3Array* a=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,1));
+		osg::IndexArray* i=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 		osg::Geometry::AttributeBinding b=(osg::Geometry::AttributeBinding)lua_tointeger(L,3);
 		unsigned char n = (unsigned char)(lua_tointeger(L,4));
 

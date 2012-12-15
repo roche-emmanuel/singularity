@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxProcessEvent* ptr= dynamic_cast< wxProcessEvent* >(Luna< wxObject >::check(L,1));
+		//wxProcessEvent* ptr= dynamic_cast< wxProcessEvent* >(Luna< wxObject >::check(L,1));
+		wxProcessEvent* ptr= luna_caster< wxObject, wxProcessEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,6 +55,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -67,7 +80,7 @@ public:
 		}
 
 
-		wxProcessEvent* self=dynamic_cast< wxProcessEvent* >(Luna< wxObject >::check(L,1));
+		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetExitCode()");
@@ -86,12 +99,52 @@ public:
 		}
 
 
-		wxProcessEvent* self=dynamic_cast< wxProcessEvent* >(Luna< wxObject >::check(L,1));
+		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxProcessEvent::GetPid()");
 		}
 		int lret = self->GetPid();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxProcessEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxProcessEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxProcessEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcessEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxProcessEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxProcessEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxProcessEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxProcessEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxProcessEvent* self=Luna< wxObject >::checkSubType< wxProcessEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxProcessEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxProcessEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -122,6 +175,8 @@ const int LunaTraits< wxProcessEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxProcessEvent >::methods[] = {
 	{"GetExitCode", &luna_wrapper_wxProcessEvent::_bind_GetExitCode},
 	{"GetPid", &luna_wrapper_wxProcessEvent::_bind_GetPid},
+	{"base_GetClassInfo", &luna_wrapper_wxProcessEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxProcessEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxProcessEvent::_bind___eq},
 	{0,0}
 };

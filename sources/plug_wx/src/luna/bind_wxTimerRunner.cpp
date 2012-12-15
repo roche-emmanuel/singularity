@@ -96,7 +96,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxTimerRunner::wxTimerRunner(wxTimer & timer) function, expected prototype:\nwxTimerRunner::wxTimerRunner(wxTimer & timer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxTimer* timer_ptr=dynamic_cast< wxTimer* >(Luna< wxObject >::check(L,1));
+		wxTimer* timer_ptr=(Luna< wxObject >::checkSubType< wxTimer >(L,1));
 		if( !timer_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg timer in wxTimerRunner::wxTimerRunner function");
 		}
@@ -114,7 +114,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxTimer* timer_ptr=dynamic_cast< wxTimer* >(Luna< wxObject >::check(L,1));
+		wxTimer* timer_ptr=(Luna< wxObject >::checkSubType< wxTimer >(L,1));
 		if( !timer_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg timer in wxTimerRunner::wxTimerRunner function");
 		}

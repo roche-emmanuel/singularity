@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::AuthenticationMap::addAuthenticationDetails(path, details);
+		return AuthenticationMap::addAuthenticationDetails(path, details);
 	};
 
 	// const osgDB::AuthenticationDetails * osgDB::AuthenticationMap::getAuthenticationDetails(const std::string & path) const
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<osgDB::AuthenticationDetails*>());
 		}
 
-		return osgDB::AuthenticationMap::getAuthenticationDetails(path);
+		return AuthenticationMap::getAuthenticationDetails(path);
 	};
 
 

@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::libraryName();
+		return IndexMeshVisitor::libraryName();
 	};
 
 	// const char * osg::NodeVisitor::className() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::className();
+		return IndexMeshVisitor::className();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -41,7 +41,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return IndexMeshVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -50,7 +50,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return IndexMeshVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return IndexMeshVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return IndexMeshVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return IndexMeshVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// void osgUtil::GeometryCollector::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GeometryCollector::reset();
+		return IndexMeshVisitor::reset();
 	};
 
 	// void osgUtil::GeometryCollector::apply(osg::Geode & geode)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::GeometryCollector::apply(geode);
+		return IndexMeshVisitor::apply(geode);
 	};
 
 

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return GUIEventAdapter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return GUIEventAdapter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return GUIEventAdapter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GUIEventAdapter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GUIEventAdapter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return GUIEventAdapter::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventAdapter::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventAdapter::cloneType();
+		return GUIEventAdapter::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventAdapter::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventAdapter::clone(arg1);
+		return GUIEventAdapter::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventAdapter::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventAdapter::isSameKindAs(obj);
+		return GUIEventAdapter::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventAdapter::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventAdapter::libraryName();
+		return GUIEventAdapter::libraryName();
 	};
 
 	// const char * osgGA::GUIEventAdapter::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventAdapter::className();
+		return GUIEventAdapter::className();
 	};
 
 	// osgGA::GUIEventAdapter::EventType osgGA::GUIEventAdapter::getEventType() const
@@ -128,7 +128,7 @@ public:
 			return (osgGA::GUIEventAdapter::EventType)(_obj.callFunction<int>());
 		}
 
-		return osgGA::GUIEventAdapter::getEventType();
+		return GUIEventAdapter::getEventType();
 	};
 
 	// int osgGA::GUIEventAdapter::getKey() const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osgGA::GUIEventAdapter::getKey();
+		return GUIEventAdapter::getKey();
 	};
 
 

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_WriteFileCallback(lua_State* L, lua_Table* dum) : osgDB::WriteFileCallback(), _obj(L,-1) {};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options) {
@@ -26,7 +25,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::WriteFileCallback::writeObject(obj, fileName, options);
+		return WriteFileCallback::writeObject(obj, fileName, options);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeImage(const osg::Image & obj, const std::string & fileName, const osgDB::Options * options)
@@ -38,7 +37,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::WriteFileCallback::writeImage(obj, fileName, options);
+		return WriteFileCallback::writeImage(obj, fileName, options);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeHeightField(const osg::HeightField & obj, const std::string & fileName, const osgDB::Options * options)
@@ -50,7 +49,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::WriteFileCallback::writeHeightField(obj, fileName, options);
+		return WriteFileCallback::writeHeightField(obj, fileName, options);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeNode(const osg::Node & obj, const std::string & fileName, const osgDB::Options * options)
@@ -62,7 +61,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::WriteFileCallback::writeNode(obj, fileName, options);
+		return WriteFileCallback::writeNode(obj, fileName, options);
 	};
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeShader(const osg::Shader & obj, const std::string & fileName, const osgDB::Options * options)
@@ -74,7 +73,7 @@ public:
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}
 
-		return osgDB::WriteFileCallback::writeShader(obj, fileName, options);
+		return WriteFileCallback::writeShader(obj, fileName, options);
 	};
 
 

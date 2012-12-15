@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridBagSizer* ptr= dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		//wxGridBagSizer* ptr= dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* ptr= luna_caster< wxObject, wxGridBagSizer >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -320,6 +321,125 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddSpacer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InformFirstDirection(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Layout(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CalcMin(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RecalcSizes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -375,7 +495,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGridBagSizer::Add function");
@@ -390,7 +510,7 @@ public:
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxGridBagSizer::Add(wxWindow *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)");
@@ -412,7 +532,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGridBagSizer::Add function");
@@ -427,7 +547,7 @@ public:
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxGridBagSizer::Add(wxSizer *, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)");
@@ -465,7 +585,7 @@ public:
 		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
 		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxGridBagSizer::Add(int, int, const wxGBPosition &, const wxGBSpan &, int, int, wxObject *)");
@@ -485,9 +605,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxGridBagSizer::Add(wxGBSizerItem * item) function, expected prototype:\nwxSizerItem * wxGridBagSizer::Add(wxGBSizerItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxGBSizerItem* item=dynamic_cast< wxGBSizerItem* >(Luna< wxObject >::check(L,2));
+		wxGBSizerItem* item=(Luna< wxObject >::checkSubType< wxGBSizerItem >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxGridBagSizer::Add(wxGBSizerItem *)");
@@ -519,7 +639,7 @@ public:
 		}
 
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxGridBagSizer::CalcMin()");
@@ -542,10 +662,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxGBSizerItem* item=dynamic_cast< wxGBSizerItem* >(Luna< wxObject >::check(L,2));
-		wxGBSizerItem* excludeItem=luatop>2 ? dynamic_cast< wxGBSizerItem* >(Luna< wxObject >::check(L,3)) : (wxGBSizerItem*)NULL;
+		wxGBSizerItem* item=(Luna< wxObject >::checkSubType< wxGBSizerItem >(L,2));
+		wxGBSizerItem* excludeItem=luatop>2 ? (Luna< wxObject >::checkSubType< wxGBSizerItem >(L,3)) : (wxGBSizerItem*)NULL;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::CheckForIntersection(wxGBSizerItem *, wxGBSizerItem *)");
@@ -575,9 +695,9 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::CheckForIntersection function");
 		}
 		const wxGBSpan & span=*span_ptr;
-		wxGBSizerItem* excludeItem=luatop>3 ? dynamic_cast< wxGBSizerItem* >(Luna< wxObject >::check(L,4)) : (wxGBSizerItem*)NULL;
+		wxGBSizerItem* excludeItem=luatop>3 ? (Luna< wxObject >::checkSubType< wxGBSizerItem >(L,4)) : (wxGBSizerItem*)NULL;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::CheckForIntersection(const wxGBPosition &, const wxGBSpan &, wxGBSizerItem *)");
@@ -604,9 +724,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBSizerItem * wxGridBagSizer::FindItem(wxWindow * window) function, expected prototype:\nwxGBSizerItem * wxGridBagSizer::FindItem(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSizerItem * wxGridBagSizer::FindItem(wxWindow *)");
@@ -626,9 +746,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBSizerItem * wxGridBagSizer::FindItem(wxSizer * sizer) function, expected prototype:\nwxGBSizerItem * wxGridBagSizer::FindItem(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSizerItem * wxGridBagSizer::FindItem(wxSizer *)");
@@ -663,7 +783,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSizerItem * wxGridBagSizer::FindItemAtPoint(const wxPoint &)");
@@ -689,7 +809,7 @@ public:
 		}
 		const wxGBPosition & pos=*pos_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSizerItem * wxGridBagSizer::FindItemAtPosition(const wxGBPosition &)");
@@ -711,7 +831,7 @@ public:
 
 		const wxObject* userData=(Luna< wxObject >::check(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSizerItem * wxGridBagSizer::FindItemWithData(const wxObject *)");
@@ -734,7 +854,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxGridBagSizer::GetCellSize(int, int) const");
@@ -756,7 +876,7 @@ public:
 		}
 
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxGridBagSizer::GetEmptyCellSize() const");
@@ -777,9 +897,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBPosition wxGridBagSizer::GetItemPosition(wxWindow * window) function, expected prototype:\nwxGBPosition wxGridBagSizer::GetItemPosition(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBPosition wxGridBagSizer::GetItemPosition(wxWindow *)");
@@ -800,9 +920,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBPosition wxGridBagSizer::GetItemPosition(wxSizer * sizer) function, expected prototype:\nwxGBPosition wxGridBagSizer::GetItemPosition(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBPosition wxGridBagSizer::GetItemPosition(wxSizer *)");
@@ -825,7 +945,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBPosition wxGridBagSizer::GetItemPosition(size_t)");
@@ -856,9 +976,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBSpan wxGridBagSizer::GetItemSpan(wxWindow * window) function, expected prototype:\nwxGBSpan wxGridBagSizer::GetItemSpan(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSpan wxGridBagSizer::GetItemSpan(wxWindow *)");
@@ -879,9 +999,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxGBSpan wxGridBagSizer::GetItemSpan(wxSizer * sizer) function, expected prototype:\nwxGBSpan wxGridBagSizer::GetItemSpan(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSpan wxGridBagSizer::GetItemSpan(wxSizer *)");
@@ -904,7 +1024,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGBSpan wxGridBagSizer::GetItemSpan(size_t)");
@@ -936,7 +1056,7 @@ public:
 		}
 
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridBagSizer::RecalcSizes()");
@@ -959,7 +1079,7 @@ public:
 		}
 		const wxSize & sz=*sz_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridBagSizer::SetEmptyCellSize(const wxSize &)");
@@ -976,14 +1096,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::SetItemPosition(wxWindow * window, const wxGBPosition & pos) function, expected prototype:\nbool wxGridBagSizer::SetItemPosition(wxWindow * window, const wxGBPosition & pos)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 3425779\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGridBagSizer::SetItemPosition function");
 		}
 		const wxGBPosition & pos=*pos_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemPosition(wxWindow *, const wxGBPosition &)");
@@ -1001,14 +1121,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::SetItemPosition(wxSizer * sizer, const wxGBPosition & pos) function, expected prototype:\nbool wxGridBagSizer::SetItemPosition(wxSizer * sizer, const wxGBPosition & pos)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 3425779\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxGBPosition* pos_ptr=(Luna< wxGBPosition >::check(L,3));
 		if( !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxGridBagSizer::SetItemPosition function");
 		}
 		const wxGBPosition & pos=*pos_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemPosition(wxSizer *, const wxGBPosition &)");
@@ -1033,7 +1153,7 @@ public:
 		}
 		const wxGBPosition & pos=*pos_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemPosition(size_t, const wxGBPosition &)");
@@ -1061,14 +1181,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::SetItemSpan(wxWindow * window, const wxGBSpan & span) function, expected prototype:\nbool wxGridBagSizer::SetItemSpan(wxWindow * window, const wxGBSpan & span)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 97553085\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxGBSpan* span_ptr=(Luna< wxGBSpan >::check(L,3));
 		if( !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::SetItemSpan function");
 		}
 		const wxGBSpan & span=*span_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemSpan(wxWindow *, const wxGBSpan &)");
@@ -1086,14 +1206,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::SetItemSpan(wxSizer * sizer, const wxGBSpan & span) function, expected prototype:\nbool wxGridBagSizer::SetItemSpan(wxSizer * sizer, const wxGBSpan & span)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 97553085\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxGBSpan* span_ptr=(Luna< wxGBSpan >::check(L,3));
 		if( !span_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg span in wxGridBagSizer::SetItemSpan function");
 		}
 		const wxGBSpan & span=*span_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemSpan(wxSizer *, const wxGBSpan &)");
@@ -1118,7 +1238,7 @@ public:
 		}
 		const wxGBSpan & span=*span_ptr;
 
-		wxGridBagSizer* self=dynamic_cast< wxGridBagSizer* >(Luna< wxObject >::check(L,1));
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::SetItemSpan(size_t, const wxGBSpan &)");
@@ -1136,6 +1256,348 @@ public:
 		if (_lg_typecheck_SetItemSpan_overload_3(L)) return _bind_SetItemSpan_overload_3(L);
 
 		luaL_error(L, "error in function SetItemSpan, cannot match any of the overloads for function SetItemSpan:\n  SetItemSpan(wxWindow *, const wxGBSpan &)\n  SetItemSpan(wxSizer *, const wxGBSpan &)\n  SetItemSpan(size_t, const wxGBSpan &)\n");
+		return 0;
+	}
+
+	// wxClassInfo * wxGridBagSizer::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridBagSizer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridBagSizer::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridBagSizer::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxGridBagSizer::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxSizerItem * wxGridBagSizer::base_AddSpacer(int size)
+	static int _bind_base_AddSpacer(lua_State *L) {
+		if (!_lg_typecheck_base_AddSpacer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSizerItem * wxGridBagSizer::base_AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxGridBagSizer::base_AddSpacer(int size)\nClass arguments details:\n");
+		}
+
+		int size=(int)lua_tointeger(L,2);
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxGridBagSizer::base_AddSpacer(int)");
+		}
+		wxSizerItem * lret = self->wxGridBagSizer::AddSpacer(size);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSizerItem >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGridBagSizer::base_Clear(bool delete_windows = false)
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridBagSizer::base_Clear(bool delete_windows = false) function, expected prototype:\nvoid wxGridBagSizer::base_Clear(bool delete_windows = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridBagSizer::base_Clear(bool)");
+		}
+		self->wxGridBagSizer::Clear(delete_windows);
+
+		return 0;
+	}
+
+	// bool wxGridBagSizer::base_Detach(wxWindow * window)
+	static int _bind_base_Detach_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Detach(wxWindow * window) function, expected prototype:\nbool wxGridBagSizer::base_Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Detach(wxWindow *)");
+		}
+		bool lret = self->wxGridBagSizer::Detach(window);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridBagSizer::base_Detach(wxSizer * sizer)
+	static int _bind_base_Detach_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Detach(wxSizer * sizer) function, expected prototype:\nbool wxGridBagSizer::base_Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Detach(wxSizer *)");
+		}
+		bool lret = self->wxGridBagSizer::Detach(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridBagSizer::base_Detach(int index)
+	static int _bind_base_Detach_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Detach(int index) function, expected prototype:\nbool wxGridBagSizer::base_Detach(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Detach(int)");
+		}
+		bool lret = self->wxGridBagSizer::Detach(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxGridBagSizer::base_Detach
+	static int _bind_base_Detach(lua_State *L) {
+		if (_lg_typecheck_base_Detach_overload_1(L)) return _bind_base_Detach_overload_1(L);
+		if (_lg_typecheck_base_Detach_overload_2(L)) return _bind_base_Detach_overload_2(L);
+		if (_lg_typecheck_base_Detach_overload_3(L)) return _bind_base_Detach_overload_3(L);
+
+		luaL_error(L, "error in function base_Detach, cannot match any of the overloads for function base_Detach:\n  base_Detach(wxWindow *)\n  base_Detach(wxSizer *)\n  base_Detach(int)\n");
+		return 0;
+	}
+
+	// bool wxGridBagSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)
+	static int _bind_base_InformFirstDirection(lua_State *L) {
+		if (!_lg_typecheck_base_InformFirstDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxGridBagSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+		}
+
+		int direction=(int)lua_tointeger(L,2);
+		int size=(int)lua_tointeger(L,3);
+		int availableOtherDir=(int)lua_tointeger(L,4);
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_InformFirstDirection(int, int, int)");
+		}
+		bool lret = self->wxGridBagSizer::InformFirstDirection(direction, size, availableOtherDir);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxGridBagSizer::base_Layout()
+	static int _bind_base_Layout(lua_State *L) {
+		if (!_lg_typecheck_base_Layout(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridBagSizer::base_Layout() function, expected prototype:\nvoid wxGridBagSizer::base_Layout()\nClass arguments details:\n");
+		}
+
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridBagSizer::base_Layout()");
+		}
+		self->wxGridBagSizer::Layout();
+
+		return 0;
+	}
+
+	// bool wxGridBagSizer::base_Remove(wxSizer * sizer)
+	static int _bind_base_Remove_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Remove(wxSizer * sizer) function, expected prototype:\nbool wxGridBagSizer::base_Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Remove(wxSizer *)");
+		}
+		bool lret = self->wxGridBagSizer::Remove(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridBagSizer::base_Remove(int index)
+	static int _bind_base_Remove_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Remove(int index) function, expected prototype:\nbool wxGridBagSizer::base_Remove(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Remove(int)");
+		}
+		bool lret = self->wxGridBagSizer::Remove(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxGridBagSizer::base_Remove
+	static int _bind_base_Remove(lua_State *L) {
+		if (_lg_typecheck_base_Remove_overload_1(L)) return _bind_base_Remove_overload_1(L);
+		if (_lg_typecheck_base_Remove_overload_2(L)) return _bind_base_Remove_overload_2(L);
+
+		luaL_error(L, "error in function base_Remove, cannot match any of the overloads for function base_Remove:\n  base_Remove(wxSizer *)\n  base_Remove(int)\n");
+		return 0;
+	}
+
+	// bool wxGridBagSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)
+	static int _bind_base_Replace_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false) function, expected prototype:\nbool wxGridBagSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+		}
+		bool lret = self->wxGridBagSizer::Replace(oldwin, newwin, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridBagSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)
+	static int _bind_base_Replace_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false) function, expected prototype:\nbool wxGridBagSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+		}
+		bool lret = self->wxGridBagSizer::Replace(oldsz, newsz, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridBagSizer::base_Replace(size_t index, wxSizerItem * newitem)
+	static int _bind_base_Replace_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridBagSizer::base_Replace(size_t index, wxSizerItem * newitem) function, expected prototype:\nbool wxGridBagSizer::base_Replace(size_t index, wxSizerItem * newitem)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		size_t index=(size_t)lua_tointeger(L,2);
+		wxSizerItem* newitem=(Luna< wxObject >::checkSubType< wxSizerItem >(L,3));
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridBagSizer::base_Replace(size_t, wxSizerItem *)");
+		}
+		bool lret = self->wxGridBagSizer::Replace(index, newitem);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxGridBagSizer::base_Replace
+	static int _bind_base_Replace(lua_State *L) {
+		if (_lg_typecheck_base_Replace_overload_1(L)) return _bind_base_Replace_overload_1(L);
+		if (_lg_typecheck_base_Replace_overload_2(L)) return _bind_base_Replace_overload_2(L);
+		if (_lg_typecheck_base_Replace_overload_3(L)) return _bind_base_Replace_overload_3(L);
+
+		luaL_error(L, "error in function base_Replace, cannot match any of the overloads for function base_Replace:\n  base_Replace(wxWindow *, wxWindow *, bool)\n  base_Replace(wxSizer *, wxSizer *, bool)\n  base_Replace(size_t, wxSizerItem *)\n");
+		return 0;
+	}
+
+	// wxSize wxGridBagSizer::base_CalcMin()
+	static int _bind_base_CalcMin(lua_State *L) {
+		if (!_lg_typecheck_base_CalcMin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxGridBagSizer::base_CalcMin() function, expected prototype:\nwxSize wxGridBagSizer::base_CalcMin()\nClass arguments details:\n");
+		}
+
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxGridBagSizer::base_CalcMin()");
+		}
+		wxSize stack_lret = self->wxGridBagSizer::CalcMin();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxGridBagSizer::base_RecalcSizes()
+	static int _bind_base_RecalcSizes(lua_State *L) {
+		if (!_lg_typecheck_base_RecalcSizes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridBagSizer::base_RecalcSizes() function, expected prototype:\nvoid wxGridBagSizer::base_RecalcSizes()\nClass arguments details:\n");
+		}
+
+
+		wxGridBagSizer* self=Luna< wxObject >::checkSubType< wxGridBagSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridBagSizer::base_RecalcSizes()");
+		}
+		self->wxGridBagSizer::RecalcSizes();
+
 		return 0;
 	}
 
@@ -1175,6 +1637,16 @@ luna_RegType LunaTraits< wxGridBagSizer >::methods[] = {
 	{"SetEmptyCellSize", &luna_wrapper_wxGridBagSizer::_bind_SetEmptyCellSize},
 	{"SetItemPosition", &luna_wrapper_wxGridBagSizer::_bind_SetItemPosition},
 	{"SetItemSpan", &luna_wrapper_wxGridBagSizer::_bind_SetItemSpan},
+	{"base_GetClassInfo", &luna_wrapper_wxGridBagSizer::_bind_base_GetClassInfo},
+	{"base_AddSpacer", &luna_wrapper_wxGridBagSizer::_bind_base_AddSpacer},
+	{"base_Clear", &luna_wrapper_wxGridBagSizer::_bind_base_Clear},
+	{"base_Detach", &luna_wrapper_wxGridBagSizer::_bind_base_Detach},
+	{"base_InformFirstDirection", &luna_wrapper_wxGridBagSizer::_bind_base_InformFirstDirection},
+	{"base_Layout", &luna_wrapper_wxGridBagSizer::_bind_base_Layout},
+	{"base_Remove", &luna_wrapper_wxGridBagSizer::_bind_base_Remove},
+	{"base_Replace", &luna_wrapper_wxGridBagSizer::_bind_base_Replace},
+	{"base_CalcMin", &luna_wrapper_wxGridBagSizer::_bind_base_CalcMin},
+	{"base_RecalcSizes", &luna_wrapper_wxGridBagSizer::_bind_base_RecalcSizes},
 	{"__eq", &luna_wrapper_wxGridBagSizer::_bind___eq},
 	{0,0}
 };

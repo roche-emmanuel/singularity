@@ -746,17 +746,17 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colText_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,1));
+		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
 		if( !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxTextAttr::wxTextAttr function");
 		}
 		const wxColour & colText=*colText_ptr;
-		const wxColour* colBack_ptr=luatop>1 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2)) : NULL;
+		const wxColour* colBack_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxColour >(L,2)) : NULL;
 		if( luatop>1 && !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxTextAttr::wxTextAttr function");
 		}
 		const wxColour & colBack=luatop>1 ? *colBack_ptr : wxNullColour;
-		const wxFont* font_ptr=luatop>2 ? dynamic_cast< wxFont* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxFont* font_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxFont >(L,3)) : NULL;
 		if( luatop>2 && !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::wxTextAttr function");
 		}
@@ -1084,7 +1084,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::GetFontAttributes function");
 		}
@@ -2140,7 +2140,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxTextAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colBack_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colBack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colBack in wxTextAttr::SetBackgroundColour function");
 		}
@@ -2298,7 +2298,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxTextAttr::SetFont function");
 		}
@@ -2654,7 +2654,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxTextAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colText_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colText_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colText in wxTextAttr::SetTextColour function");
 		}

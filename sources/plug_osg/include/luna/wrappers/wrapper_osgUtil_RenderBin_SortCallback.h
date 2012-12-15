@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_RenderBin_SortCallback(lua_State* L, lua_Table* dum) : osgUtil::RenderBin::SortCallback(), _obj(L,-1) {};
 
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
 	void sortImplementation(osgUtil::RenderBin * arg1) {

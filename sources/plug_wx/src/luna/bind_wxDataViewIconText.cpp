@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataViewIconText* ptr= dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		//wxDataViewIconText* ptr= dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		wxDataViewIconText* ptr= luna_caster< wxObject, wxDataViewIconText >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -108,6 +109,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -123,7 +130,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,1),lua_objlen(L,1));
-		const wxIcon* icon_ptr=luatop>1 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2)) : NULL;
+		const wxIcon* icon_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxIcon >(L,2)) : NULL;
 		if( luatop>1 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::wxDataViewIconText function");
 		}
@@ -139,7 +146,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDataViewIconText::wxDataViewIconText(const wxDataViewIconText & other) function, expected prototype:\nwxDataViewIconText::wxDataViewIconText(const wxDataViewIconText & other)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxDataViewIconText* other_ptr=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		const wxDataViewIconText* other_ptr=(Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1));
 		if( !other_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg other in wxDataViewIconText::wxDataViewIconText function");
 		}
@@ -158,7 +165,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		const wxIcon* icon_ptr=luatop>2 ? dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxIcon* icon_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxIcon >(L,3)) : NULL;
 		if( luatop>2 && !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::wxDataViewIconText function");
 		}
@@ -174,7 +181,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxDataViewIconText & other) function, expected prototype:\nwxDataViewIconText::wxDataViewIconText(lua_Table * data, const wxDataViewIconText & other)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxDataViewIconText* other_ptr=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,2));
+		const wxDataViewIconText* other_ptr=(Luna< wxObject >::checkSubType< wxDataViewIconText >(L,2));
 		if( !other_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg other in wxDataViewIconText::wxDataViewIconText function");
 		}
@@ -204,7 +211,7 @@ public:
 		}
 
 
-		wxDataViewIconText* self=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewIconText::GetIcon() const");
@@ -225,7 +232,7 @@ public:
 		}
 
 
-		wxDataViewIconText* self=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDataViewIconText::GetText() const");
@@ -243,13 +250,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataViewIconText::SetIcon(const wxIcon & icon) function, expected prototype:\nvoid wxDataViewIconText::SetIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxDataViewIconText::SetIcon function");
 		}
 		const wxIcon & icon=*icon_ptr;
 
-		wxDataViewIconText* self=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetIcon(const wxIcon &)");
@@ -268,7 +275,7 @@ public:
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDataViewIconText* self=dynamic_cast< wxDataViewIconText* >(Luna< wxObject >::check(L,1));
+		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewIconText::SetText(const wxString &)");
@@ -276,6 +283,27 @@ public:
 		self->SetText(text);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxDataViewIconText::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewIconText::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewIconText::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDataViewIconText* self=Luna< wxObject >::checkSubType< wxDataViewIconText >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewIconText::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDataViewIconText::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -303,6 +331,7 @@ luna_RegType LunaTraits< wxDataViewIconText >::methods[] = {
 	{"GetText", &luna_wrapper_wxDataViewIconText::_bind_GetText},
 	{"SetIcon", &luna_wrapper_wxDataViewIconText::_bind_SetIcon},
 	{"SetText", &luna_wrapper_wxDataViewIconText::_bind_SetText},
+	{"base_GetClassInfo", &luna_wrapper_wxDataViewIconText::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxDataViewIconText::_bind___eq},
 	{0,0}
 };

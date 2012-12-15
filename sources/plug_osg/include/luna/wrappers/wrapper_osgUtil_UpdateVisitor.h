@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return UpdateVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return UpdateVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return UpdateVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return UpdateVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return UpdateVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::UpdateVisitor::libraryName() const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::UpdateVisitor::libraryName();
+		return UpdateVisitor::libraryName();
 	};
 
 	// const char * osgUtil::UpdateVisitor::className() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::UpdateVisitor::className();
+		return UpdateVisitor::className();
 	};
 
 	// void osgUtil::UpdateVisitor::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::reset();
+		return UpdateVisitor::reset();
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Geode & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Billboard & node)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::LightSource & node)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Group & node)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Transform & node)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Projection & node)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::Switch & node)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::LOD & node)
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 	// void osgUtil::UpdateVisitor::apply(osg::OccluderNode & node)
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::UpdateVisitor::apply(node);
+		return UpdateVisitor::apply(node);
 	};
 
 

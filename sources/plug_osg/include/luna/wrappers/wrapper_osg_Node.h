@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Node::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Node::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Node::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Node::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Node::getUserData();
 	};
 
 	// osg::Object * osg::Node::cloneType() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::cloneType();
+		return Node::cloneType();
 	};
 
 	// osg::Object * osg::Node::clone(const osg::CopyOp & copyop) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::clone(copyop);
+		return Node::clone(copyop);
 	};
 
 	// bool osg::Node::isSameKindAs(const osg::Object * obj) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Node::isSameKindAs(obj);
+		return Node::isSameKindAs(obj);
 	};
 
 	// const char * osg::Node::libraryName() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Node::libraryName();
+		return Node::libraryName();
 	};
 
 	// const char * osg::Node::className() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Node::className();
+		return Node::className();
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Node::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Node::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Node::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -145,7 +145,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Node::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Node::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Node::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Node::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -181,7 +181,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Node::asGeode();
 	};
 
 	// void osg::Node::accept(osg::NodeVisitor & nv)
@@ -191,7 +191,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::accept(nv);
+		return Node::accept(nv);
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return Node::ascend(nv);
 	};
 
 	// void osg::Node::traverse(osg::NodeVisitor & arg1)
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::traverse(arg1);
+		return Node::traverse(arg1);
 	};
 
 	// osg::BoundingSphered osg::Node::computeBound() const
@@ -220,7 +220,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Node::computeBound();
+		return Node::computeBound();
 	};
 
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
@@ -230,7 +230,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::releaseGLObjects(arg1);
+		return Node::releaseGLObjects(arg1);
 	};
 
 

@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TransformFeedbackBufferBinding::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TransformFeedbackBufferBinding::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TransformFeedbackBufferBinding::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TransformFeedbackBufferBinding::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TransformFeedbackBufferBinding::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TransformFeedbackBufferBinding::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TransformFeedbackBufferBinding::asTexture();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return TransformFeedbackBufferBinding::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return TransformFeedbackBufferBinding::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return TransformFeedbackBufferBinding::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return TransformFeedbackBufferBinding::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return TransformFeedbackBufferBinding::releaseGLObjects(arg1);
 	};
 
 	// unsigned int osg::BufferIndexBinding::getMember() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<unsigned>());
 		}
 
-		return osg::BufferIndexBinding::getMember();
+		return TransformFeedbackBufferBinding::getMember();
 	};
 
 	// void osg::BufferIndexBinding::apply(osg::State & arg1) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferIndexBinding::apply(arg1);
+		return TransformFeedbackBufferBinding::apply(arg1);
 	};
 
 	// osg::Object * osg::TransformFeedbackBufferBinding::cloneType() const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::cloneType();
+		return TransformFeedbackBufferBinding::cloneType();
 	};
 
 	// osg::Object * osg::TransformFeedbackBufferBinding::clone(const osg::CopyOp & arg1) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::clone(arg1);
+		return TransformFeedbackBufferBinding::clone(arg1);
 	};
 
 	// bool osg::TransformFeedbackBufferBinding::isSameKindAs(const osg::Object * obj) const
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::isSameKindAs(obj);
+		return TransformFeedbackBufferBinding::isSameKindAs(obj);
 	};
 
 	// const char * osg::TransformFeedbackBufferBinding::libraryName() const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::libraryName();
+		return TransformFeedbackBufferBinding::libraryName();
 	};
 
 	// const char * osg::TransformFeedbackBufferBinding::className() const
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::className();
+		return TransformFeedbackBufferBinding::className();
 	};
 
 	// osg::StateAttribute::Type osg::TransformFeedbackBufferBinding::getType() const
@@ -205,7 +205,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::getType();
+		return TransformFeedbackBufferBinding::getType();
 	};
 
 	// int osg::TransformFeedbackBufferBinding::compare(const osg::StateAttribute & sa) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TransformFeedbackBufferBinding::compare(sa);
+		return TransformFeedbackBufferBinding::compare(sa);
 	};
 
 

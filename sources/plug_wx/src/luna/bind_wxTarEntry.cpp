@@ -264,6 +264,25 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_SetSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetInternalName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -852,6 +871,63 @@ public:
 		return 0;
 	}
 
+	// void wxTarEntry::base_SetSize(long long size)
+	static int _bind_base_SetSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::base_SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::base_SetSize(long long size)\nClass arguments details:\n");
+		}
+
+		long long size=(long long)lua_tointeger(L,2);
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTarEntry::base_SetSize(long long)");
+		}
+		self->wxTarEntry::SetSize(size);
+
+		return 0;
+	}
+
+	// long long wxTarEntry::base_GetSize() const
+	static int _bind_base_GetSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::base_GetSize() const function, expected prototype:\nlong long wxTarEntry::base_GetSize() const\nClass arguments details:\n");
+		}
+
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::base_GetSize() const");
+		}
+		long long lret = self->wxTarEntry::GetSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxTarEntry::base_GetInternalName() const
+	static int _bind_base_GetInternalName(lua_State *L) {
+		if (!_lg_typecheck_base_GetInternalName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::base_GetInternalName() const function, expected prototype:\nwxString wxTarEntry::base_GetInternalName() const\nClass arguments details:\n");
+		}
+
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::base_GetInternalName() const");
+		}
+		wxString lret = self->wxTarEntry::GetInternalName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -897,6 +973,9 @@ luna_RegType LunaTraits< wxTarEntry >::methods[] = {
 	{"GetTypeFlag", &luna_wrapper_wxTarEntry::_bind_GetTypeFlag},
 	{"SetTypeFlag", &luna_wrapper_wxTarEntry::_bind_SetTypeFlag},
 	{"GetInternalName", &luna_wrapper_wxTarEntry::_bind_GetInternalName},
+	{"base_SetSize", &luna_wrapper_wxTarEntry::_bind_base_SetSize},
+	{"base_GetSize", &luna_wrapper_wxTarEntry::_bind_base_GetSize},
+	{"base_GetInternalName", &luna_wrapper_wxTarEntry::_bind_base_GetInternalName},
 	{"dynCast", &luna_wrapper_wxTarEntry::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTarEntry::_bind___eq},
 	{0,0}

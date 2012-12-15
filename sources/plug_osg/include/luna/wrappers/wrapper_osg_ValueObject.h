@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ValueObject::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ValueObject::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ValueObject::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ValueObject::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ValueObject::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ValueObject::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ValueObject::cloneType() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ValueObject::cloneType();
+		return ValueObject::cloneType();
 	};
 
 	// osg::Object * osg::ValueObject::clone(const osg::CopyOp & arg1) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ValueObject::clone(arg1);
+		return ValueObject::clone(arg1);
 	};
 
 	// bool osg::ValueObject::isSameKindAs(const osg::Object * obj) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ValueObject::isSameKindAs(obj);
+		return ValueObject::isSameKindAs(obj);
 	};
 
 	// const char * osg::ValueObject::libraryName() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ValueObject::libraryName();
+		return ValueObject::libraryName();
 	};
 
 	// const char * osg::ValueObject::className() const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ValueObject::className();
+		return ValueObject::className();
 	};
 
 	// bool osg::ValueObject::set(osg::ValueObject::SetValueVisitor & gvv)
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ValueObject::set(gvv);
+		return ValueObject::set(gvv);
 	};
 
 

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ShaderAttribute::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ShaderAttribute::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ShaderAttribute::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShaderAttribute::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShaderAttribute::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ShaderAttribute::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return ShaderAttribute::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return ShaderAttribute::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return ShaderAttribute::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return ShaderAttribute::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Object * osg::ShaderAttribute::cloneType() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShaderAttribute::cloneType();
+		return ShaderAttribute::cloneType();
 	};
 
 	// osg::Object * osg::ShaderAttribute::clone(const osg::CopyOp & arg1) const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShaderAttribute::clone(arg1);
+		return ShaderAttribute::clone(arg1);
 	};
 
 	// bool osg::ShaderAttribute::isSameKindAs(const osg::Object * obj) const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ShaderAttribute::isSameKindAs(obj);
+		return ShaderAttribute::isSameKindAs(obj);
 	};
 
 	// const char * osg::ShaderAttribute::libraryName() const
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShaderAttribute::libraryName();
+		return ShaderAttribute::libraryName();
 	};
 
 	// const char * osg::ShaderAttribute::className() const
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShaderAttribute::className();
+		return ShaderAttribute::className();
 	};
 
 	// int osg::ShaderAttribute::compare(const osg::StateAttribute & sa) const
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::ShaderAttribute::compare(sa);
+		return ShaderAttribute::compare(sa);
 	};
 
 	// osg::StateAttribute::Type osg::ShaderAttribute::getType() const
@@ -174,7 +174,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::ShaderAttribute::getType();
+		return ShaderAttribute::getType();
 	};
 
 	// bool osg::ShaderAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ShaderAttribute::getModeUsage(arg1);
+		return ShaderAttribute::getModeUsage(arg1);
 	};
 
 	// void osg::ShaderAttribute::apply(osg::State & arg1) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ShaderAttribute::apply(arg1);
+		return ShaderAttribute::apply(arg1);
 	};
 
 	// void osg::ShaderAttribute::compileGLObjects(osg::State & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ShaderAttribute::compileGLObjects(arg1);
+		return ShaderAttribute::compileGLObjects(arg1);
 	};
 
 	// void osg::ShaderAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ShaderAttribute::releaseGLObjects(arg1);
+		return ShaderAttribute::releaseGLObjects(arg1);
 	};
 
 

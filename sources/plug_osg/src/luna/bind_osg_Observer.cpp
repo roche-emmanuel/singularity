@@ -78,6 +78,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_objectDeleted(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -135,6 +142,25 @@ public:
 		return 0;
 	}
 
+	// void osg::Observer::base_objectDeleted(void * arg1)
+	static int _bind_base_objectDeleted(lua_State *L) {
+		if (!_lg_typecheck_base_objectDeleted(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Observer::base_objectDeleted(void * arg1) function, expected prototype:\nvoid osg::Observer::base_objectDeleted(void * arg1)\nClass arguments details:\n");
+		}
+
+		void* _arg1=(Luna< void >::check(L,2));
+
+		osg::Observer* self=(Luna< osg::Observer >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Observer::base_objectDeleted(void *)");
+		}
+		self->Observer::objectDeleted(_arg1);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -157,6 +183,7 @@ const int LunaTraits< osg::Observer >::uniqueIDs[] = {58375525,0};
 
 luna_RegType LunaTraits< osg::Observer >::methods[] = {
 	{"objectDeleted", &luna_wrapper_osg_Observer::_bind_objectDeleted},
+	{"base_objectDeleted", &luna_wrapper_osg_Observer::_bind_base_objectDeleted},
 	{"dynCast", &luna_wrapper_osg_Observer::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_Observer::_bind___eq},
 	{0,0}

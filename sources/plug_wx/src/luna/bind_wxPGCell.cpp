@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPGCell* ptr= dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		//wxPGCell* ptr= dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* ptr= luna_caster< wxObject, wxPGCell >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -205,6 +206,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -228,7 +235,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPGCell* other_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,1));
 		if( !other_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg other in wxPGCell::wxPGCell function");
 		}
@@ -247,17 +254,17 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,1),lua_objlen(L,1));
-		const wxBitmap* bitmap_ptr=luatop>1 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2)) : NULL;
+		const wxBitmap* bitmap_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,2)) : NULL;
 		if( luatop>1 && !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxPGCell::wxPGCell function");
 		}
 		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : wxNullBitmap;
-		const wxColour* fgCol_ptr=luatop>2 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxColour* fgCol_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxColour >(L,3)) : NULL;
 		if( luatop>2 && !fgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fgCol in wxPGCell::wxPGCell function");
 		}
 		const wxColour & fgCol=luatop>2 ? *fgCol_ptr : wxNullColour;
-		const wxColour* bgCol_ptr=luatop>3 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxColour* bgCol_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxColour >(L,4)) : NULL;
 		if( luatop>3 && !bgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bgCol in wxPGCell::wxPGCell function");
 		}
@@ -284,7 +291,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other)\nClass arguments details:\narg 2 ID = 56813631\n");
 		}
 
-		const wxPGCell* other_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,2));
+		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
 		if( !other_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg other in wxPGCell::wxPGCell function");
 		}
@@ -303,17 +310,17 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
-		const wxBitmap* bitmap_ptr=luatop>2 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxBitmap* bitmap_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,3)) : NULL;
 		if( luatop>2 && !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxPGCell::wxPGCell function");
 		}
 		const wxBitmap & bitmap=luatop>2 ? *bitmap_ptr : wxNullBitmap;
-		const wxColour* fgCol_ptr=luatop>3 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxColour* fgCol_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxColour >(L,4)) : NULL;
 		if( luatop>3 && !fgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fgCol in wxPGCell::wxPGCell function");
 		}
 		const wxColour & fgCol=luatop>3 ? *fgCol_ptr : wxNullColour;
-		const wxColour* bgCol_ptr=luatop>4 ? dynamic_cast< wxColour* >(Luna< wxObject >::check(L,5)) : NULL;
+		const wxColour* bgCol_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxColour >(L,5)) : NULL;
 		if( luatop>4 && !bgCol_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bgCol in wxPGCell::wxPGCell function");
 		}
@@ -345,7 +352,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const");
@@ -366,7 +373,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData()");
@@ -396,7 +403,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGCell::HasText() const");
@@ -414,13 +421,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGCell::MergeFrom(const wxPGCell & srcCell) function, expected prototype:\nvoid wxPGCell::MergeFrom(const wxPGCell & srcCell)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPGCell* srcCell_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,2));
+		const wxPGCell* srcCell_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
 		if( !srcCell_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg srcCell in wxPGCell::MergeFrom function");
 		}
 		const wxPGCell & srcCell=*srcCell_ptr;
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::MergeFrom(const wxPGCell &)");
@@ -439,7 +446,7 @@ public:
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetText(const wxString &)");
@@ -456,13 +463,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxPGCell::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxPGCell::SetBitmap function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetBitmap(const wxBitmap &)");
@@ -479,13 +486,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetFgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxPGCell::SetFgCol function");
 		}
 		const wxColour & col=*col_ptr;
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetFgCol(const wxColour &)");
@@ -502,13 +509,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFont(const wxFont & font) function, expected prototype:\nvoid wxPGCell::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxPGCell::SetFont function");
 		}
 		const wxFont & font=*font_ptr;
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetFont(const wxFont &)");
@@ -525,13 +532,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetBgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxPGCell::SetBgCol function");
 		}
 		const wxColour & col=*col_ptr;
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetBgCol(const wxColour &)");
@@ -549,7 +556,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxPGCell::GetText() const");
@@ -568,7 +575,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxBitmap & wxPGCell::GetBitmap() const");
@@ -589,7 +596,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetFgCol() const");
@@ -610,7 +617,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxFont & wxPGCell::GetFont() const");
@@ -631,7 +638,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetBgCol() const");
@@ -652,7 +659,7 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGCell::SetEmptyData()");
@@ -670,13 +677,34 @@ public:
 		}
 
 
-		wxPGCell* self=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,1));
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGCell::IsInvalid() const");
 		}
 		bool lret = self->IsInvalid();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPGCell::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGCell::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGCell::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPGCell::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -717,6 +745,7 @@ luna_RegType LunaTraits< wxPGCell >::methods[] = {
 	{"GetBgCol", &luna_wrapper_wxPGCell::_bind_GetBgCol},
 	{"SetEmptyData", &luna_wrapper_wxPGCell::_bind_SetEmptyData},
 	{"IsInvalid", &luna_wrapper_wxPGCell::_bind_IsInvalid},
+	{"base_GetClassInfo", &luna_wrapper_wxPGCell::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxPGCell::_bind___eq},
 	{0,0}
 };

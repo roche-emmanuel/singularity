@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxIconizeEvent* ptr= dynamic_cast< wxIconizeEvent* >(Luna< wxObject >::check(L,1));
+		//wxIconizeEvent* ptr= dynamic_cast< wxIconizeEvent* >(Luna< wxObject >::check(L,1));
+		wxIconizeEvent* ptr= luna_caster< wxObject, wxIconizeEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,6 +55,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -67,7 +80,7 @@ public:
 		}
 
 
-		wxIconizeEvent* self=dynamic_cast< wxIconizeEvent* >(Luna< wxObject >::check(L,1));
+		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::IsIconized() const");
@@ -86,13 +99,53 @@ public:
 		}
 
 
-		wxIconizeEvent* self=dynamic_cast< wxIconizeEvent* >(Luna< wxObject >::check(L,1));
+		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIconizeEvent::Iconized() const");
 		}
 		bool lret = self->Iconized();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxIconizeEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIconizeEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIconizeEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIconizeEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxIconizeEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxIconizeEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxIconizeEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxIconizeEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxIconizeEvent* self=Luna< wxObject >::checkSubType< wxIconizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxIconizeEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxIconizeEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -122,6 +175,8 @@ const int LunaTraits< wxIconizeEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxIconizeEvent >::methods[] = {
 	{"IsIconized", &luna_wrapper_wxIconizeEvent::_bind_IsIconized},
 	{"Iconized", &luna_wrapper_wxIconizeEvent::_bind_Iconized},
+	{"base_GetClassInfo", &luna_wrapper_wxIconizeEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxIconizeEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxIconizeEvent::_bind___eq},
 	{0,0}
 };

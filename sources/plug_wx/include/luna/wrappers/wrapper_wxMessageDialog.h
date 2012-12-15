@@ -426,15 +426,6 @@ public:
 		return wxMessageDialog::GetDefaultAttributes();
 	};
 
-	// bool wxWindow::HasTransparentBackground()
-	bool HasTransparentBackground() {
-		if(_obj.pushFunction("HasTransparentBackground")) {
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMessageDialog::HasTransparentBackground();
-	};
-
 	// void wxWindow::Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	void Refresh(bool eraseBackground = true, const wxRect * rect = NULL) {
 		if(_obj.pushFunction("Refresh")) {
@@ -455,16 +446,6 @@ public:
 		return wxMessageDialog::Update();
 	};
 
-	// bool wxWindow::SetBackgroundColour(const wxColour & colour)
-	bool SetBackgroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetBackgroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMessageDialog::SetBackgroundColour(colour);
-	};
-
 	// bool wxWindow::SetBackgroundStyle(wxBackgroundStyle style)
 	bool SetBackgroundStyle(wxBackgroundStyle style) {
 		if(_obj.pushFunction("SetBackgroundStyle")) {
@@ -483,16 +464,6 @@ public:
 		}
 
 		return wxMessageDialog::SetFont(font);
-	};
-
-	// bool wxWindow::SetForegroundColour(const wxColour & colour)
-	bool SetForegroundColour(const wxColour & colour) {
-		if(_obj.pushFunction("SetForegroundColour")) {
-			_obj.pushArg(&colour);
-			return (_obj.callFunction<bool>());
-		}
-
-		return wxMessageDialog::SetForegroundColour(colour);
 	};
 
 	// bool wxWindow::ShouldInheritColours() const

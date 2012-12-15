@@ -75,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const function, expected prototype:\nbool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* proto=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* proto=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::basic_type_wrapper* self=(Luna< osgDB::basic_type_wrapper >::check(L,1));
 		if(!self) {
