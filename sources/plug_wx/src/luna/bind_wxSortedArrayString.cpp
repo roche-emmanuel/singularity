@@ -27,17 +27,6 @@ public:
 	}
 
 	// Derived class converters:
-	static int _cast_from_wxArrayString(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSortedArrayString* ptr= static_cast< wxSortedArrayString* >(Luna< wxArrayString >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSortedArrayString >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 
@@ -75,7 +64,6 @@ luna_RegType LunaTraits< wxSortedArrayString >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< wxSortedArrayString >::converters[] = {
-	{"wxArrayString", &luna_wrapper_wxSortedArrayString::_cast_from_wxArrayString},
 	{0,0}
 };
 

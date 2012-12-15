@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_FinishedObjectReadCallback(lua_State* L, lua_Table* dum) : osgDB::FinishedObjectReadCallback(), _obj(L,-1) {};
 
 
 

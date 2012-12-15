@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiToolBarArt.h>
+
 class luna_wrapper_wxAuiToolBarArt {
 public:
 	typedef Luna< wxAuiToolBarArt > luna_t;
@@ -288,7 +290,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::SetFont(const wxFont & font) function, expected prototype:\nvoid wxAuiToolBarArt::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxAuiToolBarArt::SetFont function");
 		}
@@ -371,12 +373,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawBackground function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiToolBarArt::DrawBackground function");
@@ -400,12 +402,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawLabel(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawLabel(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawLabel function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::DrawLabel function");
@@ -434,12 +436,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::DrawButton function");
@@ -468,12 +470,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawDropDownButton(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawDropDownButton(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawDropDownButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::DrawDropDownButton function");
@@ -502,12 +504,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawControlLabel(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawControlLabel(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\narg 4 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawControlLabel function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::DrawControlLabel function");
@@ -536,12 +538,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawSeparator(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawSeparator(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawSeparator function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiToolBarArt::DrawSeparator function");
@@ -565,12 +567,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawGripper(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiToolBarArt::DrawGripper(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawGripper function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiToolBarArt::DrawGripper function");
@@ -594,12 +596,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiToolBarArt::DrawOverflowButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, int state) function, expected prototype:\nvoid wxAuiToolBarArt::DrawOverflowButton(wxDC & dc, wxWindow * wnd, const wxRect & rect, int state)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::DrawOverflowButton function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,4));
 		if( !rect_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxAuiToolBarArt::DrawOverflowButton function");
@@ -624,12 +626,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBarArt::GetLabelSize(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item) function, expected prototype:\nwxSize wxAuiToolBarArt::GetLabelSize(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::GetLabelSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::GetLabelSize function");
@@ -657,12 +659,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxAuiToolBarArt::GetToolSize(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item) function, expected prototype:\nwxSize wxAuiToolBarArt::GetToolSize(wxDC & dc, wxWindow * wnd, const wxAuiToolBarItem & item)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 95634835\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxAuiToolBarArt::GetToolSize function");
 		}
 		wxDC & dc=*dc_ptr;
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxAuiToolBarItem* item_ptr=(Luna< wxAuiToolBarItem >::check(L,4));
 		if( !item_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg item in wxAuiToolBarArt::GetToolSize function");
@@ -730,7 +732,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxAuiToolBarArt::ShowDropDown(wxWindow * wnd, const wxAuiToolBarItemArray & items) function, expected prototype:\nint wxAuiToolBarArt::ShowDropDown(wxWindow * wnd, const wxAuiToolBarItemArray & items)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 29562974\n");
 		}
 
-		wxWindow* wnd=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxAuiToolBarItemArray* items_ptr=(Luna< wxAuiToolBarItemArray >::check(L,3));
 		if( !items_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg items in wxAuiToolBarArt::ShowDropDown function");
@@ -776,8 +778,6 @@ wxAuiToolBarArt* LunaTraits< wxAuiToolBarArt >::_bind_ctor(lua_State *L) {
 	// int wxAuiToolBarArt::GetElementSize(int element_id)
 	// void wxAuiToolBarArt::SetElementSize(int element_id, int size)
 	// int wxAuiToolBarArt::ShowDropDown(wxWindow * wnd, const wxAuiToolBarItemArray & items)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiToolBarArt >::_bind_dtor(wxAuiToolBarArt* obj) {

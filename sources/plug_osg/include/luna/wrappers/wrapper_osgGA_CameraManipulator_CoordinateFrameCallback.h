@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgGA_CameraManipulator_CoordinateFrameCallback(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator::CoordinateFrameCallback(), _obj(L,-1) {};
 
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
 	osg::Matrixd getCoordinateFrame(const osg::Vec3d & position) const {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellRenderer.h>
+
 class luna_wrapper_wxGridCellRenderer {
 public:
 	typedef Luna< wxGridCellRenderer > luna_t;
@@ -127,7 +129,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxGridCellRenderer::Draw function");
 		}
 		wxGridCellAttr & attr=*attr_ptr;
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,4));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,4));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxGridCellRenderer::Draw function");
 		}
@@ -168,7 +170,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg attr in wxGridCellRenderer::GetBestSize function");
 		}
 		wxGridCellAttr & attr=*attr_ptr;
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,4));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,4));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxGridCellRenderer::GetBestSize function");
 		}
@@ -201,8 +203,6 @@ wxGridCellRenderer* LunaTraits< wxGridCellRenderer >::_bind_ctor(lua_State *L) {
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellRenderer >::_bind_dtor(wxGridCellRenderer* obj) {

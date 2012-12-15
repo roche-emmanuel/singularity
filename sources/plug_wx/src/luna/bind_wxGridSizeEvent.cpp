@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridSizeEvent.h>
+
 class luna_wrapper_wxGridSizeEvent {
 public:
 	typedef Luna< wxGridSizeEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridSizeEvent* ptr= dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		//wxGridSizeEvent* ptr= dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* ptr= luna_caster< wxObject, wxGridSizeEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -76,6 +79,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -89,7 +104,7 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::AltDown() const");
@@ -108,7 +123,7 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ControlDown() const");
@@ -127,7 +142,7 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxGridSizeEvent::GetPosition()");
@@ -149,7 +164,7 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxGridSizeEvent::GetRowOrCol()");
@@ -168,7 +183,7 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::MetaDown() const");
@@ -187,13 +202,53 @@ public:
 		}
 
 
-		wxGridSizeEvent* self=dynamic_cast< wxGridSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridSizeEvent::ShiftDown() const");
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxGridSizeEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridSizeEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridSizeEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridSizeEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxGridSizeEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxGridSizeEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridSizeEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridSizeEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxGridSizeEvent* self=Luna< wxObject >::checkSubType< wxGridSizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridSizeEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxGridSizeEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -207,8 +262,6 @@ wxGridSizeEvent* LunaTraits< wxGridSizeEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridSizeEvent >::_bind_dtor(wxGridSizeEvent* obj) {
@@ -229,6 +282,8 @@ luna_RegType LunaTraits< wxGridSizeEvent >::methods[] = {
 	{"GetRowOrCol", &luna_wrapper_wxGridSizeEvent::_bind_GetRowOrCol},
 	{"MetaDown", &luna_wrapper_wxGridSizeEvent::_bind_MetaDown},
 	{"ShiftDown", &luna_wrapper_wxGridSizeEvent::_bind_ShiftDown},
+	{"base_GetClassInfo", &luna_wrapper_wxGridSizeEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxGridSizeEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxGridSizeEvent::_bind___eq},
 	{0,0}
 };

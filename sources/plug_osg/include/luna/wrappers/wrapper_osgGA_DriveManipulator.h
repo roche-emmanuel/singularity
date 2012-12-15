@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DriveManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DriveManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DriveManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DriveManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DriveManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DriveManipulator::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::cloneType();
+		return DriveManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::GUIEventHandler::clone(arg1);
+		return DriveManipulator::clone(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return DriveManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return DriveManipulator::libraryName();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return DriveManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return DriveManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setCoordinateFrameCallback(cb);
+		return DriveManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
@@ -150,7 +150,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceMode();
+		return DriveManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::CameraManipulator::getFusionDistanceValue() const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceValue();
+		return DriveManipulator::getFusionDistanceValue();
 	};
 
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return DriveManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return DriveManipulator::getHomePosition(eye, center, up);
 	};
 
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setAutoComputeHomePosition(flag);
+		return DriveManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// const char * osgGA::DriveManipulator::className() const
@@ -203,7 +203,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::DriveManipulator::className();
+		return DriveManipulator::className();
 	};
 
 	// void osgGA::DriveManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::setByMatrix(matrix);
+		return DriveManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::DriveManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
@@ -223,7 +223,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::setByInverseMatrix(matrix);
+		return DriveManipulator::setByInverseMatrix(matrix);
 	};
 
 	// osg::Matrixd osgGA::DriveManipulator::getMatrix() const
@@ -232,7 +232,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::DriveManipulator::getMatrix();
+		return DriveManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::DriveManipulator::getInverseMatrix() const
@@ -241,7 +241,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::DriveManipulator::getInverseMatrix();
+		return DriveManipulator::getInverseMatrix();
 	};
 
 	// void osgGA::DriveManipulator::setNode(osg::Node * arg1)
@@ -251,7 +251,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::setNode(arg1);
+		return DriveManipulator::setNode(arg1);
 	};
 
 	// const osg::Node * osgGA::DriveManipulator::getNode() const
@@ -260,7 +260,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::DriveManipulator::getNode();
+		return DriveManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::DriveManipulator::getNode()
@@ -269,7 +269,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::DriveManipulator::getNode();
+		return DriveManipulator::getNode();
 	};
 
 	// void osgGA::DriveManipulator::computeHomePosition()
@@ -278,7 +278,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::computeHomePosition();
+		return DriveManipulator::computeHomePosition();
 	};
 
 	// void osgGA::DriveManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -289,7 +289,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::home(arg1, arg2);
+		return DriveManipulator::home(arg1, arg2);
 	};
 
 	// void osgGA::DriveManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -300,7 +300,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::init(arg1, arg2);
+		return DriveManipulator::init(arg1, arg2);
 	};
 
 	// bool osgGA::DriveManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -311,7 +311,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::DriveManipulator::handle(ea, us);
+		return DriveManipulator::handle(ea, us);
 	};
 
 	// void osgGA::DriveManipulator::getUsage(osg::ApplicationUsage & usage) const
@@ -321,7 +321,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::DriveManipulator::getUsage(usage);
+		return DriveManipulator::getUsage(usage);
 	};
 
 

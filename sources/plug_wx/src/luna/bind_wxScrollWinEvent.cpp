@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxScrollWinEvent.h>
+
 class luna_wrapper_wxScrollWinEvent {
 public:
 	typedef Luna< wxScrollWinEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxScrollWinEvent* ptr= dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		//wxScrollWinEvent* ptr= dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		wxScrollWinEvent* ptr= luna_caster< wxObject, wxScrollWinEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -66,6 +69,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -79,7 +94,7 @@ public:
 		}
 
 
-		wxScrollWinEvent* self=dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetOrientation() const");
@@ -98,7 +113,7 @@ public:
 		}
 
 
-		wxScrollWinEvent* self=dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetPosition() const");
@@ -118,7 +133,7 @@ public:
 
 		int orient=(int)lua_tointeger(L,2);
 
-		wxScrollWinEvent* self=dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetOrientation(int)");
@@ -137,7 +152,7 @@ public:
 
 		int pos=(int)lua_tointeger(L,2);
 
-		wxScrollWinEvent* self=dynamic_cast< wxScrollWinEvent* >(Luna< wxObject >::check(L,1));
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetPosition(int)");
@@ -145,6 +160,46 @@ public:
 		self->SetPosition(pos);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxScrollWinEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxScrollWinEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxScrollWinEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxScrollWinEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxScrollWinEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxScrollWinEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxScrollWinEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -156,8 +211,6 @@ wxScrollWinEvent* LunaTraits< wxScrollWinEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxScrollWinEvent >::_bind_dtor(wxScrollWinEvent* obj) {
@@ -176,6 +229,8 @@ luna_RegType LunaTraits< wxScrollWinEvent >::methods[] = {
 	{"GetPosition", &luna_wrapper_wxScrollWinEvent::_bind_GetPosition},
 	{"SetOrientation", &luna_wrapper_wxScrollWinEvent::_bind_SetOrientation},
 	{"SetPosition", &luna_wrapper_wxScrollWinEvent::_bind_SetPosition},
+	{"base_GetClassInfo", &luna_wrapper_wxScrollWinEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxScrollWinEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxScrollWinEvent::_bind___eq},
 	{0,0}
 };

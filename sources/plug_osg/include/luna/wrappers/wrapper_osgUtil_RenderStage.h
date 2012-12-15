@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return RenderStage::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return RenderStage::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return RenderStage::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderStage::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderStage::getUserData();
 	};
 
 	// const char * osgUtil::RenderBin::libraryName() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::RenderBin::libraryName();
+		return RenderStage::libraryName();
 	};
 
 	// void osgUtil::RenderBin::sortImplementation()
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortImplementation();
+		return RenderStage::sortImplementation();
 	};
 
 	// void osgUtil::RenderBin::sortByState()
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortByState();
+		return RenderStage::sortByState();
 	};
 
 	// void osgUtil::RenderBin::sortByStateThenFrontToBack()
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortByStateThenFrontToBack();
+		return RenderStage::sortByStateThenFrontToBack();
 	};
 
 	// void osgUtil::RenderBin::sortFrontToBack()
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortFrontToBack();
+		return RenderStage::sortFrontToBack();
 	};
 
 	// void osgUtil::RenderBin::sortBackToFront()
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortBackToFront();
+		return RenderStage::sortBackToFront();
 	};
 
 	// void osgUtil::RenderBin::sortTraversalOrder()
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortTraversalOrder();
+		return RenderStage::sortTraversalOrder();
 	};
 
 	// osg::Object * osgUtil::RenderStage::cloneType() const
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::RenderStage::cloneType();
+		return RenderStage::cloneType();
 	};
 
 	// osg::Object * osgUtil::RenderStage::clone(const osg::CopyOp & arg1) const
@@ -145,7 +145,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::RenderStage::clone(arg1);
+		return RenderStage::clone(arg1);
 	};
 
 	// bool osgUtil::RenderStage::isSameKindAs(const osg::Object * obj) const
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::RenderStage::isSameKindAs(obj);
+		return RenderStage::isSameKindAs(obj);
 	};
 
 	// const char * osgUtil::RenderStage::className() const
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::RenderStage::className();
+		return RenderStage::className();
 	};
 
 	// void osgUtil::RenderStage::reset()
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::reset();
+		return RenderStage::reset();
 	};
 
 	// void osgUtil::RenderStage::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::addPositionedAttribute(matrix, attr);
+		return RenderStage::addPositionedAttribute(matrix, attr);
 	};
 
 	// void osgUtil::RenderStage::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::addPositionedTextureAttribute(textureUnit, matrix, attr);
+		return RenderStage::addPositionedTextureAttribute(textureUnit, matrix, attr);
 	};
 
 	// void osgUtil::RenderStage::sort()
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::sort();
+		return RenderStage::sort();
 	};
 
 	// void osgUtil::RenderStage::drawPreRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::drawPreRenderStages(renderInfo, previous);
+		return RenderStage::drawPreRenderStages(renderInfo, previous);
 	};
 
 	// void osgUtil::RenderStage::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::draw(renderInfo, previous);
+		return RenderStage::draw(renderInfo, previous);
 	};
 
 	// void osgUtil::RenderStage::drawInner(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous, bool & doCopyTexture)
@@ -239,7 +239,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::drawInner(renderInfo, previous, doCopyTexture);
+		return RenderStage::drawInner(renderInfo, previous, doCopyTexture);
 	};
 
 	// void osgUtil::RenderStage::drawPostRenderStages(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -250,7 +250,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::drawPostRenderStages(renderInfo, previous);
+		return RenderStage::drawPostRenderStages(renderInfo, previous);
 	};
 
 	// void osgUtil::RenderStage::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -261,7 +261,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::drawImplementation(renderInfo, previous);
+		return RenderStage::drawImplementation(renderInfo, previous);
 	};
 
 	// unsigned int osgUtil::RenderStage::computeNumberOfDynamicRenderLeaves() const
@@ -270,7 +270,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osgUtil::RenderStage::computeNumberOfDynamicRenderLeaves();
+		return RenderStage::computeNumberOfDynamicRenderLeaves();
 	};
 
 	// void osgUtil::RenderStage::releaseGLObjects(osg::State * state = 0) const
@@ -280,7 +280,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderStage::releaseGLObjects(state);
+		return RenderStage::releaseGLObjects(state);
 	};
 
 

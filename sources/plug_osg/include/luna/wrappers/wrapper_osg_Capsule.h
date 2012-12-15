@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Capsule::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Capsule::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Capsule::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Capsule::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Capsule::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Capsule::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Capsule::cloneType() const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Capsule::cloneType();
+		return Capsule::cloneType();
 	};
 
 	// osg::Object * osg::Capsule::clone(const osg::CopyOp & arg1) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Capsule::clone(arg1);
+		return Capsule::clone(arg1);
 	};
 
 	// bool osg::Capsule::isSameKindAs(const osg::Object * obj) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Capsule::isSameKindAs(obj);
+		return Capsule::isSameKindAs(obj);
 	};
 
 	// const char * osg::Capsule::libraryName() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Capsule::libraryName();
+		return Capsule::libraryName();
 	};
 
 	// const char * osg::Capsule::className() const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Capsule::className();
+		return Capsule::className();
 	};
 
 	// void osg::Capsule::accept(osg::ShapeVisitor & arg1)
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Capsule::accept(arg1);
+		return Capsule::accept(arg1);
 	};
 
 	// void osg::Capsule::accept(osg::ConstShapeVisitor & arg1) const
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Capsule::accept(arg1);
+		return Capsule::accept(arg1);
 	};
 
 

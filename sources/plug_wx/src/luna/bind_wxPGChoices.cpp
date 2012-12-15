@@ -310,7 +310,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGChoices::wxPGChoices(wxPGChoicesData * data) function, expected prototype:\nwxPGChoices::wxPGChoices(wxPGChoicesData * data)\nClass arguments details:\narg 1 ID = 60960840\n");
 		}
 
-		wxPGChoicesData* data=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,1));
+		wxPGChoicesData* data=(Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1));
 
 		return new wxPGChoices(data);
 	}
@@ -358,7 +358,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGChoices::AssignData(wxPGChoicesData * data) function, expected prototype:\nvoid wxPGChoices::AssignData(wxPGChoicesData * data)\nClass arguments details:\narg 1 ID = 60960840\n");
 		}
 
-		wxPGChoicesData* data=dynamic_cast< wxPGChoicesData* >(Luna< wxObjectRefData >::check(L,2));
+		wxPGChoicesData* data=(Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,2));
 
 		wxPGChoices* self=(Luna< wxPGChoices >::check(L,1));
 		if(!self) {
@@ -608,7 +608,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry & wxPGChoices::Insert(const wxPGChoiceEntry & entry, int index) function, expected prototype:\nwxPGChoiceEntry & wxPGChoices::Insert(const wxPGChoiceEntry & entry, int index)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPGChoiceEntry* entry_ptr=dynamic_cast< wxPGChoiceEntry* >(Luna< wxObject >::check(L,2));
+		const wxPGChoiceEntry* entry_ptr=(Luna< wxObject >::checkSubType< wxPGChoiceEntry >(L,2));
 		if( !entry_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg entry in wxPGChoices::Insert function");
 		}

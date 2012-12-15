@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return KdTree::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return KdTree::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return KdTree::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return KdTree::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return KdTree::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return KdTree::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::KdTree::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::KdTree::cloneType();
+		return KdTree::cloneType();
 	};
 
 	// osg::Object * osg::KdTree::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::KdTree::clone(arg1);
+		return KdTree::clone(arg1);
 	};
 
 	// bool osg::KdTree::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::KdTree::isSameKindAs(obj);
+		return KdTree::isSameKindAs(obj);
 	};
 
 	// const char * osg::KdTree::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::KdTree::libraryName();
+		return KdTree::libraryName();
 	};
 
 	// const char * osg::KdTree::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::KdTree::className();
+		return KdTree::className();
 	};
 
 	// void osg::KdTree::accept(osg::ShapeVisitor & arg1)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::KdTree::accept(arg1);
+		return KdTree::accept(arg1);
 	};
 
 	// void osg::KdTree::accept(osg::ConstShapeVisitor & arg1) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::KdTree::accept(arg1);
+		return KdTree::accept(arg1);
 	};
 
 	// bool osg::KdTree::intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::KdTree::LineSegmentIntersections & intersections) const
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::KdTree::intersect(start, end, intersections);
+		return KdTree::intersect(start, end, intersections);
 	};
 
 

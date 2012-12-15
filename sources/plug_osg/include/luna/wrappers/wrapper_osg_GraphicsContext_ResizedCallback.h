@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_GraphicsContext_ResizedCallback(lua_State* L, lua_Table* dum) : osg::GraphicsContext::ResizedCallback(), _obj(L,-1) {};
 
 	// void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height)
 	void resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height) {

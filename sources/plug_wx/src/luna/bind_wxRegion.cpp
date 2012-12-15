@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRegion.h>
+
 class luna_wrapper_wxRegion {
 public:
 	typedef Luna< wxRegion > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRegion* ptr= dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		//wxRegion* ptr= dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* ptr= luna_caster< wxObject, wxRegion >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -110,6 +113,87 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2))) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_11(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_12(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (!dynamic_cast< wxRect* >(Luna< wxRect >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_13(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_14(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25723480)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3)) ) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_15(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_16(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( (!dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3))) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -320,6 +404,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsEmpty(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -395,7 +497,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(const wxRegion & region) function, expected prototype:\nwxRegion::wxRegion(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,1));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::wxRegion function");
 		}
@@ -404,18 +506,18 @@ public:
 		return new wxRegion(region);
 	}
 
-	// wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE)
+	// wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)
 	static wxRegion* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = wxODDEVEN_RULE)\nClass arguments details:\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)\nClass arguments details:\narg 2 ID = 25723480\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		size_t n=(size_t)lua_tointeger(L,1);
 		const wxPoint* points=(Luna< wxPoint >::check(L,2));
-		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : wxODDEVEN_RULE;
+		wxPolygonFillMode fillStyle=luatop>2 ? (wxPolygonFillMode)lua_tointeger(L,3) : ::wxODDEVEN_RULE;
 
 		return new wxRegion(n, points, fillStyle);
 	}
@@ -427,7 +529,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(const wxBitmap & bmp) function, expected prototype:\nwxRegion::wxRegion(const wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
 		}
@@ -445,12 +547,12 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
 		}
 		const wxBitmap & bmp=*bmp_ptr;
-		const wxColour* transColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* transColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !transColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::wxRegion function");
 		}
@@ -458,6 +560,141 @@ public:
 		int tolerance=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
 		return new wxRegion(bmp, transColour, tolerance);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data)
+	static wxRegion* _bind_ctor_overload_9(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_9(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxRegion(L,NULL);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height)
+	static wxRegion* _bind_ctor_overload_10(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_10(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, int x, int y, int width, int height)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int width=(int)lua_tointeger(L,4);
+		int height=(int)lua_tointeger(L,5);
+
+		return new wrapper_wxRegion(L,NULL, x, y, width, height);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight)
+	static wxRegion* _bind_ctor_overload_11(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_11(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxPoint & topLeft, const wxPoint & bottomRight)\nClass arguments details:\narg 2 ID = 25723480\narg 3 ID = 25723480\n");
+		}
+
+		const wxPoint* topLeft_ptr=(Luna< wxPoint >::check(L,2));
+		if( !topLeft_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg topLeft in wxRegion::wxRegion function");
+		}
+		const wxPoint & topLeft=*topLeft_ptr;
+		const wxPoint* bottomRight_ptr=(Luna< wxPoint >::check(L,3));
+		if( !bottomRight_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bottomRight in wxRegion::wxRegion function");
+		}
+		const wxPoint & bottomRight=*bottomRight_ptr;
+
+		return new wrapper_wxRegion(L,NULL, topLeft, bottomRight);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxRect & rect)
+	static wxRegion* _bind_ctor_overload_12(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_12(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxRect & rect) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxRect & rect)\nClass arguments details:\narg 2 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxRegion::wxRegion function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		return new wrapper_wxRegion(L,NULL, rect);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxRegion & region)
+	static wxRegion* _bind_ctor_overload_13(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_13(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxRegion & region) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxRegion & region)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
+		if( !region_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::wxRegion function");
+		}
+		const wxRegion & region=*region_ptr;
+
+		return new wrapper_wxRegion(L,NULL, region);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)
+	static wxRegion* _bind_ctor_overload_14(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_14(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)\nClass arguments details:\narg 3 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t n=(size_t)lua_tointeger(L,2);
+		const wxPoint* points=(Luna< wxPoint >::check(L,3));
+		wxPolygonFillMode fillStyle=luatop>3 ? (wxPolygonFillMode)lua_tointeger(L,4) : ::wxODDEVEN_RULE;
+
+		return new wrapper_wxRegion(L,NULL, n, points, fillStyle);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp)
+	static wxRegion* _bind_ctor_overload_15(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_15(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bmp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
+		}
+		const wxBitmap & bmp=*bmp_ptr;
+
+		return new wrapper_wxRegion(L,NULL, bmp);
+	}
+
+	// wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0)
+	static wxRegion* _bind_ctor_overload_16(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_16(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0) function, expected prototype:\nwxRegion::wxRegion(lua_Table * data, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bmp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::wxRegion function");
+		}
+		const wxBitmap & bmp=*bmp_ptr;
+		const wxColour* transColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
+		if( !transColour_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::wxRegion function");
+		}
+		const wxColour & transColour=*transColour_ptr;
+		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_wxRegion(L,NULL, bmp, transColour, tolerance);
 	}
 
 	// Overload binder for wxRegion::wxRegion
@@ -470,8 +707,16 @@ public:
 		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 		if (_lg_typecheck_ctor_overload_7(L)) return _bind_ctor_overload_7(L);
 		if (_lg_typecheck_ctor_overload_8(L)) return _bind_ctor_overload_8(L);
+		if (_lg_typecheck_ctor_overload_9(L)) return _bind_ctor_overload_9(L);
+		if (_lg_typecheck_ctor_overload_10(L)) return _bind_ctor_overload_10(L);
+		if (_lg_typecheck_ctor_overload_11(L)) return _bind_ctor_overload_11(L);
+		if (_lg_typecheck_ctor_overload_12(L)) return _bind_ctor_overload_12(L);
+		if (_lg_typecheck_ctor_overload_13(L)) return _bind_ctor_overload_13(L);
+		if (_lg_typecheck_ctor_overload_14(L)) return _bind_ctor_overload_14(L);
+		if (_lg_typecheck_ctor_overload_15(L)) return _bind_ctor_overload_15(L);
+		if (_lg_typecheck_ctor_overload_16(L)) return _bind_ctor_overload_16(L);
 
-		luaL_error(L, "error in function wxRegion, cannot match any of the overloads for function wxRegion:\n  wxRegion()\n  wxRegion(int, int, int, int)\n  wxRegion(const wxPoint &, const wxPoint &)\n  wxRegion(const wxRect &)\n  wxRegion(const wxRegion &)\n  wxRegion(size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(const wxBitmap &)\n  wxRegion(const wxBitmap &, const wxColour &, int)\n");
+		luaL_error(L, "error in function wxRegion, cannot match any of the overloads for function wxRegion:\n  wxRegion()\n  wxRegion(int, int, int, int)\n  wxRegion(const wxPoint &, const wxPoint &)\n  wxRegion(const wxRect &)\n  wxRegion(const wxRegion &)\n  wxRegion(size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(const wxBitmap &)\n  wxRegion(const wxBitmap &, const wxColour &, int)\n  wxRegion(lua_Table *)\n  wxRegion(lua_Table *, int, int, int, int)\n  wxRegion(lua_Table *, const wxPoint &, const wxPoint &)\n  wxRegion(lua_Table *, const wxRect &)\n  wxRegion(lua_Table *, const wxRegion &)\n  wxRegion(lua_Table *, size_t, const wxPoint *, wxPolygonFillMode)\n  wxRegion(lua_Table *, const wxBitmap &)\n  wxRegion(lua_Table *, const wxBitmap &, const wxColour &, int)\n");
 		return NULL;
 	}
 
@@ -485,7 +730,7 @@ public:
 		}
 
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxRegion::Clear()");
@@ -505,7 +750,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int) const");
@@ -529,7 +774,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxPoint &) const");
@@ -552,7 +797,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(int, int, int, int) const");
@@ -576,7 +821,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRegionContain wxRegion::Contains(const wxRect &) const");
@@ -606,7 +851,7 @@ public:
 		}
 
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap wxRegion::ConvertToBitmap() const");
@@ -632,7 +877,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxRegion::GetBox(int &, int &, int &, int &) const");
@@ -650,7 +895,7 @@ public:
 		}
 
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRect wxRegion::GetBox() const");
@@ -685,7 +930,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(int, int, int, int)");
@@ -709,7 +954,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRect &)");
@@ -727,13 +972,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::Intersect(const wxRegion & region) function, expected prototype:\nbool wxRegion::Intersect(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::Intersect function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Intersect(const wxRegion &)");
@@ -762,7 +1007,7 @@ public:
 		}
 
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::IsEmpty() const");
@@ -780,13 +1025,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::IsEqual(const wxRegion & region) const function, expected prototype:\nbool wxRegion::IsEqual(const wxRegion & region) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::IsEqual function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::IsEqual(const wxRegion &) const");
@@ -807,7 +1052,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(int, int)");
@@ -831,7 +1076,7 @@ public:
 		}
 		const wxPoint & pt=*pt_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Offset(const wxPoint &)");
@@ -864,7 +1109,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRect &)");
@@ -882,13 +1127,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::Subtract(const wxRegion & region) function, expected prototype:\nbool wxRegion::Subtract(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::Subtract function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Subtract(const wxRegion &)");
@@ -920,7 +1165,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Union(int, int, int, int)");
@@ -944,7 +1189,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRect &)");
@@ -962,13 +1207,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::Union(const wxRegion & region) function, expected prototype:\nbool wxRegion::Union(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::Union function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxRegion &)");
@@ -986,13 +1231,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::Union(const wxBitmap & bmp) function, expected prototype:\nbool wxRegion::Union(const wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::Union function");
 		}
 		const wxBitmap & bmp=*bmp_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &)");
@@ -1012,19 +1257,19 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxRegion::Union function");
 		}
 		const wxBitmap & bmp=*bmp_ptr;
-		const wxColour* transColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* transColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !transColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg transColour in wxRegion::Union function");
 		}
 		const wxColour & transColour=*transColour_ptr;
 		int tolerance=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Union(const wxBitmap &, const wxColour &, int)");
@@ -1059,7 +1304,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(int, int, int, int)");
@@ -1083,7 +1328,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRect &)");
@@ -1101,13 +1346,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxRegion::Xor(const wxRegion & region) function, expected prototype:\nbool wxRegion::Xor(const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxRegion::Xor function");
 		}
 		const wxRegion & region=*region_ptr;
 
-		wxRegion* self=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,1));
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxRegion::Xor(const wxRegion &)");
@@ -1126,6 +1371,64 @@ public:
 
 		luaL_error(L, "error in function Xor, cannot match any of the overloads for function Xor:\n  Xor(int, int, int, int)\n  Xor(const wxRect &)\n  Xor(const wxRegion &)\n");
 		return 0;
+	}
+
+	// wxClassInfo * wxRegion::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRegion::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRegion::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRegion::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxRegion::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxRegion::base_Clear()
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxRegion::base_Clear() function, expected prototype:\nvoid wxRegion::base_Clear()\nClass arguments details:\n");
+		}
+
+
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxRegion::base_Clear()");
+		}
+		self->wxRegion::Clear();
+
+		return 0;
+	}
+
+	// bool wxRegion::base_IsEmpty() const
+	static int _bind_base_IsEmpty(lua_State *L) {
+		if (!_lg_typecheck_base_IsEmpty(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxRegion::base_IsEmpty() const function, expected prototype:\nbool wxRegion::base_IsEmpty() const\nClass arguments details:\n");
+		}
+
+
+		wxRegion* self=Luna< wxObject >::checkSubType< wxRegion >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxRegion::base_IsEmpty() const");
+		}
+		bool lret = self->wxRegion::IsEmpty();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -1160,6 +1463,9 @@ luna_RegType LunaTraits< wxRegion >::methods[] = {
 	{"Subtract", &luna_wrapper_wxRegion::_bind_Subtract},
 	{"Union", &luna_wrapper_wxRegion::_bind_Union},
 	{"Xor", &luna_wrapper_wxRegion::_bind_Xor},
+	{"base_GetClassInfo", &luna_wrapper_wxRegion::_bind_base_GetClassInfo},
+	{"base_Clear", &luna_wrapper_wxRegion::_bind_base_Clear},
+	{"base_IsEmpty", &luna_wrapper_wxRegion::_bind_base_IsEmpty},
 	{"__eq", &luna_wrapper_wxRegion::_bind___eq},
 	{0,0}
 };

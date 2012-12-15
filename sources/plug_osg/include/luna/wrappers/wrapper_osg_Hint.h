@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Hint::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Hint::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Hint::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Hint::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Hint::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Hint::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Hint::asTexture();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return Hint::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return Hint::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Hint::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return Hint::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return Hint::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Hint::cloneType() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Hint::cloneType();
+		return Hint::cloneType();
 	};
 
 	// osg::Object * osg::Hint::clone(const osg::CopyOp & arg1) const
@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Hint::clone(arg1);
+		return Hint::clone(arg1);
 	};
 
 	// bool osg::Hint::isSameKindAs(const osg::Object * obj) const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Hint::isSameKindAs(obj);
+		return Hint::isSameKindAs(obj);
 	};
 
 	// const char * osg::Hint::libraryName() const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Hint::libraryName();
+		return Hint::libraryName();
 	};
 
 	// const char * osg::Hint::className() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Hint::className();
+		return Hint::className();
 	};
 
 	// osg::StateAttribute::Type osg::Hint::getType() const
@@ -186,7 +186,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Hint::getType();
+		return Hint::getType();
 	};
 
 	// int osg::Hint::compare(const osg::StateAttribute & sa) const
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Hint::compare(sa);
+		return Hint::compare(sa);
 	};
 
 	// unsigned int osg::Hint::getMember() const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Hint::getMember();
+		return Hint::getMember();
 	};
 
 	// void osg::Hint::apply(osg::State & arg1) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Hint::apply(arg1);
+		return Hint::apply(arg1);
 	};
 
 

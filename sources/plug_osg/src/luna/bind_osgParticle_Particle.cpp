@@ -1174,7 +1174,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setSizeInterpolator(osgParticle::Interpolator * ri) function, expected prototype:\nvoid osgParticle::Particle::setSizeInterpolator(osgParticle::Interpolator * ri)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgParticle::Interpolator* ri=dynamic_cast< osgParticle::Interpolator* >(Luna< osg::Referenced >::check(L,2));
+		osgParticle::Interpolator* ri=(Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,2));
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
@@ -1193,7 +1193,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setAlphaInterpolator(osgParticle::Interpolator * ai) function, expected prototype:\nvoid osgParticle::Particle::setAlphaInterpolator(osgParticle::Interpolator * ai)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgParticle::Interpolator* ai=dynamic_cast< osgParticle::Interpolator* >(Luna< osg::Referenced >::check(L,2));
+		osgParticle::Interpolator* ai=(Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,2));
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
@@ -1212,7 +1212,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setColorInterpolator(osgParticle::Interpolator * ci) function, expected prototype:\nvoid osgParticle::Particle::setColorInterpolator(osgParticle::Interpolator * ci)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgParticle::Interpolator* ci=dynamic_cast< osgParticle::Interpolator* >(Luna< osg::Referenced >::check(L,2));
+		osgParticle::Interpolator* ci=(Luna< osg::Referenced >::checkSubType< osgParticle::Interpolator >(L,2));
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
@@ -1807,7 +1807,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setDrawable(osg::Drawable * d) function, expected prototype:\nvoid osgParticle::Particle::setDrawable(osg::Drawable * d)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Drawable* d=dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2));
+		osg::Drawable* d=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {
@@ -1847,7 +1847,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgParticle::Particle::setUpTexCoordsAsPartOfConnectedParticleSystem(osgParticle::ParticleSystem * ps) function, expected prototype:\nvoid osgParticle::Particle::setUpTexCoordsAsPartOfConnectedParticleSystem(osgParticle::ParticleSystem * ps)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgParticle::ParticleSystem* ps=dynamic_cast< osgParticle::ParticleSystem* >(Luna< osg::Referenced >::check(L,2));
+		osgParticle::ParticleSystem* ps=(Luna< osg::Referenced >::checkSubType< osgParticle::ParticleSystem >(L,2));
 
 		osgParticle::Particle* self=(Luna< osgParticle::Particle >::check(L,1));
 		if(!self) {

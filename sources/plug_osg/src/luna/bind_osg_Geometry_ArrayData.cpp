@@ -151,7 +151,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Array* a=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,1));
+		osg::Array* a=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,1));
 		osg::Geometry::AttributeBinding b=(osg::Geometry::AttributeBinding)lua_tointeger(L,2);
 		unsigned char n = (unsigned char)(lua_tointeger(L,3));
 
@@ -167,8 +167,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Array* a=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,1));
-		osg::IndexArray* i=dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2));
+		osg::Array* a=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,1));
+		osg::IndexArray* i=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2));
 		osg::Geometry::AttributeBinding b=(osg::Geometry::AttributeBinding)lua_tointeger(L,3);
 		unsigned char n = (unsigned char)(lua_tointeger(L,4));
 

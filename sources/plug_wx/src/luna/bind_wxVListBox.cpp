@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVListBox.h>
+
 class luna_wrapper_wxVListBox {
 public:
 	typedef Luna< wxVListBox > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxVListBox >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxVListBox* ptr= static_cast< wxVListBox* >(Luna< wxTrackable >::check(L,1));
+		//wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxObject >::check(L,1));
+		wxVListBox* ptr= luna_caster< wxObject, wxVListBox >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -51,7 +43,8 @@ public:
 
 	static int _cast_from_wxVarScrollHelperBase(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		//wxVListBox* ptr= dynamic_cast< wxVListBox* >(Luna< wxVarScrollHelperBase >::check(L,1));
+		wxVListBox* ptr= luna_caster< wxVarScrollHelperBase, wxVListBox >::cast(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -82,8 +75,6 @@ wxVListBox* LunaTraits< wxVListBox >::_bind_ctor(lua_State *L) {
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxVListBox >::_bind_dtor(wxVListBox* obj) {
@@ -104,7 +95,6 @@ luna_RegType LunaTraits< wxVListBox >::methods[] = {
 
 luna_ConverterType LunaTraits< wxVListBox >::converters[] = {
 	{"wxObject", &luna_wrapper_wxVListBox::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxVListBox::_cast_from_wxTrackable},
 	{"wxVarScrollHelperBase", &luna_wrapper_wxVListBox::_cast_from_wxVarScrollHelperBase},
 	{0,0}
 };

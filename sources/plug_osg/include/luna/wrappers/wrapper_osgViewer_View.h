@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return View::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return View::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return View::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return View::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return View::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return View::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgViewer::View::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::View::cloneType();
+		return View::cloneType();
 	};
 
 	// osg::Object * osgViewer::View::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::View::clone(arg1);
+		return View::clone(arg1);
 	};
 
 	// bool osgViewer::View::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::View::isSameKindAs(obj);
+		return View::isSameKindAs(obj);
 	};
 
 	// const char * osgViewer::View::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::View::libraryName();
+		return View::libraryName();
 	};
 
 	// const char * osgViewer::View::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::View::className();
+		return View::className();
 	};
 
 	// osg::View * osgViewer::View::asView()
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<osg::View*>());
 		}
 
-		return osgViewer::View::asView();
+		return View::asView();
 	};
 
 	// void osgViewer::View::take(osg::View & rhs)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::take(rhs);
+		return View::take(rhs);
 	};
 
 	// void osgViewer::View::setStartTick(unsigned long long tick)
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::setStartTick(tick);
+		return View::setStartTick(tick);
 	};
 
 	// void osgViewer::View::setSceneData(osg::Node * node)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::setSceneData(node);
+		return View::setSceneData(node);
 	};
 
 	// void osgViewer::View::requestRedraw()
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestRedraw();
+		return View::requestRedraw();
 	};
 
 	// void osgViewer::View::requestContinuousUpdate(bool needed = true)
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestContinuousUpdate(needed);
+		return View::requestContinuousUpdate(needed);
 	};
 
 	// void osgViewer::View::requestWarpPointer(float x, float y)
@@ -188,12 +188,21 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestWarpPointer(x, y);
+		return View::requestWarpPointer(x, y);
 	};
 
 
 protected:
 	// osg::GraphicsOperation * osgViewer::View::createRenderer(osg::Camera * camera)
+	osg::GraphicsOperation * createRenderer(osg::Camera * camera) {
+		if(_obj.pushFunction("createRenderer")) {
+			_obj.pushArg(camera);
+			return (_obj.callFunction<osg::GraphicsOperation*>());
+		}
+
+		return View::createRenderer(camera);
+	};
+
 
 };
 

@@ -90,22 +90,22 @@ public:
 
 
 	// Function binds:
-	// wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID)
+	// wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)
 	static int _bind_FindOrCreatePen(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreatePen(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID) function, expected prototype:\nwxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) function, expected prototype:\nwxPen * wxPenList::FindOrCreatePen(const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPenList::FindOrCreatePen function");
 		}
 		const wxColour & colour=*colour_ptr;
 		int width=luatop>2 ? (int)lua_tointeger(L,3) : 1;
-		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : wxPENSTYLE_SOLID;
+		wxPenStyle style=luatop>3 ? (wxPenStyle)lua_tointeger(L,4) : ::wxPENSTYLE_SOLID;
 
 		wxPenList* self=(Luna< wxPenList >::check(L,1));
 		if(!self) {

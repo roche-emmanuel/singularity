@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Object::isSameKindAs(arg1);
+		return AudioSink::isSameKindAs(arg1);
 	};
 
 	// void osg::Object::setName(const std::string & name)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AudioSink::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AudioSink::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AudioSink::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AudioSink::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AudioSink::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AudioSink::releaseGLObjects(arg1);
 	};
 
 	// const char * osg::AudioSink::libraryName() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AudioSink::libraryName();
+		return AudioSink::libraryName();
 	};
 
 	// const char * osg::AudioSink::className() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AudioSink::className();
+		return AudioSink::className();
 	};
 
 	// void osg::AudioSink::play()
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::AudioSink::getDelay();
+		return AudioSink::getDelay();
 	};
 
 	// void osg::AudioSink::setDelay(const double delay)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AudioSink::setDelay(delay);
+		return AudioSink::setDelay(delay);
 	};
 
 	// void osg::AudioSink::setVolume(float arg1)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AudioSink::setVolume(arg1);
+		return AudioSink::setVolume(arg1);
 	};
 
 	// float osg::AudioSink::getVolume() const
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::AudioSink::getVolume();
+		return AudioSink::getVolume();
 	};
 
 

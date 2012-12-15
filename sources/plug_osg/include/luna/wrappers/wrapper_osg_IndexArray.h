@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return IndexArray::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return IndexArray::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return IndexArray::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return IndexArray::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return IndexArray::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return IndexArray::releaseGLObjects(state);
 	};
 
 	// const char * osg::Array::libraryName() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Array::libraryName();
+		return IndexArray::libraryName();
 	};
 
 	// const char * osg::Array::className() const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Array::className();
+		return IndexArray::className();
 	};
 
 	// void osg::Array::accept(osg::ArrayVisitor & arg1)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Array::trim();
+		return IndexArray::trim();
 	};
 
 	// bool osg::IndexArray::isSameKindAs(const osg::Object * obj) const
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::IndexArray::isSameKindAs(obj);
+		return IndexArray::isSameKindAs(obj);
 	};
 
 	// unsigned int osg::IndexArray::index(unsigned int pos) const

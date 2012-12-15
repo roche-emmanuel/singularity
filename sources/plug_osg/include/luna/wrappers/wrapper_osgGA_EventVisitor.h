@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return EventVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return EventVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return EventVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return EventVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return EventVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgGA::EventVisitor::libraryName() const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::EventVisitor::libraryName();
+		return EventVisitor::libraryName();
 	};
 
 	// const char * osgGA::EventVisitor::className() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::EventVisitor::className();
+		return EventVisitor::className();
 	};
 
 	// void osgGA::EventVisitor::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::reset();
+		return EventVisitor::reset();
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Geode & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Billboard & node)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::LightSource & node)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Group & node)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Transform & node)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Projection & node)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::Switch & node)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::LOD & node)
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 	// void osgGA::EventVisitor::apply(osg::OccluderNode & node)
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::EventVisitor::apply(node);
+		return EventVisitor::apply(node);
 	};
 
 

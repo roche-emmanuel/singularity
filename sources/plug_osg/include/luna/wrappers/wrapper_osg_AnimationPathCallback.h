@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return AnimationPathCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return AnimationPathCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return AnimationPathCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnimationPathCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return AnimationPathCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return AnimationPathCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::AnimationPathCallback::cloneType() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AnimationPathCallback::cloneType();
+		return AnimationPathCallback::cloneType();
 	};
 
 	// osg::Object * osg::AnimationPathCallback::clone(const osg::CopyOp & arg1) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::AnimationPathCallback::clone(arg1);
+		return AnimationPathCallback::clone(arg1);
 	};
 
 	// bool osg::AnimationPathCallback::isSameKindAs(const osg::Object * obj) const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::AnimationPathCallback::isSameKindAs(obj);
+		return AnimationPathCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::AnimationPathCallback::libraryName() const
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AnimationPathCallback::libraryName();
+		return AnimationPathCallback::libraryName();
 	};
 
 	// const char * osg::AnimationPathCallback::className() const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::AnimationPathCallback::className();
+		return AnimationPathCallback::className();
 	};
 
 	// void osg::AnimationPathCallback::reset()
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AnimationPathCallback::reset();
+		return AnimationPathCallback::reset();
 	};
 
 	// double osg::AnimationPathCallback::getAnimationTime() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::AnimationPathCallback::getAnimationTime();
+		return AnimationPathCallback::getAnimationTime();
 	};
 
 	// void osg::AnimationPathCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AnimationPathCallback::operator()(node, nv);
+		return AnimationPathCallback::operator()(node, nv);
 	};
 
 

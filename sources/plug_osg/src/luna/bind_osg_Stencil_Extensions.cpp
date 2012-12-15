@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Stencil::Extensions* ptr= dynamic_cast< osg::Stencil::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Stencil::Extensions* ptr= dynamic_cast< osg::Stencil::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stencil::Extensions* ptr= luna_caster< osg::Referenced, osg::Stencil::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -128,7 +129,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Stencil::Extensions* self=dynamic_cast< osg::Stencil::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setupGLExtensions(unsigned int)");
@@ -147,7 +148,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Stencil::Extensions* self=dynamic_cast< osg::Stencil::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Stencil::Extensions::setStencilWrapSupported(bool)");
@@ -165,7 +166,7 @@ public:
 		}
 
 
-		osg::Stencil::Extensions* self=dynamic_cast< osg::Stencil::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Stencil::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Stencil::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Stencil::Extensions::isStencilWrapSupported() const");

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPGProperty.h>
+
 class luna_wrapper_wxPGProperty {
 public:
 	typedef Luna< wxPGProperty > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPGProperty* ptr= dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		//wxPGProperty* ptr= dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* ptr= luna_caster< wxObject, wxPGProperty >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -51,6 +54,22 @@ public:
 
 		if( lua_isstring(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -691,6 +710,67 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnSetValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnMeasureImage(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEvent(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DoGetEditorClass(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DoGetValidator(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetChoiceSelection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RefreshChildren(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValueAsString(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -720,12 +800,38 @@ public:
 		return new wxPGProperty(label, name);
 	}
 
+	// wxPGProperty::wxPGProperty(lua_Table * data)
+	static wxPGProperty* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGProperty::wxPGProperty(lua_Table * data) function, expected prototype:\nwxPGProperty::wxPGProperty(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPGProperty(L,NULL);
+	}
+
+	// wxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name)
+	static wxPGProperty* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name) function, expected prototype:\nwxPGProperty::wxPGProperty(lua_Table * data, const wxString & label, const wxString & name)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		}
+
+		wxString label(lua_tostring(L,2),lua_objlen(L,2));
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxPGProperty(L,NULL, label, name);
+	}
+
 	// Overload binder for wxPGProperty::wxPGProperty
 	static wxPGProperty* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxPGProperty, cannot match any of the overloads for function wxPGProperty:\n  wxPGProperty()\n  wxPGProperty(const wxString &, const wxString &)\n");
+		luaL_error(L, "error in function wxPGProperty, cannot match any of the overloads for function wxPGProperty:\n  wxPGProperty()\n  wxPGProperty(const wxString &, const wxString &)\n  wxPGProperty(lua_Table *)\n  wxPGProperty(lua_Table *, const wxString &, const wxString &)\n");
 		return NULL;
 	}
 
@@ -739,7 +845,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::OnSetValue()");
@@ -761,7 +867,7 @@ public:
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::SetValueFromString(const wxString &, int)");
@@ -784,7 +890,7 @@ public:
 		long value=(long)lua_tointeger(L,2);
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::SetValueFromInt(long, int)");
@@ -806,7 +912,7 @@ public:
 
 		int item=luatop>1 ? (int)lua_tointeger(L,2) : -1;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxPGProperty::OnMeasureImage(int) const");
@@ -827,15 +933,15 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxPGProperty::OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event) function, expected prototype:\nbool wxPGProperty::OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
 		}
 
-		wxPropertyGrid* propgrid=dynamic_cast< wxPropertyGrid* >(Luna< wxObject >::check(L,2));
-		wxWindow* wnd_primary=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,4));
+		wxPropertyGrid* propgrid=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxWindow* wnd_primary=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,4));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPGProperty::OnEvent function");
 		}
 		wxEvent & event=*event_ptr;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::OnEvent(wxPropertyGrid *, wxWindow *, wxEvent &)");
@@ -854,7 +960,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGEditor * wxPGProperty::DoGetEditorClass() const");
@@ -875,7 +981,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxValidator * wxPGProperty::DoGetValidator() const");
@@ -897,7 +1003,7 @@ public:
 
 		int column=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGCellRenderer * wxPGProperty::GetCellRenderer(int) const");
@@ -918,7 +1024,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::GetChoiceSelection() const");
@@ -937,7 +1043,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::RefreshChildren()");
@@ -955,7 +1061,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGEditorDialogAdapter * wxPGProperty::GetEditorDialog() const");
@@ -980,7 +1086,7 @@ public:
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 		int value=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_INVALID_VALUE;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::AddChoice(const wxString &, int)");
@@ -1015,9 +1121,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGProperty::AddPrivateChild(wxPGProperty * prop) function, expected prototype:\nvoid wxPGProperty::AddPrivateChild(wxPGProperty * prop)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* prop=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* prop=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::AddPrivateChild(wxPGProperty *)");
@@ -1034,9 +1140,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPGProperty::AppendChild(wxPGProperty * childProperty) function, expected prototype:\nwxPGProperty * wxPGProperty::AppendChild(wxPGProperty * childProperty)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* childProperty=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* childProperty=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::AppendChild(wxPGProperty *)");
@@ -1057,7 +1163,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::AreChildrenComponents() const");
@@ -1078,7 +1184,7 @@ public:
 		wxPGPropertyFlags flag=(wxPGPropertyFlags)lua_tointeger(L,2);
 		bool set=(bool)(lua_toboolean(L,3)==1);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::ChangeFlag(wxPGPropertyFlags, bool)");
@@ -1096,7 +1202,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::DeleteChildren()");
@@ -1115,7 +1221,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::DeleteChoice(int)");
@@ -1136,7 +1242,7 @@ public:
 
 		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::Enable(bool)");
@@ -1154,7 +1260,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GenerateComposedValue() const");
@@ -1175,7 +1281,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		wxString defVal(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GetAttribute(const wxString &, const wxString &) const");
@@ -1196,7 +1302,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		long defVal=(long)lua_tointeger(L,3);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxPGProperty::GetAttributeAsLong(const wxString &, long) const");
@@ -1217,7 +1323,7 @@ public:
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 		double defVal=(double)lua_tonumber(L,3);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double wxPGProperty::GetAttributeAsDouble(const wxString &, double) const");
@@ -1237,7 +1343,7 @@ public:
 
 		int column=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGEditor * wxPGProperty::GetColumnEditor(int) const");
@@ -1258,7 +1364,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxPGProperty::GetBaseName() const");
@@ -1278,7 +1384,7 @@ public:
 
 		unsigned int column=(unsigned int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGCell & wxPGProperty::GetCell(unsigned int) const");
@@ -1300,7 +1406,7 @@ public:
 
 		unsigned int column=(unsigned int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGCell & wxPGProperty::GetCell(unsigned int)");
@@ -1331,7 +1437,7 @@ public:
 
 		unsigned int column=(unsigned int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGCell & wxPGProperty::GetOrCreateCell(unsigned int)");
@@ -1352,7 +1458,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPGProperty::GetChildCount() const");
@@ -1375,7 +1481,7 @@ public:
 		int lh=(int)lua_tointeger(L,2);
 		int iMax=luatop>2 ? (int)lua_tointeger(L,3) : -1;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::GetChildrenHeight(int, int) const");
@@ -1394,7 +1500,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGChoices & wxPGProperty::GetChoices() const");
@@ -1415,7 +1521,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxPGProperty::GetClientData() const");
@@ -1436,7 +1542,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxClientData * wxPGProperty::GetClientObject() const");
@@ -1457,7 +1563,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GetDisplayedString() const");
@@ -1476,7 +1582,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGEditor * wxPGProperty::GetEditorClass() const");
@@ -1497,7 +1603,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPGProperty::GetFlags() const");
@@ -1516,7 +1622,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPropertyGrid * wxPGProperty::GetGrid() const");
@@ -1537,7 +1643,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPropertyGrid * wxPGProperty::GetGridIfDisplayed() const");
@@ -1558,7 +1664,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxPGProperty::GetHelpString() const");
@@ -1577,7 +1683,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPGProperty::GetIndexInParent() const");
@@ -1596,7 +1702,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxPGProperty::GetLabel() const");
@@ -1615,7 +1721,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxPGProperty * wxPGProperty::GetLastVisibleSubItem() const");
@@ -1636,7 +1742,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::GetMainParent() const");
@@ -1657,7 +1763,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::GetMaxLength() const");
@@ -1676,7 +1782,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GetName() const");
@@ -1695,7 +1801,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::GetParent() const");
@@ -1717,7 +1823,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::GetPropertyByName(const wxString &) const");
@@ -1738,7 +1844,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxValidator * wxPGProperty::GetValidator() const");
@@ -1759,7 +1865,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap * wxPGProperty::GetValueImage() const");
@@ -1783,7 +1889,7 @@ public:
 
 		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GetValueAsString(int) const");
@@ -1802,7 +1908,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxPGProperty::GetValueType() const");
@@ -1821,7 +1927,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::GetY() const");
@@ -1841,7 +1947,7 @@ public:
 
 		wxPGPropertyFlags flag=(wxPGPropertyFlags)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int wxPGProperty::HasFlag(wxPGPropertyFlags) const");
@@ -1860,7 +1966,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::HasVisibleChildren() const");
@@ -1871,19 +1977,19 @@ public:
 		return 1;
 	}
 
-	// bool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE)
+	// bool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE)
 	static int _bind_Hide(lua_State *L) {
 		if (!_lg_typecheck_Hide(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE) function, expected prototype:\nbool wxPGProperty::Hide(bool hide, int flags = wxPG_RECURSE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE) function, expected prototype:\nbool wxPGProperty::Hide(bool hide, int flags = ::wxPG_RECURSE)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		bool hide=(bool)(lua_toboolean(L,2)==1);
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::Hide(bool, int)");
@@ -1901,9 +2007,9 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxPGProperty::Index(const wxPGProperty * p) const function, expected prototype:\nint wxPGProperty::Index(const wxPGProperty * p) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPGProperty* p=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		const wxPGProperty* p=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::Index(const wxPGProperty *) const");
@@ -1922,9 +2028,9 @@ public:
 		}
 
 		int index=(int)lua_tointeger(L,2);
-		wxPGProperty* childProperty=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,3));
+		wxPGProperty* childProperty=(Luna< wxObject >::checkSubType< wxPGProperty >(L,3));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::InsertChild(int, wxPGProperty *)");
@@ -1950,7 +2056,7 @@ public:
 		int index=(int)lua_tointeger(L,3);
 		int value=luatop>3 ? (int)lua_tointeger(L,4) : wxPG_INVALID_VALUE;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxPGProperty::InsertChoice(const wxString &, int, int)");
@@ -1969,7 +2075,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsCategory() const");
@@ -1988,7 +2094,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsEnabled() const");
@@ -2007,7 +2113,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsExpanded() const");
@@ -2026,7 +2132,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsRoot() const");
@@ -2044,9 +2150,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxPGProperty::IsSomeParent(wxPGProperty * candidateParent) const function, expected prototype:\nbool wxPGProperty::IsSomeParent(wxPGProperty * candidateParent) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* candidateParent=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* candidateParent=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsSomeParent(wxPGProperty *) const");
@@ -2065,7 +2171,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsTextEditable() const");
@@ -2084,7 +2190,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsValueUnspecified() const");
@@ -2103,7 +2209,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::IsVisible() const");
@@ -2123,7 +2229,7 @@ public:
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::Item(unsigned int) const");
@@ -2144,7 +2250,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::RefreshEditor()");
@@ -2165,7 +2271,7 @@ public:
 
 		bool enable=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetAutoUnspecified(bool)");
@@ -2175,23 +2281,23 @@ public:
 		return 0;
 	}
 
-	// void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE)
+	// void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE)
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetBackgroundColour(const wxColour & colour, int flags = ::wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetBackgroundColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetBackgroundColour(const wxColour &, int)");
@@ -2208,9 +2314,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetEditor(const wxPGEditor * editor) function, expected prototype:\nvoid wxPGProperty::SetEditor(const wxPGEditor * editor)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxPGEditor* editor=dynamic_cast< wxPGEditor* >(Luna< wxObject >::check(L,2));
+		const wxPGEditor* editor=(Luna< wxObject >::checkSubType< wxPGEditor >(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetEditor(const wxPGEditor *)");
@@ -2229,7 +2335,7 @@ public:
 
 		wxString editorName(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetEditor(const wxString &)");
@@ -2256,13 +2362,13 @@ public:
 		}
 
 		int column=(int)lua_tointeger(L,2);
-		const wxPGCell* cell_ptr=dynamic_cast< wxPGCell* >(Luna< wxObject >::check(L,3));
+		const wxPGCell* cell_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,3));
 		if( !cell_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cell in wxPGProperty::SetCell function");
 		}
 		const wxPGCell & cell=*cell_ptr;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetCell(int, const wxPGCell &)");
@@ -2285,7 +2391,7 @@ public:
 		}
 		wxPGChoices & choices=*choices_ptr;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::SetChoices(wxPGChoices &)");
@@ -2305,7 +2411,7 @@ public:
 
 		void* clientData=(Luna< void >::check(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetClientData(void *)");
@@ -2324,7 +2430,7 @@ public:
 
 		wxClientData* clientObject=(Luna< wxClientData >::check(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetClientObject(wxClientData *)");
@@ -2343,7 +2449,7 @@ public:
 
 		int newValue=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetChoiceSelection(int)");
@@ -2363,7 +2469,7 @@ public:
 		wxPGPropertyFlags flag=(wxPGPropertyFlags)lua_tointeger(L,2);
 		bool set=(bool)(lua_toboolean(L,3)==1);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetFlagRecursively(wxPGPropertyFlags, bool)");
@@ -2382,7 +2488,7 @@ public:
 
 		wxString helpString(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetHelpString(const wxString &)");
@@ -2401,7 +2507,7 @@ public:
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetLabel(const wxString &)");
@@ -2420,7 +2526,7 @@ public:
 
 		int maxLen=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::SetMaxLength(int)");
@@ -2440,7 +2546,7 @@ public:
 
 		bool modified=(bool)(lua_toboolean(L,2)==1);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetModifiedStatus(bool)");
@@ -2459,7 +2565,7 @@ public:
 
 		wxString newName(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetName(const wxString &)");
@@ -2478,7 +2584,7 @@ public:
 
 		int flag=(int)lua_tointeger(L,2);
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetParentalType(int)");
@@ -2488,23 +2594,23 @@ public:
 		return 0;
 	}
 
-	// void wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE)
+	// void wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE)
 	static int _bind_SetTextColour(lua_State *L) {
 		if (!_lg_typecheck_SetTextColour(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetTextColour(const wxColour & colour, int flags = wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE) function, expected prototype:\nvoid wxPGProperty::SetTextColour(const wxColour & colour, int flags = ::wxPG_RECURSE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxPGProperty::SetTextColour function");
 		}
 		const wxColour & colour=*colour_ptr;
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxPG_RECURSE;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPG_RECURSE;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetTextColour(const wxColour &, int)");
@@ -2521,13 +2627,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxPGProperty::SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxValidator* validator_ptr=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,2));
+		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
 		if( !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxPGProperty::SetValidator function");
 		}
 		const wxValidator & validator=*validator_ptr;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetValidator(const wxValidator &)");
@@ -2544,13 +2650,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPGProperty::SetValueImage(wxBitmap & bmp) function, expected prototype:\nvoid wxPGProperty::SetValueImage(wxBitmap & bmp)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxBitmap* bmp_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		wxBitmap* bmp_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bmp_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bmp in wxPGProperty::SetValueImage function");
 		}
 		wxBitmap & bmp=*bmp_ptr;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetValueImage(wxBitmap &)");
@@ -2568,7 +2674,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetValueToUnspecified()");
@@ -2589,7 +2695,7 @@ public:
 
 		bool set=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPGProperty::SetWasModified(bool)");
@@ -2607,7 +2713,7 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPGProperty * wxPGProperty::UpdateParentValues()");
@@ -2628,13 +2734,204 @@ public:
 		}
 
 
-		wxPGProperty* self=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,1));
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxPGProperty::UsesAutoUnspecified() const");
 		}
 		bool lret = self->UsesAutoUnspecified();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPGProperty::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGProperty::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGProperty::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGProperty::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPGProperty::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxPGProperty::base_OnSetValue()
+	static int _bind_base_OnSetValue(lua_State *L) {
+		if (!_lg_typecheck_base_OnSetValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::base_OnSetValue() function, expected prototype:\nvoid wxPGProperty::base_OnSetValue()\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGProperty::base_OnSetValue()");
+		}
+		self->wxPGProperty::OnSetValue();
+
+		return 0;
+	}
+
+	// wxSize wxPGProperty::base_OnMeasureImage(int item = -1) const
+	static int _bind_base_OnMeasureImage(lua_State *L) {
+		if (!_lg_typecheck_base_OnMeasureImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxPGProperty::base_OnMeasureImage(int item = -1) const function, expected prototype:\nwxSize wxPGProperty::base_OnMeasureImage(int item = -1) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int item=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxPGProperty::base_OnMeasureImage(int) const");
+		}
+		wxSize stack_lret = self->wxPGProperty::OnMeasureImage(item);
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// bool wxPGProperty::base_OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event)
+	static int _bind_base_OnEvent(lua_State *L) {
+		if (!_lg_typecheck_base_OnEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxPGProperty::base_OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event) function, expected prototype:\nbool wxPGProperty::base_OnEvent(wxPropertyGrid * propgrid, wxWindow * wnd_primary, wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		wxPropertyGrid* propgrid=(Luna< wxObject >::checkSubType< wxPropertyGrid >(L,2));
+		wxWindow* wnd_primary=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,4));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPGProperty::base_OnEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxPGProperty::base_OnEvent(wxPropertyGrid *, wxWindow *, wxEvent &)");
+		}
+		bool lret = self->wxPGProperty::OnEvent(propgrid, wnd_primary, event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const wxPGEditor * wxPGProperty::base_DoGetEditorClass() const
+	static int _bind_base_DoGetEditorClass(lua_State *L) {
+		if (!_lg_typecheck_base_DoGetEditorClass(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxPGEditor * wxPGProperty::base_DoGetEditorClass() const function, expected prototype:\nconst wxPGEditor * wxPGProperty::base_DoGetEditorClass() const\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxPGEditor * wxPGProperty::base_DoGetEditorClass() const");
+		}
+		const wxPGEditor * lret = self->wxPGProperty::DoGetEditorClass();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxPGEditor >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxValidator * wxPGProperty::base_DoGetValidator() const
+	static int _bind_base_DoGetValidator(lua_State *L) {
+		if (!_lg_typecheck_base_DoGetValidator(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxValidator * wxPGProperty::base_DoGetValidator() const function, expected prototype:\nwxValidator * wxPGProperty::base_DoGetValidator() const\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxValidator * wxPGProperty::base_DoGetValidator() const");
+		}
+		wxValidator * lret = self->wxPGProperty::DoGetValidator();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxValidator >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int wxPGProperty::base_GetChoiceSelection() const
+	static int _bind_base_GetChoiceSelection(lua_State *L) {
+		if (!_lg_typecheck_base_GetChoiceSelection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxPGProperty::base_GetChoiceSelection() const function, expected prototype:\nint wxPGProperty::base_GetChoiceSelection() const\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxPGProperty::base_GetChoiceSelection() const");
+		}
+		int lret = self->wxPGProperty::GetChoiceSelection();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxPGProperty::base_RefreshChildren()
+	static int _bind_base_RefreshChildren(lua_State *L) {
+		if (!_lg_typecheck_base_RefreshChildren(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxPGProperty::base_RefreshChildren() function, expected prototype:\nvoid wxPGProperty::base_RefreshChildren()\nClass arguments details:\n");
+		}
+
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxPGProperty::base_RefreshChildren()");
+		}
+		self->wxPGProperty::RefreshChildren();
+
+		return 0;
+	}
+
+	// wxString wxPGProperty::base_GetValueAsString(int argFlags = 0) const
+	static int _bind_base_GetValueAsString(lua_State *L) {
+		if (!_lg_typecheck_base_GetValueAsString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxPGProperty::base_GetValueAsString(int argFlags = 0) const function, expected prototype:\nwxString wxPGProperty::base_GetValueAsString(int argFlags = 0) const\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int argFlags=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+
+		wxPGProperty* self=Luna< wxObject >::checkSubType< wxPGProperty >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxPGProperty::base_GetValueAsString(int) const");
+		}
+		wxString lret = self->wxPGProperty::GetValueAsString(argFlags);
+		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
 	}
@@ -2750,6 +3047,15 @@ luna_RegType LunaTraits< wxPGProperty >::methods[] = {
 	{"SetWasModified", &luna_wrapper_wxPGProperty::_bind_SetWasModified},
 	{"UpdateParentValues", &luna_wrapper_wxPGProperty::_bind_UpdateParentValues},
 	{"UsesAutoUnspecified", &luna_wrapper_wxPGProperty::_bind_UsesAutoUnspecified},
+	{"base_GetClassInfo", &luna_wrapper_wxPGProperty::_bind_base_GetClassInfo},
+	{"base_OnSetValue", &luna_wrapper_wxPGProperty::_bind_base_OnSetValue},
+	{"base_OnMeasureImage", &luna_wrapper_wxPGProperty::_bind_base_OnMeasureImage},
+	{"base_OnEvent", &luna_wrapper_wxPGProperty::_bind_base_OnEvent},
+	{"base_DoGetEditorClass", &luna_wrapper_wxPGProperty::_bind_base_DoGetEditorClass},
+	{"base_DoGetValidator", &luna_wrapper_wxPGProperty::_bind_base_DoGetValidator},
+	{"base_GetChoiceSelection", &luna_wrapper_wxPGProperty::_bind_base_GetChoiceSelection},
+	{"base_RefreshChildren", &luna_wrapper_wxPGProperty::_bind_base_RefreshChildren},
+	{"base_GetValueAsString", &luna_wrapper_wxPGProperty::_bind_base_GetValueAsString},
 	{"__eq", &luna_wrapper_wxPGProperty::_bind___eq},
 	{0,0}
 };

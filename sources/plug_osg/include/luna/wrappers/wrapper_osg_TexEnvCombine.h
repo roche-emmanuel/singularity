@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TexEnvCombine::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TexEnvCombine::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TexEnvCombine::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TexEnvCombine::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TexEnvCombine::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TexEnvCombine::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TexEnvCombine::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return TexEnvCombine::getMember();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return TexEnvCombine::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return TexEnvCombine::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return TexEnvCombine::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return TexEnvCombine::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::TexEnvCombine::cloneType() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TexEnvCombine::cloneType();
+		return TexEnvCombine::cloneType();
 	};
 
 	// osg::Object * osg::TexEnvCombine::clone(const osg::CopyOp & arg1) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TexEnvCombine::clone(arg1);
+		return TexEnvCombine::clone(arg1);
 	};
 
 	// bool osg::TexEnvCombine::isSameKindAs(const osg::Object * obj) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TexEnvCombine::isSameKindAs(obj);
+		return TexEnvCombine::isSameKindAs(obj);
 	};
 
 	// const char * osg::TexEnvCombine::libraryName() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TexEnvCombine::libraryName();
+		return TexEnvCombine::libraryName();
 	};
 
 	// const char * osg::TexEnvCombine::className() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TexEnvCombine::className();
+		return TexEnvCombine::className();
 	};
 
 	// osg::StateAttribute::Type osg::TexEnvCombine::getType() const
@@ -185,7 +185,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::TexEnvCombine::getType();
+		return TexEnvCombine::getType();
 	};
 
 	// bool osg::TexEnvCombine::isTextureAttribute() const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TexEnvCombine::isTextureAttribute();
+		return TexEnvCombine::isTextureAttribute();
 	};
 
 	// int osg::TexEnvCombine::compare(const osg::StateAttribute & sa) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TexEnvCombine::compare(sa);
+		return TexEnvCombine::compare(sa);
 	};
 
 	// void osg::TexEnvCombine::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TexEnvCombine::apply(arg1);
+		return TexEnvCombine::apply(arg1);
 	};
 
 

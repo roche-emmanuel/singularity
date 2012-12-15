@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgGA::AnimationPathManipulator::AnimationCompletedCallback* ptr= dynamic_cast< osgGA::AnimationPathManipulator::AnimationCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgGA::AnimationPathManipulator::AnimationCompletedCallback* ptr= dynamic_cast< osgGA::AnimationPathManipulator::AnimationCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::AnimationPathManipulator::AnimationCompletedCallback* ptr= luna_caster< osg::Referenced, osgGA::AnimationPathManipulator::AnimationCompletedCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,9 +62,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm) function, expected prototype:\nvoid osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgGA::AnimationPathManipulator* apm=dynamic_cast< osgGA::AnimationPathManipulator* >(Luna< osg::Referenced >::check(L,2));
+		const osgGA::AnimationPathManipulator* apm=(Luna< osg::Referenced >::checkSubType< osgGA::AnimationPathManipulator >(L,2));
 
-		osgGA::AnimationPathManipulator::AnimationCompletedCallback* self=dynamic_cast< osgGA::AnimationPathManipulator::AnimationCompletedCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::AnimationPathManipulator::AnimationCompletedCallback* self=Luna< osg::Referenced >::checkSubType< osgGA::AnimationPathManipulator::AnimationCompletedCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator *)");

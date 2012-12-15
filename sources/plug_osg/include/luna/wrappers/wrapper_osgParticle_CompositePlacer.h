@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CompositePlacer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CompositePlacer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CompositePlacer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CompositePlacer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CompositePlacer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return CompositePlacer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::CompositePlacer::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::CompositePlacer::cloneType();
+		return CompositePlacer::cloneType();
 	};
 
 	// osg::Object * osgParticle::CompositePlacer::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::CompositePlacer::clone(arg1);
+		return CompositePlacer::clone(arg1);
 	};
 
 	// bool osgParticle::CompositePlacer::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::CompositePlacer::isSameKindAs(obj);
+		return CompositePlacer::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::CompositePlacer::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::CompositePlacer::libraryName();
+		return CompositePlacer::libraryName();
 	};
 
 	// const char * osgParticle::CompositePlacer::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::CompositePlacer::className();
+		return CompositePlacer::className();
 	};
 
 	// void osgParticle::CompositePlacer::place(osgParticle::Particle * P) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::CompositePlacer::place(P);
+		return CompositePlacer::place(P);
 	};
 
 	// float osgParticle::CompositePlacer::volume() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::CompositePlacer::volume();
+		return CompositePlacer::volume();
 	};
 
 	// osg::Vec3f osgParticle::CompositePlacer::getControlPosition() const
@@ -147,7 +147,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgParticle::CompositePlacer::getControlPosition();
+		return CompositePlacer::getControlPosition();
 	};
 
 

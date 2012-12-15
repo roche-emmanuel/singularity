@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderColumnSimple.h>
+
 class luna_wrapper_wxHeaderColumnSimple {
 public:
 	typedef Luna< wxHeaderColumnSimple > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxHeaderColumn(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHeaderColumnSimple* ptr= dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		//wxHeaderColumnSimple* ptr= dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* ptr= luna_caster< wxHeaderColumn, wxHeaderColumnSimple >::cast(Luna< wxHeaderColumn >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +63,31 @@ public:
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -162,55 +190,244 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_IsResizeable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSortable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsReorderable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsHidden(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetResizeable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSortable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetReorderable(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetHidden(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetTitle(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetTitle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetBitmap(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetBitmap(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetMinWidth(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMinWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetAlignment(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetAlignment(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetFlags(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetFlags(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSortKey(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSortOrder(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSortOrderAscending(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS)
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)
 	static wxHeaderColumnSimple* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_NOT, int flags = wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString title(lua_tostring(L,1),lua_objlen(L,1));
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : wxALIGN_NOT;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_NOT;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(title, width, align, flags);
 	}
 
-	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS)
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)
 	static wxHeaderColumnSimple* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = wxCOL_WIDTH_DEFAULT, wxAlignment align = wxALIGN_CENTER, int flags = wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		int width=luatop>1 ? (int)lua_tointeger(L,2) : wxCOL_WIDTH_DEFAULT;
-		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : wxALIGN_CENTER;
-		int flags=luatop>3 ? (int)lua_tointeger(L,4) : wxCOL_DEFAULT_FLAGS;
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>2 ? (wxAlignment)lua_tointeger(L,3) : ::wxALIGN_CENTER;
+		int flags=luatop>3 ? (int)lua_tointeger(L,4) : ::wxCOL_DEFAULT_FLAGS;
 
 		return new wxHeaderColumnSimple(bitmap, width, align, flags);
+	}
+
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)
+	static wxHeaderColumnSimple* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_NOT;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+
+		return new wrapper_wxHeaderColumnSimple(L,NULL, title, width, align, flags);
+	}
+
+	// wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)
+	static wxHeaderColumnSimple* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) function, expected prototype:\nwxHeaderColumnSimple::wxHeaderColumnSimple(lua_Table * data, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::wxHeaderColumnSimple function");
+		}
+		const wxBitmap & bitmap=*bitmap_ptr;
+		int width=luatop>2 ? (int)lua_tointeger(L,3) : ::wxCOL_WIDTH_DEFAULT;
+		wxAlignment align=luatop>3 ? (wxAlignment)lua_tointeger(L,4) : ::wxALIGN_CENTER;
+		int flags=luatop>4 ? (int)lua_tointeger(L,5) : ::wxCOL_DEFAULT_FLAGS;
+
+		return new wrapper_wxHeaderColumnSimple(L,NULL, bitmap, width, align, flags);
 	}
 
 	// Overload binder for wxHeaderColumnSimple::wxHeaderColumnSimple
 	static wxHeaderColumnSimple* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxHeaderColumnSimple, cannot match any of the overloads for function wxHeaderColumnSimple:\n  wxHeaderColumnSimple(const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(const wxBitmap &, int, wxAlignment, int)\n");
+		luaL_error(L, "error in function wxHeaderColumnSimple, cannot match any of the overloads for function wxHeaderColumnSimple:\n  wxHeaderColumnSimple(const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(const wxBitmap &, int, wxAlignment, int)\n  wxHeaderColumnSimple(lua_Table *, const wxString &, int, wxAlignment, int)\n  wxHeaderColumnSimple(lua_Table *, const wxBitmap &, int, wxAlignment, int)\n");
 		return NULL;
 	}
 
@@ -225,7 +442,7 @@ public:
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetTitle(const wxString &)");
@@ -243,7 +460,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::GetTitle() const");
@@ -261,13 +478,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxHeaderColumnSimple::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::SetBitmap function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetBitmap(const wxBitmap &)");
@@ -285,7 +502,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::GetBitmap() const");
@@ -308,7 +525,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetWidth(int)");
@@ -326,7 +543,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetWidth() const");
@@ -346,7 +563,7 @@ public:
 
 		int minWidth=(int)lua_tointeger(L,2);
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetMinWidth(int)");
@@ -364,7 +581,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetMinWidth() const");
@@ -384,7 +601,7 @@ public:
 
 		wxAlignment align=(wxAlignment)lua_tointeger(L,2);
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetAlignment(wxAlignment)");
@@ -402,7 +619,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::GetAlignment() const");
@@ -422,7 +639,7 @@ public:
 
 		int flags=(int)lua_tointeger(L,2);
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetFlags(int)");
@@ -440,7 +657,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::GetFlags() const");
@@ -459,7 +676,7 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortKey() const");
@@ -479,7 +696,7 @@ public:
 
 		bool ascending=(bool)(lua_toboolean(L,2)==1);
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::SetSortOrder(bool)");
@@ -497,12 +714,456 @@ public:
 		}
 
 
-		wxHeaderColumnSimple* self=dynamic_cast< wxHeaderColumnSimple* >(Luna< wxHeaderColumn >::check(L,1));
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::IsSortOrderAscending() const");
 		}
 		bool lret = self->IsSortOrderAscending();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsResizeable() const
+	static int _bind_base_IsResizeable(lua_State *L) {
+		if (!_lg_typecheck_base_IsResizeable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsResizeable() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsResizeable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsResizeable() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsResizeable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsSortable() const
+	static int _bind_base_IsSortable(lua_State *L) {
+		if (!_lg_typecheck_base_IsSortable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsSortable() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsSortable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortable() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsSortable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsReorderable() const
+	static int _bind_base_IsReorderable(lua_State *L) {
+		if (!_lg_typecheck_base_IsReorderable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsReorderable() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsReorderable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsReorderable() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsReorderable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsHidden() const
+	static int _bind_base_IsHidden(lua_State *L) {
+		if (!_lg_typecheck_base_IsHidden(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsHidden() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsHidden() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsHidden() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsHidden();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetResizeable(bool resizable)
+	static int _bind_base_SetResizeable(lua_State *L) {
+		if (!_lg_typecheck_base_SetResizeable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetResizeable(bool resizable) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetResizeable(bool resizable)\nClass arguments details:\n");
+		}
+
+		bool resizable=(bool)(lua_toboolean(L,2)==1);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetResizeable(bool)");
+		}
+		self->wxHeaderColumnSimple::SetResizeable(resizable);
+
+		return 0;
+	}
+
+	// void wxHeaderColumnSimple::base_SetSortable(bool sortable)
+	static int _bind_base_SetSortable(lua_State *L) {
+		if (!_lg_typecheck_base_SetSortable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetSortable(bool sortable) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetSortable(bool sortable)\nClass arguments details:\n");
+		}
+
+		bool sortable=(bool)(lua_toboolean(L,2)==1);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortable(bool)");
+		}
+		self->wxHeaderColumnSimple::SetSortable(sortable);
+
+		return 0;
+	}
+
+	// void wxHeaderColumnSimple::base_SetReorderable(bool reorderable)
+	static int _bind_base_SetReorderable(lua_State *L) {
+		if (!_lg_typecheck_base_SetReorderable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetReorderable(bool reorderable) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetReorderable(bool reorderable)\nClass arguments details:\n");
+		}
+
+		bool reorderable=(bool)(lua_toboolean(L,2)==1);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetReorderable(bool)");
+		}
+		self->wxHeaderColumnSimple::SetReorderable(reorderable);
+
+		return 0;
+	}
+
+	// void wxHeaderColumnSimple::base_SetHidden(bool hidden)
+	static int _bind_base_SetHidden(lua_State *L) {
+		if (!_lg_typecheck_base_SetHidden(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetHidden(bool hidden) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetHidden(bool hidden)\nClass arguments details:\n");
+		}
+
+		bool hidden=(bool)(lua_toboolean(L,2)==1);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetHidden(bool)");
+		}
+		self->wxHeaderColumnSimple::SetHidden(hidden);
+
+		return 0;
+	}
+
+	// void wxHeaderColumnSimple::base_SetTitle(const wxString & title)
+	static int _bind_base_SetTitle(lua_State *L) {
+		if (!_lg_typecheck_base_SetTitle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetTitle(const wxString & title) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetTitle(const wxString &)");
+		}
+		self->wxHeaderColumnSimple::SetTitle(title);
+
+		return 0;
+	}
+
+	// wxString wxHeaderColumnSimple::base_GetTitle() const
+	static int _bind_base_GetTitle(lua_State *L) {
+		if (!_lg_typecheck_base_GetTitle(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxHeaderColumnSimple::base_GetTitle() const function, expected prototype:\nwxString wxHeaderColumnSimple::base_GetTitle() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxHeaderColumnSimple::base_GetTitle() const");
+		}
+		wxString lret = self->wxHeaderColumnSimple::GetTitle();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetBitmap(const wxBitmap & bitmap)
+	static int _bind_base_SetBitmap(lua_State *L) {
+		if (!_lg_typecheck_base_SetBitmap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxHeaderColumnSimple::base_SetBitmap function");
+		}
+		const wxBitmap & bitmap=*bitmap_ptr;
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetBitmap(const wxBitmap &)");
+		}
+		self->wxHeaderColumnSimple::SetBitmap(bitmap);
+
+		return 0;
+	}
+
+	// wxBitmap wxHeaderColumnSimple::base_GetBitmap() const
+	static int _bind_base_GetBitmap(lua_State *L) {
+		if (!_lg_typecheck_base_GetBitmap(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBitmap wxHeaderColumnSimple::base_GetBitmap() const function, expected prototype:\nwxBitmap wxHeaderColumnSimple::base_GetBitmap() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxBitmap wxHeaderColumnSimple::base_GetBitmap() const");
+		}
+		wxBitmap stack_lret = self->wxHeaderColumnSimple::GetBitmap();
+		wxBitmap* lret = new wxBitmap(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxBitmap >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetWidth(int width)
+	static int _bind_base_SetWidth(lua_State *L) {
+		if (!_lg_typecheck_base_SetWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetWidth(int width) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetWidth(int width)\nClass arguments details:\n");
+		}
+
+		int width=(int)lua_tointeger(L,2);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetWidth(int)");
+		}
+		self->wxHeaderColumnSimple::SetWidth(width);
+
+		return 0;
+	}
+
+	// int wxHeaderColumnSimple::base_GetWidth() const
+	static int _bind_base_GetWidth(lua_State *L) {
+		if (!_lg_typecheck_base_GetWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHeaderColumnSimple::base_GetWidth() const function, expected prototype:\nint wxHeaderColumnSimple::base_GetWidth() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetWidth() const");
+		}
+		int lret = self->wxHeaderColumnSimple::GetWidth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetMinWidth(int minWidth)
+	static int _bind_base_SetMinWidth(lua_State *L) {
+		if (!_lg_typecheck_base_SetMinWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetMinWidth(int minWidth) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetMinWidth(int minWidth)\nClass arguments details:\n");
+		}
+
+		int minWidth=(int)lua_tointeger(L,2);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetMinWidth(int)");
+		}
+		self->wxHeaderColumnSimple::SetMinWidth(minWidth);
+
+		return 0;
+	}
+
+	// int wxHeaderColumnSimple::base_GetMinWidth() const
+	static int _bind_base_GetMinWidth(lua_State *L) {
+		if (!_lg_typecheck_base_GetMinWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHeaderColumnSimple::base_GetMinWidth() const function, expected prototype:\nint wxHeaderColumnSimple::base_GetMinWidth() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetMinWidth() const");
+		}
+		int lret = self->wxHeaderColumnSimple::GetMinWidth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetAlignment(wxAlignment align)
+	static int _bind_base_SetAlignment(lua_State *L) {
+		if (!_lg_typecheck_base_SetAlignment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetAlignment(wxAlignment align) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetAlignment(wxAlignment align)\nClass arguments details:\n");
+		}
+
+		wxAlignment align=(wxAlignment)lua_tointeger(L,2);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetAlignment(wxAlignment)");
+		}
+		self->wxHeaderColumnSimple::SetAlignment(align);
+
+		return 0;
+	}
+
+	// wxAlignment wxHeaderColumnSimple::base_GetAlignment() const
+	static int _bind_base_GetAlignment(lua_State *L) {
+		if (!_lg_typecheck_base_GetAlignment(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAlignment wxHeaderColumnSimple::base_GetAlignment() const function, expected prototype:\nwxAlignment wxHeaderColumnSimple::base_GetAlignment() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxAlignment wxHeaderColumnSimple::base_GetAlignment() const");
+		}
+		wxAlignment lret = self->wxHeaderColumnSimple::GetAlignment();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetFlags(int flags)
+	static int _bind_base_SetFlags(lua_State *L) {
+		if (!_lg_typecheck_base_SetFlags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetFlags(int flags) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetFlags(int flags)\nClass arguments details:\n");
+		}
+
+		int flags=(int)lua_tointeger(L,2);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetFlags(int)");
+		}
+		self->wxHeaderColumnSimple::SetFlags(flags);
+
+		return 0;
+	}
+
+	// int wxHeaderColumnSimple::base_GetFlags() const
+	static int _bind_base_GetFlags(lua_State *L) {
+		if (!_lg_typecheck_base_GetFlags(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxHeaderColumnSimple::base_GetFlags() const function, expected prototype:\nint wxHeaderColumnSimple::base_GetFlags() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxHeaderColumnSimple::base_GetFlags() const");
+		}
+		int lret = self->wxHeaderColumnSimple::GetFlags();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsSortKey() const
+	static int _bind_base_IsSortKey(lua_State *L) {
+		if (!_lg_typecheck_base_IsSortKey(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsSortKey() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsSortKey() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortKey() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsSortKey();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxHeaderColumnSimple::base_SetSortOrder(bool ascending)
+	static int _bind_base_SetSortOrder(lua_State *L) {
+		if (!_lg_typecheck_base_SetSortOrder(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHeaderColumnSimple::base_SetSortOrder(bool ascending) function, expected prototype:\nvoid wxHeaderColumnSimple::base_SetSortOrder(bool ascending)\nClass arguments details:\n");
+		}
+
+		bool ascending=(bool)(lua_toboolean(L,2)==1);
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHeaderColumnSimple::base_SetSortOrder(bool)");
+		}
+		self->wxHeaderColumnSimple::SetSortOrder(ascending);
+
+		return 0;
+	}
+
+	// bool wxHeaderColumnSimple::base_IsSortOrderAscending() const
+	static int _bind_base_IsSortOrderAscending(lua_State *L) {
+		if (!_lg_typecheck_base_IsSortOrderAscending(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumnSimple::base_IsSortOrderAscending() const function, expected prototype:\nbool wxHeaderColumnSimple::base_IsSortOrderAscending() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumnSimple* self=Luna< wxHeaderColumn >::checkSubType< wxHeaderColumnSimple >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumnSimple::base_IsSortOrderAscending() const");
+		}
+		bool lret = self->wxHeaderColumnSimple::IsSortOrderAscending();
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -544,6 +1205,29 @@ luna_RegType LunaTraits< wxHeaderColumnSimple >::methods[] = {
 	{"IsSortKey", &luna_wrapper_wxHeaderColumnSimple::_bind_IsSortKey},
 	{"SetSortOrder", &luna_wrapper_wxHeaderColumnSimple::_bind_SetSortOrder},
 	{"IsSortOrderAscending", &luna_wrapper_wxHeaderColumnSimple::_bind_IsSortOrderAscending},
+	{"base_IsResizeable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsResizeable},
+	{"base_IsSortable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsSortable},
+	{"base_IsReorderable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsReorderable},
+	{"base_IsHidden", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsHidden},
+	{"base_SetResizeable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetResizeable},
+	{"base_SetSortable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetSortable},
+	{"base_SetReorderable", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetReorderable},
+	{"base_SetHidden", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetHidden},
+	{"base_SetTitle", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetTitle},
+	{"base_GetTitle", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetTitle},
+	{"base_SetBitmap", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetBitmap},
+	{"base_GetBitmap", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetBitmap},
+	{"base_SetWidth", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetWidth},
+	{"base_GetWidth", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetWidth},
+	{"base_SetMinWidth", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetMinWidth},
+	{"base_GetMinWidth", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetMinWidth},
+	{"base_SetAlignment", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetAlignment},
+	{"base_GetAlignment", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetAlignment},
+	{"base_SetFlags", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetFlags},
+	{"base_GetFlags", &luna_wrapper_wxHeaderColumnSimple::_bind_base_GetFlags},
+	{"base_IsSortKey", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsSortKey},
+	{"base_SetSortOrder", &luna_wrapper_wxHeaderColumnSimple::_bind_base_SetSortOrder},
+	{"base_IsSortOrderAscending", &luna_wrapper_wxHeaderColumnSimple::_bind_base_IsSortOrderAscending},
 	{"__eq", &luna_wrapper_wxHeaderColumnSimple::_bind___eq},
 	{0,0}
 };

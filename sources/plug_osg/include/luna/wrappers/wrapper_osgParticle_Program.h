@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Program::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Program::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Program::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Program::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Program::getUserData();
 	};
 
 	// osg::Object * osg::Node::cloneType() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::cloneType();
+		return Program::cloneType();
 	};
 
 	// osg::Object * osg::Node::clone(const osg::CopyOp & copyop) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::clone(copyop);
+		return Program::clone(copyop);
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Program::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Program::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Program::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Program::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Program::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Program::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Program::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -153,7 +153,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return Program::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return Program::ascend(nv);
 	};
 
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::releaseGLObjects(arg1);
+		return Program::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1)
@@ -183,7 +183,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleProcessor::traverse(arg1);
+		return Program::traverse(arg1);
 	};
 
 	// osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const
@@ -192,7 +192,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osgParticle::ParticleProcessor::computeBound();
+		return Program::computeBound();
 	};
 
 	// const char * osgParticle::Program::libraryName() const
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Program::libraryName();
+		return Program::libraryName();
 	};
 
 	// const char * osgParticle::Program::className() const
@@ -210,7 +210,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Program::className();
+		return Program::className();
 	};
 
 	// bool osgParticle::Program::isSameKindAs(const osg::Object * obj) const
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::Program::isSameKindAs(obj);
+		return Program::isSameKindAs(obj);
 	};
 
 	// void osgParticle::Program::accept(osg::NodeVisitor & nv)
@@ -230,13 +230,28 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Program::accept(nv);
+		return Program::accept(nv);
 	};
 
 
 protected:
 	// void osgParticle::Program::process(double dt)
+	void process(double dt) {
+		if(_obj.pushFunction("process")) {
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return Program::process(dt);
+	};
+
 	// void osgParticle::Program::execute(double dt)
+	void execute(double dt) {
+		THROW_IF(!_obj.pushFunction("execute"),"No implementation for abstract function osgParticle::Program::execute");
+		_obj.pushArg(dt);
+		return (_obj.callFunction<void>());
+	};
+
 
 };
 

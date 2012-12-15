@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::FindFileCallback* ptr= dynamic_cast< osgDB::FindFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::FindFileCallback* ptr= dynamic_cast< osgDB::FindFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FindFileCallback* ptr= luna_caster< osg::Referenced, osgDB::FindFileCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -62,6 +63,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_findDataFile(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_findLibraryFile(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -77,10 +96,10 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 		osgDB::CaseSensitivity caseSensitivity=(osgDB::CaseSensitivity)lua_tointeger(L,4);
 
-		osgDB::FindFileCallback* self=dynamic_cast< osgDB::FindFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
@@ -99,15 +118,59 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 		osgDB::CaseSensitivity caseSensitivity=(osgDB::CaseSensitivity)lua_tointeger(L,4);
 
-		osgDB::FindFileCallback* self=dynamic_cast< osgDB::FindFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
 		}
 		std::string lret = self->findLibraryFile(filename, options, caseSensitivity);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::FindFileCallback::base_findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
+	static int _bind_base_findDataFile(lua_State *L) {
+		if (!_lg_typecheck_base_findDataFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::FindFileCallback::base_findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) function, expected prototype:\nstd::string osgDB::FindFileCallback::base_findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+		osgDB::CaseSensitivity caseSensitivity=(osgDB::CaseSensitivity)lua_tointeger(L,4);
+
+		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findDataFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+		}
+		std::string lret = self->FindFileCallback::findDataFile(filename, options, caseSensitivity);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::FindFileCallback::base_findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
+	static int _bind_base_findLibraryFile(lua_State *L) {
+		if (!_lg_typecheck_base_findLibraryFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::FindFileCallback::base_findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) function, expected prototype:\nstd::string osgDB::FindFileCallback::base_findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+		osgDB::CaseSensitivity caseSensitivity=(osgDB::CaseSensitivity)lua_tointeger(L,4);
+
+		osgDB::FindFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FindFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::FindFileCallback::base_findLibraryFile(const std::string &, const osgDB::Options *, osgDB::CaseSensitivity)");
+		}
+		std::string lret = self->FindFileCallback::findLibraryFile(filename, options, caseSensitivity);
 		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
@@ -136,6 +199,8 @@ const int LunaTraits< osgDB::FindFileCallback >::uniqueIDs[] = {50169651,0};
 luna_RegType LunaTraits< osgDB::FindFileCallback >::methods[] = {
 	{"findDataFile", &luna_wrapper_osgDB_FindFileCallback::_bind_findDataFile},
 	{"findLibraryFile", &luna_wrapper_osgDB_FindFileCallback::_bind_findLibraryFile},
+	{"base_findDataFile", &luna_wrapper_osgDB_FindFileCallback::_bind_base_findDataFile},
+	{"base_findLibraryFile", &luna_wrapper_osgDB_FindFileCallback::_bind_base_findLibraryFile},
 	{"__eq", &luna_wrapper_osgDB_FindFileCallback::_bind___eq},
 	{0,0}
 };

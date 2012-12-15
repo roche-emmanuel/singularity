@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextCompleter.h>
+
 class luna_wrapper_wxTextCompleter {
 public:
 	typedef Luna< wxTextCompleter > luna_t;
@@ -121,8 +123,6 @@ wxTextCompleter* LunaTraits< wxTextCompleter >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	// wxString wxTextCompleter::GetNext()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextCompleter >::_bind_dtor(wxTextCompleter* obj) {

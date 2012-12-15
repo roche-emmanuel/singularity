@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxIdleEvent.h>
+
 class luna_wrapper_wxIdleEvent {
 public:
 	typedef Luna< wxIdleEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxIdleEvent* ptr= dynamic_cast< wxIdleEvent* >(Luna< wxObject >::check(L,1));
+		//wxIdleEvent* ptr= dynamic_cast< wxIdleEvent* >(Luna< wxObject >::check(L,1));
+		wxIdleEvent* ptr= luna_caster< wxObject, wxIdleEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -67,6 +70,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -80,7 +95,7 @@ public:
 		}
 
 
-		wxIdleEvent* self=dynamic_cast< wxIdleEvent* >(Luna< wxObject >::check(L,1));
+		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxIdleEvent::MoreRequested() const");
@@ -102,7 +117,7 @@ public:
 
 		bool needMore=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxIdleEvent* self=dynamic_cast< wxIdleEvent* >(Luna< wxObject >::check(L,1));
+		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxIdleEvent::RequestMore(bool)");
@@ -140,6 +155,46 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxIdleEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIdleEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIdleEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIdleEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxIdleEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxIdleEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxIdleEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxIdleEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxIdleEvent* self=Luna< wxObject >::checkSubType< wxIdleEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxIdleEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxIdleEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -149,8 +204,6 @@ wxIdleEvent* LunaTraits< wxIdleEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxIdleEvent >::_bind_dtor(wxIdleEvent* obj) {
@@ -169,6 +222,8 @@ luna_RegType LunaTraits< wxIdleEvent >::methods[] = {
 	{"RequestMore", &luna_wrapper_wxIdleEvent::_bind_RequestMore},
 	{"GetMode", &luna_wrapper_wxIdleEvent::_bind_GetMode},
 	{"SetMode", &luna_wrapper_wxIdleEvent::_bind_SetMode},
+	{"base_GetClassInfo", &luna_wrapper_wxIdleEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxIdleEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxIdleEvent::_bind___eq},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxEventFilter.h>
+
 class luna_wrapper_wxEventFilter {
 public:
 	typedef Luna< wxEventFilter > luna_t;
@@ -73,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxEventFilter::FilterEvent(wxEvent & event) function, expected prototype:\nint wxEventFilter::FilterEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxEvent* event_ptr=dynamic_cast< wxEvent* >(Luna< wxObject >::check(L,2));
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 		if( !event_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg event in wxEventFilter::FilterEvent function");
 		}
@@ -99,8 +101,6 @@ wxEventFilter* LunaTraits< wxEventFilter >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// int wxEventFilter::FilterEvent(wxEvent & event)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxEventFilter >::_bind_dtor(wxEventFilter* obj) {

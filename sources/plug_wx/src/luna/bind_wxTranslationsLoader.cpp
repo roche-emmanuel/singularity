@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTranslationsLoader.h>
+
 class luna_wrapper_wxTranslationsLoader {
 public:
 	typedef Luna< wxTranslationsLoader > luna_t;
@@ -130,8 +132,6 @@ wxTranslationsLoader* LunaTraits< wxTranslationsLoader >::_bind_ctor(lua_State *
 	// Abstract methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	// wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTranslationsLoader >::_bind_dtor(wxTranslationsLoader* obj) {

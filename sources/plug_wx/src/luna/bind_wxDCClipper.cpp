@@ -100,12 +100,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCClipper::wxDCClipper(wxDC & dc, const wxRegion & region) function, expected prototype:\nwxDCClipper::wxDCClipper(wxDC & dc, const wxRegion & region)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCClipper::wxDCClipper function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxRegion* region_ptr=dynamic_cast< wxRegion* >(Luna< wxObject >::check(L,2));
+		const wxRegion* region_ptr=(Luna< wxObject >::checkSubType< wxRegion >(L,2));
 		if( !region_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg region in wxDCClipper::wxDCClipper function");
 		}
@@ -121,7 +121,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCClipper::wxDCClipper(wxDC & dc, const wxRect & rect) function, expected prototype:\nwxDCClipper::wxDCClipper(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCClipper::wxDCClipper function");
 		}
@@ -142,7 +142,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCClipper::wxDCClipper(wxDC & dc, int x, int y, int w, int h) function, expected prototype:\nwxDCClipper::wxDCClipper(wxDC & dc, int x, int y, int w, int h)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCClipper::wxDCClipper function");
 		}

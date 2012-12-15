@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BlendEquation::Extensions* ptr= dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BlendEquation::Extensions* ptr= dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* ptr= luna_caster< osg::Referenced, osg::BlendEquation::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -154,7 +155,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::setupGLExtensions(unsigned int)");
@@ -172,7 +173,7 @@ public:
 		}
 
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSupported() const");
@@ -191,7 +192,7 @@ public:
 		}
 
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isBlendEquationSeparateSupported() const");
@@ -210,7 +211,7 @@ public:
 		}
 
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isSGIXMinMaxSupported() const");
@@ -229,7 +230,7 @@ public:
 		}
 
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendEquation::Extensions::isLogicOpSupported() const");
@@ -249,7 +250,7 @@ public:
 
 		unsigned int mode=(unsigned int)lua_tointeger(L,2);
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquation(unsigned int) const");
@@ -269,7 +270,7 @@ public:
 		unsigned int modeRGB=(unsigned int)lua_tointeger(L,2);
 		unsigned int modeAlpha=(unsigned int)lua_tointeger(L,3);
 
-		osg::BlendEquation::Extensions* self=dynamic_cast< osg::BlendEquation::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendEquation::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendEquation::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendEquation::Extensions::glBlendEquationSeparate(unsigned int, unsigned int) const");

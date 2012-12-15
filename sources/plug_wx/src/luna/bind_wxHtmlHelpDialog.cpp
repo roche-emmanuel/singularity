@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlHelpDialog.h>
+
 class luna_wrapper_wxHtmlHelpDialog {
 public:
 	typedef Luna< wxHtmlHelpDialog > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlHelpDialog* ptr= dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxHtmlHelpDialog >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxHtmlHelpDialog* ptr= static_cast< wxHtmlHelpDialog* >(Luna< wxTrackable >::check(L,1));
+		//wxHtmlHelpDialog* ptr= dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* ptr= luna_caster< wxObject, wxHtmlHelpDialog >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -71,6 +63,31 @@ public:
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
 		if( luatop>4 && (lua_isnil(L,5)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,5)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
+		if( luatop>5 && (lua_isnil(L,6)==0 && !dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,6)) ) ) return false;
 		return true;
 	}
 
@@ -129,7 +146,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxHtmlHelpData* data=luatop>0 ? dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1)) : (wxHtmlHelpData*)NULL;
+		wxHtmlHelpData* data=luatop>0 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1)) : (wxHtmlHelpData*)NULL;
 
 		return new wxHtmlHelpDialog(data);
 	}
@@ -143,21 +160,55 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		int wxWindowID=(int)lua_tointeger(L,2);
 		wxString title(lua_tostring(L,3),lua_objlen(L,3));
 		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE;
-		wxHtmlHelpData* data=luatop>4 ? dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,5)) : (wxHtmlHelpData*)NULL;
+		wxHtmlHelpData* data=luatop>4 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,5)) : (wxHtmlHelpData*)NULL;
 
 		return new wxHtmlHelpDialog(parent, wxWindowID, title, style, data);
+	}
+
+	// wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL)
+	static wxHtmlHelpDialog* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxHtmlHelpData* data=luatop>1 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,2)) : (wxHtmlHelpData*)NULL;
+
+		return new wrapper_wxHtmlHelpDialog(L,NULL, data);
+	}
+
+	// wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
+	static wxHtmlHelpDialog* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 6 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		int wxWindowID=(int)lua_tointeger(L,3);
+		wxString title(lua_tostring(L,4),lua_objlen(L,4));
+		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxHF_DEFAULT_STYLE;
+		wxHtmlHelpData* data=luatop>5 ? (Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,6)) : (wxHtmlHelpData*)NULL;
+
+		return new wrapper_wxHtmlHelpDialog(L,NULL, parent, wxWindowID, title, style, data);
 	}
 
 	// Overload binder for wxHtmlHelpDialog::wxHtmlHelpDialog
 	static wxHtmlHelpDialog* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxHtmlHelpDialog, cannot match any of the overloads for function wxHtmlHelpDialog:\n  wxHtmlHelpDialog(wxHtmlHelpData *)\n  wxHtmlHelpDialog(wxWindow *, int, const wxString &, int, wxHtmlHelpData *)\n");
+		luaL_error(L, "error in function wxHtmlHelpDialog, cannot match any of the overloads for function wxHtmlHelpDialog:\n  wxHtmlHelpDialog(wxHtmlHelpData *)\n  wxHtmlHelpDialog(wxWindow *, int, const wxString &, int, wxHtmlHelpData *)\n  wxHtmlHelpDialog(lua_Table *, wxHtmlHelpData *)\n  wxHtmlHelpDialog(lua_Table *, wxWindow *, int, const wxString &, int, wxHtmlHelpData *)\n");
 		return NULL;
 	}
 
@@ -170,10 +221,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style) function, expected prototype:\nvoid wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxToolBar* toolBar=dynamic_cast< wxToolBar* >(Luna< wxObject >::check(L,2));
+		wxToolBar* toolBar=(Luna< wxObject >::checkSubType< wxToolBar >(L,2));
 		int style=(int)lua_tointeger(L,3);
 
-		wxHtmlHelpDialog* self=dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar *, int)");
@@ -192,12 +243,12 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int id=(int)lua_tointeger(L,3);
 		wxString title(lua_tostring(L,4),lua_objlen(L,4));
 		int style=luatop>4 ? (int)lua_tointeger(L,5) : wxHF_DEFAULT_STYLE;
 
-		wxHtmlHelpDialog* self=dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlHelpDialog::Create(wxWindow *, int, const wxString &, int)");
@@ -216,7 +267,7 @@ public:
 		}
 
 
-		wxHtmlHelpDialog* self=dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpDialog::GetController() const");
@@ -238,7 +289,7 @@ public:
 
 		wxHtmlHelpController* controller=(Luna< wxHtmlHelpController >::check(L,2));
 
-		wxHtmlHelpDialog* self=dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetController(wxHtmlHelpController *)");
@@ -257,7 +308,7 @@ public:
 
 		wxString format(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlHelpDialog* self=dynamic_cast< wxHtmlHelpDialog* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetTitleFormat(const wxString &)");
@@ -299,7 +350,6 @@ luna_RegType LunaTraits< wxHtmlHelpDialog >::methods[] = {
 
 luna_ConverterType LunaTraits< wxHtmlHelpDialog >::converters[] = {
 	{"wxObject", &luna_wrapper_wxHtmlHelpDialog::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxHtmlHelpDialog::_cast_from_wxTrackable},
 	{0,0}
 };
 

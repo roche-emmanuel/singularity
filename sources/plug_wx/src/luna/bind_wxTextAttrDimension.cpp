@@ -205,17 +205,17 @@ public:
 		return new wxTextAttrDimension();
 	}
 
-	// wxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM)
+	// wxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)
 	static wxTextAttrDimension* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nwxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nwxTextAttrDimension::wxTextAttrDimension(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int value=(int)lua_tointeger(L,1);
-		wxTextAttrUnits units=luatop>1 ? (wxTextAttrUnits)lua_tointeger(L,2) : wxTEXT_ATTR_UNITS_TENTHS_MM;
+		wxTextAttrUnits units=luatop>1 ? (wxTextAttrUnits)lua_tointeger(L,2) : ::wxTEXT_ATTR_UNITS_TENTHS_MM;
 
 		return new wxTextAttrDimension(value, units);
 	}

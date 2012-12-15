@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextCompleterSimple.h>
+
 class luna_wrapper_wxTextCompleterSimple {
 public:
 	typedef Luna< wxTextCompleterSimple > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxTextCompleter(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTextCompleterSimple* ptr= dynamic_cast< wxTextCompleterSimple* >(Luna< wxTextCompleter >::check(L,1));
+		//wxTextCompleterSimple* ptr= dynamic_cast< wxTextCompleterSimple* >(Luna< wxTextCompleter >::check(L,1));
+		wxTextCompleterSimple* ptr= luna_caster< wxTextCompleter, wxTextCompleterSimple >::cast(Luna< wxTextCompleter >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -67,7 +70,7 @@ public:
 		}
 		wxArrayString & res=*res_ptr;
 
-		wxTextCompleterSimple* self=dynamic_cast< wxTextCompleterSimple* >(Luna< wxTextCompleter >::check(L,1));
+		wxTextCompleterSimple* self=Luna< wxTextCompleter >::checkSubType< wxTextCompleterSimple >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTextCompleterSimple::GetCompletions(const wxString &, wxArrayString &)");
@@ -88,8 +91,6 @@ wxTextCompleterSimple* LunaTraits< wxTextCompleterSimple >::_bind_ctor(lua_State
 	// void wxTextCompleterSimple::GetCompletions(const wxString & prefix, wxArrayString & res)
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	// wxString wxTextCompleter::GetNext()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextCompleterSimple >::_bind_dtor(wxTextCompleterSimple* obj) {

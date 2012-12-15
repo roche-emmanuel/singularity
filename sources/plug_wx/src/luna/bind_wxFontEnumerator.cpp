@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFontEnumerator.h>
+
 class luna_wrapper_wxFontEnumerator {
 public:
 	typedef Luna< wxFontEnumerator > luna_t;
@@ -112,6 +114,38 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_EnumerateEncodings(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_EnumerateFacenames(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnFacename(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnFontEncoding(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -141,16 +175,16 @@ public:
 		return 1;
 	}
 
-	// bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
+	// bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
 	static int _bind_EnumerateFacenames(lua_State *L) {
 		if (!_lg_typecheck_EnumerateFacenames(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) function, expected prototype:\nbool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) function, expected prototype:\nbool wxFontEnumerator::EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : wxFONTENCODING_SYSTEM;
+		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : ::wxFONTENCODING_SYSTEM;
 		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
 		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
@@ -225,16 +259,16 @@ public:
 		return 1;
 	}
 
-	// static wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
+	// static wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
 	static int _bind_GetFacenames(lua_State *L) {
 		if (!_lg_typecheck_GetFacenames(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) function, expected prototype:\nstatic wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) function, expected prototype:\nstatic wxArrayString wxFontEnumerator::GetFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding encoding=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : wxFONTENCODING_SYSTEM;
+		wxFontEncoding encoding=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : ::wxFONTENCODING_SYSTEM;
 		bool fixedWidthOnly=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
 		wxArrayString stack_lret = wxFontEnumerator::GetFacenames(encoding, fixedWidthOnly);
@@ -256,6 +290,92 @@ public:
 		wxString facename(lua_tostring(L,1),lua_objlen(L,1));
 
 		bool lret = wxFontEnumerator::IsValidFacename(facename);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFontEnumerator::base_EnumerateEncodings(const wxString & font = wxEmptyString)
+	static int _bind_base_EnumerateEncodings(lua_State *L) {
+		if (!_lg_typecheck_base_EnumerateEncodings(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::base_EnumerateEncodings(const wxString & font = wxEmptyString) function, expected prototype:\nbool wxFontEnumerator::base_EnumerateEncodings(const wxString & font = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString font(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateEncodings(const wxString &)");
+		}
+		bool lret = self->wxFontEnumerator::EnumerateEncodings(font);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)
+	static int _bind_base_EnumerateFacenames(lua_State *L) {
+		if (!_lg_typecheck_base_EnumerateFacenames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false) function, expected prototype:\nbool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding encoding = ::wxFONTENCODING_SYSTEM, bool fixedWidthOnly = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxFontEncoding encoding=luatop>1 ? (wxFontEncoding)lua_tointeger(L,2) : ::wxFONTENCODING_SYSTEM;
+		bool fixedWidthOnly=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_EnumerateFacenames(wxFontEncoding, bool)");
+		}
+		bool lret = self->wxFontEnumerator::EnumerateFacenames(encoding, fixedWidthOnly);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFontEnumerator::base_OnFacename(const wxString & font)
+	static int _bind_base_OnFacename(lua_State *L) {
+		if (!_lg_typecheck_base_OnFacename(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::base_OnFacename(const wxString & font) function, expected prototype:\nbool wxFontEnumerator::base_OnFacename(const wxString & font)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString font(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFacename(const wxString &)");
+		}
+		bool lret = self->wxFontEnumerator::OnFacename(font);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxFontEnumerator::base_OnFontEncoding(const wxString & font, const wxString & encoding)
+	static int _bind_base_OnFontEncoding(lua_State *L) {
+		if (!_lg_typecheck_base_OnFontEncoding(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFontEnumerator::base_OnFontEncoding(const wxString & font, const wxString & encoding) function, expected prototype:\nbool wxFontEnumerator::base_OnFontEncoding(const wxString & font, const wxString & encoding)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		}
+
+		wxString font(lua_tostring(L,2),lua_objlen(L,2));
+		wxString encoding(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxFontEnumerator* self=(Luna< wxFontEnumerator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFontEnumerator::base_OnFontEncoding(const wxString &, const wxString &)");
+		}
+		bool lret = self->wxFontEnumerator::OnFontEncoding(font, encoding);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -289,6 +409,10 @@ luna_RegType LunaTraits< wxFontEnumerator >::methods[] = {
 	{"GetEncodings", &luna_wrapper_wxFontEnumerator::_bind_GetEncodings},
 	{"GetFacenames", &luna_wrapper_wxFontEnumerator::_bind_GetFacenames},
 	{"IsValidFacename", &luna_wrapper_wxFontEnumerator::_bind_IsValidFacename},
+	{"base_EnumerateEncodings", &luna_wrapper_wxFontEnumerator::_bind_base_EnumerateEncodings},
+	{"base_EnumerateFacenames", &luna_wrapper_wxFontEnumerator::_bind_base_EnumerateFacenames},
+	{"base_OnFacename", &luna_wrapper_wxFontEnumerator::_bind_base_OnFacename},
+	{"base_OnFontEncoding", &luna_wrapper_wxFontEnumerator::_bind_base_OnFontEncoding},
 	{"dynCast", &luna_wrapper_wxFontEnumerator::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxFontEnumerator::_bind___eq},
 	{0,0}

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::Tessellator* ptr= dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::Tessellator* ptr= dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* ptr= luna_caster< osg::Referenced, osgUtil::Tessellator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -194,7 +195,7 @@ public:
 
 		bool tt=(bool)(lua_toboolean(L,2)==1);
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setBoundaryOnly(const bool)");
@@ -212,7 +213,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::Tessellator::getBoundaryOnly()");
@@ -232,7 +233,7 @@ public:
 
 		osgUtil::Tessellator::WindingType wt=(osgUtil::Tessellator::WindingType)lua_tointeger(L,2);
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setWindingType(const osgUtil::Tessellator::WindingType)");
@@ -250,7 +251,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::WindingType osgUtil::Tessellator::getWindingType()");
@@ -270,7 +271,7 @@ public:
 
 		osgUtil::Tessellator::TessellationType tt=(osgUtil::Tessellator::TessellationType)lua_tointeger(L,2);
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationType(const osgUtil::Tessellator::TessellationType)");
@@ -288,7 +289,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgUtil::Tessellator::TessellationType osgUtil::Tessellator::getTessellationType()");
@@ -306,13 +307,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::Tessellator::retessellatePolygons(osg::Geometry & cxgeom) function, expected prototype:\nvoid osgUtil::Tessellator::retessellatePolygons(osg::Geometry & cxgeom)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geometry* cxgeom_ptr=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geometry* cxgeom_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 		if( !cxgeom_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cxgeom in osgUtil::Tessellator::retessellatePolygons function");
 		}
 		osg::Geometry & cxgeom=*cxgeom_ptr;
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::retessellatePolygons(osg::Geometry &)");
@@ -335,7 +336,7 @@ public:
 		}
 		const osg::Vec3f norm=*norm_ptr;
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::setTessellationNormal(const osg::Vec3f)");
@@ -353,7 +354,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginTessellation()");
@@ -371,7 +372,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::beginContour()");
@@ -390,7 +391,7 @@ public:
 
 		osg::Vec3f* vertex=(Luna< osg::Vec3f >::check(L,2));
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::addVertex(osg::Vec3f *)");
@@ -408,7 +409,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endContour()");
@@ -426,7 +427,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::endTessellation()");
@@ -444,7 +445,7 @@ public:
 		}
 
 
-		osgUtil::Tessellator* self=dynamic_cast< osgUtil::Tessellator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::Tessellator* self=Luna< osg::Referenced >::checkSubType< osgUtil::Tessellator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::Tessellator::reset()");

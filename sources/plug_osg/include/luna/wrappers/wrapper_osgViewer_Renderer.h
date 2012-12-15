@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::cull();
+		return Renderer::cull();
 	};
 
 	// void osgViewer::Renderer::draw()
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::draw();
+		return Renderer::draw();
 	};
 
 	// void osgViewer::Renderer::cull_draw()
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::cull_draw();
+		return Renderer::cull_draw();
 	};
 
 	// void osgViewer::Renderer::compile()
@@ -50,7 +50,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::compile();
+		return Renderer::compile();
 	};
 
 	// void osgViewer::Renderer::release()
@@ -59,7 +59,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::release();
+		return Renderer::release();
 	};
 
 	// void osgViewer::Renderer::operator()(osg::Object * object)
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::operator()(object);
+		return Renderer::operator()(object);
 	};
 
 	// void osgViewer::Renderer::operator()(osg::GraphicsContext * context)
@@ -79,12 +79,21 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Renderer::operator()(context);
+		return Renderer::operator()(context);
 	};
 
 
 protected:
 	// void osgViewer::Renderer::updateSceneView(osgUtil::SceneView * sceneView)
+	void updateSceneView(osgUtil::SceneView * sceneView) {
+		if(_obj.pushFunction("updateSceneView")) {
+			_obj.pushArg(sceneView);
+			return (_obj.callFunction<void>());
+		}
+
+		return Renderer::updateSceneView(sceneView);
+	};
+
 
 };
 

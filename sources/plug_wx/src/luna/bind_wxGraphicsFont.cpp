@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsFont.h>
+
 class luna_wrapper_wxGraphicsFont {
 public:
 	typedef Luna< wxGraphicsFont > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGraphicsFont* ptr= dynamic_cast< wxGraphicsFont* >(Luna< wxObject >::check(L,1));
+		//wxGraphicsFont* ptr= dynamic_cast< wxGraphicsFont* >(Luna< wxObject >::check(L,1));
+		wxGraphicsFont* ptr= luna_caster< wxObject, wxGraphicsFont >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

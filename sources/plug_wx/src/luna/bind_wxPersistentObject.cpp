@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPersistentObject.h>
+
 class luna_wrapper_wxPersistentObject {
 public:
 	typedef Luna< wxPersistentObject > luna_t;
@@ -197,8 +199,6 @@ wxPersistentObject* LunaTraits< wxPersistentObject >::_bind_ctor(lua_State *L) {
 	// bool wxPersistentObject::Restore()
 	// wxString wxPersistentObject::GetKind() const
 	// wxString wxPersistentObject::GetName() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPersistentObject >::_bind_dtor(wxPersistentObject* obj) {

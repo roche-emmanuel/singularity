@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgText::Font::FontImplementation* ptr= dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		//osgText::Font::FontImplementation* ptr= dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* ptr= luna_caster< osg::Referenced, osgText::Font::FontImplementation >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -106,7 +107,7 @@ public:
 		}
 
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgText::Font::FontImplementation::getFileName() const");
@@ -125,7 +126,7 @@ public:
 		}
 
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::supportsMultipleFontResolutions() const");
@@ -150,7 +151,7 @@ public:
 		const osgText::FontResolution & fontRes=*fontRes_ptr;
 		unsigned int charcode=(unsigned int)lua_tointeger(L,3);
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgText::Glyph * osgText::Font::FontImplementation::getGlyph(const osgText::FontResolution &, unsigned int)");
@@ -172,7 +173,7 @@ public:
 
 		unsigned int charcode=(unsigned int)lua_tointeger(L,2);
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgText::Glyph3D * osgText::Font::FontImplementation::getGlyph3D(unsigned int)");
@@ -196,7 +197,7 @@ public:
 		unsigned int rightcharcode=(unsigned int)lua_tointeger(L,3);
 		osgText::KerningType kerningType=(osgText::KerningType)lua_tointeger(L,4);
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec2f osgText::Font::FontImplementation::getKerning(unsigned int, unsigned int, osgText::KerningType)");
@@ -218,7 +219,7 @@ public:
 		}
 
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgText::Font::FontImplementation::hasVertical() const");
@@ -242,9 +243,9 @@ public:
 		}
 		const osgText::FontResolution & fontRes=*fontRes_ptr;
 		unsigned int charcode=(unsigned int)lua_tointeger(L,3);
-		osgText::Glyph* glyph=dynamic_cast< osgText::Glyph* >(Luna< osg::Referenced >::check(L,4));
+		osgText::Glyph* glyph=(Luna< osg::Referenced >::checkSubType< osgText::Glyph >(L,4));
 
-		osgText::Font::FontImplementation* self=dynamic_cast< osgText::Font::FontImplementation* >(Luna< osg::Referenced >::check(L,1));
+		osgText::Font::FontImplementation* self=Luna< osg::Referenced >::checkSubType< osgText::Font::FontImplementation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgText::Font::FontImplementation::addGlyph(const osgText::FontResolution &, unsigned int, osgText::Glyph *)");

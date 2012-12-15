@@ -275,7 +275,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::RenderBuffer * target)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::RenderBuffer* target=dynamic_cast< osg::RenderBuffer* >(Luna< osg::Referenced >::check(L,1));
+		osg::RenderBuffer* target=(Luna< osg::Referenced >::checkSubType< osg::RenderBuffer >(L,1));
 
 		return new osg::FrameBufferAttachment(target);
 	}
@@ -289,7 +289,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Texture1D* target=dynamic_cast< osg::Texture1D* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture1D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture1D >(L,1));
 		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
 
 		return new osg::FrameBufferAttachment(target, level);
@@ -304,7 +304,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Texture2D* target=dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,1));
 		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
 
 		return new osg::FrameBufferAttachment(target, level);
@@ -319,7 +319,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Texture2DMultisample* target=dynamic_cast< osg::Texture2DMultisample* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DMultisample* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2DMultisample >(L,1));
 		unsigned int level=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
 
 		return new osg::FrameBufferAttachment(target, level);
@@ -334,7 +334,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Texture3D* target=dynamic_cast< osg::Texture3D* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D* target=(Luna< osg::Referenced >::checkSubType< osg::Texture3D >(L,1));
 		unsigned int zoffset=(unsigned int)lua_tointeger(L,2);
 		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
@@ -350,7 +350,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Texture2DArray* target=dynamic_cast< osg::Texture2DArray* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray* target=(Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,1));
 		unsigned int layer=(unsigned int)lua_tointeger(L,2);
 		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
@@ -366,7 +366,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::TextureCubeMap* target=dynamic_cast< osg::TextureCubeMap* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCubeMap* target=(Luna< osg::Referenced >::checkSubType< osg::TextureCubeMap >(L,1));
 		unsigned int face=(unsigned int)lua_tointeger(L,2);
 		unsigned int level=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
 
@@ -380,7 +380,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target) function, expected prototype:\nosg::FrameBufferAttachment::FrameBufferAttachment(osg::TextureRectangle * target)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::TextureRectangle* target=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* target=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1));
 
 		return new osg::FrameBufferAttachment(target);
 	}
@@ -447,12 +447,12 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap(osg::State & state, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap function");
 		}
 		osg::State & state=*state_ptr;
-		const osg::FBOExtensions* ext=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,3));
+		const osg::FBOExtensions* ext=(Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,3));
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {
@@ -471,14 +471,14 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const function, expected prototype:\nvoid osg::FrameBufferAttachment::attach(osg::State & state, unsigned int target, unsigned int attachment_point, const osg::FBOExtensions * ext) const\nClass arguments details:\narg 1 ID = 50169651\narg 4 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::FrameBufferAttachment::attach function");
 		}
 		osg::State & state=*state_ptr;
 		unsigned int target=(unsigned int)lua_tointeger(L,3);
 		unsigned int attachment_point=(unsigned int)lua_tointeger(L,4);
-		const osg::FBOExtensions* ext=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,5));
+		const osg::FBOExtensions* ext=(Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,5));
 
 		osg::FrameBufferAttachment* self=(Luna< osg::FrameBufferAttachment >::check(L,1));
 		if(!self) {

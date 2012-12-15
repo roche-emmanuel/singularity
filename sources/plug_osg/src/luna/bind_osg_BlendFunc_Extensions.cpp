@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BlendFunc::Extensions* ptr= dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BlendFunc::Extensions* ptr= dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendFunc::Extensions* ptr= luna_caster< osg::Referenced, osg::BlendFunc::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -138,7 +139,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::BlendFunc::Extensions* self=dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setupGLExtensions(unsigned int)");
@@ -157,7 +158,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::BlendFunc::Extensions* self=dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::setBlendFuncSeparateSupported(bool)");
@@ -175,7 +176,7 @@ public:
 		}
 
 
-		osg::BlendFunc::Extensions* self=dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendFunc::Extensions::isBlendFuncSeparateSupported() const");
@@ -198,7 +199,7 @@ public:
 		unsigned int sfactorAlpha=(unsigned int)lua_tointeger(L,4);
 		unsigned int dfactorAlpha=(unsigned int)lua_tointeger(L,5);
 
-		osg::BlendFunc::Extensions* self=dynamic_cast< osg::BlendFunc::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendFunc::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendFunc::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendFunc::Extensions::glBlendFuncSeparate(unsigned int, unsigned int, unsigned int, unsigned int) const");

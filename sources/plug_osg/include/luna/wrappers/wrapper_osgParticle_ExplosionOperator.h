@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ExplosionOperator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ExplosionOperator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ExplosionOperator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ExplosionOperator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ExplosionOperator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ExplosionOperator::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::operateParticles(ps, dt);
+		return ExplosionOperator::operateParticles(ps, dt);
 	};
 
 	// void osgParticle::Operator::endOperate()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::endOperate();
+		return ExplosionOperator::endOperate();
 	};
 
 	// osg::Object * osgParticle::ExplosionOperator::cloneType() const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ExplosionOperator::cloneType();
+		return ExplosionOperator::cloneType();
 	};
 
 	// osg::Object * osgParticle::ExplosionOperator::clone(const osg::CopyOp & arg1) const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ExplosionOperator::clone(arg1);
+		return ExplosionOperator::clone(arg1);
 	};
 
 	// bool osgParticle::ExplosionOperator::isSameKindAs(const osg::Object * obj) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ExplosionOperator::isSameKindAs(obj);
+		return ExplosionOperator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::ExplosionOperator::libraryName() const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ExplosionOperator::libraryName();
+		return ExplosionOperator::libraryName();
 	};
 
 	// const char * osgParticle::ExplosionOperator::className() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ExplosionOperator::className();
+		return ExplosionOperator::className();
 	};
 
 	// void osgParticle::ExplosionOperator::operate(osgParticle::Particle * P, double dt)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ExplosionOperator::operate(P, dt);
+		return ExplosionOperator::operate(P, dt);
 	};
 
 	// void osgParticle::ExplosionOperator::beginOperate(osgParticle::Program * prg)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ExplosionOperator::beginOperate(prg);
+		return ExplosionOperator::beginOperate(prg);
 	};
 
 

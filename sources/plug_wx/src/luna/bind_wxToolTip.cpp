@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxToolTip.h>
+
 class luna_wrapper_wxToolTip {
 public:
 	typedef Luna< wxToolTip > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxToolTip* ptr= dynamic_cast< wxToolTip* >(Luna< wxObject >::check(L,1));
+		//wxToolTip* ptr= dynamic_cast< wxToolTip* >(Luna< wxObject >::check(L,1));
+		wxToolTip* ptr= luna_caster< wxObject, wxToolTip >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,10 +43,18 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -103,14 +114,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxToolTip::wxToolTip(const wxString & tip)
-	static wxToolTip* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxToolTip* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxToolTip::wxToolTip(const wxString & tip) function, expected prototype:\nwxToolTip::wxToolTip(const wxString & tip)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
@@ -118,6 +135,27 @@ public:
 		wxString tip(lua_tostring(L,1),lua_objlen(L,1));
 
 		return new wxToolTip(tip);
+	}
+
+	// wxToolTip::wxToolTip(lua_Table * data, const wxString & tip)
+	static wxToolTip* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxToolTip::wxToolTip(lua_Table * data, const wxString & tip) function, expected prototype:\nwxToolTip::wxToolTip(lua_Table * data, const wxString & tip)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString tip(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxToolTip(L,NULL, tip);
+	}
+
+	// Overload binder for wxToolTip::wxToolTip
+	static wxToolTip* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxToolTip, cannot match any of the overloads for function wxToolTip:\n  wxToolTip(const wxString &)\n  wxToolTip(lua_Table *, const wxString &)\n");
+		return NULL;
 	}
 
 
@@ -130,7 +168,7 @@ public:
 		}
 
 
-		wxToolTip* self=dynamic_cast< wxToolTip* >(Luna< wxObject >::check(L,1));
+		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxToolTip::GetTip() const");
@@ -149,7 +187,7 @@ public:
 		}
 
 
-		wxToolTip* self=dynamic_cast< wxToolTip* >(Luna< wxObject >::check(L,1));
+		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxToolTip::GetWindow() const");
@@ -171,7 +209,7 @@ public:
 
 		wxString tip(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxToolTip* self=dynamic_cast< wxToolTip* >(Luna< wxObject >::check(L,1));
+		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxToolTip::SetTip(const wxString &)");
@@ -251,6 +289,27 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxToolTip::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxToolTip::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxToolTip::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxToolTip* self=Luna< wxObject >::checkSubType< wxToolTip >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxToolTip::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxToolTip::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -280,6 +339,7 @@ luna_RegType LunaTraits< wxToolTip >::methods[] = {
 	{"SetDelay", &luna_wrapper_wxToolTip::_bind_SetDelay},
 	{"SetMaxWidth", &luna_wrapper_wxToolTip::_bind_SetMaxWidth},
 	{"SetReshow", &luna_wrapper_wxToolTip::_bind_SetReshow},
+	{"base_GetClassInfo", &luna_wrapper_wxToolTip::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxToolTip::_bind___eq},
 	{0,0}
 };

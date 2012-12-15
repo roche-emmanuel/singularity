@@ -349,16 +349,16 @@ public:
 		return 0;
 	}
 
-	// void wxAffineMatrix2D::Mirror(int direction = wxHORIZONTAL)
+	// void wxAffineMatrix2D::Mirror(int direction = ::wxHORIZONTAL)
 	static int _bind_Mirror(lua_State *L) {
 		if (!_lg_typecheck_Mirror(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAffineMatrix2D::Mirror(int direction = wxHORIZONTAL) function, expected prototype:\nvoid wxAffineMatrix2D::Mirror(int direction = wxHORIZONTAL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAffineMatrix2D::Mirror(int direction = ::wxHORIZONTAL) function, expected prototype:\nvoid wxAffineMatrix2D::Mirror(int direction = ::wxHORIZONTAL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : wxHORIZONTAL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxHORIZONTAL;
 
 		wxAffineMatrix2D* self=(Luna< wxAffineMatrix2D >::check(L,1));
 		if(!self) {

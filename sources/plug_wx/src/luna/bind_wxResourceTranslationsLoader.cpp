@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxResourceTranslationsLoader.h>
+
 class luna_wrapper_wxResourceTranslationsLoader {
 public:
 	typedef Luna< wxResourceTranslationsLoader > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxTranslationsLoader(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxResourceTranslationsLoader* ptr= dynamic_cast< wxResourceTranslationsLoader* >(Luna< wxTranslationsLoader >::check(L,1));
+		//wxResourceTranslationsLoader* ptr= dynamic_cast< wxResourceTranslationsLoader* >(Luna< wxTranslationsLoader >::check(L,1));
+		wxResourceTranslationsLoader* ptr= luna_caster< wxTranslationsLoader, wxResourceTranslationsLoader >::cast(Luna< wxTranslationsLoader >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,8 +58,6 @@ wxResourceTranslationsLoader* LunaTraits< wxResourceTranslationsLoader >::_bind_
 	// Abstract methods:
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	// wxArrayString wxTranslationsLoader::GetAvailableTranslations(const wxString & domain) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxResourceTranslationsLoader >::_bind_dtor(wxResourceTranslationsLoader* obj) {

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFocusEvent.h>
+
 class luna_wrapper_wxFocusEvent {
 public:
 	typedef Luna< wxFocusEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFocusEvent* ptr= dynamic_cast< wxFocusEvent* >(Luna< wxObject >::check(L,1));
+		//wxFocusEvent* ptr= dynamic_cast< wxFocusEvent* >(Luna< wxObject >::check(L,1));
+		wxFocusEvent* ptr= luna_caster< wxObject, wxFocusEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -53,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -66,7 +81,7 @@ public:
 		}
 
 
-		wxFocusEvent* self=dynamic_cast< wxFocusEvent* >(Luna< wxObject >::check(L,1));
+		wxFocusEvent* self=Luna< wxObject >::checkSubType< wxFocusEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxFocusEvent::GetWindow() const");
@@ -86,9 +101,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFocusEvent::SetWindow(wxWindow * win) function, expected prototype:\nvoid wxFocusEvent::SetWindow(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxFocusEvent* self=dynamic_cast< wxFocusEvent* >(Luna< wxObject >::check(L,1));
+		wxFocusEvent* self=Luna< wxObject >::checkSubType< wxFocusEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFocusEvent::SetWindow(wxWindow *)");
@@ -96,6 +111,46 @@ public:
 		self->SetWindow(win);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxFocusEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFocusEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFocusEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFocusEvent* self=Luna< wxObject >::checkSubType< wxFocusEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFocusEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFocusEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxFocusEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxFocusEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFocusEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxFocusEvent* self=Luna< wxObject >::checkSubType< wxFocusEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFocusEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxFocusEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -107,8 +162,6 @@ wxFocusEvent* LunaTraits< wxFocusEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFocusEvent >::_bind_dtor(wxFocusEvent* obj) {
@@ -125,6 +178,8 @@ const int LunaTraits< wxFocusEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxFocusEvent >::methods[] = {
 	{"GetWindow", &luna_wrapper_wxFocusEvent::_bind_GetWindow},
 	{"SetWindow", &luna_wrapper_wxFocusEvent::_bind_SetWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxFocusEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxFocusEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxFocusEvent::_bind___eq},
 	{0,0}
 };

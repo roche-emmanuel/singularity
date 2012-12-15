@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return KdTreeBuilder::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -33,7 +33,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return KdTreeBuilder::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -42,7 +42,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return KdTreeBuilder::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return KdTreeBuilder::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return KdTreeBuilder::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return KdTreeBuilder::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osg::KdTreeBuilder::libraryName() const
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::KdTreeBuilder::libraryName();
+		return KdTreeBuilder::libraryName();
 	};
 
 	// const char * osg::KdTreeBuilder::className() const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::KdTreeBuilder::className();
+		return KdTreeBuilder::className();
 	};
 
 	// osg::KdTreeBuilder * osg::KdTreeBuilder::clone()
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<osg::KdTreeBuilder*>());
 		}
 
-		return osg::KdTreeBuilder::clone();
+		return KdTreeBuilder::clone();
 	};
 
 	// void osg::KdTreeBuilder::apply(osg::Geode & geode)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::KdTreeBuilder::apply(geode);
+		return KdTreeBuilder::apply(geode);
 	};
 
 

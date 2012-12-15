@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PositionalStateContainer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PositionalStateContainer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PositionalStateContainer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PositionalStateContainer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PositionalStateContainer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return PositionalStateContainer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgUtil::PositionalStateContainer::cloneType() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::PositionalStateContainer::cloneType();
+		return PositionalStateContainer::cloneType();
 	};
 
 	// osg::Object * osgUtil::PositionalStateContainer::clone(const osg::CopyOp & arg1) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::PositionalStateContainer::clone(arg1);
+		return PositionalStateContainer::clone(arg1);
 	};
 
 	// bool osgUtil::PositionalStateContainer::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::PositionalStateContainer::isSameKindAs(obj);
+		return PositionalStateContainer::isSameKindAs(obj);
 	};
 
 	// const char * osgUtil::PositionalStateContainer::libraryName() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::PositionalStateContainer::libraryName();
+		return PositionalStateContainer::libraryName();
 	};
 
 	// const char * osgUtil::PositionalStateContainer::className() const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::PositionalStateContainer::className();
+		return PositionalStateContainer::className();
 	};
 
 	// void osgUtil::PositionalStateContainer::reset()
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PositionalStateContainer::reset();
+		return PositionalStateContainer::reset();
 	};
 
 	// void osgUtil::PositionalStateContainer::addPositionedAttribute(osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PositionalStateContainer::addPositionedAttribute(matrix, attr);
+		return PositionalStateContainer::addPositionedAttribute(matrix, attr);
 	};
 
 	// void osgUtil::PositionalStateContainer::addPositionedTextureAttribute(unsigned int textureUnit, osg::RefMatrixd * matrix, const osg::StateAttribute * attr)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PositionalStateContainer::addPositionedTextureAttribute(textureUnit, matrix, attr);
+		return PositionalStateContainer::addPositionedTextureAttribute(textureUnit, matrix, attr);
 	};
 
 	// void osgUtil::PositionalStateContainer::draw(osg::State & state, osgUtil::RenderLeaf *& previous, const osg::Matrixd * postMultMatrix = 0)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PositionalStateContainer::draw(state, previous, postMultMatrix);
+		return PositionalStateContainer::draw(state, previous, postMultMatrix);
 	};
 
 

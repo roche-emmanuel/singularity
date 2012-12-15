@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewEvent.h>
+
 class luna_wrapper_wxDataViewEvent {
 public:
 	typedef Luna< wxDataViewEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataViewEvent* ptr= dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		//wxDataViewEvent* ptr= dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* ptr= luna_caster< wxObject, wxDataViewEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -142,6 +145,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -155,7 +170,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDataViewEvent::GetColumn() const");
@@ -174,7 +189,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewColumn * wxDataViewEvent::GetDataViewColumn() const");
@@ -195,7 +210,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewEvent::GetModel() const");
@@ -216,7 +231,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxDataViewEvent::GetPosition() const");
@@ -238,7 +253,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDataViewEvent::IsEditCancelled() const");
@@ -258,7 +273,7 @@ public:
 
 		int col=(int)lua_tointeger(L,2);
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetColumn(int)");
@@ -275,9 +290,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDataViewEvent::SetDataViewColumn(wxDataViewColumn * col) function, expected prototype:\nvoid wxDataViewEvent::SetDataViewColumn(wxDataViewColumn * col)\nClass arguments details:\narg 1 ID = 185523\n");
 		}
 
-		wxDataViewColumn* col=dynamic_cast< wxDataViewColumn* >(Luna< wxHeaderColumn >::check(L,2));
+		wxDataViewColumn* col=(Luna< wxHeaderColumn >::checkSubType< wxDataViewColumn >(L,2));
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetDataViewColumn(wxDataViewColumn *)");
@@ -296,7 +311,7 @@ public:
 
 		wxDataViewModel* model=(Luna< wxDataViewModel >::check(L,2));
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetModel(wxDataViewModel *)");
@@ -315,7 +330,7 @@ public:
 
 		wxDataObject* obj=(Luna< wxDataObject >::check(L,2));
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetDataObject(wxDataObject *)");
@@ -333,7 +348,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataObject * wxDataViewEvent::GetDataObject() const");
@@ -359,7 +374,7 @@ public:
 		}
 		const wxDataFormat & format=*format_ptr;
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetDataFormat(const wxDataFormat &)");
@@ -377,7 +392,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataFormat wxDataViewEvent::GetDataFormat() const");
@@ -400,7 +415,7 @@ public:
 
 		size_t size=(size_t)lua_tointeger(L,2);
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataViewEvent::SetDataSize(size_t)");
@@ -418,7 +433,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxDataViewEvent::GetDataSize() const");
@@ -437,7 +452,7 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDataViewEvent::GetCacheFrom() const");
@@ -456,12 +471,52 @@ public:
 		}
 
 
-		wxDataViewEvent* self=dynamic_cast< wxDataViewEvent* >(Luna< wxObject >::check(L,1));
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxDataViewEvent::GetCacheTo() const");
 		}
 		int lret = self->GetCacheTo();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxDataViewEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDataViewEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxDataViewEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxDataViewEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDataViewEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxDataViewEvent* self=Luna< wxObject >::checkSubType< wxDataViewEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDataViewEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxDataViewEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -476,8 +531,6 @@ wxDataViewEvent* LunaTraits< wxDataViewEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewEvent >::_bind_dtor(wxDataViewEvent* obj) {
@@ -508,6 +561,8 @@ luna_RegType LunaTraits< wxDataViewEvent >::methods[] = {
 	{"GetDataSize", &luna_wrapper_wxDataViewEvent::_bind_GetDataSize},
 	{"GetCacheFrom", &luna_wrapper_wxDataViewEvent::_bind_GetCacheFrom},
 	{"GetCacheTo", &luna_wrapper_wxDataViewEvent::_bind_GetCacheTo},
+	{"base_GetClassInfo", &luna_wrapper_wxDataViewEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxDataViewEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxDataViewEvent::_bind___eq},
 	{0,0}
 };

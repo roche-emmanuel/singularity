@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWindowDestroyEvent.h>
+
 class luna_wrapper_wxWindowDestroyEvent {
 public:
 	typedef Luna< wxWindowDestroyEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxWindowDestroyEvent* ptr= dynamic_cast< wxWindowDestroyEvent* >(Luna< wxObject >::check(L,1));
+		//wxWindowDestroyEvent* ptr= dynamic_cast< wxWindowDestroyEvent* >(Luna< wxObject >::check(L,1));
+		wxWindowDestroyEvent* ptr= luna_caster< wxObject, wxWindowDestroyEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -41,6 +44,18 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -59,7 +74,7 @@ public:
 		}
 
 
-		wxWindowDestroyEvent* self=dynamic_cast< wxWindowDestroyEvent* >(Luna< wxObject >::check(L,1));
+		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxWindowDestroyEvent::GetWindow() const");
@@ -68,6 +83,46 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxWindowDestroyEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxWindowDestroyEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxWindowDestroyEvent* self=Luna< wxObject >::checkSubType< wxWindowDestroyEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxWindowDestroyEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxWindowDestroyEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -81,8 +136,6 @@ wxWindowDestroyEvent* LunaTraits< wxWindowDestroyEvent >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxWindowDestroyEvent >::_bind_dtor(wxWindowDestroyEvent* obj) {
@@ -98,6 +151,8 @@ const int LunaTraits< wxWindowDestroyEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxWindowDestroyEvent >::methods[] = {
 	{"GetWindow", &luna_wrapper_wxWindowDestroyEvent::_bind_GetWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxWindowDestroyEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxWindowDestroyEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxWindowDestroyEvent::_bind___eq},
 	{0,0}
 };

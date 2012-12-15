@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Texture2DArray::SubloadCallback* ptr= dynamic_cast< osg::Texture2DArray::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Texture2DArray::SubloadCallback* ptr= dynamic_cast< osg::Texture2DArray::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::SubloadCallback* ptr= luna_caster< osg::Referenced, osg::Texture2DArray::SubloadCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -70,18 +71,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Texture2DArray* texture_ptr=dynamic_cast< osg::Texture2DArray* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Texture2DArray* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in osg::Texture2DArray::SubloadCallback::load function");
 		}
 		const osg::Texture2DArray & texture=*texture_ptr;
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Texture2DArray::SubloadCallback::load function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Texture2DArray::SubloadCallback* self=dynamic_cast< osg::Texture2DArray::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray &, osg::State &) const");
@@ -98,18 +99,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray & texture, osg::State & state) const function, expected prototype:\nvoid osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Texture2DArray* texture_ptr=dynamic_cast< osg::Texture2DArray* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Texture2DArray* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2DArray >(L,2));
 		if( !texture_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg texture in osg::Texture2DArray::SubloadCallback::subload function");
 		}
 		const osg::Texture2DArray & texture=*texture_ptr;
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Texture2DArray::SubloadCallback::subload function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Texture2DArray::SubloadCallback* self=dynamic_cast< osg::Texture2DArray::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::SubloadCallback::subload(const osg::Texture2DArray &, osg::State &) const");

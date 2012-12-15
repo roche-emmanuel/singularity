@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_Texture2D_SubloadCallback(lua_State* L, lua_Table* dum) : osg::Texture2D::SubloadCallback(), _obj(L,-1) {};
 
 	// bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
 	bool textureObjectValid(const osg::Texture2D & texture, osg::State & state) const {
@@ -25,7 +24,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture2D::SubloadCallback::textureObjectValid(texture, state);
+		return SubloadCallback::textureObjectValid(texture, state);
 	};
 
 	// osg::Texture::TextureObject * osg::Texture2D::SubloadCallback::generateTextureObject(const osg::Texture2D & texture, osg::State & state) const
@@ -36,7 +35,7 @@ public:
 			return (_obj.callFunction<osg::Texture::TextureObject*>());
 		}
 
-		return osg::Texture2D::SubloadCallback::generateTextureObject(texture, state);
+		return SubloadCallback::generateTextureObject(texture, state);
 	};
 
 	// void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const

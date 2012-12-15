@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DatabaseRevisions::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DatabaseRevisions::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DatabaseRevisions::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DatabaseRevisions::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DatabaseRevisions::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DatabaseRevisions::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgDB::DatabaseRevisions::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::DatabaseRevisions::cloneType();
+		return DatabaseRevisions::cloneType();
 	};
 
 	// osg::Object * osgDB::DatabaseRevisions::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::DatabaseRevisions::clone(arg1);
+		return DatabaseRevisions::clone(arg1);
 	};
 
 	// bool osgDB::DatabaseRevisions::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::DatabaseRevisions::isSameKindAs(obj);
+		return DatabaseRevisions::isSameKindAs(obj);
 	};
 
 	// const char * osgDB::DatabaseRevisions::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::DatabaseRevisions::libraryName();
+		return DatabaseRevisions::libraryName();
 	};
 
 	// const char * osgDB::DatabaseRevisions::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::DatabaseRevisions::className();
+		return DatabaseRevisions::className();
 	};
 
 

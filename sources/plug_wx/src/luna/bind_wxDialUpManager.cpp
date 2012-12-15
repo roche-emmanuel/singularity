@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDialUpManager.h>
+
 class luna_wrapper_wxDialUpManager {
 public:
 	typedef Luna< wxDialUpManager > luna_t;
@@ -464,8 +466,6 @@ wxDialUpManager* LunaTraits< wxDialUpManager >::_bind_ctor(lua_State *L) {
 	// void wxDialUpManager::SetConnectCommand(const wxString & commandDial = "/usr/bin/pon", const wxString & commandHangup = "/usr/bin/poff")
 	// void wxDialUpManager::SetOnlineStatus(bool isOnline = true)
 	// void wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDialUpManager >::_bind_dtor(wxDialUpManager* obj) {

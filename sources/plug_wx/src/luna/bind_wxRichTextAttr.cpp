@@ -27,17 +27,6 @@ public:
 	}
 
 	// Derived class converters:
-	static int _cast_from_wxTextAttr(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRichTextAttr* ptr= static_cast< wxRichTextAttr* >(Luna< wxTextAttr >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRichTextAttr >::push(L,ptr,false);
-		return 1;
-	};
-
 
 	// Constructor checkers:
 
@@ -75,7 +64,6 @@ luna_RegType LunaTraits< wxRichTextAttr >::methods[] = {
 };
 
 luna_ConverterType LunaTraits< wxRichTextAttr >::converters[] = {
-	{"wxTextAttr", &luna_wrapper_wxRichTextAttr::_cast_from_wxTextAttr},
 	{0,0}
 };
 

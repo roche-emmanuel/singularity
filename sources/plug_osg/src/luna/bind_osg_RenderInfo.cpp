@@ -201,8 +201,8 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::RenderInfo::RenderInfo(osg::State * state, osg::View * view) function, expected prototype:\nosg::RenderInfo::RenderInfo(osg::State * state, osg::View * view)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		osg::State* state=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,1));
-		osg::View* view=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,1));
+		osg::View* view=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 
 		return new osg::RenderInfo(state, view);
 	}
@@ -245,7 +245,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::RenderInfo::setState(osg::State * state) function, expected prototype:\nvoid osg::RenderInfo::setState(osg::State * state)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
@@ -315,7 +315,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::RenderInfo::setView(osg::View * view) function, expected prototype:\nvoid osg::RenderInfo::setView(osg::View * view)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::View* view=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* view=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {
@@ -385,7 +385,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::RenderInfo::pushCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::RenderInfo::pushCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
 		osg::RenderInfo* self=(Luna< osg::RenderInfo >::check(L,1));
 		if(!self) {

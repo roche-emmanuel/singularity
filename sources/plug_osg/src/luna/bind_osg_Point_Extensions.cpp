@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Point::Extensions* ptr= dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Point::Extensions* ptr= dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* ptr= luna_caster< osg::Referenced, osg::Point::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -165,7 +166,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setupGLExtensions(unsigned int)");
@@ -184,7 +185,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointParametersSupported(bool)");
@@ -202,7 +203,7 @@ public:
 		}
 
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointParametersSupported() const");
@@ -222,7 +223,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::setPointSpriteCoordOriginSupported(bool)");
@@ -240,7 +241,7 @@ public:
 		}
 
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Point::Extensions::isPointSpriteCoordOriginSupported() const");
@@ -261,7 +262,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
 		int param=(int)lua_tointeger(L,3);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameteri(unsigned int, int) const");
@@ -281,7 +282,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
 		float param=(float)lua_tonumber(L,3);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterf(unsigned int, float) const");
@@ -301,7 +302,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
 		float params=(float)lua_tonumber(L,3);
 
-		osg::Point::Extensions* self=dynamic_cast< osg::Point::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Point::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Point::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Point::Extensions::glPointParameterfv(unsigned int, const float *) const");

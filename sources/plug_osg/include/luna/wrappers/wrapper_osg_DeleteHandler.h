@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DeleteHandler::flush();
+		return DeleteHandler::flush();
 	};
 
 	// void osg::DeleteHandler::flushAll()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DeleteHandler::flushAll();
+		return DeleteHandler::flushAll();
 	};
 
 	// void osg::DeleteHandler::requestDelete(const osg::Referenced * object)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DeleteHandler::requestDelete(object);
+		return DeleteHandler::requestDelete(object);
 	};
 
 

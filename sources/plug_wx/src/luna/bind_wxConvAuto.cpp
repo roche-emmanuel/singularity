@@ -110,16 +110,16 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT)
+	// wxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT)
 	static wxConvAuto* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT) function, expected prototype:\nwxConvAuto::wxConvAuto(wxFontEncoding enc = wxFONTENCODING_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxFontEncoding enc=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : wxFONTENCODING_DEFAULT;
+		wxFontEncoding enc=luatop>0 ? (wxFontEncoding)lua_tointeger(L,1) : ::wxFONTENCODING_DEFAULT;
 
 		return new wxConvAuto(enc);
 	}

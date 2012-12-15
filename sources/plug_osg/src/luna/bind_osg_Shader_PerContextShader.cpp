@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Shader::PerContextShader* ptr= dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Shader::PerContextShader* ptr= dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* ptr= luna_caster< osg::Referenced, osg::Shader::PerContextShader >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -127,7 +128,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader::PerContextShader(const osg::Shader * shader, unsigned int contextID) function, expected prototype:\nosg::Shader::PerContextShader::PerContextShader(const osg::Shader * shader, unsigned int contextID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Shader* shader=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Shader* shader=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
 		return new osg::Shader::PerContextShader(shader, contextID);
@@ -140,7 +141,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::Shader::PerContextShader::PerContextShader(lua_Table * data, const osg::Shader * shader, unsigned int contextID) function, expected prototype:\nosg::Shader::PerContextShader::PerContextShader(lua_Table * data, const osg::Shader * shader, unsigned int contextID)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osg::Shader* shader=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Shader* shader=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
 		unsigned int contextID=(unsigned int)lua_tointeger(L,3);
 
 		return new wrapper_osg_Shader_PerContextShader(L,NULL, shader, contextID);
@@ -165,7 +166,7 @@ public:
 		}
 
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Shader::PerContextShader::getHandle() const");
@@ -184,7 +185,7 @@ public:
 		}
 
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::PerContextShader::requestCompile()");
@@ -201,13 +202,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Shader::PerContextShader::compileShader(osg::State & state) function, expected prototype:\nvoid osg::Shader::PerContextShader::compileShader(osg::State & state)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Shader::PerContextShader::compileShader function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::PerContextShader::compileShader(osg::State &)");
@@ -225,7 +226,7 @@ public:
 		}
 
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::PerContextShader::needsCompile() const");
@@ -244,7 +245,7 @@ public:
 		}
 
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::PerContextShader::isCompiled() const");
@@ -264,7 +265,7 @@ public:
 
 		std::string infoLog(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::PerContextShader::getInfoLog(std::string &) const");
@@ -284,7 +285,7 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::PerContextShader::attachShader(unsigned int) const");
@@ -303,7 +304,7 @@ public:
 
 		unsigned int program=(unsigned int)lua_tointeger(L,2);
 
-		osg::Shader::PerContextShader* self=dynamic_cast< osg::Shader::PerContextShader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader::PerContextShader* self=Luna< osg::Referenced >::checkSubType< osg::Shader::PerContextShader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::PerContextShader::detachShader(unsigned int) const");

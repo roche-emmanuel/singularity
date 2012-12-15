@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		//sgt::FileLogger* ptr= dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* ptr= luna_caster< osg::Referenced, sgt::FileLogger >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -105,6 +106,31 @@ public:
 	inline static bool _lg_typecheck_getAppending(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setThreadSafeRefUnref(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_process(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_output(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
 		return true;
 	}
 
@@ -191,7 +217,7 @@ public:
 		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
 		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void sgt::FileLogger::output(int, std::string, std::string)");
@@ -213,7 +239,7 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool append=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::init(const std::string &, bool)");
@@ -232,7 +258,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string sgt::FileLogger::getFilename()");
@@ -251,7 +277,7 @@ public:
 		}
 
 
-		sgt::FileLogger* self=dynamic_cast< sgt::FileLogger* >(Luna< osg::Referenced >::check(L,1));
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool sgt::FileLogger::getAppending()");
@@ -260,6 +286,67 @@ public:
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
+	}
+
+	// void sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe)
+	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
+		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe) function, expected prototype:\nvoid sgt::FileLogger::base_setThreadSafeRefUnref(bool threadSafe)\nClass arguments details:\n");
+		}
+
+		bool threadSafe=(bool)(lua_toboolean(L,2)==1);
+
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_setThreadSafeRefUnref(bool)");
+		}
+		self->FileLogger::setThreadSafeRefUnref(threadSafe);
+
+		return 0;
+	}
+
+	// void sgt::FileLogger::base_process(int level, std::string trace, std::string msg)
+	static int _bind_base_process(lua_State *L) {
+		if (!_lg_typecheck_base_process(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_process(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_process(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_process(int, std::string, std::string)");
+		}
+		self->FileLogger::process(level, trace, msg);
+
+		return 0;
+	}
+
+	// void sgt::FileLogger::base_output(int level, std::string trace, std::string msg)
+	static int _bind_base_output(lua_State *L) {
+		if (!_lg_typecheck_base_output(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void sgt::FileLogger::base_output(int level, std::string trace, std::string msg) function, expected prototype:\nvoid sgt::FileLogger::base_output(int level, std::string trace, std::string msg)\nClass arguments details:\n");
+		}
+
+		int level=(int)lua_tointeger(L,2);
+		std::string trace(lua_tostring(L,3),lua_objlen(L,3));
+		std::string msg(lua_tostring(L,4),lua_objlen(L,4));
+
+		sgt::FileLogger* self=Luna< osg::Referenced >::checkSubType< sgt::FileLogger >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void sgt::FileLogger::base_output(int, std::string, std::string)");
+		}
+		self->FileLogger::output(level, trace, msg);
+
+		return 0;
 	}
 
 
@@ -287,6 +374,9 @@ luna_RegType LunaTraits< sgt::FileLogger >::methods[] = {
 	{"init", &luna_wrapper_sgt_FileLogger::_bind_init},
 	{"getFilename", &luna_wrapper_sgt_FileLogger::_bind_getFilename},
 	{"getAppending", &luna_wrapper_sgt_FileLogger::_bind_getAppending},
+	{"base_setThreadSafeRefUnref", &luna_wrapper_sgt_FileLogger::_bind_base_setThreadSafeRefUnref},
+	{"base_process", &luna_wrapper_sgt_FileLogger::_bind_base_process},
+	{"base_output", &luna_wrapper_sgt_FileLogger::_bind_base_output},
 	{"__eq", &luna_wrapper_sgt_FileLogger::_bind___eq},
 	{0,0}
 };

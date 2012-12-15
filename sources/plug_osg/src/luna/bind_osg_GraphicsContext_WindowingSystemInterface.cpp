@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::GraphicsContext::WindowingSystemInterface* ptr= dynamic_cast< osg::GraphicsContext::WindowingSystemInterface* >(Luna< osg::Referenced >::check(L,1));
+		//osg::GraphicsContext::WindowingSystemInterface* ptr= dynamic_cast< osg::GraphicsContext::WindowingSystemInterface* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::WindowingSystemInterface* ptr= luna_caster< osg::Referenced, osg::GraphicsContext::WindowingSystemInterface >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,9 +62,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits) function, expected prototype:\nosg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext::Traits* traits=dynamic_cast< osg::GraphicsContext::Traits* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext::Traits* traits=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,2));
 
-		osg::GraphicsContext::WindowingSystemInterface* self=dynamic_cast< osg::GraphicsContext::WindowingSystemInterface* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::WindowingSystemInterface* self=Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::WindowingSystemInterface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits *)");

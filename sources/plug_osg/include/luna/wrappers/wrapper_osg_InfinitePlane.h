@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return InfinitePlane::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return InfinitePlane::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return InfinitePlane::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return InfinitePlane::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return InfinitePlane::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return InfinitePlane::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::InfinitePlane::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::InfinitePlane::cloneType();
+		return InfinitePlane::cloneType();
 	};
 
 	// osg::Object * osg::InfinitePlane::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::InfinitePlane::clone(arg1);
+		return InfinitePlane::clone(arg1);
 	};
 
 	// bool osg::InfinitePlane::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::InfinitePlane::isSameKindAs(obj);
+		return InfinitePlane::isSameKindAs(obj);
 	};
 
 	// const char * osg::InfinitePlane::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::InfinitePlane::libraryName();
+		return InfinitePlane::libraryName();
 	};
 
 	// const char * osg::InfinitePlane::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::InfinitePlane::className();
+		return InfinitePlane::className();
 	};
 
 	// void osg::InfinitePlane::accept(osg::ShapeVisitor & arg1)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::InfinitePlane::accept(arg1);
+		return InfinitePlane::accept(arg1);
 	};
 
 	// void osg::InfinitePlane::accept(osg::ConstShapeVisitor & arg1) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::InfinitePlane::accept(arg1);
+		return InfinitePlane::accept(arg1);
 	};
 
 

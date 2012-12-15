@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_TextureRectangle_SubloadCallback(lua_State* L, lua_Table* dum) : osg::TextureRectangle::SubloadCallback(), _obj(L,-1) {};
 
 	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
 	void load(const osg::TextureRectangle & arg1, osg::State & arg2) const {

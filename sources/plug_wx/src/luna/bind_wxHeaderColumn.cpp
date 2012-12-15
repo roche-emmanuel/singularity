@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHeaderColumn.h>
+
 class luna_wrapper_wxHeaderColumn {
 public:
 	typedef Luna< wxHeaderColumn > luna_t;
@@ -134,6 +136,30 @@ public:
 	}
 
 	inline static bool _lg_typecheck_IsSortOrderAscending(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsResizeable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsSortable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsReorderable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsHidden(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -414,6 +440,82 @@ public:
 		return 1;
 	}
 
+	// bool wxHeaderColumn::base_IsResizeable() const
+	static int _bind_base_IsResizeable(lua_State *L) {
+		if (!_lg_typecheck_base_IsResizeable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumn::base_IsResizeable() const function, expected prototype:\nbool wxHeaderColumn::base_IsResizeable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsResizeable() const");
+		}
+		bool lret = self->wxHeaderColumn::IsResizeable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumn::base_IsSortable() const
+	static int _bind_base_IsSortable(lua_State *L) {
+		if (!_lg_typecheck_base_IsSortable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumn::base_IsSortable() const function, expected prototype:\nbool wxHeaderColumn::base_IsSortable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsSortable() const");
+		}
+		bool lret = self->wxHeaderColumn::IsSortable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumn::base_IsReorderable() const
+	static int _bind_base_IsReorderable(lua_State *L) {
+		if (!_lg_typecheck_base_IsReorderable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumn::base_IsReorderable() const function, expected prototype:\nbool wxHeaderColumn::base_IsReorderable() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsReorderable() const");
+		}
+		bool lret = self->wxHeaderColumn::IsReorderable();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxHeaderColumn::base_IsHidden() const
+	static int _bind_base_IsHidden(lua_State *L) {
+		if (!_lg_typecheck_base_IsHidden(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxHeaderColumn::base_IsHidden() const function, expected prototype:\nbool wxHeaderColumn::base_IsHidden() const\nClass arguments details:\n");
+		}
+
+
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxHeaderColumn::base_IsHidden() const");
+		}
+		bool lret = self->wxHeaderColumn::IsHidden();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -430,8 +532,6 @@ wxHeaderColumn* LunaTraits< wxHeaderColumn >::_bind_ctor(lua_State *L) {
 	// int wxHeaderColumn::GetFlags() const
 	// bool wxHeaderColumn::IsSortKey() const
 	// bool wxHeaderColumn::IsSortOrderAscending() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHeaderColumn >::_bind_dtor(wxHeaderColumn* obj) {
@@ -460,6 +560,10 @@ luna_RegType LunaTraits< wxHeaderColumn >::methods[] = {
 	{"IsShown", &luna_wrapper_wxHeaderColumn::_bind_IsShown},
 	{"IsSortKey", &luna_wrapper_wxHeaderColumn::_bind_IsSortKey},
 	{"IsSortOrderAscending", &luna_wrapper_wxHeaderColumn::_bind_IsSortOrderAscending},
+	{"base_IsResizeable", &luna_wrapper_wxHeaderColumn::_bind_base_IsResizeable},
+	{"base_IsSortable", &luna_wrapper_wxHeaderColumn::_bind_base_IsSortable},
+	{"base_IsReorderable", &luna_wrapper_wxHeaderColumn::_bind_base_IsReorderable},
+	{"base_IsHidden", &luna_wrapper_wxHeaderColumn::_bind_base_IsHidden},
 	{"dynCast", &luna_wrapper_wxHeaderColumn::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHeaderColumn::_bind___eq},
 	{0,0}

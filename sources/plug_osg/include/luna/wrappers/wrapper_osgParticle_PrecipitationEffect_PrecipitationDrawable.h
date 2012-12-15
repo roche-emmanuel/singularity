@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PrecipitationDrawable::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PrecipitationDrawable::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PrecipitationDrawable::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PrecipitationDrawable::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return PrecipitationDrawable::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return PrecipitationDrawable::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return PrecipitationDrawable::computeDataVariance();
 	};
 
 	// osg::BoundingBoxd osg::Drawable::computeBound() const
@@ -89,7 +89,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osg::Drawable::computeBound();
+		return PrecipitationDrawable::computeBound();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return PrecipitationDrawable::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return PrecipitationDrawable::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return PrecipitationDrawable::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return PrecipitationDrawable::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::releaseGLObjects(osg::State * state = 0) const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::releaseGLObjects(state);
+		return PrecipitationDrawable::releaseGLObjects(state);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return PrecipitationDrawable::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return PrecipitationDrawable::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return PrecipitationDrawable::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return PrecipitationDrawable::setDrawCallback(dc);
 	};
 
 	// osg::Object * osgParticle::PrecipitationEffect::PrecipitationDrawable::cloneType() const
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::cloneType();
+		return PrecipitationDrawable::cloneType();
 	};
 
 	// osg::Object * osgParticle::PrecipitationEffect::PrecipitationDrawable::clone(const osg::CopyOp & arg1) const
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::clone(arg1);
+		return PrecipitationDrawable::clone(arg1);
 	};
 
 	// bool osgParticle::PrecipitationEffect::PrecipitationDrawable::isSameKindAs(const osg::Object * obj) const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::isSameKindAs(obj);
+		return PrecipitationDrawable::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::PrecipitationEffect::PrecipitationDrawable::libraryName() const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::libraryName();
+		return PrecipitationDrawable::libraryName();
 	};
 
 	// const char * osgParticle::PrecipitationEffect::PrecipitationDrawable::className() const
@@ -224,7 +224,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::className();
+		return PrecipitationDrawable::className();
 	};
 
 	// void osgParticle::PrecipitationEffect::PrecipitationDrawable::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -234,7 +234,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::PrecipitationEffect::PrecipitationDrawable::drawImplementation(renderInfo);
+		return PrecipitationDrawable::drawImplementation(renderInfo);
 	};
 
 

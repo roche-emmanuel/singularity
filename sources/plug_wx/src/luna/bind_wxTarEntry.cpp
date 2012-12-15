@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTarEntry.h>
+
 class luna_wrapper_wxTarEntry {
 public:
 	typedef Luna< wxTarEntry > luna_t;
@@ -70,6 +72,27 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,73261869) ) return false;
 		if( (!dynamic_cast< wxTarEntry* >(Luna< wxTarEntry >::check(L,1))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,57497519) ) return false;
+		if( luatop>2 && (!dynamic_cast< wxDateTime* >(Luna< wxDateTime >::check(L,3))) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,73261869) ) return false;
+		if( (!dynamic_cast< wxTarEntry* >(Luna< wxTarEntry >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -241,16 +264,35 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_SetSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetInternalName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)
+	// wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
 	static wxTarEntry* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 57497519\n");
 		}
 
 		int luatop = lua_gettop(L);
@@ -261,7 +303,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
 		}
 		const wxDateTime & dt=luatop>1 ? *dt_ptr : wxDateTime::Now ();
-		long size=luatop>2 ? (long)lua_tointeger(L,3) : wxInvalidOffset;
+		long long size=luatop>2 ? (long long)lua_tointeger(L,3) : wxInvalidOffset;
 
 		return new wxTarEntry(name, dt, size);
 	}
@@ -282,12 +324,50 @@ public:
 		return new wxTarEntry(entry);
 	}
 
+	// wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)
+	static wxTarEntry* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxString & name = wxEmptyString, const wxDateTime & dt = wxDateTime::Now (), long long size = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 57497519\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		const wxDateTime* dt_ptr=luatop>2 ? (Luna< wxDateTime >::check(L,3)) : NULL;
+		if( luatop>2 && !dt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dt in wxTarEntry::wxTarEntry function");
+		}
+		const wxDateTime & dt=luatop>2 ? *dt_ptr : wxDateTime::Now ();
+		long long size=luatop>3 ? (long long)lua_tointeger(L,4) : wxInvalidOffset;
+
+		return new wrapper_wxTarEntry(L,NULL, name, dt, size);
+	}
+
+	// wxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry)
+	static wxTarEntry* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry) function, expected prototype:\nwxTarEntry::wxTarEntry(lua_Table * data, const wxTarEntry & entry)\nClass arguments details:\narg 2 ID = 73261869\n");
+		}
+
+		const wxTarEntry* entry_ptr=(Luna< wxTarEntry >::check(L,2));
+		if( !entry_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg entry in wxTarEntry::wxTarEntry function");
+		}
+		const wxTarEntry & entry=*entry_ptr;
+
+		return new wrapper_wxTarEntry(L,NULL, entry);
+	}
+
 	// Overload binder for wxTarEntry::wxTarEntry
 	static wxTarEntry* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxTarEntry, cannot match any of the overloads for function wxTarEntry:\n  wxTarEntry(const wxString &, const wxDateTime &, long)\n  wxTarEntry(const wxTarEntry &)\n");
+		luaL_error(L, "error in function wxTarEntry, cannot match any of the overloads for function wxTarEntry:\n  wxTarEntry(const wxString &, const wxDateTime &, long long)\n  wxTarEntry(const wxTarEntry &)\n  wxTarEntry(lua_Table *, const wxString &, const wxDateTime &, long long)\n  wxTarEntry(lua_Table *, const wxTarEntry &)\n");
 		return NULL;
 	}
 
@@ -668,39 +748,39 @@ public:
 		return 0;
 	}
 
-	// void wxTarEntry::SetSize(long size)
+	// void wxTarEntry::SetSize(long long size)
 	static int _bind_SetSize(lua_State *L) {
 		if (!_lg_typecheck_SetSize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::SetSize(long long size)\nClass arguments details:\n");
 		}
 
-		long size=(long)lua_tointeger(L,2);
+		long long size=(long long)lua_tointeger(L,2);
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long)");
+			luaL_error(L, "Invalid object in function call void wxTarEntry::SetSize(long long)");
 		}
 		self->SetSize(size);
 
 		return 0;
 	}
 
-	// long wxTarEntry::GetSize() const
+	// long long wxTarEntry::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxTarEntry::GetSize() const function, expected prototype:\nlong wxTarEntry::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::GetSize() const function, expected prototype:\nlong long wxTarEntry::GetSize() const\nClass arguments details:\n");
 		}
 
 
 		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxTarEntry::GetSize() const");
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::GetSize() const");
 		}
-		long lret = self->GetSize();
+		long long lret = self->GetSize();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -763,17 +843,17 @@ public:
 		return 1;
 	}
 
-	// static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = wxPATH_NATIVE, bool * pIsDir = NULL)
+	// static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL)
 	static int _bind_GetInternalName_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetInternalName_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = wxPATH_NATIVE, bool * pIsDir = NULL) function, expected prototype:\nstatic wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = wxPATH_NATIVE, bool * pIsDir = NULL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL) function, expected prototype:\nstatic wxString wxTarEntry::GetInternalName(const wxString & name, wxPathFormat format = ::wxPATH_NATIVE, bool * pIsDir = NULL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : wxPATH_NATIVE;
+		wxPathFormat format=luatop>1 ? (wxPathFormat)lua_tointeger(L,2) : ::wxPATH_NATIVE;
 		bool pIsDir=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : NULL;
 
 		wxString lret = wxTarEntry::GetInternalName(name, format, &pIsDir);
@@ -789,6 +869,63 @@ public:
 
 		luaL_error(L, "error in function GetInternalName, cannot match any of the overloads for function GetInternalName:\n  GetInternalName()\n  GetInternalName(const wxString &, wxPathFormat, bool *)\n");
 		return 0;
+	}
+
+	// void wxTarEntry::base_SetSize(long long size)
+	static int _bind_base_SetSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxTarEntry::base_SetSize(long long size) function, expected prototype:\nvoid wxTarEntry::base_SetSize(long long size)\nClass arguments details:\n");
+		}
+
+		long long size=(long long)lua_tointeger(L,2);
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxTarEntry::base_SetSize(long long)");
+		}
+		self->wxTarEntry::SetSize(size);
+
+		return 0;
+	}
+
+	// long long wxTarEntry::base_GetSize() const
+	static int _bind_base_GetSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxTarEntry::base_GetSize() const function, expected prototype:\nlong long wxTarEntry::base_GetSize() const\nClass arguments details:\n");
+		}
+
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxTarEntry::base_GetSize() const");
+		}
+		long long lret = self->wxTarEntry::GetSize();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxTarEntry::base_GetInternalName() const
+	static int _bind_base_GetInternalName(lua_State *L) {
+		if (!_lg_typecheck_base_GetInternalName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxTarEntry::base_GetInternalName() const function, expected prototype:\nwxString wxTarEntry::base_GetInternalName() const\nClass arguments details:\n");
+		}
+
+
+		wxTarEntry* self=(Luna< wxTarEntry >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxTarEntry::base_GetInternalName() const");
+		}
+		wxString lret = self->wxTarEntry::GetInternalName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
 	}
 
 
@@ -836,6 +973,9 @@ luna_RegType LunaTraits< wxTarEntry >::methods[] = {
 	{"GetTypeFlag", &luna_wrapper_wxTarEntry::_bind_GetTypeFlag},
 	{"SetTypeFlag", &luna_wrapper_wxTarEntry::_bind_SetTypeFlag},
 	{"GetInternalName", &luna_wrapper_wxTarEntry::_bind_GetInternalName},
+	{"base_SetSize", &luna_wrapper_wxTarEntry::_bind_base_SetSize},
+	{"base_GetSize", &luna_wrapper_wxTarEntry::_bind_base_GetSize},
+	{"base_GetInternalName", &luna_wrapper_wxTarEntry::_bind_base_GetInternalName},
 	{"dynCast", &luna_wrapper_wxTarEntry::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTarEntry::_bind___eq},
 	{0,0}

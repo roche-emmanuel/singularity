@@ -324,6 +324,184 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getPrimitiveCountMap_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveCountMap_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveValueMap_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getPrimitiveValueMap_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303204)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303173)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303235)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303202)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303171)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec2d* >(Luna< osg::Vec2d >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setVertexArray_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92303233)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec4d* >(Luna< osg::Vec4d >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_drawArrays(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_drawElements_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_drawElements_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_drawElements_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_begin(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
+		if( (!dynamic_cast< osg::Vec3f* >(Luna< osg::Vec3f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
+		if( (!dynamic_cast< osg::Vec2f* >(Luna< osg::Vec2f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
+		if( (!dynamic_cast< osg::Vec4f* >(Luna< osg::Vec4f >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_vertex_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_end(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -1056,6 +1234,517 @@ public:
 		return 0;
 	}
 
+	// osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()
+	static int _bind_getPrimitiveCountMap_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveCountMap_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap()");
+		}
+		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics::PrimitiveCountMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const
+	static int _bind_getPrimitiveCountMap_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveCountMap_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveCountMap & osgUtil::Statistics::getPrimitiveCountMap() const");
+		}
+		const osgUtil::Statistics::PrimitiveCountMap* lret = &self->getPrimitiveCountMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics::PrimitiveCountMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgUtil::Statistics::getPrimitiveCountMap
+	static int _bind_getPrimitiveCountMap(lua_State *L) {
+		if (_lg_typecheck_getPrimitiveCountMap_overload_1(L)) return _bind_getPrimitiveCountMap_overload_1(L);
+		if (_lg_typecheck_getPrimitiveCountMap_overload_2(L)) return _bind_getPrimitiveCountMap_overload_2(L);
+
+		luaL_error(L, "error in function getPrimitiveCountMap, cannot match any of the overloads for function getPrimitiveCountMap:\n  getPrimitiveCountMap()\n  getPrimitiveCountMap()\n");
+		return 0;
+	}
+
+	// osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()
+	static int _bind_getPrimitiveValueMap_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveValueMap_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() function, expected prototype:\nosgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap()");
+		}
+		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics::PrimitiveValueMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const
+	static int _bind_getPrimitiveValueMap_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getPrimitiveValueMap_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const function, expected prototype:\nconst osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osgUtil::Statistics::PrimitiveValueMap & osgUtil::Statistics::getPrimitiveValueMap() const");
+		}
+		const osgUtil::Statistics::PrimitiveValueMap* lret = &self->getPrimitiveValueMap();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgUtil::Statistics::PrimitiveValueMap >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgUtil::Statistics::getPrimitiveValueMap
+	static int _bind_getPrimitiveValueMap(lua_State *L) {
+		if (_lg_typecheck_getPrimitiveValueMap_overload_1(L)) return _bind_getPrimitiveValueMap_overload_1(L);
+		if (_lg_typecheck_getPrimitiveValueMap_overload_2(L)) return _bind_getPrimitiveValueMap_overload_2(L);
+
+		luaL_error(L, "error in function getPrimitiveValueMap, cannot match any of the overloads for function getPrimitiveValueMap:\n  getPrimitiveValueMap()\n  getPrimitiveValueMap()\n");
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)
+	static int _bind_base_setVertexArray_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3f * vertices)\nClass arguments details:\narg 2 ID = 92303204\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec3f* vertices=(Luna< osg::Vec3f >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3f *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices)
+	static int _bind_base_setVertexArray_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2f * vertices)\nClass arguments details:\narg 2 ID = 92303173\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec2f* vertices=(Luna< osg::Vec2f >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2f *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices)
+	static int _bind_base_setVertexArray_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4f * vertices)\nClass arguments details:\narg 2 ID = 92303235\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec4f* vertices=(Luna< osg::Vec4f >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4f *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices)
+	static int _bind_base_setVertexArray_overload_4(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec3d * vertices)\nClass arguments details:\narg 2 ID = 92303202\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec3d* vertices=(Luna< osg::Vec3d >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec3d *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices)
+	static int _bind_base_setVertexArray_overload_5(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec2d * vertices)\nClass arguments details:\narg 2 ID = 92303171\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec2d* vertices=(Luna< osg::Vec2d >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec2d *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices)
+	static int _bind_base_setVertexArray_overload_6(lua_State *L) {
+		if (!_lg_typecheck_base_setVertexArray_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices) function, expected prototype:\nvoid osgUtil::Statistics::base_setVertexArray(unsigned int count, const osg::Vec4d * vertices)\nClass arguments details:\narg 2 ID = 92303233\n");
+		}
+
+		unsigned int count=(unsigned int)lua_tointeger(L,2);
+		const osg::Vec4d* vertices=(Luna< osg::Vec4d >::check(L,3));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_setVertexArray(unsigned int, const osg::Vec4d *)");
+		}
+		self->Statistics::setVertexArray(count, vertices);
+
+		return 0;
+	}
+
+	// Overload binder for osgUtil::Statistics::base_setVertexArray
+	static int _bind_base_setVertexArray(lua_State *L) {
+		if (_lg_typecheck_base_setVertexArray_overload_1(L)) return _bind_base_setVertexArray_overload_1(L);
+		if (_lg_typecheck_base_setVertexArray_overload_2(L)) return _bind_base_setVertexArray_overload_2(L);
+		if (_lg_typecheck_base_setVertexArray_overload_3(L)) return _bind_base_setVertexArray_overload_3(L);
+		if (_lg_typecheck_base_setVertexArray_overload_4(L)) return _bind_base_setVertexArray_overload_4(L);
+		if (_lg_typecheck_base_setVertexArray_overload_5(L)) return _bind_base_setVertexArray_overload_5(L);
+		if (_lg_typecheck_base_setVertexArray_overload_6(L)) return _bind_base_setVertexArray_overload_6(L);
+
+		luaL_error(L, "error in function base_setVertexArray, cannot match any of the overloads for function base_setVertexArray:\n  base_setVertexArray(unsigned int, const osg::Vec3f *)\n  base_setVertexArray(unsigned int, const osg::Vec2f *)\n  base_setVertexArray(unsigned int, const osg::Vec4f *)\n  base_setVertexArray(unsigned int, const osg::Vec3d *)\n  base_setVertexArray(unsigned int, const osg::Vec2d *)\n  base_setVertexArray(unsigned int, const osg::Vec4d *)\n");
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count)
+	static int _bind_base_drawArrays(lua_State *L) {
+		if (!_lg_typecheck_base_drawArrays(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid osgUtil::Statistics::base_drawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int first=(int)lua_tointeger(L,3);
+		int count=(int)lua_tointeger(L,4);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawArrays(unsigned int, int, int)");
+		}
+		self->Statistics::drawArrays(mode, first, count);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices)
+	static int _bind_base_drawElements_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_drawElements_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned char * indices)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned char indices = (unsigned char)(lua_tointeger(L,4));
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned char *)");
+		}
+		self->Statistics::drawElements(mode, count, &indices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices)
+	static int _bind_base_drawElements_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_drawElements_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned short * indices)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned short indices=(unsigned short)lua_tointeger(L,4);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned short *)");
+		}
+		self->Statistics::drawElements(mode, count, &indices);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices)
+	static int _bind_base_drawElements_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_drawElements_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices) function, expected prototype:\nvoid osgUtil::Statistics::base_drawElements(unsigned int mode, int count, const unsigned int * indices)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+		int count=(int)lua_tointeger(L,3);
+		unsigned int indices=(unsigned int)lua_tointeger(L,4);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_drawElements(unsigned int, int, const unsigned int *)");
+		}
+		self->Statistics::drawElements(mode, count, &indices);
+
+		return 0;
+	}
+
+	// Overload binder for osgUtil::Statistics::base_drawElements
+	static int _bind_base_drawElements(lua_State *L) {
+		if (_lg_typecheck_base_drawElements_overload_1(L)) return _bind_base_drawElements_overload_1(L);
+		if (_lg_typecheck_base_drawElements_overload_2(L)) return _bind_base_drawElements_overload_2(L);
+		if (_lg_typecheck_base_drawElements_overload_3(L)) return _bind_base_drawElements_overload_3(L);
+
+		luaL_error(L, "error in function base_drawElements, cannot match any of the overloads for function base_drawElements:\n  base_drawElements(unsigned int, int, const unsigned char *)\n  base_drawElements(unsigned int, int, const unsigned short *)\n  base_drawElements(unsigned int, int, const unsigned int *)\n");
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_begin(unsigned int mode)
+	static int _bind_base_begin(lua_State *L) {
+		if (!_lg_typecheck_base_begin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_begin(unsigned int mode) function, expected prototype:\nvoid osgUtil::Statistics::base_begin(unsigned int mode)\nClass arguments details:\n");
+		}
+
+		unsigned int mode=(unsigned int)lua_tointeger(L,2);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_begin(unsigned int)");
+		}
+		self->Statistics::begin(mode);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(float x, float y, float z)
+	static int _bind_base_vertex_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z)\nClass arguments details:\n");
+		}
+
+		float x=(float)lua_tonumber(L,2);
+		float y=(float)lua_tonumber(L,3);
+		float z=(float)lua_tonumber(L,4);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float)");
+		}
+		self->Statistics::vertex(x, y, z);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(const osg::Vec3f & vert)
+	static int _bind_base_vertex_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec3f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec3f & vert)\nClass arguments details:\narg 1 ID = 92303204\n");
+		}
+
+		const osg::Vec3f* vert_ptr=(Luna< osg::Vec3f >::check(L,2));
+		if( !vert_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vert in osgUtil::Statistics::base_vertex function");
+		}
+		const osg::Vec3f & vert=*vert_ptr;
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec3f &)");
+		}
+		self->Statistics::vertex(vert);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(const osg::Vec2f & vert)
+	static int _bind_base_vertex_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec2f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec2f & vert)\nClass arguments details:\narg 1 ID = 92303173\n");
+		}
+
+		const osg::Vec2f* vert_ptr=(Luna< osg::Vec2f >::check(L,2));
+		if( !vert_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vert in osgUtil::Statistics::base_vertex function");
+		}
+		const osg::Vec2f & vert=*vert_ptr;
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec2f &)");
+		}
+		self->Statistics::vertex(vert);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(const osg::Vec4f & vert)
+	static int _bind_base_vertex_overload_4(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(const osg::Vec4f & vert) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(const osg::Vec4f & vert)\nClass arguments details:\narg 1 ID = 92303235\n");
+		}
+
+		const osg::Vec4f* vert_ptr=(Luna< osg::Vec4f >::check(L,2));
+		if( !vert_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vert in osgUtil::Statistics::base_vertex function");
+		}
+		const osg::Vec4f & vert=*vert_ptr;
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(const osg::Vec4f &)");
+		}
+		self->Statistics::vertex(vert);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(float x, float y)
+	static int _bind_base_vertex_overload_5(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y)\nClass arguments details:\n");
+		}
+
+		float x=(float)lua_tonumber(L,2);
+		float y=(float)lua_tonumber(L,3);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float)");
+		}
+		self->Statistics::vertex(x, y);
+
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_vertex(float x, float y, float z, float w)
+	static int _bind_base_vertex_overload_6(lua_State *L) {
+		if (!_lg_typecheck_base_vertex_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_vertex(float x, float y, float z, float w) function, expected prototype:\nvoid osgUtil::Statistics::base_vertex(float x, float y, float z, float w)\nClass arguments details:\n");
+		}
+
+		float x=(float)lua_tonumber(L,2);
+		float y=(float)lua_tonumber(L,3);
+		float z=(float)lua_tonumber(L,4);
+		float w=(float)lua_tonumber(L,5);
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_vertex(float, float, float, float)");
+		}
+		self->Statistics::vertex(x, y, z, w);
+
+		return 0;
+	}
+
+	// Overload binder for osgUtil::Statistics::base_vertex
+	static int _bind_base_vertex(lua_State *L) {
+		if (_lg_typecheck_base_vertex_overload_1(L)) return _bind_base_vertex_overload_1(L);
+		if (_lg_typecheck_base_vertex_overload_2(L)) return _bind_base_vertex_overload_2(L);
+		if (_lg_typecheck_base_vertex_overload_3(L)) return _bind_base_vertex_overload_3(L);
+		if (_lg_typecheck_base_vertex_overload_4(L)) return _bind_base_vertex_overload_4(L);
+		if (_lg_typecheck_base_vertex_overload_5(L)) return _bind_base_vertex_overload_5(L);
+		if (_lg_typecheck_base_vertex_overload_6(L)) return _bind_base_vertex_overload_6(L);
+
+		luaL_error(L, "error in function base_vertex, cannot match any of the overloads for function base_vertex:\n  base_vertex(float, float, float)\n  base_vertex(const osg::Vec3f &)\n  base_vertex(const osg::Vec2f &)\n  base_vertex(const osg::Vec4f &)\n  base_vertex(float, float)\n  base_vertex(float, float, float, float)\n");
+		return 0;
+	}
+
+	// void osgUtil::Statistics::base_end()
+	static int _bind_base_end(lua_State *L) {
+		if (!_lg_typecheck_base_end(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::Statistics::base_end() function, expected prototype:\nvoid osgUtil::Statistics::base_end()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::Statistics* self=(Luna< osgUtil::Statistics >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::Statistics::base_end()");
+		}
+		self->Statistics::end();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1097,6 +1786,14 @@ luna_RegType LunaTraits< osgUtil::Statistics >::methods[] = {
 	{"addStateGraphs", &luna_wrapper_osgUtil_Statistics::_bind_addStateGraphs},
 	{"addOrderedLeaves", &luna_wrapper_osgUtil_Statistics::_bind_addOrderedLeaves},
 	{"add", &luna_wrapper_osgUtil_Statistics::_bind_add},
+	{"getPrimitiveCountMap", &luna_wrapper_osgUtil_Statistics::_bind_getPrimitiveCountMap},
+	{"getPrimitiveValueMap", &luna_wrapper_osgUtil_Statistics::_bind_getPrimitiveValueMap},
+	{"base_setVertexArray", &luna_wrapper_osgUtil_Statistics::_bind_base_setVertexArray},
+	{"base_drawArrays", &luna_wrapper_osgUtil_Statistics::_bind_base_drawArrays},
+	{"base_drawElements", &luna_wrapper_osgUtil_Statistics::_bind_base_drawElements},
+	{"base_begin", &luna_wrapper_osgUtil_Statistics::_bind_base_begin},
+	{"base_vertex", &luna_wrapper_osgUtil_Statistics::_bind_base_vertex},
+	{"base_end", &luna_wrapper_osgUtil_Statistics::_bind_base_end},
 	{"dynCast", &luna_wrapper_osgUtil_Statistics::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgUtil_Statistics::_bind___eq},
 	{0,0}

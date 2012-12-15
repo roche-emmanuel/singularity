@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::View::Slave::UpdateSlaveCallback* ptr= dynamic_cast< osg::View::Slave::UpdateSlaveCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::View::Slave::UpdateSlaveCallback* ptr= dynamic_cast< osg::View::Slave::UpdateSlaveCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::View::Slave::UpdateSlaveCallback* ptr= luna_caster< osg::Referenced, osg::View::Slave::UpdateSlaveCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -62,7 +63,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave) function, expected prototype:\nvoid osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 94812983\n");
 		}
 
-		osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::Slave::UpdateSlaveCallback::updateSlave function");
 		}
@@ -73,7 +74,7 @@ public:
 		}
 		osg::View::Slave & slave=*slave_ptr;
 
-		osg::View::Slave::UpdateSlaveCallback* self=dynamic_cast< osg::View::Slave::UpdateSlaveCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::View::Slave::UpdateSlaveCallback* self=Luna< osg::Referenced >::checkSubType< osg::View::Slave::UpdateSlaveCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View &, osg::View::Slave &)");

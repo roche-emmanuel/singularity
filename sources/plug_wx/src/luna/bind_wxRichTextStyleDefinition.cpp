@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextStyleDefinition.h>
+
 class luna_wrapper_wxRichTextStyleDefinition {
 public:
 	typedef Luna< wxRichTextStyleDefinition > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleDefinition* ptr= dynamic_cast< wxRichTextStyleDefinition* >(Luna< wxObject >::check(L,1));
+		//wxRichTextStyleDefinition* ptr= dynamic_cast< wxRichTextStyleDefinition* >(Luna< wxObject >::check(L,1));
+		wxRichTextStyleDefinition* ptr= luna_caster< wxObject, wxRichTextStyleDefinition >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

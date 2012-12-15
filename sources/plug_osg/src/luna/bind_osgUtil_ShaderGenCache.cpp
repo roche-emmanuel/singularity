@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::ShaderGenCache* ptr= dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::ShaderGenCache* ptr= dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::ShaderGenCache* ptr= luna_caster< osg::Referenced, osgUtil::ShaderGenCache >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -125,9 +126,9 @@ public:
 		}
 
 		int stateMask=(int)lua_tointeger(L,2);
-		osg::StateSet* program=dynamic_cast< osg::StateSet* >(Luna< osg::Referenced >::check(L,3));
+		osg::StateSet* program=(Luna< osg::Referenced >::checkSubType< osg::StateSet >(L,3));
 
-		osgUtil::ShaderGenCache* self=dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::ShaderGenCache::setStateSet(int, osg::StateSet *)");
@@ -146,7 +147,7 @@ public:
 
 		int stateMask=(int)lua_tointeger(L,2);
 
-		osgUtil::ShaderGenCache* self=dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getStateSet(int) const");
@@ -168,7 +169,7 @@ public:
 
 		int stateMask=(int)lua_tointeger(L,2);
 
-		osgUtil::ShaderGenCache* self=dynamic_cast< osgUtil::ShaderGenCache* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::ShaderGenCache* self=Luna< osg::Referenced >::checkSubType< osgUtil::ShaderGenCache >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::StateSet * osgUtil::ShaderGenCache::getOrCreateStateSet(int)");

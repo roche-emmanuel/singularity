@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileSystemHandler.h>
+
 class luna_wrapper_wxFileSystemHandler {
 public:
 	typedef Luna< wxFileSystemHandler > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileSystemHandler* ptr= dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		//wxFileSystemHandler* ptr= dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		wxFileSystemHandler* ptr= luna_caster< wxObject, wxFileSystemHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -77,6 +80,27 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindFirst(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_FindNext(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -91,7 +115,7 @@ public:
 
 		wxString location(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileSystemHandler* self=dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileSystemHandler::CanOpen(const wxString &)");
@@ -114,7 +138,7 @@ public:
 		wxString wildcard(lua_tostring(L,2),lua_objlen(L,2));
 		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 
-		wxFileSystemHandler* self=dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindFirst(const wxString &, int)");
@@ -133,7 +157,7 @@ public:
 		}
 
 
-		wxFileSystemHandler* self=dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::FindNext()");
@@ -151,14 +175,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location) function, expected prototype:\nwxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxFileSystem* fs_ptr=dynamic_cast< wxFileSystem* >(Luna< wxObject >::check(L,2));
+		wxFileSystem* fs_ptr=(Luna< wxObject >::checkSubType< wxFileSystem >(L,2));
 		if( !fs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg fs in wxFileSystemHandler::OpenFile function");
 		}
 		wxFileSystem & fs=*fs_ptr;
 		wxString location(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxFileSystemHandler* self=dynamic_cast< wxFileSystemHandler* >(Luna< wxObject >::check(L,1));
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem &, const wxString &)");
@@ -186,6 +210,69 @@ public:
 		return 1;
 	}
 
+	// wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileSystemHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0)
+	static int _bind_base_FindFirst(lua_State *L) {
+		if (!_lg_typecheck_base_FindFirst(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxFileSystemHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString wildcard(lua_tostring(L,2),lua_objlen(L,2));
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindFirst(const wxString &, int)");
+		}
+		wxString lret = self->wxFileSystemHandler::FindFirst(wildcard, flags);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxFileSystemHandler::base_FindNext()
+	static int _bind_base_FindNext(lua_State *L) {
+		if (!_lg_typecheck_base_FindNext(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxFileSystemHandler::base_FindNext() function, expected prototype:\nwxString wxFileSystemHandler::base_FindNext()\nClass arguments details:\n");
+		}
+
+
+		wxFileSystemHandler* self=Luna< wxObject >::checkSubType< wxFileSystemHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxFileSystemHandler::base_FindNext()");
+		}
+		wxString lret = self->wxFileSystemHandler::FindNext();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -196,8 +283,6 @@ wxFileSystemHandler* LunaTraits< wxFileSystemHandler >::_bind_ctor(lua_State *L)
 	// Abstract methods:
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxFileSystemHandler >::_bind_dtor(wxFileSystemHandler* obj) {
@@ -217,6 +302,9 @@ luna_RegType LunaTraits< wxFileSystemHandler >::methods[] = {
 	{"FindNext", &luna_wrapper_wxFileSystemHandler::_bind_FindNext},
 	{"OpenFile", &luna_wrapper_wxFileSystemHandler::_bind_OpenFile},
 	{"GetMimeTypeFromExt", &luna_wrapper_wxFileSystemHandler::_bind_GetMimeTypeFromExt},
+	{"base_GetClassInfo", &luna_wrapper_wxFileSystemHandler::_bind_base_GetClassInfo},
+	{"base_FindFirst", &luna_wrapper_wxFileSystemHandler::_bind_base_FindFirst},
+	{"base_FindNext", &luna_wrapper_wxFileSystemHandler::_bind_base_FindNext},
 	{"__eq", &luna_wrapper_wxFileSystemHandler::_bind___eq},
 	{0,0}
 };

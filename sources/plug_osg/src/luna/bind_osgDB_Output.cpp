@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_ofstream(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::Output* ptr= dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		//osgDB::Output* ptr= dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* ptr= luna_caster< osgDB::ofstream, osgDB::Output >::cast(Luna< osgDB::ofstream >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -314,6 +315,59 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_writeObject(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_writeBeginObject(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_writeEndObject(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_writeUseID(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_writeUniqueID(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getFileNameForOutput(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getTextureFileNameForOutput(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getShaderFileNameForOutput(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -385,9 +439,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::Output::setOptions(const osgDB::Options * options) function, expected prototype:\nvoid osgDB::Output::setOptions(const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setOptions(const osgDB::Options *)");
@@ -405,7 +459,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgDB::Options * osgDB::Output::getOptions() const");
@@ -427,7 +481,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setWriteOutDefaultValues(bool)");
@@ -445,7 +499,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::getWriteOutDefaultValues() const");
@@ -465,7 +519,7 @@ public:
 
 		const char * name=(const char *)lua_tostring(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::open(const char *)");
@@ -483,7 +537,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::Output & osgDB::Output::indent()");
@@ -505,7 +559,7 @@ public:
 
 		const char * str=(const char *)lua_tostring(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::Output::wrapString(const char *)");
@@ -525,7 +579,7 @@ public:
 
 		std::string str(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::Output::wrapString(const std::string &)");
@@ -554,7 +608,7 @@ public:
 
 		int step=(int)lua_tointeger(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setIndentStep(int)");
@@ -572,7 +626,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osgDB::Output::getIndentStep() const");
@@ -592,7 +646,7 @@ public:
 
 		int indent=(int)lua_tointeger(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setIndent(int)");
@@ -610,7 +664,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osgDB::Output::getIndent() const");
@@ -630,7 +684,7 @@ public:
 
 		int num=(int)lua_tointeger(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setNumIndicesPerLine(int)");
@@ -648,7 +702,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osgDB::Output::getNumIndicesPerLine() const");
@@ -667,7 +721,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::moveIn()");
@@ -685,7 +739,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::moveOut()");
@@ -702,13 +756,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Output::writeObject(const osg::Object & obj) function, expected prototype:\nbool osgDB::Output::writeObject(const osg::Object & obj)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj_ptr=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		if( !obj_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg obj in osgDB::Output::writeObject function");
 		}
 		const osg::Object & obj=*obj_ptr;
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::writeObject(const osg::Object &)");
@@ -728,7 +782,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::writeBeginObject(const std::string &)");
@@ -746,7 +800,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::writeEndObject()");
@@ -765,7 +819,7 @@ public:
 
 		std::string id(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::writeUseID(const std::string &)");
@@ -784,7 +838,7 @@ public:
 
 		std::string id(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::writeUniqueID(const std::string &)");
@@ -801,10 +855,10 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Output::getUniqueIDForObject(const osg::Object * obj, std::string & uniqueID) function, expected prototype:\nbool osgDB::Output::getUniqueIDForObject(const osg::Object * obj, std::string & uniqueID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		std::string uniqueID(lua_tostring(L,3),lua_objlen(L,3));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::getUniqueIDForObject(const osg::Object *, std::string &)");
@@ -822,10 +876,10 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Output::createUniqueIDForObject(const osg::Object * obj, std::string & uniqueID) function, expected prototype:\nbool osgDB::Output::createUniqueIDForObject(const osg::Object * obj, std::string & uniqueID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		std::string uniqueID(lua_tostring(L,3),lua_objlen(L,3));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::createUniqueIDForObject(const osg::Object *, std::string &)");
@@ -843,10 +897,10 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgDB::Output::registerUniqueIDForObject(const osg::Object * obj, std::string & uniqueID) function, expected prototype:\nbool osgDB::Output::registerUniqueIDForObject(const osg::Object * obj, std::string & uniqueID)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		std::string uniqueID(lua_tostring(L,3),lua_objlen(L,3));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::registerUniqueIDForObject(const osg::Object *, std::string &)");
@@ -866,7 +920,7 @@ public:
 
 		osgDB::Output::PathNameHint pnh=(osgDB::Output::PathNameHint)lua_tointeger(L,2);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setPathNameHint(const osgDB::Output::PathNameHint)");
@@ -884,7 +938,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::Output::PathNameHint osgDB::Output::getPathNameHint() const");
@@ -904,7 +958,7 @@ public:
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::Output::getFileNameForOutput(const std::string &) const");
@@ -923,7 +977,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osgDB::Output::getFileName() const");
@@ -943,7 +997,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setOutputTextureFiles(bool)");
@@ -961,7 +1015,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::getOutputTextureFiles() const");
@@ -980,7 +1034,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::Output::getTextureFileNameForOutput()");
@@ -1000,7 +1054,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setOutputShaderFiles(bool)");
@@ -1018,7 +1072,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::getOutputShaderFiles() const");
@@ -1037,7 +1091,7 @@ public:
 		}
 
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call std::string osgDB::Output::getShaderFileNameForOutput()");
@@ -1060,7 +1114,7 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool hasBeenWritten=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgDB::Output::setExternalFileWritten(const std::string &, bool)");
@@ -1079,13 +1133,170 @@ public:
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		osgDB::Output* self=dynamic_cast< osgDB::Output* >(Luna< osgDB::ofstream >::check(L,1));
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::Output::getExternalFileWritten(const std::string &) const");
 		}
 		bool lret = self->getExternalFileWritten(filename);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osgDB::Output::base_writeObject(const osg::Object & obj)
+	static int _bind_base_writeObject(lua_State *L) {
+		if (!_lg_typecheck_base_writeObject(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::Output::base_writeObject(const osg::Object & obj) function, expected prototype:\nbool osgDB::Output::base_writeObject(const osg::Object & obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+		if( !obj_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg obj in osgDB::Output::base_writeObject function");
+		}
+		const osg::Object & obj=*obj_ptr;
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::Output::base_writeObject(const osg::Object &)");
+		}
+		bool lret = self->Output::writeObject(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osgDB::Output::base_writeBeginObject(const std::string & name)
+	static int _bind_base_writeBeginObject(lua_State *L) {
+		if (!_lg_typecheck_base_writeBeginObject(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Output::base_writeBeginObject(const std::string & name) function, expected prototype:\nvoid osgDB::Output::base_writeBeginObject(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Output::base_writeBeginObject(const std::string &)");
+		}
+		self->Output::writeBeginObject(name);
+
+		return 0;
+	}
+
+	// void osgDB::Output::base_writeEndObject()
+	static int _bind_base_writeEndObject(lua_State *L) {
+		if (!_lg_typecheck_base_writeEndObject(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Output::base_writeEndObject() function, expected prototype:\nvoid osgDB::Output::base_writeEndObject()\nClass arguments details:\n");
+		}
+
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Output::base_writeEndObject()");
+		}
+		self->Output::writeEndObject();
+
+		return 0;
+	}
+
+	// void osgDB::Output::base_writeUseID(const std::string & id)
+	static int _bind_base_writeUseID(lua_State *L) {
+		if (!_lg_typecheck_base_writeUseID(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Output::base_writeUseID(const std::string & id) function, expected prototype:\nvoid osgDB::Output::base_writeUseID(const std::string & id)\nClass arguments details:\n");
+		}
+
+		std::string id(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Output::base_writeUseID(const std::string &)");
+		}
+		self->Output::writeUseID(id);
+
+		return 0;
+	}
+
+	// void osgDB::Output::base_writeUniqueID(const std::string & id)
+	static int _bind_base_writeUniqueID(lua_State *L) {
+		if (!_lg_typecheck_base_writeUniqueID(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::Output::base_writeUniqueID(const std::string & id) function, expected prototype:\nvoid osgDB::Output::base_writeUniqueID(const std::string & id)\nClass arguments details:\n");
+		}
+
+		std::string id(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::Output::base_writeUniqueID(const std::string &)");
+		}
+		self->Output::writeUniqueID(id);
+
+		return 0;
+	}
+
+	// std::string osgDB::Output::base_getFileNameForOutput(const std::string & filename) const
+	static int _bind_base_getFileNameForOutput(lua_State *L) {
+		if (!_lg_typecheck_base_getFileNameForOutput(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::Output::base_getFileNameForOutput(const std::string & filename) const function, expected prototype:\nstd::string osgDB::Output::base_getFileNameForOutput(const std::string & filename) const\nClass arguments details:\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::Output::base_getFileNameForOutput(const std::string &) const");
+		}
+		std::string lret = self->Output::getFileNameForOutput(filename);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::Output::base_getTextureFileNameForOutput()
+	static int _bind_base_getTextureFileNameForOutput(lua_State *L) {
+		if (!_lg_typecheck_base_getTextureFileNameForOutput(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::Output::base_getTextureFileNameForOutput() function, expected prototype:\nstd::string osgDB::Output::base_getTextureFileNameForOutput()\nClass arguments details:\n");
+		}
+
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::Output::base_getTextureFileNameForOutput()");
+		}
+		std::string lret = self->Output::getTextureFileNameForOutput();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// std::string osgDB::Output::base_getShaderFileNameForOutput()
+	static int _bind_base_getShaderFileNameForOutput(lua_State *L) {
+		if (!_lg_typecheck_base_getShaderFileNameForOutput(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::Output::base_getShaderFileNameForOutput() function, expected prototype:\nstd::string osgDB::Output::base_getShaderFileNameForOutput()\nClass arguments details:\n");
+		}
+
+
+		osgDB::Output* self=Luna< osgDB::ofstream >::checkSubType< osgDB::Output >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::string osgDB::Output::base_getShaderFileNameForOutput()");
+		}
+		std::string lret = self->Output::getShaderFileNameForOutput();
+		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
 	}
@@ -1146,6 +1357,14 @@ luna_RegType LunaTraits< osgDB::Output >::methods[] = {
 	{"getShaderFileNameForOutput", &luna_wrapper_osgDB_Output::_bind_getShaderFileNameForOutput},
 	{"setExternalFileWritten", &luna_wrapper_osgDB_Output::_bind_setExternalFileWritten},
 	{"getExternalFileWritten", &luna_wrapper_osgDB_Output::_bind_getExternalFileWritten},
+	{"base_writeObject", &luna_wrapper_osgDB_Output::_bind_base_writeObject},
+	{"base_writeBeginObject", &luna_wrapper_osgDB_Output::_bind_base_writeBeginObject},
+	{"base_writeEndObject", &luna_wrapper_osgDB_Output::_bind_base_writeEndObject},
+	{"base_writeUseID", &luna_wrapper_osgDB_Output::_bind_base_writeUseID},
+	{"base_writeUniqueID", &luna_wrapper_osgDB_Output::_bind_base_writeUniqueID},
+	{"base_getFileNameForOutput", &luna_wrapper_osgDB_Output::_bind_base_getFileNameForOutput},
+	{"base_getTextureFileNameForOutput", &luna_wrapper_osgDB_Output::_bind_base_getTextureFileNameForOutput},
+	{"base_getShaderFileNameForOutput", &luna_wrapper_osgDB_Output::_bind_base_getShaderFileNameForOutput},
 	{"__eq", &luna_wrapper_osgDB_Output::_bind___eq},
 	{0,0}
 };

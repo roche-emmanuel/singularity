@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation(lua_State* L, lua_Table* dum) : osgViewer::ScreenCaptureHandler::CaptureOperation(), _obj(L,-1) {};
 
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {

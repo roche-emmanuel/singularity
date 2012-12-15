@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMessageOutputBest.h>
+
 class luna_wrapper_wxMessageOutputBest {
 public:
 	typedef Luna< wxMessageOutputBest > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxMessageOutput(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMessageOutputBest* ptr= dynamic_cast< wxMessageOutputBest* >(Luna< wxMessageOutput >::check(L,1));
+		//wxMessageOutputBest* ptr= dynamic_cast< wxMessageOutputBest* >(Luna< wxMessageOutput >::check(L,1));
+		wxMessageOutputBest* ptr= luna_caster< wxMessageOutput, wxMessageOutputBest >::cast(Luna< wxMessageOutput >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,8 +57,6 @@ wxMessageOutputBest* LunaTraits< wxMessageOutputBest >::_bind_ctor(lua_State *L)
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxMessageOutput::Output(const wxString & str)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMessageOutputBest >::_bind_dtor(wxMessageOutputBest* obj) {

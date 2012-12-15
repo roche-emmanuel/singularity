@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDropTarget.h>
+
 class luna_wrapper_wxDropTarget {
 public:
 	typedef Luna< wxDropTarget > luna_t;
@@ -105,6 +107,38 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,55398761)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDragOver(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDrop(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEnter(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnLeave(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -256,6 +290,89 @@ public:
 		return 0;
 	}
 
+	// wxDragResult wxDropTarget::base_OnDragOver(int x, int y, wxDragResult def)
+	static int _bind_base_OnDragOver(lua_State *L) {
+		if (!_lg_typecheck_base_OnDragOver(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxDropTarget::base_OnDragOver(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxDropTarget::base_OnDragOver(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxDropTarget* self=(Luna< wxDropTarget >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropTarget::base_OnDragOver(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxDropTarget::OnDragOver(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxDropTarget::base_OnDrop(int x, int y)
+	static int _bind_base_OnDrop(lua_State *L) {
+		if (!_lg_typecheck_base_OnDrop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDropTarget::base_OnDrop(int x, int y) function, expected prototype:\nbool wxDropTarget::base_OnDrop(int x, int y)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxDropTarget* self=(Luna< wxDropTarget >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDropTarget::base_OnDrop(int, int)");
+		}
+		bool lret = self->wxDropTarget::OnDrop(x, y);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxDragResult wxDropTarget::base_OnEnter(int x, int y, wxDragResult def)
+	static int _bind_base_OnEnter(lua_State *L) {
+		if (!_lg_typecheck_base_OnEnter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxDropTarget::base_OnEnter(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxDropTarget::base_OnEnter(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxDropTarget* self=(Luna< wxDropTarget >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxDropTarget::base_OnEnter(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxDropTarget::OnEnter(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxDropTarget::base_OnLeave()
+	static int _bind_base_OnLeave(lua_State *L) {
+		if (!_lg_typecheck_base_OnLeave(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDropTarget::base_OnLeave() function, expected prototype:\nvoid wxDropTarget::base_OnLeave()\nClass arguments details:\n");
+		}
+
+
+		wxDropTarget* self=(Luna< wxDropTarget >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDropTarget::base_OnLeave()");
+		}
+		self->wxDropTarget::OnLeave();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -265,8 +382,7 @@ wxDropTarget* LunaTraits< wxDropTarget >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxDropTarget::GetData()
-
-	// Abstract operators:
+	// wxDragResult wxDropTarget::OnData(int x, int y, wxDragResult def)
 }
 
 void LunaTraits< wxDropTarget >::_bind_dtor(wxDropTarget* obj) {
@@ -288,6 +404,10 @@ luna_RegType LunaTraits< wxDropTarget >::methods[] = {
 	{"OnEnter", &luna_wrapper_wxDropTarget::_bind_OnEnter},
 	{"OnLeave", &luna_wrapper_wxDropTarget::_bind_OnLeave},
 	{"SetDataObject", &luna_wrapper_wxDropTarget::_bind_SetDataObject},
+	{"base_OnDragOver", &luna_wrapper_wxDropTarget::_bind_base_OnDragOver},
+	{"base_OnDrop", &luna_wrapper_wxDropTarget::_bind_base_OnDrop},
+	{"base_OnEnter", &luna_wrapper_wxDropTarget::_bind_base_OnEnter},
+	{"base_OnLeave", &luna_wrapper_wxDropTarget::_bind_base_OnLeave},
 	{"dynCast", &luna_wrapper_wxDropTarget::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxDropTarget::_bind___eq},
 	{0,0}

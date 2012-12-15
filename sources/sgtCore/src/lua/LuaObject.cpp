@@ -10,6 +10,8 @@
 using namespace sgt;
 
 bool LuaObject::pushFunction(String name) const {
+	//logINFO("Trying to push function '"<<name<<"'");
+
 	CHECK_RET(pushLuaItem(),false,"Cannot push lua item when calling "<<name);
 
 	CHECK_RET(lua_type(_state,-1)==LUA_TTABLE,false,"Invalid non table base for luaObject.");
@@ -20,7 +22,8 @@ bool LuaObject::pushFunction(String name) const {
 	lua_gettable(_state,-2);			 // pop key and push value.
 
 	if(lua_type(_state,-1)!=LUA_TFUNCTION) {
-		lua_pop(_state,2); // pop the non function value and this table.
+		logWARN("Wrong result type on pushed function: "<<lua_type(_state,-1));
+		lua_pop(_state,2); // pop the wrong value and table.
 		return false;
 	}
 	
@@ -30,5 +33,6 @@ bool LuaObject::pushFunction(String name) const {
 	lua_remove(_state,-3); // remove the original copy of the table under the function.
 	reset();
 
+	//logINFO("Successfully pushing function '"<<name<<"'");
 	return true;
 }

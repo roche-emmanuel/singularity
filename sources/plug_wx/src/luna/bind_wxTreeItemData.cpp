@@ -29,7 +29,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxClientData(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTreeItemData* ptr= dynamic_cast< wxTreeItemData* >(Luna< wxClientData >::check(L,1));
+		//wxTreeItemData* ptr= dynamic_cast< wxTreeItemData* >(Luna< wxClientData >::check(L,1));
+		wxTreeItemData* ptr= luna_caster< wxClientData, wxTreeItemData >::cast(Luna< wxClientData >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +88,7 @@ public:
 		}
 
 
-		wxTreeItemData* self=dynamic_cast< wxTreeItemData* >(Luna< wxClientData >::check(L,1));
+		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxTreeItemId & wxTreeItemData::GetId() const");
@@ -113,7 +114,7 @@ public:
 		}
 		const wxTreeItemId & id=*id_ptr;
 
-		wxTreeItemData* self=dynamic_cast< wxTreeItemData* >(Luna< wxClientData >::check(L,1));
+		wxTreeItemData* self=Luna< wxClientData >::checkSubType< wxTreeItemData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTreeItemData::SetId(const wxTreeItemId &)");

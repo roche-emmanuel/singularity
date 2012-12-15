@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return Awesomium::DataPakSource::OnRequest(request_id, path);
+		return DataPakSource::OnRequest(request_id, path);
 	};
 
 

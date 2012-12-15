@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return ComputeBoundsVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return ComputeBoundsVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return ComputeBoundsVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return ComputeBoundsVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return ComputeBoundsVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osg::ComputeBoundsVisitor::libraryName() const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ComputeBoundsVisitor::libraryName();
+		return ComputeBoundsVisitor::libraryName();
 	};
 
 	// const char * osg::ComputeBoundsVisitor::className() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ComputeBoundsVisitor::className();
+		return ComputeBoundsVisitor::className();
 	};
 
 	// void osg::ComputeBoundsVisitor::reset()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ComputeBoundsVisitor::reset();
+		return ComputeBoundsVisitor::reset();
 	};
 
 	// void osg::ComputeBoundsVisitor::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ComputeBoundsVisitor::apply(node);
+		return ComputeBoundsVisitor::apply(node);
 	};
 
 	// void osg::ComputeBoundsVisitor::apply(osg::Transform & transform)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ComputeBoundsVisitor::apply(transform);
+		return ComputeBoundsVisitor::apply(transform);
 	};
 
 	// void osg::ComputeBoundsVisitor::apply(osg::Geode & geode)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ComputeBoundsVisitor::apply(geode);
+		return ComputeBoundsVisitor::apply(geode);
 	};
 
 

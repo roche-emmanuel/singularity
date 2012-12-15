@@ -81,7 +81,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 		wxString helpFile(lua_tostring(L,2),lua_objlen(L,2));
 		wxString topic(lua_tostring(L,3),lua_objlen(L,3));
 		int style=luatop>3 ? (int)lua_tointeger(L,4) : wxHF_DEFAULT_STYLE | wxHF_DIALOG | wxHF_MODAL;

@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
 
-		return osgUtil::LineSegmentIntersector::clone(iv);
+		return LineSegmentIntersector::clone(iv);
 	};
 
 	// bool osgUtil::LineSegmentIntersector::enter(const osg::Node & node)
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::LineSegmentIntersector::enter(node);
+		return LineSegmentIntersector::enter(node);
 	};
 
 	// void osgUtil::LineSegmentIntersector::leave()
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::LineSegmentIntersector::leave();
+		return LineSegmentIntersector::leave();
 	};
 
 	// void osgUtil::LineSegmentIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
@@ -56,7 +56,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::LineSegmentIntersector::intersect(iv, drawable);
+		return LineSegmentIntersector::intersect(iv, drawable);
 	};
 
 	// void osgUtil::LineSegmentIntersector::reset()
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::LineSegmentIntersector::reset();
+		return LineSegmentIntersector::reset();
 	};
 
 	// bool osgUtil::LineSegmentIntersector::containsIntersections()
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::LineSegmentIntersector::containsIntersections();
+		return LineSegmentIntersector::containsIntersections();
 	};
 
 

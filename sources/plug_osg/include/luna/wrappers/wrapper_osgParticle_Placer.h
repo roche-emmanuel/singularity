@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Placer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Placer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Placer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Placer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Placer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Placer::releaseGLObjects(arg1);
 	};
 
 	// const char * osgParticle::Placer::libraryName() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Placer::libraryName();
+		return Placer::libraryName();
 	};
 
 	// const char * osgParticle::Placer::className() const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::Placer::className();
+		return Placer::className();
 	};
 
 	// bool osgParticle::Placer::isSameKindAs(const osg::Object * obj) const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::Placer::isSameKindAs(obj);
+		return Placer::isSameKindAs(obj);
 	};
 
 	// void osgParticle::Placer::place(osgParticle::Particle * P) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::Placer::volume();
+		return Placer::volume();
 	};
 
 	// osg::Vec3f osgParticle::Placer::getControlPosition() const

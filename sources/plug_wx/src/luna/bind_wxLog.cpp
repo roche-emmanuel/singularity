@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLog.h>
+
 class luna_wrapper_wxLog {
 public:
 	typedef Luna< wxLog > luna_t;
@@ -235,6 +237,12 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,82105951) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -653,6 +661,24 @@ public:
 		return 0;
 	}
 
+	// void wxLog::base_Flush()
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLog::base_Flush() function, expected prototype:\nvoid wxLog::base_Flush()\nClass arguments details:\n");
+		}
+
+
+		wxLog* self=(Luna< wxLog >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLog::base_Flush()");
+		}
+		self->wxLog::Flush();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -701,6 +727,7 @@ luna_RegType LunaTraits< wxLog >::methods[] = {
 	{"SetVerbose", &luna_wrapper_wxLog::_bind_SetVerbose},
 	{"Flush", &luna_wrapper_wxLog::_bind_Flush},
 	{"LogRecord", &luna_wrapper_wxLog::_bind_LogRecord},
+	{"base_Flush", &luna_wrapper_wxLog::_bind_base_Flush},
 	{"dynCast", &luna_wrapper_wxLog::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxLog::_bind___eq},
 	{0,0}

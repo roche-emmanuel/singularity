@@ -9,7 +9,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::EdgeCollector::Edge* ptr= dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::EdgeCollector::Edge* ptr= dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* ptr= luna_caster< osg::Referenced, osgUtil::EdgeCollector::Edge >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -105,7 +106,7 @@ public:
 		}
 
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Edge::clear()");
@@ -122,10 +123,10 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Edge::setOrderedPoints(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2) function, expected prototype:\nvoid osgUtil::EdgeCollector::Edge::setOrderedPoints(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Point* p1=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,2));
-		osgUtil::EdgeCollector::Point* p2=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3));
+		osgUtil::EdgeCollector::Point* p1=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,2));
+		osgUtil::EdgeCollector::Point* p2=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3));
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Edge::setOrderedPoints(osgUtil::EdgeCollector::Point *, osgUtil::EdgeCollector::Point *)");
@@ -142,9 +143,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::Edge::addTriangle(osgUtil::EdgeCollector::Triangle * triangle) function, expected prototype:\nvoid osgUtil::EdgeCollector::Edge::addTriangle(osgUtil::EdgeCollector::Triangle * triangle)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Triangle* triangle=dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::EdgeCollector::Edge::addTriangle(osgUtil::EdgeCollector::Triangle *)");
@@ -162,7 +163,7 @@ public:
 		}
 
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::isBoundaryEdge() const");
@@ -181,7 +182,7 @@ public:
 		}
 
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::isAdjacentToBoundary() const");
@@ -199,13 +200,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Edge::endConnected(const osgUtil::EdgeCollector::Edge & rhs) const function, expected prototype:\nbool osgUtil::EdgeCollector::Edge::endConnected(const osgUtil::EdgeCollector::Edge & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgUtil::EdgeCollector::Edge* rhs_ptr=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::EdgeCollector::Edge* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgUtil::EdgeCollector::Edge::endConnected function");
 		}
 		const osgUtil::EdgeCollector::Edge & rhs=*rhs_ptr;
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::endConnected(const osgUtil::EdgeCollector::Edge &) const");
@@ -223,13 +224,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Edge::beginConnected(const osgUtil::EdgeCollector::Edge & rhs) const function, expected prototype:\nbool osgUtil::EdgeCollector::Edge::beginConnected(const osgUtil::EdgeCollector::Edge & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgUtil::EdgeCollector::Edge* rhs_ptr=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::EdgeCollector::Edge* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgUtil::EdgeCollector::Edge::beginConnected function");
 		}
 		const osgUtil::EdgeCollector::Edge & rhs=*rhs_ptr;
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::beginConnected(const osgUtil::EdgeCollector::Edge &) const");
@@ -249,13 +250,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Edge::operator<(const osgUtil::EdgeCollector::Edge & rhs) const function, expected prototype:\nbool osgUtil::EdgeCollector::Edge::operator<(const osgUtil::EdgeCollector::Edge & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgUtil::EdgeCollector::Edge* rhs_ptr=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::EdgeCollector::Edge* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgUtil::EdgeCollector::Edge::operator< function");
 		}
 		const osgUtil::EdgeCollector::Edge & rhs=*rhs_ptr;
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::operator<(const osgUtil::EdgeCollector::Edge &) const");
@@ -273,13 +274,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Edge::operator==(const osgUtil::EdgeCollector::Edge & rhs) const function, expected prototype:\nbool osgUtil::EdgeCollector::Edge::operator==(const osgUtil::EdgeCollector::Edge & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgUtil::EdgeCollector::Edge* rhs_ptr=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::EdgeCollector::Edge* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgUtil::EdgeCollector::Edge::operator== function");
 		}
 		const osgUtil::EdgeCollector::Edge & rhs=*rhs_ptr;
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::operator==(const osgUtil::EdgeCollector::Edge &) const");
@@ -297,13 +298,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osgUtil::EdgeCollector::Edge::operator!=(const osgUtil::EdgeCollector::Edge & rhs) const function, expected prototype:\nbool osgUtil::EdgeCollector::Edge::operator!=(const osgUtil::EdgeCollector::Edge & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgUtil::EdgeCollector::Edge* rhs_ptr=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::EdgeCollector::Edge* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osgUtil::EdgeCollector::Edge::operator!= function");
 		}
 		const osgUtil::EdgeCollector::Edge & rhs=*rhs_ptr;
 
-		osgUtil::EdgeCollector::Edge* self=dynamic_cast< osgUtil::EdgeCollector::Edge* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::EdgeCollector::Edge* self=Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edge >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::EdgeCollector::Edge::operator!=(const osgUtil::EdgeCollector::Edge &) const");

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::TextureCostEstimator* ptr= dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		//osg::TextureCostEstimator* ptr= dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCostEstimator* ptr= luna_caster< osg::Referenced, osg::TextureCostEstimator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -130,7 +131,7 @@ public:
 		}
 
 
-		osg::TextureCostEstimator* self=dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::setDefaults()");
@@ -153,7 +154,7 @@ public:
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
 
-		osg::TextureCostEstimator* self=dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureCostEstimator::calibrate(osg::RenderInfo &)");
@@ -170,9 +171,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CostPair osg::TextureCostEstimator::estimateCompileCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::TextureCostEstimator::estimateCompileCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
-		osg::TextureCostEstimator* self=dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateCompileCost(const osg::Texture *) const");
@@ -193,9 +194,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CostPair osg::TextureCostEstimator::estimateDrawCost(const osg::Texture * texture) const function, expected prototype:\nosg::CostPair osg::TextureCostEstimator::estimateDrawCost(const osg::Texture * texture) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Texture* texture=dynamic_cast< osg::Texture* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Texture* texture=(Luna< osg::Referenced >::checkSubType< osg::Texture >(L,2));
 
-		osg::TextureCostEstimator* self=dynamic_cast< osg::TextureCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::TextureCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::CostPair osg::TextureCostEstimator::estimateDrawCost(const osg::Texture *) const");

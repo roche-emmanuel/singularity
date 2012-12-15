@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::RenderBin::SortCallback* ptr= dynamic_cast< osgUtil::RenderBin::SortCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::RenderBin::SortCallback* ptr= dynamic_cast< osgUtil::RenderBin::SortCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderBin::SortCallback* ptr= luna_caster< osg::Referenced, osgUtil::RenderBin::SortCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -61,9 +62,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1) function, expected prototype:\nvoid osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::RenderBin* _arg1=dynamic_cast< osgUtil::RenderBin* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::RenderBin* _arg1=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,2));
 
-		osgUtil::RenderBin::SortCallback* self=dynamic_cast< osgUtil::RenderBin::SortCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderBin::SortCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::SortCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin *)");

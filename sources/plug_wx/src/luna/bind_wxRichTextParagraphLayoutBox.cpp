@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextParagraphLayoutBox.h>
+
 class luna_wrapper_wxRichTextParagraphLayoutBox {
 public:
 	typedef Luna< wxRichTextParagraphLayoutBox > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextParagraphLayoutBox* ptr= dynamic_cast< wxRichTextParagraphLayoutBox* >(Luna< wxObject >::check(L,1));
+		//wxRichTextParagraphLayoutBox* ptr= dynamic_cast< wxRichTextParagraphLayoutBox* >(Luna< wxObject >::check(L,1));
+		wxRichTextParagraphLayoutBox* ptr= luna_caster< wxObject, wxRichTextParagraphLayoutBox >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

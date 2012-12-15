@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMemoryDC.h>
+
 class luna_wrapper_wxMemoryDC {
 public:
 	typedef Luna< wxMemoryDC > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMemoryDC* ptr= dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,1));
+		//wxMemoryDC* ptr= dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,1));
+		wxMemoryDC* ptr= luna_caster< wxObject, wxMemoryDC >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -62,6 +65,31 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_SelectObject(lua_State *L) {
@@ -75,6 +103,12 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -101,7 +135,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(wxDC * dc) function, expected prototype:\nwxMemoryDC::wxMemoryDC(wxDC * dc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* dc=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 
 		return new wxMemoryDC(dc);
 	}
@@ -113,7 +147,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(wxBitmap & bitmap) function, expected prototype:\nwxMemoryDC::wxMemoryDC(wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,1));
+		wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,1));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryDC::wxMemoryDC function");
 		}
@@ -122,13 +156,55 @@ public:
 		return new wxMemoryDC(bitmap);
 	}
 
+	// wxMemoryDC::wxMemoryDC(lua_Table * data)
+	static wxMemoryDC* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMemoryDC(L,NULL);
+	}
+
+	// wxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc)
+	static wxMemoryDC* _bind_ctor_overload_5(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_5(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data, wxDC * dc)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxDC* dc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
+
+		return new wrapper_wxMemoryDC(L,NULL, dc);
+	}
+
+	// wxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap)
+	static wxMemoryDC* _bind_ctor_overload_6(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_6(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap) function, expected prototype:\nwxMemoryDC::wxMemoryDC(lua_Table * data, wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryDC::wxMemoryDC function");
+		}
+		wxBitmap & bitmap=*bitmap_ptr;
+
+		return new wrapper_wxMemoryDC(L,NULL, bitmap);
+	}
+
 	// Overload binder for wxMemoryDC::wxMemoryDC
 	static wxMemoryDC* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
 		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
+		if (_lg_typecheck_ctor_overload_5(L)) return _bind_ctor_overload_5(L);
+		if (_lg_typecheck_ctor_overload_6(L)) return _bind_ctor_overload_6(L);
 
-		luaL_error(L, "error in function wxMemoryDC, cannot match any of the overloads for function wxMemoryDC:\n  wxMemoryDC()\n  wxMemoryDC(wxDC *)\n  wxMemoryDC(wxBitmap &)\n");
+		luaL_error(L, "error in function wxMemoryDC, cannot match any of the overloads for function wxMemoryDC:\n  wxMemoryDC()\n  wxMemoryDC(wxDC *)\n  wxMemoryDC(wxBitmap &)\n  wxMemoryDC(lua_Table *)\n  wxMemoryDC(lua_Table *, wxDC *)\n  wxMemoryDC(lua_Table *, wxBitmap &)\n");
 		return NULL;
 	}
 
@@ -141,13 +217,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxMemoryDC::SelectObject(wxBitmap & bitmap) function, expected prototype:\nvoid wxMemoryDC::SelectObject(wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryDC::SelectObject function");
 		}
 		wxBitmap & bitmap=*bitmap_ptr;
 
-		wxMemoryDC* self=dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,1));
+		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObject(wxBitmap &)");
@@ -164,13 +240,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxMemoryDC::SelectObjectAsSource(const wxBitmap & bitmap) function, expected prototype:\nvoid wxMemoryDC::SelectObjectAsSource(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxMemoryDC::SelectObjectAsSource function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
 
-		wxMemoryDC* self=dynamic_cast< wxMemoryDC* >(Luna< wxObject >::check(L,1));
+		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMemoryDC::SelectObjectAsSource(const wxBitmap &)");
@@ -178,6 +254,27 @@ public:
 		self->SelectObjectAsSource(bitmap);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxMemoryDC::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMemoryDC::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMemoryDC::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMemoryDC* self=Luna< wxObject >::checkSubType< wxMemoryDC >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryDC::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMemoryDC::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -203,6 +300,7 @@ const int LunaTraits< wxMemoryDC >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxMemoryDC >::methods[] = {
 	{"SelectObject", &luna_wrapper_wxMemoryDC::_bind_SelectObject},
 	{"SelectObjectAsSource", &luna_wrapper_wxMemoryDC::_bind_SelectObjectAsSource},
+	{"base_GetClassInfo", &luna_wrapper_wxMemoryDC::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxMemoryDC::_bind___eq},
 	{0,0}
 };

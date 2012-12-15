@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ShaderComposer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ShaderComposer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ShaderComposer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShaderComposer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ShaderComposer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ShaderComposer::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::ShaderComposer::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShaderComposer::cloneType();
+		return ShaderComposer::cloneType();
 	};
 
 	// osg::Object * osg::ShaderComposer::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ShaderComposer::clone(arg1);
+		return ShaderComposer::clone(arg1);
 	};
 
 	// bool osg::ShaderComposer::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ShaderComposer::isSameKindAs(obj);
+		return ShaderComposer::isSameKindAs(obj);
 	};
 
 	// const char * osg::ShaderComposer::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShaderComposer::libraryName();
+		return ShaderComposer::libraryName();
 	};
 
 	// const char * osg::ShaderComposer::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ShaderComposer::className();
+		return ShaderComposer::className();
 	};
 
 	// osg::Program * osg::ShaderComposer::getOrCreateProgram(const osg::ShaderComponents & shaderComponents)
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<osg::Program*>());
 		}
 
-		return osg::ShaderComposer::getOrCreateProgram(shaderComponents);
+		return ShaderComposer::getOrCreateProgram(shaderComponents);
 	};
 
 

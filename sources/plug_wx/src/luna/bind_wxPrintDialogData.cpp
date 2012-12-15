@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrintDialogData.h>
+
 class luna_wrapper_wxPrintDialogData {
 public:
 	typedef Luna< wxPrintDialogData > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPrintDialogData* ptr= dynamic_cast< wxPrintDialogData* >(Luna< wxObject >::check(L,1));
+		//wxPrintDialogData* ptr= dynamic_cast< wxPrintDialogData* >(Luna< wxObject >::check(L,1));
+		wxPrintDialogData* ptr= luna_caster< wxObject, wxPrintDialogData >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

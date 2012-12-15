@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::GLObjectsOperation* ptr= dynamic_cast< osgUtil::GLObjectsOperation* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::GLObjectsOperation* ptr= dynamic_cast< osgUtil::GLObjectsOperation* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::GLObjectsOperation* ptr= luna_caster< osg::Referenced, osgUtil::GLObjectsOperation >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -82,6 +83,12 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -117,7 +124,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Node* subgraph=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,1));
+		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1));
 		unsigned int mode=luatop>1 ? (unsigned int)lua_tointeger(L,2) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new osgUtil::GLObjectsOperation(subgraph, mode);
@@ -146,7 +153,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Node* subgraph=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* subgraph=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES;
 
 		return new wrapper_osgUtil_GLObjectsOperation(L,NULL, subgraph, mode);
@@ -165,6 +172,24 @@ public:
 
 
 	// Function binds:
+	// void osgUtil::GLObjectsOperation::base_release()
+	static int _bind_base_release(lua_State *L) {
+		if (!_lg_typecheck_base_release(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::GLObjectsOperation::base_release() function, expected prototype:\nvoid osgUtil::GLObjectsOperation::base_release()\nClass arguments details:\n");
+		}
+
+
+		osgUtil::GLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsOperation::base_release()");
+		}
+		self->GLObjectsOperation::release();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 	// void osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext * context)
@@ -174,9 +199,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext * context) function, expected prototype:\nvoid osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext * context)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::GraphicsContext* context=dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2));
+		osg::GraphicsContext* context=(Luna< osg::Referenced >::checkSubType< osg::GraphicsContext >(L,2));
 
-		osgUtil::GLObjectsOperation* self=dynamic_cast< osgUtil::GLObjectsOperation* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::GLObjectsOperation* self=Luna< osg::Referenced >::checkSubType< osgUtil::GLObjectsOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::GLObjectsOperation::operator()(osg::GraphicsContext *)");
@@ -205,6 +230,7 @@ const int LunaTraits< osgUtil::GLObjectsOperation >::hash = 41072322;
 const int LunaTraits< osgUtil::GLObjectsOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgUtil::GLObjectsOperation >::methods[] = {
+	{"base_release", &luna_wrapper_osgUtil_GLObjectsOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osgUtil_GLObjectsOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osgUtil_GLObjectsOperation::_bind___eq},
 	{0,0}

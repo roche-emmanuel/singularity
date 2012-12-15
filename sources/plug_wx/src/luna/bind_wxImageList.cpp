@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxImageList.h>
+
 class luna_wrapper_wxImageList {
 public:
 	typedef Luna< wxImageList > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxImageList* ptr= dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		//wxImageList* ptr= dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* ptr= luna_caster< wxObject, wxImageList >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,6 +57,25 @@ public:
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -175,6 +197,40 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Draw(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>7 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetImageCount(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -208,12 +264,42 @@ public:
 		return new wxImageList(width, height, mask, initialCount);
 	}
 
+	// wxImageList::wxImageList(lua_Table * data)
+	static wxImageList* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxImageList(L,NULL);
+	}
+
+	// wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)
+	static wxImageList* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1) function, expected prototype:\nwxImageList::wxImageList(lua_Table * data, int width, int height, bool mask = true, int initialCount = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=(int)lua_tointeger(L,2);
+		int height=(int)lua_tointeger(L,3);
+		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : 1;
+
+		return new wrapper_wxImageList(L,NULL, width, height, mask, initialCount);
+	}
+
 	// Overload binder for wxImageList::wxImageList
 	static wxImageList* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxImageList, cannot match any of the overloads for function wxImageList:\n  wxImageList()\n  wxImageList(int, int, bool, int)\n");
+		luaL_error(L, "error in function wxImageList, cannot match any of the overloads for function wxImageList:\n  wxImageList()\n  wxImageList(int, int, bool, int)\n  wxImageList(lua_Table *)\n  wxImageList(lua_Table *, int, int, bool, int)\n");
 		return NULL;
 	}
 
@@ -228,18 +314,18 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxImageList::Add function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxBitmap* mask_ptr=luatop>2 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3)) : NULL;
+		const wxBitmap* mask_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,3)) : NULL;
 		if( luatop>2 && !mask_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mask in wxImageList::Add function");
 		}
 		const wxBitmap & mask=luatop>2 ? *mask_ptr : wxNullBitmap;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxBitmap &)");
@@ -257,18 +343,18 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour) function, expected prototype:\nint wxImageList::Add(const wxBitmap & bitmap, const wxColour & maskColour)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxImageList::Add function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxColour* maskColour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* maskColour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !maskColour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg maskColour in wxImageList::Add function");
 		}
 		const wxColour & maskColour=*maskColour_ptr;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxBitmap &, const wxColour &)");
@@ -286,13 +372,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxImageList::Add(const wxIcon & icon) function, expected prototype:\nint wxImageList::Add(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,2));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxImageList::Add function");
 		}
 		const wxIcon & icon=*icon_ptr;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxImageList::Add(const wxIcon &)");
@@ -327,7 +413,7 @@ public:
 		bool mask=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
 		int initialCount=luatop>4 ? (int)lua_tointeger(L,5) : 1;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::Create(int, int, bool, int)");
@@ -348,7 +434,7 @@ public:
 		int luatop = lua_gettop(L);
 
 		int index=(int)lua_tointeger(L,2);
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxImageList::Draw function");
 		}
@@ -358,7 +444,7 @@ public:
 		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0x0001;
 		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::Draw(int, wxDC &, int, int, int, bool)");
@@ -378,7 +464,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap wxImageList::GetBitmap(int) const");
@@ -401,7 +487,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxIcon wxImageList::GetIcon(int) const");
@@ -423,7 +509,7 @@ public:
 		}
 
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxImageList::GetImageCount() const");
@@ -445,7 +531,7 @@ public:
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::GetSize(int, int &, int &) const");
@@ -465,7 +551,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::Remove(int)");
@@ -484,7 +570,7 @@ public:
 		}
 
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::RemoveAll()");
@@ -505,18 +591,18 @@ public:
 		int luatop = lua_gettop(L);
 
 		int index=(int)lua_tointeger(L,2);
-		const wxBitmap* bitmap_ptr=dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,3));
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,3));
 		if( !bitmap_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxImageList::Replace function");
 		}
 		const wxBitmap & bitmap=*bitmap_ptr;
-		const wxBitmap* mask_ptr=luatop>3 ? dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,4)) : NULL;
+		const wxBitmap* mask_ptr=luatop>3 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,4)) : NULL;
 		if( luatop>3 && !mask_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg mask in wxImageList::Replace function");
 		}
 		const wxBitmap & mask=luatop>3 ? *mask_ptr : wxNullBitmap;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxBitmap &, const wxBitmap &)");
@@ -535,13 +621,13 @@ public:
 		}
 
 		int index=(int)lua_tointeger(L,2);
-		const wxIcon* icon_ptr=dynamic_cast< wxIcon* >(Luna< wxObject >::check(L,3));
+		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,3));
 		if( !icon_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxImageList::Replace function");
 		}
 		const wxIcon & icon=*icon_ptr;
 
-		wxImageList* self=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,1));
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxImageList::Replace(int, const wxIcon &)");
@@ -559,6 +645,99 @@ public:
 
 		luaL_error(L, "error in function Replace, cannot match any of the overloads for function Replace:\n  Replace(int, const wxBitmap &, const wxBitmap &)\n  Replace(int, const wxIcon &)\n");
 		return 0;
+	}
+
+	// wxClassInfo * wxImageList::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxImageList::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxImageList::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxImageList::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxImageList::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)
+	static int _bind_base_Draw(lua_State *L) {
+		if (!_lg_typecheck_base_Draw(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false) function, expected prototype:\nbool wxImageList::base_Draw(int index, wxDC & dc, int x, int y, int flags = 0x0001, bool solidBackground = false)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int index=(int)lua_tointeger(L,2);
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
+		if( !dc_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxImageList::base_Draw function");
+		}
+		wxDC & dc=*dc_ptr;
+		int x=(int)lua_tointeger(L,4);
+		int y=(int)lua_tointeger(L,5);
+		int flags=luatop>5 ? (int)lua_tointeger(L,6) : 0x0001;
+		bool solidBackground=luatop>6 ? (bool)(lua_toboolean(L,7)==1) : false;
+
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_Draw(int, wxDC &, int, int, int, bool)");
+		}
+		bool lret = self->wxImageList::Draw(index, dc, x, y, flags, solidBackground);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxImageList::base_GetImageCount() const
+	static int _bind_base_GetImageCount(lua_State *L) {
+		if (!_lg_typecheck_base_GetImageCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxImageList::base_GetImageCount() const function, expected prototype:\nint wxImageList::base_GetImageCount() const\nClass arguments details:\n");
+		}
+
+
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxImageList::base_GetImageCount() const");
+		}
+		int lret = self->wxImageList::GetImageCount();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxImageList::base_GetSize(int index, int & width, int & height) const
+	static int _bind_base_GetSize(lua_State *L) {
+		if (!_lg_typecheck_base_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxImageList::base_GetSize(int index, int & width, int & height) const function, expected prototype:\nbool wxImageList::base_GetSize(int index, int & width, int & height) const\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+		int width=(int)lua_tointeger(L,3);
+		int height=(int)lua_tointeger(L,4);
+
+		wxImageList* self=Luna< wxObject >::checkSubType< wxImageList >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxImageList::base_GetSize(int, int &, int &) const");
+		}
+		bool lret = self->wxImageList::GetSize(index, width, height);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -592,6 +771,10 @@ luna_RegType LunaTraits< wxImageList >::methods[] = {
 	{"Remove", &luna_wrapper_wxImageList::_bind_Remove},
 	{"RemoveAll", &luna_wrapper_wxImageList::_bind_RemoveAll},
 	{"Replace", &luna_wrapper_wxImageList::_bind_Replace},
+	{"base_GetClassInfo", &luna_wrapper_wxImageList::_bind_base_GetClassInfo},
+	{"base_Draw", &luna_wrapper_wxImageList::_bind_base_Draw},
+	{"base_GetImageCount", &luna_wrapper_wxImageList::_bind_base_GetImageCount},
+	{"base_GetSize", &luna_wrapper_wxImageList::_bind_base_GetSize},
 	{"__eq", &luna_wrapper_wxImageList::_bind___eq},
 	{0,0}
 };

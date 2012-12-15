@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTreeEvent.h>
+
 class luna_wrapper_wxTreeEvent {
 public:
 	typedef Luna< wxTreeEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxTreeEvent* ptr= dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		//wxTreeEvent* ptr= dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* ptr= luna_caster< wxObject, wxTreeEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -89,6 +92,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -102,7 +117,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxTreeItemId wxTreeEvent::GetItem() const");
@@ -124,7 +139,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxTreeEvent::GetKeyCode() const");
@@ -143,7 +158,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxKeyEvent & wxTreeEvent::GetKeyEvent() const");
@@ -164,7 +179,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxTreeEvent::GetLabel() const");
@@ -183,7 +198,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxTreeItemId wxTreeEvent::GetOldItem() const");
@@ -205,7 +220,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxTreeEvent::GetPoint() const");
@@ -227,7 +242,7 @@ public:
 		}
 
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxTreeEvent::IsEditCancelled() const");
@@ -247,7 +262,7 @@ public:
 
 		wxString tooltip(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxTreeEvent* self=dynamic_cast< wxTreeEvent* >(Luna< wxObject >::check(L,1));
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxTreeEvent::SetToolTip(const wxString &)");
@@ -255,6 +270,46 @@ public:
 		self->SetToolTip(tooltip);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxTreeEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTreeEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTreeEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTreeEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxTreeEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxTreeEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxTreeEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxTreeEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxTreeEvent* self=Luna< wxObject >::checkSubType< wxTreeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxTreeEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxTreeEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -266,8 +321,6 @@ wxTreeEvent* LunaTraits< wxTreeEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTreeEvent >::_bind_dtor(wxTreeEvent* obj) {
@@ -290,6 +343,8 @@ luna_RegType LunaTraits< wxTreeEvent >::methods[] = {
 	{"GetPoint", &luna_wrapper_wxTreeEvent::_bind_GetPoint},
 	{"IsEditCancelled", &luna_wrapper_wxTreeEvent::_bind_IsEditCancelled},
 	{"SetToolTip", &luna_wrapper_wxTreeEvent::_bind_SetToolTip},
+	{"base_GetClassInfo", &luna_wrapper_wxTreeEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxTreeEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxTreeEvent::_bind___eq},
 	{0,0}
 };

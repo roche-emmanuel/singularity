@@ -318,6 +318,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_eof(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 2 valid operators)
@@ -1093,6 +1099,25 @@ public:
 		return 0;
 	}
 
+	// bool osgDB::FieldReaderIterator::base_eof() const
+	static int _bind_base_eof(lua_State *L) {
+		if (!_lg_typecheck_base_eof(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReaderIterator::base_eof() const function, expected prototype:\nbool osgDB::FieldReaderIterator::base_eof() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReaderIterator::base_eof() const");
+		}
+		bool lret = self->FieldReaderIterator::eof();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 	// osgDB::Field & osgDB::FieldReaderIterator::operator[](int pos)
@@ -1168,6 +1193,7 @@ luna_RegType LunaTraits< osgDB::FieldReaderIterator >::methods[] = {
 	{"advanceToEndOfBlock", &luna_wrapper_osgDB_FieldReaderIterator::_bind_advanceToEndOfBlock},
 	{"matchSequence", &luna_wrapper_osgDB_FieldReaderIterator::_bind_matchSequence},
 	{"readSequence", &luna_wrapper_osgDB_FieldReaderIterator::_bind_readSequence},
+	{"base_eof", &luna_wrapper_osgDB_FieldReaderIterator::_bind_base_eof},
 	{"op_index", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_index},
 	{"op_add", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_add},
 	{"dynCast", &luna_wrapper_osgDB_FieldReaderIterator::_bind_dynCast},

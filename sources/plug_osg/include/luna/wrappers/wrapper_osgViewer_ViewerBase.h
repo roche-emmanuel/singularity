@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Object::isSameKindAs(arg1);
+		return ViewerBase::isSameKindAs(arg1);
 	};
 
 	// const char * osg::Object::libraryName() const
@@ -60,7 +60,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ViewerBase::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ViewerBase::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -79,7 +79,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ViewerBase::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -88,7 +88,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ViewerBase::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -97,7 +97,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ViewerBase::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ViewerBase::releaseGLObjects(arg1);
 	};
 
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osgViewer::ViewerBase::run();
+		return ViewerBase::run();
 	};
 
 	// bool osgViewer::ViewerBase::checkNeedToDoFrame()
@@ -170,7 +170,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::frame(simulationTime);
+		return ViewerBase::frame(simulationTime);
 	};
 
 	// void osgViewer::ViewerBase::advance(double simulationTime = DBL_MAX)
@@ -198,7 +198,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::renderingTraversals();
+		return ViewerBase::renderingTraversals();
 	};
 
 	// void osgViewer::ViewerBase::getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true)
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::getWindows(windows, onlyValid);
+		return ViewerBase::getWindows(windows, onlyValid);
 	};
 
 	// void osgViewer::ViewerBase::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
@@ -266,6 +266,11 @@ public:
 
 protected:
 	// void osgViewer::ViewerBase::viewerInit()
+	void viewerInit() {
+		THROW_IF(!_obj.pushFunction("viewerInit"),"No implementation for abstract function osgViewer::ViewerBase::viewerInit");
+		return (_obj.callFunction<void>());
+	};
+
 
 };
 

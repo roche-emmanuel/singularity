@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxObject.h>
+
 class luna_wrapper_wxObject {
 public:
 	typedef Luna< wxObject > luna_t;
@@ -68,6 +70,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxObject* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetClassInfo(lua_State *L) {
@@ -122,6 +140,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -154,12 +178,41 @@ public:
 		return new wxObject(other);
 	}
 
+	// wxObject::wxObject(lua_Table * data)
+	static wxObject* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxObject::wxObject(lua_Table * data) function, expected prototype:\nwxObject::wxObject(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxObject(L,NULL);
+	}
+
+	// wxObject::wxObject(lua_Table * data, const wxObject & other)
+	static wxObject* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxObject::wxObject(lua_Table * data, const wxObject & other) function, expected prototype:\nwxObject::wxObject(lua_Table * data, const wxObject & other)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxObject* other_ptr=(Luna< wxObject >::check(L,2));
+		if( !other_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg other in wxObject::wxObject function");
+		}
+		const wxObject & other=*other_ptr;
+
+		return new wrapper_wxObject(L,NULL, other);
+	}
+
 	// Overload binder for wxObject::wxObject
 	static wxObject* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxObject, cannot match any of the overloads for function wxObject:\n  wxObject()\n  wxObject(const wxObject &)\n");
+		luaL_error(L, "error in function wxObject, cannot match any of the overloads for function wxObject:\n  wxObject()\n  wxObject(const wxObject &)\n  wxObject(lua_Table *)\n  wxObject(lua_Table *, const wxObject &)\n");
 		return NULL;
 	}
 
@@ -329,6 +382,27 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxObject::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxObject::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxObject::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxObject::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxObject::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -358,6 +432,7 @@ luna_RegType LunaTraits< wxObject >::methods[] = {
 	{"SetRefData", &luna_wrapper_wxObject::_bind_SetRefData},
 	{"UnRef", &luna_wrapper_wxObject::_bind_UnRef},
 	{"UnShare", &luna_wrapper_wxObject::_bind_UnShare},
+	{"base_GetClassInfo", &luna_wrapper_wxObject::_bind_base_GetClassInfo},
 	{"dynCast", &luna_wrapper_wxObject::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxObject::_bind___eq},
 	{0,0}

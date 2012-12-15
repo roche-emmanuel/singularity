@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridTableBase.h>
+
 class luna_wrapper_wxGridTableBase {
 public:
 	typedef Luna< wxGridTableBase > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridTableBase* ptr= dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		//wxGridTableBase* ptr= dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* ptr= luna_caster< wxObject, wxGridTableBase >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -346,6 +349,257 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsEmptyCell(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetTypeName(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanGetValueAs(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanSetValueAs(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValueAsLong(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValueAsDouble(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValueAsBool(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetValueAsCustom(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetValueAsLong(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetValueAsDouble(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetValueAsBool(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetValueAsCustom(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetView(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetView(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InsertRows(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AppendRows(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteRows(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InsertCols(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AppendCols(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteCols(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetRowLabelValue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetColLabelValue(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetRowLabelValue(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetColLabelValue(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetAttr(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetAttr(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetRowAttr(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetColAttr(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanHaveAttributes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -359,7 +613,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxGridTableBase::GetNumberRows()");
@@ -378,7 +632,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxGridTableBase::GetNumberCols()");
@@ -397,7 +651,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxGridTableBase::GetRowsCount() const");
@@ -416,7 +670,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxGridTableBase::GetColsCount() const");
@@ -437,7 +691,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::IsEmptyCell(int, int)");
@@ -461,7 +715,7 @@ public:
 		}
 		const wxGridCellCoords & coords=*coords_ptr;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::IsEmpty(const wxGridCellCoords &)");
@@ -482,7 +736,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::GetValue(int, int)");
@@ -504,7 +758,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxString value(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetValue(int, int, const wxString &)");
@@ -524,7 +778,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::GetTypeName(int, int)");
@@ -546,7 +800,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::CanGetValueAs(int, int, const wxString &)");
@@ -568,7 +822,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::CanSetValueAs(int, int, const wxString &)");
@@ -589,7 +843,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxGridTableBase::GetValueAsLong(int, int)");
@@ -610,7 +864,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double wxGridTableBase::GetValueAsDouble(int, int)");
@@ -631,7 +885,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::GetValueAsBool(int, int)");
@@ -653,7 +907,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * wxGridTableBase::GetValueAsCustom(int, int, const wxString &)");
@@ -677,7 +931,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		long value=(long)lua_tointeger(L,4);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetValueAsLong(int, int, long)");
@@ -698,7 +952,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		double value=(double)lua_tonumber(L,4);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetValueAsDouble(int, int, double)");
@@ -719,7 +973,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		bool value=(bool)(lua_toboolean(L,4)==1);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetValueAsBool(int, int, bool)");
@@ -741,7 +995,7 @@ public:
 		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
 		void* value=(Luna< void >::check(L,5));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetValueAsCustom(int, int, const wxString &, void *)");
@@ -760,7 +1014,7 @@ public:
 
 		wxGrid* grid=(Luna< wxGrid >::check(L,2));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetView(wxGrid *)");
@@ -778,7 +1032,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGrid * wxGridTableBase::GetView() const");
@@ -799,7 +1053,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::Clear()");
@@ -821,7 +1075,7 @@ public:
 		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
 		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::InsertRows(size_t, size_t)");
@@ -843,7 +1097,7 @@ public:
 
 		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::AppendRows(size_t)");
@@ -866,7 +1120,7 @@ public:
 		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
 		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::DeleteRows(size_t, size_t)");
@@ -889,7 +1143,7 @@ public:
 		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
 		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::InsertCols(size_t, size_t)");
@@ -911,7 +1165,7 @@ public:
 
 		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::AppendCols(size_t)");
@@ -934,7 +1188,7 @@ public:
 		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
 		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::DeleteCols(size_t, size_t)");
@@ -954,7 +1208,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::GetRowLabelValue(int)");
@@ -974,7 +1228,7 @@ public:
 
 		int col=(int)lua_tointeger(L,2);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::GetColLabelValue(int)");
@@ -995,7 +1249,7 @@ public:
 		int row=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetRowLabelValue(int, const wxString &)");
@@ -1015,7 +1269,7 @@ public:
 		int col=(int)lua_tointeger(L,2);
 		wxString label(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetColLabelValue(int, const wxString &)");
@@ -1032,9 +1286,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxGridTableBase::SetAttrProvider(wxGridCellAttrProvider * attrProvider) function, expected prototype:\nvoid wxGridTableBase::SetAttrProvider(wxGridCellAttrProvider * attrProvider)\nClass arguments details:\narg 1 ID = 96494917\n");
 		}
 
-		wxGridCellAttrProvider* attrProvider=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,2));
+		wxGridCellAttrProvider* attrProvider=(Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,2));
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetAttrProvider(wxGridCellAttrProvider *)");
@@ -1052,7 +1306,7 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellAttrProvider * wxGridTableBase::GetAttrProvider() const");
@@ -1076,7 +1330,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxGridCellAttr::wxAttrKind kind=(wxGridCellAttr::wxAttrKind)lua_tointeger(L,4);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridTableBase::GetAttr(int, int, wxGridCellAttr::wxAttrKind)");
@@ -1100,7 +1354,7 @@ public:
 		int row=(int)lua_tointeger(L,3);
 		int col=(int)lua_tointeger(L,4);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetAttr(wxGridCellAttr *, int, int)");
@@ -1120,7 +1374,7 @@ public:
 		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
 		int row=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetRowAttr(wxGridCellAttr *, int)");
@@ -1140,7 +1394,7 @@ public:
 		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridTableBase::SetColAttr(wxGridCellAttr *, int)");
@@ -1158,12 +1412,669 @@ public:
 		}
 
 
-		wxGridTableBase* self=dynamic_cast< wxGridTableBase* >(Luna< wxObject >::check(L,1));
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxGridTableBase::CanHaveAttributes()");
 		}
 		bool lret = self->CanHaveAttributes();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxGridTableBase::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridTableBase::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridTableBase::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridTableBase::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxGridTableBase::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_IsEmptyCell(int row, int col)
+	static int _bind_base_IsEmptyCell(lua_State *L) {
+		if (!_lg_typecheck_base_IsEmptyCell(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_IsEmptyCell(int row, int col) function, expected prototype:\nbool wxGridTableBase::base_IsEmptyCell(int row, int col)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_IsEmptyCell(int, int)");
+		}
+		bool lret = self->wxGridTableBase::IsEmptyCell(row, col);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxGridTableBase::base_GetTypeName(int row, int col)
+	static int _bind_base_GetTypeName(lua_State *L) {
+		if (!_lg_typecheck_base_GetTypeName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxGridTableBase::base_GetTypeName(int row, int col) function, expected prototype:\nwxString wxGridTableBase::base_GetTypeName(int row, int col)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::base_GetTypeName(int, int)");
+		}
+		wxString lret = self->wxGridTableBase::GetTypeName(row, col);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_CanGetValueAs(int row, int col, const wxString & typeName)
+	static int _bind_base_CanGetValueAs(lua_State *L) {
+		if (!_lg_typecheck_base_CanGetValueAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_CanGetValueAs(int row, int col, const wxString & typeName) function, expected prototype:\nbool wxGridTableBase::base_CanGetValueAs(int row, int col, const wxString & typeName)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_CanGetValueAs(int, int, const wxString &)");
+		}
+		bool lret = self->wxGridTableBase::CanGetValueAs(row, col, typeName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_CanSetValueAs(int row, int col, const wxString & typeName)
+	static int _bind_base_CanSetValueAs(lua_State *L) {
+		if (!_lg_typecheck_base_CanSetValueAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_CanSetValueAs(int row, int col, const wxString & typeName) function, expected prototype:\nbool wxGridTableBase::base_CanSetValueAs(int row, int col, const wxString & typeName)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_CanSetValueAs(int, int, const wxString &)");
+		}
+		bool lret = self->wxGridTableBase::CanSetValueAs(row, col, typeName);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// long wxGridTableBase::base_GetValueAsLong(int row, int col)
+	static int _bind_base_GetValueAsLong(lua_State *L) {
+		if (!_lg_typecheck_base_GetValueAsLong(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long wxGridTableBase::base_GetValueAsLong(int row, int col) function, expected prototype:\nlong wxGridTableBase::base_GetValueAsLong(int row, int col)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long wxGridTableBase::base_GetValueAsLong(int, int)");
+		}
+		long lret = self->wxGridTableBase::GetValueAsLong(row, col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// double wxGridTableBase::base_GetValueAsDouble(int row, int col)
+	static int _bind_base_GetValueAsDouble(lua_State *L) {
+		if (!_lg_typecheck_base_GetValueAsDouble(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double wxGridTableBase::base_GetValueAsDouble(int row, int col) function, expected prototype:\ndouble wxGridTableBase::base_GetValueAsDouble(int row, int col)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call double wxGridTableBase::base_GetValueAsDouble(int, int)");
+		}
+		double lret = self->wxGridTableBase::GetValueAsDouble(row, col);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_GetValueAsBool(int row, int col)
+	static int _bind_base_GetValueAsBool(lua_State *L) {
+		if (!_lg_typecheck_base_GetValueAsBool(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_GetValueAsBool(int row, int col) function, expected prototype:\nbool wxGridTableBase::base_GetValueAsBool(int row, int col)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_GetValueAsBool(int, int)");
+		}
+		bool lret = self->wxGridTableBase::GetValueAsBool(row, col);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void * wxGridTableBase::base_GetValueAsCustom(int row, int col, const wxString & typeName)
+	static int _bind_base_GetValueAsCustom(lua_State *L) {
+		if (!_lg_typecheck_base_GetValueAsCustom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void * wxGridTableBase::base_GetValueAsCustom(int row, int col, const wxString & typeName) function, expected prototype:\nvoid * wxGridTableBase::base_GetValueAsCustom(int row, int col, const wxString & typeName)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void * wxGridTableBase::base_GetValueAsCustom(int, int, const wxString &)");
+		}
+		void * lret = self->wxGridTableBase::GetValueAsCustom(row, col, typeName);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< void >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGridTableBase::base_SetValueAsLong(int row, int col, long value)
+	static int _bind_base_SetValueAsLong(lua_State *L) {
+		if (!_lg_typecheck_base_SetValueAsLong(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetValueAsLong(int row, int col, long value) function, expected prototype:\nvoid wxGridTableBase::base_SetValueAsLong(int row, int col, long value)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		long value=(long)lua_tointeger(L,4);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetValueAsLong(int, int, long)");
+		}
+		self->wxGridTableBase::SetValueAsLong(row, col, value);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetValueAsDouble(int row, int col, double value)
+	static int _bind_base_SetValueAsDouble(lua_State *L) {
+		if (!_lg_typecheck_base_SetValueAsDouble(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetValueAsDouble(int row, int col, double value) function, expected prototype:\nvoid wxGridTableBase::base_SetValueAsDouble(int row, int col, double value)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		double value=(double)lua_tonumber(L,4);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetValueAsDouble(int, int, double)");
+		}
+		self->wxGridTableBase::SetValueAsDouble(row, col, value);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetValueAsBool(int row, int col, bool value)
+	static int _bind_base_SetValueAsBool(lua_State *L) {
+		if (!_lg_typecheck_base_SetValueAsBool(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetValueAsBool(int row, int col, bool value) function, expected prototype:\nvoid wxGridTableBase::base_SetValueAsBool(int row, int col, bool value)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		bool value=(bool)(lua_toboolean(L,4)==1);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetValueAsBool(int, int, bool)");
+		}
+		self->wxGridTableBase::SetValueAsBool(row, col, value);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetValueAsCustom(int row, int col, const wxString & typeName, void * value)
+	static int _bind_base_SetValueAsCustom(lua_State *L) {
+		if (!_lg_typecheck_base_SetValueAsCustom(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetValueAsCustom(int row, int col, const wxString & typeName, void * value) function, expected prototype:\nvoid wxGridTableBase::base_SetValueAsCustom(int row, int col, const wxString & typeName, void * value)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxString typeName(lua_tostring(L,4),lua_objlen(L,4));
+		void* value=(Luna< void >::check(L,5));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetValueAsCustom(int, int, const wxString &, void *)");
+		}
+		self->wxGridTableBase::SetValueAsCustom(row, col, typeName, value);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetView(wxGrid * grid)
+	static int _bind_base_SetView(lua_State *L) {
+		if (!_lg_typecheck_base_SetView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetView(wxGrid * grid) function, expected prototype:\nvoid wxGridTableBase::base_SetView(wxGrid * grid)\nClass arguments details:\narg 1 ID = 19919380\n");
+		}
+
+		wxGrid* grid=(Luna< wxGrid >::check(L,2));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetView(wxGrid *)");
+		}
+		self->wxGridTableBase::SetView(grid);
+
+		return 0;
+	}
+
+	// wxGrid * wxGridTableBase::base_GetView() const
+	static int _bind_base_GetView(lua_State *L) {
+		if (!_lg_typecheck_base_GetView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGrid * wxGridTableBase::base_GetView() const function, expected prototype:\nwxGrid * wxGridTableBase::base_GetView() const\nClass arguments details:\n");
+		}
+
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGrid * wxGridTableBase::base_GetView() const");
+		}
+		wxGrid * lret = self->wxGridTableBase::GetView();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGrid >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGridTableBase::base_Clear()
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_Clear() function, expected prototype:\nvoid wxGridTableBase::base_Clear()\nClass arguments details:\n");
+		}
+
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_Clear()");
+		}
+		self->wxGridTableBase::Clear();
+
+		return 0;
+	}
+
+	// bool wxGridTableBase::base_InsertRows(size_t pos = 0, size_t numRows = 1)
+	static int _bind_base_InsertRows(lua_State *L) {
+		if (!_lg_typecheck_base_InsertRows(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_InsertRows(size_t pos = 0, size_t numRows = 1) function, expected prototype:\nbool wxGridTableBase::base_InsertRows(size_t pos = 0, size_t numRows = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_InsertRows(size_t, size_t)");
+		}
+		bool lret = self->wxGridTableBase::InsertRows(pos, numRows);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_AppendRows(size_t numRows = 1)
+	static int _bind_base_AppendRows(lua_State *L) {
+		if (!_lg_typecheck_base_AppendRows(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_AppendRows(size_t numRows = 1) function, expected prototype:\nbool wxGridTableBase::base_AppendRows(size_t numRows = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t numRows=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_AppendRows(size_t)");
+		}
+		bool lret = self->wxGridTableBase::AppendRows(numRows);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_DeleteRows(size_t pos = 0, size_t numRows = 1)
+	static int _bind_base_DeleteRows(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteRows(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_DeleteRows(size_t pos = 0, size_t numRows = 1) function, expected prototype:\nbool wxGridTableBase::base_DeleteRows(size_t pos = 0, size_t numRows = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		size_t numRows=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_DeleteRows(size_t, size_t)");
+		}
+		bool lret = self->wxGridTableBase::DeleteRows(pos, numRows);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_InsertCols(size_t pos = 0, size_t numCols = 1)
+	static int _bind_base_InsertCols(lua_State *L) {
+		if (!_lg_typecheck_base_InsertCols(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_InsertCols(size_t pos = 0, size_t numCols = 1) function, expected prototype:\nbool wxGridTableBase::base_InsertCols(size_t pos = 0, size_t numCols = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_InsertCols(size_t, size_t)");
+		}
+		bool lret = self->wxGridTableBase::InsertCols(pos, numCols);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_AppendCols(size_t numCols = 1)
+	static int _bind_base_AppendCols(lua_State *L) {
+		if (!_lg_typecheck_base_AppendCols(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_AppendCols(size_t numCols = 1) function, expected prototype:\nbool wxGridTableBase::base_AppendCols(size_t numCols = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t numCols=luatop>1 ? (size_t)lua_tointeger(L,2) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_AppendCols(size_t)");
+		}
+		bool lret = self->wxGridTableBase::AppendCols(numCols);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxGridTableBase::base_DeleteCols(size_t pos = 0, size_t numCols = 1)
+	static int _bind_base_DeleteCols(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteCols(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_DeleteCols(size_t pos = 0, size_t numCols = 1) function, expected prototype:\nbool wxGridTableBase::base_DeleteCols(size_t pos = 0, size_t numCols = 1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t pos=luatop>1 ? (size_t)lua_tointeger(L,2) : 0;
+		size_t numCols=luatop>2 ? (size_t)lua_tointeger(L,3) : 1;
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_DeleteCols(size_t, size_t)");
+		}
+		bool lret = self->wxGridTableBase::DeleteCols(pos, numCols);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxGridTableBase::base_GetRowLabelValue(int row)
+	static int _bind_base_GetRowLabelValue(lua_State *L) {
+		if (!_lg_typecheck_base_GetRowLabelValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxGridTableBase::base_GetRowLabelValue(int row) function, expected prototype:\nwxString wxGridTableBase::base_GetRowLabelValue(int row)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::base_GetRowLabelValue(int)");
+		}
+		wxString lret = self->wxGridTableBase::GetRowLabelValue(row);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxString wxGridTableBase::base_GetColLabelValue(int col)
+	static int _bind_base_GetColLabelValue(lua_State *L) {
+		if (!_lg_typecheck_base_GetColLabelValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxGridTableBase::base_GetColLabelValue(int col) function, expected prototype:\nwxString wxGridTableBase::base_GetColLabelValue(int col)\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxGridTableBase::base_GetColLabelValue(int)");
+		}
+		wxString lret = self->wxGridTableBase::GetColLabelValue(col);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// void wxGridTableBase::base_SetRowLabelValue(int row, const wxString & label)
+	static int _bind_base_SetRowLabelValue(lua_State *L) {
+		if (!_lg_typecheck_base_SetRowLabelValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetRowLabelValue(int row, const wxString & label) function, expected prototype:\nvoid wxGridTableBase::base_SetRowLabelValue(int row, const wxString & label)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		wxString label(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetRowLabelValue(int, const wxString &)");
+		}
+		self->wxGridTableBase::SetRowLabelValue(row, label);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetColLabelValue(int col, const wxString & label)
+	static int _bind_base_SetColLabelValue(lua_State *L) {
+		if (!_lg_typecheck_base_SetColLabelValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetColLabelValue(int col, const wxString & label) function, expected prototype:\nvoid wxGridTableBase::base_SetColLabelValue(int col, const wxString & label)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+		wxString label(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetColLabelValue(int, const wxString &)");
+		}
+		self->wxGridTableBase::SetColLabelValue(col, label);
+
+		return 0;
+	}
+
+	// wxGridCellAttr * wxGridTableBase::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind)
+	static int _bind_base_GetAttr(lua_State *L) {
+		if (!_lg_typecheck_base_GetAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAttr * wxGridTableBase::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) function, expected prototype:\nwxGridCellAttr * wxGridTableBase::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxGridCellAttr::wxAttrKind kind=(wxGridCellAttr::wxAttrKind)lua_tointeger(L,4);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridTableBase::base_GetAttr(int, int, wxGridCellAttr::wxAttrKind)");
+		}
+		wxGridCellAttr * lret = self->wxGridTableBase::GetAttr(row, col, kind);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellAttr >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGridTableBase::base_SetAttr(wxGridCellAttr * attr, int row, int col)
+	static int _bind_base_SetAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetAttr(wxGridCellAttr * attr, int row, int col) function, expected prototype:\nvoid wxGridTableBase::base_SetAttr(wxGridCellAttr * attr, int row, int col)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int row=(int)lua_tointeger(L,3);
+		int col=(int)lua_tointeger(L,4);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetAttr(wxGridCellAttr *, int, int)");
+		}
+		self->wxGridTableBase::SetAttr(attr, row, col);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetRowAttr(wxGridCellAttr * attr, int row)
+	static int _bind_base_SetRowAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetRowAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetRowAttr(wxGridCellAttr * attr, int row) function, expected prototype:\nvoid wxGridTableBase::base_SetRowAttr(wxGridCellAttr * attr, int row)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int row=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetRowAttr(wxGridCellAttr *, int)");
+		}
+		self->wxGridTableBase::SetRowAttr(attr, row);
+
+		return 0;
+	}
+
+	// void wxGridTableBase::base_SetColAttr(wxGridCellAttr * attr, int col)
+	static int _bind_base_SetColAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetColAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetColAttr(wxGridCellAttr * attr, int col) function, expected prototype:\nvoid wxGridTableBase::base_SetColAttr(wxGridCellAttr * attr, int col)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridTableBase::base_SetColAttr(wxGridCellAttr *, int)");
+		}
+		self->wxGridTableBase::SetColAttr(attr, col);
+
+		return 0;
+	}
+
+	// bool wxGridTableBase::base_CanHaveAttributes()
+	static int _bind_base_CanHaveAttributes(lua_State *L) {
+		if (!_lg_typecheck_base_CanHaveAttributes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxGridTableBase::base_CanHaveAttributes() function, expected prototype:\nbool wxGridTableBase::base_CanHaveAttributes()\nClass arguments details:\n");
+		}
+
+
+		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxGridTableBase::base_CanHaveAttributes()");
+		}
+		bool lret = self->wxGridTableBase::CanHaveAttributes();
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1181,8 +2092,6 @@ wxGridTableBase* LunaTraits< wxGridTableBase >::_bind_ctor(lua_State *L) {
 	// int wxGridTableBase::GetNumberCols()
 	// wxString wxGridTableBase::GetValue(int row, int col)
 	// void wxGridTableBase::SetValue(int row, int col, const wxString & value)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridTableBase >::_bind_dtor(wxGridTableBase* obj) {
@@ -1236,6 +2145,37 @@ luna_RegType LunaTraits< wxGridTableBase >::methods[] = {
 	{"SetRowAttr", &luna_wrapper_wxGridTableBase::_bind_SetRowAttr},
 	{"SetColAttr", &luna_wrapper_wxGridTableBase::_bind_SetColAttr},
 	{"CanHaveAttributes", &luna_wrapper_wxGridTableBase::_bind_CanHaveAttributes},
+	{"base_GetClassInfo", &luna_wrapper_wxGridTableBase::_bind_base_GetClassInfo},
+	{"base_IsEmptyCell", &luna_wrapper_wxGridTableBase::_bind_base_IsEmptyCell},
+	{"base_GetTypeName", &luna_wrapper_wxGridTableBase::_bind_base_GetTypeName},
+	{"base_CanGetValueAs", &luna_wrapper_wxGridTableBase::_bind_base_CanGetValueAs},
+	{"base_CanSetValueAs", &luna_wrapper_wxGridTableBase::_bind_base_CanSetValueAs},
+	{"base_GetValueAsLong", &luna_wrapper_wxGridTableBase::_bind_base_GetValueAsLong},
+	{"base_GetValueAsDouble", &luna_wrapper_wxGridTableBase::_bind_base_GetValueAsDouble},
+	{"base_GetValueAsBool", &luna_wrapper_wxGridTableBase::_bind_base_GetValueAsBool},
+	{"base_GetValueAsCustom", &luna_wrapper_wxGridTableBase::_bind_base_GetValueAsCustom},
+	{"base_SetValueAsLong", &luna_wrapper_wxGridTableBase::_bind_base_SetValueAsLong},
+	{"base_SetValueAsDouble", &luna_wrapper_wxGridTableBase::_bind_base_SetValueAsDouble},
+	{"base_SetValueAsBool", &luna_wrapper_wxGridTableBase::_bind_base_SetValueAsBool},
+	{"base_SetValueAsCustom", &luna_wrapper_wxGridTableBase::_bind_base_SetValueAsCustom},
+	{"base_SetView", &luna_wrapper_wxGridTableBase::_bind_base_SetView},
+	{"base_GetView", &luna_wrapper_wxGridTableBase::_bind_base_GetView},
+	{"base_Clear", &luna_wrapper_wxGridTableBase::_bind_base_Clear},
+	{"base_InsertRows", &luna_wrapper_wxGridTableBase::_bind_base_InsertRows},
+	{"base_AppendRows", &luna_wrapper_wxGridTableBase::_bind_base_AppendRows},
+	{"base_DeleteRows", &luna_wrapper_wxGridTableBase::_bind_base_DeleteRows},
+	{"base_InsertCols", &luna_wrapper_wxGridTableBase::_bind_base_InsertCols},
+	{"base_AppendCols", &luna_wrapper_wxGridTableBase::_bind_base_AppendCols},
+	{"base_DeleteCols", &luna_wrapper_wxGridTableBase::_bind_base_DeleteCols},
+	{"base_GetRowLabelValue", &luna_wrapper_wxGridTableBase::_bind_base_GetRowLabelValue},
+	{"base_GetColLabelValue", &luna_wrapper_wxGridTableBase::_bind_base_GetColLabelValue},
+	{"base_SetRowLabelValue", &luna_wrapper_wxGridTableBase::_bind_base_SetRowLabelValue},
+	{"base_SetColLabelValue", &luna_wrapper_wxGridTableBase::_bind_base_SetColLabelValue},
+	{"base_GetAttr", &luna_wrapper_wxGridTableBase::_bind_base_GetAttr},
+	{"base_SetAttr", &luna_wrapper_wxGridTableBase::_bind_base_SetAttr},
+	{"base_SetRowAttr", &luna_wrapper_wxGridTableBase::_bind_base_SetRowAttr},
+	{"base_SetColAttr", &luna_wrapper_wxGridTableBase::_bind_base_SetColAttr},
+	{"base_CanHaveAttributes", &luna_wrapper_wxGridTableBase::_bind_base_CanHaveAttributes},
 	{"__eq", &luna_wrapper_wxGridTableBase::_bind___eq},
 	{0,0}
 };

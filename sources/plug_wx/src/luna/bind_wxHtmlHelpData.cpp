@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlHelpData.h>
+
 class luna_wrapper_wxHtmlHelpData {
 public:
 	typedef Luna< wxHtmlHelpData > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlHelpData* ptr= dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		//wxHtmlHelpData* ptr= dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* ptr= luna_caster< wxObject, wxHtmlHelpData >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -94,20 +104,46 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxHtmlHelpData::wxHtmlHelpData()
-	static wxHtmlHelpData* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHtmlHelpData* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData() function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData()\nClass arguments details:\n");
 		}
 
 
 		return new wxHtmlHelpData();
+	}
+
+	// wxHtmlHelpData::wxHtmlHelpData(lua_Table * data)
+	static wxHtmlHelpData* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpData::wxHtmlHelpData(lua_Table * data) function, expected prototype:\nwxHtmlHelpData::wxHtmlHelpData(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxHtmlHelpData(L,NULL);
+	}
+
+	// Overload binder for wxHtmlHelpData::wxHtmlHelpData
+	static wxHtmlHelpData* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHtmlHelpData, cannot match any of the overloads for function wxHtmlHelpData:\n  wxHtmlHelpData()\n  wxHtmlHelpData(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -121,7 +157,7 @@ public:
 
 		wxString book_url(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlHelpData::AddBook(const wxString &)");
@@ -141,7 +177,7 @@ public:
 
 		int id=(int)lua_tointeger(L,2);
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageById(int)");
@@ -161,7 +197,7 @@ public:
 
 		wxString page(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxHtmlHelpData::FindPageByName(const wxString &)");
@@ -180,7 +216,7 @@ public:
 		}
 
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlBookRecArray & wxHtmlHelpData::GetBookRecArray() const");
@@ -201,7 +237,7 @@ public:
 		}
 
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetContentsArray() const");
@@ -222,7 +258,7 @@ public:
 		}
 
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxHtmlHelpDataItems & wxHtmlHelpData::GetIndexArray() const");
@@ -244,7 +280,7 @@ public:
 
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlHelpData* self=dynamic_cast< wxHtmlHelpData* >(Luna< wxObject >::check(L,1));
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlHelpData::SetTempDir(const wxString &)");
@@ -252,6 +288,27 @@ public:
 		self->SetTempDir(path);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlHelpData::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlHelpData* self=Luna< wxObject >::checkSubType< wxHtmlHelpData >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlHelpData::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlHelpData::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -282,6 +339,7 @@ luna_RegType LunaTraits< wxHtmlHelpData >::methods[] = {
 	{"GetContentsArray", &luna_wrapper_wxHtmlHelpData::_bind_GetContentsArray},
 	{"GetIndexArray", &luna_wrapper_wxHtmlHelpData::_bind_GetIndexArray},
 	{"SetTempDir", &luna_wrapper_wxHtmlHelpData::_bind_SetTempDir},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlHelpData::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxHtmlHelpData::_bind___eq},
 	{0,0}
 };

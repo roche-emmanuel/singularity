@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextXMLHandler.h>
+
 class luna_wrapper_wxRichTextXMLHandler {
 public:
 	typedef Luna< wxRichTextXMLHandler > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextXMLHandler* ptr= dynamic_cast< wxRichTextXMLHandler* >(Luna< wxObject >::check(L,1));
+		//wxRichTextXMLHandler* ptr= dynamic_cast< wxRichTextXMLHandler* >(Luna< wxObject >::check(L,1));
+		wxRichTextXMLHandler* ptr= luna_caster< wxObject, wxRichTextXMLHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,8 +57,6 @@ wxRichTextXMLHandler* LunaTraits< wxRichTextXMLHandler >::_bind_ctor(lua_State *
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxRichTextFileHandler::SetVisible(bool visible)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRichTextXMLHandler >::_bind_dtor(wxRichTextXMLHandler* obj) {

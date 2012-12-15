@@ -76,12 +76,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCPenChanger::wxDCPenChanger(wxDC & dc, const wxPen & pen) function, expected prototype:\nwxDCPenChanger::wxDCPenChanger(wxDC & dc, const wxPen & pen)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCPenChanger::wxDCPenChanger function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxPen* pen_ptr=dynamic_cast< wxPen* >(Luna< wxObject >::check(L,2));
+		const wxPen* pen_ptr=(Luna< wxObject >::checkSubType< wxPen >(L,2));
 		if( !pen_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pen in wxDCPenChanger::wxDCPenChanger function");
 		}

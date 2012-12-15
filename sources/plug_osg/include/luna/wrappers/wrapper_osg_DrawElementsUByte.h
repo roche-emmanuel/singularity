@@ -27,7 +27,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DrawElementsUByte::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DrawElementsUByte::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -46,7 +46,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DrawElementsUByte::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawElementsUByte::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawElementsUByte::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -74,7 +74,25 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return DrawElementsUByte::releaseGLObjects(state);
+	};
+
+	// unsigned int osg::PrimitiveSet::getNumPrimitives() const
+	unsigned int getNumPrimitives() const {
+		if(_obj.pushFunction("getNumPrimitives")) {
+			return (_obj.callFunction<unsigned int>());
+		}
+
+		return DrawElementsUByte::getNumPrimitives();
+	};
+
+	// void osg::PrimitiveSet::computeRange() const
+	void computeRange() const {
+		if(_obj.pushFunction("computeRange")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return DrawElementsUByte::computeRange();
 	};
 
 	// osg::DrawElements * osg::DrawElements::getDrawElements()
@@ -83,7 +101,7 @@ public:
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
-		return osg::DrawElements::getDrawElements();
+		return DrawElementsUByte::getDrawElements();
 	};
 
 	// const osg::DrawElements * osg::DrawElements::getDrawElements() const
@@ -92,7 +110,7 @@ public:
 			return (_obj.callFunction<osg::DrawElements*>());
 		}
 
-		return osg::DrawElements::getDrawElements();
+		return DrawElementsUByte::getDrawElements();
 	};
 
 	// osg::Object * osg::DrawElementsUByte::cloneType() const
@@ -101,7 +119,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawElementsUByte::cloneType();
+		return DrawElementsUByte::cloneType();
 	};
 
 	// osg::Object * osg::DrawElementsUByte::clone(const osg::CopyOp & arg1) const
@@ -111,7 +129,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawElementsUByte::clone(arg1);
+		return DrawElementsUByte::clone(arg1);
 	};
 
 	// bool osg::DrawElementsUByte::isSameKindAs(const osg::Object * obj) const
@@ -121,7 +139,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::DrawElementsUByte::isSameKindAs(obj);
+		return DrawElementsUByte::isSameKindAs(obj);
 	};
 
 	// const char * osg::DrawElementsUByte::libraryName() const
@@ -130,7 +148,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawElementsUByte::libraryName();
+		return DrawElementsUByte::libraryName();
 	};
 
 	// const char * osg::DrawElementsUByte::className() const
@@ -139,7 +157,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawElementsUByte::className();
+		return DrawElementsUByte::className();
 	};
 
 	// const void * osg::DrawElementsUByte::getDataPointer() const
@@ -148,7 +166,7 @@ public:
 			return (_obj.callFunction<void*>());
 		}
 
-		return osg::DrawElementsUByte::getDataPointer();
+		return DrawElementsUByte::getDataPointer();
 	};
 
 	// unsigned int osg::DrawElementsUByte::getTotalDataSize() const
@@ -157,7 +175,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawElementsUByte::getTotalDataSize();
+		return DrawElementsUByte::getTotalDataSize();
 	};
 
 	// bool osg::DrawElementsUByte::supportsBufferObject() const
@@ -166,7 +184,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::DrawElementsUByte::supportsBufferObject();
+		return DrawElementsUByte::supportsBufferObject();
 	};
 
 	// void osg::DrawElementsUByte::draw(osg::State & state, bool useVertexBufferObjects) const
@@ -177,7 +195,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawElementsUByte::draw(state, useVertexBufferObjects);
+		return DrawElementsUByte::draw(state, useVertexBufferObjects);
 	};
 
 	// unsigned int osg::DrawElementsUByte::getNumIndices() const
@@ -186,7 +204,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawElementsUByte::getNumIndices();
+		return DrawElementsUByte::getNumIndices();
 	};
 
 	// unsigned int osg::DrawElementsUByte::index(unsigned int pos) const
@@ -196,7 +214,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawElementsUByte::index(pos);
+		return DrawElementsUByte::index(pos);
 	};
 
 	// void osg::DrawElementsUByte::offsetIndices(int offset)
@@ -206,7 +224,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawElementsUByte::offsetIndices(offset);
+		return DrawElementsUByte::offsetIndices(offset);
 	};
 
 	// void osg::DrawElementsUByte::reserveElements(unsigned int numIndices)
@@ -216,7 +234,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawElementsUByte::reserveElements(numIndices);
+		return DrawElementsUByte::reserveElements(numIndices);
 	};
 
 	// void osg::DrawElementsUByte::setElement(unsigned int i, unsigned int v)
@@ -227,7 +245,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawElementsUByte::setElement(i, v);
+		return DrawElementsUByte::setElement(i, v);
 	};
 
 	// unsigned int osg::DrawElementsUByte::getElement(unsigned int i)
@@ -237,7 +255,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawElementsUByte::getElement(i);
+		return DrawElementsUByte::getElement(i);
 	};
 
 	// void osg::DrawElementsUByte::addElement(unsigned int v)
@@ -247,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawElementsUByte::addElement(v);
+		return DrawElementsUByte::addElement(v);
 	};
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataObject.h>
+
 class luna_wrapper_wxDataObject {
 public:
 	typedef Luna< wxDataObject > luna_t;
@@ -109,6 +111,15 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
 
@@ -288,6 +299,32 @@ public:
 		return 1;
 	}
 
+	// bool wxDataObject::base_SetData(const wxDataFormat & format, size_t len, const void * buf)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataObject::base_SetData(const wxDataFormat & format, size_t len, const void * buf) function, expected prototype:\nbool wxDataObject::base_SetData(const wxDataFormat & format, size_t len, const void * buf)\nClass arguments details:\narg 1 ID = 9988153\n");
+		}
+
+		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
+		if( !format_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObject::base_SetData function");
+		}
+		const wxDataFormat & format=*format_ptr;
+		size_t len=(size_t)lua_tointeger(L,3);
+		void* buf=(Luna< void >::check(L,4));
+
+		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataObject::base_SetData(const wxDataFormat &, size_t, const void *)");
+		}
+		bool lret = self->wxDataObject::SetData(format, len, buf);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -301,8 +338,6 @@ wxDataObject* LunaTraits< wxDataObject >::_bind_ctor(lua_State *L) {
 	// size_t wxDataObject::GetDataSize(const wxDataFormat & format) const
 	// size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const
 	// wxDataFormat wxDataObject::GetPreferredFormat(wxDataObject::Direction dir = wxDataObject::Get) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataObject >::_bind_dtor(wxDataObject* obj) {
@@ -324,6 +359,7 @@ luna_RegType LunaTraits< wxDataObject >::methods[] = {
 	{"GetPreferredFormat", &luna_wrapper_wxDataObject::_bind_GetPreferredFormat},
 	{"SetData", &luna_wrapper_wxDataObject::_bind_SetData},
 	{"IsSupported", &luna_wrapper_wxDataObject::_bind_IsSupported},
+	{"base_SetData", &luna_wrapper_wxDataObject::_bind_base_SetData},
 	{"dynCast", &luna_wrapper_wxDataObject::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxDataObject::_bind___eq},
 	{0,0}

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Referenced::setThreadSafeRefUnref(threadSafe);
+		return LogSink::setThreadSafeRefUnref(threadSafe);
 	};
 
 	// void sgt::LogSink::output(int level, std::string trace, std::string msg)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return sgt::LogSink::process(level, trace, msg);
+		return LogSink::process(level, trace, msg);
 	};
 
 

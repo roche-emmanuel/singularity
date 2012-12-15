@@ -29,7 +29,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxClientData(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxStringClientData* ptr= dynamic_cast< wxStringClientData* >(Luna< wxClientData >::check(L,1));
+		//wxStringClientData* ptr= dynamic_cast< wxStringClientData* >(Luna< wxClientData >::check(L,1));
+		wxStringClientData* ptr= luna_caster< wxClientData, wxStringClientData >::cast(Luna< wxClientData >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -115,7 +116,7 @@ public:
 		}
 
 
-		wxStringClientData* self=dynamic_cast< wxStringClientData* >(Luna< wxClientData >::check(L,1));
+		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxStringClientData::GetData() const");
@@ -135,7 +136,7 @@ public:
 
 		wxString data(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxStringClientData* self=dynamic_cast< wxStringClientData* >(Luna< wxClientData >::check(L,1));
+		wxStringClientData* self=Luna< wxClientData >::checkSubType< wxStringClientData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStringClientData::SetData(const wxString &)");

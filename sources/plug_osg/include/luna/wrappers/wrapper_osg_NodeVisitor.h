@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::libraryName();
+		return NodeVisitor::libraryName();
 	};
 
 	// const char * osg::NodeVisitor::className() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::className();
+		return NodeVisitor::className();
 	};
 
 	// void osg::NodeVisitor::reset()
@@ -42,7 +42,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return NodeVisitor::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -51,7 +51,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return NodeVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -60,7 +60,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return NodeVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return NodeVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return NodeVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Node & node)
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Geode & node)
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Billboard & node)
@@ -123,7 +123,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Group & node)
@@ -133,7 +133,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Projection & node)
@@ -143,7 +143,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::CoordinateSystemNode & node)
@@ -153,7 +153,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::ClipNode & node)
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::TexGenNode & node)
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::LightSource & node)
@@ -183,7 +183,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Transform & node)
@@ -193,7 +193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Camera & node)
@@ -203,7 +203,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::CameraView & node)
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::MatrixTransform & node)
@@ -223,7 +223,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::PositionAttitudeTransform & node)
@@ -233,7 +233,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Switch & node)
@@ -243,7 +243,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::Sequence & node)
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::LOD & node)
@@ -263,7 +263,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::PagedLOD & node)
@@ -273,7 +273,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::ClearNode & node)
@@ -283,7 +283,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::OccluderNode & node)
@@ -293,7 +293,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 	// void osg::NodeVisitor::apply(osg::OcclusionQueryNode & node)
@@ -303,7 +303,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::apply(node);
+		return NodeVisitor::apply(node);
 	};
 
 

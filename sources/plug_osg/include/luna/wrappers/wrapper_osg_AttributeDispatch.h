@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_AttributeDispatch(lua_State* L, lua_Table* dum) : osg::AttributeDispatch(), _obj(L,-1) {};
 
 	// void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)
 	void assign(const void * arg1, const osg::IndexArray * arg2) {
@@ -25,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AttributeDispatch::assign(arg1, arg2);
+		return AttributeDispatch::assign(arg1, arg2);
 	};
 
 	// void osg::AttributeDispatch::operator()(unsigned int arg1)
@@ -35,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::AttributeDispatch::operator()(arg1);
+		return AttributeDispatch::operator()(arg1);
 	};
 
 

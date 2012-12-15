@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlTagHandler.h>
+
 class luna_wrapper_wxHtmlTagHandler {
 public:
 	typedef Luna< wxHtmlTagHandler > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlTagHandler* ptr= dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,1));
+		//wxHtmlTagHandler* ptr= dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagHandler* ptr= luna_caster< wxObject, wxHtmlTagHandler >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -60,6 +63,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetParser(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,65918681)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -73,7 +89,7 @@ public:
 		}
 
 
-		wxHtmlTagHandler* self=dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxHtmlTagHandler::GetSupportedTags()");
@@ -97,7 +113,7 @@ public:
 		}
 		const wxHtmlTag & tag=*tag_ptr;
 
-		wxHtmlTagHandler* self=dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlTagHandler::HandleTag(const wxHtmlTag &)");
@@ -117,12 +133,52 @@ public:
 
 		wxHtmlParser* parser=(Luna< wxHtmlParser >::check(L,2));
 
-		wxHtmlTagHandler* self=dynamic_cast< wxHtmlTagHandler* >(Luna< wxObject >::check(L,1));
+		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::SetParser(wxHtmlParser *)");
 		}
 		self->SetParser(parser);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlTagHandler::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlTagHandler::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxHtmlTagHandler::base_SetParser(wxHtmlParser * parser)
+	static int _bind_base_SetParser(lua_State *L) {
+		if (!_lg_typecheck_base_SetParser(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxHtmlTagHandler::base_SetParser(wxHtmlParser * parser) function, expected prototype:\nvoid wxHtmlTagHandler::base_SetParser(wxHtmlParser * parser)\nClass arguments details:\narg 1 ID = 65918681\n");
+		}
+
+		wxHtmlParser* parser=(Luna< wxHtmlParser >::check(L,2));
+
+		wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlTagHandler >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::base_SetParser(wxHtmlParser *)");
+		}
+		self->wxHtmlTagHandler::SetParser(parser);
 
 		return 0;
 	}
@@ -137,8 +193,6 @@ wxHtmlTagHandler* LunaTraits< wxHtmlTagHandler >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxString wxHtmlTagHandler::GetSupportedTags()
 	// bool wxHtmlTagHandler::HandleTag(const wxHtmlTag & tag)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlTagHandler >::_bind_dtor(wxHtmlTagHandler* obj) {
@@ -156,6 +210,8 @@ luna_RegType LunaTraits< wxHtmlTagHandler >::methods[] = {
 	{"GetSupportedTags", &luna_wrapper_wxHtmlTagHandler::_bind_GetSupportedTags},
 	{"HandleTag", &luna_wrapper_wxHtmlTagHandler::_bind_HandleTag},
 	{"SetParser", &luna_wrapper_wxHtmlTagHandler::_bind_SetParser},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlTagHandler::_bind_base_GetClassInfo},
+	{"base_SetParser", &luna_wrapper_wxHtmlTagHandler::_bind_base_SetParser},
 	{"__eq", &luna_wrapper_wxHtmlTagHandler::_bind___eq},
 	{0,0}
 };

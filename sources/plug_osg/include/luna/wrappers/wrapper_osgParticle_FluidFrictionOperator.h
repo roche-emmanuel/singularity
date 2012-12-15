@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return FluidFrictionOperator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return FluidFrictionOperator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return FluidFrictionOperator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FluidFrictionOperator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FluidFrictionOperator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return FluidFrictionOperator::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::operateParticles(ps, dt);
+		return FluidFrictionOperator::operateParticles(ps, dt);
 	};
 
 	// void osgParticle::Operator::endOperate()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::endOperate();
+		return FluidFrictionOperator::endOperate();
 	};
 
 	// osg::Object * osgParticle::FluidFrictionOperator::cloneType() const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::FluidFrictionOperator::cloneType();
+		return FluidFrictionOperator::cloneType();
 	};
 
 	// osg::Object * osgParticle::FluidFrictionOperator::clone(const osg::CopyOp & arg1) const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::FluidFrictionOperator::clone(arg1);
+		return FluidFrictionOperator::clone(arg1);
 	};
 
 	// bool osgParticle::FluidFrictionOperator::isSameKindAs(const osg::Object * obj) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::FluidFrictionOperator::isSameKindAs(obj);
+		return FluidFrictionOperator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::FluidFrictionOperator::libraryName() const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::FluidFrictionOperator::libraryName();
+		return FluidFrictionOperator::libraryName();
 	};
 
 	// const char * osgParticle::FluidFrictionOperator::className() const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::FluidFrictionOperator::className();
+		return FluidFrictionOperator::className();
 	};
 
 	// void osgParticle::FluidFrictionOperator::operate(osgParticle::Particle * P, double dt)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::FluidFrictionOperator::operate(P, dt);
+		return FluidFrictionOperator::operate(P, dt);
 	};
 
 	// void osgParticle::FluidFrictionOperator::beginOperate(osgParticle::Program * prg)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::FluidFrictionOperator::beginOperate(prg);
+		return FluidFrictionOperator::beginOperate(prg);
 	};
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellTextEditor.h>
+
 class luna_wrapper_wxGridCellTextEditor {
 public:
 	typedef Luna< wxGridCellTextEditor > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxGridCellEditor(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellTextEditor* ptr= dynamic_cast< wxGridCellTextEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		//wxGridCellTextEditor* ptr= dynamic_cast< wxGridCellTextEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		wxGridCellTextEditor* ptr= luna_caster< wxGridCellEditor, wxGridCellTextEditor >::cast(Luna< wxGridCellEditor >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -41,6 +44,63 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_SetParameters(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Destroy(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_HandleReturn(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_PaintBackground(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25758569)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSize(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Show(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,25758569)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_StartingClick(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_StartingKey(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
@@ -61,12 +121,182 @@ public:
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxGridCellTextEditor* self=dynamic_cast< wxGridCellTextEditor* >(Luna< wxGridCellEditor >::check(L,1));
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::SetParameters(const wxString &)");
 		}
 		self->SetParameters(params);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_Destroy()
+	static int _bind_base_Destroy(lua_State *L) {
+		if (!_lg_typecheck_base_Destroy(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_Destroy() function, expected prototype:\nvoid wxGridCellTextEditor::base_Destroy()\nClass arguments details:\n");
+		}
+
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Destroy()");
+		}
+		self->wxGridCellTextEditor::Destroy();
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_HandleReturn(wxKeyEvent & event)
+	static int _bind_base_HandleReturn(lua_State *L) {
+		if (!_lg_typecheck_base_HandleReturn(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_HandleReturn(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellTextEditor::base_HandleReturn(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGridCellTextEditor::base_HandleReturn function");
+		}
+		wxKeyEvent & event=*event_ptr;
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_HandleReturn(wxKeyEvent &)");
+		}
+		self->wxGridCellTextEditor::HandleReturn(event);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)
+	static int _bind_base_PaintBackground(lua_State *L) {
+		if (!_lg_typecheck_base_PaintBackground(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr) function, expected prototype:\nvoid wxGridCellTextEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 25758569\n");
+		}
+
+		const wxRect* rectCell_ptr=(Luna< wxRect >::check(L,2));
+		if( !rectCell_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rectCell in wxGridCellTextEditor::base_PaintBackground function");
+		}
+		const wxRect & rectCell=*rectCell_ptr;
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,3));
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *)");
+		}
+		self->wxGridCellTextEditor::PaintBackground(rectCell, attr);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_SetSize(const wxRect & rect)
+	static int _bind_base_SetSize(lua_State *L) {
+		if (!_lg_typecheck_base_SetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_SetSize(const wxRect & rect) function, expected prototype:\nvoid wxGridCellTextEditor::base_SetSize(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+		}
+
+		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
+		if( !rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rect in wxGridCellTextEditor::base_SetSize function");
+		}
+		const wxRect & rect=*rect_ptr;
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetSize(const wxRect &)");
+		}
+		self->wxGridCellTextEditor::SetSize(rect);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)
+	static int _bind_base_Show(lua_State *L) {
+		if (!_lg_typecheck_base_Show(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_Show(bool show, wxGridCellAttr * attr = NULL) function, expected prototype:\nvoid wxGridCellTextEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)\nClass arguments details:\narg 2 ID = 25758569\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool show=(bool)(lua_toboolean(L,2)==1);
+		wxGridCellAttr* attr=luatop>2 ? (Luna< wxGridCellAttr >::check(L,3)) : (wxGridCellAttr*)NULL;
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_Show(bool, wxGridCellAttr *)");
+		}
+		self->wxGridCellTextEditor::Show(show, attr);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_StartingClick()
+	static int _bind_base_StartingClick(lua_State *L) {
+		if (!_lg_typecheck_base_StartingClick(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_StartingClick() function, expected prototype:\nvoid wxGridCellTextEditor::base_StartingClick()\nClass arguments details:\n");
+		}
+
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingClick()");
+		}
+		self->wxGridCellTextEditor::StartingClick();
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_StartingKey(wxKeyEvent & event)
+	static int _bind_base_StartingKey(lua_State *L) {
+		if (!_lg_typecheck_base_StartingKey(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_StartingKey(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellTextEditor::base_StartingKey(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxGridCellTextEditor::base_StartingKey function");
+		}
+		wxKeyEvent & event=*event_ptr;
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_StartingKey(wxKeyEvent &)");
+		}
+		self->wxGridCellTextEditor::StartingKey(event);
+
+		return 0;
+	}
+
+	// void wxGridCellTextEditor::base_SetParameters(const wxString & params)
+	static int _bind_base_SetParameters(lua_State *L) {
+		if (!_lg_typecheck_base_SetParameters(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellTextEditor::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellTextEditor::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString params(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxGridCellTextEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellTextEditor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellTextEditor::base_SetParameters(const wxString &)");
+		}
+		self->wxGridCellTextEditor::SetParameters(params);
 
 		return 0;
 	}
@@ -85,8 +315,6 @@ wxGridCellTextEditor* LunaTraits< wxGridCellTextEditor >::_bind_ctor(lua_State *
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
 	// void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)
 	// void wxGridCellEditor::Reset()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellTextEditor >::_bind_dtor(wxGridCellTextEditor* obj) {
@@ -102,6 +330,14 @@ const int LunaTraits< wxGridCellTextEditor >::uniqueIDs[] = {53399133,0};
 
 luna_RegType LunaTraits< wxGridCellTextEditor >::methods[] = {
 	{"SetParameters", &luna_wrapper_wxGridCellTextEditor::_bind_SetParameters},
+	{"base_Destroy", &luna_wrapper_wxGridCellTextEditor::_bind_base_Destroy},
+	{"base_HandleReturn", &luna_wrapper_wxGridCellTextEditor::_bind_base_HandleReturn},
+	{"base_PaintBackground", &luna_wrapper_wxGridCellTextEditor::_bind_base_PaintBackground},
+	{"base_SetSize", &luna_wrapper_wxGridCellTextEditor::_bind_base_SetSize},
+	{"base_Show", &luna_wrapper_wxGridCellTextEditor::_bind_base_Show},
+	{"base_StartingClick", &luna_wrapper_wxGridCellTextEditor::_bind_base_StartingClick},
+	{"base_StartingKey", &luna_wrapper_wxGridCellTextEditor::_bind_base_StartingKey},
+	{"base_SetParameters", &luna_wrapper_wxGridCellTextEditor::_bind_base_SetParameters},
 	{"__eq", &luna_wrapper_wxGridCellTextEditor::_bind___eq},
 	{0,0}
 };

@@ -919,11 +919,11 @@ public:
 		return 1;
 	}
 
-	// bool wxDateSpan::operator!=(const wxDateSpan & ) const
+	// bool wxDateSpan::operator!=(const wxDateSpan & arg1) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateSpan::operator!=(const wxDateSpan & ) const function, expected prototype:\nbool wxDateSpan::operator!=(const wxDateSpan & ) const\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateSpan::operator!=(const wxDateSpan & arg1) const function, expected prototype:\nbool wxDateSpan::operator!=(const wxDateSpan & arg1) const\nClass arguments details:\narg 1 ID = 57474092\n");
 		}
 
 		const wxDateSpan* _arg1_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -943,11 +943,11 @@ public:
 		return 1;
 	}
 
-	// bool wxDateSpan::operator==(const wxDateSpan & ) const
+	// bool wxDateSpan::operator==(const wxDateSpan & arg1) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateSpan::operator==(const wxDateSpan & ) const function, expected prototype:\nbool wxDateSpan::operator==(const wxDateSpan & ) const\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateSpan::operator==(const wxDateSpan & arg1) const function, expected prototype:\nbool wxDateSpan::operator==(const wxDateSpan & arg1) const\nClass arguments details:\narg 1 ID = 57474092\n");
 		}
 
 		const wxDateSpan* _arg1_ptr=(Luna< wxDateSpan >::check(L,2));

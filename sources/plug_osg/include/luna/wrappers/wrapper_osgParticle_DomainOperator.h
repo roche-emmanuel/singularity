@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DomainOperator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DomainOperator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DomainOperator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DomainOperator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DomainOperator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DomainOperator::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Operator::operateParticles(osgParticle::ParticleSystem * ps, double dt)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::Operator::operateParticles(ps, dt);
+		return DomainOperator::operateParticles(ps, dt);
 	};
 
 	// osg::Object * osgParticle::DomainOperator::cloneType() const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::DomainOperator::cloneType();
+		return DomainOperator::cloneType();
 	};
 
 	// osg::Object * osgParticle::DomainOperator::clone(const osg::CopyOp & arg1) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::DomainOperator::clone(arg1);
+		return DomainOperator::clone(arg1);
 	};
 
 	// bool osgParticle::DomainOperator::isSameKindAs(const osg::Object * obj) const
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::DomainOperator::isSameKindAs(obj);
+		return DomainOperator::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::DomainOperator::libraryName() const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::DomainOperator::libraryName();
+		return DomainOperator::libraryName();
 	};
 
 	// const char * osgParticle::DomainOperator::className() const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::DomainOperator::className();
+		return DomainOperator::className();
 	};
 
 	// void osgParticle::DomainOperator::operate(osgParticle::Particle * P, double dt)
@@ -141,7 +141,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::DomainOperator::operate(P, dt);
+		return DomainOperator::operate(P, dt);
 	};
 
 	// void osgParticle::DomainOperator::beginOperate(osgParticle::Program * prg)
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::DomainOperator::beginOperate(prg);
+		return DomainOperator::beginOperate(prg);
 	};
 
 	// void osgParticle::DomainOperator::endOperate()
@@ -160,19 +160,107 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::DomainOperator::endOperate();
+		return DomainOperator::endOperate();
 	};
 
 
 protected:
 	// void osgParticle::DomainOperator::handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePoint(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePoint")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handlePoint(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleLineSegment(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleLineSegment")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleLineSegment(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleTriangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleTriangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleTriangle(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleRectangle(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleRectangle")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleRectangle(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handlePlane(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handlePlane")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handlePlane(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleSphere(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleSphere")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleSphere(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleBox(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleBox")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleBox(domain, P, dt);
+	};
+
 	// void osgParticle::DomainOperator::handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt)
+	void handleDisk(const osgParticle::DomainOperator::Domain & domain, osgParticle::Particle * P, double dt) {
+		if(_obj.pushFunction("handleDisk")) {
+			_obj.pushArg(&domain);
+			_obj.pushArg(P);
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return DomainOperator::handleDisk(domain, P, dt);
+	};
+
 
 };
 

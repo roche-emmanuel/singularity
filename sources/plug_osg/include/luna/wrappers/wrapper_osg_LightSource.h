@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return LightSource::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return LightSource::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return LightSource::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LightSource::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return LightSource::getUserData();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return LightSource::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return LightSource::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return LightSource::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return LightSource::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return LightSource::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return LightSource::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return LightSource::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return LightSource::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return LightSource::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return LightSource::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return LightSource::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return LightSource::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return LightSource::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return LightSource::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return LightSource::setChild(i, node);
 	};
 
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
@@ -218,7 +218,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::releaseGLObjects(arg1);
+		return LightSource::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::LightSource::cloneType() const
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LightSource::cloneType();
+		return LightSource::cloneType();
 	};
 
 	// osg::Object * osg::LightSource::clone(const osg::CopyOp & copyop) const
@@ -237,7 +237,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::LightSource::clone(copyop);
+		return LightSource::clone(copyop);
 	};
 
 	// bool osg::LightSource::isSameKindAs(const osg::Object * obj) const
@@ -247,7 +247,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::LightSource::isSameKindAs(obj);
+		return LightSource::isSameKindAs(obj);
 	};
 
 	// const char * osg::LightSource::className() const
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LightSource::className();
+		return LightSource::className();
 	};
 
 	// const char * osg::LightSource::libraryName() const
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::LightSource::libraryName();
+		return LightSource::libraryName();
 	};
 
 	// void osg::LightSource::accept(osg::NodeVisitor & nv)
@@ -275,7 +275,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::LightSource::accept(nv);
+		return LightSource::accept(nv);
 	};
 
 	// osg::BoundingSphered osg::LightSource::computeBound() const
@@ -284,13 +284,32 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::LightSource::computeBound();
+		return LightSource::computeBound();
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return LightSource::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return LightSource::childInserted(arg1);
+	};
+
 
 };
 

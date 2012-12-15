@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextStdRenderer.h>
+
 class luna_wrapper_wxRichTextStdRenderer {
 public:
 	typedef Luna< wxRichTextStdRenderer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStdRenderer* ptr= dynamic_cast< wxRichTextStdRenderer* >(Luna< wxObject >::check(L,1));
+		//wxRichTextStdRenderer* ptr= dynamic_cast< wxRichTextStdRenderer* >(Luna< wxObject >::check(L,1));
+		wxRichTextStdRenderer* ptr= luna_caster< wxObject, wxRichTextStdRenderer >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

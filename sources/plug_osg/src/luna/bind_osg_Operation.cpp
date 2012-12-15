@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Operation* ptr= dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Operation* ptr= dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* ptr= luna_caster< osg::Referenced, osg::Operation >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -74,6 +75,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 1 valid operators)
@@ -95,7 +102,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Operation::setName(const std::string &)");
@@ -113,7 +120,7 @@ public:
 		}
 
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::Operation::getName() const");
@@ -133,7 +140,7 @@ public:
 
 		bool keep=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Operation::setKeep(bool)");
@@ -151,7 +158,7 @@ public:
 		}
 
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Operation::getKeep() const");
@@ -170,12 +177,30 @@ public:
 		}
 
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Operation::release()");
 		}
 		self->release();
+
+		return 0;
+	}
+
+	// void osg::Operation::base_release()
+	static int _bind_base_release(lua_State *L) {
+		if (!_lg_typecheck_base_release(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Operation::base_release() function, expected prototype:\nvoid osg::Operation::base_release()\nClass arguments details:\n");
+		}
+
+
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Operation::base_release()");
+		}
+		self->Operation::release();
 
 		return 0;
 	}
@@ -189,9 +214,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Operation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::Operation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		osg::Object* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::Operation* self=dynamic_cast< osg::Operation* >(Luna< osg::Referenced >::check(L,1));
+		osg::Operation* self=Luna< osg::Referenced >::checkSubType< osg::Operation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Operation::operator()(osg::Object *)");
@@ -227,6 +252,7 @@ luna_RegType LunaTraits< osg::Operation >::methods[] = {
 	{"setKeep", &luna_wrapper_osg_Operation::_bind_setKeep},
 	{"getKeep", &luna_wrapper_osg_Operation::_bind_getKeep},
 	{"release", &luna_wrapper_osg_Operation::_bind_release},
+	{"base_release", &luna_wrapper_osg_Operation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_Operation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_Operation::_bind___eq},
 	{0,0}

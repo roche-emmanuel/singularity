@@ -23,7 +23,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return IntersectVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return IntersectVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return IntersectVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::IntersectVisitor::libraryName() const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectVisitor::libraryName();
+		return IntersectVisitor::libraryName();
 	};
 
 	// const char * osgUtil::IntersectVisitor::className() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::IntersectVisitor::className();
+		return IntersectVisitor::className();
 	};
 
 	// void osgUtil::IntersectVisitor::reset()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::reset();
+		return IntersectVisitor::reset();
 	};
 
 	// osg::Vec3f osgUtil::IntersectVisitor::getEyePoint() const
@@ -81,7 +81,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgUtil::IntersectVisitor::getEyePoint();
+		return IntersectVisitor::getEyePoint();
 	};
 
 	// float osgUtil::IntersectVisitor::getDistanceToEyePoint(const osg::Vec3f & pos, bool withLODScale) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::IntersectVisitor::getDistanceToEyePoint(pos, withLODScale);
+		return IntersectVisitor::getDistanceToEyePoint(pos, withLODScale);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Node & arg1)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(arg1);
+		return IntersectVisitor::apply(arg1);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Geode & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Billboard & node)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Group & node)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Transform & node)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::Switch & node)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 	// void osgUtil::IntersectVisitor::apply(osg::LOD & node)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::IntersectVisitor::apply(node);
+		return IntersectVisitor::apply(node);
 	};
 
 

@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::setDefaults();
+		return CullVisitor::setDefaults();
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings);
+		return CullVisitor::inheritCullSettings(settings);
 	};
 
 	// void osg::CullSettings::inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CullSettings::inheritCullSettings(settings, inheritanceMask);
+		return CullVisitor::inheritCullSettings(settings, inheritanceMask);
 	};
 
 	// const char * osgUtil::CullVisitor::libraryName() const
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::CullVisitor::libraryName();
+		return CullVisitor::libraryName();
 	};
 
 	// const char * osgUtil::CullVisitor::className() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::CullVisitor::className();
+		return CullVisitor::className();
 	};
 
 	// osgUtil::CullVisitor * osgUtil::CullVisitor::clone() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osgUtil::CullVisitor*>());
 		}
 
-		return osgUtil::CullVisitor::clone();
+		return CullVisitor::clone();
 	};
 
 	// void osgUtil::CullVisitor::reset()
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::reset();
+		return CullVisitor::reset();
 	};
 
 	// osg::Vec3f osgUtil::CullVisitor::getEyePoint() const
@@ -90,7 +90,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgUtil::CullVisitor::getEyePoint();
+		return CullVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osgUtil::CullVisitor::getViewPoint() const
@@ -99,7 +99,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgUtil::CullVisitor::getViewPoint();
+		return CullVisitor::getViewPoint();
 	};
 
 	// float osgUtil::CullVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::CullVisitor::getDistanceToEyePoint(arg1, arg2);
+		return CullVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osgUtil::CullVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::CullVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return CullVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osgUtil::CullVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgUtil::CullVisitor::getDistanceToViewPoint(arg1, arg2);
+		return CullVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Node & arg1)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(arg1);
+		return CullVisitor::apply(arg1);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Geode & node)
@@ -152,7 +152,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Billboard & node)
@@ -162,7 +162,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::LightSource & node)
@@ -172,7 +172,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::ClipNode & node)
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::TexGenNode & node)
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Group & node)
@@ -202,7 +202,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Transform & node)
@@ -212,7 +212,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Projection & node)
@@ -222,7 +222,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Switch & node)
@@ -232,7 +232,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::LOD & node)
@@ -242,7 +242,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::ClearNode & node)
@@ -252,7 +252,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::Camera & node)
@@ -262,7 +262,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::OccluderNode & node)
@@ -272,7 +272,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::apply(osg::OcclusionQueryNode & node)
@@ -282,7 +282,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::apply(node);
+		return CullVisitor::apply(node);
 	};
 
 	// void osgUtil::CullVisitor::popProjectionMatrix()
@@ -291,7 +291,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::CullVisitor::popProjectionMatrix();
+		return CullVisitor::popProjectionMatrix();
 	};
 
 	// bool osgUtil::CullVisitor::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
@@ -303,7 +303,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
+		return CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
 	};
 
 	// bool osgUtil::CullVisitor::clampProjectionMatrixImplementation(osg::Matrixd & projection, double & znear, double & zfar) const
@@ -315,7 +315,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
+		return CullVisitor::clampProjectionMatrixImplementation(projection, znear, zfar);
 	};
 
 

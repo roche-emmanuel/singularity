@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsContext.h>
+
 class luna_wrapper_wxGraphicsContext {
 public:
 	typedef Luna< wxGraphicsContext > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGraphicsContext* ptr= dynamic_cast< wxGraphicsContext* >(Luna< wxObject >::check(L,1));
+		//wxGraphicsContext* ptr= dynamic_cast< wxGraphicsContext* >(Luna< wxObject >::check(L,1));
+		wxGraphicsContext* ptr= luna_caster< wxObject, wxGraphicsContext >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -62,7 +65,7 @@ wxGraphicsContext* LunaTraits< wxGraphicsContext >::_bind_ctor(lua_State *L) {
 	// void wxGraphicsContext::DrawBitmap(const wxGraphicsBitmap & bmp, double x, double y, double w, double h)
 	// void wxGraphicsContext::DrawBitmap(const wxBitmap & bmp, double x, double y, double w, double h)
 	// void wxGraphicsContext::DrawIcon(const wxIcon & icon, double x, double y, double w, double h)
-	// void wxGraphicsContext::FillPath(const wxGraphicsPath & path, wxPolygonFillMode fillStyle = wxODDEVEN_RULE)
+	// void wxGraphicsContext::FillPath(const wxGraphicsPath & path, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE)
 	// void * wxGraphicsContext::GetNativeContext()
 	// void wxGraphicsContext::GetPartialTextExtents(const wxString & text, wxArrayDouble & widths) const
 	// void wxGraphicsContext::GetTextExtent(const wxString & text, double * width, double * height, double * descent, double * externalLeading) const
@@ -78,8 +81,6 @@ wxGraphicsContext* LunaTraits< wxGraphicsContext >::_bind_ctor(lua_State *L) {
 	// bool wxGraphicsContext::SetAntialiasMode(wxAntialiasMode antialias)
 	// bool wxGraphicsContext::SetInterpolationQuality(wxInterpolationQuality interpolation)
 	// bool wxGraphicsContext::SetCompositionMode(wxCompositionMode op)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGraphicsContext >::_bind_dtor(wxGraphicsContext* obj) {

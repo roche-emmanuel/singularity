@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return UserDataContainer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return UserDataContainer::computeDataVariance();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return UserDataContainer::releaseGLObjects(arg1);
 	};
 
 	// bool osg::UserDataContainer::isSameKindAs(const osg::Object * obj) const
@@ -67,7 +67,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::UserDataContainer::isSameKindAs(obj);
+		return UserDataContainer::isSameKindAs(obj);
 	};
 
 	// const char * osg::UserDataContainer::libraryName() const
@@ -76,7 +76,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::UserDataContainer::libraryName();
+		return UserDataContainer::libraryName();
 	};
 
 	// const char * osg::UserDataContainer::className() const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::UserDataContainer::className();
+		return UserDataContainer::className();
 	};
 
 	// void osg::UserDataContainer::setUserData(osg::Referenced * obj)
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::UserDataContainer::getUserObject(name, startPos);
+		return UserDataContainer::getUserObject(name, startPos);
 	};
 
 	// const osg::Object * osg::UserDataContainer::getUserObject(const std::string & name, unsigned int startPos = 0) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::UserDataContainer::getUserObject(name, startPos);
+		return UserDataContainer::getUserObject(name, startPos);
 	};
 
 	// void osg::UserDataContainer::setDescriptions(const osg::UserDataContainer::DescriptionList & descriptions)

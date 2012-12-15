@@ -25,21 +25,19 @@
 #include <wx/ribbon/art.h>
 #include <wx/ribbon/buttonbar.h>
 
+#include "sgtCommon.h"
+
+
 #ifdef LUNA_BINDINGS
 #include <luna/luna.h>
 #include <luna/luna_types.h>
+
+#include "lua/LuaObject.h"
 
 template <typename dstType>
 struct luna_caster<wxKeyboardState,dstType> {
 	static inline dstType* cast(wxKeyboardState* ptr) {
 		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <>
-struct luna_caster<wxKeyboardState,wxKeyboardState> {
-	static inline wxKeyboardState* cast(wxKeyboardState* ptr) {
-		return ptr;
 	};
 };
 
@@ -50,13 +48,6 @@ struct luna_caster<wxArrayString,dstType> {
 	};
 };
 
-template <>
-struct luna_caster<wxArrayString,wxArrayString> {
-	static inline wxArrayString* cast(wxArrayString* ptr) {
-		return ptr;
-	};
-};
-
 template <typename dstType>
 struct luna_caster<wxTextAttr,dstType> {
 	static inline dstType* cast(wxTextAttr* ptr) {
@@ -64,11 +55,23 @@ struct luna_caster<wxTextAttr,dstType> {
 	};
 };
 
-template <>
-struct luna_caster<wxTextAttr,wxTextAttr> {
-	static inline wxTextAttr* cast(wxTextAttr* ptr) {
-		return ptr;
-	};
+namespace sgt {
+
+inline void pushValue(lua_State* L, const wxString& arg) {
+	std::string str = arg.ToStdString();
+	lua_pushlstring(L,str.data(),str.size());
+}
+
+inline void pushValue(lua_State* L, const wxRect& arg) {
+	sgt::pushValue<wxRect>(L,(wxRect*)(&arg));
+}
+
+#ifdef WIN32
+inline void pushValue(lua_State* L, struct HWND__ * arg) {
+	Luna< void >::push(L,(void*)arg,false);
+}
+#endif
+
 };
 
 #endif

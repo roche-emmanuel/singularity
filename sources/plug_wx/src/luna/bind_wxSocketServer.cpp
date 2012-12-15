@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSocketServer.h>
+
 class luna_wrapper_wxSocketServer {
 public:
 	typedef Luna< wxSocketServer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSocketServer* ptr= dynamic_cast< wxSocketServer* >(Luna< wxObject >::check(L,1));
+		//wxSocketServer* ptr= dynamic_cast< wxSocketServer* >(Luna< wxObject >::check(L,1));
+		wxSocketServer* ptr= luna_caster< wxObject, wxSocketServer >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,12 +43,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
+		if( (!dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1))) ) return false;
 		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -77,28 +92,89 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetLocal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetPeer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Close(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetLocal(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE)
-	static wxSocketServer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	// wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE)
+	static wxSocketServer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = wxSOCKET_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(const wxSockAddress & address, int flags = ::wxSOCKET_NONE)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		const wxSockAddress* address_ptr=dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		const wxSockAddress* address_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,1));
 		if( !address_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
 		}
 		const wxSockAddress & address=*address_ptr;
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxSOCKET_NONE;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxSOCKET_NONE;
 
 		return new wxSocketServer(address, flags);
+	}
+
+	// wxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE)
+	static wxSocketServer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE) function, expected prototype:\nwxSocketServer::wxSocketServer(lua_Table * data, const wxSockAddress & address, int flags = ::wxSOCKET_NONE)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxSockAddress* address_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !address_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg address in wxSocketServer::wxSocketServer function");
+		}
+		const wxSockAddress & address=*address_ptr;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxSOCKET_NONE;
+
+		return new wrapper_wxSocketServer(L,NULL, address, flags);
+	}
+
+	// Overload binder for wxSocketServer::wxSocketServer
+	static wxSocketServer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSocketServer, cannot match any of the overloads for function wxSocketServer:\n  wxSocketServer(const wxSockAddress &, int)\n  wxSocketServer(lua_Table *, const wxSockAddress &, int)\n");
+		return NULL;
 	}
 
 
@@ -114,7 +190,7 @@ public:
 
 		bool wait=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxSocketServer* self=dynamic_cast< wxSocketServer* >(Luna< wxObject >::check(L,1));
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSocketBase * wxSocketServer::Accept(bool)");
@@ -136,14 +212,14 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSocketBase* socket_ptr=dynamic_cast< wxSocketBase* >(Luna< wxObject >::check(L,2));
+		wxSocketBase* socket_ptr=(Luna< wxObject >::checkSubType< wxSocketBase >(L,2));
 		if( !socket_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg socket in wxSocketServer::AcceptWith function");
 		}
 		wxSocketBase & socket=*socket_ptr;
 		bool wait=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		wxSocketServer* self=dynamic_cast< wxSocketServer* >(Luna< wxObject >::check(L,1));
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSocketServer::AcceptWith(wxSocketBase &, bool)");
@@ -166,12 +242,124 @@ public:
 		long seconds=luatop>1 ? (long)lua_tointeger(L,2) : -1;
 		long millisecond=luatop>2 ? (long)lua_tointeger(L,3) : 0;
 
-		wxSocketServer* self=dynamic_cast< wxSocketServer* >(Luna< wxObject >::check(L,1));
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSocketServer::WaitForAccept(long, long)");
 		}
 		bool lret = self->WaitForAccept(seconds, millisecond);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxSocketServer::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSocketServer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSocketServer::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSocketServer::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSocketServer::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxSocketServer::base_GetLocal(wxSockAddress & addr) const
+	static int _bind_base_GetLocal(lua_State *L) {
+		if (!_lg_typecheck_base_GetLocal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSocketServer::base_GetLocal(wxSockAddress & addr) const function, expected prototype:\nbool wxSocketServer::base_GetLocal(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !addr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxSocketServer::base_GetLocal function");
+		}
+		wxSockAddress & addr=*addr_ptr;
+
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSocketServer::base_GetLocal(wxSockAddress &) const");
+		}
+		bool lret = self->wxSocketServer::GetLocal(addr);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSocketServer::base_GetPeer(wxSockAddress & addr) const
+	static int _bind_base_GetPeer(lua_State *L) {
+		if (!_lg_typecheck_base_GetPeer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSocketServer::base_GetPeer(wxSockAddress & addr) const function, expected prototype:\nbool wxSocketServer::base_GetPeer(wxSockAddress & addr) const\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSockAddress* addr_ptr=(Luna< wxObject >::checkSubType< wxSockAddress >(L,2));
+		if( !addr_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg addr in wxSocketServer::base_GetPeer function");
+		}
+		wxSockAddress & addr=*addr_ptr;
+
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSocketServer::base_GetPeer(wxSockAddress &) const");
+		}
+		bool lret = self->wxSocketServer::GetPeer(addr);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSocketServer::base_Close()
+	static int _bind_base_Close(lua_State *L) {
+		if (!_lg_typecheck_base_Close(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSocketServer::base_Close() function, expected prototype:\nbool wxSocketServer::base_Close()\nClass arguments details:\n");
+		}
+
+
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSocketServer::base_Close()");
+		}
+		bool lret = self->wxSocketServer::Close();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSocketServer::base_SetLocal(const wxIPV4address & local)
+	static int _bind_base_SetLocal(lua_State *L) {
+		if (!_lg_typecheck_base_SetLocal(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSocketServer::base_SetLocal(const wxIPV4address & local) function, expected prototype:\nbool wxSocketServer::base_SetLocal(const wxIPV4address & local)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxIPV4address* local_ptr=(Luna< wxObject >::checkSubType< wxIPV4address >(L,2));
+		if( !local_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg local in wxSocketServer::base_SetLocal function");
+		}
+		const wxIPV4address & local=*local_ptr;
+
+		wxSocketServer* self=Luna< wxObject >::checkSubType< wxSocketServer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSocketServer::base_SetLocal(const wxIPV4address &)");
+		}
+		bool lret = self->wxSocketServer::SetLocal(local);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -201,6 +389,11 @@ luna_RegType LunaTraits< wxSocketServer >::methods[] = {
 	{"Accept", &luna_wrapper_wxSocketServer::_bind_Accept},
 	{"AcceptWith", &luna_wrapper_wxSocketServer::_bind_AcceptWith},
 	{"WaitForAccept", &luna_wrapper_wxSocketServer::_bind_WaitForAccept},
+	{"base_GetClassInfo", &luna_wrapper_wxSocketServer::_bind_base_GetClassInfo},
+	{"base_GetLocal", &luna_wrapper_wxSocketServer::_bind_base_GetLocal},
+	{"base_GetPeer", &luna_wrapper_wxSocketServer::_bind_base_GetPeer},
+	{"base_Close", &luna_wrapper_wxSocketServer::_bind_base_Close},
+	{"base_SetLocal", &luna_wrapper_wxSocketServer::_bind_base_SetLocal},
 	{"__eq", &luna_wrapper_wxSocketServer::_bind___eq},
 	{0,0}
 };

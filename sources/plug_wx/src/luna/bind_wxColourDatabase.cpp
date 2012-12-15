@@ -110,7 +110,7 @@ public:
 		}
 
 		wxString colourName(lua_tostring(L,2),lua_objlen(L,2));
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxColourDatabase::AddColour function");
 		}
@@ -156,7 +156,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxString wxColourDatabase::FindName(const wxColour & colour) const function, expected prototype:\nwxString wxColourDatabase::FindName(const wxColour & colour) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxColourDatabase::FindName function");
 		}

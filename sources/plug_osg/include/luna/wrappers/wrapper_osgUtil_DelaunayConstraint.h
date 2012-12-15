@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DelaunayConstraint::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DelaunayConstraint::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DelaunayConstraint::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DelaunayConstraint::getUserData();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return DelaunayConstraint::computeDataVariance();
 	};
 
 	// osg::BoundingBoxd osg::Drawable::computeBound() const
@@ -70,7 +70,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osg::Drawable::computeBound();
+		return DelaunayConstraint::computeBound();
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return DelaunayConstraint::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return DelaunayConstraint::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return DelaunayConstraint::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return DelaunayConstraint::setDrawCallback(dc);
 	};
 
 	// osg::Object * osg::Geometry::cloneType() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geometry::cloneType();
+		return DelaunayConstraint::cloneType();
 	};
 
 	// osg::Object * osg::Geometry::clone(const osg::CopyOp & arg1) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Geometry::clone(arg1);
+		return DelaunayConstraint::clone(arg1);
 	};
 
 	// bool osg::Geometry::isSameKindAs(const osg::Object * obj) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geometry::isSameKindAs(obj);
+		return DelaunayConstraint::isSameKindAs(obj);
 	};
 
 	// const char * osg::Geometry::libraryName() const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geometry::libraryName();
+		return DelaunayConstraint::libraryName();
 	};
 
 	// const char * osg::Geometry::className() const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Geometry::className();
+		return DelaunayConstraint::className();
 	};
 
 	// osg::Geometry * osg::Geometry::asGeometry()
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Geometry::asGeometry();
+		return DelaunayConstraint::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Geometry::asGeometry() const
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Geometry::asGeometry();
+		return DelaunayConstraint::asGeometry();
 	};
 
 	// void osg::Geometry::setUseVertexBufferObjects(bool flag)
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::setUseVertexBufferObjects(flag);
+		return DelaunayConstraint::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Geometry::dirtyDisplayList()
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::dirtyDisplayList();
+		return DelaunayConstraint::dirtyDisplayList();
 	};
 
 	// void osg::Geometry::releaseGLObjects(osg::State * state = 0) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::releaseGLObjects(state);
+		return DelaunayConstraint::releaseGLObjects(state);
 	};
 
 	// unsigned int osg::Geometry::getGLObjectSizeHint() const
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Geometry::getGLObjectSizeHint();
+		return DelaunayConstraint::getGLObjectSizeHint();
 	};
 
 	// void osg::Geometry::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -223,7 +223,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::compileGLObjects(renderInfo);
+		return DelaunayConstraint::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Geometry::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -233,7 +233,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geometry::drawImplementation(renderInfo);
+		return DelaunayConstraint::drawImplementation(renderInfo);
 	};
 
 	// bool osgUtil::DelaunayConstraint::contains(const osg::Vec3f & testpoint) const
@@ -243,7 +243,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::DelaunayConstraint::contains(testpoint);
+		return DelaunayConstraint::contains(testpoint);
 	};
 
 	// bool osgUtil::DelaunayConstraint::outside(const osg::Vec3f & testpoint) const
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::DelaunayConstraint::outside(testpoint);
+		return DelaunayConstraint::outside(testpoint);
 	};
 
 

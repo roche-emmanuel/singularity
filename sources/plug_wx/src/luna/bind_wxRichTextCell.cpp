@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextCell.h>
+
 class luna_wrapper_wxRichTextCell {
 public:
 	typedef Luna< wxRichTextCell > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextCell* ptr= dynamic_cast< wxRichTextCell* >(Luna< wxObject >::check(L,1));
+		//wxRichTextCell* ptr= dynamic_cast< wxRichTextCell* >(Luna< wxObject >::check(L,1));
+		wxRichTextCell* ptr= luna_caster< wxObject, wxRichTextCell >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

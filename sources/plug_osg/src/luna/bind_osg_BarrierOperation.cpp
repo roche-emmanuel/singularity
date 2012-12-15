@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BarrierOperation* ptr= dynamic_cast< osg::BarrierOperation* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BarrierOperation* ptr= dynamic_cast< osg::BarrierOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BarrierOperation* ptr= luna_caster< osg::Referenced, osg::BarrierOperation >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -45,6 +46,12 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_release(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_release(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -72,12 +79,30 @@ public:
 		}
 
 
-		osg::BarrierOperation* self=dynamic_cast< osg::BarrierOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::release()");
 		}
 		self->release();
+
+		return 0;
+	}
+
+	// void osg::BarrierOperation::base_release()
+	static int _bind_base_release(lua_State *L) {
+		if (!_lg_typecheck_base_release(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::base_release() function, expected prototype:\nvoid osg::BarrierOperation::base_release()\nClass arguments details:\n");
+		}
+
+
+		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::base_release()");
+		}
+		self->BarrierOperation::release();
 
 		return 0;
 	}
@@ -91,9 +116,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::BarrierOperation::operator()(osg::Object * arg1) function, expected prototype:\nvoid osg::BarrierOperation::operator()(osg::Object * arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Object* _arg1=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		osg::Object* _arg1=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::BarrierOperation* self=dynamic_cast< osg::BarrierOperation* >(Luna< osg::Referenced >::check(L,1));
+		osg::BarrierOperation* self=Luna< osg::Referenced >::checkSubType< osg::BarrierOperation >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BarrierOperation::operator()(osg::Object *)");
@@ -123,6 +148,7 @@ const int LunaTraits< osg::BarrierOperation >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osg::BarrierOperation >::methods[] = {
 	{"release", &luna_wrapper_osg_BarrierOperation::_bind_release},
+	{"base_release", &luna_wrapper_osg_BarrierOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_BarrierOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_BarrierOperation::_bind___eq},
 	{0,0}

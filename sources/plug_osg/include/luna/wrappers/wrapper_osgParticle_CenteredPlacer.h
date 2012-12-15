@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CenteredPlacer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CenteredPlacer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CenteredPlacer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CenteredPlacer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CenteredPlacer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return CenteredPlacer::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::Placer::place(osgParticle::Particle * P) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::Placer::volume();
+		return CenteredPlacer::volume();
 	};
 
 	// osg::Vec3f osgParticle::Placer::getControlPosition() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::CenteredPlacer::libraryName();
+		return CenteredPlacer::libraryName();
 	};
 
 	// const char * osgParticle::CenteredPlacer::className() const
@@ -125,7 +125,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::CenteredPlacer::className();
+		return CenteredPlacer::className();
 	};
 
 	// bool osgParticle::CenteredPlacer::isSameKindAs(const osg::Object * obj) const
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::CenteredPlacer::isSameKindAs(obj);
+		return CenteredPlacer::isSameKindAs(obj);
 	};
 
 

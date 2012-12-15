@@ -7,6 +7,7 @@ local osgwx = require "osgWX"
 local i18n = require "i18n"
 local cfg = require "config"
 local gl = require "luagl"
+local Event = require "base.Event"
 
 --- Create an OSG Canvas:
 function Class:initialize(options)
@@ -76,6 +77,13 @@ function Class:create()
 		
 		self._viewer:frame();
 	end)
+
+	self:getEventManager():addListener(Event.FRAME,self)
+end
+
+function Class:onFrame()
+	--self:info("Rendering frame...")
+	self._viewer:frame();
 end
 
 -- Function used to load a model from a file.
@@ -93,5 +101,55 @@ function Class:loadModel(filename)
 	self:debug2_v("Successfully loaded model from file ", filename)
 end
 
+function Class:createScreenQuad()
+	self:debug3("Creating screen quad.");
+	
+	local geode = osg.Geode()
+	self._root:addChild(geode)
+	geode:setCullingActive(false);
+	
+	local geom = osg.Geometry()
+	geode:addDrawable(geom);
+
+	local vertices = osg.Vec2Array();
+	geom:setVertexArray(vertices);
+
+    vertices:push_back(osg.Vec2f(-1.0,-1.0));
+    vertices:push_back(osg.Vec2f(1.0,-1.0));
+    vertices:push_back(osg.Vec2f(-1.0,1.0));
+    vertices:push_back(osg.Vec2f(1.0,1.0));
+	
+    local colors = osg.Vec4Array()
+    colors:push_back(osg.Vec4f(0.0,0.0,1.0,1.0));
+    geom:setColorArray(colors)
+    geom:setColorBinding(osg.Geometry.BIND_OVERALL)
+	
+	geom:addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.TRIANGLE_STRIP,0,4));
+	
+	local prog = osg.Program();
+	
+	local vs = osg.Shader(osg.Shader.VERTEX);
+	vs:setShaderSource([[
+varying vec2 coords;
+
+void main() {
+    gl_Position = gl_Vertex;
+    coords = (gl_Vertex.xy+vec2(1.0,1.0))/2.0;
+}	
+	]]);
+	
+	local fs = osg.Shader(osg.Shader.FRAGMENT);	
+	fs:setShaderSource([[
+void main() {
+    gl_FragColor = vec4(0.0,1.0,0.0,1.0);
+}
+	]]);
+	
+	prog:addShader(vs)
+	prog:addShader(fs)
+	
+	local ss = geode:getOrCreateStateSet()	
+	ss:setAttributeAndModes(prog)	
+end
 
 return Class

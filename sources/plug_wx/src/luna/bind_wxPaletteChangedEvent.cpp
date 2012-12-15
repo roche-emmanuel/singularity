@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPaletteChangedEvent.h>
+
 class luna_wrapper_wxPaletteChangedEvent {
 public:
 	typedef Luna< wxPaletteChangedEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPaletteChangedEvent* ptr= dynamic_cast< wxPaletteChangedEvent* >(Luna< wxObject >::check(L,1));
+		//wxPaletteChangedEvent* ptr= dynamic_cast< wxPaletteChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxPaletteChangedEvent* ptr= luna_caster< wxObject, wxPaletteChangedEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -53,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -65,9 +80,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxPaletteChangedEvent::SetChangedWindow(wxWindow * win) function, expected prototype:\nvoid wxPaletteChangedEvent::SetChangedWindow(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxPaletteChangedEvent* self=dynamic_cast< wxPaletteChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPaletteChangedEvent::SetChangedWindow(wxWindow *)");
@@ -85,7 +100,7 @@ public:
 		}
 
 
-		wxPaletteChangedEvent* self=dynamic_cast< wxPaletteChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxPaletteChangedEvent::GetChangedWindow() const");
@@ -94,6 +109,46 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPaletteChangedEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxPaletteChangedEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -107,8 +162,6 @@ wxPaletteChangedEvent* LunaTraits< wxPaletteChangedEvent >::_bind_ctor(lua_State
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPaletteChangedEvent >::_bind_dtor(wxPaletteChangedEvent* obj) {
@@ -125,6 +178,8 @@ const int LunaTraits< wxPaletteChangedEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxPaletteChangedEvent >::methods[] = {
 	{"SetChangedWindow", &luna_wrapper_wxPaletteChangedEvent::_bind_SetChangedWindow},
 	{"GetChangedWindow", &luna_wrapper_wxPaletteChangedEvent::_bind_GetChangedWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxPaletteChangedEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxPaletteChangedEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxPaletteChangedEvent::_bind___eq},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellNumberRenderer.h>
+
 class luna_wrapper_wxGridCellNumberRenderer {
 public:
 	typedef Luna< wxGridCellNumberRenderer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxGridCellRenderer(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellNumberRenderer* ptr= dynamic_cast< wxGridCellNumberRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		//wxGridCellNumberRenderer* ptr= dynamic_cast< wxGridCellNumberRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		wxGridCellNumberRenderer* ptr= luna_caster< wxGridCellRenderer, wxGridCellNumberRenderer >::cast(Luna< wxGridCellRenderer >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -56,8 +59,6 @@ wxGridCellNumberRenderer* LunaTraits< wxGridCellNumberRenderer >::_bind_ctor(lua
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellNumberRenderer >::_bind_dtor(wxGridCellNumberRenderer* obj) {

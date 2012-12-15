@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_WebView(lua_State* L, lua_Table* dum) : Awesomium::WebView(), _obj(L,-1) {};
 
 	// void Awesomium::WebView::Destroy()
 	void Destroy() {

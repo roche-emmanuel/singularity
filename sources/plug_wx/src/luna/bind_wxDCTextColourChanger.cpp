@@ -93,7 +93,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCTextColourChanger::wxDCTextColourChanger function");
 		}
@@ -109,12 +109,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col) function, expected prototype:\nwxDCTextColourChanger::wxDCTextColourChanger(wxDC & dc, const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCTextColourChanger::wxDCTextColourChanger function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxDCTextColourChanger::wxDCTextColourChanger function");
 		}
@@ -141,7 +141,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDCTextColourChanger::Set(const wxColour & col) function, expected prototype:\nvoid wxDCTextColourChanger::Set(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* col_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !col_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg col in wxDCTextColourChanger::Set function");
 		}

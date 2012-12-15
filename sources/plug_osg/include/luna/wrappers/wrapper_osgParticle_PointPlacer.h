@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PointPlacer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PointPlacer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PointPlacer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PointPlacer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PointPlacer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return PointPlacer::releaseGLObjects(arg1);
 	};
 
 	// float osgParticle::Placer::volume() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgParticle::Placer::volume();
+		return PointPlacer::volume();
 	};
 
 	// osg::Object * osgParticle::PointPlacer::cloneType() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::PointPlacer::cloneType();
+		return PointPlacer::cloneType();
 	};
 
 	// osg::Object * osgParticle::PointPlacer::clone(const osg::CopyOp & arg1) const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::PointPlacer::clone(arg1);
+		return PointPlacer::clone(arg1);
 	};
 
 	// bool osgParticle::PointPlacer::isSameKindAs(const osg::Object * obj) const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::PointPlacer::isSameKindAs(obj);
+		return PointPlacer::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::PointPlacer::libraryName() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PointPlacer::libraryName();
+		return PointPlacer::libraryName();
 	};
 
 	// const char * osgParticle::PointPlacer::className() const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::PointPlacer::className();
+		return PointPlacer::className();
 	};
 
 	// void osgParticle::PointPlacer::place(osgParticle::Particle * P) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::PointPlacer::place(P);
+		return PointPlacer::place(P);
 	};
 
 	// osg::Vec3f osgParticle::PointPlacer::getControlPosition() const
@@ -147,7 +147,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osgParticle::PointPlacer::getControlPosition();
+		return PointPlacer::getControlPosition();
 	};
 
 

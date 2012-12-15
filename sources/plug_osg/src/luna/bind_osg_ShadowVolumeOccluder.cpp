@@ -250,12 +250,12 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg nodePath in osg::ShadowVolumeOccluder::computeOccluder function");
 		}
 		const osg::NodePath & nodePath=*nodePath_ptr;
-		const osg::ConvexPlanarOccluder* occluder_ptr=dynamic_cast< osg::ConvexPlanarOccluder* >(Luna< osg::Referenced >::check(L,3));
+		const osg::ConvexPlanarOccluder* occluder_ptr=(Luna< osg::Referenced >::checkSubType< osg::ConvexPlanarOccluder >(L,3));
 		if( !occluder_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg occluder in osg::ShadowVolumeOccluder::computeOccluder function");
 		}
 		const osg::ConvexPlanarOccluder & occluder=*occluder_ptr;
-		osg::CullStack* cullStack_ptr=dynamic_cast< osg::CullStack* >(Luna< osg::CullSettings >::check(L,4));
+		osg::CullStack* cullStack_ptr=(Luna< osg::CullSettings >::checkSubType< osg::CullStack >(L,4));
 		if( !cullStack_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg cullStack in osg::ShadowVolumeOccluder::computeOccluder function");
 		}

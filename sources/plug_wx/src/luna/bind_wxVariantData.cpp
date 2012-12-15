@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVariantData.h>
+
 class luna_wrapper_wxVariantData {
 public:
 	typedef Luna< wxVariantData > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObjectRefData(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVariantData* ptr= dynamic_cast< wxVariantData* >(Luna< wxObjectRefData >::check(L,1));
+		//wxVariantData* ptr= dynamic_cast< wxVariantData* >(Luna< wxObjectRefData >::check(L,1));
+		wxVariantData* ptr= luna_caster< wxObjectRefData, wxVariantData >::cast(Luna< wxObjectRefData >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,8 +58,6 @@ wxVariantData* LunaTraits< wxVariantData >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxVariantData::Eq(wxVariantData & data) const
 	// wxString wxVariantData::GetType() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxVariantData >::_bind_dtor(wxVariantData* obj) {

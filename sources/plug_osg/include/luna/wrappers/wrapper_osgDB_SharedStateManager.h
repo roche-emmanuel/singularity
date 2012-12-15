@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return SharedStateManager::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return SharedStateManager::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -41,7 +41,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return SharedStateManager::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return SharedStateManager::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return SharedStateManager::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return SharedStateManager::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgDB::SharedStateManager::libraryName() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::SharedStateManager::libraryName();
+		return SharedStateManager::libraryName();
 	};
 
 	// const char * osgDB::SharedStateManager::className() const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::SharedStateManager::className();
+		return SharedStateManager::className();
 	};
 
 	// void osgDB::SharedStateManager::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::SharedStateManager::apply(node);
+		return SharedStateManager::apply(node);
 	};
 
 	// void osgDB::SharedStateManager::apply(osg::Geode & geode)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::SharedStateManager::apply(geode);
+		return SharedStateManager::apply(geode);
 	};
 
 

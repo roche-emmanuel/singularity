@@ -79,7 +79,7 @@ ReflectionGenerator.generate{
 		"IsOperationPermissibleForObjectCallback",
 		"HitList",
 		"Identifier",
-		"Prim",
+		"PrimList",
 
 		-- for osgDB:
 		"objectRead",
@@ -108,6 +108,10 @@ ReflectionGenerator.generate{
 		"NodeAcceptOp", -- to avoid missing link on Luna type osg::ref_ptr< osg::Node >
 		
 		"osgTerrain", -- ignore terrain stuff for now.
+		"StateSetManipulator::clone", -- ignore terrain stuff for now.
+	},
+	ignoreWrappers={
+		"StateSetManipulator::clone",
 	},
 	ignoreConverters={
 		"ScreenIdentifier",
@@ -162,7 +166,11 @@ ReflectionGenerator.generate{
 		"FileOpResult::",
 	},
 	ignoreHeaders={"helpers%.h"},
-	ignoreClassDeclarations={"SingletonHolder"},
+	ignoreClassDeclarations={"SingletonHolder",
+		"osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT >",
+		"osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT >",
+		"osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >",
+		},
 	locationPrefixes={
 		dest_path.."interface/",
 	}

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Drawable::Extensions* ptr= dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Drawable::Extensions* ptr= dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* ptr= luna_caster< osg::Referenced, osg::Drawable::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -621,7 +622,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setupGLExtensions(unsigned int)");
@@ -640,7 +641,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setVertexProgramSupported(bool)");
@@ -658,7 +659,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isVertexProgramSupported() const");
@@ -678,7 +679,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setSecondaryColorSupported(bool)");
@@ -696,7 +697,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isSecondaryColorSupported() const");
@@ -716,7 +717,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setFogCoordSupported(bool)");
@@ -734,7 +735,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isFogCoordSupported() const");
@@ -754,7 +755,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setMultiTexSupported(bool)");
@@ -772,7 +773,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isMultiTexSupported() const");
@@ -792,7 +793,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setOcclusionQuerySupported(bool)");
@@ -810,7 +811,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isOcclusionQuerySupported() const");
@@ -830,7 +831,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBOcclusionQuerySupported(bool)");
@@ -848,7 +849,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBOcclusionQuerySupported() const");
@@ -868,7 +869,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setTimerQuerySupported(bool)");
@@ -886,7 +887,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isTimerQuerySupported() const");
@@ -906,7 +907,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::setARBTimerQuerySupported(bool)");
@@ -924,7 +925,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Drawable::Extensions::isARBTimerQuerySupported() const");
@@ -944,7 +945,7 @@ public:
 
 		unsigned char coord = (unsigned char)(lua_tointeger(L,2));
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3ubv(const unsigned char *) const");
@@ -963,7 +964,7 @@ public:
 
 		float coord=(float)lua_tonumber(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glSecondaryColor3fv(const float *) const");
@@ -982,7 +983,7 @@ public:
 
 		float coord=(float)lua_tonumber(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glFogCoordfv(const float *) const");
@@ -1002,7 +1003,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		float coord=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1f(unsigned int, float) const");
@@ -1022,7 +1023,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		float coord=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2fv(unsigned int, const float *) const");
@@ -1042,7 +1043,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		float coord=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3fv(unsigned int, const float *) const");
@@ -1062,7 +1063,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		float coord=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4fv(unsigned int, const float *) const");
@@ -1082,7 +1083,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		double coord=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord1d(unsigned int, double) const");
@@ -1102,7 +1103,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		double coord=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord2dv(unsigned int, const double *) const");
@@ -1122,7 +1123,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		double coord=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord3dv(unsigned int, const double *) const");
@@ -1142,7 +1143,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		double coord=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glMultiTexCoord4dv(unsigned int, const double *) const");
@@ -1162,7 +1163,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		short s=(short)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1s(unsigned int, short) const");
@@ -1182,7 +1183,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		float f=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1f(unsigned int, float) const");
@@ -1202,7 +1203,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		double f=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib1d(unsigned int, double) const");
@@ -1222,7 +1223,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		float v=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2fv(unsigned int, const float *) const");
@@ -1242,7 +1243,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		float v=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3fv(unsigned int, const float *) const");
@@ -1262,7 +1263,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		float v=(float)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4fv(unsigned int, const float *) const");
@@ -1282,7 +1283,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		double v=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib2dv(unsigned int, const double *) const");
@@ -1302,7 +1303,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		double v=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib3dv(unsigned int, const double *) const");
@@ -1322,7 +1323,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		double v=(double)lua_tonumber(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4dv(unsigned int, const double *) const");
@@ -1342,7 +1343,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned char v = (unsigned char)(lua_tointeger(L,3));
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4ubv(unsigned int, const unsigned char *) const");
@@ -1362,7 +1363,7 @@ public:
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
 		unsigned char v = (unsigned char)(lua_tointeger(L,3));
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glVertexAttrib4Nubv(unsigned int, const unsigned char *) const");
@@ -1382,7 +1383,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int buffers=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenBuffers(int, unsigned int *) const");
@@ -1402,7 +1403,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int buffer=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBindBuffer(unsigned int, unsigned int) const");
@@ -1424,7 +1425,7 @@ public:
 		void* data=(Luna< void >::check(L,4));
 		unsigned int usage=(unsigned int)lua_tointeger(L,5);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferData(unsigned int, int, const void *, unsigned int) const");
@@ -1446,7 +1447,7 @@ public:
 		int size=(int)lua_tointeger(L,4);
 		void* data=(Luna< void >::check(L,5));
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBufferSubData(unsigned int, int, int, const void *) const");
@@ -1466,7 +1467,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int buffers=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteBuffers(int, const unsigned int *) const");
@@ -1485,7 +1486,7 @@ public:
 
 		unsigned int buffer=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsBuffer(unsigned int) const");
@@ -1508,7 +1509,7 @@ public:
 		int size=(int)lua_tointeger(L,4);
 		void* data=(Luna< void >::check(L,5));
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferSubData(unsigned int, int, int, void *) const");
@@ -1528,7 +1529,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int access=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void * osg::Drawable::Extensions::glMapBuffer(unsigned int, unsigned int) const");
@@ -1550,7 +1551,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glUnmapBuffer(unsigned int) const");
@@ -1572,7 +1573,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		int params=(int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetBufferParameteriv(unsigned int, unsigned int, int *) const");
@@ -1592,7 +1593,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int ids=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenOcclusionQueries(int, unsigned int *) const");
@@ -1612,7 +1613,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int ids=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteOcclusionQueries(int, const unsigned int *) const");
@@ -1631,7 +1632,7 @@ public:
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsOcclusionQuery(unsigned int) const");
@@ -1651,7 +1652,7 @@ public:
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginOcclusionQuery(unsigned int) const");
@@ -1669,7 +1670,7 @@ public:
 		}
 
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndOcclusionQuery() const");
@@ -1690,7 +1691,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		int params=(int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryiv(unsigned int, unsigned int, int *) const");
@@ -1711,7 +1712,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		unsigned int params=(unsigned int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetOcclusionQueryuiv(unsigned int, unsigned int, unsigned int *) const");
@@ -1732,7 +1733,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		int params=(int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryiv(unsigned int, unsigned int, int *) const");
@@ -1752,7 +1753,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int ids=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGenQueries(int, unsigned int *) const");
@@ -1772,7 +1773,7 @@ public:
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 		unsigned int id=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glBeginQuery(unsigned int, unsigned int) const");
@@ -1791,7 +1792,7 @@ public:
 
 		unsigned int target=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glEndQuery(unsigned int) const");
@@ -1811,7 +1812,7 @@ public:
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
 		unsigned int target=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glQueryCounter(unsigned int, unsigned int) const");
@@ -1830,7 +1831,7 @@ public:
 
 		unsigned int id=(unsigned int)lua_tointeger(L,2);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char osg::Drawable::Extensions::glIsQuery(unsigned int) const");
@@ -1851,7 +1852,7 @@ public:
 		int n=(int)lua_tointeger(L,2);
 		unsigned int ids=(unsigned int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glDeleteQueries(int, const unsigned int *) const");
@@ -1872,7 +1873,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		int params=(int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectiv(unsigned int, unsigned int, int *) const");
@@ -1893,7 +1894,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		unsigned int params=(unsigned int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectuiv(unsigned int, unsigned int, unsigned int *) const");
@@ -1914,7 +1915,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,3);
 		unsigned long long int params=(unsigned long long int)lua_tointeger(L,4);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetQueryObjectui64v(unsigned int, unsigned int, unsigned long long int *) const");
@@ -1934,7 +1935,7 @@ public:
 		unsigned int pname=(unsigned int)lua_tointeger(L,2);
 		long long int params=(long long int)lua_tointeger(L,3);
 
-		osg::Drawable::Extensions* self=dynamic_cast< osg::Drawable::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Drawable::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Drawable::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Drawable::Extensions::glGetInteger64v(unsigned int, long long int *) const");

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::GraphicsContext::Traits* ptr= dynamic_cast< osg::GraphicsContext::Traits* >(Luna< osg::Referenced >::check(L,1));
+		//osg::GraphicsContext::Traits* ptr= dynamic_cast< osg::GraphicsContext::Traits* >(Luna< osg::Referenced >::check(L,1));
+		osg::GraphicsContext::Traits* ptr= luna_caster< osg::Referenced, osg::GraphicsContext::Traits >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -77,7 +78,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::DisplaySettings* ds=luatop>0 ? dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,1)) : (osg::DisplaySettings*)0;
+		osg::DisplaySettings* ds=luatop>0 ? (Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,1)) : (osg::DisplaySettings*)0;
 
 		return new osg::GraphicsContext::Traits(ds);
 	}
@@ -91,7 +92,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::DisplaySettings* ds=luatop>1 ? dynamic_cast< osg::DisplaySettings* >(Luna< osg::Referenced >::check(L,2)) : (osg::DisplaySettings*)0;
+		osg::DisplaySettings* ds=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::DisplaySettings >(L,2)) : (osg::DisplaySettings*)0;
 
 		return new wrapper_osg_GraphicsContext_Traits(L,NULL, ds);
 	}

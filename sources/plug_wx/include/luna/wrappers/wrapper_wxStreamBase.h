@@ -1,0 +1,113 @@
+#ifndef _WRAPPERS_WRAPPER_WXSTREAMBASE_H_
+#define _WRAPPERS_WRAPPER_WXSTREAMBASE_H_
+
+#include <plug_common.h>
+
+#include "sgtCommon.h"
+#include "lua/LuaObject.h"
+
+#include <wx/stream.h>
+
+class wrapper_wxStreamBase : public wxStreamBase {
+protected:
+	sgt::LuaObject _obj;
+	
+public:
+	
+
+	wrapper_wxStreamBase(lua_State* L, lua_Table* dum) : wxStreamBase(), _obj(L,-1) {};
+
+	// wxClassInfo * wxObject::GetClassInfo() const
+	wxClassInfo * GetClassInfo() const {
+		if(_obj.pushFunction("GetClassInfo")) {
+			return (_obj.callFunction<wxClassInfo*>());
+		}
+
+		return wxStreamBase::GetClassInfo();
+	};
+
+	// long long wxStreamBase::GetLength() const
+	long long GetLength() const {
+		if(_obj.pushFunction("GetLength")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxStreamBase::GetLength();
+	};
+
+	// size_t wxStreamBase::GetSize() const
+	size_t GetSize() const {
+		if(_obj.pushFunction("GetSize")) {
+			return (_obj.callFunction<size_t>());
+		}
+
+		return wxStreamBase::GetSize();
+	};
+
+	// bool wxStreamBase::IsOk() const
+	bool IsOk() const {
+		if(_obj.pushFunction("IsOk")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxStreamBase::IsOk();
+	};
+
+	// bool wxStreamBase::IsSeekable() const
+	bool IsSeekable() const {
+		if(_obj.pushFunction("IsSeekable")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxStreamBase::IsSeekable();
+	};
+
+
+protected:
+	// wxObjectRefData * wxObject::CreateRefData() const
+	wxObjectRefData * CreateRefData() const {
+		if(_obj.pushFunction("CreateRefData")) {
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStreamBase::CreateRefData();
+	};
+
+	// wxObjectRefData * wxObject::CloneRefData(const wxObjectRefData * data) const
+	wxObjectRefData * CloneRefData(const wxObjectRefData * data) const {
+		if(_obj.pushFunction("CloneRefData")) {
+			_obj.pushArg(data);
+			return (_obj.callFunction<wxObjectRefData*>());
+		}
+
+		return wxStreamBase::CloneRefData(data);
+	};
+
+	// long long wxStreamBase::OnSysSeek(long long pos, wxSeekMode mode)
+	long long OnSysSeek(long long pos, wxSeekMode mode) {
+		if(_obj.pushFunction("OnSysSeek")) {
+			_obj.pushArg(pos);
+			_obj.pushArg(mode);
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxStreamBase::OnSysSeek(pos, mode);
+	};
+
+	// long long wxStreamBase::OnSysTell() const
+	long long OnSysTell() const {
+		if(_obj.pushFunction("OnSysTell")) {
+			return (_obj.callFunction<long long>());
+		}
+
+		return wxStreamBase::OnSysTell();
+	};
+
+
+};
+
+
+
+
+#endif
+

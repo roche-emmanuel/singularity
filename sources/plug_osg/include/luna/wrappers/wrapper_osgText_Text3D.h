@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Text3D::setName(name);
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Text3D::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Text3D::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Text3D::getUserData();
 	};
 
 	// osg::Geometry * osg::Drawable::asGeometry()
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return Text3D::asGeometry();
 	};
 
 	// const osg::Geometry * osg::Drawable::asGeometry() const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Geometry*>());
 		}
 
-		return osg::Drawable::asGeometry();
+		return Text3D::asGeometry();
 	};
 
 	// void osg::Drawable::computeDataVariance()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::computeDataVariance();
+		return Text3D::computeDataVariance();
 	};
 
 	// void osg::Drawable::setUseVertexBufferObjects(bool flag)
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUseVertexBufferObjects(flag);
+		return Text3D::setUseVertexBufferObjects(flag);
 	};
 
 	// void osg::Drawable::dirtyDisplayList()
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::dirtyDisplayList();
+		return Text3D::dirtyDisplayList();
 	};
 
 	// unsigned int osg::Drawable::getGLObjectSizeHint() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Drawable::getGLObjectSizeHint();
+		return Text3D::getGLObjectSizeHint();
 	};
 
 	// void osg::Drawable::compileGLObjects(osg::RenderInfo & renderInfo) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::compileGLObjects(renderInfo);
+		return Text3D::compileGLObjects(renderInfo);
 	};
 
 	// void osg::Drawable::setUpdateCallback(osg::Drawable::UpdateCallback * ac)
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setUpdateCallback(ac);
+		return Text3D::setUpdateCallback(ac);
 	};
 
 	// void osg::Drawable::setEventCallback(osg::Drawable::EventCallback * ac)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setEventCallback(ac);
+		return Text3D::setEventCallback(ac);
 	};
 
 	// void osg::Drawable::setCullCallback(osg::Drawable::CullCallback * cc)
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setCullCallback(cc);
+		return Text3D::setCullCallback(cc);
 	};
 
 	// void osg::Drawable::setDrawCallback(osg::Drawable::DrawCallback * dc)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::setDrawCallback(dc);
+		return Text3D::setDrawCallback(dc);
 	};
 
 	// void osgText::TextBase::setFont(osgText::Font * font = 0)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::TextBase::setFont(font);
+		return Text3D::setFont(font);
 	};
 
 	// void osgText::TextBase::setFont(const std::string & fontfile)
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::TextBase::setFont(fontfile);
+		return Text3D::setFont(fontfile);
 	};
 
 	// osg::Object * osgText::Text3D::cloneType() const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::Text3D::cloneType();
+		return Text3D::cloneType();
 	};
 
 	// osg::Object * osgText::Text3D::clone(const osg::CopyOp & arg1) const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::Text3D::clone(arg1);
+		return Text3D::clone(arg1);
 	};
 
 	// bool osgText::Text3D::isSameKindAs(const osg::Object * obj) const
@@ -207,7 +207,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgText::Text3D::isSameKindAs(obj);
+		return Text3D::isSameKindAs(obj);
 	};
 
 	// const char * osgText::Text3D::libraryName() const
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::Text3D::libraryName();
+		return Text3D::libraryName();
 	};
 
 	// const char * osgText::Text3D::className() const
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::Text3D::className();
+		return Text3D::className();
 	};
 
 	// void osgText::Text3D::drawImplementation(osg::RenderInfo & renderInfo) const
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Text3D::drawImplementation(renderInfo);
+		return Text3D::drawImplementation(renderInfo);
 	};
 
 	// void osgText::Text3D::releaseGLObjects(osg::State * state = 0) const
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Text3D::releaseGLObjects(state);
+		return Text3D::releaseGLObjects(state);
 	};
 
 	// osg::BoundingBoxd osgText::Text3D::computeBound() const
@@ -254,13 +254,30 @@ public:
 			return *(_obj.callFunction<osg::BoundingBoxd*>());
 		}
 
-		return osgText::Text3D::computeBound();
+		return Text3D::computeBound();
 	};
 
 
 protected:
 	// void osgText::Text3D::computeGlyphRepresentation()
+	void computeGlyphRepresentation() {
+		if(_obj.pushFunction("computeGlyphRepresentation")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Text3D::computeGlyphRepresentation();
+	};
+
 	// void osgText::Text3D::computePositions(unsigned int contextID) const
+	void computePositions(unsigned int contextID) const {
+		if(_obj.pushFunction("computePositions")) {
+			_obj.pushArg(contextID);
+			return (_obj.callFunction<void>());
+		}
+
+		return Text3D::computePositions(contextID);
+	};
+
 
 };
 

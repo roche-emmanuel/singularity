@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Referenced::setThreadSafeRefUnref(threadSafe);
+		return LogManager::setThreadSafeRefUnref(threadSafe);
 	};
 
 

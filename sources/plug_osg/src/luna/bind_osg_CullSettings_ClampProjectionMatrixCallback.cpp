@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::CullSettings::ClampProjectionMatrixCallback* ptr= dynamic_cast< osg::CullSettings::ClampProjectionMatrixCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::CullSettings::ClampProjectionMatrixCallback* ptr= dynamic_cast< osg::CullSettings::ClampProjectionMatrixCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullSettings::ClampProjectionMatrixCallback* ptr= luna_caster< osg::Referenced, osg::CullSettings::ClampProjectionMatrixCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -82,7 +83,7 @@ public:
 		double znear=(double)lua_tonumber(L,3);
 		double zfar=(double)lua_tonumber(L,4);
 
-		osg::CullSettings::ClampProjectionMatrixCallback* self=dynamic_cast< osg::CullSettings::ClampProjectionMatrixCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf &, double &, double &) const");
@@ -108,7 +109,7 @@ public:
 		double znear=(double)lua_tonumber(L,3);
 		double zfar=(double)lua_tonumber(L,4);
 
-		osg::CullSettings::ClampProjectionMatrixCallback* self=dynamic_cast< osg::CullSettings::ClampProjectionMatrixCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::CullSettings::ClampProjectionMatrixCallback* self=Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixd &, double &, double &) const");

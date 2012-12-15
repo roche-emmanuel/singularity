@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::HalfWayMapGenerator* ptr= dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::HalfWayMapGenerator* ptr= dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::HalfWayMapGenerator* ptr= luna_caster< osg::Referenced, osgUtil::HalfWayMapGenerator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -117,7 +118,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 27134364\n");
 		}
 
-		const osgUtil::HalfWayMapGenerator* copy_ptr=dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		const osgUtil::HalfWayMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HalfWayMapGenerator >(L,1));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
 		}
@@ -157,7 +158,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) function, expected prototype:\nosgUtil::HalfWayMapGenerator::HalfWayMapGenerator(lua_Table * data, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
 		}
 
-		const osgUtil::HalfWayMapGenerator* copy_ptr=dynamic_cast< osgUtil::HalfWayMapGenerator* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::HalfWayMapGenerator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::HalfWayMapGenerator >(L,2));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::HalfWayMapGenerator::HalfWayMapGenerator function");
 		}

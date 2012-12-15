@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::View* ptr= dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		//osg::View* ptr= dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* ptr= luna_caster< osg::Referenced, osg::View >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -279,6 +280,85 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_take(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -304,7 +384,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		const osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,1));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::View function");
 		}
@@ -338,7 +418,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::View* view_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		const osg::View* view_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !view_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg view in osg::View::View function");
 		}
@@ -373,7 +453,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::View::cloneType() const");
@@ -399,7 +479,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::View::clone(const osg::CopyOp &) const");
@@ -419,9 +499,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::View::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::View::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::View::isSameKindAs(const osg::Object *) const");
@@ -440,7 +520,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::View::libraryName() const");
@@ -459,7 +539,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::View::className() const");
@@ -477,13 +557,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::take(osg::View & rhs) function, expected prototype:\nvoid osg::View::take(osg::View & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::View* rhs_ptr=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,2));
+		osg::View* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::View::take function");
 		}
 		osg::View & rhs=*rhs_ptr;
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::take(osg::View &)");
@@ -500,9 +580,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::setStats(osg::Stats * stats) function, expected prototype:\nvoid osg::View::setStats(osg::Stats * stats)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Stats* stats=dynamic_cast< osg::Stats* >(Luna< osg::Referenced >::check(L,2));
+		osg::Stats* stats=(Luna< osg::Referenced >::checkSubType< osg::Stats >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::setStats(osg::Stats *)");
@@ -520,7 +600,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Stats * osg::View::getStats()");
@@ -541,7 +621,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Stats * osg::View::getStats() const");
@@ -572,7 +652,7 @@ public:
 
 		osg::View::LightingMode lightingMode=(osg::View::LightingMode)lua_tointeger(L,2);
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::setLightingMode(osg::View::LightingMode)");
@@ -590,7 +670,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::View::LightingMode osg::View::getLightingMode() const");
@@ -608,9 +688,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::setLight(osg::Light * light) function, expected prototype:\nvoid osg::View::setLight(osg::Light * light)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Light* light=dynamic_cast< osg::Light* >(Luna< osg::Referenced >::check(L,2));
+		osg::Light* light=(Luna< osg::Referenced >::checkSubType< osg::Light >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::setLight(osg::Light *)");
@@ -628,7 +708,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Light * osg::View::getLight()");
@@ -649,7 +729,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Light * osg::View::getLight() const");
@@ -678,9 +758,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::setCamera(osg::Camera * camera) function, expected prototype:\nvoid osg::View::setCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::setCamera(osg::Camera *)");
@@ -698,7 +778,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Camera * osg::View::getCamera()");
@@ -719,7 +799,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Camera * osg::View::getCamera() const");
@@ -748,9 +828,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::View::setFrameStamp(osg::FrameStamp * fs) function, expected prototype:\nvoid osg::View::setFrameStamp(osg::FrameStamp * fs)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::FrameStamp* fs=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,2));
+		osg::FrameStamp* fs=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::setFrameStamp(osg::FrameStamp *)");
@@ -768,7 +848,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::FrameStamp * osg::View::getFrameStamp()");
@@ -789,7 +869,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::FrameStamp * osg::View::getFrameStamp() const");
@@ -820,10 +900,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 		bool useMastersSceneData=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::View::addSlave(osg::Camera *, bool)");
@@ -843,7 +923,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 		const osg::Matrixd* projectionOffset_ptr=(Luna< osg::Matrixd >::check(L,3));
 		if( !projectionOffset_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg projectionOffset in osg::View::addSlave function");
@@ -856,7 +936,7 @@ public:
 		const osg::Matrixd & viewOffset=*viewOffset_ptr;
 		bool useMastersSceneData=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : true;
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::View::addSlave(osg::Camera *, const osg::Matrixd &, const osg::Matrixd &, bool)");
@@ -885,7 +965,7 @@ public:
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::View::removeSlave(unsigned int)");
@@ -904,7 +984,7 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::View::getNumSlaves() const");
@@ -924,7 +1004,7 @@ public:
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::View::Slave & osg::View::getSlave(unsigned int)");
@@ -946,7 +1026,7 @@ public:
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::View::Slave & osg::View::getSlave(unsigned int) const");
@@ -975,9 +1055,9 @@ public:
 			luaL_error(L, "luna typecheck failed in unsigned int osg::View::findSlaveIndexForCamera(osg::Camera * camera) const function, expected prototype:\nunsigned int osg::View::findSlaveIndexForCamera(osg::Camera * camera) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::View::findSlaveIndexForCamera(osg::Camera *) const");
@@ -995,9 +1075,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::View::Slave * osg::View::findSlaveForCamera(osg::Camera * camera) function, expected prototype:\nosg::View::Slave * osg::View::findSlaveForCamera(osg::Camera * camera)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Camera* camera=dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,2));
+		osg::Camera* camera=(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,2));
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::View::Slave * osg::View::findSlaveForCamera(osg::Camera *)");
@@ -1018,12 +1098,268 @@ public:
 		}
 
 
-		osg::View* self=dynamic_cast< osg::View* >(Luna< osg::Referenced >::check(L,1));
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::View::updateSlaves()");
 		}
 		self->updateSlaves();
+
+		return 0;
+	}
+
+	// void osg::View::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::base_setName(const std::string & name) function, expected prototype:\nvoid osg::View::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::base_setName(const std::string &)");
+		}
+		self->View::setName(name);
+
+		return 0;
+	}
+
+	// void osg::View::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::base_computeDataVariance() function, expected prototype:\nvoid osg::View::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::base_computeDataVariance()");
+		}
+		self->View::computeDataVariance();
+
+		return 0;
+	}
+
+	// void osg::View::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::View::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::base_setUserData(osg::Referenced *)");
+		}
+		self->View::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::View::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::View::base_getUserData() function, expected prototype:\nosg::Referenced * osg::View::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::View::base_getUserData()");
+		}
+		osg::Referenced * lret = self->View::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::View::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::View::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::View::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::View::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->View::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::View::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// void osg::View::base_releaseGLObjects(osg::State * arg1 = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::View::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* _arg1=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::base_releaseGLObjects(osg::State *) const");
+		}
+		self->View::releaseGLObjects(_arg1);
+
+		return 0;
+	}
+
+	// osg::Object * osg::View::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::View::base_cloneType() const function, expected prototype:\nosg::Object * osg::View::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::View::base_cloneType() const");
+		}
+		osg::Object * lret = self->View::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::View::base_clone(const osg::CopyOp & arg1) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::View::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::View::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::View::base_clone function");
+		}
+		const osg::CopyOp & _arg1=*_arg1_ptr;
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::View::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->View::clone(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::View::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::View::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::View::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::View::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->View::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::View::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::View::base_libraryName() const function, expected prototype:\nconst char * osg::View::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::View::base_libraryName() const");
+		}
+		const char * lret = self->View::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::View::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::View::base_className() const function, expected prototype:\nconst char * osg::View::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::View::base_className() const");
+		}
+		const char * lret = self->View::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void osg::View::base_take(osg::View & rhs)
+	static int _bind_base_take(lua_State *L) {
+		if (!_lg_typecheck_base_take(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::View::base_take(osg::View & rhs) function, expected prototype:\nvoid osg::View::base_take(osg::View & rhs)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::View* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::View >(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::View::base_take function");
+		}
+		osg::View & rhs=*rhs_ptr;
+
+		osg::View* self=Luna< osg::Referenced >::checkSubType< osg::View >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::View::base_take(osg::View &)");
+		}
+		self->View::take(rhs);
 
 		return 0;
 	}
@@ -1072,6 +1408,17 @@ luna_RegType LunaTraits< osg::View >::methods[] = {
 	{"findSlaveIndexForCamera", &luna_wrapper_osg_View::_bind_findSlaveIndexForCamera},
 	{"findSlaveForCamera", &luna_wrapper_osg_View::_bind_findSlaveForCamera},
 	{"updateSlaves", &luna_wrapper_osg_View::_bind_updateSlaves},
+	{"base_setName", &luna_wrapper_osg_View::_bind_base_setName},
+	{"base_computeDataVariance", &luna_wrapper_osg_View::_bind_base_computeDataVariance},
+	{"base_setUserData", &luna_wrapper_osg_View::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_View::_bind_base_getUserData},
+	{"base_releaseGLObjects", &luna_wrapper_osg_View::_bind_base_releaseGLObjects},
+	{"base_cloneType", &luna_wrapper_osg_View::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_View::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_View::_bind_base_isSameKindAs},
+	{"base_libraryName", &luna_wrapper_osg_View::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osg_View::_bind_base_className},
+	{"base_take", &luna_wrapper_osg_View::_bind_base_take},
 	{"__eq", &luna_wrapper_osg_View::_bind___eq},
 	{0,0}
 };

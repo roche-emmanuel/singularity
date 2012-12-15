@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxLogInterposerTemp.h>
+
 class luna_wrapper_wxLogInterposerTemp {
 public:
 	typedef Luna< wxLogInterposerTemp > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxLog(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxLogInterposerTemp* ptr= dynamic_cast< wxLogInterposerTemp* >(Luna< wxLog >::check(L,1));
+		//wxLogInterposerTemp* ptr= dynamic_cast< wxLogInterposerTemp* >(Luna< wxLog >::check(L,1));
+		wxLogInterposerTemp* ptr= luna_caster< wxLog, wxLogInterposerTemp >::cast(Luna< wxLog >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,22 +43,35 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_Flush(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxLogInterposerTemp::wxLogInterposerTemp()
-	static wxLogInterposerTemp* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxLogInterposerTemp* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxLogInterposerTemp::wxLogInterposerTemp() function, expected prototype:\nwxLogInterposerTemp::wxLogInterposerTemp()\nClass arguments details:\n");
 		}
@@ -64,8 +80,46 @@ public:
 		return new wxLogInterposerTemp();
 	}
 
+	// wxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data)
+	static wxLogInterposerTemp* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data) function, expected prototype:\nwxLogInterposerTemp::wxLogInterposerTemp(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxLogInterposerTemp(L,NULL);
+	}
+
+	// Overload binder for wxLogInterposerTemp::wxLogInterposerTemp
+	static wxLogInterposerTemp* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxLogInterposerTemp, cannot match any of the overloads for function wxLogInterposerTemp:\n  wxLogInterposerTemp()\n  wxLogInterposerTemp(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
+	// void wxLogInterposerTemp::base_Flush()
+	static int _bind_base_Flush(lua_State *L) {
+		if (!_lg_typecheck_base_Flush(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxLogInterposerTemp::base_Flush() function, expected prototype:\nvoid wxLogInterposerTemp::base_Flush()\nClass arguments details:\n");
+		}
+
+
+		wxLogInterposerTemp* self=Luna< wxLog >::checkSubType< wxLogInterposerTemp >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxLogInterposerTemp::base_Flush()");
+		}
+		self->wxLogInterposerTemp::Flush();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -87,6 +141,7 @@ const int LunaTraits< wxLogInterposerTemp >::hash = 76049695;
 const int LunaTraits< wxLogInterposerTemp >::uniqueIDs[] = {13550494,0};
 
 luna_RegType LunaTraits< wxLogInterposerTemp >::methods[] = {
+	{"base_Flush", &luna_wrapper_wxLogInterposerTemp::_bind_base_Flush},
 	{"__eq", &luna_wrapper_wxLogInterposerTemp::_bind___eq},
 	{0,0}
 };

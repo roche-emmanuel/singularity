@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSplitterWindow.h>
+
 class luna_wrapper_wxSplitterWindow {
 public:
 	typedef Luna< wxSplitterWindow > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSplitterWindow* ptr= dynamic_cast< wxSplitterWindow* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxSplitterWindow >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxSplitterWindow* ptr= static_cast< wxSplitterWindow* >(Luna< wxTrackable >::check(L,1));
+		//wxSplitterWindow* ptr= dynamic_cast< wxSplitterWindow* >(Luna< wxObject >::check(L,1));
+		wxSplitterWindow* ptr= luna_caster< wxObject, wxSplitterWindow >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +79,6 @@ luna_RegType LunaTraits< wxSplitterWindow >::methods[] = {
 
 luna_ConverterType LunaTraits< wxSplitterWindow >::converters[] = {
 	{"wxObject", &luna_wrapper_wxSplitterWindow::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxSplitterWindow::_cast_from_wxTrackable},
 	{0,0}
 };
 

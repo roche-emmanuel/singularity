@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ImageSequence::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ImageSequence::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ImageSequence::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageSequence::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageSequence::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return ImageSequence::releaseGLObjects(state);
 	};
 
 	// const void * osg::Image::getDataPointer() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<void*>());
 		}
 
-		return osg::Image::getDataPointer();
+		return ImageSequence::getDataPointer();
 	};
 
 	// unsigned int osg::Image::getTotalDataSize() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Image::getTotalDataSize();
+		return ImageSequence::getTotalDataSize();
 	};
 
 	// void osg::Image::allocateImage(int s, int t, int r, unsigned int pixelFormat, unsigned int type, int packing = 1)
@@ -105,7 +105,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::allocateImage(s, t, r, pixelFormat, type, packing);
+		return ImageSequence::allocateImage(s, t, r, pixelFormat, type, packing);
 	};
 
 	// void osg::Image::readPixels(int x, int y, int width, int height, unsigned int pixelFormat, unsigned int type)
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readPixels(x, y, width, height, pixelFormat, type);
+		return ImageSequence::readPixels(x, y, width, height, pixelFormat, type);
 	};
 
 	// void osg::Image::readImageFromCurrentTexture(unsigned int contextID, bool copyMipMapsIfAvailable, unsigned int type = GL_UNSIGNED_BYTE)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
+		return ImageSequence::readImageFromCurrentTexture(contextID, copyMipMapsIfAvailable, type);
 	};
 
 	// void osg::Image::scaleImage(int s, int t, int r, unsigned int newDataType)
@@ -145,7 +145,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::scaleImage(s, t, r, newDataType);
+		return ImageSequence::scaleImage(s, t, r, newDataType);
 	};
 
 	// void osg::Image::copySubImage(int s_offset, int t_offset, int r_offset, const osg::Image * source)
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::copySubImage(s_offset, t_offset, r_offset, source);
+		return ImageSequence::copySubImage(s_offset, t_offset, r_offset, source);
 	};
 
 	// bool osg::Image::isImageTranslucent() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::isImageTranslucent();
+		return ImageSequence::isImageTranslucent();
 	};
 
 	// bool osg::Image::sendFocusHint(bool arg1)
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendFocusHint(arg1);
+		return ImageSequence::sendFocusHint(arg1);
 	};
 
 	// bool osg::Image::sendPointerEvent(int arg1, int arg2, int arg3)
@@ -189,7 +189,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendPointerEvent(arg1, arg2, arg3);
+		return ImageSequence::sendPointerEvent(arg1, arg2, arg3);
 	};
 
 	// bool osg::Image::sendKeyEvent(int arg1, bool arg2)
@@ -200,7 +200,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Image::sendKeyEvent(arg1, arg2);
+		return ImageSequence::sendKeyEvent(arg1, arg2);
 	};
 
 	// void osg::Image::setFrameLastRendered(const osg::FrameStamp * arg1)
@@ -210,7 +210,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::setFrameLastRendered(arg1);
+		return ImageSequence::setFrameLastRendered(arg1);
 	};
 
 	// void osg::ImageStream::quit(bool arg1 = true)
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::quit(arg1);
+		return ImageSequence::quit(arg1);
 	};
 
 	// double osg::ImageStream::getCreationTime() const
@@ -229,7 +229,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getCreationTime();
+		return ImageSequence::getCreationTime();
 	};
 
 	// double osg::ImageStream::getFrameRate() const
@@ -238,7 +238,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageStream::getFrameRate();
+		return ImageSequence::getFrameRate();
 	};
 
 	// void osg::ImageStream::setVolume(float arg1)
@@ -248,7 +248,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageStream::setVolume(arg1);
+		return ImageSequence::setVolume(arg1);
 	};
 
 	// float osg::ImageStream::getVolume() const
@@ -257,7 +257,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::ImageStream::getVolume();
+		return ImageSequence::getVolume();
 	};
 
 	// osg::Object * osg::ImageSequence::cloneType() const
@@ -266,7 +266,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ImageSequence::cloneType();
+		return ImageSequence::cloneType();
 	};
 
 	// osg::Object * osg::ImageSequence::clone(const osg::CopyOp & arg1) const
@@ -276,7 +276,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::ImageSequence::clone(arg1);
+		return ImageSequence::clone(arg1);
 	};
 
 	// bool osg::ImageSequence::isSameKindAs(const osg::Object * obj) const
@@ -286,7 +286,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ImageSequence::isSameKindAs(obj);
+		return ImageSequence::isSameKindAs(obj);
 	};
 
 	// const char * osg::ImageSequence::libraryName() const
@@ -295,7 +295,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ImageSequence::libraryName();
+		return ImageSequence::libraryName();
 	};
 
 	// const char * osg::ImageSequence::className() const
@@ -304,7 +304,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::ImageSequence::className();
+		return ImageSequence::className();
 	};
 
 	// int osg::ImageSequence::compare(const osg::Image & rhs) const
@@ -314,7 +314,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::ImageSequence::compare(rhs);
+		return ImageSequence::compare(rhs);
 	};
 
 	// void osg::ImageSequence::setReferenceTime(double t)
@@ -324,7 +324,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::setReferenceTime(t);
+		return ImageSequence::setReferenceTime(t);
 	};
 
 	// double osg::ImageSequence::getReferenceTime() const
@@ -333,7 +333,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageSequence::getReferenceTime();
+		return ImageSequence::getReferenceTime();
 	};
 
 	// void osg::ImageSequence::setTimeMultiplier(double tm)
@@ -343,7 +343,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::setTimeMultiplier(tm);
+		return ImageSequence::setTimeMultiplier(tm);
 	};
 
 	// double osg::ImageSequence::getTimeMultiplier() const
@@ -352,7 +352,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageSequence::getTimeMultiplier();
+		return ImageSequence::getTimeMultiplier();
 	};
 
 	// void osg::ImageSequence::seek(double time)
@@ -362,7 +362,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::seek(time);
+		return ImageSequence::seek(time);
 	};
 
 	// void osg::ImageSequence::play()
@@ -371,7 +371,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::play();
+		return ImageSequence::play();
 	};
 
 	// void osg::ImageSequence::pause()
@@ -380,7 +380,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::pause();
+		return ImageSequence::pause();
 	};
 
 	// void osg::ImageSequence::rewind()
@@ -389,7 +389,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::rewind();
+		return ImageSequence::rewind();
 	};
 
 	// double osg::ImageSequence::getLength() const
@@ -398,7 +398,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osg::ImageSequence::getLength();
+		return ImageSequence::getLength();
 	};
 
 	// void osg::ImageSequence::setImage(int s, int t, int r, int internalTextureformat, unsigned int pixelFormat, unsigned int type, unsigned char * data, osg::Image::AllocationMode mode, int packing = 1)
@@ -416,7 +416,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
+		return ImageSequence::setImage(s, t, r, internalTextureformat, pixelFormat, type, data, mode, packing);
 	};
 
 	// bool osg::ImageSequence::requiresUpdateCall() const
@@ -425,7 +425,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::ImageSequence::requiresUpdateCall();
+		return ImageSequence::requiresUpdateCall();
 	};
 
 	// void osg::ImageSequence::update(osg::NodeVisitor * nv)
@@ -435,12 +435,20 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ImageSequence::update(nv);
+		return ImageSequence::update(nv);
 	};
 
 
 protected:
 	// void osg::ImageSequence::applyLoopingMode()
+	void applyLoopingMode() {
+		if(_obj.pushFunction("applyLoopingMode")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return ImageSequence::applyLoopingMode();
+	};
+
 
 };
 

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PointSprite::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PointSprite::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PointSprite::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PointSprite::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PointSprite::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return PointSprite::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return PointSprite::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return PointSprite::getMember();
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return PointSprite::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return PointSprite::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::PointSprite::cloneType() const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PointSprite::cloneType();
+		return PointSprite::cloneType();
 	};
 
 	// osg::Object * osg::PointSprite::clone(const osg::CopyOp & arg1) const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PointSprite::clone(arg1);
+		return PointSprite::clone(arg1);
 	};
 
 	// bool osg::PointSprite::isSameKindAs(const osg::Object * obj) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PointSprite::isSameKindAs(obj);
+		return PointSprite::isSameKindAs(obj);
 	};
 
 	// const char * osg::PointSprite::libraryName() const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PointSprite::libraryName();
+		return PointSprite::libraryName();
 	};
 
 	// const char * osg::PointSprite::className() const
@@ -156,7 +156,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PointSprite::className();
+		return PointSprite::className();
 	};
 
 	// osg::StateAttribute::Type osg::PointSprite::getType() const
@@ -165,7 +165,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::PointSprite::getType();
+		return PointSprite::getType();
 	};
 
 	// int osg::PointSprite::compare(const osg::StateAttribute & sa) const
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::PointSprite::compare(sa);
+		return PointSprite::compare(sa);
 	};
 
 	// bool osg::PointSprite::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -185,7 +185,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PointSprite::getModeUsage(arg1);
+		return PointSprite::getModeUsage(arg1);
 	};
 
 	// bool osg::PointSprite::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PointSprite::checkValidityOfAssociatedModes(arg1);
+		return PointSprite::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// bool osg::PointSprite::isTextureAttribute() const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PointSprite::isTextureAttribute();
+		return PointSprite::isTextureAttribute();
 	};
 
 	// void osg::PointSprite::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::PointSprite::apply(arg1);
+		return PointSprite::apply(arg1);
 	};
 
 

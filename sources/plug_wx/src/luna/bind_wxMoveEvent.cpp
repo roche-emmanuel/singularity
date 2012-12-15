@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMoveEvent.h>
+
 class luna_wrapper_wxMoveEvent {
 public:
 	typedef Luna< wxMoveEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMoveEvent* ptr= dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		//wxMoveEvent* ptr= dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		wxMoveEvent* ptr= luna_caster< wxObject, wxMoveEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -66,6 +69,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -79,7 +94,7 @@ public:
 		}
 
 
-		wxMoveEvent* self=dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxMoveEvent::GetPosition() const");
@@ -101,7 +116,7 @@ public:
 		}
 
 
-		wxMoveEvent* self=dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRect wxMoveEvent::GetRect() const");
@@ -128,7 +143,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 
-		wxMoveEvent* self=dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMoveEvent::SetRect(const wxRect &)");
@@ -151,7 +166,7 @@ public:
 		}
 		const wxPoint & pos=*pos_ptr;
 
-		wxMoveEvent* self=dynamic_cast< wxMoveEvent* >(Luna< wxObject >::check(L,1));
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxMoveEvent::SetPosition(const wxPoint &)");
@@ -159,6 +174,46 @@ public:
 		self->SetPosition(pos);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxMoveEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMoveEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMoveEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMoveEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMoveEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxMoveEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxMoveEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxMoveEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxMoveEvent* self=Luna< wxObject >::checkSubType< wxMoveEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxMoveEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxMoveEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -170,8 +225,6 @@ wxMoveEvent* LunaTraits< wxMoveEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMoveEvent >::_bind_dtor(wxMoveEvent* obj) {
@@ -190,6 +243,8 @@ luna_RegType LunaTraits< wxMoveEvent >::methods[] = {
 	{"GetRect", &luna_wrapper_wxMoveEvent::_bind_GetRect},
 	{"SetRect", &luna_wrapper_wxMoveEvent::_bind_SetRect},
 	{"SetPosition", &luna_wrapper_wxMoveEvent::_bind_SetPosition},
+	{"base_GetClassInfo", &luna_wrapper_wxMoveEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxMoveEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxMoveEvent::_bind___eq},
 	{0,0}
 };

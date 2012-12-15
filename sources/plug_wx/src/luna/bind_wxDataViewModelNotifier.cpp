@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataViewModelNotifier.h>
+
 class luna_wrapper_wxDataViewModelNotifier {
 public:
 	typedef Luna< wxDataViewModelNotifier > luna_t;
@@ -130,6 +132,29 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ItemsAdded(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,60705462) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ItemsChanged(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,60705462) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ItemsDeleted(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,11709329) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,60705462) ) return false;
 		return true;
 	}
 
@@ -404,6 +429,88 @@ public:
 		return 1;
 	}
 
+	// bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)
+	static int _bind_base_ItemsAdded(lua_State *L) {
+		if (!_lg_typecheck_base_ItemsAdded(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+		}
+
+		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !parent_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parent in wxDataViewModelNotifier::base_ItemsAdded function");
+		}
+		const wxDataViewItem & parent=*parent_ptr;
+		const wxDataViewItemArray* items_ptr=(Luna< wxDataViewItemArray >::check(L,3));
+		if( !items_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg items in wxDataViewModelNotifier::base_ItemsAdded function");
+		}
+		const wxDataViewItemArray & items=*items_ptr;
+
+		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &)");
+		}
+		bool lret = self->wxDataViewModelNotifier::ItemsAdded(parent, items);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items)
+	static int _bind_base_ItemsChanged(lua_State *L) {
+		if (!_lg_typecheck_base_ItemsChanged(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 60705462\n");
+		}
+
+		const wxDataViewItemArray* items_ptr=(Luna< wxDataViewItemArray >::check(L,2));
+		if( !items_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg items in wxDataViewModelNotifier::base_ItemsChanged function");
+		}
+		const wxDataViewItemArray & items=*items_ptr;
+
+		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray &)");
+		}
+		bool lret = self->wxDataViewModelNotifier::ItemsChanged(items);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)
+	static int _bind_base_ItemsDeleted(lua_State *L) {
+		if (!_lg_typecheck_base_ItemsDeleted(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+		}
+
+		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
+		if( !parent_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parent in wxDataViewModelNotifier::base_ItemsDeleted function");
+		}
+		const wxDataViewItem & parent=*parent_ptr;
+		const wxDataViewItemArray* items_ptr=(Luna< wxDataViewItemArray >::check(L,3));
+		if( !items_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg items in wxDataViewModelNotifier::base_ItemsDeleted function");
+		}
+		const wxDataViewItemArray & items=*items_ptr;
+
+		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &)");
+		}
+		bool lret = self->wxDataViewModelNotifier::ItemsDeleted(parent, items);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -418,8 +525,6 @@ wxDataViewModelNotifier* LunaTraits< wxDataViewModelNotifier >::_bind_ctor(lua_S
 	// bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item)
 	// void wxDataViewModelNotifier::Resort()
 	// bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataViewModelNotifier >::_bind_dtor(wxDataViewModelNotifier* obj) {
@@ -445,6 +550,9 @@ luna_RegType LunaTraits< wxDataViewModelNotifier >::methods[] = {
 	{"Resort", &luna_wrapper_wxDataViewModelNotifier::_bind_Resort},
 	{"SetOwner", &luna_wrapper_wxDataViewModelNotifier::_bind_SetOwner},
 	{"ValueChanged", &luna_wrapper_wxDataViewModelNotifier::_bind_ValueChanged},
+	{"base_ItemsAdded", &luna_wrapper_wxDataViewModelNotifier::_bind_base_ItemsAdded},
+	{"base_ItemsChanged", &luna_wrapper_wxDataViewModelNotifier::_bind_base_ItemsChanged},
+	{"base_ItemsDeleted", &luna_wrapper_wxDataViewModelNotifier::_bind_base_ItemsDeleted},
 	{"dynCast", &luna_wrapper_wxDataViewModelNotifier::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxDataViewModelNotifier::_bind___eq},
 	{0,0}

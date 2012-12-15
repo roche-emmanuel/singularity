@@ -248,16 +248,16 @@ public:
 		return 1;
 	}
 
-	// wxSizerFlags & wxSizerFlags::Border(int direction = wxALL)
+	// wxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL)
 	static int _bind_Border_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Border_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction = wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction = wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
@@ -344,16 +344,16 @@ public:
 		return 1;
 	}
 
-	// wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = wxALL)
+	// wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL)
 	static int _bind_DoubleBorder(lua_State *L) {
 		if (!_lg_typecheck_DoubleBorder(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleBorder(int direction = wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
@@ -558,16 +558,16 @@ public:
 		return 1;
 	}
 
-	// wxSizerFlags & wxSizerFlags::TripleBorder(int direction = wxALL)
+	// wxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL)
 	static int _bind_TripleBorder(lua_State *L) {
 		if (!_lg_typecheck_TripleBorder(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::TripleBorder(int direction = wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::TripleBorder(int direction = wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int direction=luatop>1 ? (int)lua_tointeger(L,2) : wxALL;
+		int direction=luatop>1 ? (int)lua_tointeger(L,2) : ::wxALL;
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DrawCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DrawCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DrawCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return DrawCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Drawable::DrawCallback::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Drawable::DrawCallback::cloneType();
+		return DrawCallback::cloneType();
 	};
 
 	// osg::Object * osg::Drawable::DrawCallback::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Drawable::DrawCallback::clone(arg1);
+		return DrawCallback::clone(arg1);
 	};
 
 	// bool osg::Drawable::DrawCallback::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Drawable::DrawCallback::isSameKindAs(obj);
+		return DrawCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::Drawable::DrawCallback::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::DrawCallback::libraryName();
+		return DrawCallback::libraryName();
 	};
 
 	// const char * osg::Drawable::DrawCallback::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Drawable::DrawCallback::className();
+		return DrawCallback::className();
 	};
 
 	// void osg::Drawable::DrawCallback::drawImplementation(osg::RenderInfo & arg1, const osg::Drawable * arg2) const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Drawable::DrawCallback::drawImplementation(arg1, arg2);
+		return DrawCallback::drawImplementation(arg1, arg2);
 	};
 
 

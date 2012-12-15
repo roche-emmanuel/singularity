@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_Download(lua_State* L, lua_Table* dum) : WebViewListener::Download(), _obj(L,-1) {};
 
 	// void WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
 	void OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type) {

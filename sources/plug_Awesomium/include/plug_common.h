@@ -32,4 +32,12 @@ using namespace Awesomium;
 #include <luna/luna_types.h>
 #endif
 
+
+template <typename dstType>
+struct luna_caster<Awesomium::Surface, dstType> {
+	static inline dstType* cast(Awesomium::Surface* ptr) {
+		return (dstType*)(ptr);
+	};
+};
+
 #endif

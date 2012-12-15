@@ -98,7 +98,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxWindowDisabler::wxWindowDisabler(wxWindow * winToSkip) function, expected prototype:\nwxWindowDisabler::wxWindowDisabler(wxWindow * winToSkip)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* winToSkip=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* winToSkip=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 		return new wxWindowDisabler(winToSkip);
 	}

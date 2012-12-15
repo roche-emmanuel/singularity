@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<osgUtil::Intersector*>());
 		}
 
-		return osgUtil::PolytopeIntersector::clone(iv);
+		return PolytopeIntersector::clone(iv);
 	};
 
 	// bool osgUtil::PolytopeIntersector::enter(const osg::Node & node)
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::PolytopeIntersector::enter(node);
+		return PolytopeIntersector::enter(node);
 	};
 
 	// void osgUtil::PolytopeIntersector::leave()
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PolytopeIntersector::leave();
+		return PolytopeIntersector::leave();
 	};
 
 	// void osgUtil::PolytopeIntersector::intersect(osgUtil::IntersectionVisitor & iv, osg::Drawable * drawable)
@@ -56,7 +56,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PolytopeIntersector::intersect(iv, drawable);
+		return PolytopeIntersector::intersect(iv, drawable);
 	};
 
 	// void osgUtil::PolytopeIntersector::reset()
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::PolytopeIntersector::reset();
+		return PolytopeIntersector::reset();
 	};
 
 	// bool osgUtil::PolytopeIntersector::containsIntersections()
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::PolytopeIntersector::containsIntersections();
+		return PolytopeIntersector::containsIntersections();
 	};
 
 

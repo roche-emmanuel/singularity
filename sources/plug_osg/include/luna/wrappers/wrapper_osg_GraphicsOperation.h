@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return GraphicsOperation::release();
 	};
 
 	// void osg::GraphicsOperation::operator()(osg::Object * object)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::GraphicsOperation::operator()(object);
+		return GraphicsOperation::operator()(object);
 	};
 
 	// void osg::GraphicsOperation::operator()(osg::GraphicsContext * context)

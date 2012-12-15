@@ -330,16 +330,16 @@ public:
 		return 1;
 	}
 
-	// static wxArrayString wxFSVolume::GetVolumes(int flagsSet = wxFS_VOL_MOUNTED, int flagsUnset = 0)
+	// static wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0)
 	static int _bind_GetVolumes(lua_State *L) {
 		if (!_lg_typecheck_GetVolumes(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxArrayString wxFSVolume::GetVolumes(int flagsSet = wxFS_VOL_MOUNTED, int flagsUnset = 0) function, expected prototype:\nstatic wxArrayString wxFSVolume::GetVolumes(int flagsSet = wxFS_VOL_MOUNTED, int flagsUnset = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0) function, expected prototype:\nstatic wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flagsSet=luatop>0 ? (int)lua_tointeger(L,1) : wxFS_VOL_MOUNTED;
+		int flagsSet=luatop>0 ? (int)lua_tointeger(L,1) : ::wxFS_VOL_MOUNTED;
 		int flagsUnset=luatop>1 ? (int)lua_tointeger(L,2) : 0;
 
 		wxArrayString stack_lret = wxFSVolume::GetVolumes(flagsSet, flagsUnset);

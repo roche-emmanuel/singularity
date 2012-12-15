@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_IncrementalCompileOperation_CompileOp(lua_State* L, lua_Table* dum) : osgUtil::IncrementalCompileOperation::CompileOp(), _obj(L,-1) {};
 
 
 

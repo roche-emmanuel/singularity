@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxStdDialogButtonSizer.h>
+
 class luna_wrapper_wxStdDialogButtonSizer {
 public:
 	typedef Luna< wxStdDialogButtonSizer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxStdDialogButtonSizer* ptr= dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		//wxStdDialogButtonSizer* ptr= dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* ptr= luna_caster< wxObject, wxStdDialogButtonSizer >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -94,20 +104,159 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InformFirstDirection(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Layout(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddSpacer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RecalcSizes(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CalcMin(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxStdDialogButtonSizer::wxStdDialogButtonSizer()
-	static wxStdDialogButtonSizer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxStdDialogButtonSizer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxStdDialogButtonSizer::wxStdDialogButtonSizer() function, expected prototype:\nwxStdDialogButtonSizer::wxStdDialogButtonSizer()\nClass arguments details:\n");
 		}
 
 
 		return new wxStdDialogButtonSizer();
+	}
+
+	// wxStdDialogButtonSizer::wxStdDialogButtonSizer(lua_Table * data)
+	static wxStdDialogButtonSizer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStdDialogButtonSizer::wxStdDialogButtonSizer(lua_Table * data) function, expected prototype:\nwxStdDialogButtonSizer::wxStdDialogButtonSizer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxStdDialogButtonSizer(L,NULL);
+	}
+
+	// Overload binder for wxStdDialogButtonSizer::wxStdDialogButtonSizer
+	static wxStdDialogButtonSizer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxStdDialogButtonSizer, cannot match any of the overloads for function wxStdDialogButtonSizer:\n  wxStdDialogButtonSizer()\n  wxStdDialogButtonSizer(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -119,9 +268,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::AddButton(wxButton * button) function, expected prototype:\nvoid wxStdDialogButtonSizer::AddButton(wxButton * button)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxButton* button=dynamic_cast< wxButton* >(Luna< wxObject >::check(L,2));
+		wxButton* button=(Luna< wxObject >::checkSubType< wxButton >(L,2));
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::AddButton(wxButton *)");
@@ -139,7 +288,7 @@ public:
 		}
 
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::Realize()");
@@ -156,9 +305,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::SetAffirmativeButton(wxButton * button) function, expected prototype:\nvoid wxStdDialogButtonSizer::SetAffirmativeButton(wxButton * button)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxButton* button=dynamic_cast< wxButton* >(Luna< wxObject >::check(L,2));
+		wxButton* button=(Luna< wxObject >::checkSubType< wxButton >(L,2));
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetAffirmativeButton(wxButton *)");
@@ -175,9 +324,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::SetCancelButton(wxButton * button) function, expected prototype:\nvoid wxStdDialogButtonSizer::SetCancelButton(wxButton * button)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxButton* button=dynamic_cast< wxButton* >(Luna< wxObject >::check(L,2));
+		wxButton* button=(Luna< wxObject >::checkSubType< wxButton >(L,2));
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetCancelButton(wxButton *)");
@@ -194,9 +343,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::SetNegativeButton(wxButton * button) function, expected prototype:\nvoid wxStdDialogButtonSizer::SetNegativeButton(wxButton * button)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxButton* button=dynamic_cast< wxButton* >(Luna< wxObject >::check(L,2));
+		wxButton* button=(Luna< wxObject >::checkSubType< wxButton >(L,2));
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::SetNegativeButton(wxButton *)");
@@ -214,7 +363,7 @@ public:
 		}
 
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::RecalcSizes()");
@@ -232,12 +381,354 @@ public:
 		}
 
 
-		wxStdDialogButtonSizer* self=dynamic_cast< wxStdDialogButtonSizer* >(Luna< wxObject >::check(L,1));
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::CalcMin()");
 		}
 		wxSize stack_lret = self->CalcMin();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxStdDialogButtonSizer::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxStdDialogButtonSizer::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxStdDialogButtonSizer::base_Clear(bool delete_windows = false)
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::base_Clear(bool delete_windows = false) function, expected prototype:\nvoid wxStdDialogButtonSizer::base_Clear(bool delete_windows = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Clear(bool)");
+		}
+		self->wxStdDialogButtonSizer::Clear(delete_windows);
+
+		return 0;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Detach(wxWindow * window)
+	static int _bind_base_Detach_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Detach(wxWindow * window) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxWindow *)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Detach(window);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Detach(wxSizer * sizer)
+	static int _bind_base_Detach_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Detach(wxSizer * sizer) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(wxSizer *)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Detach(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Detach(int index)
+	static int _bind_base_Detach_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Detach(int index) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Detach(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Detach(int)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Detach(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxStdDialogButtonSizer::base_Detach
+	static int _bind_base_Detach(lua_State *L) {
+		if (_lg_typecheck_base_Detach_overload_1(L)) return _bind_base_Detach_overload_1(L);
+		if (_lg_typecheck_base_Detach_overload_2(L)) return _bind_base_Detach_overload_2(L);
+		if (_lg_typecheck_base_Detach_overload_3(L)) return _bind_base_Detach_overload_3(L);
+
+		luaL_error(L, "error in function base_Detach, cannot match any of the overloads for function base_Detach:\n  base_Detach(wxWindow *)\n  base_Detach(wxSizer *)\n  base_Detach(int)\n");
+		return 0;
+	}
+
+	// bool wxStdDialogButtonSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)
+	static int _bind_base_InformFirstDirection(lua_State *L) {
+		if (!_lg_typecheck_base_InformFirstDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxStdDialogButtonSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+		}
+
+		int direction=(int)lua_tointeger(L,2);
+		int size=(int)lua_tointeger(L,3);
+		int availableOtherDir=(int)lua_tointeger(L,4);
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_InformFirstDirection(int, int, int)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::InformFirstDirection(direction, size, availableOtherDir);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxStdDialogButtonSizer::base_Layout()
+	static int _bind_base_Layout(lua_State *L) {
+		if (!_lg_typecheck_base_Layout(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::base_Layout() function, expected prototype:\nvoid wxStdDialogButtonSizer::base_Layout()\nClass arguments details:\n");
+		}
+
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_Layout()");
+		}
+		self->wxStdDialogButtonSizer::Layout();
+
+		return 0;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Remove(wxSizer * sizer)
+	static int _bind_base_Remove_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Remove(wxSizer * sizer) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(wxSizer *)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Remove(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Remove(int index)
+	static int _bind_base_Remove_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Remove(int index) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Remove(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Remove(int)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Remove(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxStdDialogButtonSizer::base_Remove
+	static int _bind_base_Remove(lua_State *L) {
+		if (_lg_typecheck_base_Remove_overload_1(L)) return _bind_base_Remove_overload_1(L);
+		if (_lg_typecheck_base_Remove_overload_2(L)) return _bind_base_Remove_overload_2(L);
+
+		luaL_error(L, "error in function base_Remove, cannot match any of the overloads for function base_Remove:\n  base_Remove(wxSizer *)\n  base_Remove(int)\n");
+		return 0;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)
+	static int _bind_base_Replace_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Replace(oldwin, newwin, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)
+	static int _bind_base_Replace_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Replace(oldsz, newsz, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxStdDialogButtonSizer::base_Replace(size_t index, wxSizerItem * newitem)
+	static int _bind_base_Replace_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxStdDialogButtonSizer::base_Replace(size_t index, wxSizerItem * newitem) function, expected prototype:\nbool wxStdDialogButtonSizer::base_Replace(size_t index, wxSizerItem * newitem)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		size_t index=(size_t)lua_tointeger(L,2);
+		wxSizerItem* newitem=(Luna< wxObject >::checkSubType< wxSizerItem >(L,3));
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxStdDialogButtonSizer::base_Replace(size_t, wxSizerItem *)");
+		}
+		bool lret = self->wxStdDialogButtonSizer::Replace(index, newitem);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxStdDialogButtonSizer::base_Replace
+	static int _bind_base_Replace(lua_State *L) {
+		if (_lg_typecheck_base_Replace_overload_1(L)) return _bind_base_Replace_overload_1(L);
+		if (_lg_typecheck_base_Replace_overload_2(L)) return _bind_base_Replace_overload_2(L);
+		if (_lg_typecheck_base_Replace_overload_3(L)) return _bind_base_Replace_overload_3(L);
+
+		luaL_error(L, "error in function base_Replace, cannot match any of the overloads for function base_Replace:\n  base_Replace(wxWindow *, wxWindow *, bool)\n  base_Replace(wxSizer *, wxSizer *, bool)\n  base_Replace(size_t, wxSizerItem *)\n");
+		return 0;
+	}
+
+	// wxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int size)
+	static int _bind_base_AddSpacer(lua_State *L) {
+		if (!_lg_typecheck_base_AddSpacer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int size)\nClass arguments details:\n");
+		}
+
+		int size=(int)lua_tointeger(L,2);
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxStdDialogButtonSizer::base_AddSpacer(int)");
+		}
+		wxSizerItem * lret = self->wxStdDialogButtonSizer::AddSpacer(size);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSizerItem >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxStdDialogButtonSizer::base_RecalcSizes()
+	static int _bind_base_RecalcSizes(lua_State *L) {
+		if (!_lg_typecheck_base_RecalcSizes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxStdDialogButtonSizer::base_RecalcSizes() function, expected prototype:\nvoid wxStdDialogButtonSizer::base_RecalcSizes()\nClass arguments details:\n");
+		}
+
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxStdDialogButtonSizer::base_RecalcSizes()");
+		}
+		self->wxStdDialogButtonSizer::RecalcSizes();
+
+		return 0;
+	}
+
+	// wxSize wxStdDialogButtonSizer::base_CalcMin()
+	static int _bind_base_CalcMin(lua_State *L) {
+		if (!_lg_typecheck_base_CalcMin(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxStdDialogButtonSizer::base_CalcMin() function, expected prototype:\nwxSize wxStdDialogButtonSizer::base_CalcMin()\nClass arguments details:\n");
+		}
+
+
+		wxStdDialogButtonSizer* self=Luna< wxObject >::checkSubType< wxStdDialogButtonSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxStdDialogButtonSizer::base_CalcMin()");
+		}
+		wxSize stack_lret = self->wxStdDialogButtonSizer::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
@@ -274,6 +765,16 @@ luna_RegType LunaTraits< wxStdDialogButtonSizer >::methods[] = {
 	{"SetNegativeButton", &luna_wrapper_wxStdDialogButtonSizer::_bind_SetNegativeButton},
 	{"RecalcSizes", &luna_wrapper_wxStdDialogButtonSizer::_bind_RecalcSizes},
 	{"CalcMin", &luna_wrapper_wxStdDialogButtonSizer::_bind_CalcMin},
+	{"base_GetClassInfo", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_GetClassInfo},
+	{"base_Clear", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_Clear},
+	{"base_Detach", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_Detach},
+	{"base_InformFirstDirection", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_InformFirstDirection},
+	{"base_Layout", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_Layout},
+	{"base_Remove", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_Remove},
+	{"base_Replace", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_Replace},
+	{"base_AddSpacer", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_AddSpacer},
+	{"base_RecalcSizes", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_RecalcSizes},
+	{"base_CalcMin", &luna_wrapper_wxStdDialogButtonSizer::_bind_base_CalcMin},
 	{"__eq", &luna_wrapper_wxStdDialogButtonSizer::_bind___eq},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxValidator.h>
+
 class luna_wrapper_wxValidator {
 public:
 	typedef Luna< wxValidator > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxValidator* ptr= dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxValidator >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxValidator* ptr= static_cast< wxValidator* >(Luna< wxTrackable >::check(L,1));
+		//wxValidator* ptr= dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* ptr= luna_caster< wxObject, wxValidator >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -51,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -105,20 +104,106 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferFromWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_TransferToWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Validate(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxValidator::wxValidator()
-	static wxValidator* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxValidator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxValidator::wxValidator() function, expected prototype:\nwxValidator::wxValidator()\nClass arguments details:\n");
 		}
 
 
 		return new wxValidator();
+	}
+
+	// wxValidator::wxValidator(lua_Table * data)
+	static wxValidator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxValidator::wxValidator(lua_Table * data) function, expected prototype:\nwxValidator::wxValidator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxValidator(L,NULL);
+	}
+
+	// Overload binder for wxValidator::wxValidator
+	static wxValidator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxValidator, cannot match any of the overloads for function wxValidator:\n  wxValidator()\n  wxValidator(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -131,7 +216,7 @@ public:
 		}
 
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxValidator::Clone() const");
@@ -152,7 +237,7 @@ public:
 		}
 
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxValidator::GetWindow() const");
@@ -172,9 +257,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxValidator::SetWindow(wxWindow * window) function, expected prototype:\nvoid wxValidator::SetWindow(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxValidator::SetWindow(wxWindow *)");
@@ -192,7 +277,7 @@ public:
 		}
 
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxValidator::TransferFromWindow()");
@@ -211,7 +296,7 @@ public:
 		}
 
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxValidator::TransferToWindow()");
@@ -229,9 +314,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxValidator::Validate(wxWindow * parent) function, expected prototype:\nbool wxValidator::Validate(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxValidator* self=dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,1));
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxValidator::Validate(wxWindow *)");
@@ -256,6 +341,210 @@ public:
 		wxValidator::SuppressBellOnError(suppress);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxValidator::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxValidator::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxValidator::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxValidator::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxValidator::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxValidator::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxValidator::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxValidator::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxValidator::base_QueueEvent(wxEvent *)");
+		}
+		self->wxValidator::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxValidator::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxValidator::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxValidator::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxValidator::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxValidator::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxValidator::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxValidator::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxValidator::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxValidator::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxValidator::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxValidator::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxValidator::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxValidator::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxValidator::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxValidator::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxValidator::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxValidator::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxValidator::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxValidator::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxValidator::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxValidator::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxValidator::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// wxObject * wxValidator::base_Clone() const
+	static int _bind_base_Clone(lua_State *L) {
+		if (!_lg_typecheck_base_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxObject * wxValidator::base_Clone() const function, expected prototype:\nwxObject * wxValidator::base_Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxObject * wxValidator::base_Clone() const");
+		}
+		wxObject * lret = self->wxValidator::Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxObject >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxValidator::base_TransferFromWindow()
+	static int _bind_base_TransferFromWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferFromWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxValidator::base_TransferFromWindow() function, expected prototype:\nbool wxValidator::base_TransferFromWindow()\nClass arguments details:\n");
+		}
+
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxValidator::base_TransferFromWindow()");
+		}
+		bool lret = self->wxValidator::TransferFromWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxValidator::base_TransferToWindow()
+	static int _bind_base_TransferToWindow(lua_State *L) {
+		if (!_lg_typecheck_base_TransferToWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxValidator::base_TransferToWindow() function, expected prototype:\nbool wxValidator::base_TransferToWindow()\nClass arguments details:\n");
+		}
+
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxValidator::base_TransferToWindow()");
+		}
+		bool lret = self->wxValidator::TransferToWindow();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxValidator::base_Validate(wxWindow * parent)
+	static int _bind_base_Validate(lua_State *L) {
+		if (!_lg_typecheck_base_Validate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxValidator::base_Validate(wxWindow * parent) function, expected prototype:\nbool wxValidator::base_Validate(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxValidator* self=Luna< wxObject >::checkSubType< wxValidator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxValidator::base_Validate(wxWindow *)");
+		}
+		bool lret = self->wxValidator::Validate(parent);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
 	}
 
 
@@ -286,13 +575,22 @@ luna_RegType LunaTraits< wxValidator >::methods[] = {
 	{"TransferToWindow", &luna_wrapper_wxValidator::_bind_TransferToWindow},
 	{"Validate", &luna_wrapper_wxValidator::_bind_Validate},
 	{"SuppressBellOnError", &luna_wrapper_wxValidator::_bind_SuppressBellOnError},
+	{"base_GetClassInfo", &luna_wrapper_wxValidator::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxValidator::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxValidator::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxValidator::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxValidator::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxValidator::_bind_base_SetPreviousHandler},
+	{"base_Clone", &luna_wrapper_wxValidator::_bind_base_Clone},
+	{"base_TransferFromWindow", &luna_wrapper_wxValidator::_bind_base_TransferFromWindow},
+	{"base_TransferToWindow", &luna_wrapper_wxValidator::_bind_base_TransferToWindow},
+	{"base_Validate", &luna_wrapper_wxValidator::_bind_base_Validate},
 	{"__eq", &luna_wrapper_wxValidator::_bind___eq},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< wxValidator >::converters[] = {
 	{"wxObject", &luna_wrapper_wxValidator::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxValidator::_cast_from_wxTrackable},
 	{0,0}
 };
 

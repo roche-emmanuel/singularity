@@ -317,6 +317,31 @@ function Class:addWrapperConstructors()
 	self._wrappersLoaded = true;
 end
 
+function Class:addDefaultVirtuals()
+	-- only retrieve the public valid virtual functions:
+	local funcs = self:getVirtualFunctions():filterItems({"ValidWrapper","Public","Method"},{self})
+	
+	local newFuncs = Set();
+	
+	for _,func in funcs:sequence() do
+		self:info("Cloning virutal function ",func:getFullName())
+		if not func:isAbstract() then
+			local nfunc = func:clone()
+			nfunc:setUseBase(true);
+			nfunc:setVirtual(false); -- this should not be considered virtual.
+			nfunc:setAbstract(false); -- this should not be considered virtual.
+			nfunc:setWrapper(false); -- this should not be considered virtual.
+			nfunc:setName("base_".. func:getName())
+			
+			newFuncs:push_back(nfunc)
+		end
+	end
+	
+	for  _,func in newFuncs:sequence() do 
+		self:addFunction(func)
+	end
+end
+
 
 
 return Class

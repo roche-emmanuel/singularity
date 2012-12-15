@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrintout.h>
+
 class luna_wrapper_wxPrintout {
 public:
 	typedef Luna< wxPrintout > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPrintout* ptr= dynamic_cast< wxPrintout* >(Luna< wxObject >::check(L,1));
+		//wxPrintout* ptr= dynamic_cast< wxPrintout* >(Luna< wxObject >::check(L,1));
+		wxPrintout* ptr= luna_caster< wxObject, wxPrintout >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,8 +57,6 @@ wxPrintout* LunaTraits< wxPrintout >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// bool wxPrintout::OnPrintPage(int pageNum)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPrintout >::_bind_dtor(wxPrintout* obj) {

@@ -22,7 +22,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BarrierOperation::release();
+		return BarrierOperation::release();
 	};
 
 	// void osg::BarrierOperation::operator()(osg::Object * arg1)
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BarrierOperation::operator()(arg1);
+		return BarrierOperation::operator()(arg1);
 	};
 
 

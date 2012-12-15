@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ComputeBoundingSphereCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ComputeBoundingSphereCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ComputeBoundingSphereCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ComputeBoundingSphereCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ComputeBoundingSphereCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ComputeBoundingSphereCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Node::ComputeBoundingSphereCallback::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::cloneType();
+		return ComputeBoundingSphereCallback::cloneType();
 	};
 
 	// osg::Object * osg::Node::ComputeBoundingSphereCallback::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::clone(arg1);
+		return ComputeBoundingSphereCallback::clone(arg1);
 	};
 
 	// bool osg::Node::ComputeBoundingSphereCallback::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::isSameKindAs(obj);
+		return ComputeBoundingSphereCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::Node::ComputeBoundingSphereCallback::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::libraryName();
+		return ComputeBoundingSphereCallback::libraryName();
 	};
 
 	// const char * osg::Node::ComputeBoundingSphereCallback::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::className();
+		return ComputeBoundingSphereCallback::className();
 	};
 
 	// osg::BoundingSphered osg::Node::ComputeBoundingSphereCallback::computeBound(const osg::Node & arg1) const
@@ -129,7 +129,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Node::ComputeBoundingSphereCallback::computeBound(arg1);
+		return ComputeBoundingSphereCallback::computeBound(arg1);
 	};
 
 

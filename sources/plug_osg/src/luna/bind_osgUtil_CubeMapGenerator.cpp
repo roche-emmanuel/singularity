@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::CubeMapGenerator* ptr= dynamic_cast< osgUtil::CubeMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::CubeMapGenerator* ptr= dynamic_cast< osgUtil::CubeMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::CubeMapGenerator* ptr= luna_caster< osg::Referenced, osgUtil::CubeMapGenerator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -78,7 +79,7 @@ public:
 
 		osg::TextureCubeMap::Face face=(osg::TextureCubeMap::Face)lua_tointeger(L,2);
 
-		osgUtil::CubeMapGenerator* self=dynamic_cast< osgUtil::CubeMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face)");
@@ -100,7 +101,7 @@ public:
 
 		osg::TextureCubeMap::Face face=(osg::TextureCubeMap::Face)lua_tointeger(L,2);
 
-		osgUtil::CubeMapGenerator* self=dynamic_cast< osgUtil::CubeMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Image * osgUtil::CubeMapGenerator::getImage(osg::TextureCubeMap::Face) const");
@@ -133,7 +134,7 @@ public:
 
 		bool use_osg_system=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		osgUtil::CubeMapGenerator* self=dynamic_cast< osgUtil::CubeMapGenerator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::CubeMapGenerator* self=Luna< osg::Referenced >::checkSubType< osgUtil::CubeMapGenerator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::CubeMapGenerator::generateMap(bool)");

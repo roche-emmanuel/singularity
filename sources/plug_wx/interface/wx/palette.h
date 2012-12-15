@@ -67,9 +67,9 @@ public:
 
         @see Create()
     */
-    wxPalette(int n, const unsigned char* red,
-              const unsigned char* green,
-              const unsigned char* blue);
+    wxPalette(int n, unsigned char* red,
+              unsigned char* green,
+              unsigned char* blue);
 
     /**
         Destructor.

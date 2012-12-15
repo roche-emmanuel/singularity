@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BlockAndFlushOperation::release();
+		return BlockAndFlushOperation::release();
 	};
 
 	// void osg::BlockAndFlushOperation::operator()(osg::GraphicsContext * arg1)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BlockAndFlushOperation::operator()(arg1);
+		return BlockAndFlushOperation::operator()(arg1);
 	};
 
 

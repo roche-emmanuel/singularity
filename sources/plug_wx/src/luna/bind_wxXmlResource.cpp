@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxXmlResource.h>
+
 class luna_wrapper_wxXmlResource {
 public:
 	typedef Luna< wxXmlResource > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxXmlResource* ptr= dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		//wxXmlResource* ptr= dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* ptr= luna_caster< wxObject, wxXmlResource >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -315,6 +318,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -329,9 +338,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxXmlResource::AddHandler(wxXmlResourceHandler * handler) function, expected prototype:\nvoid wxXmlResource::AddHandler(wxXmlResourceHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxXmlResourceHandler* handler=dynamic_cast< wxXmlResourceHandler* >(Luna< wxObject >::check(L,2));
+		wxXmlResourceHandler* handler=(Luna< wxObject >::checkSubType< wxXmlResourceHandler >(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResource::AddHandler(wxXmlResourceHandler *)");
@@ -351,10 +360,10 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
-		wxWindow* control=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
-		wxWindow* parent=luatop>3 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,4)) : (wxWindow*)NULL;
+		wxWindow* control=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxWindow* parent=luatop>3 ? (Luna< wxObject >::checkSubType< wxWindow >(L,4)) : (wxWindow*)NULL;
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::AttachUnknownControl(const wxString &, wxWindow *, wxWindow *)");
@@ -373,7 +382,7 @@ public:
 		}
 
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResource::ClearHandlers()");
@@ -395,7 +404,7 @@ public:
 		int release=(int)lua_tointeger(L,4);
 		int revision=(int)lua_tointeger(L,5);
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxXmlResource::CompareVersion(int, int, int, int) const");
@@ -414,7 +423,7 @@ public:
 		}
 
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxXmlResource::GetDomain() const");
@@ -433,7 +442,7 @@ public:
 		}
 
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxXmlResource::GetFlags() const");
@@ -453,7 +462,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxXmlNode * wxXmlResource::GetResourceNode(const wxString &) const");
@@ -474,7 +483,7 @@ public:
 		}
 
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxXmlResource::GetVersion() const");
@@ -493,7 +502,7 @@ public:
 		}
 
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResource::InitAllHandlers()");
@@ -512,7 +521,7 @@ public:
 
 		wxString filemask(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::Load(const wxString &)");
@@ -536,7 +545,7 @@ public:
 		}
 		const wxFileName & file=*file_ptr;
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadFile(const wxFileName &)");
@@ -556,7 +565,7 @@ public:
 
 		wxString dirname(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadAllFiles(const wxString &)");
@@ -576,7 +585,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResource::LoadBitmap(const wxString &)");
@@ -597,10 +606,10 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDialog * wxXmlResource::LoadDialog(wxWindow * parent, const wxString & name) function, expected prototype:\nwxDialog * wxXmlResource::LoadDialog(wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDialog * wxXmlResource::LoadDialog(wxWindow *, const wxString &)");
@@ -620,11 +629,11 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxXmlResource::LoadDialog(wxDialog * dlg, wxWindow * parent, const wxString & name) function, expected prototype:\nbool wxXmlResource::LoadDialog(wxDialog * dlg, wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
 		}
 
-		wxDialog* dlg=dynamic_cast< wxDialog* >(Luna< wxObject >::check(L,2));
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxDialog* dlg=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadDialog(wxDialog *, wxWindow *, const wxString &)");
@@ -651,11 +660,11 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxXmlResource::LoadFrame(wxFrame * frame, wxWindow * parent, const wxString & name) function, expected prototype:\nbool wxXmlResource::LoadFrame(wxFrame * frame, wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
 		}
 
-		wxFrame* frame=dynamic_cast< wxFrame* >(Luna< wxObject >::check(L,2));
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadFrame(wxFrame *, wxWindow *, const wxString &)");
@@ -675,7 +684,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxIcon wxXmlResource::LoadIcon(const wxString &)");
@@ -698,7 +707,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenu * wxXmlResource::LoadMenu(const wxString &)");
@@ -718,10 +727,10 @@ public:
 			luaL_error(L, "luna typecheck failed in wxMenuBar * wxXmlResource::LoadMenuBar(wxWindow * parent, const wxString & name) function, expected prototype:\nwxMenuBar * wxXmlResource::LoadMenuBar(wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuBar * wxXmlResource::LoadMenuBar(wxWindow *, const wxString &)");
@@ -743,7 +752,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxMenuBar * wxXmlResource::LoadMenuBar(const wxString &)");
@@ -772,11 +781,11 @@ public:
 			luaL_error(L, "luna typecheck failed in wxObject * wxXmlResource::LoadObject(wxWindow * parent, const wxString & name, const wxString & classname) function, expected prototype:\nwxObject * wxXmlResource::LoadObject(wxWindow * parent, const wxString & name, const wxString & classname)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString classname(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxXmlResource::LoadObject(wxWindow *, const wxString &, const wxString &)");
@@ -797,11 +806,11 @@ public:
 		}
 
 		wxObject* instance=(Luna< wxObject >::check(L,2));
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString classname(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadObject(wxObject *, wxWindow *, const wxString &, const wxString &)");
@@ -828,11 +837,11 @@ public:
 			luaL_error(L, "luna typecheck failed in wxObject * wxXmlResource::LoadObjectRecursively(wxWindow * parent, const wxString & name, const wxString & classname) function, expected prototype:\nwxObject * wxXmlResource::LoadObjectRecursively(wxWindow * parent, const wxString & name, const wxString & classname)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 		wxString classname(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxObject * wxXmlResource::LoadObjectRecursively(wxWindow *, const wxString &, const wxString &)");
@@ -853,11 +862,11 @@ public:
 		}
 
 		wxObject* instance=(Luna< wxObject >::check(L,2));
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 		wxString classname(lua_tostring(L,5),lua_objlen(L,5));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadObjectRecursively(wxObject *, wxWindow *, const wxString &, const wxString &)");
@@ -884,10 +893,10 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPanel * wxXmlResource::LoadPanel(wxWindow * parent, const wxString & name) function, expected prototype:\nwxPanel * wxXmlResource::LoadPanel(wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPanel * wxXmlResource::LoadPanel(wxWindow *, const wxString &)");
@@ -907,11 +916,11 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxXmlResource::LoadPanel(wxPanel * panel, wxWindow * parent, const wxString & name) function, expected prototype:\nbool wxXmlResource::LoadPanel(wxPanel * panel, wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
 		}
 
-		wxPanel* panel=dynamic_cast< wxPanel* >(Luna< wxObject >::check(L,2));
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxPanel* panel=(Luna< wxObject >::checkSubType< wxPanel >(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		wxString name(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::LoadPanel(wxPanel *, wxWindow *, const wxString &)");
@@ -938,10 +947,10 @@ public:
 			luaL_error(L, "luna typecheck failed in wxToolBar * wxXmlResource::LoadToolBar(wxWindow * parent, const wxString & name) function, expected prototype:\nwxToolBar * wxXmlResource::LoadToolBar(wxWindow * parent, const wxString & name)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* parent=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString name(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxToolBar * wxXmlResource::LoadToolBar(wxWindow *, const wxString &)");
@@ -963,7 +972,7 @@ public:
 
 		wxString domain(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResource::SetDomain(const wxString &)");
@@ -982,7 +991,7 @@ public:
 
 		int flags=(int)lua_tointeger(L,2);
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxXmlResource::SetFlags(int)");
@@ -1001,7 +1010,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxXmlResource* self=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxXmlResource::Unload(const wxString &)");
@@ -1043,17 +1052,17 @@ public:
 		return 1;
 	}
 
-	// static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE)
+	// static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE)
 	static int _bind_GetXRCID(lua_State *L) {
 		if (!_lg_typecheck_GetXRCID(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE) function, expected prototype:\nstatic int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = wxID_NONE)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE) function, expected prototype:\nstatic int wxXmlResource::GetXRCID(const wxString & str_id, int value_if_not_found = ::wxID_NONE)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString str_id(lua_tostring(L,1),lua_objlen(L,1));
-		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : wxID_NONE;
+		int value_if_not_found=luatop>1 ? (int)lua_tointeger(L,2) : ::wxID_NONE;
 
 		int lret = wxXmlResource::GetXRCID(str_id, value_if_not_found);
 		lua_pushnumber(L,lret);
@@ -1068,12 +1077,33 @@ public:
 			luaL_error(L, "luna typecheck failed in static wxXmlResource * wxXmlResource::Set(wxXmlResource * res) function, expected prototype:\nstatic wxXmlResource * wxXmlResource::Set(wxXmlResource * res)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxXmlResource* res=dynamic_cast< wxXmlResource* >(Luna< wxObject >::check(L,1));
+		wxXmlResource* res=(Luna< wxObject >::checkSubType< wxXmlResource >(L,1));
 
 		wxXmlResource * lret = wxXmlResource::Set(res);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxXmlResource >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxXmlResource::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxXmlResource::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxXmlResource::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxXmlResource* self=Luna< wxObject >::checkSubType< wxXmlResource >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxXmlResource::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxXmlResource::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -1128,6 +1158,7 @@ luna_RegType LunaTraits< wxXmlResource >::methods[] = {
 	{"Get", &luna_wrapper_wxXmlResource::_bind_Get},
 	{"GetXRCID", &luna_wrapper_wxXmlResource::_bind_GetXRCID},
 	{"Set", &luna_wrapper_wxXmlResource::_bind_Set},
+	{"base_GetClassInfo", &luna_wrapper_wxXmlResource::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxXmlResource::_bind___eq},
 	{0,0}
 };

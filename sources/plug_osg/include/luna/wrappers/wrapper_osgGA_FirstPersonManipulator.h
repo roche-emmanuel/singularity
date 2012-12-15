@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return FirstPersonManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return FirstPersonManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return FirstPersonManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FirstPersonManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FirstPersonManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return FirstPersonManipulator::releaseGLObjects(arg1);
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return FirstPersonManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return FirstPersonManipulator::operator()(node, nv);
 	};
 
 	// void osgGA::CameraManipulator::setCoordinateFrameCallback(osgGA::CameraManipulator::CoordinateFrameCallback * cb)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setCoordinateFrameCallback(cb);
+		return FirstPersonManipulator::setCoordinateFrameCallback(cb);
 	};
 
 	// osgUtil::SceneView::FusionDistanceMode osgGA::CameraManipulator::getFusionDistanceMode() const
@@ -113,7 +113,7 @@ public:
 			return (osgUtil::SceneView::FusionDistanceMode)(_obj.callFunction<int>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceMode();
+		return FirstPersonManipulator::getFusionDistanceMode();
 	};
 
 	// float osgGA::CameraManipulator::getFusionDistanceValue() const
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osgGA::CameraManipulator::getFusionDistanceValue();
+		return FirstPersonManipulator::getFusionDistanceValue();
 	};
 
 	// void osgGA::CameraManipulator::setHomePosition(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up, bool autoComputeHomePosition = false)
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
+		return FirstPersonManipulator::setHomePosition(eye, center, up, autoComputeHomePosition);
 	};
 
 	// void osgGA::CameraManipulator::getHomePosition(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::getHomePosition(eye, center, up);
+		return FirstPersonManipulator::getHomePosition(eye, center, up);
 	};
 
 	// void osgGA::CameraManipulator::setAutoComputeHomePosition(bool flag)
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::setAutoComputeHomePosition(flag);
+		return FirstPersonManipulator::setAutoComputeHomePosition(flag);
 	};
 
 	// void osgGA::CameraManipulator::computeHomePosition(const osg::Camera * camera = NULL, bool useBoundingBox = false)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::CameraManipulator::computeHomePosition(camera, useBoundingBox);
+		return FirstPersonManipulator::computeHomePosition(camera, useBoundingBox);
 	};
 
 	// void osgGA::StandardManipulator::setNode(osg::Node * arg1)
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setNode(arg1);
+		return FirstPersonManipulator::setNode(arg1);
 	};
 
 	// const osg::Node * osgGA::StandardManipulator::getNode() const
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::StandardManipulator::getNode();
+		return FirstPersonManipulator::getNode();
 	};
 
 	// osg::Node * osgGA::StandardManipulator::getNode()
@@ -196,7 +196,7 @@ public:
 			return (_obj.callFunction<osg::Node*>());
 		}
 
-		return osgGA::StandardManipulator::getNode();
+		return FirstPersonManipulator::getNode();
 	};
 
 	// void osgGA::StandardManipulator::setVerticalAxisFixed(bool value)
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setVerticalAxisFixed(value);
+		return FirstPersonManipulator::setVerticalAxisFixed(value);
 	};
 
 	// void osgGA::StandardManipulator::setAllowThrow(bool allowThrow)
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setAllowThrow(allowThrow);
+		return FirstPersonManipulator::setAllowThrow(allowThrow);
 	};
 
 	// void osgGA::StandardManipulator::setAnimationTime(const double t)
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::setAnimationTime(t);
+		return FirstPersonManipulator::setAnimationTime(t);
 	};
 
 	// void osgGA::StandardManipulator::finishAnimation()
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::finishAnimation();
+		return FirstPersonManipulator::finishAnimation();
 	};
 
 	// bool osgGA::StandardManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -246,7 +246,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::StandardManipulator::handle(ea, us);
+		return FirstPersonManipulator::handle(ea, us);
 	};
 
 	// void osgGA::StandardManipulator::getUsage(osg::ApplicationUsage & arg1) const
@@ -256,7 +256,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StandardManipulator::getUsage(arg1);
+		return FirstPersonManipulator::getUsage(arg1);
 	};
 
 	// osg::Object * osgGA::FirstPersonManipulator::cloneType() const
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::FirstPersonManipulator::cloneType();
+		return FirstPersonManipulator::cloneType();
 	};
 
 	// osg::Object * osgGA::FirstPersonManipulator::clone(const osg::CopyOp & arg1) const
@@ -275,7 +275,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgGA::FirstPersonManipulator::clone(arg1);
+		return FirstPersonManipulator::clone(arg1);
 	};
 
 	// bool osgGA::FirstPersonManipulator::isSameKindAs(const osg::Object * obj) const
@@ -285,7 +285,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::FirstPersonManipulator::isSameKindAs(obj);
+		return FirstPersonManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::FirstPersonManipulator::libraryName() const
@@ -294,7 +294,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::FirstPersonManipulator::libraryName();
+		return FirstPersonManipulator::libraryName();
 	};
 
 	// const char * osgGA::FirstPersonManipulator::className() const
@@ -303,7 +303,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::FirstPersonManipulator::className();
+		return FirstPersonManipulator::className();
 	};
 
 	// void osgGA::FirstPersonManipulator::setByMatrix(const osg::Matrixd & matrix)
@@ -313,7 +313,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setByMatrix(matrix);
+		return FirstPersonManipulator::setByMatrix(matrix);
 	};
 
 	// void osgGA::FirstPersonManipulator::setByInverseMatrix(const osg::Matrixd & matrix)
@@ -323,7 +323,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setByInverseMatrix(matrix);
+		return FirstPersonManipulator::setByInverseMatrix(matrix);
 	};
 
 	// osg::Matrixd osgGA::FirstPersonManipulator::getMatrix() const
@@ -332,7 +332,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::FirstPersonManipulator::getMatrix();
+		return FirstPersonManipulator::getMatrix();
 	};
 
 	// osg::Matrixd osgGA::FirstPersonManipulator::getInverseMatrix() const
@@ -341,7 +341,7 @@ public:
 			return *(_obj.callFunction<osg::Matrixd*>());
 		}
 
-		return osgGA::FirstPersonManipulator::getInverseMatrix();
+		return FirstPersonManipulator::getInverseMatrix();
 	};
 
 	// void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)
@@ -352,7 +352,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setTransformation(eye, rotation);
+		return FirstPersonManipulator::setTransformation(eye, rotation);
 	};
 
 	// void osgGA::FirstPersonManipulator::setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)
@@ -364,7 +364,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setTransformation(eye, center, up);
+		return FirstPersonManipulator::setTransformation(eye, center, up);
 	};
 
 	// void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d & eye, osg::Quat & rotation) const
@@ -375,7 +375,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::getTransformation(eye, rotation);
+		return FirstPersonManipulator::getTransformation(eye, rotation);
 	};
 
 	// void osgGA::FirstPersonManipulator::getTransformation(osg::Vec3d & eye, osg::Vec3d & center, osg::Vec3d & up) const
@@ -387,7 +387,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::getTransformation(eye, center, up);
+		return FirstPersonManipulator::getTransformation(eye, center, up);
 	};
 
 	// void osgGA::FirstPersonManipulator::setVelocity(const double & velocity)
@@ -397,7 +397,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setVelocity(velocity);
+		return FirstPersonManipulator::setVelocity(velocity);
 	};
 
 	// void osgGA::FirstPersonManipulator::setAcceleration(const double & acceleration, bool relativeToModelSize = false)
@@ -408,7 +408,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setAcceleration(acceleration, relativeToModelSize);
+		return FirstPersonManipulator::setAcceleration(acceleration, relativeToModelSize);
 	};
 
 	// void osgGA::FirstPersonManipulator::setMaxVelocity(const double & maxVelocity, bool relativeToModelSize = false)
@@ -419,7 +419,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setMaxVelocity(maxVelocity, relativeToModelSize);
+		return FirstPersonManipulator::setMaxVelocity(maxVelocity, relativeToModelSize);
 	};
 
 	// void osgGA::FirstPersonManipulator::setWheelMovement(const double & wheelMovement, bool relativeToModelSize = false)
@@ -430,7 +430,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::setWheelMovement(wheelMovement, relativeToModelSize);
+		return FirstPersonManipulator::setWheelMovement(wheelMovement, relativeToModelSize);
 	};
 
 	// void osgGA::FirstPersonManipulator::home(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -441,7 +441,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::home(arg1, arg2);
+		return FirstPersonManipulator::home(arg1, arg2);
 	};
 
 	// void osgGA::FirstPersonManipulator::home(double arg1)
@@ -451,7 +451,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::home(arg1);
+		return FirstPersonManipulator::home(arg1);
 	};
 
 	// void osgGA::FirstPersonManipulator::init(const osgGA::GUIEventAdapter & arg1, osgGA::GUIActionAdapter & arg2)
@@ -462,33 +462,250 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::FirstPersonManipulator::init(arg1, arg2);
+		return FirstPersonManipulator::init(arg1, arg2);
 	};
 
 
 protected:
 	// bool osgGA::StandardManipulator::handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleFrame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleFrame")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleFrame(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleResize(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleResize")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleResize(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseMove(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseMove")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseMove(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDrag(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDrag")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseDrag(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMousePush(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMousePush")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMousePush(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseRelease(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseRelease")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseRelease(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyDown")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleKeyDown(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleKeyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleKeyUp")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleKeyUp(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseDeltaMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseDeltaMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseDeltaMovement(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::performMovement()
+	bool performMovement() {
+		if(_obj.pushFunction("performMovement")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovement();
+	};
+
 	// bool osgGA::StandardManipulator::performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementMiddleMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementMiddleMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementMiddleMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::StandardManipulator::performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementRightMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementRightMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementRightMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::StandardManipulator::performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool performAnimationMovement(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("performAnimationMovement")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performAnimationMovement(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::isMouseMoving() const
+	bool isMouseMoving() const {
+		if(_obj.pushFunction("isMouseMoving")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::isMouseMoving();
+	};
+
 	// void osgGA::StandardManipulator::centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	void centerMousePointer(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("centerMousePointer")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::centerMousePointer(ea, us);
+	};
+
 	// bool osgGA::StandardManipulator::setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool setCenterByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("setCenterByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::setCenterByMousePointerIntersection(ea, us);
+	};
+
 	// bool osgGA::FirstPersonManipulator::handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool handleMouseWheel(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("handleMouseWheel")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::handleMouseWheel(ea, us);
+	};
+
 	// bool osgGA::FirstPersonManipulator::performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy)
+	bool performMovementLeftMouseButton(const double eventTimeDelta, const double dx, const double dy) {
+		if(_obj.pushFunction("performMovementLeftMouseButton")) {
+			_obj.pushArg(eventTimeDelta);
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMovementLeftMouseButton(eventTimeDelta, dx, dy);
+	};
+
 	// bool osgGA::FirstPersonManipulator::performMouseDeltaMovement(const float dx, const float dy)
+	bool performMouseDeltaMovement(const float dx, const float dy) {
+		if(_obj.pushFunction("performMouseDeltaMovement")) {
+			_obj.pushArg(dx);
+			_obj.pushArg(dy);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::performMouseDeltaMovement(dx, dy);
+	};
+
 	// void osgGA::FirstPersonManipulator::applyAnimationStep(const double currentProgress, const double prevProgress)
+	void applyAnimationStep(const double currentProgress, const double prevProgress) {
+		if(_obj.pushFunction("applyAnimationStep")) {
+			_obj.pushArg(currentProgress);
+			_obj.pushArg(prevProgress);
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::applyAnimationStep(currentProgress, prevProgress);
+	};
+
 	// bool osgGA::FirstPersonManipulator::startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
+	bool startAnimationByMousePointerIntersection(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us) {
+		if(_obj.pushFunction("startAnimationByMousePointerIntersection")) {
+			_obj.pushArg(&ea);
+			_obj.pushArg(&us);
+			return (_obj.callFunction<bool>());
+		}
+
+		return FirstPersonManipulator::startAnimationByMousePointerIntersection(ea, us);
+	};
+
 	// void osgGA::FirstPersonManipulator::allocAnimationData()
+	void allocAnimationData() {
+		if(_obj.pushFunction("allocAnimationData")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return FirstPersonManipulator::allocAnimationData();
+	};
+
 
 };
 

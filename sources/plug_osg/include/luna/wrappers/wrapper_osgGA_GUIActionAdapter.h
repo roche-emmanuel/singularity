@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgGA_GUIActionAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIActionAdapter(), _obj(L,-1) {};
 
 	// osg::View * osgGA::GUIActionAdapter::asView()
 	osg::View * asView() {
@@ -23,7 +22,7 @@ public:
 			return (_obj.callFunction<osg::View*>());
 		}
 
-		return osgGA::GUIActionAdapter::asView();
+		return GUIActionAdapter::asView();
 	};
 
 	// void osgGA::GUIActionAdapter::requestRedraw()

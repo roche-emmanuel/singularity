@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxZipInputStream.h>
+
 class luna_wrapper_wxZipInputStream {
 public:
 	typedef Luna< wxZipInputStream > luna_t;

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::BlendColor::Extensions* ptr= dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::BlendColor::Extensions* ptr= dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor::Extensions* ptr= luna_caster< osg::Referenced, osg::BlendColor::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -138,7 +139,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::BlendColor::Extensions* self=dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setupGLExtensions(unsigned int)");
@@ -157,7 +158,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::BlendColor::Extensions* self=dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::setBlendColorSupported(bool)");
@@ -175,7 +176,7 @@ public:
 		}
 
 
-		osg::BlendColor::Extensions* self=dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::BlendColor::Extensions::isBlendColorSupported() const");
@@ -198,7 +199,7 @@ public:
 		float blue=(float)lua_tonumber(L,4);
 		float alpha=(float)lua_tonumber(L,5);
 
-		osg::BlendColor::Extensions* self=dynamic_cast< osg::BlendColor::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::BlendColor::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::BlendColor::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::BlendColor::Extensions::glBlendColor(float, float, float, float) const");

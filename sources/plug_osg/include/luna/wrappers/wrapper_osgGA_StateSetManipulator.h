@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return StateSetManipulator::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return StateSetManipulator::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return StateSetManipulator::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateSetManipulator::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateSetManipulator::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,26 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
-	};
-
-	// osg::Object * osgGA::GUIEventHandler::cloneType() const
-	osg::Object * cloneType() const {
-		if(_obj.pushFunction("cloneType")) {
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return osgGA::GUIEventHandler::cloneType();
-	};
-
-	// osg::Object * osgGA::GUIEventHandler::clone(const osg::CopyOp & arg1) const
-	osg::Object * clone(const osg::CopyOp & arg1) const {
-		if(_obj.pushFunction("clone")) {
-			_obj.pushArg(&arg1);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return osgGA::GUIEventHandler::clone(arg1);
+		return StateSetManipulator::releaseGLObjects(arg1);
 	};
 
 	// bool osgGA::GUIEventHandler::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +81,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::GUIEventHandler::isSameKindAs(obj);
+		return StateSetManipulator::isSameKindAs(obj);
 	};
 
 	// const char * osgGA::GUIEventHandler::libraryName() const
@@ -109,7 +90,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::GUIEventHandler::libraryName();
+		return StateSetManipulator::libraryName();
 	};
 
 	// void osgGA::GUIEventHandler::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
@@ -120,7 +101,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::event(nv, drawable);
+		return StateSetManipulator::event(nv, drawable);
 	};
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -131,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::GUIEventHandler::operator()(node, nv);
+		return StateSetManipulator::operator()(node, nv);
 	};
 
 	// const char * osgGA::StateSetManipulator::className() const
@@ -140,7 +121,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgGA::StateSetManipulator::className();
+		return StateSetManipulator::className();
 	};
 
 	// void osgGA::StateSetManipulator::setStateSet(osg::StateSet * arg1)
@@ -150,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StateSetManipulator::setStateSet(arg1);
+		return StateSetManipulator::setStateSet(arg1);
 	};
 
 	// osg::StateSet * osgGA::StateSetManipulator::getStateSet()
@@ -159,7 +140,7 @@ public:
 			return (_obj.callFunction<osg::StateSet*>());
 		}
 
-		return osgGA::StateSetManipulator::getStateSet();
+		return StateSetManipulator::getStateSet();
 	};
 
 	// const osg::StateSet * osgGA::StateSetManipulator::getStateSet() const
@@ -168,7 +149,7 @@ public:
 			return (_obj.callFunction<osg::StateSet*>());
 		}
 
-		return osgGA::StateSetManipulator::getStateSet();
+		return StateSetManipulator::getStateSet();
 	};
 
 	// bool osgGA::StateSetManipulator::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & us)
@@ -179,7 +160,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgGA::StateSetManipulator::handle(ea, us);
+		return StateSetManipulator::handle(ea, us);
 	};
 
 	// void osgGA::StateSetManipulator::getUsage(osg::ApplicationUsage & usage) const
@@ -189,7 +170,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgGA::StateSetManipulator::getUsage(usage);
+		return StateSetManipulator::getUsage(usage);
 	};
 
 

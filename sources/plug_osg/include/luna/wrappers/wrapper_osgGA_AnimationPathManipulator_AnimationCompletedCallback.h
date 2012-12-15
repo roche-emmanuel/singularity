@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback(lua_State* L, lua_Table* dum) : osgGA::AnimationPathManipulator::AnimationCompletedCallback(), _obj(L,-1) {};
 
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
 	void completed(const osgGA::AnimationPathManipulator * apm) {

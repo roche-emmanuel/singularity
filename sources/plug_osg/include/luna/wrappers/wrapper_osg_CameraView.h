@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return CameraView::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return CameraView::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return CameraView::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CameraView::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return CameraView::getUserData();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return CameraView::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return CameraView::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return CameraView::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return CameraView::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return CameraView::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return CameraView::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return CameraView::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return CameraView::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return CameraView::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return CameraView::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return CameraView::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -179,7 +179,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return CameraView::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -190,7 +190,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return CameraView::setChild(i, node);
 	};
 
 	// void osg::Group::releaseGLObjects(osg::State * arg1 = 0) const
@@ -200,7 +200,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::releaseGLObjects(arg1);
+		return CameraView::releaseGLObjects(arg1);
 	};
 
 	// osg::Transform * osg::Transform::asTransform()
@@ -209,7 +209,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return CameraView::asTransform();
 	};
 
 	// const osg::Transform * osg::Transform::asTransform() const
@@ -218,7 +218,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Transform::asTransform();
+		return CameraView::asTransform();
 	};
 
 	// osg::MatrixTransform * osg::Transform::asMatrixTransform()
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return CameraView::asMatrixTransform();
 	};
 
 	// const osg::MatrixTransform * osg::Transform::asMatrixTransform() const
@@ -236,7 +236,7 @@ public:
 			return (_obj.callFunction<osg::MatrixTransform*>());
 		}
 
-		return osg::Transform::asMatrixTransform();
+		return CameraView::asMatrixTransform();
 	};
 
 	// osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform()
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return CameraView::asPositionAttitudeTransform();
 	};
 
 	// const osg::PositionAttitudeTransform * osg::Transform::asPositionAttitudeTransform() const
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<osg::PositionAttitudeTransform*>());
 		}
 
-		return osg::Transform::asPositionAttitudeTransform();
+		return CameraView::asPositionAttitudeTransform();
 	};
 
 	// osg::BoundingSphered osg::Transform::computeBound() const
@@ -263,7 +263,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Transform::computeBound();
+		return CameraView::computeBound();
 	};
 
 	// osg::Object * osg::CameraView::cloneType() const
@@ -272,7 +272,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CameraView::cloneType();
+		return CameraView::cloneType();
 	};
 
 	// osg::Object * osg::CameraView::clone(const osg::CopyOp & copyop) const
@@ -282,7 +282,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::CameraView::clone(copyop);
+		return CameraView::clone(copyop);
 	};
 
 	// bool osg::CameraView::isSameKindAs(const osg::Object * obj) const
@@ -292,7 +292,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CameraView::isSameKindAs(obj);
+		return CameraView::isSameKindAs(obj);
 	};
 
 	// const char * osg::CameraView::className() const
@@ -301,7 +301,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CameraView::className();
+		return CameraView::className();
 	};
 
 	// const char * osg::CameraView::libraryName() const
@@ -310,7 +310,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::CameraView::libraryName();
+		return CameraView::libraryName();
 	};
 
 	// void osg::CameraView::accept(osg::NodeVisitor & nv)
@@ -320,7 +320,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::CameraView::accept(nv);
+		return CameraView::accept(nv);
 	};
 
 	// bool osg::CameraView::computeLocalToWorldMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
@@ -331,7 +331,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CameraView::computeLocalToWorldMatrix(matrix, nv);
+		return CameraView::computeLocalToWorldMatrix(matrix, nv);
 	};
 
 	// bool osg::CameraView::computeWorldToLocalMatrix(osg::Matrixd & matrix, osg::NodeVisitor * nv) const
@@ -342,13 +342,32 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::CameraView::computeWorldToLocalMatrix(matrix, nv);
+		return CameraView::computeWorldToLocalMatrix(matrix, nv);
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return CameraView::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return CameraView::childInserted(arg1);
+	};
+
 
 };
 

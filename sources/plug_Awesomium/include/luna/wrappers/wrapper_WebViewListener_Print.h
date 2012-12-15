@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_Print(lua_State* L, lua_Table* dum) : WebViewListener::Print(), _obj(L,-1) {};
 
 	// void WebViewListener::Print::OnRequestPrint(Awesomium::WebView * caller)
 	void OnRequestPrint(Awesomium::WebView * caller) {

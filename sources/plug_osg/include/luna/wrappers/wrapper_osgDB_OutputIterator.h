@@ -149,7 +149,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::OutputIterator::flush();
+		return OutputIterator::flush();
 	};
 
 

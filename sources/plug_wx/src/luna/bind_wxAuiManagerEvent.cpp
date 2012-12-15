@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxAuiManagerEvent.h>
+
 class luna_wrapper_wxAuiManagerEvent {
 public:
 	typedef Luna< wxAuiManagerEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxAuiManagerEvent* ptr= dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		//wxAuiManagerEvent* ptr= dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* ptr= luna_caster< wxObject, wxAuiManagerEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -119,6 +122,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -132,7 +147,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::CanVeto()");
@@ -151,7 +166,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxAuiManagerEvent::GetButton()");
@@ -170,7 +185,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDC * wxAuiManagerEvent::GetDC()");
@@ -191,7 +206,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxAuiManagerEvent::GetVeto()");
@@ -210,7 +225,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiManager * wxAuiManagerEvent::GetManager()");
@@ -231,7 +246,7 @@ public:
 		}
 
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxAuiPaneInfo * wxAuiManagerEvent::GetPane()");
@@ -253,7 +268,7 @@ public:
 
 		int button=(int)lua_tointeger(L,2);
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetButton(int)");
@@ -272,7 +287,7 @@ public:
 
 		bool can_veto=(bool)(lua_toboolean(L,2)==1);
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetCanVeto(bool)");
@@ -289,9 +304,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiManagerEvent::SetDC(wxDC * pdc) function, expected prototype:\nvoid wxAuiManagerEvent::SetDC(wxDC * pdc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* pdc=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,2));
+		wxDC* pdc=(Luna< wxObject >::checkSubType< wxDC >(L,2));
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetDC(wxDC *)");
@@ -308,9 +323,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxAuiManagerEvent::SetManager(wxAuiManager * manager) function, expected prototype:\nvoid wxAuiManagerEvent::SetManager(wxAuiManager * manager)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxAuiManager* manager=dynamic_cast< wxAuiManager* >(Luna< wxObject >::check(L,2));
+		wxAuiManager* manager=(Luna< wxObject >::checkSubType< wxAuiManager >(L,2));
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetManager(wxAuiManager *)");
@@ -329,7 +344,7 @@ public:
 
 		wxAuiPaneInfo* pane=(Luna< wxAuiPaneInfo >::check(L,2));
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::SetPane(wxAuiPaneInfo *)");
@@ -350,7 +365,7 @@ public:
 
 		bool veto=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxAuiManagerEvent* self=dynamic_cast< wxAuiManagerEvent* >(Luna< wxObject >::check(L,1));
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxAuiManagerEvent::Veto(bool)");
@@ -358,6 +373,46 @@ public:
 		self->Veto(veto);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiManagerEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxAuiManagerEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxAuiManagerEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxAuiManagerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxAuiManagerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxAuiManagerEvent* self=Luna< wxObject >::checkSubType< wxAuiManagerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxAuiManagerEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxAuiManagerEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -369,8 +424,6 @@ wxAuiManagerEvent* LunaTraits< wxAuiManagerEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxAuiManagerEvent >::_bind_dtor(wxAuiManagerEvent* obj) {
@@ -397,6 +450,8 @@ luna_RegType LunaTraits< wxAuiManagerEvent >::methods[] = {
 	{"SetManager", &luna_wrapper_wxAuiManagerEvent::_bind_SetManager},
 	{"SetPane", &luna_wrapper_wxAuiManagerEvent::_bind_SetPane},
 	{"Veto", &luna_wrapper_wxAuiManagerEvent::_bind_Veto},
+	{"base_GetClassInfo", &luna_wrapper_wxAuiManagerEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxAuiManagerEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxAuiManagerEvent::_bind___eq},
 	{0,0}
 };

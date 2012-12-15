@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_WebViewListener_View(lua_State* L, lua_Table* dum) : WebViewListener::View(), _obj(L,-1) {};
 
 	// void WebViewListener::View::OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title)
 	void OnChangeTitle(Awesomium::WebView * caller, const Awesomium::WebString & title) {

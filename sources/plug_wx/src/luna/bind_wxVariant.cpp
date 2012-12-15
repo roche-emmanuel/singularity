@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVariant.h>
+
 class luna_wrapper_wxVariant {
 public:
 	typedef Luna< wxVariant > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxVariant* ptr= dynamic_cast< wxVariant* >(Luna< wxObject >::check(L,1));
+		//wxVariant* ptr= dynamic_cast< wxVariant* >(Luna< wxObject >::check(L,1));
+		wxVariant* ptr= luna_caster< wxObject, wxVariant >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

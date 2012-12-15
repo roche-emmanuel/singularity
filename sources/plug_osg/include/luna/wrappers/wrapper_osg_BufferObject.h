@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return BufferObject::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return BufferObject::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return BufferObject::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BufferObject::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return BufferObject::getUserData();
 	};
 
 	// bool osg::BufferObject::isSameKindAs(const osg::Object * obj) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::BufferObject::isSameKindAs(obj);
+		return BufferObject::isSameKindAs(obj);
 	};
 
 	// const char * osg::BufferObject::libraryName() const
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BufferObject::libraryName();
+		return BufferObject::libraryName();
 	};
 
 	// const char * osg::BufferObject::className() const
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::BufferObject::className();
+		return BufferObject::className();
 	};
 
 	// void osg::BufferObject::releaseGLObjects(osg::State * state = 0) const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferObject::releaseGLObjects(state);
+		return BufferObject::releaseGLObjects(state);
 	};
 
 

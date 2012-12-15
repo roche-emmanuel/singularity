@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSpinDoubleEvent.h>
+
 class luna_wrapper_wxSpinDoubleEvent {
 public:
 	typedef Luna< wxSpinDoubleEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSpinDoubleEvent* ptr= dynamic_cast< wxSpinDoubleEvent* >(Luna< wxObject >::check(L,1));
+		//wxSpinDoubleEvent* ptr= dynamic_cast< wxSpinDoubleEvent* >(Luna< wxObject >::check(L,1));
+		wxSpinDoubleEvent* ptr= luna_caster< wxObject, wxSpinDoubleEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -53,6 +56,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -66,7 +81,7 @@ public:
 		}
 
 
-		wxSpinDoubleEvent* self=dynamic_cast< wxSpinDoubleEvent* >(Luna< wxObject >::check(L,1));
+		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double wxSpinDoubleEvent::GetValue() const");
@@ -86,7 +101,7 @@ public:
 
 		double value=(double)lua_tonumber(L,2);
 
-		wxSpinDoubleEvent* self=dynamic_cast< wxSpinDoubleEvent* >(Luna< wxObject >::check(L,1));
+		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSpinDoubleEvent::SetValue(double)");
@@ -94,6 +109,46 @@ public:
 		self->SetValue(value);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSpinDoubleEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSpinDoubleEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxSpinDoubleEvent* self=Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSpinDoubleEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxSpinDoubleEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -105,8 +160,6 @@ wxSpinDoubleEvent* LunaTraits< wxSpinDoubleEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSpinDoubleEvent >::_bind_dtor(wxSpinDoubleEvent* obj) {
@@ -123,6 +176,8 @@ const int LunaTraits< wxSpinDoubleEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxSpinDoubleEvent >::methods[] = {
 	{"GetValue", &luna_wrapper_wxSpinDoubleEvent::_bind_GetValue},
 	{"SetValue", &luna_wrapper_wxSpinDoubleEvent::_bind_SetValue},
+	{"base_GetClassInfo", &luna_wrapper_wxSpinDoubleEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxSpinDoubleEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxSpinDoubleEvent::_bind___eq},
 	{0,0}
 };

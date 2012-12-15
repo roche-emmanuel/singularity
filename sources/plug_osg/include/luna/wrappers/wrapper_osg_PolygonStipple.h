@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return PolygonStipple::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return PolygonStipple::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return PolygonStipple::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PolygonStipple::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return PolygonStipple::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return PolygonStipple::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return PolygonStipple::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return PolygonStipple::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return PolygonStipple::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return PolygonStipple::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return PolygonStipple::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return PolygonStipple::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::PolygonStipple::cloneType() const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PolygonStipple::cloneType();
+		return PolygonStipple::cloneType();
 	};
 
 	// osg::Object * osg::PolygonStipple::clone(const osg::CopyOp & arg1) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::PolygonStipple::clone(arg1);
+		return PolygonStipple::clone(arg1);
 	};
 
 	// bool osg::PolygonStipple::isSameKindAs(const osg::Object * obj) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PolygonStipple::isSameKindAs(obj);
+		return PolygonStipple::isSameKindAs(obj);
 	};
 
 	// const char * osg::PolygonStipple::libraryName() const
@@ -167,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PolygonStipple::libraryName();
+		return PolygonStipple::libraryName();
 	};
 
 	// const char * osg::PolygonStipple::className() const
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::PolygonStipple::className();
+		return PolygonStipple::className();
 	};
 
 	// osg::StateAttribute::Type osg::PolygonStipple::getType() const
@@ -185,7 +185,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::PolygonStipple::getType();
+		return PolygonStipple::getType();
 	};
 
 	// int osg::PolygonStipple::compare(const osg::StateAttribute & sa) const
@@ -195,7 +195,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::PolygonStipple::compare(sa);
+		return PolygonStipple::compare(sa);
 	};
 
 	// bool osg::PolygonStipple::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::PolygonStipple::getModeUsage(arg1);
+		return PolygonStipple::getModeUsage(arg1);
 	};
 
 	// void osg::PolygonStipple::apply(osg::State & arg1) const
@@ -215,7 +215,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::PolygonStipple::apply(arg1);
+		return PolygonStipple::apply(arg1);
 	};
 
 

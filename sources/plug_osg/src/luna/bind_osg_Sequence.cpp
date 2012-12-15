@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Sequence* ptr= dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Sequence* ptr= dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* ptr= luna_caster< osg::Referenced, osg::Sequence >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -389,6 +390,220 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTransform_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTransform_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asSwitch_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asSwitch_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGeode_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGeode_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ascend(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGroup_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asGroup_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_replaceChild(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setChild(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeBound(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_accept(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_traverse(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_addChild_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_addChild_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_insertChild_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_insertChild_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_removeChild(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_removeChildren(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -414,7 +629,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Sequence* _arg1_ptr=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Sequence* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Sequence::Sequence function");
 		}
@@ -448,7 +663,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Sequence* _arg2_ptr=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Sequence* _arg2_ptr=(Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,2));
 		if( !_arg2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::Sequence::Sequence function");
 		}
@@ -483,7 +698,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Sequence::cloneType() const");
@@ -509,7 +724,7 @@ public:
 		}
 		const osg::CopyOp & copyop=*copyop_ptr;
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Sequence::clone(const osg::CopyOp &) const");
@@ -529,9 +744,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Sequence::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Sequence::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::isSameKindAs(const osg::Object *) const");
@@ -550,7 +765,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Sequence::className() const");
@@ -569,7 +784,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Sequence::libraryName() const");
@@ -587,13 +802,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Sequence::accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Sequence::accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::NodeVisitor* nv_ptr=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));
+		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
 		if( !nv_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg nv in osg::Sequence::accept function");
 		}
 		osg::NodeVisitor & nv=*nv_ptr;
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::accept(osg::NodeVisitor &)");
@@ -610,13 +825,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Sequence::traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::Sequence::traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::NodeVisitor* _arg1_ptr=dynamic_cast< osg::NodeVisitor* >(Luna< osg::Referenced >::check(L,2));
+		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Sequence::traverse function");
 		}
 		osg::NodeVisitor & _arg1=*_arg1_ptr;
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::traverse(osg::NodeVisitor &)");
@@ -633,9 +848,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Sequence::addChild(osg::Node * child) function, expected prototype:\nbool osg::Sequence::addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* child=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::addChild(osg::Node *)");
@@ -653,10 +868,10 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Sequence::addChild(osg::Node * child, double t) function, expected prototype:\nbool osg::Sequence::addChild(osg::Node * child, double t)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* child=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 		double t=(double)lua_tonumber(L,3);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::addChild(osg::Node *, double)");
@@ -684,9 +899,9 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::Node* child=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,3));
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::insertChild(unsigned int, osg::Node *)");
@@ -705,10 +920,10 @@ public:
 		}
 
 		unsigned int index=(unsigned int)lua_tointeger(L,2);
-		osg::Node* child=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,3));
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
 		double t=(double)lua_tonumber(L,4);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::insertChild(unsigned int, osg::Node *, double)");
@@ -735,9 +950,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Sequence::removeChild(osg::Node * child) function, expected prototype:\nbool osg::Sequence::removeChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Node* child=dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2));
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::removeChild(osg::Node *)");
@@ -758,7 +973,7 @@ public:
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
 		unsigned int numChildrenToRemove=(unsigned int)lua_tointeger(L,3);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::removeChildren(unsigned int, unsigned int)");
@@ -778,7 +993,7 @@ public:
 
 		int value=(int)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setValue(int)");
@@ -796,7 +1011,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Sequence::getValue() const");
@@ -817,7 +1032,7 @@ public:
 		unsigned int frame=(unsigned int)lua_tointeger(L,2);
 		double t=(double)lua_tonumber(L,3);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setTime(unsigned int, double)");
@@ -836,7 +1051,7 @@ public:
 
 		unsigned int frame=(unsigned int)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::Sequence::getTime(unsigned int) const");
@@ -860,7 +1075,7 @@ public:
 		}
 		const std::vector< double > & timeList=*timeList_ptr;
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setTimeList(const std::vector< double > &)");
@@ -878,7 +1093,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::vector< double > & osg::Sequence::getTimeList() const");
@@ -900,7 +1115,7 @@ public:
 
 		double t=(double)lua_tonumber(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setDefaultTime(double)");
@@ -918,7 +1133,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::Sequence::getDefaultTime() const");
@@ -938,7 +1153,7 @@ public:
 
 		double t=(double)lua_tonumber(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setLastFrameTime(double)");
@@ -956,7 +1171,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::Sequence::getLastFrameTime() const");
@@ -975,7 +1190,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::Sequence::getNumFrames() const");
@@ -995,7 +1210,7 @@ public:
 
 		osg::Sequence::LoopMode mode=(osg::Sequence::LoopMode)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setLoopMode(osg::Sequence::LoopMode)");
@@ -1013,7 +1228,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Sequence::LoopMode osg::Sequence::getLoopMode() const");
@@ -1033,7 +1248,7 @@ public:
 
 		int begin=(int)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setBegin(int)");
@@ -1051,7 +1266,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Sequence::getBegin() const");
@@ -1071,7 +1286,7 @@ public:
 
 		int end=(int)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setEnd(int)");
@@ -1089,7 +1304,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Sequence::getEnd() const");
@@ -1111,7 +1326,7 @@ public:
 		int begin=(int)lua_tointeger(L,3);
 		int end=(int)lua_tointeger(L,4);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setInterval(osg::Sequence::LoopMode, int, int)");
@@ -1132,7 +1347,7 @@ public:
 		int begin=(int)lua_tointeger(L,3);
 		int end=(int)lua_tointeger(L,4);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::getInterval(osg::Sequence::LoopMode &, int &, int &) const");
@@ -1151,7 +1366,7 @@ public:
 
 		float speed=(float)lua_tonumber(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setSpeed(float)");
@@ -1169,7 +1384,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call float osg::Sequence::getSpeed() const");
@@ -1189,7 +1404,7 @@ public:
 
 		int nreps=(int)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setNumRepeats(int)");
@@ -1207,7 +1422,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Sequence::getNumRepeats() const");
@@ -1230,7 +1445,7 @@ public:
 		float speed=(float)lua_tonumber(L,2);
 		int nreps=luatop>2 ? (int)lua_tointeger(L,3) : -1;
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setDuration(float, int)");
@@ -1250,7 +1465,7 @@ public:
 		float speed=(float)lua_tonumber(L,2);
 		int nreps=(int)lua_tointeger(L,3);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::getDuration(float &, int &) const");
@@ -1269,7 +1484,7 @@ public:
 
 		osg::Sequence::SequenceMode mode=(osg::Sequence::SequenceMode)lua_tointeger(L,2);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setMode(osg::Sequence::SequenceMode)");
@@ -1287,7 +1502,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Sequence::SequenceMode osg::Sequence::getMode() const");
@@ -1307,7 +1522,7 @@ public:
 
 		bool sync=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setSync(bool)");
@@ -1325,7 +1540,7 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::getSync() const");
@@ -1345,7 +1560,7 @@ public:
 
 		bool clearOnStop=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Sequence::setClearOnStop(bool)");
@@ -1363,12 +1578,725 @@ public:
 		}
 
 
-		osg::Sequence* self=dynamic_cast< osg::Sequence* >(Luna< osg::Referenced >::check(L,1));
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Sequence::getClearOnStop() const");
 		}
 		bool lret = self->getClearOnStop();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::Sequence::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Sequence::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_setName(const std::string &)");
+		}
+		self->Sequence::setName(name);
+
+		return 0;
+	}
+
+	// void osg::Sequence::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_computeDataVariance() function, expected prototype:\nvoid osg::Sequence::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_computeDataVariance()");
+		}
+		self->Sequence::computeDataVariance();
+
+		return 0;
+	}
+
+	// void osg::Sequence::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Sequence::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_setUserData(osg::Referenced *)");
+		}
+		self->Sequence::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::Sequence::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Sequence::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Sequence::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Sequence::base_getUserData()");
+		}
+		osg::Referenced * lret = self->Sequence::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::Sequence::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Sequence::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Sequence::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Sequence::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->Sequence::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// osg::Transform * osg::Sequence::base_asTransform()
+	static int _bind_base_asTransform_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asTransform_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Transform * osg::Sequence::base_asTransform() function, expected prototype:\nosg::Transform * osg::Sequence::base_asTransform()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Transform * osg::Sequence::base_asTransform()");
+		}
+		osg::Transform * lret = self->Sequence::asTransform();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Transform >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Transform * osg::Sequence::base_asTransform() const
+	static int _bind_base_asTransform_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asTransform_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Transform * osg::Sequence::base_asTransform() const function, expected prototype:\nconst osg::Transform * osg::Sequence::base_asTransform() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Transform * osg::Sequence::base_asTransform() const");
+		}
+		const osg::Transform * lret = self->Sequence::asTransform();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Transform >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_asTransform
+	static int _bind_base_asTransform(lua_State *L) {
+		if (_lg_typecheck_base_asTransform_overload_1(L)) return _bind_base_asTransform_overload_1(L);
+		if (_lg_typecheck_base_asTransform_overload_2(L)) return _bind_base_asTransform_overload_2(L);
+
+		luaL_error(L, "error in function base_asTransform, cannot match any of the overloads for function base_asTransform:\n  base_asTransform()\n  base_asTransform()\n");
+		return 0;
+	}
+
+	// osg::Switch * osg::Sequence::base_asSwitch()
+	static int _bind_base_asSwitch_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asSwitch_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Switch * osg::Sequence::base_asSwitch() function, expected prototype:\nosg::Switch * osg::Sequence::base_asSwitch()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Switch * osg::Sequence::base_asSwitch()");
+		}
+		osg::Switch * lret = self->Sequence::asSwitch();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Switch >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Switch * osg::Sequence::base_asSwitch() const
+	static int _bind_base_asSwitch_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asSwitch_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Switch * osg::Sequence::base_asSwitch() const function, expected prototype:\nconst osg::Switch * osg::Sequence::base_asSwitch() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Switch * osg::Sequence::base_asSwitch() const");
+		}
+		const osg::Switch * lret = self->Sequence::asSwitch();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Switch >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_asSwitch
+	static int _bind_base_asSwitch(lua_State *L) {
+		if (_lg_typecheck_base_asSwitch_overload_1(L)) return _bind_base_asSwitch_overload_1(L);
+		if (_lg_typecheck_base_asSwitch_overload_2(L)) return _bind_base_asSwitch_overload_2(L);
+
+		luaL_error(L, "error in function base_asSwitch, cannot match any of the overloads for function base_asSwitch:\n  base_asSwitch()\n  base_asSwitch()\n");
+		return 0;
+	}
+
+	// osg::Geode * osg::Sequence::base_asGeode()
+	static int _bind_base_asGeode_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asGeode_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Geode * osg::Sequence::base_asGeode() function, expected prototype:\nosg::Geode * osg::Sequence::base_asGeode()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Geode * osg::Sequence::base_asGeode()");
+		}
+		osg::Geode * lret = self->Sequence::asGeode();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geode >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Geode * osg::Sequence::base_asGeode() const
+	static int _bind_base_asGeode_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asGeode_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Geode * osg::Sequence::base_asGeode() const function, expected prototype:\nconst osg::Geode * osg::Sequence::base_asGeode() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Geode * osg::Sequence::base_asGeode() const");
+		}
+		const osg::Geode * lret = self->Sequence::asGeode();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Geode >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_asGeode
+	static int _bind_base_asGeode(lua_State *L) {
+		if (_lg_typecheck_base_asGeode_overload_1(L)) return _bind_base_asGeode_overload_1(L);
+		if (_lg_typecheck_base_asGeode_overload_2(L)) return _bind_base_asGeode_overload_2(L);
+
+		luaL_error(L, "error in function base_asGeode, cannot match any of the overloads for function base_asGeode:\n  base_asGeode()\n  base_asGeode()\n");
+		return 0;
+	}
+
+	// void osg::Sequence::base_ascend(osg::NodeVisitor & nv)
+	static int _bind_base_ascend(lua_State *L) {
+		if (!_lg_typecheck_base_ascend(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_ascend(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Sequence::base_ascend(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
+		if( !nv_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg nv in osg::Sequence::base_ascend function");
+		}
+		osg::NodeVisitor & nv=*nv_ptr;
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_ascend(osg::NodeVisitor &)");
+		}
+		self->Sequence::ascend(nv);
+
+		return 0;
+	}
+
+	// osg::Group * osg::Sequence::base_asGroup()
+	static int _bind_base_asGroup_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asGroup_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Group * osg::Sequence::base_asGroup() function, expected prototype:\nosg::Group * osg::Sequence::base_asGroup()\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Group * osg::Sequence::base_asGroup()");
+		}
+		osg::Group * lret = self->Sequence::asGroup();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Group >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Group * osg::Sequence::base_asGroup() const
+	static int _bind_base_asGroup_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asGroup_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Group * osg::Sequence::base_asGroup() const function, expected prototype:\nconst osg::Group * osg::Sequence::base_asGroup() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Group * osg::Sequence::base_asGroup() const");
+		}
+		const osg::Group * lret = self->Sequence::asGroup();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Group >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_asGroup
+	static int _bind_base_asGroup(lua_State *L) {
+		if (_lg_typecheck_base_asGroup_overload_1(L)) return _bind_base_asGroup_overload_1(L);
+		if (_lg_typecheck_base_asGroup_overload_2(L)) return _bind_base_asGroup_overload_2(L);
+
+		luaL_error(L, "error in function base_asGroup, cannot match any of the overloads for function base_asGroup:\n  base_asGroup()\n  base_asGroup()\n");
+		return 0;
+	}
+
+	// bool osg::Sequence::base_replaceChild(osg::Node * origChild, osg::Node * newChild)
+	static int _bind_base_replaceChild(lua_State *L) {
+		if (!_lg_typecheck_base_replaceChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_replaceChild(osg::Node * origChild, osg::Node * newChild) function, expected prototype:\nbool osg::Sequence::base_replaceChild(osg::Node * origChild, osg::Node * newChild)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+		}
+
+		osg::Node* origChild=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		osg::Node* newChild=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_replaceChild(osg::Node *, osg::Node *)");
+		}
+		bool lret = self->Sequence::replaceChild(origChild, newChild);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Sequence::base_setChild(unsigned int i, osg::Node * node)
+	static int _bind_base_setChild(lua_State *L) {
+		if (!_lg_typecheck_base_setChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_setChild(unsigned int i, osg::Node * node) function, expected prototype:\nbool osg::Sequence::base_setChild(unsigned int i, osg::Node * node)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int i=(unsigned int)lua_tointeger(L,2);
+		osg::Node* node=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_setChild(unsigned int, osg::Node *)");
+		}
+		bool lret = self->Sequence::setChild(i, node);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::Sequence::base_releaseGLObjects(osg::State * arg1 = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_releaseGLObjects(osg::State * arg1 = 0) const function, expected prototype:\nvoid osg::Sequence::base_releaseGLObjects(osg::State * arg1 = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* _arg1=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_releaseGLObjects(osg::State *) const");
+		}
+		self->Sequence::releaseGLObjects(_arg1);
+
+		return 0;
+	}
+
+	// osg::BoundingSphered osg::Sequence::base_computeBound() const
+	static int _bind_base_computeBound(lua_State *L) {
+		if (!_lg_typecheck_base_computeBound(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BoundingSphered osg::Sequence::base_computeBound() const function, expected prototype:\nosg::BoundingSphered osg::Sequence::base_computeBound() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::BoundingSphered osg::Sequence::base_computeBound() const");
+		}
+		osg::BoundingSphered stack_lret = self->Sequence::computeBound();
+		osg::BoundingSphered* lret = new osg::BoundingSphered(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::BoundingSphered >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Object * osg::Sequence::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Sequence::base_cloneType() const function, expected prototype:\nosg::Object * osg::Sequence::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Sequence::base_cloneType() const");
+		}
+		osg::Object * lret = self->Sequence::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::Sequence::base_clone(const osg::CopyOp & copyop) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Sequence::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * osg::Sequence::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Sequence::base_clone function");
+		}
+		const osg::CopyOp & copyop=*copyop_ptr;
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Sequence::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->Sequence::clone(copyop);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::Sequence::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Sequence::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->Sequence::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::Sequence::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Sequence::base_className() const function, expected prototype:\nconst char * osg::Sequence::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Sequence::base_className() const");
+		}
+		const char * lret = self->Sequence::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::Sequence::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Sequence::base_libraryName() const function, expected prototype:\nconst char * osg::Sequence::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Sequence::base_libraryName() const");
+		}
+		const char * lret = self->Sequence::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Sequence::base_accept(osg::NodeVisitor & nv)
+	static int _bind_base_accept(lua_State *L) {
+		if (!_lg_typecheck_base_accept(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_accept(osg::NodeVisitor & nv) function, expected prototype:\nvoid osg::Sequence::base_accept(osg::NodeVisitor & nv)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::NodeVisitor* nv_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
+		if( !nv_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg nv in osg::Sequence::base_accept function");
+		}
+		osg::NodeVisitor & nv=*nv_ptr;
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_accept(osg::NodeVisitor &)");
+		}
+		self->Sequence::accept(nv);
+
+		return 0;
+	}
+
+	// void osg::Sequence::base_traverse(osg::NodeVisitor & arg1)
+	static int _bind_base_traverse(lua_State *L) {
+		if (!_lg_typecheck_base_traverse(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Sequence::base_traverse(osg::NodeVisitor & arg1) function, expected prototype:\nvoid osg::Sequence::base_traverse(osg::NodeVisitor & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::NodeVisitor* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Sequence::base_traverse function");
+		}
+		osg::NodeVisitor & _arg1=*_arg1_ptr;
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Sequence::base_traverse(osg::NodeVisitor &)");
+		}
+		self->Sequence::traverse(_arg1);
+
+		return 0;
+	}
+
+	// bool osg::Sequence::base_addChild(osg::Node * child)
+	static int _bind_base_addChild_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_addChild_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_addChild(osg::Node * child) function, expected prototype:\nbool osg::Sequence::base_addChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_addChild(osg::Node *)");
+		}
+		bool lret = self->Sequence::addChild(child);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Sequence::base_addChild(osg::Node * child, double t)
+	static int _bind_base_addChild_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_addChild_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_addChild(osg::Node * child, double t) function, expected prototype:\nbool osg::Sequence::base_addChild(osg::Node * child, double t)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+		double t=(double)lua_tonumber(L,3);
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_addChild(osg::Node *, double)");
+		}
+		bool lret = self->Sequence::addChild(child, t);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_addChild
+	static int _bind_base_addChild(lua_State *L) {
+		if (_lg_typecheck_base_addChild_overload_1(L)) return _bind_base_addChild_overload_1(L);
+		if (_lg_typecheck_base_addChild_overload_2(L)) return _bind_base_addChild_overload_2(L);
+
+		luaL_error(L, "error in function base_addChild, cannot match any of the overloads for function base_addChild:\n  base_addChild(osg::Node *)\n  base_addChild(osg::Node *, double)\n");
+		return 0;
+	}
+
+	// bool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child)
+	static int _bind_base_insertChild_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_insertChild_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child) function, expected prototype:\nbool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int index=(unsigned int)lua_tointeger(L,2);
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_insertChild(unsigned int, osg::Node *)");
+		}
+		bool lret = self->Sequence::insertChild(index, child);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child, double t)
+	static int _bind_base_insertChild_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_insertChild_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child, double t) function, expected prototype:\nbool osg::Sequence::base_insertChild(unsigned int index, osg::Node * child, double t)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned int index=(unsigned int)lua_tointeger(L,2);
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,3));
+		double t=(double)lua_tonumber(L,4);
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_insertChild(unsigned int, osg::Node *, double)");
+		}
+		bool lret = self->Sequence::insertChild(index, child, t);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Sequence::base_insertChild
+	static int _bind_base_insertChild(lua_State *L) {
+		if (_lg_typecheck_base_insertChild_overload_1(L)) return _bind_base_insertChild_overload_1(L);
+		if (_lg_typecheck_base_insertChild_overload_2(L)) return _bind_base_insertChild_overload_2(L);
+
+		luaL_error(L, "error in function base_insertChild, cannot match any of the overloads for function base_insertChild:\n  base_insertChild(unsigned int, osg::Node *)\n  base_insertChild(unsigned int, osg::Node *, double)\n");
+		return 0;
+	}
+
+	// bool osg::Sequence::base_removeChild(osg::Node * child)
+	static int _bind_base_removeChild(lua_State *L) {
+		if (!_lg_typecheck_base_removeChild(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_removeChild(osg::Node * child) function, expected prototype:\nbool osg::Sequence::base_removeChild(osg::Node * child)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Node* child=(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2));
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_removeChild(osg::Node *)");
+		}
+		bool lret = self->Sequence::removeChild(child);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::Sequence::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
+	static int _bind_base_removeChildren(lua_State *L) {
+		if (!_lg_typecheck_base_removeChildren(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Sequence::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove) function, expected prototype:\nbool osg::Sequence::base_removeChildren(unsigned int pos, unsigned int numChildrenToRemove)\nClass arguments details:\n");
+		}
+
+		unsigned int pos=(unsigned int)lua_tointeger(L,2);
+		unsigned int numChildrenToRemove=(unsigned int)lua_tointeger(L,3);
+
+		osg::Sequence* self=Luna< osg::Referenced >::checkSubType< osg::Sequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Sequence::base_removeChildren(unsigned int, unsigned int)");
+		}
+		bool lret = self->Sequence::removeChildren(pos, numChildrenToRemove);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -1437,6 +2365,30 @@ luna_RegType LunaTraits< osg::Sequence >::methods[] = {
 	{"getSync", &luna_wrapper_osg_Sequence::_bind_getSync},
 	{"setClearOnStop", &luna_wrapper_osg_Sequence::_bind_setClearOnStop},
 	{"getClearOnStop", &luna_wrapper_osg_Sequence::_bind_getClearOnStop},
+	{"base_setName", &luna_wrapper_osg_Sequence::_bind_base_setName},
+	{"base_computeDataVariance", &luna_wrapper_osg_Sequence::_bind_base_computeDataVariance},
+	{"base_setUserData", &luna_wrapper_osg_Sequence::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_Sequence::_bind_base_getUserData},
+	{"base_asTransform", &luna_wrapper_osg_Sequence::_bind_base_asTransform},
+	{"base_asSwitch", &luna_wrapper_osg_Sequence::_bind_base_asSwitch},
+	{"base_asGeode", &luna_wrapper_osg_Sequence::_bind_base_asGeode},
+	{"base_ascend", &luna_wrapper_osg_Sequence::_bind_base_ascend},
+	{"base_asGroup", &luna_wrapper_osg_Sequence::_bind_base_asGroup},
+	{"base_replaceChild", &luna_wrapper_osg_Sequence::_bind_base_replaceChild},
+	{"base_setChild", &luna_wrapper_osg_Sequence::_bind_base_setChild},
+	{"base_releaseGLObjects", &luna_wrapper_osg_Sequence::_bind_base_releaseGLObjects},
+	{"base_computeBound", &luna_wrapper_osg_Sequence::_bind_base_computeBound},
+	{"base_cloneType", &luna_wrapper_osg_Sequence::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_Sequence::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_Sequence::_bind_base_isSameKindAs},
+	{"base_className", &luna_wrapper_osg_Sequence::_bind_base_className},
+	{"base_libraryName", &luna_wrapper_osg_Sequence::_bind_base_libraryName},
+	{"base_accept", &luna_wrapper_osg_Sequence::_bind_base_accept},
+	{"base_traverse", &luna_wrapper_osg_Sequence::_bind_base_traverse},
+	{"base_addChild", &luna_wrapper_osg_Sequence::_bind_base_addChild},
+	{"base_insertChild", &luna_wrapper_osg_Sequence::_bind_base_insertChild},
+	{"base_removeChild", &luna_wrapper_osg_Sequence::_bind_base_removeChild},
+	{"base_removeChildren", &luna_wrapper_osg_Sequence::_bind_base_removeChildren},
 	{"__eq", &luna_wrapper_osg_Sequence::_bind___eq},
 	{0,0}
 };

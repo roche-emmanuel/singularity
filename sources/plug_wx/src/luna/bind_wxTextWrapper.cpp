@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxTextWrapper.h>
+
 class luna_wrapper_wxTextWrapper {
 public:
 	typedef Luna< wxTextWrapper > luna_t;
@@ -75,7 +77,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextWrapper::Wrap(wxWindow * win, const wxString & text, int widthMax) function, expected prototype:\nvoid wxTextWrapper::Wrap(wxWindow * win, const wxString & text, int widthMax)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		wxString text(lua_tostring(L,3),lua_objlen(L,3));
 		int widthMax=(int)lua_tointeger(L,4);
 
@@ -98,8 +100,6 @@ wxTextWrapper* LunaTraits< wxTextWrapper >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxTextWrapper::OnOutputLine(const wxString & line)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxTextWrapper >::_bind_dtor(wxTextWrapper* obj) {

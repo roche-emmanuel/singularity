@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return TexGen::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return TexGen::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return TexGen::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TexGen::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return TexGen::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TexGen::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return TexGen::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return TexGen::getMember();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return TexGen::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// void osg::StateAttribute::compileGLObjects(osg::State & arg1) const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::compileGLObjects(arg1);
+		return TexGen::compileGLObjects(arg1);
 	};
 
 	// void osg::StateAttribute::releaseGLObjects(osg::State * arg1 = 0) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttribute::releaseGLObjects(arg1);
+		return TexGen::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::TexGen::cloneType() const
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TexGen::cloneType();
+		return TexGen::cloneType();
 	};
 
 	// osg::Object * osg::TexGen::clone(const osg::CopyOp & arg1) const
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::TexGen::clone(arg1);
+		return TexGen::clone(arg1);
 	};
 
 	// bool osg::TexGen::isSameKindAs(const osg::Object * obj) const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TexGen::isSameKindAs(obj);
+		return TexGen::isSameKindAs(obj);
 	};
 
 	// const char * osg::TexGen::libraryName() const
@@ -157,7 +157,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TexGen::libraryName();
+		return TexGen::libraryName();
 	};
 
 	// const char * osg::TexGen::className() const
@@ -166,7 +166,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::TexGen::className();
+		return TexGen::className();
 	};
 
 	// osg::StateAttribute::Type osg::TexGen::getType() const
@@ -175,7 +175,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::TexGen::getType();
+		return TexGen::getType();
 	};
 
 	// bool osg::TexGen::isTextureAttribute() const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TexGen::isTextureAttribute();
+		return TexGen::isTextureAttribute();
 	};
 
 	// int osg::TexGen::compare(const osg::StateAttribute & sa) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::TexGen::compare(sa);
+		return TexGen::compare(sa);
 	};
 
 	// bool osg::TexGen::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::TexGen::getModeUsage(arg1);
+		return TexGen::getModeUsage(arg1);
 	};
 
 	// void osg::TexGen::apply(osg::State & arg1) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::TexGen::apply(arg1);
+		return TexGen::apply(arg1);
 	};
 
 

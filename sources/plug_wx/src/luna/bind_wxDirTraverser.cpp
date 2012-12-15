@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDirTraverser.h>
+
 class luna_wrapper_wxDirTraverser {
 public:
 	typedef Luna< wxDirTraverser > luna_t;
@@ -75,6 +77,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_OnOpenError(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -140,6 +149,26 @@ public:
 		return 1;
 	}
 
+	// wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname)
+	static int _bind_base_OnOpenError(lua_State *L) {
+		if (!_lg_typecheck_base_OnOpenError(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString openerrorname(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString &)");
+		}
+		wxDirTraverseResult lret = self->wxDirTraverser::OnOpenError(openerrorname);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -150,8 +179,6 @@ wxDirTraverser* LunaTraits< wxDirTraverser >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	// wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDirTraverser >::_bind_dtor(wxDirTraverser* obj) {
@@ -169,6 +196,7 @@ luna_RegType LunaTraits< wxDirTraverser >::methods[] = {
 	{"OnDir", &luna_wrapper_wxDirTraverser::_bind_OnDir},
 	{"OnFile", &luna_wrapper_wxDirTraverser::_bind_OnFile},
 	{"OnOpenError", &luna_wrapper_wxDirTraverser::_bind_OnOpenError},
+	{"base_OnOpenError", &luna_wrapper_wxDirTraverser::_bind_base_OnOpenError},
 	{"dynCast", &luna_wrapper_wxDirTraverser::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxDirTraverser::_bind___eq},
 	{0,0}

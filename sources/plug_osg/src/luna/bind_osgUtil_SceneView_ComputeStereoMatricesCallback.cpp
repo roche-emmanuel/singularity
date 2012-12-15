@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::SceneView::ComputeStereoMatricesCallback* ptr= dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::SceneView::ComputeStereoMatricesCallback* ptr= dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::SceneView::ComputeStereoMatricesCallback* ptr= luna_caster< osg::Referenced, osgUtil::SceneView::ComputeStereoMatricesCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -88,7 +89,7 @@ public:
 		}
 		const osg::Matrixd & projection=*projection_ptr;
 
-		osgUtil::SceneView::ComputeStereoMatricesCallback* self=dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::SceneView::ComputeStereoMatricesCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView::ComputeStereoMatricesCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection(const osg::Matrixd &) const");
@@ -115,7 +116,7 @@ public:
 		}
 		const osg::Matrixd & view=*view_ptr;
 
-		osgUtil::SceneView::ComputeStereoMatricesCallback* self=dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::SceneView::ComputeStereoMatricesCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView::ComputeStereoMatricesCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView(const osg::Matrixd &) const");
@@ -142,7 +143,7 @@ public:
 		}
 		const osg::Matrixd & projection=*projection_ptr;
 
-		osgUtil::SceneView::ComputeStereoMatricesCallback* self=dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::SceneView::ComputeStereoMatricesCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView::ComputeStereoMatricesCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection(const osg::Matrixd &) const");
@@ -169,7 +170,7 @@ public:
 		}
 		const osg::Matrixd & view=*view_ptr;
 
-		osgUtil::SceneView::ComputeStereoMatricesCallback* self=dynamic_cast< osgUtil::SceneView::ComputeStereoMatricesCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::SceneView::ComputeStereoMatricesCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::SceneView::ComputeStereoMatricesCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView(const osg::Matrixd &) const");

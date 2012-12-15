@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDialUpEvent.h>
+
 class luna_wrapper_wxDialUpEvent {
 public:
 	typedef Luna< wxDialUpEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDialUpEvent* ptr= dynamic_cast< wxDialUpEvent* >(Luna< wxObject >::check(L,1));
+		//wxDialUpEvent* ptr= dynamic_cast< wxDialUpEvent* >(Luna< wxObject >::check(L,1));
+		wxDialUpEvent* ptr= luna_caster< wxObject, wxDialUpEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -52,6 +55,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -65,7 +80,7 @@ public:
 		}
 
 
-		wxDialUpEvent* self=dynamic_cast< wxDialUpEvent* >(Luna< wxObject >::check(L,1));
+		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsConnectedEvent() const");
@@ -84,13 +99,53 @@ public:
 		}
 
 
-		wxDialUpEvent* self=dynamic_cast< wxDialUpEvent* >(Luna< wxObject >::check(L,1));
+		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDialUpEvent::IsOwnEvent() const");
 		}
 		bool lret = self->IsOwnEvent();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxDialUpEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDialUpEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDialUpEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDialUpEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDialUpEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxDialUpEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxDialUpEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxDialUpEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxDialUpEvent* self=Luna< wxObject >::checkSubType< wxDialUpEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxDialUpEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxDialUpEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -104,8 +159,6 @@ wxDialUpEvent* LunaTraits< wxDialUpEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDialUpEvent >::_bind_dtor(wxDialUpEvent* obj) {
@@ -122,6 +175,8 @@ const int LunaTraits< wxDialUpEvent >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxDialUpEvent >::methods[] = {
 	{"IsConnectedEvent", &luna_wrapper_wxDialUpEvent::_bind_IsConnectedEvent},
 	{"IsOwnEvent", &luna_wrapper_wxDialUpEvent::_bind_IsOwnEvent},
+	{"base_GetClassInfo", &luna_wrapper_wxDialUpEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxDialUpEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxDialUpEvent::_bind___eq},
 	{0,0}
 };

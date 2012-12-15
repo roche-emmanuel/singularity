@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxServer.h>
+
 class luna_wrapper_wxServer {
 public:
 	typedef Luna< wxServer > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -76,20 +85,47 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_OnAcceptConnection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxServer::wxServer()
-	static wxServer* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxServer* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxServer::wxServer() function, expected prototype:\nwxServer::wxServer()\nClass arguments details:\n");
 		}
 
 
 		return new wxServer();
+	}
+
+	// wxServer::wxServer(lua_Table * data)
+	static wxServer* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxServer::wxServer(lua_Table * data) function, expected prototype:\nwxServer::wxServer(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxServer(L,NULL);
+	}
+
+	// Overload binder for wxServer::wxServer
+	static wxServer* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxServer, cannot match any of the overloads for function wxServer:\n  wxServer()\n  wxServer(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -136,6 +172,28 @@ public:
 		return 1;
 	}
 
+	// wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic)
+	static int _bind_base_OnAcceptConnection(lua_State *L) {
+		if (!_lg_typecheck_base_OnAcceptConnection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic) function, expected prototype:\nwxConnectionBase * wxServer::base_OnAcceptConnection(const wxString & topic)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString topic(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxServer* self=(Luna< wxServer >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxConnectionBase * wxServer::base_OnAcceptConnection(const wxString &)");
+		}
+		wxConnectionBase * lret = self->wxServer::OnAcceptConnection(topic);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxConnectionBase >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -159,6 +217,7 @@ const int LunaTraits< wxServer >::uniqueIDs[] = {74355515,0};
 luna_RegType LunaTraits< wxServer >::methods[] = {
 	{"Create", &luna_wrapper_wxServer::_bind_Create},
 	{"OnAcceptConnection", &luna_wrapper_wxServer::_bind_OnAcceptConnection},
+	{"base_OnAcceptConnection", &luna_wrapper_wxServer::_bind_base_OnAcceptConnection},
 	{"dynCast", &luna_wrapper_wxServer::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxServer::_bind___eq},
 	{0,0}

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxCommand.h>
+
 class luna_wrapper_wxCommand {
 public:
 	typedef Luna< wxCommand > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxCommand* ptr= dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		//wxCommand* ptr= dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		wxCommand* ptr= luna_caster< wxObject, wxCommand >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -64,6 +67,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_CanUndo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -77,7 +98,7 @@ public:
 		}
 
 
-		wxCommand* self=dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCommand::CanUndo() const");
@@ -96,7 +117,7 @@ public:
 		}
 
 
-		wxCommand* self=dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCommand::Do()");
@@ -115,7 +136,7 @@ public:
 		}
 
 
-		wxCommand* self=dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxCommand::GetName() const");
@@ -134,13 +155,72 @@ public:
 		}
 
 
-		wxCommand* self=dynamic_cast< wxCommand* >(Luna< wxObject >::check(L,1));
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxCommand::Undo()");
 		}
 		bool lret = self->Undo();
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxCommand::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCommand::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCommand::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommand::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxCommand::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxCommand::base_CanUndo() const
+	static int _bind_base_CanUndo(lua_State *L) {
+		if (!_lg_typecheck_base_CanUndo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxCommand::base_CanUndo() const function, expected prototype:\nbool wxCommand::base_CanUndo() const\nClass arguments details:\n");
+		}
+
+
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxCommand::base_CanUndo() const");
+		}
+		bool lret = self->wxCommand::CanUndo();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxCommand::base_GetName() const
+	static int _bind_base_GetName(lua_State *L) {
+		if (!_lg_typecheck_base_GetName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxCommand::base_GetName() const function, expected prototype:\nwxString wxCommand::base_GetName() const\nClass arguments details:\n");
+		}
+
+
+		wxCommand* self=Luna< wxObject >::checkSubType< wxCommand >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxCommand::base_GetName() const");
+		}
+		wxString lret = self->wxCommand::GetName();
+		lua_pushlstring(L,lret.data(),lret.size());
 
 		return 1;
 	}
@@ -155,8 +235,6 @@ wxCommand* LunaTraits< wxCommand >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxCommand::Do()
 	// bool wxCommand::Undo()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxCommand >::_bind_dtor(wxCommand* obj) {
@@ -175,6 +253,9 @@ luna_RegType LunaTraits< wxCommand >::methods[] = {
 	{"Do", &luna_wrapper_wxCommand::_bind_Do},
 	{"GetName", &luna_wrapper_wxCommand::_bind_GetName},
 	{"Undo", &luna_wrapper_wxCommand::_bind_Undo},
+	{"base_GetClassInfo", &luna_wrapper_wxCommand::_bind_base_GetClassInfo},
+	{"base_CanUndo", &luna_wrapper_wxCommand::_bind_base_CanUndo},
+	{"base_GetName", &luna_wrapper_wxCommand::_bind_base_GetName},
 	{"__eq", &luna_wrapper_wxCommand::_bind___eq},
 	{0,0}
 };

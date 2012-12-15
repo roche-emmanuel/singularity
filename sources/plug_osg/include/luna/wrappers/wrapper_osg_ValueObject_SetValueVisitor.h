@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_ValueObject_SetValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueObject::SetValueVisitor(), _obj(L,-1) {};
 
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
 	void apply(bool & value) {
@@ -24,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(char & value)
@@ -34,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned char & value)
@@ -44,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(short & value)
@@ -54,7 +53,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned short & value)
@@ -64,7 +63,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(int & value)
@@ -74,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(unsigned int & value)
@@ -84,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(float & value)
@@ -94,7 +93,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(double & value)
@@ -104,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(std::string & value)
@@ -114,7 +113,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec2f & value)
@@ -124,7 +123,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec3f & value)
@@ -134,7 +133,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec4f & value)
@@ -144,7 +143,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec2d & value)
@@ -154,7 +153,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec3d & value)
@@ -164,7 +163,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Vec4d & value)
@@ -174,7 +173,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Quat & value)
@@ -184,7 +183,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Plane & value)
@@ -194,7 +193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Matrixf & value)
@@ -204,7 +203,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 	// void osg::ValueObject::SetValueVisitor::apply(osg::Matrixd & value)
@@ -214,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::ValueObject::SetValueVisitor::apply(value);
+		return SetValueVisitor::apply(value);
 	};
 
 

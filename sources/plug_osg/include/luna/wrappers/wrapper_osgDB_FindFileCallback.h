@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgDB_FindFileCallback(lua_State* L, lua_Table* dum) : osgDB::FindFileCallback(), _obj(L,-1) {};
 
 	// std::string osgDB::FindFileCallback::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
 	std::string findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) {
@@ -26,7 +25,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgDB::FindFileCallback::findDataFile(filename, options, caseSensitivity);
+		return FindFileCallback::findDataFile(filename, options, caseSensitivity);
 	};
 
 	// std::string osgDB::FindFileCallback::findLibraryFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
@@ -38,7 +37,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgDB::FindFileCallback::findLibraryFile(filename, options, caseSensitivity);
+		return FindFileCallback::findLibraryFile(filename, options, caseSensitivity);
 	};
 
 

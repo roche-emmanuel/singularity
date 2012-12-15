@@ -6,6 +6,7 @@ local i18n = require "i18n"
 local cfg = require "config"
 local evtman = require "base.EventManager"
 local winman = require "gui.wx.WindowManager"
+local Event = require "base.Event"
 
 --- Initialize the mainframe display:
 function Class:initialize(options)
@@ -29,7 +30,7 @@ function Class:initialize(options)
     wx.wxGetApp():SetExitOnFrameDelete(true)
     
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
-		self._eventManager:fireEvent("AppClosing")
+		self._eventManager:fireEvent(Event.APP_CLOSING)
 		self:debug("Destroying mainframe."); 
 		self._frame:Destroy(); 
 	end)

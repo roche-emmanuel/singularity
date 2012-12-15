@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPropertyGridInterface.h>
+
 class luna_wrapper_wxPropertyGridInterface {
 public:
 	typedef Luna< wxPropertyGridInterface > luna_t;
@@ -237,7 +239,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -390,16 +392,16 @@ public:
 		return 1;
 	}
 
-	// wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = wxPG_ITERATE_ALL)
+	// wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL)
 	static int _bind_GetFirst(lua_State *L) {
 		if (!_lg_typecheck_GetFirst(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = wxPG_ITERATE_ALL) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetFirst(int flags = wxPG_ITERATE_ALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxPG_ITERATE_ALL;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxPG_ITERATE_ALL;
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -519,7 +521,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property) function, expected prototype:\nwxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxPGProperty* property=dynamic_cast< wxPGProperty* >(Luna< wxObject >::check(L,2));
+		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
@@ -726,8 +728,6 @@ wxPropertyGridInterface* LunaTraits< wxPropertyGridInterface >::_bind_ctor(lua_S
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxPropertyGridInterface::Clear()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPropertyGridInterface >::_bind_dtor(wxPropertyGridInterface* obj) {

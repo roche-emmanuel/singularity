@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Texture3D::Extensions* ptr= dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Texture3D::Extensions* ptr= dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* ptr= luna_caster< osg::Referenced, osg::Texture3D::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -166,7 +167,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setupGLExtensions(unsigned int)");
@@ -185,7 +186,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DSupported(bool)");
@@ -203,7 +204,7 @@ public:
 		}
 
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DSupported() const");
@@ -223,7 +224,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setTexture3DFast(bool)");
@@ -241,7 +242,7 @@ public:
 		}
 
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isTexture3DFast() const");
@@ -261,7 +262,7 @@ public:
 
 		int maxsize=(int)lua_tointeger(L,2);
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture3D::Extensions::setMaxTexture3DSize(int)");
@@ -279,7 +280,7 @@ public:
 		}
 
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Texture3D::Extensions::maxTexture3DSize() const");
@@ -298,7 +299,7 @@ public:
 		}
 
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexImage3DSupported() const");
@@ -317,7 +318,7 @@ public:
 		}
 
 
-		osg::Texture3D::Extensions* self=dynamic_cast< osg::Texture3D::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture3D::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture3D::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture3D::Extensions::isCompressedTexSubImage3DSupported() const");

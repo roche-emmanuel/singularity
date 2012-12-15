@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxClient.h>
+
 class luna_wrapper_wxClient {
 public:
 	typedef Luna< wxClient > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxClient* ptr= dynamic_cast< wxClient* >(Luna< wxObject >::check(L,1));
+		//wxClient* ptr= dynamic_cast< wxClient* >(Luna< wxObject >::check(L,1));
+		wxClient* ptr= luna_caster< wxObject, wxClient >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -70,20 +80,46 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxClient::wxClient()
-	static wxClient* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxClient* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxClient::wxClient() function, expected prototype:\nwxClient::wxClient()\nClass arguments details:\n");
 		}
 
 
 		return new wxClient();
+	}
+
+	// wxClient::wxClient(lua_Table * data)
+	static wxClient* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClient::wxClient(lua_Table * data) function, expected prototype:\nwxClient::wxClient(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxClient(L,NULL);
+	}
+
+	// Overload binder for wxClient::wxClient
+	static wxClient* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxClient, cannot match any of the overloads for function wxClient:\n  wxClient()\n  wxClient(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -99,7 +135,7 @@ public:
 		wxString service(lua_tostring(L,3),lua_objlen(L,3));
 		wxString topic(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxClient* self=dynamic_cast< wxClient* >(Luna< wxObject >::check(L,1));
+		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::MakeConnection(const wxString &, const wxString &, const wxString &)");
@@ -120,7 +156,7 @@ public:
 		}
 
 
-		wxClient* self=dynamic_cast< wxClient* >(Luna< wxObject >::check(L,1));
+		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxConnectionBase * wxClient::OnMakeConnection()");
@@ -142,13 +178,34 @@ public:
 
 		wxString host(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxClient* self=dynamic_cast< wxClient* >(Luna< wxObject >::check(L,1));
+		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxClient::ValidHost(const wxString &)");
 		}
 		bool lret = self->ValidHost(host);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxClient::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxClient::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxClient::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxClient* self=Luna< wxObject >::checkSubType< wxClient >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxClient::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxClient::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -177,6 +234,7 @@ luna_RegType LunaTraits< wxClient >::methods[] = {
 	{"MakeConnection", &luna_wrapper_wxClient::_bind_MakeConnection},
 	{"OnMakeConnection", &luna_wrapper_wxClient::_bind_OnMakeConnection},
 	{"ValidHost", &luna_wrapper_wxClient::_bind_ValidHost},
+	{"base_GetClassInfo", &luna_wrapper_wxClient::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxClient::_bind___eq},
 	{0,0}
 };

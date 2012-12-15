@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_IntersectionVisitor_ReadCallback(lua_State* L, lua_Table* dum) : osgUtil::IntersectionVisitor::ReadCallback(), _obj(L,-1) {};
 
 	// osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string & filename)
 	osg::Node * readNodeFile(const std::string & filename) {

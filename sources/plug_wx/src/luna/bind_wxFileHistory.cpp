@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileHistory.h>
+
 class luna_wrapper_wxFileHistory {
 public:
 	typedef Luna< wxFileHistory > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileHistory* ptr= dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		//wxFileHistory* ptr= dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* ptr= luna_caster< wxObject, wxFileHistory >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -136,6 +139,87 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddFileToHistory(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddFilesToMenu_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddFilesToMenu_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCount(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetHistoryFile(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetMaxFiles(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Load(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RemoveFileFromHistory(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RemoveMenu(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Save(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UseMenu(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -152,7 +236,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFileToHistory(const wxString &)");
@@ -170,7 +254,7 @@ public:
 		}
 
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu()");
@@ -187,9 +271,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFileHistory::AddFilesToMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::AddFilesToMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::AddFilesToMenu(wxMenu *)");
@@ -216,7 +300,7 @@ public:
 		}
 
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxFileHistory::GetBaseId() const");
@@ -235,7 +319,7 @@ public:
 		}
 
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxFileHistory::GetCount() const");
@@ -255,7 +339,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxFileHistory::GetHistoryFile(size_t) const");
@@ -274,7 +358,7 @@ public:
 		}
 
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxFileHistory::GetMaxFiles() const");
@@ -293,7 +377,7 @@ public:
 		}
 
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxList & wxFileHistory::GetMenus() const");
@@ -313,13 +397,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFileHistory::Load(const wxConfigBase & config) function, expected prototype:\nvoid wxFileHistory::Load(const wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxConfigBase* config_ptr=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		const wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		if( !config_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg config in wxFileHistory::Load function");
 		}
 		const wxConfigBase & config=*config_ptr;
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::Load(const wxConfigBase &)");
@@ -338,7 +422,7 @@ public:
 
 		size_t i=(size_t)lua_tointeger(L,2);
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveFileFromHistory(size_t)");
@@ -355,9 +439,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFileHistory::RemoveMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::RemoveMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::RemoveMenu(wxMenu *)");
@@ -374,13 +458,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFileHistory::Save(wxConfigBase & config) function, expected prototype:\nvoid wxFileHistory::Save(wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxConfigBase* config_ptr=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,2));
+		wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
 		if( !config_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg config in wxFileHistory::Save function");
 		}
 		wxConfigBase & config=*config_ptr;
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::Save(wxConfigBase &)");
@@ -399,7 +483,7 @@ public:
 
 		int baseId=(int)lua_tointeger(L,2);
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::SetBaseId(int)");
@@ -416,14 +500,261 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxFileHistory::UseMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::UseMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxMenu* menu=dynamic_cast< wxMenu* >(Luna< wxObject >::check(L,2));
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
-		wxFileHistory* self=dynamic_cast< wxFileHistory* >(Luna< wxObject >::check(L,1));
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxFileHistory::UseMenu(wxMenu *)");
 		}
 		self->UseMenu(menu);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxFileHistory::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileHistory::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileHistory::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileHistory::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxFileHistory::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxFileHistory::base_AddFileToHistory(const wxString & filename)
+	static int _bind_base_AddFileToHistory(lua_State *L) {
+		if (!_lg_typecheck_base_AddFileToHistory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_AddFileToHistory(const wxString & filename) function, expected prototype:\nvoid wxFileHistory::base_AddFileToHistory(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFileToHistory(const wxString &)");
+		}
+		self->wxFileHistory::AddFileToHistory(filename);
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_AddFilesToMenu()
+	static int _bind_base_AddFilesToMenu_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_AddFilesToMenu_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_AddFilesToMenu() function, expected prototype:\nvoid wxFileHistory::base_AddFilesToMenu()\nClass arguments details:\n");
+		}
+
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu()");
+		}
+		self->wxFileHistory::AddFilesToMenu();
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_AddFilesToMenu(wxMenu * menu)
+	static int _bind_base_AddFilesToMenu_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_AddFilesToMenu_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_AddFilesToMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::base_AddFilesToMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_AddFilesToMenu(wxMenu *)");
+		}
+		self->wxFileHistory::AddFilesToMenu(menu);
+
+		return 0;
+	}
+
+	// Overload binder for wxFileHistory::base_AddFilesToMenu
+	static int _bind_base_AddFilesToMenu(lua_State *L) {
+		if (_lg_typecheck_base_AddFilesToMenu_overload_1(L)) return _bind_base_AddFilesToMenu_overload_1(L);
+		if (_lg_typecheck_base_AddFilesToMenu_overload_2(L)) return _bind_base_AddFilesToMenu_overload_2(L);
+
+		luaL_error(L, "error in function base_AddFilesToMenu, cannot match any of the overloads for function base_AddFilesToMenu:\n  base_AddFilesToMenu()\n  base_AddFilesToMenu(wxMenu *)\n");
+		return 0;
+	}
+
+	// size_t wxFileHistory::base_GetCount() const
+	static int _bind_base_GetCount(lua_State *L) {
+		if (!_lg_typecheck_base_GetCount(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in size_t wxFileHistory::base_GetCount() const function, expected prototype:\nsize_t wxFileHistory::base_GetCount() const\nClass arguments details:\n");
+		}
+
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call size_t wxFileHistory::base_GetCount() const");
+		}
+		size_t lret = self->wxFileHistory::GetCount();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxString wxFileHistory::base_GetHistoryFile(size_t index) const
+	static int _bind_base_GetHistoryFile(lua_State *L) {
+		if (!_lg_typecheck_base_GetHistoryFile(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxFileHistory::base_GetHistoryFile(size_t index) const function, expected prototype:\nwxString wxFileHistory::base_GetHistoryFile(size_t index) const\nClass arguments details:\n");
+		}
+
+		size_t index=(size_t)lua_tointeger(L,2);
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxFileHistory::base_GetHistoryFile(size_t) const");
+		}
+		wxString lret = self->wxFileHistory::GetHistoryFile(index);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// int wxFileHistory::base_GetMaxFiles() const
+	static int _bind_base_GetMaxFiles(lua_State *L) {
+		if (!_lg_typecheck_base_GetMaxFiles(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxFileHistory::base_GetMaxFiles() const function, expected prototype:\nint wxFileHistory::base_GetMaxFiles() const\nClass arguments details:\n");
+		}
+
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxFileHistory::base_GetMaxFiles() const");
+		}
+		int lret = self->wxFileHistory::GetMaxFiles();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxFileHistory::base_Load(const wxConfigBase & config)
+	static int _bind_base_Load(lua_State *L) {
+		if (!_lg_typecheck_base_Load(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_Load(const wxConfigBase & config) function, expected prototype:\nvoid wxFileHistory::base_Load(const wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		if( !config_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg config in wxFileHistory::base_Load function");
+		}
+		const wxConfigBase & config=*config_ptr;
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Load(const wxConfigBase &)");
+		}
+		self->wxFileHistory::Load(config);
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_RemoveFileFromHistory(size_t i)
+	static int _bind_base_RemoveFileFromHistory(lua_State *L) {
+		if (!_lg_typecheck_base_RemoveFileFromHistory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_RemoveFileFromHistory(size_t i) function, expected prototype:\nvoid wxFileHistory::base_RemoveFileFromHistory(size_t i)\nClass arguments details:\n");
+		}
+
+		size_t i=(size_t)lua_tointeger(L,2);
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveFileFromHistory(size_t)");
+		}
+		self->wxFileHistory::RemoveFileFromHistory(i);
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_RemoveMenu(wxMenu * menu)
+	static int _bind_base_RemoveMenu(lua_State *L) {
+		if (!_lg_typecheck_base_RemoveMenu(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_RemoveMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::base_RemoveMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_RemoveMenu(wxMenu *)");
+		}
+		self->wxFileHistory::RemoveMenu(menu);
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_Save(wxConfigBase & config)
+	static int _bind_base_Save(lua_State *L) {
+		if (!_lg_typecheck_base_Save(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_Save(wxConfigBase & config) function, expected prototype:\nvoid wxFileHistory::base_Save(wxConfigBase & config)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxConfigBase* config_ptr=(Luna< wxObject >::checkSubType< wxConfigBase >(L,2));
+		if( !config_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg config in wxFileHistory::base_Save function");
+		}
+		wxConfigBase & config=*config_ptr;
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_Save(wxConfigBase &)");
+		}
+		self->wxFileHistory::Save(config);
+
+		return 0;
+	}
+
+	// void wxFileHistory::base_UseMenu(wxMenu * menu)
+	static int _bind_base_UseMenu(lua_State *L) {
+		if (!_lg_typecheck_base_UseMenu(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileHistory::base_UseMenu(wxMenu * menu) function, expected prototype:\nvoid wxFileHistory::base_UseMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
+
+		wxFileHistory* self=Luna< wxObject >::checkSubType< wxFileHistory >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileHistory::base_UseMenu(wxMenu *)");
+		}
+		self->wxFileHistory::UseMenu(menu);
 
 		return 0;
 	}
@@ -462,6 +793,17 @@ luna_RegType LunaTraits< wxFileHistory >::methods[] = {
 	{"Save", &luna_wrapper_wxFileHistory::_bind_Save},
 	{"SetBaseId", &luna_wrapper_wxFileHistory::_bind_SetBaseId},
 	{"UseMenu", &luna_wrapper_wxFileHistory::_bind_UseMenu},
+	{"base_GetClassInfo", &luna_wrapper_wxFileHistory::_bind_base_GetClassInfo},
+	{"base_AddFileToHistory", &luna_wrapper_wxFileHistory::_bind_base_AddFileToHistory},
+	{"base_AddFilesToMenu", &luna_wrapper_wxFileHistory::_bind_base_AddFilesToMenu},
+	{"base_GetCount", &luna_wrapper_wxFileHistory::_bind_base_GetCount},
+	{"base_GetHistoryFile", &luna_wrapper_wxFileHistory::_bind_base_GetHistoryFile},
+	{"base_GetMaxFiles", &luna_wrapper_wxFileHistory::_bind_base_GetMaxFiles},
+	{"base_Load", &luna_wrapper_wxFileHistory::_bind_base_Load},
+	{"base_RemoveFileFromHistory", &luna_wrapper_wxFileHistory::_bind_base_RemoveFileFromHistory},
+	{"base_RemoveMenu", &luna_wrapper_wxFileHistory::_bind_base_RemoveMenu},
+	{"base_Save", &luna_wrapper_wxFileHistory::_bind_base_Save},
+	{"base_UseMenu", &luna_wrapper_wxFileHistory::_bind_base_UseMenu},
 	{"__eq", &luna_wrapper_wxFileHistory::_bind___eq},
 	{0,0}
 };

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPowerEvent.h>
+
 class luna_wrapper_wxPowerEvent {
 public:
 	typedef Luna< wxPowerEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPowerEvent* ptr= dynamic_cast< wxPowerEvent* >(Luna< wxObject >::check(L,1));
+		//wxPowerEvent* ptr= dynamic_cast< wxPowerEvent* >(Luna< wxObject >::check(L,1));
+		wxPowerEvent* ptr= luna_caster< wxObject, wxPowerEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -41,6 +44,18 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Veto(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -59,7 +74,7 @@ public:
 		}
 
 
-		wxPowerEvent* self=dynamic_cast< wxPowerEvent* >(Luna< wxObject >::check(L,1));
+		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxPowerEvent::Veto()");
@@ -67,6 +82,46 @@ public:
 		self->Veto();
 
 		return 0;
+	}
+
+	// wxClassInfo * wxPowerEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPowerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPowerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPowerEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPowerEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxPowerEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxPowerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPowerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxPowerEvent* self=Luna< wxObject >::checkSubType< wxPowerEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPowerEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxPowerEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -78,8 +133,6 @@ wxPowerEvent* LunaTraits< wxPowerEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPowerEvent >::_bind_dtor(wxPowerEvent* obj) {
@@ -95,6 +148,8 @@ const int LunaTraits< wxPowerEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxPowerEvent >::methods[] = {
 	{"Veto", &luna_wrapper_wxPowerEvent::_bind_Veto},
+	{"base_GetClassInfo", &luna_wrapper_wxPowerEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxPowerEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxPowerEvent::_bind___eq},
 	{0,0}
 };

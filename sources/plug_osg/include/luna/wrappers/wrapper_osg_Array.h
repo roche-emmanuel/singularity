@@ -38,7 +38,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Array::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Array::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -57,7 +57,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Array::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Array::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -75,7 +75,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Array::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -85,7 +85,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return Array::releaseGLObjects(state);
 	};
 
 	// bool osg::Array::isSameKindAs(const osg::Object * obj) const
@@ -95,7 +95,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Array::isSameKindAs(obj);
+		return Array::isSameKindAs(obj);
 	};
 
 	// const char * osg::Array::libraryName() const
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Array::libraryName();
+		return Array::libraryName();
 	};
 
 	// const char * osg::Array::className() const
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Array::className();
+		return Array::className();
 	};
 
 	// void osg::Array::accept(osg::ArrayVisitor & arg1)
@@ -178,7 +178,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Array::trim();
+		return Array::trim();
 	};
 
 

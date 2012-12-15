@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_Image_UpdateCallback(lua_State* L, lua_Table* dum) : osg::Image::UpdateCallback(), _obj(L,-1) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -24,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return UpdateCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return UpdateCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +42,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return UpdateCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +51,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return UpdateCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +60,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return UpdateCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return UpdateCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::StateAttributeCallback::cloneType() const
@@ -80,7 +79,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateAttributeCallback::cloneType();
+		return UpdateCallback::cloneType();
 	};
 
 	// osg::Object * osg::StateAttributeCallback::clone(const osg::CopyOp & arg1) const
@@ -90,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateAttributeCallback::clone(arg1);
+		return UpdateCallback::clone(arg1);
 	};
 
 	// bool osg::StateAttributeCallback::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttributeCallback::isSameKindAs(obj);
+		return UpdateCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::StateAttributeCallback::libraryName() const
@@ -109,7 +108,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateAttributeCallback::libraryName();
+		return UpdateCallback::libraryName();
 	};
 
 	// const char * osg::StateAttributeCallback::className() const
@@ -118,7 +117,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateAttributeCallback::className();
+		return UpdateCallback::className();
 	};
 
 	// void osg::Image::UpdateCallback::operator()(osg::StateAttribute * arg1, osg::NodeVisitor * arg2)
@@ -129,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Image::UpdateCallback::operator()(arg1, arg2);
+		return UpdateCallback::operator()(arg1, arg2);
 	};
 
 

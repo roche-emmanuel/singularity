@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::RenderBin::DrawCallback* ptr= dynamic_cast< osgUtil::RenderBin::DrawCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::RenderBin::DrawCallback* ptr= dynamic_cast< osgUtil::RenderBin::DrawCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderBin::DrawCallback* ptr= luna_caster< osg::Referenced, osgUtil::RenderBin::DrawCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -63,15 +64,15 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) function, expected prototype:\nvoid osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 2286263\narg 3 ID = 50169651\n");
 		}
 
-		osgUtil::RenderBin* bin=dynamic_cast< osgUtil::RenderBin* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::RenderBin* bin=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin >(L,2));
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,3));
 		if( !renderInfo_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg renderInfo in osgUtil::RenderBin::DrawCallback::drawImplementation function");
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
-		osgUtil::RenderLeaf* previous=dynamic_cast< osgUtil::RenderLeaf* >(Luna< osg::Referenced >::check(L,4));
+		osgUtil::RenderLeaf* previous=(Luna< osg::Referenced >::checkSubType< osgUtil::RenderLeaf >(L,4));
 
-		osgUtil::RenderBin::DrawCallback* self=dynamic_cast< osgUtil::RenderBin::DrawCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::RenderBin::DrawCallback* self=Luna< osg::Referenced >::checkSubType< osgUtil::RenderBin::DrawCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin *, osg::RenderInfo &, osgUtil::RenderLeaf *&)");

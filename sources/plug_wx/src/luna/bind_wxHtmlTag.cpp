@@ -274,7 +274,7 @@ public:
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
-		wxColour* clr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		wxColour* clr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
@@ -377,7 +377,7 @@ public:
 		}
 
 		wxString str(lua_tostring(L,1),lua_objlen(L,1));
-		wxColour* clr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		wxColour* clr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 
 		bool lret = wxHtmlTag::ParseAsColour(str, clr);
 		lua_pushboolean(L,lret?1:0);

@@ -119,6 +119,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_eof(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -289,6 +295,25 @@ public:
 		return 1;
 	}
 
+	// bool osgDB::FieldReader::base_eof() const
+	static int _bind_base_eof(lua_State *L) {
+		if (!_lg_typecheck_base_eof(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::FieldReader::base_eof() const function, expected prototype:\nbool osgDB::FieldReader::base_eof() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::FieldReader* self=(Luna< osgDB::FieldReader >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::FieldReader::base_eof() const");
+		}
+		bool lret = self->FieldReader::eof();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -315,6 +340,7 @@ luna_RegType LunaTraits< osgDB::FieldReader >::methods[] = {
 	{"readField", &luna_wrapper_osgDB_FieldReader::_bind_readField},
 	{"ignoreField", &luna_wrapper_osgDB_FieldReader::_bind_ignoreField},
 	{"getNoNestedBrackets", &luna_wrapper_osgDB_FieldReader::_bind_getNoNestedBrackets},
+	{"base_eof", &luna_wrapper_osgDB_FieldReader::_bind_base_eof},
 	{"dynCast", &luna_wrapper_osgDB_FieldReader::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_FieldReader::_bind___eq},
 	{0,0}

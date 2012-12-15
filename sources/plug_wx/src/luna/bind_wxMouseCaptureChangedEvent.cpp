@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMouseCaptureChangedEvent.h>
+
 class luna_wrapper_wxMouseCaptureChangedEvent {
 public:
 	typedef Luna< wxMouseCaptureChangedEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMouseCaptureChangedEvent* ptr= dynamic_cast< wxMouseCaptureChangedEvent* >(Luna< wxObject >::check(L,1));
+		//wxMouseCaptureChangedEvent* ptr= dynamic_cast< wxMouseCaptureChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxMouseCaptureChangedEvent* ptr= luna_caster< wxObject, wxMouseCaptureChangedEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -41,6 +44,18 @@ public:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCapturedWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -59,7 +74,7 @@ public:
 		}
 
 
-		wxMouseCaptureChangedEvent* self=dynamic_cast< wxMouseCaptureChangedEvent* >(Luna< wxObject >::check(L,1));
+		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const");
@@ -68,6 +83,46 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMouseCaptureChangedEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMouseCaptureChangedEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxMouseCaptureChangedEvent* self=Luna< wxObject >::checkSubType< wxMouseCaptureChangedEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxMouseCaptureChangedEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxMouseCaptureChangedEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
 
 		return 1;
 	}
@@ -81,8 +136,6 @@ wxMouseCaptureChangedEvent* LunaTraits< wxMouseCaptureChangedEvent >::_bind_ctor
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMouseCaptureChangedEvent >::_bind_dtor(wxMouseCaptureChangedEvent* obj) {
@@ -98,6 +151,8 @@ const int LunaTraits< wxMouseCaptureChangedEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxMouseCaptureChangedEvent >::methods[] = {
 	{"GetCapturedWindow", &luna_wrapper_wxMouseCaptureChangedEvent::_bind_GetCapturedWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxMouseCaptureChangedEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxMouseCaptureChangedEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxMouseCaptureChangedEvent::_bind___eq},
 	{0,0}
 };

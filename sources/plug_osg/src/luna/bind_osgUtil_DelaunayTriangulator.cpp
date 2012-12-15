@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::DelaunayTriangulator* ptr= dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::DelaunayTriangulator* ptr= dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* ptr= luna_caster< osg::Referenced, osgUtil::DelaunayTriangulator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -52,10 +53,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,7204710)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,1)) ) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -82,10 +83,10 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,2)) ) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,7204710)) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Vec3Array >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osg::Vec3Array* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -106,7 +107,7 @@ public:
 	inline static bool _lg_typecheck_setInputPointArray(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -125,7 +126,7 @@ public:
 	inline static bool _lg_typecheck_setOutputNormalArray(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,7204710)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		return true;
 	}
 
@@ -193,13 +194,13 @@ public:
 	static osgUtil::DelaunayTriangulator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayTriangulator::DelaunayTriangulator(osg::Vec3Array * points, osg::Vec3Array * normals = 0) function, expected prototype:\nosgUtil::DelaunayTriangulator::DelaunayTriangulator(osg::Vec3Array * points, osg::Vec3Array * normals = 0)\nClass arguments details:\narg 1 ID = 7204710\narg 2 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayTriangulator::DelaunayTriangulator(osg::Vec3Array * points, osg::Vec3Array * normals = 0) function, expected prototype:\nosgUtil::DelaunayTriangulator::DelaunayTriangulator(osg::Vec3Array * points, osg::Vec3Array * normals = 0)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		osg::Vec3Array* points=(Luna< osg::Vec3Array >::check(L,1));
-		osg::Vec3Array* normals=luatop>1 ? (Luna< osg::Vec3Array >::check(L,2)) : (osg::Vec3Array*)0;
+		osg::Vec3Array* points=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,1));
+		osg::Vec3Array* normals=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2)) : (osg::Vec3Array*)0;
 
 		return new osgUtil::DelaunayTriangulator(points, normals);
 	}
@@ -213,7 +214,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::DelaunayTriangulator* copy_ptr=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		const osgUtil::DelaunayTriangulator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::DelaunayTriangulator::DelaunayTriangulator function");
 		}
@@ -242,13 +243,13 @@ public:
 	static osgUtil::DelaunayTriangulator* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayTriangulator::DelaunayTriangulator(lua_Table * data, osg::Vec3Array * points, osg::Vec3Array * normals = 0) function, expected prototype:\nosgUtil::DelaunayTriangulator::DelaunayTriangulator(lua_Table * data, osg::Vec3Array * points, osg::Vec3Array * normals = 0)\nClass arguments details:\narg 2 ID = 7204710\narg 3 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in osgUtil::DelaunayTriangulator::DelaunayTriangulator(lua_Table * data, osg::Vec3Array * points, osg::Vec3Array * normals = 0) function, expected prototype:\nosgUtil::DelaunayTriangulator::DelaunayTriangulator(lua_Table * data, osg::Vec3Array * points, osg::Vec3Array * normals = 0)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		osg::Vec3Array* points=(Luna< osg::Vec3Array >::check(L,2));
-		osg::Vec3Array* normals=luatop>2 ? (Luna< osg::Vec3Array >::check(L,3)) : (osg::Vec3Array*)0;
+		osg::Vec3Array* points=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
+		osg::Vec3Array* normals=luatop>2 ? (Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,3)) : (osg::Vec3Array*)0;
 
 		return new wrapper_osgUtil_DelaunayTriangulator(L,NULL, points, normals);
 	}
@@ -262,7 +263,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osgUtil::DelaunayTriangulator* copy_ptr=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,2));
+		const osgUtil::DelaunayTriangulator* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,2));
 		if( !copy_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgUtil::DelaunayTriangulator::DelaunayTriangulator function");
 		}
@@ -295,12 +296,12 @@ public:
 	static int _bind_setInputPointArray(lua_State *L) {
 		if (!_lg_typecheck_setInputPointArray(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array * points) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array * points)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array * points) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array * points)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Vec3Array* points=(Luna< osg::Vec3Array >::check(L,2));
+		osg::Vec3Array* points=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setInputPointArray(osg::Vec3Array *)");
@@ -318,7 +319,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray() const");
@@ -339,7 +340,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getInputPointArray()");
@@ -365,12 +366,12 @@ public:
 	static int _bind_setOutputNormalArray(lua_State *L) {
 		if (!_lg_typecheck_setOutputNormalArray(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array * normals) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array * normals)\nClass arguments details:\narg 1 ID = 7204710\n");
+			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array * normals) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array * normals)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Vec3Array* normals=(Luna< osg::Vec3Array >::check(L,2));
+		osg::Vec3Array* normals=(Luna< osg::Referenced >::checkSubType< osg::Vec3Array >(L,2));
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::setOutputNormalArray(osg::Vec3Array *)");
@@ -388,7 +389,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray() const");
@@ -409,7 +410,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3Array * osgUtil::DelaunayTriangulator::getOutputNormalArray()");
@@ -438,9 +439,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::addInputConstraint(osgUtil::DelaunayConstraint * dc) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::addInputConstraint(osgUtil::DelaunayConstraint * dc)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::DelaunayConstraint* dc=dynamic_cast< osgUtil::DelaunayConstraint* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::DelaunayConstraint* dc=(Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,2));
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::addInputConstraint(osgUtil::DelaunayConstraint *)");
@@ -458,7 +459,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgUtil::DelaunayTriangulator::triangulate()");
@@ -477,7 +478,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles() const");
@@ -498,7 +499,7 @@ public:
 		}
 
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::DrawElementsUInt * osgUtil::DelaunayTriangulator::getTriangles()");
@@ -527,9 +528,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::DelaunayTriangulator::removeInternalTriangles(osgUtil::DelaunayConstraint * constraint) function, expected prototype:\nvoid osgUtil::DelaunayTriangulator::removeInternalTriangles(osgUtil::DelaunayConstraint * constraint)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::DelaunayConstraint* constraint=dynamic_cast< osgUtil::DelaunayConstraint* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::DelaunayConstraint* constraint=(Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayConstraint >(L,2));
 
-		osgUtil::DelaunayTriangulator* self=dynamic_cast< osgUtil::DelaunayTriangulator* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::DelaunayTriangulator* self=Luna< osg::Referenced >::checkSubType< osgUtil::DelaunayTriangulator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osgUtil::DelaunayTriangulator::removeInternalTriangles(osgUtil::DelaunayConstraint *)");

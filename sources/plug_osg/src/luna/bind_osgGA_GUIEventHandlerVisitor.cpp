@@ -77,7 +77,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1) function, expected prototype:\nvoid osgGA::GUIEventHandlerVisitor::visit(osgGA::GUIEventHandler & arg1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgGA::GUIEventHandler* _arg1_ptr=dynamic_cast< osgGA::GUIEventHandler* >(Luna< osg::Referenced >::check(L,2));
+		osgGA::GUIEventHandler* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventHandler >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgGA::GUIEventHandlerVisitor::visit function");
 		}

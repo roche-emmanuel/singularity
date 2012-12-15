@@ -349,7 +349,7 @@ public:
 			luaL_error(L, "luna typecheck failed in static int wxDisplay::GetFromWindow(const wxWindow * win) function, expected prototype:\nstatic int wxDisplay::GetFromWindow(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 		int lret = wxDisplay::GetFromWindow(win);
 		lua_pushnumber(L,lret);

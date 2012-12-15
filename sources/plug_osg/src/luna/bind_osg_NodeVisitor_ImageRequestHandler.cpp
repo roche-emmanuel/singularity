@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::NodeVisitor::ImageRequestHandler* ptr= dynamic_cast< osg::NodeVisitor::ImageRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		//osg::NodeVisitor::ImageRequestHandler* ptr= dynamic_cast< osg::NodeVisitor::ImageRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::ImageRequestHandler* ptr= luna_caster< osg::Referenced, osg::NodeVisitor::ImageRequestHandler >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -79,7 +80,7 @@ public:
 		}
 
 
-		osg::NodeVisitor::ImageRequestHandler* self=dynamic_cast< osg::NodeVisitor::ImageRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const");
@@ -99,7 +100,7 @@ public:
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::NodeVisitor::ImageRequestHandler* self=dynamic_cast< osg::NodeVisitor::ImageRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Image * osg::NodeVisitor::ImageRequestHandler::readImageFile(const std::string &)");
@@ -120,12 +121,12 @@ public:
 		}
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
-		osg::Object* attachmentPoint=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,3));
+		osg::Object* attachmentPoint=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,3));
 		int attachmentIndex=(int)lua_tointeger(L,4);
 		double timeToMergeBy=(double)lua_tonumber(L,5);
-		const osg::FrameStamp* framestamp=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,6));
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,6));
 
-		osg::NodeVisitor::ImageRequestHandler* self=dynamic_cast< osg::NodeVisitor::ImageRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::ImageRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::ImageRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::ImageRequestHandler::requestImageFile(const std::string &, osg::Object *, int, double, const osg::FrameStamp *)");

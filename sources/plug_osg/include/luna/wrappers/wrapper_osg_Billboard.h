@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Billboard::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Billboard::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Billboard::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Billboard::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Billboard::getUserData();
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Billboard::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return Billboard::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Billboard::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return Billboard::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Billboard::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return Billboard::asSwitch();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return Billboard::ascend(nv);
 	};
 
 	// void osg::Node::traverse(osg::NodeVisitor & arg1)
@@ -136,7 +136,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::traverse(arg1);
+		return Billboard::traverse(arg1);
 	};
 
 	// osg::Geode * osg::Geode::asGeode()
@@ -145,7 +145,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Geode::asGeode();
+		return Billboard::asGeode();
 	};
 
 	// const osg::Geode * osg::Geode::asGeode() const
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Geode::asGeode();
+		return Billboard::asGeode();
 	};
 
 	// bool osg::Geode::removeDrawables(unsigned int i, unsigned int numDrawablesToRemove = 1)
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::removeDrawables(i, numDrawablesToRemove);
+		return Billboard::removeDrawables(i, numDrawablesToRemove);
 	};
 
 	// bool osg::Geode::replaceDrawable(osg::Drawable * origDraw, osg::Drawable * newDraw)
@@ -176,7 +176,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::replaceDrawable(origDraw, newDraw);
+		return Billboard::replaceDrawable(origDraw, newDraw);
 	};
 
 	// bool osg::Geode::setDrawable(unsigned int i, osg::Drawable * drawable)
@@ -187,7 +187,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Geode::setDrawable(i, drawable);
+		return Billboard::setDrawable(i, drawable);
 	};
 
 	// void osg::Geode::releaseGLObjects(osg::State * arg1 = 0) const
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Geode::releaseGLObjects(arg1);
+		return Billboard::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Billboard::cloneType() const
@@ -206,7 +206,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Billboard::cloneType();
+		return Billboard::cloneType();
 	};
 
 	// osg::Object * osg::Billboard::clone(const osg::CopyOp & copyop) const
@@ -216,7 +216,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Billboard::clone(copyop);
+		return Billboard::clone(copyop);
 	};
 
 	// bool osg::Billboard::isSameKindAs(const osg::Object * obj) const
@@ -226,7 +226,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Billboard::isSameKindAs(obj);
+		return Billboard::isSameKindAs(obj);
 	};
 
 	// const char * osg::Billboard::className() const
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Billboard::className();
+		return Billboard::className();
 	};
 
 	// const char * osg::Billboard::libraryName() const
@@ -244,7 +244,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Billboard::libraryName();
+		return Billboard::libraryName();
 	};
 
 	// void osg::Billboard::accept(osg::NodeVisitor & nv)
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Billboard::accept(nv);
+		return Billboard::accept(nv);
 	};
 
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset)
@@ -264,7 +264,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Billboard::addDrawable(gset);
+		return Billboard::addDrawable(gset);
 	};
 
 	// bool osg::Billboard::addDrawable(osg::Drawable * gset, const osg::Vec3f & pos)
@@ -275,7 +275,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Billboard::addDrawable(gset, pos);
+		return Billboard::addDrawable(gset, pos);
 	};
 
 	// bool osg::Billboard::removeDrawable(osg::Drawable * gset)
@@ -285,7 +285,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Billboard::removeDrawable(gset);
+		return Billboard::removeDrawable(gset);
 	};
 
 	// osg::BoundingSphered osg::Billboard::computeBound() const
@@ -294,7 +294,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::Billboard::computeBound();
+		return Billboard::computeBound();
 	};
 
 

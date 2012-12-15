@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::TextureRectangle* ptr= dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		//osg::TextureRectangle* ptr= dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* ptr= luna_caster< osg::Referenced, osg::TextureRectangle >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -294,6 +295,195 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getMember(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_checkValidityOfAssociatedModes(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTexture_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_asTexture_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isTextureAttribute(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getModeUsage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,48108040) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_compileGLObjects(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_compare(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getTextureTarget(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setImage(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getImage_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getImage_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getNumImages(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getTextureWidth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getTextureHeight(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getTextureDepth(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_apply(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -317,7 +507,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::TextureRectangle::TextureRectangle(osg::Image * image) function, expected prototype:\nosg::TextureRectangle::TextureRectangle(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1));
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1));
 
 		return new osg::TextureRectangle(image);
 	}
@@ -331,7 +521,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::TextureRectangle* text_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		const osg::TextureRectangle* text_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1));
 		if( !text_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg text in osg::TextureRectangle::TextureRectangle function");
 		}
@@ -363,7 +553,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::TextureRectangle::TextureRectangle(lua_Table * data, osg::Image * image) function, expected prototype:\nosg::TextureRectangle::TextureRectangle(lua_Table * data, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 
 		return new wrapper_osg_TextureRectangle(L,NULL, image);
 	}
@@ -377,7 +567,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::TextureRectangle* text_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,2));
+		const osg::TextureRectangle* text_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,2));
 		if( !text_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg text in osg::TextureRectangle::TextureRectangle function");
 		}
@@ -414,7 +604,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::TextureRectangle::cloneType() const");
@@ -440,7 +630,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::TextureRectangle::clone(const osg::CopyOp &) const");
@@ -460,9 +650,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::TextureRectangle::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TextureRectangle::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::TextureRectangle::isSameKindAs(const osg::Object *) const");
@@ -481,7 +671,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::TextureRectangle::libraryName() const");
@@ -500,7 +690,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::TextureRectangle::className() const");
@@ -519,7 +709,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TextureRectangle::getType() const");
@@ -537,13 +727,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::TextureRectangle::compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::TextureRectangle::compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::StateAttribute* rhs_ptr=dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2));
+		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::TextureRectangle::compare function");
 		}
 		const osg::StateAttribute & rhs=*rhs_ptr;
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::compare(const osg::StateAttribute &) const");
@@ -562,7 +752,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::TextureRectangle::getTextureTarget() const");
@@ -580,9 +770,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::setImage(osg::Image * image) function, expected prototype:\nvoid osg::TextureRectangle::setImage(osg::Image * image)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setImage(osg::Image *)");
@@ -600,9 +790,9 @@ public:
 		}
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
-		osg::Image* image=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,3));
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setImage(unsigned int, osg::Image *)");
@@ -629,7 +819,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Image * osg::TextureRectangle::getImage()");
@@ -650,7 +840,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Image * osg::TextureRectangle::getImage() const");
@@ -672,7 +862,7 @@ public:
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Image * osg::TextureRectangle::getImage(unsigned int)");
@@ -694,7 +884,7 @@ public:
 
 		unsigned _arg1=(unsigned)lua_tointeger(L,2);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Image * osg::TextureRectangle::getImage(unsigned int) const");
@@ -727,7 +917,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int & osg::TextureRectangle::getModifiedCount(unsigned int) const");
@@ -746,7 +936,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osg::TextureRectangle::getNumImages() const");
@@ -767,7 +957,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setTextureSize(int, int) const");
@@ -786,7 +976,7 @@ public:
 
 		int width=(int)lua_tointeger(L,2);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setTextureWidth(int)");
@@ -805,7 +995,7 @@ public:
 
 		int height=(int)lua_tointeger(L,2);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setTextureHeight(int)");
@@ -823,7 +1013,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::getTextureWidth() const");
@@ -842,7 +1032,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::getTextureHeight() const");
@@ -861,7 +1051,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::getTextureDepth() const");
@@ -879,9 +1069,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::setSubloadCallback(osg::TextureRectangle::SubloadCallback * cb) function, expected prototype:\nvoid osg::TextureRectangle::setSubloadCallback(osg::TextureRectangle::SubloadCallback * cb)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::TextureRectangle::SubloadCallback* cb=dynamic_cast< osg::TextureRectangle::SubloadCallback* >(Luna< osg::Referenced >::check(L,2));
+		osg::TextureRectangle::SubloadCallback* cb=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,2));
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::setSubloadCallback(osg::TextureRectangle::SubloadCallback *)");
@@ -899,7 +1089,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::TextureRectangle::SubloadCallback * osg::TextureRectangle::getSubloadCallback()");
@@ -920,7 +1110,7 @@ public:
 		}
 
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::TextureRectangle::SubloadCallback * osg::TextureRectangle::getSubloadCallback() const");
@@ -949,7 +1139,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::copyTexImage2D(osg::State & state, int x, int y, int width, int height) function, expected prototype:\nvoid osg::TextureRectangle::copyTexImage2D(osg::State & state, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureRectangle::copyTexImage2D function");
 		}
@@ -959,7 +1149,7 @@ public:
 		int width=(int)lua_tointeger(L,5);
 		int height=(int)lua_tointeger(L,6);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::copyTexImage2D(osg::State &, int, int, int, int)");
@@ -976,7 +1166,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::copyTexSubImage2D(osg::State & state, int xoffset, int yoffset, int x, int y, int width, int height) function, expected prototype:\nvoid osg::TextureRectangle::copyTexSubImage2D(osg::State & state, int xoffset, int yoffset, int x, int y, int width, int height)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureRectangle::copyTexSubImage2D function");
 		}
@@ -988,7 +1178,7 @@ public:
 		int width=(int)lua_tointeger(L,7);
 		int height=(int)lua_tointeger(L,8);
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::copyTexSubImage2D(osg::State &, int, int, int, int, int, int)");
@@ -1005,18 +1195,645 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::apply(osg::State & state) const function, expected prototype:\nvoid osg::TextureRectangle::apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureRectangle::apply function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::TextureRectangle* self=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::apply(osg::State &) const");
 		}
 		self->apply(state);
+
+		return 0;
+	}
+
+	// void osg::TextureRectangle::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_setName(const std::string & name) function, expected prototype:\nvoid osg::TextureRectangle::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_setName(const std::string &)");
+		}
+		self->TextureRectangle::setName(name);
+
+		return 0;
+	}
+
+	// void osg::TextureRectangle::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_computeDataVariance() function, expected prototype:\nvoid osg::TextureRectangle::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_computeDataVariance()");
+		}
+		self->TextureRectangle::computeDataVariance();
+
+		return 0;
+	}
+
+	// void osg::TextureRectangle::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::TextureRectangle::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_setUserData(osg::Referenced *)");
+		}
+		self->TextureRectangle::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::TextureRectangle::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::TextureRectangle::base_getUserData() function, expected prototype:\nosg::Referenced * osg::TextureRectangle::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::TextureRectangle::base_getUserData()");
+		}
+		osg::Referenced * lret = self->TextureRectangle::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::TextureRectangle::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::TextureRectangle::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::TextureRectangle::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::TextureRectangle::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->TextureRectangle::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::TextureRectangle::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// unsigned int osg::TextureRectangle::base_getMember() const
+	static int _bind_base_getMember(lua_State *L) {
+		if (!_lg_typecheck_base_getMember(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TextureRectangle::base_getMember() const function, expected prototype:\nunsigned int osg::TextureRectangle::base_getMember() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::TextureRectangle::base_getMember() const");
+		}
+		unsigned int lret = self->TextureRectangle::getMember();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osg::TextureRectangle::base_checkValidityOfAssociatedModes(osg::State & arg1) const
+	static int _bind_base_checkValidityOfAssociatedModes(lua_State *L) {
+		if (!_lg_typecheck_base_checkValidityOfAssociatedModes(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TextureRectangle::base_checkValidityOfAssociatedModes(osg::State & arg1) const function, expected prototype:\nbool osg::TextureRectangle::base_checkValidityOfAssociatedModes(osg::State & arg1) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::TextureRectangle::base_checkValidityOfAssociatedModes function");
+		}
+		osg::State & _arg1=*_arg1_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TextureRectangle::base_checkValidityOfAssociatedModes(osg::State &) const");
+		}
+		bool lret = self->TextureRectangle::checkValidityOfAssociatedModes(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// osg::Texture * osg::TextureRectangle::base_asTexture()
+	static int _bind_base_asTexture_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_asTexture_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Texture * osg::TextureRectangle::base_asTexture() function, expected prototype:\nosg::Texture * osg::TextureRectangle::base_asTexture()\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Texture * osg::TextureRectangle::base_asTexture()");
+		}
+		osg::Texture * lret = self->TextureRectangle::asTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Texture * osg::TextureRectangle::base_asTexture() const
+	static int _bind_base_asTexture_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_asTexture_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Texture * osg::TextureRectangle::base_asTexture() const function, expected prototype:\nconst osg::Texture * osg::TextureRectangle::base_asTexture() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Texture * osg::TextureRectangle::base_asTexture() const");
+		}
+		const osg::Texture * lret = self->TextureRectangle::asTexture();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Texture >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::TextureRectangle::base_asTexture
+	static int _bind_base_asTexture(lua_State *L) {
+		if (_lg_typecheck_base_asTexture_overload_1(L)) return _bind_base_asTexture_overload_1(L);
+		if (_lg_typecheck_base_asTexture_overload_2(L)) return _bind_base_asTexture_overload_2(L);
+
+		luaL_error(L, "error in function base_asTexture, cannot match any of the overloads for function base_asTexture:\n  base_asTexture()\n  base_asTexture()\n");
+		return 0;
+	}
+
+	// bool osg::TextureRectangle::base_isTextureAttribute() const
+	static int _bind_base_isTextureAttribute(lua_State *L) {
+		if (!_lg_typecheck_base_isTextureAttribute(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TextureRectangle::base_isTextureAttribute() const function, expected prototype:\nbool osg::TextureRectangle::base_isTextureAttribute() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TextureRectangle::base_isTextureAttribute() const");
+		}
+		bool lret = self->TextureRectangle::isTextureAttribute();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool osg::TextureRectangle::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
+	static int _bind_base_getModeUsage(lua_State *L) {
+		if (!_lg_typecheck_base_getModeUsage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TextureRectangle::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const function, expected prototype:\nbool osg::TextureRectangle::base_getModeUsage(osg::StateAttribute::ModeUsage & arg1) const\nClass arguments details:\narg 1 ID = 48108040\n");
+		}
+
+		osg::StateAttribute::ModeUsage* _arg1_ptr=(Luna< osg::StateAttribute::ModeUsage >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::TextureRectangle::base_getModeUsage function");
+		}
+		osg::StateAttribute::ModeUsage & _arg1=*_arg1_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TextureRectangle::base_getModeUsage(osg::StateAttribute::ModeUsage &) const");
+		}
+		bool lret = self->TextureRectangle::getModeUsage(_arg1);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void osg::TextureRectangle::base_compileGLObjects(osg::State & state) const
+	static int _bind_base_compileGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_compileGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_compileGLObjects(osg::State & state) const function, expected prototype:\nvoid osg::TextureRectangle::base_compileGLObjects(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !state_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureRectangle::base_compileGLObjects function");
+		}
+		osg::State & state=*state_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_compileGLObjects(osg::State &) const");
+		}
+		self->TextureRectangle::compileGLObjects(state);
+
+		return 0;
+	}
+
+	// void osg::TextureRectangle::base_releaseGLObjects(osg::State * state = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::TextureRectangle::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* state=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_releaseGLObjects(osg::State *) const");
+		}
+		self->TextureRectangle::releaseGLObjects(state);
+
+		return 0;
+	}
+
+	// osg::Object * osg::TextureRectangle::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TextureRectangle::base_cloneType() const function, expected prototype:\nosg::Object * osg::TextureRectangle::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TextureRectangle::base_cloneType() const");
+		}
+		osg::Object * lret = self->TextureRectangle::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::TextureRectangle::base_clone(const osg::CopyOp & arg1) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::TextureRectangle::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::TextureRectangle::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::TextureRectangle::base_clone function");
+		}
+		const osg::CopyOp & _arg1=*_arg1_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::TextureRectangle::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->TextureRectangle::clone(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::TextureRectangle::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::TextureRectangle::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::TextureRectangle::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::TextureRectangle::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->TextureRectangle::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::TextureRectangle::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::TextureRectangle::base_libraryName() const function, expected prototype:\nconst char * osg::TextureRectangle::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::TextureRectangle::base_libraryName() const");
+		}
+		const char * lret = self->TextureRectangle::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::TextureRectangle::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::TextureRectangle::base_className() const function, expected prototype:\nconst char * osg::TextureRectangle::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::TextureRectangle::base_className() const");
+		}
+		const char * lret = self->TextureRectangle::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// osg::StateAttribute::Type osg::TextureRectangle::base_getType() const
+	static int _bind_base_getType(lua_State *L) {
+		if (!_lg_typecheck_base_getType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::Type osg::TextureRectangle::base_getType() const function, expected prototype:\nosg::StateAttribute::Type osg::TextureRectangle::base_getType() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::StateAttribute::Type osg::TextureRectangle::base_getType() const");
+		}
+		osg::StateAttribute::Type lret = self->TextureRectangle::getType();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osg::TextureRectangle::base_compare(const osg::StateAttribute & rhs) const
+	static int _bind_base_compare(lua_State *L) {
+		if (!_lg_typecheck_base_compare(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::TextureRectangle::base_compare(const osg::StateAttribute & rhs) const function, expected prototype:\nint osg::TextureRectangle::base_compare(const osg::StateAttribute & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::StateAttribute* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
+		if( !rhs_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::TextureRectangle::base_compare function");
+		}
+		const osg::StateAttribute & rhs=*rhs_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::base_compare(const osg::StateAttribute &) const");
+		}
+		int lret = self->TextureRectangle::compare(rhs);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// unsigned int osg::TextureRectangle::base_getTextureTarget() const
+	static int _bind_base_getTextureTarget(lua_State *L) {
+		if (!_lg_typecheck_base_getTextureTarget(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TextureRectangle::base_getTextureTarget() const function, expected prototype:\nunsigned int osg::TextureRectangle::base_getTextureTarget() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::TextureRectangle::base_getTextureTarget() const");
+		}
+		unsigned int lret = self->TextureRectangle::getTextureTarget();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::TextureRectangle::base_setImage(unsigned int arg1, osg::Image * image)
+	static int _bind_base_setImage(lua_State *L) {
+		if (!_lg_typecheck_base_setImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_setImage(unsigned int arg1, osg::Image * image) function, expected prototype:\nvoid osg::TextureRectangle::base_setImage(unsigned int arg1, osg::Image * image)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
+		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,3));
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_setImage(unsigned int, osg::Image *)");
+		}
+		self->TextureRectangle::setImage(_arg1, image);
+
+		return 0;
+	}
+
+	// osg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1)
+	static int _bind_base_getImage_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getImage_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1) function, expected prototype:\nosg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1)\nClass arguments details:\n");
+		}
+
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Image * osg::TextureRectangle::base_getImage(unsigned int)");
+		}
+		osg::Image * lret = self->TextureRectangle::getImage(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1) const
+	static int _bind_base_getImage_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getImage_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1) const function, expected prototype:\nconst osg::Image * osg::TextureRectangle::base_getImage(unsigned int arg1) const\nClass arguments details:\n");
+		}
+
+		unsigned _arg1=(unsigned)lua_tointeger(L,2);
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Image * osg::TextureRectangle::base_getImage(unsigned int) const");
+		}
+		const osg::Image * lret = self->TextureRectangle::getImage(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Image >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::TextureRectangle::base_getImage
+	static int _bind_base_getImage(lua_State *L) {
+		if (_lg_typecheck_base_getImage_overload_1(L)) return _bind_base_getImage_overload_1(L);
+		if (_lg_typecheck_base_getImage_overload_2(L)) return _bind_base_getImage_overload_2(L);
+
+		luaL_error(L, "error in function base_getImage, cannot match any of the overloads for function base_getImage:\n  base_getImage(unsigned int)\n  base_getImage(unsigned int)\n");
+		return 0;
+	}
+
+	// unsigned int osg::TextureRectangle::base_getNumImages() const
+	static int _bind_base_getNumImages(lua_State *L) {
+		if (!_lg_typecheck_base_getNumImages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in unsigned int osg::TextureRectangle::base_getNumImages() const function, expected prototype:\nunsigned int osg::TextureRectangle::base_getNumImages() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call unsigned int osg::TextureRectangle::base_getNumImages() const");
+		}
+		unsigned int lret = self->TextureRectangle::getNumImages();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osg::TextureRectangle::base_getTextureWidth() const
+	static int _bind_base_getTextureWidth(lua_State *L) {
+		if (!_lg_typecheck_base_getTextureWidth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::TextureRectangle::base_getTextureWidth() const function, expected prototype:\nint osg::TextureRectangle::base_getTextureWidth() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::base_getTextureWidth() const");
+		}
+		int lret = self->TextureRectangle::getTextureWidth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osg::TextureRectangle::base_getTextureHeight() const
+	static int _bind_base_getTextureHeight(lua_State *L) {
+		if (!_lg_typecheck_base_getTextureHeight(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::TextureRectangle::base_getTextureHeight() const function, expected prototype:\nint osg::TextureRectangle::base_getTextureHeight() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::base_getTextureHeight() const");
+		}
+		int lret = self->TextureRectangle::getTextureHeight();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osg::TextureRectangle::base_getTextureDepth() const
+	static int _bind_base_getTextureDepth(lua_State *L) {
+		if (!_lg_typecheck_base_getTextureDepth(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osg::TextureRectangle::base_getTextureDepth() const function, expected prototype:\nint osg::TextureRectangle::base_getTextureDepth() const\nClass arguments details:\n");
+		}
+
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int osg::TextureRectangle::base_getTextureDepth() const");
+		}
+		int lret = self->TextureRectangle::getTextureDepth();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void osg::TextureRectangle::base_apply(osg::State & state) const
+	static int _bind_base_apply(lua_State *L) {
+		if (!_lg_typecheck_base_apply(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::base_apply(osg::State & state) const function, expected prototype:\nvoid osg::TextureRectangle::base_apply(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
+		if( !state_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::TextureRectangle::base_apply function");
+		}
+		osg::State & state=*state_ptr;
+
+		osg::TextureRectangle* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::base_apply(osg::State &) const");
+		}
+		self->TextureRectangle::apply(state);
 
 		return 0;
 	}
@@ -1065,6 +1882,32 @@ luna_RegType LunaTraits< osg::TextureRectangle >::methods[] = {
 	{"copyTexImage2D", &luna_wrapper_osg_TextureRectangle::_bind_copyTexImage2D},
 	{"copyTexSubImage2D", &luna_wrapper_osg_TextureRectangle::_bind_copyTexSubImage2D},
 	{"apply", &luna_wrapper_osg_TextureRectangle::_bind_apply},
+	{"base_setName", &luna_wrapper_osg_TextureRectangle::_bind_base_setName},
+	{"base_computeDataVariance", &luna_wrapper_osg_TextureRectangle::_bind_base_computeDataVariance},
+	{"base_setUserData", &luna_wrapper_osg_TextureRectangle::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_TextureRectangle::_bind_base_getUserData},
+	{"base_getMember", &luna_wrapper_osg_TextureRectangle::_bind_base_getMember},
+	{"base_checkValidityOfAssociatedModes", &luna_wrapper_osg_TextureRectangle::_bind_base_checkValidityOfAssociatedModes},
+	{"base_asTexture", &luna_wrapper_osg_TextureRectangle::_bind_base_asTexture},
+	{"base_isTextureAttribute", &luna_wrapper_osg_TextureRectangle::_bind_base_isTextureAttribute},
+	{"base_getModeUsage", &luna_wrapper_osg_TextureRectangle::_bind_base_getModeUsage},
+	{"base_compileGLObjects", &luna_wrapper_osg_TextureRectangle::_bind_base_compileGLObjects},
+	{"base_releaseGLObjects", &luna_wrapper_osg_TextureRectangle::_bind_base_releaseGLObjects},
+	{"base_cloneType", &luna_wrapper_osg_TextureRectangle::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_TextureRectangle::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_TextureRectangle::_bind_base_isSameKindAs},
+	{"base_libraryName", &luna_wrapper_osg_TextureRectangle::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osg_TextureRectangle::_bind_base_className},
+	{"base_getType", &luna_wrapper_osg_TextureRectangle::_bind_base_getType},
+	{"base_compare", &luna_wrapper_osg_TextureRectangle::_bind_base_compare},
+	{"base_getTextureTarget", &luna_wrapper_osg_TextureRectangle::_bind_base_getTextureTarget},
+	{"base_setImage", &luna_wrapper_osg_TextureRectangle::_bind_base_setImage},
+	{"base_getImage", &luna_wrapper_osg_TextureRectangle::_bind_base_getImage},
+	{"base_getNumImages", &luna_wrapper_osg_TextureRectangle::_bind_base_getNumImages},
+	{"base_getTextureWidth", &luna_wrapper_osg_TextureRectangle::_bind_base_getTextureWidth},
+	{"base_getTextureHeight", &luna_wrapper_osg_TextureRectangle::_bind_base_getTextureHeight},
+	{"base_getTextureDepth", &luna_wrapper_osg_TextureRectangle::_bind_base_getTextureDepth},
+	{"base_apply", &luna_wrapper_osg_TextureRectangle::_bind_base_apply},
 	{"__eq", &luna_wrapper_osg_TextureRectangle::_bind___eq},
 	{0,0}
 };

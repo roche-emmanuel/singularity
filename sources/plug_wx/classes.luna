@@ -747,4 +747,3 @@ wxZlibInputStream => wxObject
 wxZlibOutputStream => wxObject
 wxScrolled< wxWindow > => wxScrolledCanvas
 wxVector< wxTreeListItem > => wxTreeListItems
-

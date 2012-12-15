@@ -145,12 +145,12 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Object* obj_ptr=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 		if( !obj_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg obj in osgDB::ExternalFileWriter::write function");
 		}
 		const osg::Object & obj=*obj_ptr;
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 		std::string out_absolutePath(lua_tostring(L,4),lua_objlen(L,4));
 		std::string out_relativePath(lua_tostring(L,5),lua_objlen(L,5));
 

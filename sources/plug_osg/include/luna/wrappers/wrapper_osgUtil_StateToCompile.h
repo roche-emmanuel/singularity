@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::libraryName();
+		return StateToCompile::libraryName();
 	};
 
 	// const char * osg::NodeVisitor::className() const
@@ -32,7 +32,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::className();
+		return StateToCompile::className();
 	};
 
 	// void osg::NodeVisitor::reset()
@@ -41,7 +41,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return StateToCompile::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -50,7 +50,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return StateToCompile::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -59,7 +59,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return StateToCompile::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return StateToCompile::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return StateToCompile::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return StateToCompile::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// void osgUtil::StateToCompile::apply(osg::Node & node)
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StateToCompile::apply(node);
+		return StateToCompile::apply(node);
 	};
 
 	// void osgUtil::StateToCompile::apply(osg::Geode & node)
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StateToCompile::apply(node);
+		return StateToCompile::apply(node);
 	};
 
 	// void osgUtil::StateToCompile::apply(osg::Drawable & drawable)
@@ -122,7 +122,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StateToCompile::apply(drawable);
+		return StateToCompile::apply(drawable);
 	};
 
 	// void osgUtil::StateToCompile::apply(osg::StateSet & stateset)
@@ -132,7 +132,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StateToCompile::apply(stateset);
+		return StateToCompile::apply(stateset);
 	};
 
 	// void osgUtil::StateToCompile::apply(osg::Texture & texture)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::StateToCompile::apply(texture);
+		return StateToCompile::apply(texture);
 	};
 
 

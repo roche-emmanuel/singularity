@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellAttrProvider.h>
+
 class luna_wrapper_wxGridCellAttrProvider {
 public:
 	typedef Luna< wxGridCellAttrProvider > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxClientDataContainer(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellAttrProvider* ptr= dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		//wxGridCellAttrProvider* ptr= dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* ptr= luna_caster< wxClientDataContainer, wxGridCellAttrProvider >::cast(Luna< wxClientDataContainer >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -102,20 +112,94 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetAttr(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetAttr(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetRowAttr(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetColAttr(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,25758569)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetColumnHeaderRenderer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetRowHeaderRenderer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCornerRenderer(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxGridCellAttrProvider::wxGridCellAttrProvider()
-	static wxGridCellAttrProvider* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxGridCellAttrProvider* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxGridCellAttrProvider::wxGridCellAttrProvider() function, expected prototype:\nwxGridCellAttrProvider::wxGridCellAttrProvider()\nClass arguments details:\n");
 		}
 
 
 		return new wxGridCellAttrProvider();
+	}
+
+	// wxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data)
+	static wxGridCellAttrProvider* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data) function, expected prototype:\nwxGridCellAttrProvider::wxGridCellAttrProvider(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridCellAttrProvider(L,NULL);
+	}
+
+	// Overload binder for wxGridCellAttrProvider::wxGridCellAttrProvider
+	static wxGridCellAttrProvider* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGridCellAttrProvider, cannot match any of the overloads for function wxGridCellAttrProvider:\n  wxGridCellAttrProvider()\n  wxGridCellAttrProvider(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -131,7 +215,7 @@ public:
 		int col=(int)lua_tointeger(L,3);
 		wxGridCellAttr::wxAttrKind kind=(wxGridCellAttr::wxAttrKind)lua_tointeger(L,4);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int, int, wxGridCellAttr::wxAttrKind) const");
@@ -155,7 +239,7 @@ public:
 		int row=(int)lua_tointeger(L,3);
 		int col=(int)lua_tointeger(L,4);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetAttr(wxGridCellAttr *, int, int)");
@@ -175,7 +259,7 @@ public:
 		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
 		int row=(int)lua_tointeger(L,3);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetRowAttr(wxGridCellAttr *, int)");
@@ -195,7 +279,7 @@ public:
 		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
 		int col=(int)lua_tointeger(L,3);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::SetColAttr(wxGridCellAttr *, int)");
@@ -214,7 +298,7 @@ public:
 
 		int col=(int)lua_tointeger(L,2);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::GetColumnHeaderRenderer(int)");
@@ -236,7 +320,7 @@ public:
 
 		int row=(int)lua_tointeger(L,2);
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::GetRowHeaderRenderer(int)");
@@ -257,12 +341,162 @@ public:
 		}
 
 
-		wxGridCellAttrProvider* self=dynamic_cast< wxGridCellAttrProvider* >(Luna< wxClientDataContainer >::check(L,1));
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::GetCornerRenderer()");
 		}
 		const wxGridCornerHeaderRenderer* lret = &self->GetCornerRenderer();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCornerHeaderRenderer >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const
+	static int _bind_base_GetAttr(lua_State *L) {
+		if (!_lg_typecheck_base_GetAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const function, expected prototype:\nwxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+		int col=(int)lua_tointeger(L,3);
+		wxGridCellAttr::wxAttrKind kind=(wxGridCellAttr::wxAttrKind)lua_tointeger(L,4);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxGridCellAttr * wxGridCellAttrProvider::base_GetAttr(int, int, wxGridCellAttr::wxAttrKind) const");
+		}
+		wxGridCellAttr * lret = self->wxGridCellAttrProvider::GetAttr(row, col, kind);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridCellAttr >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr * attr, int row, int col)
+	static int _bind_base_SetAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr * attr, int row, int col) function, expected prototype:\nvoid wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr * attr, int row, int col)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int row=(int)lua_tointeger(L,3);
+		int col=(int)lua_tointeger(L,4);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetAttr(wxGridCellAttr *, int, int)");
+		}
+		self->wxGridCellAttrProvider::SetAttr(attr, row, col);
+
+		return 0;
+	}
+
+	// void wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr * attr, int row)
+	static int _bind_base_SetRowAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetRowAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr * attr, int row) function, expected prototype:\nvoid wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr * attr, int row)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int row=(int)lua_tointeger(L,3);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetRowAttr(wxGridCellAttr *, int)");
+		}
+		self->wxGridCellAttrProvider::SetRowAttr(attr, row);
+
+		return 0;
+	}
+
+	// void wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr * attr, int col)
+	static int _bind_base_SetColAttr(lua_State *L) {
+		if (!_lg_typecheck_base_SetColAttr(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr * attr, int col) function, expected prototype:\nvoid wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr * attr, int col)\nClass arguments details:\narg 1 ID = 25758569\n");
+		}
+
+		wxGridCellAttr* attr=(Luna< wxGridCellAttr >::check(L,2));
+		int col=(int)lua_tointeger(L,3);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxGridCellAttrProvider::base_SetColAttr(wxGridCellAttr *, int)");
+		}
+		self->wxGridCellAttrProvider::SetColAttr(attr, col);
+
+		return 0;
+	}
+
+	// const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int col)
+	static int _bind_base_GetColumnHeaderRenderer(lua_State *L) {
+		if (!_lg_typecheck_base_GetColumnHeaderRenderer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int col) function, expected prototype:\nconst wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int col)\nClass arguments details:\n");
+		}
+
+		int col=(int)lua_tointeger(L,2);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxGridColumnHeaderRenderer & wxGridCellAttrProvider::base_GetColumnHeaderRenderer(int)");
+		}
+		const wxGridColumnHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetColumnHeaderRenderer(col);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridColumnHeaderRenderer >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int row)
+	static int _bind_base_GetRowHeaderRenderer(lua_State *L) {
+		if (!_lg_typecheck_base_GetRowHeaderRenderer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int row) function, expected prototype:\nconst wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int row)\nClass arguments details:\n");
+		}
+
+		int row=(int)lua_tointeger(L,2);
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxGridRowHeaderRenderer & wxGridCellAttrProvider::base_GetRowHeaderRenderer(int)");
+		}
+		const wxGridRowHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetRowHeaderRenderer(row);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxGridRowHeaderRenderer >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer()
+	static int _bind_base_GetCornerRenderer(lua_State *L) {
+		if (!_lg_typecheck_base_GetCornerRenderer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer() function, expected prototype:\nconst wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer()\nClass arguments details:\n");
+		}
+
+
+		wxGridCellAttrProvider* self=Luna< wxClientDataContainer >::checkSubType< wxGridCellAttrProvider >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const wxGridCornerHeaderRenderer & wxGridCellAttrProvider::base_GetCornerRenderer()");
+		}
+		const wxGridCornerHeaderRenderer* lret = &self->wxGridCellAttrProvider::GetCornerRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxGridCornerHeaderRenderer >::push(L,lret,false);
@@ -298,6 +532,13 @@ luna_RegType LunaTraits< wxGridCellAttrProvider >::methods[] = {
 	{"GetColumnHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetColumnHeaderRenderer},
 	{"GetRowHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetRowHeaderRenderer},
 	{"GetCornerRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_GetCornerRenderer},
+	{"base_GetAttr", &luna_wrapper_wxGridCellAttrProvider::_bind_base_GetAttr},
+	{"base_SetAttr", &luna_wrapper_wxGridCellAttrProvider::_bind_base_SetAttr},
+	{"base_SetRowAttr", &luna_wrapper_wxGridCellAttrProvider::_bind_base_SetRowAttr},
+	{"base_SetColAttr", &luna_wrapper_wxGridCellAttrProvider::_bind_base_SetColAttr},
+	{"base_GetColumnHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_base_GetColumnHeaderRenderer},
+	{"base_GetRowHeaderRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_base_GetRowHeaderRenderer},
+	{"base_GetCornerRenderer", &luna_wrapper_wxGridCellAttrProvider::_bind_base_GetCornerRenderer},
 	{"__eq", &luna_wrapper_wxGridCellAttrProvider::_bind___eq},
 	{0,0}
 };

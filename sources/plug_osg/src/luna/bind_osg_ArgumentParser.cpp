@@ -669,7 +669,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage) function, expected prototype:\nvoid osg::ArgumentParser::setApplicationUsage(osg::ApplicationUsage * usage)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::ApplicationUsage* usage=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,2));
+		osg::ApplicationUsage* usage=(Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,2));
 
 		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
 		if(!self) {

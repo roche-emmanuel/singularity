@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return VertexProgram::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return VertexProgram::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return VertexProgram::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return VertexProgram::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return VertexProgram::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return VertexProgram::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return VertexProgram::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return VertexProgram::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return VertexProgram::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return VertexProgram::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Object * osg::VertexProgram::cloneType() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::VertexProgram::cloneType();
+		return VertexProgram::cloneType();
 	};
 
 	// osg::Object * osg::VertexProgram::clone(const osg::CopyOp & arg1) const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::VertexProgram::clone(arg1);
+		return VertexProgram::clone(arg1);
 	};
 
 	// bool osg::VertexProgram::isSameKindAs(const osg::Object * obj) const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::VertexProgram::isSameKindAs(obj);
+		return VertexProgram::isSameKindAs(obj);
 	};
 
 	// const char * osg::VertexProgram::libraryName() const
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::VertexProgram::libraryName();
+		return VertexProgram::libraryName();
 	};
 
 	// const char * osg::VertexProgram::className() const
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::VertexProgram::className();
+		return VertexProgram::className();
 	};
 
 	// osg::StateAttribute::Type osg::VertexProgram::getType() const
@@ -164,7 +164,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::VertexProgram::getType();
+		return VertexProgram::getType();
 	};
 
 	// int osg::VertexProgram::compare(const osg::StateAttribute & sa) const
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::VertexProgram::compare(sa);
+		return VertexProgram::compare(sa);
 	};
 
 	// bool osg::VertexProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::VertexProgram::getModeUsage(arg1);
+		return VertexProgram::getModeUsage(arg1);
 	};
 
 	// void osg::VertexProgram::apply(osg::State & arg1) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::VertexProgram::apply(arg1);
+		return VertexProgram::apply(arg1);
 	};
 
 	// void osg::VertexProgram::compileGLObjects(osg::State & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::VertexProgram::compileGLObjects(arg1);
+		return VertexProgram::compileGLObjects(arg1);
 	};
 
 	// void osg::VertexProgram::releaseGLObjects(osg::State * state = 0) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::VertexProgram::releaseGLObjects(state);
+		return VertexProgram::releaseGLObjects(state);
 	};
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxZipEntry.h>
+
 class luna_wrapper_wxZipEntry {
 public:
 	typedef Luna< wxZipEntry > luna_t;

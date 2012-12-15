@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDialogLayoutAdapter.h>
+
 class luna_wrapper_wxDialogLayoutAdapter {
 public:
 	typedef Luna< wxDialogLayoutAdapter > luna_t;
@@ -80,7 +82,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDialog* dialog=dynamic_cast< wxDialog* >(Luna< wxObject >::check(L,2));
+		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
@@ -100,7 +102,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog) function, expected prototype:\nbool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDialog* dialog=dynamic_cast< wxDialog* >(Luna< wxObject >::check(L,2));
+		wxDialog* dialog=(Luna< wxObject >::checkSubType< wxDialog >(L,2));
 
 		wxDialogLayoutAdapter* self=(Luna< wxDialogLayoutAdapter >::check(L,1));
 		if(!self) {
@@ -123,8 +125,6 @@ wxDialogLayoutAdapter* LunaTraits< wxDialogLayoutAdapter >::_bind_ctor(lua_State
 	// Abstract methods:
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)
 	// bool wxDialogLayoutAdapter::DoLayoutAdaptation(wxDialog * dialog)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDialogLayoutAdapter >::_bind_dtor(wxDialogLayoutAdapter* obj) {

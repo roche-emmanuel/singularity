@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSizeEvent.h>
+
 class luna_wrapper_wxSizeEvent {
 public:
 	typedef Luna< wxSizeEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSizeEvent* ptr= dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		//wxSizeEvent* ptr= dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxSizeEvent* ptr= luna_caster< wxObject, wxSizeEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -66,6 +69,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -79,7 +94,7 @@ public:
 		}
 
 
-		wxSizeEvent* self=dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizeEvent::GetSize() const");
@@ -106,7 +121,7 @@ public:
 		}
 		wxSize size=*size_ptr;
 
-		wxSizeEvent* self=dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetSize(wxSize)");
@@ -124,7 +139,7 @@ public:
 		}
 
 
-		wxSizeEvent* self=dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxRect wxSizeEvent::GetRect() const");
@@ -151,7 +166,7 @@ public:
 		}
 		wxRect rect=*rect_ptr;
 
-		wxSizeEvent* self=dynamic_cast< wxSizeEvent* >(Luna< wxObject >::check(L,1));
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizeEvent::SetRect(wxRect)");
@@ -159,6 +174,46 @@ public:
 		self->SetRect(rect);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxSizeEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSizeEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSizeEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizeEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSizeEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxSizeEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxSizeEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxSizeEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxSizeEvent* self=Luna< wxObject >::checkSubType< wxSizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxSizeEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxSizeEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
 	}
 
 
@@ -170,8 +225,6 @@ wxSizeEvent* LunaTraits< wxSizeEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSizeEvent >::_bind_dtor(wxSizeEvent* obj) {
@@ -190,6 +243,8 @@ luna_RegType LunaTraits< wxSizeEvent >::methods[] = {
 	{"SetSize", &luna_wrapper_wxSizeEvent::_bind_SetSize},
 	{"GetRect", &luna_wrapper_wxSizeEvent::_bind_GetRect},
 	{"SetRect", &luna_wrapper_wxSizeEvent::_bind_SetRect},
+	{"base_GetClassInfo", &luna_wrapper_wxSizeEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxSizeEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxSizeEvent::_bind___eq},
 	{0,0}
 };

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::FBOExtensions* ptr= dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::FBOExtensions* ptr= dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::FBOExtensions* ptr= luna_caster< osg::Referenced, osg::FBOExtensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -109,7 +110,7 @@ public:
 		}
 
 
-		osg::FBOExtensions* self=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isSupported() const");
@@ -128,7 +129,7 @@ public:
 		}
 
 
-		osg::FBOExtensions* self=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleSupported() const");
@@ -147,7 +148,7 @@ public:
 		}
 
 
-		osg::FBOExtensions* self=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isMultisampleCoverageSupported() const");
@@ -166,7 +167,7 @@ public:
 		}
 
 
-		osg::FBOExtensions* self=dynamic_cast< osg::FBOExtensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::FBOExtensions* self=Luna< osg::Referenced >::checkSubType< osg::FBOExtensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::FBOExtensions::isPackedDepthStencilSupported() const");

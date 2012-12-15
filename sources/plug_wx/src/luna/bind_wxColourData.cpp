@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxColourData.h>
+
 class luna_wrapper_wxColourData {
 public:
 	typedef Luna< wxColourData > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxColourData* ptr= dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		//wxColourData* ptr= dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* ptr= luna_caster< wxObject, wxColourData >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,9 +43,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -102,20 +112,46 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxColourData::wxColourData()
-	static wxColourData* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxColourData* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxColourData::wxColourData() function, expected prototype:\nwxColourData::wxColourData()\nClass arguments details:\n");
 		}
 
 
 		return new wxColourData();
+	}
+
+	// wxColourData::wxColourData(lua_Table * data)
+	static wxColourData* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxColourData::wxColourData(lua_Table * data) function, expected prototype:\nwxColourData::wxColourData(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxColourData(L,NULL);
+	}
+
+	// Overload binder for wxColourData::wxColourData
+	static wxColourData* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxColourData, cannot match any of the overloads for function wxColourData:\n  wxColourData()\n  wxColourData(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -128,7 +164,7 @@ public:
 		}
 
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxColourData::GetChooseFull() const");
@@ -147,7 +183,7 @@ public:
 		}
 
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxColour & wxColourData::GetColour()");
@@ -169,7 +205,7 @@ public:
 
 		int i=(int)lua_tointeger(L,2);
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxColour wxColourData::GetCustomColour(int) const");
@@ -192,7 +228,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxColourData::SetChooseFull(bool)");
@@ -209,13 +245,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxColourData::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxColourData::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxColourData::SetColour function");
 		}
 		const wxColour & colour=*colour_ptr;
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxColourData::SetColour(const wxColour &)");
@@ -233,13 +269,13 @@ public:
 		}
 
 		int i=(int)lua_tointeger(L,2);
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,3));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,3));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxColourData::SetCustomColour function");
 		}
 		const wxColour & colour=*colour_ptr;
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxColourData::SetCustomColour(int, const wxColour &)");
@@ -257,7 +293,7 @@ public:
 		}
 
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxColourData::ToString() const");
@@ -277,13 +313,34 @@ public:
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxColourData* self=dynamic_cast< wxColourData* >(Luna< wxObject >::check(L,1));
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxColourData::FromString(const wxString &)");
 		}
 		bool lret = self->FromString(str);
 		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxColourData::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColourData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColourData::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxColourData* self=Luna< wxObject >::checkSubType< wxColourData >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColourData::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxColourData::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -317,6 +374,7 @@ luna_RegType LunaTraits< wxColourData >::methods[] = {
 	{"SetCustomColour", &luna_wrapper_wxColourData::_bind_SetCustomColour},
 	{"ToString", &luna_wrapper_wxColourData::_bind_ToString},
 	{"FromString", &luna_wrapper_wxColourData::_bind_FromString},
+	{"base_GetClassInfo", &luna_wrapper_wxColourData::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxColourData::_bind___eq},
 	{0,0}
 };

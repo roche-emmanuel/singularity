@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDocument.h>
+
 class luna_wrapper_wxDocument {
 public:
 	typedef Luna< wxDocument > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDocument* ptr= dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxDocument >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxDocument* ptr= static_cast< wxDocument* >(Luna< wxTrackable >::check(L,1));
+		//wxDocument* ptr= dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* ptr= luna_caster< wxObject, wxDocument >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -51,11 +43,22 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -321,23 +324,262 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddView(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Close(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteAllViews(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_DeleteContents(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetCommandProcessor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDocumentManager(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDocumentTemplate(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetDocumentWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetUserReadableName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_IsModified(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Modify(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnChangedViewList(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCloseDocument(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCreate(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnCreateCommandProcessor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnNewDocument(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnOpenDocument(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnSaveDocument(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnSaveModified(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RemoveView(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Save(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SaveAs(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Revert(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetCommandProcessor(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetDocumentTemplate(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnChangeFilename(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UpdateAllViews(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxDocument::wxDocument(wxDocument * parent = NULL)
-	static wxDocument* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxDocument* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxDocument::wxDocument(wxDocument * parent = NULL) function, expected prototype:\nwxDocument::wxDocument(wxDocument * parent = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxDocument* parent=luatop>0 ? dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1)) : (wxDocument*)NULL;
+		wxDocument* parent=luatop>0 ? (Luna< wxObject >::checkSubType< wxDocument >(L,1)) : (wxDocument*)NULL;
 
 		return new wxDocument(parent);
+	}
+
+	// wxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL)
+	static wxDocument* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL) function, expected prototype:\nwxDocument::wxDocument(lua_Table * data, wxDocument * parent = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxDocument* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxDocument >(L,2)) : (wxDocument*)NULL;
+
+		return new wrapper_wxDocument(L,NULL, parent);
+	}
+
+	// Overload binder for wxDocument::wxDocument
+	static wxDocument* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDocument, cannot match any of the overloads for function wxDocument:\n  wxDocument(wxDocument *)\n  wxDocument(lua_Table *, wxDocument *)\n");
+		return NULL;
 	}
 
 
@@ -349,9 +591,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDocument::AddView(wxView * view) function, expected prototype:\nbool wxDocument::AddView(wxView * view)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxView* view=dynamic_cast< wxView* >(Luna< wxObject >::check(L,2));
+		wxView* view=(Luna< wxObject >::checkSubType< wxView >(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::AddView(wxView *)");
@@ -370,7 +612,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::AlreadySaved() const");
@@ -389,7 +631,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::Close()");
@@ -408,7 +650,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::DeleteAllViews()");
@@ -427,7 +669,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::DeleteContents()");
@@ -446,7 +688,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxCommandProcessor * wxDocument::GetCommandProcessor() const");
@@ -467,7 +709,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocManager * wxDocument::GetDocumentManager() const");
@@ -488,7 +730,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocument::GetDocumentName() const");
@@ -507,7 +749,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::GetDocumentSaved() const");
@@ -526,7 +768,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDocTemplate * wxDocument::GetDocumentTemplate() const");
@@ -547,7 +789,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxDocument::GetDocumentWindow() const");
@@ -568,7 +810,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocument::GetFilename() const");
@@ -587,7 +829,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxView * wxDocument::GetFirstView() const");
@@ -608,7 +850,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocument::GetTitle() const");
@@ -627,7 +869,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxDocument::GetUserReadableName() const");
@@ -646,7 +888,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxList & wxDocument::GetViews()");
@@ -667,7 +909,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxList & wxDocument::GetViews() const");
@@ -697,7 +939,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::IsChildDocument() const");
@@ -716,7 +958,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::IsModified() const");
@@ -736,7 +978,7 @@ public:
 
 		bool modify=(bool)(lua_toboolean(L,2)==1);
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::Modify(bool)");
@@ -754,7 +996,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::OnChangedViewList()");
@@ -772,7 +1014,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnCloseDocument()");
@@ -793,7 +1035,7 @@ public:
 		wxString path(lua_tostring(L,2),lua_objlen(L,2));
 		long flags=(long)lua_tointeger(L,3);
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnCreate(const wxString &, long)");
@@ -812,7 +1054,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxCommandProcessor * wxDocument::OnCreateCommandProcessor()");
@@ -833,7 +1075,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnNewDocument()");
@@ -853,7 +1095,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnOpenDocument(const wxString &)");
@@ -873,7 +1115,7 @@ public:
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnSaveDocument(const wxString &)");
@@ -892,7 +1134,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::OnSaveModified()");
@@ -910,9 +1152,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxDocument::RemoveView(wxView * view) function, expected prototype:\nbool wxDocument::RemoveView(wxView * view)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxView* view=dynamic_cast< wxView* >(Luna< wxObject >::check(L,2));
+		wxView* view=(Luna< wxObject >::checkSubType< wxView >(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::RemoveView(wxView *)");
@@ -931,7 +1173,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::Save()");
@@ -950,7 +1192,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::SaveAs()");
@@ -969,7 +1211,7 @@ public:
 		}
 
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxDocument::Revert()");
@@ -987,9 +1229,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocument::SetCommandProcessor(wxCommandProcessor * processor) function, expected prototype:\nvoid wxDocument::SetCommandProcessor(wxCommandProcessor * processor)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxCommandProcessor* processor=dynamic_cast< wxCommandProcessor* >(Luna< wxObject >::check(L,2));
+		wxCommandProcessor* processor=(Luna< wxObject >::checkSubType< wxCommandProcessor >(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetCommandProcessor(wxCommandProcessor *)");
@@ -1008,7 +1250,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetDocumentName(const wxString &)");
@@ -1025,9 +1267,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDocument::SetDocumentTemplate(wxDocTemplate * templ) function, expected prototype:\nvoid wxDocument::SetDocumentTemplate(wxDocTemplate * templ)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDocTemplate* templ=dynamic_cast< wxDocTemplate* >(Luna< wxObject >::check(L,2));
+		wxDocTemplate* templ=(Luna< wxObject >::checkSubType< wxDocTemplate >(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetDocumentTemplate(wxDocTemplate *)");
@@ -1048,7 +1290,7 @@ public:
 
 		bool saved=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : true;
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetDocumentSaved(bool)");
@@ -1070,7 +1312,7 @@ public:
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 		bool notifyViews=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetFilename(const wxString &, bool)");
@@ -1089,7 +1331,7 @@ public:
 
 		bool notifyViews=(bool)(lua_toboolean(L,2)==1);
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::OnChangeFilename(bool)");
@@ -1108,7 +1350,7 @@ public:
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::SetTitle(const wxString &)");
@@ -1127,15 +1369,671 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxView* sender=luatop>1 ? dynamic_cast< wxView* >(Luna< wxObject >::check(L,2)) : (wxView*)NULL;
+		wxView* sender=luatop>1 ? (Luna< wxObject >::checkSubType< wxView >(L,2)) : (wxView*)NULL;
 		wxObject* hint=luatop>2 ? (Luna< wxObject >::check(L,3)) : (wxObject*)NULL;
 
-		wxDocument* self=dynamic_cast< wxDocument* >(Luna< wxObject >::check(L,1));
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDocument::UpdateAllViews(wxView *, wxObject *)");
 		}
 		self->UpdateAllViews(sender, hint);
+
+		return 0;
+	}
+
+	// wxClassInfo * wxDocument::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDocument::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDocument::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDocument::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxDocument::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxDocument::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxDocument::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_QueueEvent(wxEvent *)");
+		}
+		self->wxDocument::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxDocument::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxDocument::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocument::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxDocument::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxDocument::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxDocument::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxDocument::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxDocument::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxDocument::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxDocument::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxDocument::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxDocument::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxDocument::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxDocument::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// bool wxDocument::base_AddView(wxView * view)
+	static int _bind_base_AddView(lua_State *L) {
+		if (!_lg_typecheck_base_AddView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_AddView(wxView * view) function, expected prototype:\nbool wxDocument::base_AddView(wxView * view)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxView* view=(Luna< wxObject >::checkSubType< wxView >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_AddView(wxView *)");
+		}
+		bool lret = self->wxDocument::AddView(view);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_Close()
+	static int _bind_base_Close(lua_State *L) {
+		if (!_lg_typecheck_base_Close(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_Close() function, expected prototype:\nbool wxDocument::base_Close()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_Close()");
+		}
+		bool lret = self->wxDocument::Close();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_DeleteAllViews()
+	static int _bind_base_DeleteAllViews(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteAllViews(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_DeleteAllViews() function, expected prototype:\nbool wxDocument::base_DeleteAllViews()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_DeleteAllViews()");
+		}
+		bool lret = self->wxDocument::DeleteAllViews();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_DeleteContents()
+	static int _bind_base_DeleteContents(lua_State *L) {
+		if (!_lg_typecheck_base_DeleteContents(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_DeleteContents() function, expected prototype:\nbool wxDocument::base_DeleteContents()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_DeleteContents()");
+		}
+		bool lret = self->wxDocument::DeleteContents();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxCommandProcessor * wxDocument::base_GetCommandProcessor() const
+	static int _bind_base_GetCommandProcessor(lua_State *L) {
+		if (!_lg_typecheck_base_GetCommandProcessor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCommandProcessor * wxDocument::base_GetCommandProcessor() const function, expected prototype:\nwxCommandProcessor * wxDocument::base_GetCommandProcessor() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxCommandProcessor * wxDocument::base_GetCommandProcessor() const");
+		}
+		wxCommandProcessor * lret = self->wxDocument::GetCommandProcessor();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxCommandProcessor >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxDocManager * wxDocument::base_GetDocumentManager() const
+	static int _bind_base_GetDocumentManager(lua_State *L) {
+		if (!_lg_typecheck_base_GetDocumentManager(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocManager * wxDocument::base_GetDocumentManager() const function, expected prototype:\nwxDocManager * wxDocument::base_GetDocumentManager() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDocManager * wxDocument::base_GetDocumentManager() const");
+		}
+		wxDocManager * lret = self->wxDocument::GetDocumentManager();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDocManager >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxDocTemplate * wxDocument::base_GetDocumentTemplate() const
+	static int _bind_base_GetDocumentTemplate(lua_State *L) {
+		if (!_lg_typecheck_base_GetDocumentTemplate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDocTemplate * wxDocument::base_GetDocumentTemplate() const function, expected prototype:\nwxDocTemplate * wxDocument::base_GetDocumentTemplate() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDocTemplate * wxDocument::base_GetDocumentTemplate() const");
+		}
+		wxDocTemplate * lret = self->wxDocument::GetDocumentTemplate();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxDocTemplate >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxWindow * wxDocument::base_GetDocumentWindow() const
+	static int _bind_base_GetDocumentWindow(lua_State *L) {
+		if (!_lg_typecheck_base_GetDocumentWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWindow * wxDocument::base_GetDocumentWindow() const function, expected prototype:\nwxWindow * wxDocument::base_GetDocumentWindow() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxWindow * wxDocument::base_GetDocumentWindow() const");
+		}
+		wxWindow * lret = self->wxDocument::GetDocumentWindow();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxString wxDocument::base_GetUserReadableName() const
+	static int _bind_base_GetUserReadableName(lua_State *L) {
+		if (!_lg_typecheck_base_GetUserReadableName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxDocument::base_GetUserReadableName() const function, expected prototype:\nwxString wxDocument::base_GetUserReadableName() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxDocument::base_GetUserReadableName() const");
+		}
+		wxString lret = self->wxDocument::GetUserReadableName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool wxDocument::base_IsModified() const
+	static int _bind_base_IsModified(lua_State *L) {
+		if (!_lg_typecheck_base_IsModified(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_IsModified() const function, expected prototype:\nbool wxDocument::base_IsModified() const\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_IsModified() const");
+		}
+		bool lret = self->wxDocument::IsModified();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxDocument::base_Modify(bool modify)
+	static int _bind_base_Modify(lua_State *L) {
+		if (!_lg_typecheck_base_Modify(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_Modify(bool modify) function, expected prototype:\nvoid wxDocument::base_Modify(bool modify)\nClass arguments details:\n");
+		}
+
+		bool modify=(bool)(lua_toboolean(L,2)==1);
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_Modify(bool)");
+		}
+		self->wxDocument::Modify(modify);
+
+		return 0;
+	}
+
+	// void wxDocument::base_OnChangedViewList()
+	static int _bind_base_OnChangedViewList(lua_State *L) {
+		if (!_lg_typecheck_base_OnChangedViewList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_OnChangedViewList() function, expected prototype:\nvoid wxDocument::base_OnChangedViewList()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_OnChangedViewList()");
+		}
+		self->wxDocument::OnChangedViewList();
+
+		return 0;
+	}
+
+	// bool wxDocument::base_OnCloseDocument()
+	static int _bind_base_OnCloseDocument(lua_State *L) {
+		if (!_lg_typecheck_base_OnCloseDocument(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnCloseDocument() function, expected prototype:\nbool wxDocument::base_OnCloseDocument()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnCloseDocument()");
+		}
+		bool lret = self->wxDocument::OnCloseDocument();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_OnCreate(const wxString & path, long flags)
+	static int _bind_base_OnCreate(lua_State *L) {
+		if (!_lg_typecheck_base_OnCreate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnCreate(const wxString & path, long flags) function, expected prototype:\nbool wxDocument::base_OnCreate(const wxString & path, long flags)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString path(lua_tostring(L,2),lua_objlen(L,2));
+		long flags=(long)lua_tointeger(L,3);
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnCreate(const wxString &, long)");
+		}
+		bool lret = self->wxDocument::OnCreate(path, flags);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxCommandProcessor * wxDocument::base_OnCreateCommandProcessor()
+	static int _bind_base_OnCreateCommandProcessor(lua_State *L) {
+		if (!_lg_typecheck_base_OnCreateCommandProcessor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCommandProcessor * wxDocument::base_OnCreateCommandProcessor() function, expected prototype:\nwxCommandProcessor * wxDocument::base_OnCreateCommandProcessor()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxCommandProcessor * wxDocument::base_OnCreateCommandProcessor()");
+		}
+		wxCommandProcessor * lret = self->wxDocument::OnCreateCommandProcessor();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxCommandProcessor >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_OnNewDocument()
+	static int _bind_base_OnNewDocument(lua_State *L) {
+		if (!_lg_typecheck_base_OnNewDocument(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnNewDocument() function, expected prototype:\nbool wxDocument::base_OnNewDocument()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnNewDocument()");
+		}
+		bool lret = self->wxDocument::OnNewDocument();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_OnOpenDocument(const wxString & filename)
+	static int _bind_base_OnOpenDocument(lua_State *L) {
+		if (!_lg_typecheck_base_OnOpenDocument(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnOpenDocument(const wxString & filename) function, expected prototype:\nbool wxDocument::base_OnOpenDocument(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnOpenDocument(const wxString &)");
+		}
+		bool lret = self->wxDocument::OnOpenDocument(filename);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_OnSaveDocument(const wxString & filename)
+	static int _bind_base_OnSaveDocument(lua_State *L) {
+		if (!_lg_typecheck_base_OnSaveDocument(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnSaveDocument(const wxString & filename) function, expected prototype:\nbool wxDocument::base_OnSaveDocument(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		}
+
+		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnSaveDocument(const wxString &)");
+		}
+		bool lret = self->wxDocument::OnSaveDocument(filename);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_OnSaveModified()
+	static int _bind_base_OnSaveModified(lua_State *L) {
+		if (!_lg_typecheck_base_OnSaveModified(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_OnSaveModified() function, expected prototype:\nbool wxDocument::base_OnSaveModified()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_OnSaveModified()");
+		}
+		bool lret = self->wxDocument::OnSaveModified();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_RemoveView(wxView * view)
+	static int _bind_base_RemoveView(lua_State *L) {
+		if (!_lg_typecheck_base_RemoveView(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_RemoveView(wxView * view) function, expected prototype:\nbool wxDocument::base_RemoveView(wxView * view)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxView* view=(Luna< wxObject >::checkSubType< wxView >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_RemoveView(wxView *)");
+		}
+		bool lret = self->wxDocument::RemoveView(view);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_Save()
+	static int _bind_base_Save(lua_State *L) {
+		if (!_lg_typecheck_base_Save(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_Save() function, expected prototype:\nbool wxDocument::base_Save()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_Save()");
+		}
+		bool lret = self->wxDocument::Save();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_SaveAs()
+	static int _bind_base_SaveAs(lua_State *L) {
+		if (!_lg_typecheck_base_SaveAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_SaveAs() function, expected prototype:\nbool wxDocument::base_SaveAs()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_SaveAs()");
+		}
+		bool lret = self->wxDocument::SaveAs();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxDocument::base_Revert()
+	static int _bind_base_Revert(lua_State *L) {
+		if (!_lg_typecheck_base_Revert(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDocument::base_Revert() function, expected prototype:\nbool wxDocument::base_Revert()\nClass arguments details:\n");
+		}
+
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDocument::base_Revert()");
+		}
+		bool lret = self->wxDocument::Revert();
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxDocument::base_SetCommandProcessor(wxCommandProcessor * processor)
+	static int _bind_base_SetCommandProcessor(lua_State *L) {
+		if (!_lg_typecheck_base_SetCommandProcessor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_SetCommandProcessor(wxCommandProcessor * processor) function, expected prototype:\nvoid wxDocument::base_SetCommandProcessor(wxCommandProcessor * processor)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxCommandProcessor* processor=(Luna< wxObject >::checkSubType< wxCommandProcessor >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_SetCommandProcessor(wxCommandProcessor *)");
+		}
+		self->wxDocument::SetCommandProcessor(processor);
+
+		return 0;
+	}
+
+	// void wxDocument::base_SetDocumentTemplate(wxDocTemplate * templ)
+	static int _bind_base_SetDocumentTemplate(lua_State *L) {
+		if (!_lg_typecheck_base_SetDocumentTemplate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_SetDocumentTemplate(wxDocTemplate * templ) function, expected prototype:\nvoid wxDocument::base_SetDocumentTemplate(wxDocTemplate * templ)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxDocTemplate* templ=(Luna< wxObject >::checkSubType< wxDocTemplate >(L,2));
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_SetDocumentTemplate(wxDocTemplate *)");
+		}
+		self->wxDocument::SetDocumentTemplate(templ);
+
+		return 0;
+	}
+
+	// void wxDocument::base_OnChangeFilename(bool notifyViews)
+	static int _bind_base_OnChangeFilename(lua_State *L) {
+		if (!_lg_typecheck_base_OnChangeFilename(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_OnChangeFilename(bool notifyViews) function, expected prototype:\nvoid wxDocument::base_OnChangeFilename(bool notifyViews)\nClass arguments details:\n");
+		}
+
+		bool notifyViews=(bool)(lua_toboolean(L,2)==1);
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_OnChangeFilename(bool)");
+		}
+		self->wxDocument::OnChangeFilename(notifyViews);
+
+		return 0;
+	}
+
+	// void wxDocument::base_UpdateAllViews(wxView * sender = NULL, wxObject * hint = NULL)
+	static int _bind_base_UpdateAllViews(lua_State *L) {
+		if (!_lg_typecheck_base_UpdateAllViews(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxDocument::base_UpdateAllViews(wxView * sender = NULL, wxObject * hint = NULL) function, expected prototype:\nvoid wxDocument::base_UpdateAllViews(wxView * sender = NULL, wxObject * hint = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxView* sender=luatop>1 ? (Luna< wxObject >::checkSubType< wxView >(L,2)) : (wxView*)NULL;
+		wxObject* hint=luatop>2 ? (Luna< wxObject >::check(L,3)) : (wxObject*)NULL;
+
+		wxDocument* self=Luna< wxObject >::checkSubType< wxDocument >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxDocument::base_UpdateAllViews(wxView *, wxObject *)");
+		}
+		self->wxDocument::UpdateAllViews(sender, hint);
 
 		return 0;
 	}
@@ -1200,13 +2098,45 @@ luna_RegType LunaTraits< wxDocument >::methods[] = {
 	{"OnChangeFilename", &luna_wrapper_wxDocument::_bind_OnChangeFilename},
 	{"SetTitle", &luna_wrapper_wxDocument::_bind_SetTitle},
 	{"UpdateAllViews", &luna_wrapper_wxDocument::_bind_UpdateAllViews},
+	{"base_GetClassInfo", &luna_wrapper_wxDocument::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxDocument::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxDocument::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxDocument::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxDocument::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxDocument::_bind_base_SetPreviousHandler},
+	{"base_AddView", &luna_wrapper_wxDocument::_bind_base_AddView},
+	{"base_Close", &luna_wrapper_wxDocument::_bind_base_Close},
+	{"base_DeleteAllViews", &luna_wrapper_wxDocument::_bind_base_DeleteAllViews},
+	{"base_DeleteContents", &luna_wrapper_wxDocument::_bind_base_DeleteContents},
+	{"base_GetCommandProcessor", &luna_wrapper_wxDocument::_bind_base_GetCommandProcessor},
+	{"base_GetDocumentManager", &luna_wrapper_wxDocument::_bind_base_GetDocumentManager},
+	{"base_GetDocumentTemplate", &luna_wrapper_wxDocument::_bind_base_GetDocumentTemplate},
+	{"base_GetDocumentWindow", &luna_wrapper_wxDocument::_bind_base_GetDocumentWindow},
+	{"base_GetUserReadableName", &luna_wrapper_wxDocument::_bind_base_GetUserReadableName},
+	{"base_IsModified", &luna_wrapper_wxDocument::_bind_base_IsModified},
+	{"base_Modify", &luna_wrapper_wxDocument::_bind_base_Modify},
+	{"base_OnChangedViewList", &luna_wrapper_wxDocument::_bind_base_OnChangedViewList},
+	{"base_OnCloseDocument", &luna_wrapper_wxDocument::_bind_base_OnCloseDocument},
+	{"base_OnCreate", &luna_wrapper_wxDocument::_bind_base_OnCreate},
+	{"base_OnCreateCommandProcessor", &luna_wrapper_wxDocument::_bind_base_OnCreateCommandProcessor},
+	{"base_OnNewDocument", &luna_wrapper_wxDocument::_bind_base_OnNewDocument},
+	{"base_OnOpenDocument", &luna_wrapper_wxDocument::_bind_base_OnOpenDocument},
+	{"base_OnSaveDocument", &luna_wrapper_wxDocument::_bind_base_OnSaveDocument},
+	{"base_OnSaveModified", &luna_wrapper_wxDocument::_bind_base_OnSaveModified},
+	{"base_RemoveView", &luna_wrapper_wxDocument::_bind_base_RemoveView},
+	{"base_Save", &luna_wrapper_wxDocument::_bind_base_Save},
+	{"base_SaveAs", &luna_wrapper_wxDocument::_bind_base_SaveAs},
+	{"base_Revert", &luna_wrapper_wxDocument::_bind_base_Revert},
+	{"base_SetCommandProcessor", &luna_wrapper_wxDocument::_bind_base_SetCommandProcessor},
+	{"base_SetDocumentTemplate", &luna_wrapper_wxDocument::_bind_base_SetDocumentTemplate},
+	{"base_OnChangeFilename", &luna_wrapper_wxDocument::_bind_base_OnChangeFilename},
+	{"base_UpdateAllViews", &luna_wrapper_wxDocument::_bind_base_UpdateAllViews},
 	{"__eq", &luna_wrapper_wxDocument::_bind___eq},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< wxDocument >::converters[] = {
 	{"wxObject", &luna_wrapper_wxDocument::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxDocument::_cast_from_wxTrackable},
 	{0,0}
 };
 

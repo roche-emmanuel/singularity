@@ -419,7 +419,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxTextAttrBorder::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* colour_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !colour_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg colour in wxTextAttrBorder::SetColour function");
 		}
@@ -559,17 +559,17 @@ public:
 		return 0;
 	}
 
-	// void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM)
+	// void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)
 	static int _bind_SetWidth_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetWidth_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM) function, expected prototype:\nvoid wxTextAttrBorder::SetWidth(int value, wxTextAttrUnits units = ::wxTEXT_ATTR_UNITS_TENTHS_MM)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		int value=(int)lua_tointeger(L,2);
-		wxTextAttrUnits units=luatop>2 ? (wxTextAttrUnits)lua_tointeger(L,3) : wxTEXT_ATTR_UNITS_TENTHS_MM;
+		wxTextAttrUnits units=luatop>2 ? (wxTextAttrUnits)lua_tointeger(L,3) : ::wxTEXT_ATTR_UNITS_TENTHS_MM;
 
 		wxTextAttrBorder* self=(Luna< wxTextAttrBorder >::check(L,1));
 		if(!self) {

@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_GraphicsContext_WindowingSystemInterface(lua_State* L, lua_Table* dum) : osg::GraphicsContext::WindowingSystemInterface(), _obj(L,-1) {};
 
 	// osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits)
 	osg::GraphicsContext * createGraphicsContext(osg::GraphicsContext::Traits * traits) {

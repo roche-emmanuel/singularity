@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return OcclusionQueryNode::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return OcclusionQueryNode::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return OcclusionQueryNode::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return OcclusionQueryNode::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return OcclusionQueryNode::getUserData();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return OcclusionQueryNode::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return OcclusionQueryNode::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return OcclusionQueryNode::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return OcclusionQueryNode::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return OcclusionQueryNode::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return OcclusionQueryNode::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -126,7 +126,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return OcclusionQueryNode::ascend(nv);
 	};
 
 	// osg::Group * osg::Group::asGroup()
@@ -135,7 +135,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return OcclusionQueryNode::asGroup();
 	};
 
 	// const osg::Group * osg::Group::asGroup() const
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Group::asGroup();
+		return OcclusionQueryNode::asGroup();
 	};
 
 	// void osg::Group::traverse(osg::NodeVisitor & arg1)
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Group::traverse(arg1);
+		return OcclusionQueryNode::traverse(arg1);
 	};
 
 	// bool osg::Group::addChild(osg::Node * child)
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::addChild(child);
+		return OcclusionQueryNode::addChild(child);
 	};
 
 	// bool osg::Group::insertChild(unsigned int index, osg::Node * child)
@@ -175,7 +175,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::insertChild(index, child);
+		return OcclusionQueryNode::insertChild(index, child);
 	};
 
 	// bool osg::Group::removeChildren(unsigned int pos, unsigned int numChildrenToRemove)
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::removeChildren(pos, numChildrenToRemove);
+		return OcclusionQueryNode::removeChildren(pos, numChildrenToRemove);
 	};
 
 	// bool osg::Group::replaceChild(osg::Node * origChild, osg::Node * newChild)
@@ -197,7 +197,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::replaceChild(origChild, newChild);
+		return OcclusionQueryNode::replaceChild(origChild, newChild);
 	};
 
 	// bool osg::Group::setChild(unsigned int i, osg::Node * node)
@@ -208,7 +208,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Group::setChild(i, node);
+		return OcclusionQueryNode::setChild(i, node);
 	};
 
 	// osg::Object * osg::OcclusionQueryNode::cloneType() const
@@ -217,7 +217,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::OcclusionQueryNode::cloneType();
+		return OcclusionQueryNode::cloneType();
 	};
 
 	// osg::Object * osg::OcclusionQueryNode::clone(const osg::CopyOp & copyop) const
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::OcclusionQueryNode::clone(copyop);
+		return OcclusionQueryNode::clone(copyop);
 	};
 
 	// bool osg::OcclusionQueryNode::isSameKindAs(const osg::Object * obj) const
@@ -237,7 +237,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::OcclusionQueryNode::isSameKindAs(obj);
+		return OcclusionQueryNode::isSameKindAs(obj);
 	};
 
 	// const char * osg::OcclusionQueryNode::className() const
@@ -246,7 +246,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::OcclusionQueryNode::className();
+		return OcclusionQueryNode::className();
 	};
 
 	// const char * osg::OcclusionQueryNode::libraryName() const
@@ -255,7 +255,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::OcclusionQueryNode::libraryName();
+		return OcclusionQueryNode::libraryName();
 	};
 
 	// void osg::OcclusionQueryNode::accept(osg::NodeVisitor & nv)
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::OcclusionQueryNode::accept(nv);
+		return OcclusionQueryNode::accept(nv);
 	};
 
 	// osg::BoundingSphered osg::OcclusionQueryNode::computeBound() const
@@ -274,7 +274,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osg::OcclusionQueryNode::computeBound();
+		return OcclusionQueryNode::computeBound();
 	};
 
 	// void osg::OcclusionQueryNode::releaseGLObjects(osg::State * arg1 = 0) const
@@ -284,7 +284,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::OcclusionQueryNode::releaseGLObjects(arg1);
+		return OcclusionQueryNode::releaseGLObjects(arg1);
 	};
 
 	// bool osg::OcclusionQueryNode::getPassed(const osg::Camera * camera, osg::NodeVisitor & nv)
@@ -295,14 +295,41 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::OcclusionQueryNode::getPassed(camera, nv);
+		return OcclusionQueryNode::getPassed(camera, nv);
 	};
 
 
 protected:
 	// void osg::Group::childRemoved(unsigned int arg1, unsigned int arg2)
+	void childRemoved(unsigned int arg1, unsigned int arg2) {
+		if(_obj.pushFunction("childRemoved")) {
+			_obj.pushArg(arg1);
+			_obj.pushArg(arg2);
+			return (_obj.callFunction<void>());
+		}
+
+		return OcclusionQueryNode::childRemoved(arg1, arg2);
+	};
+
 	// void osg::Group::childInserted(unsigned int arg1)
+	void childInserted(unsigned int arg1) {
+		if(_obj.pushFunction("childInserted")) {
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<void>());
+		}
+
+		return OcclusionQueryNode::childInserted(arg1);
+	};
+
 	// void osg::OcclusionQueryNode::createSupportNodes()
+	void createSupportNodes() {
+		if(_obj.pushFunction("createSupportNodes")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return OcclusionQueryNode::createSupportNodes();
+	};
+
 
 };
 

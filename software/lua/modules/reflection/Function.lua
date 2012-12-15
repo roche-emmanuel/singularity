@@ -180,6 +180,14 @@ function Class:isWrapper()
 	return self._isWrapper
 end
 
+function Class:setUseBase(use)
+	self._useBase = use
+end
+
+function Class:getUseBase()
+	return self._useBase
+end
+
 --- Check if function is a constructor.
 function Class:isConstructor()
 	return self:getLuaName() == self:getParent():getName()
@@ -308,7 +316,7 @@ end
 --- Generate function prototype:
 -- @param withNames When set to true the parameter names and default values are added in the prototype.
 function Class:getPrototype(withNames,fullname,noargstring)
-    local sig =  "".. (self:getReturnType() and (self:getReturnType():getName().." ") or "") .. (fullname and self:getFullName() or self:getName()) 
+    local sig =  "".. (self:getReturnType() and (self:getReturnType():getName().." ") or "") .. ((type(fullname)=="string" and fullname .."::"..self:getName()) or (fullname and self:getFullName()) or self:getName()) 
     
     if noargstring then
 		sig = sig .. "(" .. self:getArgumentsPrototype(withNames) .. ")"
@@ -424,6 +432,7 @@ function Class:clone()
 	func._isExtension = self._isExtension
 	func._isConst = self._isConst
 	func._luaName = self._luaName
+	func.returnType = self.returnType
 	
 	local params = self:getParameters()
 	for _,param in params:sequence() do

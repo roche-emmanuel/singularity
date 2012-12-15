@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::ReadFileCallback* ptr= dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::ReadFileCallback* ptr= dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* ptr= luna_caster< osg::Referenced, osgDB::ReadFileCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -94,6 +95,56 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_openArchive(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_readObject(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_readImage(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_readHeightField(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_readNode(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_readShader(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -111,9 +162,9 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 		osgDB::ReaderWriter::ArchiveStatus status=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
 		unsigned int indexBlockSizeHint=(unsigned int)lua_tointeger(L,4);
-		const osgDB::Options* useObjectCache=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,5));
+		const osgDB::Options* useObjectCache=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *)");
@@ -135,9 +186,9 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readObject(const std::string &, const osgDB::Options *)");
@@ -159,9 +210,9 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readImage(const std::string &, const osgDB::Options *)");
@@ -183,9 +234,9 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readHeightField(const std::string &, const osgDB::Options *)");
@@ -207,9 +258,9 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readNode(const std::string &, const osgDB::Options *)");
@@ -231,14 +282,160 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::ReadFileCallback* self=dynamic_cast< osgDB::ReadFileCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::readShader(const std::string &, const osgDB::Options *)");
 		}
 		osgDB::ReaderWriter::ReadResult stack_lret = self->readShader(filename, options);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache)
+	static int _bind_base_openArchive(lua_State *L) {
+		if (!_lg_typecheck_base_openArchive(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_openArchive(const std::string & filename, osgDB::ReaderWriter::ArchiveStatus status, unsigned int indexBlockSizeHint, const osgDB::Options * useObjectCache)\nClass arguments details:\narg 4 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		osgDB::ReaderWriter::ArchiveStatus status=(osgDB::ReaderWriter::ArchiveStatus)lua_tointeger(L,3);
+		unsigned int indexBlockSizeHint=(unsigned int)lua_tointeger(L,4);
+		const osgDB::Options* useObjectCache=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::openArchive(filename, status, indexBlockSizeHint, useObjectCache);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readObject(const std::string & filename, const osgDB::Options * options)
+	static int _bind_base_readObject(lua_State *L) {
+		if (!_lg_typecheck_base_readObject(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readObject(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readObject(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readObject(const std::string &, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::readObject(filename, options);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readImage(const std::string & filename, const osgDB::Options * options)
+	static int _bind_base_readImage(lua_State *L) {
+		if (!_lg_typecheck_base_readImage(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readImage(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readImage(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readImage(const std::string &, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::readImage(filename, options);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readHeightField(const std::string & filename, const osgDB::Options * options)
+	static int _bind_base_readHeightField(lua_State *L) {
+		if (!_lg_typecheck_base_readHeightField(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readHeightField(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readHeightField(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readHeightField(const std::string &, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::readHeightField(filename, options);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readNode(const std::string & filename, const osgDB::Options * options)
+	static int _bind_base_readNode(lua_State *L) {
+		if (!_lg_typecheck_base_readNode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readNode(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readNode(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readNode(const std::string &, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::readNode(filename, options);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readShader(const std::string & filename, const osgDB::Options * options)
+	static int _bind_base_readShader(lua_State *L) {
+		if (!_lg_typecheck_base_readShader(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readShader(const std::string & filename, const osgDB::Options * options) function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readShader(const std::string & filename, const osgDB::Options * options)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
+
+		osgDB::ReadFileCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::ReadFileCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::ReadFileCallback::base_readShader(const std::string &, const osgDB::Options *)");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->ReadFileCallback::readShader(filename, options);
 		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
 		if(!lret) return 0; // Do not write NULL pointers.
 
@@ -274,6 +471,12 @@ luna_RegType LunaTraits< osgDB::ReadFileCallback >::methods[] = {
 	{"readHeightField", &luna_wrapper_osgDB_ReadFileCallback::_bind_readHeightField},
 	{"readNode", &luna_wrapper_osgDB_ReadFileCallback::_bind_readNode},
 	{"readShader", &luna_wrapper_osgDB_ReadFileCallback::_bind_readShader},
+	{"base_openArchive", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_openArchive},
+	{"base_readObject", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_readObject},
+	{"base_readImage", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_readImage},
+	{"base_readHeightField", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_readHeightField},
+	{"base_readNode", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_readNode},
+	{"base_readShader", &luna_wrapper_osgDB_ReadFileCallback::_bind_base_readShader},
 	{"__eq", &luna_wrapper_osgDB_ReadFileCallback::_bind___eq},
 	{0,0}
 };

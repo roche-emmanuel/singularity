@@ -1157,6 +1157,10 @@ function ReflectionGenerator.generate(options)
 		im:addPattern("converter",v)
 	end
 	
+	for k,v in ipairs(options.ignoreWrappers or {}) do
+		im:addPattern("wrapper",v)
+	end
+	
 	for k,v in ipairs(options.ignoreClasses or {}) do
     	im:addPattern("class",v)
     	--im:addPattern("class_declaration",v)

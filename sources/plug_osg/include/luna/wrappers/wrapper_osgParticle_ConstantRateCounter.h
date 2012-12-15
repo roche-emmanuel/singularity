@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ConstantRateCounter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ConstantRateCounter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ConstantRateCounter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConstantRateCounter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ConstantRateCounter::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ConstantRateCounter::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::ConstantRateCounter::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ConstantRateCounter::cloneType();
+		return ConstantRateCounter::cloneType();
 	};
 
 	// osg::Object * osgParticle::ConstantRateCounter::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ConstantRateCounter::clone(arg1);
+		return ConstantRateCounter::clone(arg1);
 	};
 
 	// bool osgParticle::ConstantRateCounter::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ConstantRateCounter::isSameKindAs(obj);
+		return ConstantRateCounter::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::ConstantRateCounter::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ConstantRateCounter::libraryName();
+		return ConstantRateCounter::libraryName();
 	};
 
 	// const char * osgParticle::ConstantRateCounter::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ConstantRateCounter::className();
+		return ConstantRateCounter::className();
 	};
 
 	// int osgParticle::ConstantRateCounter::numParticlesToCreate(double dt) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osgParticle::ConstantRateCounter::numParticlesToCreate(dt);
+		return ConstantRateCounter::numParticlesToCreate(dt);
 	};
 
 

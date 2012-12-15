@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Shader* ptr= dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Shader* ptr= dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* ptr= luna_caster< osg::Referenced, osg::Shader >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -341,6 +342,78 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_setUserData(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_getUserData_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_cloneType(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_clone(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_isSameKindAs(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_libraryName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_className(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_releaseGLObjects(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -381,7 +454,7 @@ public:
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,1);
-		osg::ShaderBinary* shaderBinary=dynamic_cast< osg::ShaderBinary* >(Luna< osg::Referenced >::check(L,2));
+		osg::ShaderBinary* shaderBinary=(Luna< osg::Referenced >::checkSubType< osg::ShaderBinary >(L,2));
 
 		return new osg::Shader(type, shaderBinary);
 	}
@@ -395,7 +468,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Shader* rhs_ptr=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		const osg::Shader* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Shader::Shader function");
 		}
@@ -444,7 +517,7 @@ public:
 		}
 
 		osg::Shader::Type type=(osg::Shader::Type)lua_tointeger(L,2);
-		osg::ShaderBinary* shaderBinary=dynamic_cast< osg::ShaderBinary* >(Luna< osg::Referenced >::check(L,3));
+		osg::ShaderBinary* shaderBinary=(Luna< osg::Referenced >::checkSubType< osg::ShaderBinary >(L,3));
 
 		return new wrapper_osg_Shader(L,NULL, type, shaderBinary);
 	}
@@ -458,7 +531,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		const osg::Shader* rhs_ptr=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Shader* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Shader::Shader function");
 		}
@@ -497,7 +570,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::cloneType() const");
@@ -523,7 +596,7 @@ public:
 		}
 		const osg::CopyOp & _arg1=*_arg1_ptr;
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::clone(const osg::CopyOp &) const");
@@ -543,9 +616,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool osg::Shader::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::isSameKindAs(const osg::Object *) const");
@@ -564,7 +637,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Shader::libraryName() const");
@@ -583,7 +656,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Shader::className() const");
@@ -601,13 +674,13 @@ public:
 			luaL_error(L, "luna typecheck failed in int osg::Shader::compare(const osg::Shader & rhs) const function, expected prototype:\nint osg::Shader::compare(const osg::Shader & rhs) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Shader* rhs_ptr=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Shader* rhs_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,2));
 		if( !rhs_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg rhs in osg::Shader::compare function");
 		}
 		const osg::Shader & rhs=*rhs_ptr;
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Shader::compare(const osg::Shader &) const");
@@ -627,7 +700,7 @@ public:
 
 		osg::Shader::Type t=(osg::Shader::Type)lua_tointeger(L,2);
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::setType(osg::Shader::Type)");
@@ -646,7 +719,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Shader::Type osg::Shader::getType() const");
@@ -665,7 +738,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const char * osg::Shader::getTypename() const");
@@ -685,7 +758,7 @@ public:
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::setFileName(const std::string &)");
@@ -703,7 +776,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getFileName() const");
@@ -723,7 +796,7 @@ public:
 
 		std::string sourceText(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderSource(const std::string &)");
@@ -741,7 +814,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::Shader::getShaderSource() const");
@@ -759,9 +832,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary) function, expected prototype:\nvoid osg::Shader::setShaderBinary(osg::ShaderBinary * shaderBinary)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::ShaderBinary* shaderBinary=dynamic_cast< osg::ShaderBinary* >(Luna< osg::Referenced >::check(L,2));
+		osg::ShaderBinary* shaderBinary=(Luna< osg::Referenced >::checkSubType< osg::ShaderBinary >(L,2));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::setShaderBinary(osg::ShaderBinary *)");
@@ -779,7 +852,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::ShaderBinary * osg::Shader::getShaderBinary()");
@@ -800,7 +873,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ShaderBinary * osg::Shader::getShaderBinary() const");
@@ -831,7 +904,7 @@ public:
 
 		std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::loadShaderSourceFromFile(const std::string &)");
@@ -852,7 +925,7 @@ public:
 		float position=(float)lua_tonumber(L,2);
 		std::string code(lua_tostring(L,3),lua_objlen(L,3));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::addCodeInjection(float, const std::string &)");
@@ -870,7 +943,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap()");
@@ -891,7 +964,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Shader::CodeInjectionMap & osg::Shader::getCodeInjectionMap() const");
@@ -922,9 +995,9 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		osg::State* state=luatop>1 ? dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2)) : (osg::State*)0;
+		osg::State* state=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::releaseGLObjects(osg::State *) const");
@@ -942,7 +1015,7 @@ public:
 		}
 
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::dirtyShader()");
@@ -959,13 +1032,13 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::Shader::compileShader(osg::State & state) const function, expected prototype:\nvoid osg::Shader::compileShader(osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::State* state_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,2));
+		osg::State* state_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
 		if( !state_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg state in osg::Shader::compileShader function");
 		}
 		osg::State & state=*state_ptr;
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::compileShader(osg::State &) const");
@@ -985,7 +1058,7 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		unsigned int program=(unsigned int)lua_tointeger(L,3);
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::attachShader(unsigned int, unsigned int) const");
@@ -1005,7 +1078,7 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		unsigned int program=(unsigned int)lua_tointeger(L,3);
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Shader::detachShader(unsigned int, unsigned int) const");
@@ -1025,7 +1098,7 @@ public:
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 		std::string log(lua_tostring(L,3),lua_objlen(L,3));
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Shader::getGlShaderInfoLog(unsigned int, std::string &) const");
@@ -1045,7 +1118,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Shader* self=dynamic_cast< osg::Shader* >(Luna< osg::Referenced >::check(L,1));
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Shader::PerContextShader * osg::Shader::getPCS(unsigned int) const");
@@ -1136,6 +1209,239 @@ public:
 		return 1;
 	}
 
+	// void osg::Shader::base_setName(const std::string & name)
+	static int _bind_base_setName(lua_State *L) {
+		if (!_lg_typecheck_base_setName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setName(const std::string & name) function, expected prototype:\nvoid osg::Shader::base_setName(const std::string & name)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setName(const std::string &)");
+		}
+		self->Shader::setName(name);
+
+		return 0;
+	}
+
+	// void osg::Shader::base_computeDataVariance()
+	static int _bind_base_computeDataVariance(lua_State *L) {
+		if (!_lg_typecheck_base_computeDataVariance(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_computeDataVariance() function, expected prototype:\nvoid osg::Shader::base_computeDataVariance()\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_computeDataVariance()");
+		}
+		self->Shader::computeDataVariance();
+
+		return 0;
+	}
+
+	// void osg::Shader::base_setUserData(osg::Referenced * obj)
+	static int _bind_base_setUserData(lua_State *L) {
+		if (!_lg_typecheck_base_setUserData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_setUserData(osg::Referenced * obj) function, expected prototype:\nvoid osg::Shader::base_setUserData(osg::Referenced * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Referenced* obj=(Luna< osg::Referenced >::check(L,2));
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_setUserData(osg::Referenced *)");
+		}
+		self->Shader::setUserData(obj);
+
+		return 0;
+	}
+
+	// osg::Referenced * osg::Shader::base_getUserData()
+	static int _bind_base_getUserData_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Referenced * osg::Shader::base_getUserData() function, expected prototype:\nosg::Referenced * osg::Shader::base_getUserData()\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Referenced * osg::Shader::base_getUserData()");
+		}
+		osg::Referenced * lret = self->Shader::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::Referenced * osg::Shader::base_getUserData() const
+	static int _bind_base_getUserData_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_getUserData_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::Referenced * osg::Shader::base_getUserData() const function, expected prototype:\nconst osg::Referenced * osg::Shader::base_getUserData() const\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::Referenced * osg::Shader::base_getUserData() const");
+		}
+		const osg::Referenced * lret = self->Shader::getUserData();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Referenced >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::Shader::base_getUserData
+	static int _bind_base_getUserData(lua_State *L) {
+		if (_lg_typecheck_base_getUserData_overload_1(L)) return _bind_base_getUserData_overload_1(L);
+		if (_lg_typecheck_base_getUserData_overload_2(L)) return _bind_base_getUserData_overload_2(L);
+
+		luaL_error(L, "error in function base_getUserData, cannot match any of the overloads for function base_getUserData:\n  base_getUserData()\n  base_getUserData()\n");
+		return 0;
+	}
+
+	// osg::Object * osg::Shader::base_cloneType() const
+	static int _bind_base_cloneType(lua_State *L) {
+		if (!_lg_typecheck_base_cloneType(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_cloneType() const function, expected prototype:\nosg::Object * osg::Shader::base_cloneType() const\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_cloneType() const");
+		}
+		osg::Object * lret = self->Shader::cloneType();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const
+	static int _bind_base_clone(lua_State *L) {
+		if (!_lg_typecheck_base_clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const function, expected prototype:\nosg::Object * osg::Shader::base_clone(const osg::CopyOp & arg1) const\nClass arguments details:\narg 1 ID = 27134364\n");
+		}
+
+		const osg::CopyOp* _arg1_ptr=(Luna< osg::CopyOp >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::Shader::base_clone function");
+		}
+		const osg::CopyOp & _arg1=*_arg1_ptr;
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::Object * osg::Shader::base_clone(const osg::CopyOp &) const");
+		}
+		osg::Object * lret = self->Shader::clone(_arg1);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Object >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool osg::Shader::base_isSameKindAs(const osg::Object * obj) const
+	static int _bind_base_isSameKindAs(lua_State *L) {
+		if (!_lg_typecheck_base_isSameKindAs(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Shader::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool osg::Shader::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Shader::base_isSameKindAs(const osg::Object *) const");
+		}
+		bool lret = self->Shader::isSameKindAs(obj);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// const char * osg::Shader::base_libraryName() const
+	static int _bind_base_libraryName(lua_State *L) {
+		if (!_lg_typecheck_base_libraryName(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_libraryName() const function, expected prototype:\nconst char * osg::Shader::base_libraryName() const\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_libraryName() const");
+		}
+		const char * lret = self->Shader::libraryName();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// const char * osg::Shader::base_className() const
+	static int _bind_base_className(lua_State *L) {
+		if (!_lg_typecheck_base_className(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const char * osg::Shader::base_className() const function, expected prototype:\nconst char * osg::Shader::base_className() const\nClass arguments details:\n");
+		}
+
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const char * osg::Shader::base_className() const");
+		}
+		const char * lret = self->Shader::className();
+		lua_pushstring(L,lret);
+
+		return 1;
+	}
+
+	// void osg::Shader::base_releaseGLObjects(osg::State * state = 0) const
+	static int _bind_base_releaseGLObjects(lua_State *L) {
+		if (!_lg_typecheck_base_releaseGLObjects(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Shader::base_releaseGLObjects(osg::State * state = 0) const function, expected prototype:\nvoid osg::Shader::base_releaseGLObjects(osg::State * state = 0) const\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::State* state=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::State >(L,2)) : (osg::State*)0;
+
+		osg::Shader* self=Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Shader::base_releaseGLObjects(osg::State *) const");
+		}
+		self->Shader::releaseGLObjects(state);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1187,6 +1493,16 @@ luna_RegType LunaTraits< osg::Shader >::methods[] = {
 	{"flushDeletedGlShaders", &luna_wrapper_osg_Shader::_bind_flushDeletedGlShaders},
 	{"discardDeletedGlShaders", &luna_wrapper_osg_Shader::_bind_discardDeletedGlShaders},
 	{"getTypeId", &luna_wrapper_osg_Shader::_bind_getTypeId},
+	{"base_setName", &luna_wrapper_osg_Shader::_bind_base_setName},
+	{"base_computeDataVariance", &luna_wrapper_osg_Shader::_bind_base_computeDataVariance},
+	{"base_setUserData", &luna_wrapper_osg_Shader::_bind_base_setUserData},
+	{"base_getUserData", &luna_wrapper_osg_Shader::_bind_base_getUserData},
+	{"base_cloneType", &luna_wrapper_osg_Shader::_bind_base_cloneType},
+	{"base_clone", &luna_wrapper_osg_Shader::_bind_base_clone},
+	{"base_isSameKindAs", &luna_wrapper_osg_Shader::_bind_base_isSameKindAs},
+	{"base_libraryName", &luna_wrapper_osg_Shader::_bind_base_libraryName},
+	{"base_className", &luna_wrapper_osg_Shader::_bind_base_className},
+	{"base_releaseGLObjects", &luna_wrapper_osg_Shader::_bind_base_releaseGLObjects},
 	{"__eq", &luna_wrapper_osg_Shader::_bind___eq},
 	{0,0}
 };

@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return FragmentProgram::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return FragmentProgram::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return FragmentProgram::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FragmentProgram::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return FragmentProgram::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return FragmentProgram::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return FragmentProgram::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return FragmentProgram::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return FragmentProgram::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return FragmentProgram::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Object * osg::FragmentProgram::cloneType() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::FragmentProgram::cloneType();
+		return FragmentProgram::cloneType();
 	};
 
 	// osg::Object * osg::FragmentProgram::clone(const osg::CopyOp & arg1) const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::FragmentProgram::clone(arg1);
+		return FragmentProgram::clone(arg1);
 	};
 
 	// bool osg::FragmentProgram::isSameKindAs(const osg::Object * obj) const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::FragmentProgram::isSameKindAs(obj);
+		return FragmentProgram::isSameKindAs(obj);
 	};
 
 	// const char * osg::FragmentProgram::libraryName() const
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::FragmentProgram::libraryName();
+		return FragmentProgram::libraryName();
 	};
 
 	// const char * osg::FragmentProgram::className() const
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::FragmentProgram::className();
+		return FragmentProgram::className();
 	};
 
 	// osg::StateAttribute::Type osg::FragmentProgram::getType() const
@@ -164,7 +164,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::FragmentProgram::getType();
+		return FragmentProgram::getType();
 	};
 
 	// int osg::FragmentProgram::compare(const osg::StateAttribute & sa) const
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::FragmentProgram::compare(sa);
+		return FragmentProgram::compare(sa);
 	};
 
 	// bool osg::FragmentProgram::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::FragmentProgram::getModeUsage(arg1);
+		return FragmentProgram::getModeUsage(arg1);
 	};
 
 	// void osg::FragmentProgram::apply(osg::State & arg1) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::FragmentProgram::apply(arg1);
+		return FragmentProgram::apply(arg1);
 	};
 
 	// void osg::FragmentProgram::compileGLObjects(osg::State & arg1) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::FragmentProgram::compileGLObjects(arg1);
+		return FragmentProgram::compileGLObjects(arg1);
 	};
 
 	// void osg::FragmentProgram::releaseGLObjects(osg::State * state = 0) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::FragmentProgram::releaseGLObjects(state);
+		return FragmentProgram::releaseGLObjects(state);
 	};
 
 

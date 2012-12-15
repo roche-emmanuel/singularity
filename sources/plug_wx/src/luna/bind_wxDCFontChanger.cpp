@@ -93,7 +93,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCFontChanger::wxDCFontChanger(wxDC & dc) function, expected prototype:\nwxDCFontChanger::wxDCFontChanger(wxDC & dc)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCFontChanger::wxDCFontChanger function");
 		}
@@ -109,12 +109,12 @@ public:
 			luaL_error(L, "luna typecheck failed in wxDCFontChanger::wxDCFontChanger(wxDC & dc, const wxFont & font) function, expected prototype:\nwxDCFontChanger::wxDCFontChanger(wxDC & dc, const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
 		}
 
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,1));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,1));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxDCFontChanger::wxDCFontChanger function");
 		}
 		wxDC & dc=*dc_ptr;
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxDCFontChanger::wxDCFontChanger function");
 		}
@@ -141,7 +141,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxDCFontChanger::Set(const wxFont & font) function, expected prototype:\nvoid wxDCFontChanger::Set(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFont* font_ptr=dynamic_cast< wxFont* >(Luna< wxObject >::check(L,2));
+		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
 		if( !font_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg font in wxDCFontChanger::Set function");
 		}

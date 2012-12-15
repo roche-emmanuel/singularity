@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRendererNative.h>
+
 class luna_wrapper_wxRendererNative {
 public:
 	typedef Luna< wxRendererNative > luna_t;
@@ -310,8 +312,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawCheckBox function");
 		}
@@ -342,8 +344,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawComboBoxDropButton function");
 		}
@@ -374,8 +376,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawDropArrow function");
 		}
@@ -406,8 +408,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawFocusRect function");
 		}
@@ -429,17 +431,17 @@ public:
 		return 0;
 	}
 
-	// int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
+	// int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_DrawHeaderButton(lua_State *L) {
 		if (!_lg_typecheck_DrawHeaderButton(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawHeaderButton function");
 		}
@@ -450,7 +452,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : wxHDR_SORT_ICON_NONE;
+		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : ::wxHDR_SORT_ICON_NONE;
 		wxHeaderButtonParams* params=luatop>6 ? (Luna< wxHeaderButtonParams >::check(L,7)) : (wxHeaderButtonParams*)NULL;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
@@ -464,17 +466,17 @@ public:
 		return 1;
 	}
 
-	// int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
+	// int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	static int _bind_DrawHeaderButtonContents(lua_State *L) {
 		if (!_lg_typecheck_DrawHeaderButtonContents(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
+			luaL_error(L, "luna typecheck failed in int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL) function, expected prototype:\nint wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 6 ID = 67488995\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawHeaderButtonContents function");
 		}
@@ -485,7 +487,7 @@ public:
 		}
 		const wxRect & rect=*rect_ptr;
 		int flags=luatop>4 ? (int)lua_tointeger(L,5) : 0;
-		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : wxHDR_SORT_ICON_NONE;
+		wxHeaderSortIconType sortArrow=luatop>5 ? (wxHeaderSortIconType)lua_tointeger(L,6) : ::wxHDR_SORT_ICON_NONE;
 		wxHeaderButtonParams* params=luatop>6 ? (Luna< wxHeaderButtonParams >::check(L,7)) : (wxHeaderButtonParams*)NULL;
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
@@ -508,8 +510,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawItemSelectionRect function");
 		}
@@ -540,8 +542,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawPushButton function");
 		}
@@ -572,8 +574,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawSplitterBorder function");
 		}
@@ -604,8 +606,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawSplitterSash function");
 		}
@@ -638,8 +640,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawTreeItemButton function");
 		}
@@ -670,8 +672,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawChoice function");
 		}
@@ -702,8 +704,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawComboBox function");
 		}
@@ -734,8 +736,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawTextCtrl function");
 		}
@@ -766,8 +768,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawRadioBitmap function");
 		}
@@ -798,8 +800,8 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxRendererNative::DrawTitleBarBitmap function");
 		}
@@ -829,7 +831,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxRendererNative::GetCheckBoxSize(wxWindow * win) function, expected prototype:\nwxSize wxRendererNative::GetCheckBoxSize(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -852,7 +854,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxRendererNative::GetHeaderButtonHeight(wxWindow * win) function, expected prototype:\nint wxRendererNative::GetHeaderButtonHeight(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -872,7 +874,7 @@ public:
 			luaL_error(L, "luna typecheck failed in int wxRendererNative::GetHeaderButtonMargin(wxWindow * win) function, expected prototype:\nint wxRendererNative::GetHeaderButtonMargin(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
 		if(!self) {
@@ -1001,8 +1003,8 @@ wxRendererNative* LunaTraits< wxRendererNative >::_bind_ctor(lua_State *L) {
 	// void wxRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawDropArrow(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawFocusRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
-	// int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
-	// int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
+	// int wxRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
+	// int wxRendererNative::DrawHeaderButtonContents(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
 	// void wxRendererNative::DrawItemSelectionRect(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawPushButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawSplitterBorder(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
@@ -1018,8 +1020,6 @@ wxRendererNative* LunaTraits< wxRendererNative >::_bind_ctor(lua_State *L) {
 	// int wxRendererNative::GetHeaderButtonMargin(wxWindow * win)
 	// wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)
 	// wxRendererVersion wxRendererNative::GetVersion() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRendererNative >::_bind_dtor(wxRendererNative* obj) {

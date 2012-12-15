@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_WebCore(lua_State* L, lua_Table* dum) : Awesomium::WebCore(), _obj(L,-1) {};
 
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	Awesomium::WebSession * CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) {

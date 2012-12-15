@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return GraphicsWindow::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return GraphicsWindow::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return GraphicsWindow::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GraphicsWindow::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GraphicsWindow::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return GraphicsWindow::releaseGLObjects(arg1);
 	};
 
 	// void osg::GraphicsContext::clear()
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::GraphicsContext::clear();
+		return GraphicsWindow::clear();
 	};
 
 	// void osg::GraphicsContext::resizedImplementation(int x, int y, int width, int height)
@@ -93,7 +93,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::GraphicsContext::resizedImplementation(x, y, width, height);
+		return GraphicsWindow::resizedImplementation(x, y, width, height);
 	};
 
 	// osg::View * osgGA::GUIActionAdapter::asView()
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<osg::View*>());
 		}
 
-		return osgGA::GUIActionAdapter::asView();
+		return GraphicsWindow::asView();
 	};
 
 	// const char * osgViewer::GraphicsWindow::libraryName() const
@@ -111,7 +111,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::GraphicsWindow::libraryName();
+		return GraphicsWindow::libraryName();
 	};
 
 	// const char * osgViewer::GraphicsWindow::className() const
@@ -120,7 +120,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::GraphicsWindow::className();
+		return GraphicsWindow::className();
 	};
 
 	// void osgViewer::GraphicsWindow::checkEvents()
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::checkEvents();
+		return GraphicsWindow::checkEvents();
 	};
 
 	// bool osgViewer::GraphicsWindow::setWindowRectangleImplementation(int arg1, int arg2, int arg3, int arg4)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::setWindowRectangleImplementation(arg1, arg2, arg3, arg4);
+		return GraphicsWindow::setWindowRectangleImplementation(arg1, arg2, arg3, arg4);
 	};
 
 	// void osgViewer::GraphicsWindow::getWindowRectangle(int & x, int & y, int & width, int & height)
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::getWindowRectangle(x, y, width, height);
+		return GraphicsWindow::getWindowRectangle(x, y, width, height);
 	};
 
 	// bool osgViewer::GraphicsWindow::setWindowDecorationImplementation(bool arg1)
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::setWindowDecorationImplementation(arg1);
+		return GraphicsWindow::setWindowDecorationImplementation(arg1);
 	};
 
 	// bool osgViewer::GraphicsWindow::getWindowDecoration() const
@@ -174,7 +174,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::getWindowDecoration();
+		return GraphicsWindow::getWindowDecoration();
 	};
 
 	// void osgViewer::GraphicsWindow::grabFocus()
@@ -183,7 +183,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::grabFocus();
+		return GraphicsWindow::grabFocus();
 	};
 
 	// void osgViewer::GraphicsWindow::grabFocusIfPointerInWindow()
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::grabFocusIfPointerInWindow();
+		return GraphicsWindow::grabFocusIfPointerInWindow();
 	};
 
 	// void osgViewer::GraphicsWindow::raiseWindow()
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::raiseWindow();
+		return GraphicsWindow::raiseWindow();
 	};
 
 	// void osgViewer::GraphicsWindow::setWindowName(const std::string & arg1)
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::setWindowName(arg1);
+		return GraphicsWindow::setWindowName(arg1);
 	};
 
 	// std::string osgViewer::GraphicsWindow::getWindowName()
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgViewer::GraphicsWindow::getWindowName();
+		return GraphicsWindow::getWindowName();
 	};
 
 	// void osgViewer::GraphicsWindow::useCursor(bool cursorOn)
@@ -230,7 +230,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::useCursor(cursorOn);
+		return GraphicsWindow::useCursor(cursorOn);
 	};
 
 	// void osgViewer::GraphicsWindow::setCursor(osgViewer::GraphicsWindow::MouseCursor arg1)
@@ -240,7 +240,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::setCursor(arg1);
+		return GraphicsWindow::setCursor(arg1);
 	};
 
 	// void osgViewer::GraphicsWindow::setSyncToVBlank(bool on)
@@ -250,7 +250,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::setSyncToVBlank(on);
+		return GraphicsWindow::setSyncToVBlank(on);
 	};
 
 	// void osgViewer::GraphicsWindow::setSwapGroup(bool on, unsigned int group, unsigned int barrier)
@@ -262,7 +262,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::setSwapGroup(on, group, barrier);
+		return GraphicsWindow::setSwapGroup(on, group, barrier);
 	};
 
 	// bool osgViewer::GraphicsWindow::valid() const
@@ -271,7 +271,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::valid();
+		return GraphicsWindow::valid();
 	};
 
 	// bool osgViewer::GraphicsWindow::realizeImplementation()
@@ -280,7 +280,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::realizeImplementation();
+		return GraphicsWindow::realizeImplementation();
 	};
 
 	// bool osgViewer::GraphicsWindow::isRealizedImplementation() const
@@ -289,7 +289,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::isRealizedImplementation();
+		return GraphicsWindow::isRealizedImplementation();
 	};
 
 	// void osgViewer::GraphicsWindow::closeImplementation()
@@ -298,7 +298,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::closeImplementation();
+		return GraphicsWindow::closeImplementation();
 	};
 
 	// bool osgViewer::GraphicsWindow::makeCurrentImplementation()
@@ -307,7 +307,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::makeCurrentImplementation();
+		return GraphicsWindow::makeCurrentImplementation();
 	};
 
 	// bool osgViewer::GraphicsWindow::releaseContextImplementation()
@@ -316,7 +316,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::GraphicsWindow::releaseContextImplementation();
+		return GraphicsWindow::releaseContextImplementation();
 	};
 
 	// void osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(unsigned int arg1)
@@ -326,7 +326,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::bindPBufferToTextureImplementation(arg1);
+		return GraphicsWindow::bindPBufferToTextureImplementation(arg1);
 	};
 
 	// void osgViewer::GraphicsWindow::swapBuffersImplementation()
@@ -335,7 +335,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::swapBuffersImplementation();
+		return GraphicsWindow::swapBuffersImplementation();
 	};
 
 	// void osgViewer::GraphicsWindow::requestRedraw()
@@ -344,7 +344,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::requestRedraw();
+		return GraphicsWindow::requestRedraw();
 	};
 
 	// void osgViewer::GraphicsWindow::requestContinuousUpdate(bool needed = true)
@@ -354,7 +354,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::requestContinuousUpdate(needed);
+		return GraphicsWindow::requestContinuousUpdate(needed);
 	};
 
 	// void osgViewer::GraphicsWindow::requestWarpPointer(float x, float y)
@@ -365,13 +365,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::GraphicsWindow::requestWarpPointer(x, y);
+		return GraphicsWindow::requestWarpPointer(x, y);
 	};
 
 
 protected:
 	// osg::Object * osg::GraphicsContext::cloneType() const
+	osg::Object * cloneType() const {
+		if(_obj.pushFunction("cloneType")) {
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsWindow::cloneType();
+	};
+
 	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
+	osg::Object * clone(const osg::CopyOp & arg1) const {
+		if(_obj.pushFunction("clone")) {
+			_obj.pushArg(&arg1);
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsWindow::clone(arg1);
+	};
+
 
 };
 

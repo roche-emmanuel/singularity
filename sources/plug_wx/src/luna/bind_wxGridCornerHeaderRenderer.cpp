@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCornerHeaderRenderer.h>
+
 class luna_wrapper_wxGridCornerHeaderRenderer {
 public:
 	typedef Luna< wxGridCornerHeaderRenderer > luna_t;
@@ -80,7 +82,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridCornerHeaderRenderer::DrawBorder function");
 		}
 		const wxGrid & grid=*grid_ptr;
-		wxDC* dc_ptr=dynamic_cast< wxDC* >(Luna< wxObject >::check(L,3));
+		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,3));
 		if( !dc_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg dc in wxGridCornerHeaderRenderer::DrawBorder function");
 		}
@@ -110,8 +112,6 @@ wxGridCornerHeaderRenderer* LunaTraits< wxGridCornerHeaderRenderer >::_bind_ctor
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCornerHeaderRenderer >::_bind_dtor(wxGridCornerHeaderRenderer* obj) {

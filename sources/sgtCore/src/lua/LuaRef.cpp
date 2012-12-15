@@ -11,6 +11,8 @@ using namespace sgt;
 
 const char* luarefs_key = "luaref objects";
 
+#define ABS_LUA_STKIDX(n, added_items) ((n) > 0 ? (n) : (n)-(added_items))
+
 void LuaRef::refLuaItem(int index) {
 	CHECK(_state,"Invalid lua state");
 	lua_State* L = _state;
@@ -29,13 +31,13 @@ void LuaRef::refLuaItem(int index) {
 		lua_pop(L,1);
 		lua_pushlightuserdata(L, (void*)luarefs_key);  // push key
 		lua_newtable(L);
-		lua_rawset(L, LUA_REGISTRYINDEX);       // pop key, push value (table)
+		lua_rawset(L, LUA_REGISTRYINDEX);       // pop key, pop value (table)
 
 		lua_pushlightuserdata(L, (void*)luarefs_key);  // push key
 		lua_rawget(L, LUA_REGISTRYINDEX);       // pop key, push value (table)
 	}
 
-    lua_pushvalue(L, index);      				// push value to store
+    lua_pushvalue(L, ABS_LUA_STKIDX(index,1));      				// push value to store
 
     _ref = luaL_ref(L, -2);                     // t[ref_idx] = value; pops value
 
@@ -56,6 +58,7 @@ void LuaRef::unrefLuaItem() {
     										// note: this key will be used for the next wxluaR_ref()
 
     lua_pop(L, 1);                    		// pop table
+	//logNOTICE("Unreferenced lua object at ref="<<_ref);
 }
 
 bool LuaRef::pushLuaItem() const {

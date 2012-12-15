@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgDB::FileLocationCallback* ptr= dynamic_cast< osgDB::FileLocationCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osgDB::FileLocationCallback* ptr= dynamic_cast< osgDB::FileLocationCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FileLocationCallback* ptr= luna_caster< osg::Referenced, osgDB::FileLocationCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -69,9 +70,9 @@ public:
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3));
 
-		osgDB::FileLocationCallback* self=dynamic_cast< osgDB::FileLocationCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string &, const osgDB::Options *)");
@@ -90,7 +91,7 @@ public:
 		}
 
 
-		osgDB::FileLocationCallback* self=dynamic_cast< osgDB::FileLocationCallback* >(Luna< osg::Referenced >::check(L,1));
+		osgDB::FileLocationCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FileLocationCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osgDB::FileLocationCallback::useFileCache() const");

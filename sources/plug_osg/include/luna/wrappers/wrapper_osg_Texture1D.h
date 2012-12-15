@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Texture1D::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Texture1D::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Texture1D::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Texture1D::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Texture1D::getUserData();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return Texture1D::getMember();
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Texture1D::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Texture * osg::Texture::asTexture()
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return Texture1D::asTexture();
 	};
 
 	// const osg::Texture * osg::Texture::asTexture() const
@@ -100,7 +100,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::Texture::asTexture();
+		return Texture1D::asTexture();
 	};
 
 	// bool osg::Texture::isTextureAttribute() const
@@ -109,7 +109,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::isTextureAttribute();
+		return Texture1D::isTextureAttribute();
 	};
 
 	// bool osg::Texture::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture::getModeUsage(arg1);
+		return Texture1D::getModeUsage(arg1);
 	};
 
 	// void osg::Texture::compileGLObjects(osg::State & state) const
@@ -129,7 +129,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::compileGLObjects(state);
+		return Texture1D::compileGLObjects(state);
 	};
 
 	// void osg::Texture::releaseGLObjects(osg::State * state = 0) const
@@ -139,7 +139,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture::releaseGLObjects(state);
+		return Texture1D::releaseGLObjects(state);
 	};
 
 	// osg::Object * osg::Texture1D::cloneType() const
@@ -148,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Texture1D::cloneType();
+		return Texture1D::cloneType();
 	};
 
 	// osg::Object * osg::Texture1D::clone(const osg::CopyOp & arg1) const
@@ -158,7 +158,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Texture1D::clone(arg1);
+		return Texture1D::clone(arg1);
 	};
 
 	// bool osg::Texture1D::isSameKindAs(const osg::Object * obj) const
@@ -168,7 +168,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Texture1D::isSameKindAs(obj);
+		return Texture1D::isSameKindAs(obj);
 	};
 
 	// const char * osg::Texture1D::libraryName() const
@@ -177,7 +177,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Texture1D::libraryName();
+		return Texture1D::libraryName();
 	};
 
 	// const char * osg::Texture1D::className() const
@@ -186,7 +186,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Texture1D::className();
+		return Texture1D::className();
 	};
 
 	// osg::StateAttribute::Type osg::Texture1D::getType() const
@@ -195,7 +195,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Texture1D::getType();
+		return Texture1D::getType();
 	};
 
 	// int osg::Texture1D::compare(const osg::StateAttribute & rhs) const
@@ -205,7 +205,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture1D::compare(rhs);
+		return Texture1D::compare(rhs);
 	};
 
 	// unsigned int osg::Texture1D::getTextureTarget() const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Texture1D::getTextureTarget();
+		return Texture1D::getTextureTarget();
 	};
 
 	// void osg::Texture1D::setImage(unsigned int arg1, osg::Image * image)
@@ -225,7 +225,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture1D::setImage(arg1, image);
+		return Texture1D::setImage(arg1, image);
 	};
 
 	// osg::Image * osg::Texture1D::getImage(unsigned int arg1)
@@ -235,7 +235,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::Texture1D::getImage(arg1);
+		return Texture1D::getImage(arg1);
 	};
 
 	// const osg::Image * osg::Texture1D::getImage(unsigned int arg1) const
@@ -245,7 +245,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osg::Texture1D::getImage(arg1);
+		return Texture1D::getImage(arg1);
 	};
 
 	// unsigned int osg::Texture1D::getNumImages() const
@@ -254,7 +254,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::Texture1D::getNumImages();
+		return Texture1D::getNumImages();
 	};
 
 	// int osg::Texture1D::getTextureWidth() const
@@ -263,7 +263,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture1D::getTextureWidth();
+		return Texture1D::getTextureWidth();
 	};
 
 	// int osg::Texture1D::getTextureHeight() const
@@ -272,7 +272,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture1D::getTextureHeight();
+		return Texture1D::getTextureHeight();
 	};
 
 	// int osg::Texture1D::getTextureDepth() const
@@ -281,7 +281,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Texture1D::getTextureDepth();
+		return Texture1D::getTextureDepth();
 	};
 
 	// void osg::Texture1D::apply(osg::State & state) const
@@ -291,13 +291,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Texture1D::apply(state);
+		return Texture1D::apply(state);
 	};
 
 
 protected:
 	// void osg::Texture1D::computeInternalFormat() const
+	void computeInternalFormat() const {
+		if(_obj.pushFunction("computeInternalFormat")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture1D::computeInternalFormat();
+	};
+
 	// void osg::Texture1D::allocateMipmap(osg::State & state) const
+	void allocateMipmap(osg::State & state) const {
+		if(_obj.pushFunction("allocateMipmap")) {
+			_obj.pushArg(&state);
+			return (_obj.callFunction<void>());
+		}
+
+		return Texture1D::allocateMipmap(state);
+	};
+
 
 };
 

@@ -457,60 +457,6 @@ public:
 };
 
 template<>
-class LunaTraits< osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT >* obj);
-	typedef osg::Vec2Array parent_t;
-	typedef osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT >* obj);
-	typedef osg::Vec3Array parent_t;
-	typedef osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
-class LunaTraits< osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >* obj);
-	typedef osg::Vec4Array parent_t;
-	typedef osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT > base_t;
-	static luna_ConverterType converters[];
-};
-
-template<>
 class LunaTraits< osg::TemplateArray< osg::Vec4ub, osg::Array::Vec4ubArrayType, 4, GL_UNSIGNED_BYTE > > {
 public:
 	static const char className[];
@@ -8265,6 +8211,60 @@ public:
 	static void _bind_dtor(osg::Viewport* obj);
 	typedef osg::Referenced parent_t;
 	typedef osg::Viewport base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Vec2Array > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec2Array* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec2Array* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Vec2Array base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Vec3Array > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3Array* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3Array* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Vec3Array base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< osg::Vec4Array > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec4Array* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec4Array* obj);
+	typedef osg::Referenced parent_t;
+	typedef osg::Vec4Array base_t;
 	static luna_ConverterType converters[];
 };
 

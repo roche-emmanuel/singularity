@@ -51,7 +51,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Intersector::reset();
+		return Intersector::reset();
 	};
 
 	// bool osgUtil::Intersector::containsIntersections()

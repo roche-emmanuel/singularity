@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return RenderBin::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return RenderBin::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return RenderBin::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderBin::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return RenderBin::getUserData();
 	};
 
 	// osg::Object * osgUtil::RenderBin::cloneType() const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::RenderBin::cloneType();
+		return RenderBin::cloneType();
 	};
 
 	// osg::Object * osgUtil::RenderBin::clone(const osg::CopyOp & arg1) const
@@ -82,7 +82,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgUtil::RenderBin::clone(arg1);
+		return RenderBin::clone(arg1);
 	};
 
 	// bool osgUtil::RenderBin::isSameKindAs(const osg::Object * obj) const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgUtil::RenderBin::isSameKindAs(obj);
+		return RenderBin::isSameKindAs(obj);
 	};
 
 	// const char * osgUtil::RenderBin::libraryName() const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::RenderBin::libraryName();
+		return RenderBin::libraryName();
 	};
 
 	// const char * osgUtil::RenderBin::className() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::RenderBin::className();
+		return RenderBin::className();
 	};
 
 	// void osgUtil::RenderBin::reset()
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::reset();
+		return RenderBin::reset();
 	};
 
 	// void osgUtil::RenderBin::sort()
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sort();
+		return RenderBin::sort();
 	};
 
 	// void osgUtil::RenderBin::sortImplementation()
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortImplementation();
+		return RenderBin::sortImplementation();
 	};
 
 	// void osgUtil::RenderBin::sortByState()
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortByState();
+		return RenderBin::sortByState();
 	};
 
 	// void osgUtil::RenderBin::sortByStateThenFrontToBack()
@@ -155,7 +155,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortByStateThenFrontToBack();
+		return RenderBin::sortByStateThenFrontToBack();
 	};
 
 	// void osgUtil::RenderBin::sortFrontToBack()
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortFrontToBack();
+		return RenderBin::sortFrontToBack();
 	};
 
 	// void osgUtil::RenderBin::sortBackToFront()
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortBackToFront();
+		return RenderBin::sortBackToFront();
 	};
 
 	// void osgUtil::RenderBin::sortTraversalOrder()
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::sortTraversalOrder();
+		return RenderBin::sortTraversalOrder();
 	};
 
 	// void osgUtil::RenderBin::draw(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -193,7 +193,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::draw(renderInfo, previous);
+		return RenderBin::draw(renderInfo, previous);
 	};
 
 	// void osgUtil::RenderBin::drawImplementation(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::drawImplementation(renderInfo, previous);
+		return RenderBin::drawImplementation(renderInfo, previous);
 	};
 
 	// unsigned int osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves() const
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves();
+		return RenderBin::computeNumberOfDynamicRenderLeaves();
 	};
 
 	// void osgUtil::RenderBin::releaseGLObjects(osg::State * state = 0) const
@@ -223,7 +223,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::RenderBin::releaseGLObjects(state);
+		return RenderBin::releaseGLObjects(state);
 	};
 
 

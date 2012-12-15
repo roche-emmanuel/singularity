@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxMaximizeEvent.h>
+
 class luna_wrapper_wxMaximizeEvent {
 public:
 	typedef Luna< wxMaximizeEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxMaximizeEvent* ptr= dynamic_cast< wxMaximizeEvent* >(Luna< wxObject >::check(L,1));
+		//wxMaximizeEvent* ptr= dynamic_cast< wxMaximizeEvent* >(Luna< wxObject >::check(L,1));
+		wxMaximizeEvent* ptr= luna_caster< wxObject, wxMaximizeEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,11 +43,63 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Function binds:
+	// wxClassInfo * wxMaximizeEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMaximizeEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMaximizeEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxMaximizeEvent* self=Luna< wxObject >::checkSubType< wxMaximizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMaximizeEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxMaximizeEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxMaximizeEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxMaximizeEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxMaximizeEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxMaximizeEvent* self=Luna< wxObject >::checkSubType< wxMaximizeEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxMaximizeEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxMaximizeEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -54,8 +109,6 @@ wxMaximizeEvent* LunaTraits< wxMaximizeEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxMaximizeEvent >::_bind_dtor(wxMaximizeEvent* obj) {
@@ -70,6 +123,8 @@ const int LunaTraits< wxMaximizeEvent >::hash = 65226599;
 const int LunaTraits< wxMaximizeEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxMaximizeEvent >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxMaximizeEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxMaximizeEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxMaximizeEvent::_bind___eq},
 	{0,0}
 };

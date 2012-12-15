@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgUtil::IncrementalCompileOperation::CompileOp* ptr= dynamic_cast< osgUtil::IncrementalCompileOperation::CompileOp* >(Luna< osg::Referenced >::check(L,1));
+		//osgUtil::IncrementalCompileOperation::CompileOp* ptr= dynamic_cast< osgUtil::IncrementalCompileOperation::CompileOp* >(Luna< osg::Referenced >::check(L,1));
+		osgUtil::IncrementalCompileOperation::CompileOp* ptr= luna_caster< osg::Referenced, osgUtil::IncrementalCompileOperation::CompileOp >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osgDB::ImagePager::getPreLoadTime();
+		return ImagePager::getPreLoadTime();
 	};
 
 	// osg::Image * osgDB::ImagePager::readImageFile(const std::string & fileName)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<osg::Image*>());
 		}
 
-		return osgDB::ImagePager::readImageFile(fileName);
+		return ImagePager::readImageFile(fileName);
 	};
 
 	// void osgDB::ImagePager::requestImageFile(const std::string & fileName, osg::Object * attachmentPoint, int attachmentIndex, double timeToMergeBy, const osg::FrameStamp * framestamp)
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::ImagePager::requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp);
+		return ImagePager::requestImageFile(fileName, attachmentPoint, attachmentIndex, timeToMergeBy, framestamp);
 	};
 
 	// bool osgDB::ImagePager::requiresUpdateSceneGraph() const
@@ -56,7 +56,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ImagePager::requiresUpdateSceneGraph();
+		return ImagePager::requiresUpdateSceneGraph();
 	};
 
 	// void osgDB::ImagePager::updateSceneGraph(const osg::FrameStamp & frameStamp)
@@ -66,7 +66,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::ImagePager::updateSceneGraph(frameStamp);
+		return ImagePager::updateSceneGraph(frameStamp);
 	};
 
 

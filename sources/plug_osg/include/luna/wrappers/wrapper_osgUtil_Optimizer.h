@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Optimizer::optimize(node, options);
+		return Optimizer::optimize(node, options);
 	};
 
 

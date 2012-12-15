@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxZipNotifier.h>
+
 class luna_wrapper_wxZipNotifier {
 public:
 	typedef Luna< wxZipNotifier > luna_t;
@@ -68,8 +70,6 @@ wxZipNotifier* LunaTraits< wxZipNotifier >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxZipNotifier::OnEntryUpdated(wxZipEntry & entry)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxZipNotifier >::_bind_dtor(wxZipNotifier* obj) {

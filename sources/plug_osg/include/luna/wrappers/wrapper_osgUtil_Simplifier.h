@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeVisitor::reset();
+		return Simplifier::reset();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -32,7 +32,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return Simplifier::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -41,7 +41,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return Simplifier::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return Simplifier::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return Simplifier::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -74,7 +74,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return Simplifier::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// const char * osgUtil::Simplifier::libraryName() const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::Simplifier::libraryName();
+		return Simplifier::libraryName();
 	};
 
 	// const char * osgUtil::Simplifier::className() const
@@ -92,7 +92,19 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgUtil::Simplifier::className();
+		return Simplifier::className();
+	};
+
+	// bool osgUtil::Simplifier::continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
+	bool continueSimplificationImplementation(float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const {
+		if(_obj.pushFunction("continueSimplificationImplementation")) {
+			_obj.pushArg(nextError);
+			_obj.pushArg(numOriginalPrimitives);
+			_obj.pushArg(numRemainingPrimitives);
+			return (_obj.callFunction<bool>());
+		}
+
+		return Simplifier::continueSimplificationImplementation(nextError, numOriginalPrimitives, numRemainingPrimitives);
 	};
 
 	// void osgUtil::Simplifier::apply(osg::Geode & geode)
@@ -102,7 +114,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Simplifier::apply(geode);
+		return Simplifier::apply(geode);
 	};
 
 

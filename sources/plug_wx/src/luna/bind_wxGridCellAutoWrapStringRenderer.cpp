@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGridCellAutoWrapStringRenderer.h>
+
 class luna_wrapper_wxGridCellAutoWrapStringRenderer {
 public:
 	typedef Luna< wxGridCellAutoWrapStringRenderer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxGridCellRenderer(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGridCellAutoWrapStringRenderer* ptr= dynamic_cast< wxGridCellAutoWrapStringRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		//wxGridCellAutoWrapStringRenderer* ptr= dynamic_cast< wxGridCellAutoWrapStringRenderer* >(Luna< wxGridCellRenderer >::check(L,1));
+		wxGridCellAutoWrapStringRenderer* ptr= luna_caster< wxGridCellRenderer, wxGridCellAutoWrapStringRenderer >::cast(Luna< wxGridCellRenderer >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -56,8 +59,6 @@ wxGridCellAutoWrapStringRenderer* LunaTraits< wxGridCellAutoWrapStringRenderer >
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxGridCellAutoWrapStringRenderer >::_bind_dtor(wxGridCellAutoWrapStringRenderer* obj) {

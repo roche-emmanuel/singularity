@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_Awesomium_ResourceInterceptor(lua_State* L, lua_Table* dum) : Awesomium::ResourceInterceptor(), _obj(L,-1) {};
 
 	// Awesomium::ResourceResponse * Awesomium::ResourceInterceptor::OnRequest(Awesomium::ResourceRequest * request)
 	Awesomium::ResourceResponse * OnRequest(Awesomium::ResourceRequest * request) {
@@ -24,7 +23,7 @@ public:
 			return (_obj.callFunction<Awesomium::ResourceResponse*>());
 		}
 
-		return Awesomium::ResourceInterceptor::OnRequest(request);
+		return ResourceInterceptor::OnRequest(request);
 	};
 
 

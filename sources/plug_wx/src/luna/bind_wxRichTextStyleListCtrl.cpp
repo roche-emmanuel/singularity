@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextStyleListCtrl.h>
+
 class luna_wrapper_wxRichTextStyleListCtrl {
 public:
 	typedef Luna< wxRichTextStyleListCtrl > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextStyleListCtrl* ptr= dynamic_cast< wxRichTextStyleListCtrl* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxRichTextStyleListCtrl >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxRichTextStyleListCtrl* ptr= static_cast< wxRichTextStyleListCtrl* >(Luna< wxTrackable >::check(L,1));
+		//wxRichTextStyleListCtrl* ptr= dynamic_cast< wxRichTextStyleListCtrl* >(Luna< wxObject >::check(L,1));
+		wxRichTextStyleListCtrl* ptr= luna_caster< wxObject, wxRichTextStyleListCtrl >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -87,7 +79,6 @@ luna_RegType LunaTraits< wxRichTextStyleListCtrl >::methods[] = {
 
 luna_ConverterType LunaTraits< wxRichTextStyleListCtrl >::converters[] = {
 	{"wxObject", &luna_wrapper_wxRichTextStyleListCtrl::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxRichTextStyleListCtrl::_cast_from_wxTrackable},
 	{0,0}
 };
 

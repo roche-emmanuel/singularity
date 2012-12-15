@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSizer.h>
+
 class luna_wrapper_wxSizer {
 public:
 	typedef Luna< wxSizer > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSizer* ptr= dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		//wxSizer* ptr= dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* ptr= luna_caster< wxObject, wxSizer >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -710,6 +713,113 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddSpacer(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Clear(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Detach_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InformFirstDirection(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Layout(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Remove_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Replace_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -722,14 +832,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Add(wxWindow * window, const wxSizerFlags & flags) function, expected prototype:\nwxSizerItem * wxSizer::Add(wxWindow * window, const wxSizerFlags & flags)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 85412581\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,3));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Add function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(wxWindow *, const wxSizerFlags &)");
@@ -751,13 +861,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(wxWindow *, int, int, int, wxObject *)");
@@ -777,14 +887,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Add(wxSizer * sizer, const wxSizerFlags & flags) function, expected prototype:\nwxSizerItem * wxSizer::Add(wxSizer * sizer, const wxSizerFlags & flags)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 85412581\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,3));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Add function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(wxSizer *, const wxSizerFlags &)");
@@ -806,13 +916,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(wxSizer *, int, int, int, wxObject *)");
@@ -841,7 +951,7 @@ public:
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(int, int, int, int, int, wxObject *)");
@@ -861,9 +971,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Add(wxSizerItem * item) function, expected prototype:\nwxSizerItem * wxSizer::Add(wxSizerItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizerItem* item=dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,2));
+		wxSizerItem* item=(Luna< wxObject >::checkSubType< wxSizerItem >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Add(wxSizerItem *)");
@@ -898,7 +1008,7 @@ public:
 
 		int size=(int)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::AddSpacer(int)");
@@ -922,7 +1032,7 @@ public:
 
 		int prop=luatop>1 ? (int)lua_tointeger(L,2) : 1;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::AddStretchSpacer(int)");
@@ -943,7 +1053,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::CalcMin()");
@@ -968,7 +1078,7 @@ public:
 
 		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::Clear(bool)");
@@ -985,9 +1095,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxSizer::ComputeFittingClientSize(wxWindow * window) function, expected prototype:\nwxSize wxSizer::ComputeFittingClientSize(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::ComputeFittingClientSize(wxWindow *)");
@@ -1008,9 +1118,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxSizer::ComputeFittingWindowSize(wxWindow * window) function, expected prototype:\nwxSize wxSizer::ComputeFittingWindowSize(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::ComputeFittingWindowSize(wxWindow *)");
@@ -1031,9 +1141,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::Detach(wxWindow * window) function, expected prototype:\nbool wxSizer::Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Detach(wxWindow *)");
@@ -1051,9 +1161,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::Detach(wxSizer * sizer) function, expected prototype:\nbool wxSizer::Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Detach(wxSizer *)");
@@ -1073,7 +1183,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Detach(int)");
@@ -1101,9 +1211,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSize wxSizer::Fit(wxWindow * window) function, expected prototype:\nwxSize wxSizer::Fit(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::Fit(wxWindow *)");
@@ -1124,9 +1234,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSizer::FitInside(wxWindow * window) function, expected prototype:\nvoid wxSizer::FitInside(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::FitInside(wxWindow *)");
@@ -1147,7 +1257,7 @@ public:
 		int size=(int)lua_tointeger(L,3);
 		int availableOtherDir=(int)lua_tointeger(L,4);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::InformFirstDirection(int, int, int)");
@@ -1166,7 +1276,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItemList & wxSizer::GetChildren()");
@@ -1187,7 +1297,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxSizerItemList & wxSizer::GetChildren() const");
@@ -1217,7 +1327,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxSizer::GetContainingWindow() const");
@@ -1238,7 +1348,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call size_t wxSizer::GetItemCount() const");
@@ -1258,10 +1368,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::GetItem(wxWindow *, bool)");
@@ -1283,10 +1393,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::GetItem(wxSizer *, bool)");
@@ -1308,7 +1418,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::GetItem(size_t)");
@@ -1343,7 +1453,7 @@ public:
 		int id=(int)lua_tointeger(L,2);
 		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::GetItemById(int, bool)");
@@ -1364,7 +1474,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::GetMinSize()");
@@ -1386,7 +1496,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPoint wxSizer::GetPosition() const");
@@ -1408,7 +1518,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSize wxSizer::GetSize() const");
@@ -1431,10 +1541,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Hide(wxWindow *, bool)");
@@ -1454,10 +1564,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		bool recursive=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Hide(wxSizer *, bool)");
@@ -1477,7 +1587,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Hide(size_t)");
@@ -1506,14 +1616,14 @@ public:
 		}
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,4));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Insert function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, wxWindow *, const wxSizerFlags &)");
@@ -1536,13 +1646,13 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, wxWindow *, int, int, int, wxObject *)");
@@ -1563,14 +1673,14 @@ public:
 		}
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,4));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Insert function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, wxSizer *, const wxSizerFlags &)");
@@ -1593,13 +1703,13 @@ public:
 		int luatop = lua_gettop(L);
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
 		int proportion=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int flag=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, wxSizer *, int, int, int, wxObject *)");
@@ -1629,7 +1739,7 @@ public:
 		int border=luatop>6 ? (int)lua_tointeger(L,7) : 0;
 		wxObject* userData=luatop>7 ? (Luna< wxObject >::check(L,8)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, int, int, int, int, int, wxObject *)");
@@ -1650,9 +1760,9 @@ public:
 		}
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxSizerItem* item=dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,3));
+		wxSizerItem* item=(Luna< wxObject >::checkSubType< wxSizerItem >(L,3));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Insert(size_t, wxSizerItem *)");
@@ -1688,7 +1798,7 @@ public:
 		size_t index=(size_t)lua_tointeger(L,2);
 		int size=(int)lua_tointeger(L,3);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::InsertSpacer(size_t, int)");
@@ -1713,7 +1823,7 @@ public:
 		size_t index=(size_t)lua_tointeger(L,2);
 		int prop=luatop>2 ? (int)lua_tointeger(L,3) : 1;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::InsertStretchSpacer(size_t, int)");
@@ -1734,7 +1844,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::IsEmpty() const");
@@ -1752,9 +1862,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::IsShown(wxWindow * window) const function, expected prototype:\nbool wxSizer::IsShown(wxWindow * window) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::IsShown(wxWindow *) const");
@@ -1772,9 +1882,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::IsShown(wxSizer * sizer) const function, expected prototype:\nbool wxSizer::IsShown(wxSizer * sizer) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::IsShown(wxSizer *) const");
@@ -1794,7 +1904,7 @@ public:
 
 		size_t index=(size_t)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::IsShown(size_t) const");
@@ -1823,7 +1933,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::Layout()");
@@ -1840,14 +1950,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Prepend(wxWindow * window, const wxSizerFlags & flags) function, expected prototype:\nwxSizerItem * wxSizer::Prepend(wxWindow * window, const wxSizerFlags & flags)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 85412581\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,3));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Prepend function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(wxWindow *, const wxSizerFlags &)");
@@ -1869,13 +1979,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(wxWindow *, int, int, int, wxObject *)");
@@ -1895,14 +2005,14 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Prepend(wxSizer * sizer, const wxSizerFlags & flags) function, expected prototype:\nwxSizerItem * wxSizer::Prepend(wxSizer * sizer, const wxSizerFlags & flags)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 85412581\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxSizerFlags* flags_ptr=(Luna< wxSizerFlags >::check(L,3));
 		if( !flags_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg flags in wxSizer::Prepend function");
 		}
 		const wxSizerFlags & flags=*flags_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(wxSizer *, const wxSizerFlags &)");
@@ -1924,13 +2034,13 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		int proportion=luatop>2 ? (int)lua_tointeger(L,3) : 0;
 		int flag=luatop>3 ? (int)lua_tointeger(L,4) : 0;
 		int border=luatop>4 ? (int)lua_tointeger(L,5) : 0;
 		wxObject* userData=luatop>5 ? (Luna< wxObject >::check(L,6)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(wxSizer *, int, int, int, wxObject *)");
@@ -1959,7 +2069,7 @@ public:
 		int border=luatop>5 ? (int)lua_tointeger(L,6) : 0;
 		wxObject* userData=luatop>6 ? (Luna< wxObject >::check(L,7)) : (wxObject*)NULL;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(int, int, int, int, int, wxObject *)");
@@ -1979,9 +2089,9 @@ public:
 			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::Prepend(wxSizerItem * item) function, expected prototype:\nwxSizerItem * wxSizer::Prepend(wxSizerItem * item)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizerItem* item=dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,2));
+		wxSizerItem* item=(Luna< wxObject >::checkSubType< wxSizerItem >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::Prepend(wxSizerItem *)");
@@ -2016,7 +2126,7 @@ public:
 
 		int size=(int)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::PrependSpacer(int)");
@@ -2040,7 +2150,7 @@ public:
 
 		int prop=luatop>1 ? (int)lua_tointeger(L,2) : 1;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::PrependStretchSpacer(int)");
@@ -2061,7 +2171,7 @@ public:
 		}
 
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::RecalcSizes()");
@@ -2078,9 +2188,9 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::Remove(wxSizer * sizer) function, expected prototype:\nbool wxSizer::Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Remove(wxSizer *)");
@@ -2100,7 +2210,7 @@ public:
 
 		int index=(int)lua_tointeger(L,2);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Remove(int)");
@@ -2129,11 +2239,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* oldwin=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
-		wxWindow* newwin=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3));
+		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
 		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Replace(wxWindow *, wxWindow *, bool)");
@@ -2153,11 +2263,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* oldsz=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
-		wxSizer* newsz=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,3));
+		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
 		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Replace(wxSizer *, wxSizer *, bool)");
@@ -2176,9 +2286,9 @@ public:
 		}
 
 		size_t index=(size_t)lua_tointeger(L,2);
-		wxSizerItem* newitem=dynamic_cast< wxSizerItem* >(Luna< wxObject >::check(L,3));
+		wxSizerItem* newitem=(Luna< wxObject >::checkSubType< wxSizerItem >(L,3));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Replace(size_t, wxSizerItem *)");
@@ -2211,7 +2321,7 @@ public:
 		int width=(int)lua_tointeger(L,4);
 		int height=(int)lua_tointeger(L,5);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetDimension(int, int, int, int)");
@@ -2239,7 +2349,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetDimension(const wxPoint &, const wxSize &)");
@@ -2265,11 +2375,11 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::SetItemMinSize(wxWindow * window, int width, int height) function, expected prototype:\nbool wxSizer::SetItemMinSize(wxWindow * window, int width, int height)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(wxWindow *, int, int)");
@@ -2287,14 +2397,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::SetItemMinSize(wxWindow * window, const wxSize & size) function, expected prototype:\nbool wxSizer::SetItemMinSize(wxWindow * window, const wxSize & size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20268751\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,3));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSizer::SetItemMinSize function");
 		}
 		const wxSize & size=*size_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(wxWindow *, const wxSize &)");
@@ -2312,11 +2422,11 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::SetItemMinSize(wxSizer * sizer, int width, int height) function, expected prototype:\nbool wxSizer::SetItemMinSize(wxSizer * sizer, int width, int height)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(wxSizer *, int, int)");
@@ -2334,14 +2444,14 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxSizer::SetItemMinSize(wxSizer * sizer, const wxSize & size) function, expected prototype:\nbool wxSizer::SetItemMinSize(wxSizer * sizer, const wxSize & size)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20268751\n");
 		}
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,3));
 		if( !size_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSizer::SetItemMinSize function");
 		}
 		const wxSize & size=*size_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(wxSizer *, const wxSize &)");
@@ -2363,7 +2473,7 @@ public:
 		int width=(int)lua_tointeger(L,3);
 		int height=(int)lua_tointeger(L,4);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(size_t, int, int)");
@@ -2388,7 +2498,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::SetItemMinSize(size_t, const wxSize &)");
@@ -2425,7 +2535,7 @@ public:
 		}
 		const wxSize & size=*size_ptr;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetMinSize(const wxSize &)");
@@ -2445,7 +2555,7 @@ public:
 		int width=(int)lua_tointeger(L,2);
 		int height=(int)lua_tointeger(L,3);
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetMinSize(int, int)");
@@ -2471,9 +2581,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSizer::SetSizeHints(wxWindow * window) function, expected prototype:\nvoid wxSizer::SetSizeHints(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetSizeHints(wxWindow *)");
@@ -2490,9 +2600,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxSizer::SetVirtualSizeHints(wxWindow * window) function, expected prototype:\nvoid wxSizer::SetVirtualSizeHints(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSizer::SetVirtualSizeHints(wxWindow *)");
@@ -2511,11 +2621,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Show(wxWindow *, bool, bool)");
@@ -2535,11 +2645,11 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxSizer* sizer=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,2));
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Show(wxSizer *, bool, bool)");
@@ -2562,7 +2672,7 @@ public:
 		size_t index=(size_t)lua_tointeger(L,2);
 		bool show=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
 
-		wxSizer* self=dynamic_cast< wxSizer* >(Luna< wxObject >::check(L,1));
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxSizer::Show(size_t, bool)");
@@ -2583,6 +2693,308 @@ public:
 		return 0;
 	}
 
+	// wxClassInfo * wxSizer::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSizer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSizer::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSizer::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSizer::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxSizerItem * wxSizer::base_AddSpacer(int size)
+	static int _bind_base_AddSpacer(lua_State *L) {
+		if (!_lg_typecheck_base_AddSpacer(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSizerItem * wxSizer::base_AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxSizer::base_AddSpacer(int size)\nClass arguments details:\n");
+		}
+
+		int size=(int)lua_tointeger(L,2);
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxSizer::base_AddSpacer(int)");
+		}
+		wxSizerItem * lret = self->wxSizer::AddSpacer(size);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSizerItem >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxSizer::base_Clear(bool delete_windows = false)
+	static int _bind_base_Clear(lua_State *L) {
+		if (!_lg_typecheck_base_Clear(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxSizer::base_Clear(bool delete_windows = false) function, expected prototype:\nvoid wxSizer::base_Clear(bool delete_windows = false)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool delete_windows=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxSizer::base_Clear(bool)");
+		}
+		self->wxSizer::Clear(delete_windows);
+
+		return 0;
+	}
+
+	// bool wxSizer::base_Detach(wxWindow * window)
+	static int _bind_base_Detach_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Detach(wxWindow * window) function, expected prototype:\nbool wxSizer::base_Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Detach(wxWindow *)");
+		}
+		bool lret = self->wxSizer::Detach(window);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSizer::base_Detach(wxSizer * sizer)
+	static int _bind_base_Detach_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Detach(wxSizer * sizer) function, expected prototype:\nbool wxSizer::base_Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Detach(wxSizer *)");
+		}
+		bool lret = self->wxSizer::Detach(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSizer::base_Detach(int index)
+	static int _bind_base_Detach_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Detach_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Detach(int index) function, expected prototype:\nbool wxSizer::base_Detach(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Detach(int)");
+		}
+		bool lret = self->wxSizer::Detach(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxSizer::base_Detach
+	static int _bind_base_Detach(lua_State *L) {
+		if (_lg_typecheck_base_Detach_overload_1(L)) return _bind_base_Detach_overload_1(L);
+		if (_lg_typecheck_base_Detach_overload_2(L)) return _bind_base_Detach_overload_2(L);
+		if (_lg_typecheck_base_Detach_overload_3(L)) return _bind_base_Detach_overload_3(L);
+
+		luaL_error(L, "error in function base_Detach, cannot match any of the overloads for function base_Detach:\n  base_Detach(wxWindow *)\n  base_Detach(wxSizer *)\n  base_Detach(int)\n");
+		return 0;
+	}
+
+	// bool wxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)
+	static int _bind_base_InformFirstDirection(lua_State *L) {
+		if (!_lg_typecheck_base_InformFirstDirection(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+		}
+
+		int direction=(int)lua_tointeger(L,2);
+		int size=(int)lua_tointeger(L,3);
+		int availableOtherDir=(int)lua_tointeger(L,4);
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_InformFirstDirection(int, int, int)");
+		}
+		bool lret = self->wxSizer::InformFirstDirection(direction, size, availableOtherDir);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxSizer::base_Layout()
+	static int _bind_base_Layout(lua_State *L) {
+		if (!_lg_typecheck_base_Layout(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxSizer::base_Layout() function, expected prototype:\nvoid wxSizer::base_Layout()\nClass arguments details:\n");
+		}
+
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxSizer::base_Layout()");
+		}
+		self->wxSizer::Layout();
+
+		return 0;
+	}
+
+	// bool wxSizer::base_Remove(wxSizer * sizer)
+	static int _bind_base_Remove_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Remove(wxSizer * sizer) function, expected prototype:\nbool wxSizer::base_Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Remove(wxSizer *)");
+		}
+		bool lret = self->wxSizer::Remove(sizer);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSizer::base_Remove(int index)
+	static int _bind_base_Remove_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Remove_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Remove(int index) function, expected prototype:\nbool wxSizer::base_Remove(int index)\nClass arguments details:\n");
+		}
+
+		int index=(int)lua_tointeger(L,2);
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Remove(int)");
+		}
+		bool lret = self->wxSizer::Remove(index);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxSizer::base_Remove
+	static int _bind_base_Remove(lua_State *L) {
+		if (_lg_typecheck_base_Remove_overload_1(L)) return _bind_base_Remove_overload_1(L);
+		if (_lg_typecheck_base_Remove_overload_2(L)) return _bind_base_Remove_overload_2(L);
+
+		luaL_error(L, "error in function base_Remove, cannot match any of the overloads for function base_Remove:\n  base_Remove(wxSizer *)\n  base_Remove(int)\n");
+		return 0;
+	}
+
+	// bool wxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)
+	static int _bind_base_Replace_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false) function, expected prototype:\nbool wxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* oldwin=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		wxWindow* newwin=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Replace(wxWindow *, wxWindow *, bool)");
+		}
+		bool lret = self->wxSizer::Replace(oldwin, newwin, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)
+	static int _bind_base_Replace_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false) function, expected prototype:\nbool wxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxSizer* oldsz=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
+		wxSizer* newsz=(Luna< wxObject >::checkSubType< wxSizer >(L,3));
+		bool recursive=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : false;
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Replace(wxSizer *, wxSizer *, bool)");
+		}
+		bool lret = self->wxSizer::Replace(oldsz, newsz, recursive);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// bool wxSizer::base_Replace(size_t index, wxSizerItem * newitem)
+	static int _bind_base_Replace_overload_3(lua_State *L) {
+		if (!_lg_typecheck_base_Replace_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxSizer::base_Replace(size_t index, wxSizerItem * newitem) function, expected prototype:\nbool wxSizer::base_Replace(size_t index, wxSizerItem * newitem)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		size_t index=(size_t)lua_tointeger(L,2);
+		wxSizerItem* newitem=(Luna< wxObject >::checkSubType< wxSizerItem >(L,3));
+
+		wxSizer* self=Luna< wxObject >::checkSubType< wxSizer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxSizer::base_Replace(size_t, wxSizerItem *)");
+		}
+		bool lret = self->wxSizer::Replace(index, newitem);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// Overload binder for wxSizer::base_Replace
+	static int _bind_base_Replace(lua_State *L) {
+		if (_lg_typecheck_base_Replace_overload_1(L)) return _bind_base_Replace_overload_1(L);
+		if (_lg_typecheck_base_Replace_overload_2(L)) return _bind_base_Replace_overload_2(L);
+		if (_lg_typecheck_base_Replace_overload_3(L)) return _bind_base_Replace_overload_3(L);
+
+		luaL_error(L, "error in function base_Replace, cannot match any of the overloads for function base_Replace:\n  base_Replace(wxWindow *, wxWindow *, bool)\n  base_Replace(wxSizer *, wxSizer *, bool)\n  base_Replace(size_t, wxSizerItem *)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -2593,8 +3005,6 @@ wxSizer* LunaTraits< wxSizer >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// wxSize wxSizer::CalcMin()
 	// void wxSizer::RecalcSizes()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSizer >::_bind_dtor(wxSizer* obj) {
@@ -2647,6 +3057,14 @@ luna_RegType LunaTraits< wxSizer >::methods[] = {
 	{"SetSizeHints", &luna_wrapper_wxSizer::_bind_SetSizeHints},
 	{"SetVirtualSizeHints", &luna_wrapper_wxSizer::_bind_SetVirtualSizeHints},
 	{"Show", &luna_wrapper_wxSizer::_bind_Show},
+	{"base_GetClassInfo", &luna_wrapper_wxSizer::_bind_base_GetClassInfo},
+	{"base_AddSpacer", &luna_wrapper_wxSizer::_bind_base_AddSpacer},
+	{"base_Clear", &luna_wrapper_wxSizer::_bind_base_Clear},
+	{"base_Detach", &luna_wrapper_wxSizer::_bind_base_Detach},
+	{"base_InformFirstDirection", &luna_wrapper_wxSizer::_bind_base_InformFirstDirection},
+	{"base_Layout", &luna_wrapper_wxSizer::_bind_base_Layout},
+	{"base_Remove", &luna_wrapper_wxSizer::_bind_base_Remove},
+	{"base_Replace", &luna_wrapper_wxSizer::_bind_base_Replace},
 	{"__eq", &luna_wrapper_wxSizer::_bind___eq},
 	{0,0}
 };

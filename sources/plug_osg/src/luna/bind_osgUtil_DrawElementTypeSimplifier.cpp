@@ -77,7 +77,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const function, expected prototype:\nvoid osgUtil::DrawElementTypeSimplifier::simplify(osg::Geometry & geometry) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geometry* geometry_ptr=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geometry* geometry_ptr=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 		if( !geometry_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg geometry in osgUtil::DrawElementTypeSimplifier::simplify function");
 		}

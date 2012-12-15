@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxVarScrollHelperBase.h>
+
 class luna_wrapper_wxVarScrollHelperBase {
 public:
 	typedef Luna< wxVarScrollHelperBase > luna_t;
@@ -142,6 +144,31 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetTargetWindow(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_RefreshAll(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetTargetWindow(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_UpdateScrollbar(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -372,7 +399,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxVarScrollHelperBase::SetTargetWindow(wxWindow * target) function, expected prototype:\nvoid wxVarScrollHelperBase::SetTargetWindow(wxWindow * target)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* target=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* target=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
 		if(!self) {
@@ -422,6 +449,82 @@ public:
 		return 1;
 	}
 
+	// wxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const
+	static int _bind_base_GetTargetWindow(lua_State *L) {
+		if (!_lg_typecheck_base_GetTargetWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const function, expected prototype:\nwxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const\nClass arguments details:\n");
+		}
+
+
+		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxWindow * wxVarScrollHelperBase::base_GetTargetWindow() const");
+		}
+		wxWindow * lret = self->wxVarScrollHelperBase::GetTargetWindow();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxWindow >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxVarScrollHelperBase::base_RefreshAll()
+	static int _bind_base_RefreshAll(lua_State *L) {
+		if (!_lg_typecheck_base_RefreshAll(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVarScrollHelperBase::base_RefreshAll() function, expected prototype:\nvoid wxVarScrollHelperBase::base_RefreshAll()\nClass arguments details:\n");
+		}
+
+
+		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_RefreshAll()");
+		}
+		self->wxVarScrollHelperBase::RefreshAll();
+
+		return 0;
+	}
+
+	// void wxVarScrollHelperBase::base_SetTargetWindow(wxWindow * target)
+	static int _bind_base_SetTargetWindow(lua_State *L) {
+		if (!_lg_typecheck_base_SetTargetWindow(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVarScrollHelperBase::base_SetTargetWindow(wxWindow * target) function, expected prototype:\nvoid wxVarScrollHelperBase::base_SetTargetWindow(wxWindow * target)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxWindow* target=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_SetTargetWindow(wxWindow *)");
+		}
+		self->wxVarScrollHelperBase::SetTargetWindow(target);
+
+		return 0;
+	}
+
+	// void wxVarScrollHelperBase::base_UpdateScrollbar()
+	static int _bind_base_UpdateScrollbar(lua_State *L) {
+		if (!_lg_typecheck_base_UpdateScrollbar(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxVarScrollHelperBase::base_UpdateScrollbar() function, expected prototype:\nvoid wxVarScrollHelperBase::base_UpdateScrollbar()\nClass arguments details:\n");
+		}
+
+
+		wxVarScrollHelperBase* self=(Luna< wxVarScrollHelperBase >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxVarScrollHelperBase::base_UpdateScrollbar()");
+		}
+		self->wxVarScrollHelperBase::UpdateScrollbar();
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -434,8 +537,6 @@ wxVarScrollHelperBase* LunaTraits< wxVarScrollHelperBase >::_bind_ctor(lua_State
 	// wxOrientation wxVarScrollHelperBase::GetOrientation() const
 	// int wxVarScrollHelperBase::GetOrientationTargetSize() const
 	// int wxVarScrollHelperBase::OnGetUnitSize(size_t unit) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxVarScrollHelperBase >::_bind_dtor(wxVarScrollHelperBase* obj) {
@@ -464,6 +565,10 @@ luna_RegType LunaTraits< wxVarScrollHelperBase >::methods[] = {
 	{"SetTargetWindow", &luna_wrapper_wxVarScrollHelperBase::_bind_SetTargetWindow},
 	{"UpdateScrollbar", &luna_wrapper_wxVarScrollHelperBase::_bind_UpdateScrollbar},
 	{"VirtualHitTest", &luna_wrapper_wxVarScrollHelperBase::_bind_VirtualHitTest},
+	{"base_GetTargetWindow", &luna_wrapper_wxVarScrollHelperBase::_bind_base_GetTargetWindow},
+	{"base_RefreshAll", &luna_wrapper_wxVarScrollHelperBase::_bind_base_RefreshAll},
+	{"base_SetTargetWindow", &luna_wrapper_wxVarScrollHelperBase::_bind_base_SetTargetWindow},
+	{"base_UpdateScrollbar", &luna_wrapper_wxVarScrollHelperBase::_bind_base_UpdateScrollbar},
 	{"dynCast", &luna_wrapper_wxVarScrollHelperBase::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxVarScrollHelperBase::_bind___eq},
 	{0,0}

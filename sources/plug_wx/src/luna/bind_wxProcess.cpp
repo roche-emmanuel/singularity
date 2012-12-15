@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxProcess.h>
+
 class luna_wrapper_wxProcess {
 public:
 	typedef Luna< wxProcess > luna_t;
@@ -29,18 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxProcess* ptr= dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
-		if(!ptr)
-			return 0;
-		
-		// Otherwise push the pointer:
-		Luna< wxProcess >::push(L,ptr,false);
-		return 1;
-	};
-
-	static int _cast_from_wxTrackable(lua_State *L) {
-		// all checked are already performed before reaching this point.
-		wxProcess* ptr= static_cast< wxProcess* >(Luna< wxTrackable >::check(L,1));
+		//wxProcess* ptr= dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* ptr= luna_caster< wxObject, wxProcess >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -65,6 +57,25 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -154,6 +165,55 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_QueueEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_AddPendingEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ProcessEvent(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetNextHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPreviousHandler(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnTerminate(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -168,7 +228,7 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxEvtHandler* parent=luatop>0 ? dynamic_cast< wxEvtHandler* >(Luna< wxObject >::check(L,1)) : (wxEvtHandler*)NULL;
+		wxEvtHandler* parent=luatop>0 ? (Luna< wxObject >::checkSubType< wxEvtHandler >(L,1)) : (wxEvtHandler*)NULL;
 		int id=luatop>1 ? (int)lua_tointeger(L,2) : -1;
 
 		return new wxProcess(parent, id);
@@ -186,12 +246,41 @@ public:
 		return new wxProcess(flags);
 	}
 
+	// wxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1)
+	static wxProcess* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1) function, expected prototype:\nwxProcess::wxProcess(lua_Table * data, wxEvtHandler * parent = NULL, int id = -1)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxEvtHandler* parent=luatop>1 ? (Luna< wxObject >::checkSubType< wxEvtHandler >(L,2)) : (wxEvtHandler*)NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+
+		return new wrapper_wxProcess(L,NULL, parent, id);
+	}
+
+	// wxProcess::wxProcess(lua_Table * data, int flags)
+	static wxProcess* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProcess::wxProcess(lua_Table * data, int flags) function, expected prototype:\nwxProcess::wxProcess(lua_Table * data, int flags)\nClass arguments details:\n");
+		}
+
+		int flags=(int)lua_tointeger(L,2);
+
+		return new wrapper_wxProcess(L,NULL, flags);
+	}
+
 	// Overload binder for wxProcess::wxProcess
 	static wxProcess* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxProcess, cannot match any of the overloads for function wxProcess:\n  wxProcess(wxEvtHandler *, int)\n  wxProcess(int)\n");
+		luaL_error(L, "error in function wxProcess, cannot match any of the overloads for function wxProcess:\n  wxProcess(wxEvtHandler *, int)\n  wxProcess(int)\n  wxProcess(lua_Table *, wxEvtHandler *, int)\n  wxProcess(lua_Table *, int)\n");
 		return NULL;
 	}
 
@@ -205,7 +294,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProcess::CloseOutput()");
@@ -223,7 +312,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProcess::Detach()");
@@ -241,7 +330,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetErrorStream() const");
@@ -262,7 +351,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxInputStream * wxProcess::GetInputStream() const");
@@ -283,7 +372,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxOutputStream * wxProcess::GetOutputStream() const");
@@ -304,7 +393,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call long wxProcess::GetPid() const");
@@ -323,7 +412,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxProcess::IsErrorAvailable() const");
@@ -342,7 +431,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputAvailable() const");
@@ -361,7 +450,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxProcess::IsInputOpened() const");
@@ -382,7 +471,7 @@ public:
 		int pid=(int)lua_tointeger(L,2);
 		int status=(int)lua_tointeger(L,3);
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProcess::OnTerminate(int, int)");
@@ -400,7 +489,7 @@ public:
 		}
 
 
-		wxProcess* self=dynamic_cast< wxProcess* >(Luna< wxObject >::check(L,1));
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxProcess::Redirect()");
@@ -425,17 +514,17 @@ public:
 		return 1;
 	}
 
-	// static wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC)
+	// static wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC)
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC) function, expected prototype:\nstatic wxProcess * wxProcess::Open(const wxString & cmd, int flags = wxEXEC_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC) function, expected prototype:\nstatic wxProcess * wxProcess::Open(const wxString & cmd, int flags = ::wxEXEC_ASYNC)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString cmd(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxEXEC_ASYNC;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxEXEC_ASYNC;
 
 		wxProcess * lret = wxProcess::Open(cmd, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -443,6 +532,151 @@ public:
 		Luna< wxProcess >::push(L,lret,false);
 
 		return 1;
+	}
+
+	// wxClassInfo * wxProcess::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxProcess::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxProcess::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxProcess::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxProcess::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// void wxProcess::base_QueueEvent(wxEvent * event)
+	static int _bind_base_QueueEvent(lua_State *L) {
+		if (!_lg_typecheck_base_QueueEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProcess::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxProcess::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProcess::base_QueueEvent(wxEvent *)");
+		}
+		self->wxProcess::QueueEvent(event);
+
+		return 0;
+	}
+
+	// void wxProcess::base_AddPendingEvent(const wxEvent & event)
+	static int _bind_base_AddPendingEvent(lua_State *L) {
+		if (!_lg_typecheck_base_AddPendingEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProcess::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxProcess::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxProcess::base_AddPendingEvent function");
+		}
+		const wxEvent & event=*event_ptr;
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProcess::base_AddPendingEvent(const wxEvent &)");
+		}
+		self->wxProcess::AddPendingEvent(event);
+
+		return 0;
+	}
+
+	// bool wxProcess::base_ProcessEvent(wxEvent & event)
+	static int _bind_base_ProcessEvent(lua_State *L) {
+		if (!_lg_typecheck_base_ProcessEvent(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxProcess::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxProcess::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxProcess::base_ProcessEvent function");
+		}
+		wxEvent & event=*event_ptr;
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxProcess::base_ProcessEvent(wxEvent &)");
+		}
+		bool lret = self->wxProcess::ProcessEvent(event);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// void wxProcess::base_SetNextHandler(wxEvtHandler * handler)
+	static int _bind_base_SetNextHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetNextHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProcess::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxProcess::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProcess::base_SetNextHandler(wxEvtHandler *)");
+		}
+		self->wxProcess::SetNextHandler(handler);
+
+		return 0;
+	}
+
+	// void wxProcess::base_SetPreviousHandler(wxEvtHandler * handler)
+	static int _bind_base_SetPreviousHandler(lua_State *L) {
+		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProcess::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxProcess::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProcess::base_SetPreviousHandler(wxEvtHandler *)");
+		}
+		self->wxProcess::SetPreviousHandler(handler);
+
+		return 0;
+	}
+
+	// void wxProcess::base_OnTerminate(int pid, int status)
+	static int _bind_base_OnTerminate(lua_State *L) {
+		if (!_lg_typecheck_base_OnTerminate(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxProcess::base_OnTerminate(int pid, int status) function, expected prototype:\nvoid wxProcess::base_OnTerminate(int pid, int status)\nClass arguments details:\n");
+		}
+
+		int pid=(int)lua_tointeger(L,2);
+		int status=(int)lua_tointeger(L,3);
+
+		wxProcess* self=Luna< wxObject >::checkSubType< wxProcess >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxProcess::base_OnTerminate(int, int)");
+		}
+		self->wxProcess::OnTerminate(pid, status);
+
+		return 0;
 	}
 
 
@@ -479,13 +713,19 @@ luna_RegType LunaTraits< wxProcess >::methods[] = {
 	{"Redirect", &luna_wrapper_wxProcess::_bind_Redirect},
 	{"Exists", &luna_wrapper_wxProcess::_bind_Exists},
 	{"Open", &luna_wrapper_wxProcess::_bind_Open},
+	{"base_GetClassInfo", &luna_wrapper_wxProcess::_bind_base_GetClassInfo},
+	{"base_QueueEvent", &luna_wrapper_wxProcess::_bind_base_QueueEvent},
+	{"base_AddPendingEvent", &luna_wrapper_wxProcess::_bind_base_AddPendingEvent},
+	{"base_ProcessEvent", &luna_wrapper_wxProcess::_bind_base_ProcessEvent},
+	{"base_SetNextHandler", &luna_wrapper_wxProcess::_bind_base_SetNextHandler},
+	{"base_SetPreviousHandler", &luna_wrapper_wxProcess::_bind_base_SetPreviousHandler},
+	{"base_OnTerminate", &luna_wrapper_wxProcess::_bind_base_OnTerminate},
 	{"__eq", &luna_wrapper_wxProcess::_bind___eq},
 	{0,0}
 };
 
 luna_ConverterType LunaTraits< wxProcess >::converters[] = {
 	{"wxObject", &luna_wrapper_wxProcess::_cast_from_wxObject},
-	{"wxTrackable", &luna_wrapper_wxProcess::_cast_from_wxTrackable},
 	{0,0}
 };
 

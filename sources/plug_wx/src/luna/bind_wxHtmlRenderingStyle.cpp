@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlRenderingStyle.h>
+
 class luna_wrapper_wxHtmlRenderingStyle {
 public:
 	typedef Luna< wxHtmlRenderingStyle > luna_t;
@@ -80,7 +82,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* clr_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* clr_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !clr_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg clr in wxHtmlRenderingStyle::GetSelectedTextColour function");
 		}
@@ -107,7 +109,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxColour* clr_ptr=dynamic_cast< wxColour* >(Luna< wxObject >::check(L,2));
+		const wxColour* clr_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
 		if( !clr_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg clr in wxHtmlRenderingStyle::GetSelectedTextBgColour function");
 		}
@@ -137,8 +139,6 @@ wxHtmlRenderingStyle* LunaTraits< wxHtmlRenderingStyle >::_bind_ctor(lua_State *
 	// Abstract methods:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlRenderingStyle >::_bind_dtor(wxHtmlRenderingStyle* obj) {

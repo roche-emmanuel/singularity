@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSplitterEvent.h>
+
 class luna_wrapper_wxSplitterEvent {
 public:
 	typedef Luna< wxSplitterEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSplitterEvent* ptr= dynamic_cast< wxSplitterEvent* >(Luna< wxObject >::check(L,1));
+		//wxSplitterEvent* ptr= dynamic_cast< wxSplitterEvent* >(Luna< wxObject >::check(L,1));
+		wxSplitterEvent* ptr= luna_caster< wxObject, wxSplitterEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,8 +57,6 @@ wxSplitterEvent* LunaTraits< wxSplitterEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSplitterEvent >::_bind_dtor(wxSplitterEvent* obj) {

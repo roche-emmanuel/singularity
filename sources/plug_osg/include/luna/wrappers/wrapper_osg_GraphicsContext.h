@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return GraphicsContext::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return GraphicsContext::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return GraphicsContext::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GraphicsContext::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return GraphicsContext::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return GraphicsContext::releaseGLObjects(arg1);
 	};
 
 	// bool osg::GraphicsContext::valid() const
@@ -87,7 +87,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::GraphicsContext::clear();
+		return GraphicsContext::clear();
 	};
 
 	// bool osg::GraphicsContext::realizeImplementation()
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::GraphicsContext::resizedImplementation(x, y, width, height);
+		return GraphicsContext::resizedImplementation(x, y, width, height);
 	};
 
 	// bool osg::GraphicsContext::isSameKindAs(const osg::Object * object) const
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::GraphicsContext::isSameKindAs(object);
+		return GraphicsContext::isSameKindAs(object);
 	};
 
 	// const char * osg::GraphicsContext::libraryName() const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::GraphicsContext::libraryName();
+		return GraphicsContext::libraryName();
 	};
 
 	// const char * osg::GraphicsContext::className() const
@@ -178,13 +178,30 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::GraphicsContext::className();
+		return GraphicsContext::className();
 	};
 
 
 protected:
 	// osg::Object * osg::GraphicsContext::cloneType() const
+	osg::Object * cloneType() const {
+		if(_obj.pushFunction("cloneType")) {
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsContext::cloneType();
+	};
+
 	// osg::Object * osg::GraphicsContext::clone(const osg::CopyOp & arg1) const
+	osg::Object * clone(const osg::CopyOp & arg1) const {
+		if(_obj.pushFunction("clone")) {
+			_obj.pushArg(&arg1);
+			return (_obj.callFunction<osg::Object*>());
+		}
+
+		return GraphicsContext::clone(arg1);
+	};
+
 
 };
 

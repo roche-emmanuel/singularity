@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxRichTextCompositeObject.h>
+
 class luna_wrapper_wxRichTextCompositeObject {
 public:
 	typedef Luna< wxRichTextCompositeObject > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxRichTextCompositeObject* ptr= dynamic_cast< wxRichTextCompositeObject* >(Luna< wxObject >::check(L,1));
+		//wxRichTextCompositeObject* ptr= dynamic_cast< wxRichTextCompositeObject* >(Luna< wxObject >::check(L,1));
+		wxRichTextCompositeObject* ptr= luna_caster< wxObject, wxRichTextCompositeObject >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -55,8 +58,6 @@ wxRichTextCompositeObject* LunaTraits< wxRichTextCompositeObject >::_bind_ctor(l
 	// Abstract methods:
 	// bool wxRichTextObject::Draw(wxDC & dc, const wxRichTextRange & range, const wxRichTextSelection & selection, const wxRect & rect, int descent, int style)
 	// bool wxRichTextObject::Layout(wxDC & dc, const wxRect & rect, int style)
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxRichTextCompositeObject >::_bind_dtor(wxRichTextCompositeObject* obj) {

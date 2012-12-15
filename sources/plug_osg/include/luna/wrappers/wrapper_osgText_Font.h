@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Font::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Font::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +43,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Font::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +52,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Font::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +61,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Font::getUserData();
 	};
 
 	// osg::Object * osgText::Font::cloneType() const
@@ -70,7 +70,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::Font::cloneType();
+		return Font::cloneType();
 	};
 
 	// osg::Object * osgText::Font::clone(const osg::CopyOp & arg1) const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgText::Font::clone(arg1);
+		return Font::clone(arg1);
 	};
 
 	// bool osgText::Font::isSameKindAs(const osg::Object * obj) const
@@ -90,7 +90,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgText::Font::isSameKindAs(obj);
+		return Font::isSameKindAs(obj);
 	};
 
 	// const char * osgText::Font::className() const
@@ -99,7 +99,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::Font::className();
+		return Font::className();
 	};
 
 	// const char * osgText::Font::libraryName() const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgText::Font::libraryName();
+		return Font::libraryName();
 	};
 
 	// std::string osgText::Font::getFileName() const
@@ -117,7 +117,7 @@ public:
 			return (_obj.callFunction<std::string>());
 		}
 
-		return osgText::Font::getFileName();
+		return Font::getFileName();
 	};
 
 	// osg::Vec2f osgText::Font::getKerning(unsigned int leftcharcode, unsigned int rightcharcode, osgText::KerningType kerningType)
@@ -129,7 +129,7 @@ public:
 			return *(_obj.callFunction<osg::Vec2f*>());
 		}
 
-		return osgText::Font::getKerning(leftcharcode, rightcharcode, kerningType);
+		return Font::getKerning(leftcharcode, rightcharcode, kerningType);
 	};
 
 	// osgText::Glyph * osgText::Font::getGlyph(const osgText::FontResolution & fontSize, unsigned int charcode)
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<osgText::Glyph*>());
 		}
 
-		return osgText::Font::getGlyph(fontSize, charcode);
+		return Font::getGlyph(fontSize, charcode);
 	};
 
 	// osgText::Glyph3D * osgText::Font::getGlyph3D(unsigned int charcode)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<osgText::Glyph3D*>());
 		}
 
-		return osgText::Font::getGlyph3D(charcode);
+		return Font::getGlyph3D(charcode);
 	};
 
 	// bool osgText::Font::hasVertical() const
@@ -159,7 +159,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgText::Font::hasVertical();
+		return Font::hasVertical();
 	};
 
 	// void osgText::Font::releaseGLObjects(osg::State * state = 0) const
@@ -169,7 +169,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgText::Font::releaseGLObjects(state);
+		return Font::releaseGLObjects(state);
 	};
 
 

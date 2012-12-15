@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ModularEmitter::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ModularEmitter::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ModularEmitter::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ModularEmitter::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ModularEmitter::getUserData();
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return ModularEmitter::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return ModularEmitter::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return ModularEmitter::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return ModularEmitter::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return ModularEmitter::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return ModularEmitter::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -125,7 +125,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return ModularEmitter::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return ModularEmitter::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return ModularEmitter::ascend(nv);
 	};
 
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::releaseGLObjects(arg1);
+		return ModularEmitter::releaseGLObjects(arg1);
 	};
 
 	// void osgParticle::ParticleProcessor::traverse(osg::NodeVisitor & arg1)
@@ -164,7 +164,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleProcessor::traverse(arg1);
+		return ModularEmitter::traverse(arg1);
 	};
 
 	// osg::BoundingSphered osgParticle::ParticleProcessor::computeBound() const
@@ -173,7 +173,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osgParticle::ParticleProcessor::computeBound();
+		return ModularEmitter::computeBound();
 	};
 
 	// osg::Object * osgParticle::ModularEmitter::cloneType() const
@@ -182,7 +182,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ModularEmitter::cloneType();
+		return ModularEmitter::cloneType();
 	};
 
 	// osg::Object * osgParticle::ModularEmitter::clone(const osg::CopyOp & copyop) const
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ModularEmitter::clone(copyop);
+		return ModularEmitter::clone(copyop);
 	};
 
 	// bool osgParticle::ModularEmitter::isSameKindAs(const osg::Object * obj) const
@@ -202,7 +202,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ModularEmitter::isSameKindAs(obj);
+		return ModularEmitter::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::ModularEmitter::className() const
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ModularEmitter::className();
+		return ModularEmitter::className();
 	};
 
 	// const char * osgParticle::ModularEmitter::libraryName() const
@@ -220,7 +220,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ModularEmitter::libraryName();
+		return ModularEmitter::libraryName();
 	};
 
 	// void osgParticle::ModularEmitter::accept(osg::NodeVisitor & nv)
@@ -230,13 +230,31 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ModularEmitter::accept(nv);
+		return ModularEmitter::accept(nv);
 	};
 
 
 protected:
 	// void osgParticle::Emitter::process(double dt)
+	void process(double dt) {
+		if(_obj.pushFunction("process")) {
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return ModularEmitter::process(dt);
+	};
+
 	// void osgParticle::ModularEmitter::emitParticles(double dt)
+	void emitParticles(double dt) {
+		if(_obj.pushFunction("emitParticles")) {
+			_obj.pushArg(dt);
+			return (_obj.callFunction<void>());
+		}
+
+		return ModularEmitter::emitParticles(dt);
+	};
+
 
 };
 

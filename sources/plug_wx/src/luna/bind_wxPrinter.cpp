@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPrinter.h>
+
 class luna_wrapper_wxPrinter {
 public:
 	typedef Luna< wxPrinter > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPrinter* ptr= dynamic_cast< wxPrinter* >(Luna< wxObject >::check(L,1));
+		//wxPrinter* ptr= dynamic_cast< wxPrinter* >(Luna< wxObject >::check(L,1));
+		wxPrinter* ptr= luna_caster< wxObject, wxPrinter >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

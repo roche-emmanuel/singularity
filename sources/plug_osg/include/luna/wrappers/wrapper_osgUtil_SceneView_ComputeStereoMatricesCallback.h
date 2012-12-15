@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback(lua_State* L, lua_Table* dum) : osgUtil::SceneView::ComputeStereoMatricesCallback(), _obj(L,-1) {};
 
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection(const osg::Matrixd & projection) const
 	osg::Matrixd computeLeftEyeProjection(const osg::Matrixd & projection) const {

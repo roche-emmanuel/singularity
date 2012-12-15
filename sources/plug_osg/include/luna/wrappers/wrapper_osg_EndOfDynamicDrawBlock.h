@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::EndOfDynamicDrawBlock::completed(state);
+		return EndOfDynamicDrawBlock::completed(state);
 	};
 
 

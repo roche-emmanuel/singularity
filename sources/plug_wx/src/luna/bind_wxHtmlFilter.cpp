@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlFilter.h>
+
 class luna_wrapper_wxHtmlFilter {
 public:
 	typedef Luna< wxHtmlFilter > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlFilter* ptr= dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		//wxHtmlFilter* ptr= dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		wxHtmlFilter* ptr= luna_caster< wxObject, wxHtmlFilter >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -54,6 +57,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -66,13 +75,13 @@ public:
 			luaL_error(L, "luna typecheck failed in bool wxHtmlFilter::CanRead(const wxFSFile & file) const function, expected prototype:\nbool wxHtmlFilter::CanRead(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFSFile* file_ptr=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,2));
+		const wxFSFile* file_ptr=(Luna< wxObject >::checkSubType< wxFSFile >(L,2));
 		if( !file_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg file in wxHtmlFilter::CanRead function");
 		}
 		const wxFSFile & file=*file_ptr;
 
-		wxHtmlFilter* self=dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlFilter::CanRead(const wxFSFile &) const");
@@ -90,19 +99,40 @@ public:
 			luaL_error(L, "luna typecheck failed in wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const function, expected prototype:\nwxString wxHtmlFilter::ReadFile(const wxFSFile & file) const\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		const wxFSFile* file_ptr=dynamic_cast< wxFSFile* >(Luna< wxObject >::check(L,2));
+		const wxFSFile* file_ptr=(Luna< wxObject >::checkSubType< wxFSFile >(L,2));
 		if( !file_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg file in wxHtmlFilter::ReadFile function");
 		}
 		const wxFSFile & file=*file_ptr;
 
-		wxHtmlFilter* self=dynamic_cast< wxHtmlFilter* >(Luna< wxObject >::check(L,1));
+		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxString wxHtmlFilter::ReadFile(const wxFSFile &) const");
 		}
 		wxString lret = self->ReadFile(file);
 		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// wxClassInfo * wxHtmlFilter::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlFilter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlFilter::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlFilter* self=Luna< wxObject >::checkSubType< wxHtmlFilter >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlFilter::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlFilter::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -117,8 +147,6 @@ wxHtmlFilter* LunaTraits< wxHtmlFilter >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxHtmlFilter::CanRead(const wxFSFile & file) const
 	// wxString wxHtmlFilter::ReadFile(const wxFSFile & file) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxHtmlFilter >::_bind_dtor(wxHtmlFilter* obj) {
@@ -135,6 +163,7 @@ const int LunaTraits< wxHtmlFilter >::uniqueIDs[] = {56813631,0};
 luna_RegType LunaTraits< wxHtmlFilter >::methods[] = {
 	{"CanRead", &luna_wrapper_wxHtmlFilter::_bind_CanRead},
 	{"ReadFile", &luna_wrapper_wxHtmlFilter::_bind_ReadFile},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlFilter::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxHtmlFilter::_bind___eq},
 	{0,0}
 };

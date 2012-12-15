@@ -356,6 +356,29 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_setDefaults(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_inheritCullSettings_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
+		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_inheritCullSettings_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
+		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -1158,7 +1181,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::CullSettings::setClampProjectionMatrixCallback(osg::CullSettings::ClampProjectionMatrixCallback * cpmc) function, expected prototype:\nvoid osg::CullSettings::setClampProjectionMatrixCallback(osg::CullSettings::ClampProjectionMatrixCallback * cpmc)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::CullSettings::ClampProjectionMatrixCallback* cpmc=dynamic_cast< osg::CullSettings::ClampProjectionMatrixCallback* >(Luna< osg::Referenced >::check(L,2));
+		osg::CullSettings::ClampProjectionMatrixCallback* cpmc=(Luna< osg::Referenced >::checkSubType< osg::CullSettings::ClampProjectionMatrixCallback >(L,2));
 
 		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
 		if(!self) {
@@ -1221,6 +1244,80 @@ public:
 		return 0;
 	}
 
+	// void osg::CullSettings::base_setDefaults()
+	static int _bind_base_setDefaults(lua_State *L) {
+		if (!_lg_typecheck_base_setDefaults(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullSettings::base_setDefaults() function, expected prototype:\nvoid osg::CullSettings::base_setDefaults()\nClass arguments details:\n");
+		}
+
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_setDefaults()");
+		}
+		self->CullSettings::setDefaults();
+
+		return 0;
+	}
+
+	// void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings)
+	static int _bind_base_inheritCullSettings_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_inheritCullSettings_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings) function, expected prototype:\nvoid osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings)\nClass arguments details:\narg 1 ID = 31435107\n");
+		}
+
+		const osg::CullSettings* settings_ptr=(Luna< osg::CullSettings >::check(L,2));
+		if( !settings_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg settings in osg::CullSettings::base_inheritCullSettings function");
+		}
+		const osg::CullSettings & settings=*settings_ptr;
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &)");
+		}
+		self->CullSettings::inheritCullSettings(settings);
+
+		return 0;
+	}
+
+	// void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)
+	static int _bind_base_inheritCullSettings_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_inheritCullSettings_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask) function, expected prototype:\nvoid osg::CullSettings::base_inheritCullSettings(const osg::CullSettings & settings, unsigned int inheritanceMask)\nClass arguments details:\narg 1 ID = 31435107\n");
+		}
+
+		const osg::CullSettings* settings_ptr=(Luna< osg::CullSettings >::check(L,2));
+		if( !settings_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg settings in osg::CullSettings::base_inheritCullSettings function");
+		}
+		const osg::CullSettings & settings=*settings_ptr;
+		unsigned int inheritanceMask=(unsigned int)lua_tointeger(L,3);
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::base_inheritCullSettings(const osg::CullSettings &, unsigned int)");
+		}
+		self->CullSettings::inheritCullSettings(settings, inheritanceMask);
+
+		return 0;
+	}
+
+	// Overload binder for osg::CullSettings::base_inheritCullSettings
+	static int _bind_base_inheritCullSettings(lua_State *L) {
+		if (_lg_typecheck_base_inheritCullSettings_overload_1(L)) return _bind_base_inheritCullSettings_overload_1(L);
+		if (_lg_typecheck_base_inheritCullSettings_overload_2(L)) return _bind_base_inheritCullSettings_overload_2(L);
+
+		luaL_error(L, "error in function base_inheritCullSettings, cannot match any of the overloads for function base_inheritCullSettings:\n  base_inheritCullSettings(const osg::CullSettings &)\n  base_inheritCullSettings(const osg::CullSettings &, unsigned int)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -1278,6 +1375,8 @@ luna_RegType LunaTraits< osg::CullSettings >::methods[] = {
 	{"getSmallFeatureCullingPixelSize", &luna_wrapper_osg_CullSettings::_bind_getSmallFeatureCullingPixelSize},
 	{"setClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_setClampProjectionMatrixCallback},
 	{"getClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_getClampProjectionMatrixCallback},
+	{"base_setDefaults", &luna_wrapper_osg_CullSettings::_bind_base_setDefaults},
+	{"base_inheritCullSettings", &luna_wrapper_osg_CullSettings::_bind_base_inheritCullSettings},
 	{"dynCast", &luna_wrapper_osg_CullSettings::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_CullSettings::_bind___eq},
 	{0,0}

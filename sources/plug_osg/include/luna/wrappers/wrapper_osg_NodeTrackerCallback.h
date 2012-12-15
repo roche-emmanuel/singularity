@@ -15,7 +15,6 @@ protected:
 public:
 	
 
-	wrapper_osg_NodeTrackerCallback(lua_State* L, lua_Table* dum) : osg::NodeTrackerCallback(), _obj(L,-1) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -24,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return NodeTrackerCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -33,7 +32,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return NodeTrackerCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -43,7 +42,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return NodeTrackerCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -52,7 +51,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return NodeTrackerCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -61,7 +60,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return NodeTrackerCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -71,7 +70,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return NodeTrackerCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::NodeCallback::cloneType() const
@@ -80,7 +79,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::NodeCallback::cloneType();
+		return NodeTrackerCallback::cloneType();
 	};
 
 	// osg::Object * osg::NodeCallback::clone(const osg::CopyOp & arg1) const
@@ -90,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::NodeCallback::clone(arg1);
+		return NodeTrackerCallback::clone(arg1);
 	};
 
 	// bool osg::NodeCallback::isSameKindAs(const osg::Object * obj) const
@@ -100,7 +99,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::NodeCallback::isSameKindAs(obj);
+		return NodeTrackerCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::NodeCallback::libraryName() const
@@ -109,7 +108,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeCallback::libraryName();
+		return NodeTrackerCallback::libraryName();
 	};
 
 	// const char * osg::NodeCallback::className() const
@@ -118,7 +117,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeCallback::className();
+		return NodeTrackerCallback::className();
 	};
 
 	// void osg::NodeTrackerCallback::operator()(osg::Node * node, osg::NodeVisitor * nv)
@@ -129,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::NodeTrackerCallback::operator()(node, nv);
+		return NodeTrackerCallback::operator()(node, nv);
 	};
 
 

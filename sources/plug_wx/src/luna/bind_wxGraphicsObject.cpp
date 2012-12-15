@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxGraphicsObject.h>
+
 class luna_wrapper_wxGraphicsObject {
 public:
 	typedef Luna< wxGraphicsObject > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxGraphicsObject* ptr= dynamic_cast< wxGraphicsObject* >(Luna< wxObject >::check(L,1));
+		//wxGraphicsObject* ptr= dynamic_cast< wxGraphicsObject* >(Luna< wxObject >::check(L,1));
+		wxGraphicsObject* ptr= luna_caster< wxObject, wxGraphicsObject >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		

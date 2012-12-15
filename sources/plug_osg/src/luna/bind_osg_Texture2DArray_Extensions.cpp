@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::Texture2DArray::Extensions* ptr= dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		//osg::Texture2DArray::Extensions* ptr= dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* ptr= luna_caster< osg::Referenced, osg::Texture2DArray::Extensions >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -259,7 +260,7 @@ public:
 
 		unsigned int contextID=(unsigned int)lua_tointeger(L,2);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::setupGLExtensions(unsigned int)");
@@ -278,7 +279,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::setTexture2DArraySupported(bool)");
@@ -296,7 +297,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::Extensions::isTexture2DArraySupported() const");
@@ -316,7 +317,7 @@ public:
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::setTexture3DSupported(bool)");
@@ -334,7 +335,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::Extensions::isTexture3DSupported() const");
@@ -354,7 +355,7 @@ public:
 
 		int count=(int)lua_tointeger(L,2);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::setMaxLayerCount(int)");
@@ -372,7 +373,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::Extensions::maxLayerCount() const");
@@ -392,7 +393,7 @@ public:
 
 		int size=(int)lua_tointeger(L,2);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::setMax2DSize(int)");
@@ -410,7 +411,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int osg::Texture2DArray::Extensions::max2DSize() const");
@@ -439,7 +440,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,10);
 		void* pixels=(Luna< void >::check(L,11));
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::glTexImage3D(unsigned int, int, unsigned int, int, int, int, int, unsigned int, unsigned int, const void *) const");
@@ -468,7 +469,7 @@ public:
 		unsigned int type=(unsigned int)lua_tointeger(L,11);
 		void* pixels=(Luna< void >::check(L,12));
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::glTexSubImage3D(unsigned int, int, int, int, int, int, int, int, unsigned int, unsigned int, const void *) const");
@@ -495,7 +496,7 @@ public:
 		int width=(int)lua_tointeger(L,9);
 		int height=(int)lua_tointeger(L,10);
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::glCopyTexSubImage3D(unsigned int, int, int, int, int, int, int, int, int) const");
@@ -513,7 +514,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::Extensions::isCompressedTexImage3DSupported() const");
@@ -541,7 +542,7 @@ public:
 		int imageSize=(int)lua_tointeger(L,9);
 		void* data=(Luna< void >::check(L,10));
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::glCompressedTexImage3D(unsigned int, int, unsigned int, int, int, int, int, int, const void *) const");
@@ -559,7 +560,7 @@ public:
 		}
 
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::Texture2DArray::Extensions::isCompressedTexSubImage3DSupported() const");
@@ -589,7 +590,7 @@ public:
 		int imageSize=(int)lua_tointeger(L,11);
 		void* data=(Luna< void >::check(L,12));
 
-		osg::Texture2DArray::Extensions* self=dynamic_cast< osg::Texture2DArray::Extensions* >(Luna< osg::Referenced >::check(L,1));
+		osg::Texture2DArray::Extensions* self=Luna< osg::Referenced >::checkSubType< osg::Texture2DArray::Extensions >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::Texture2DArray::Extensions::glCompressedTexSubImage3D(unsigned int, int, int, int, int, int, int, int, unsigned int, int, const void *) const");

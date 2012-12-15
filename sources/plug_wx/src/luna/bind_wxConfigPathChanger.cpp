@@ -88,7 +88,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry) function, expected prototype:\nwxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
 		}
 
-		const wxConfigBase* pContainer=dynamic_cast< wxConfigBase* >(Luna< wxObject >::check(L,1));
+		const wxConfigBase* pContainer=(Luna< wxObject >::checkSubType< wxConfigBase >(L,1));
 		wxString strEntry(lua_tostring(L,2),lua_objlen(L,2));
 
 		return new wxConfigPathChanger(pContainer, strEntry);

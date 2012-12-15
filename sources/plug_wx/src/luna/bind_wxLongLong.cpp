@@ -101,6 +101,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_GetValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_ToDouble(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -305,6 +311,25 @@ public:
 			luaL_error(L, "Invalid object in function call unsigned long wxLongLong::GetLo() const");
 		}
 		unsigned long lret = self->GetLo();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// long long wxLongLong::GetValue() const
+	static int _bind_GetValue(lua_State *L) {
+		if (!_lg_typecheck_GetValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in long long wxLongLong::GetValue() const function, expected prototype:\nlong long wxLongLong::GetValue() const\nClass arguments details:\n");
+		}
+
+
+		wxLongLong* self=(Luna< wxLongLong >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call long long wxLongLong::GetValue() const");
+		}
+		long long lret = self->GetValue();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -538,6 +563,7 @@ luna_RegType LunaTraits< wxLongLong >::methods[] = {
 	{"Assign", &luna_wrapper_wxLongLong::_bind_Assign},
 	{"GetHi", &luna_wrapper_wxLongLong::_bind_GetHi},
 	{"GetLo", &luna_wrapper_wxLongLong::_bind_GetLo},
+	{"GetValue", &luna_wrapper_wxLongLong::_bind_GetValue},
 	{"ToDouble", &luna_wrapper_wxLongLong::_bind_ToDouble},
 	{"ToLong", &luna_wrapper_wxLongLong::_bind_ToLong},
 	{"ToString", &luna_wrapper_wxLongLong::_bind_ToString},

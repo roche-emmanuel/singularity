@@ -15,7 +15,19 @@ protected:
 public:
 	
 
-	wrapper_osgUtil_Simplifier_ContinueSimplificationCallback(lua_State* L, lua_Table* dum) : osgUtil::Simplifier::ContinueSimplificationCallback(), _obj(L,-1) {};
+
+	// bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
+	bool continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const {
+		if(_obj.pushFunction("continueSimplification")) {
+			_obj.pushArg(&simplifier);
+			_obj.pushArg(nextError);
+			_obj.pushArg(numOriginalPrimitives);
+			_obj.pushArg(numRemainingPrimitives);
+			return (_obj.callFunction<bool>());
+		}
+
+		return ContinueSimplificationCallback::continueSimplification(simplifier, nextError, numOriginalPrimitives, numRemainingPrimitives);
+	};
 
 
 

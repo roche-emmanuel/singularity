@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Program::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Program::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Program::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Program::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Program::getUserData();
 	};
 
 	// osg::Texture * osg::StateAttribute::asTexture()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Program::asTexture();
 	};
 
 	// const osg::Texture * osg::StateAttribute::asTexture() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Texture*>());
 		}
 
-		return osg::StateAttribute::asTexture();
+		return Program::asTexture();
 	};
 
 	// unsigned int osg::StateAttribute::getMember() const
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::StateAttribute::getMember();
+		return Program::getMember();
 	};
 
 	// bool osg::StateAttribute::isTextureAttribute() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::isTextureAttribute();
+		return Program::isTextureAttribute();
 	};
 
 	// bool osg::StateAttribute::getModeUsage(osg::StateAttribute::ModeUsage & arg1) const
@@ -108,7 +108,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::getModeUsage(arg1);
+		return Program::getModeUsage(arg1);
 	};
 
 	// bool osg::StateAttribute::checkValidityOfAssociatedModes(osg::State & arg1) const
@@ -118,7 +118,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttribute::checkValidityOfAssociatedModes(arg1);
+		return Program::checkValidityOfAssociatedModes(arg1);
 	};
 
 	// osg::Object * osg::Program::cloneType() const
@@ -127,7 +127,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Program::cloneType();
+		return Program::cloneType();
 	};
 
 	// osg::Object * osg::Program::clone(const osg::CopyOp & arg1) const
@@ -137,7 +137,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Program::clone(arg1);
+		return Program::clone(arg1);
 	};
 
 	// bool osg::Program::isSameKindAs(const osg::Object * obj) const
@@ -147,7 +147,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Program::isSameKindAs(obj);
+		return Program::isSameKindAs(obj);
 	};
 
 	// const char * osg::Program::libraryName() const
@@ -156,7 +156,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Program::libraryName();
+		return Program::libraryName();
 	};
 
 	// const char * osg::Program::className() const
@@ -165,7 +165,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Program::className();
+		return Program::className();
 	};
 
 	// osg::StateAttribute::Type osg::Program::getType() const
@@ -174,7 +174,7 @@ public:
 			return (osg::StateAttribute::Type)(_obj.callFunction<int>());
 		}
 
-		return osg::Program::getType();
+		return Program::getType();
 	};
 
 	// int osg::Program::compare(const osg::StateAttribute & sa) const
@@ -184,7 +184,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Program::compare(sa);
+		return Program::compare(sa);
 	};
 
 	// void osg::Program::apply(osg::State & state) const
@@ -194,7 +194,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Program::apply(state);
+		return Program::apply(state);
 	};
 
 	// void osg::Program::compileGLObjects(osg::State & state) const
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Program::compileGLObjects(state);
+		return Program::compileGLObjects(state);
 	};
 
 	// void osg::Program::releaseGLObjects(osg::State * state = 0) const
@@ -214,7 +214,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Program::releaseGLObjects(state);
+		return Program::releaseGLObjects(state);
 	};
 
 

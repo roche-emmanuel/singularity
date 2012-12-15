@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::ProgramCostEstimator* ptr= dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		//osg::ProgramCostEstimator* ptr= dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProgramCostEstimator* ptr= luna_caster< osg::Referenced, osg::ProgramCostEstimator >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -130,7 +131,7 @@ public:
 		}
 
 
-		osg::ProgramCostEstimator* self=dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::setDefaults()");
@@ -153,7 +154,7 @@ public:
 		}
 		osg::RenderInfo & renderInfo=*renderInfo_ptr;
 
-		osg::ProgramCostEstimator* self=dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ProgramCostEstimator::calibrate(osg::RenderInfo &)");
@@ -170,9 +171,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CostPair osg::ProgramCostEstimator::estimateCompileCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::ProgramCostEstimator::estimateCompileCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Program* program=dynamic_cast< osg::Program* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,2));
 
-		osg::ProgramCostEstimator* self=dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateCompileCost(const osg::Program *) const");
@@ -193,9 +194,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::CostPair osg::ProgramCostEstimator::estimateDrawCost(const osg::Program * program) const function, expected prototype:\nosg::CostPair osg::ProgramCostEstimator::estimateDrawCost(const osg::Program * program) const\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Program* program=dynamic_cast< osg::Program* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Program* program=(Luna< osg::Referenced >::checkSubType< osg::Program >(L,2));
 
-		osg::ProgramCostEstimator* self=dynamic_cast< osg::ProgramCostEstimator* >(Luna< osg::Referenced >::check(L,1));
+		osg::ProgramCostEstimator* self=Luna< osg::Referenced >::checkSubType< osg::ProgramCostEstimator >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::CostPair osg::ProgramCostEstimator::estimateDrawCost(const osg::Program *) const");

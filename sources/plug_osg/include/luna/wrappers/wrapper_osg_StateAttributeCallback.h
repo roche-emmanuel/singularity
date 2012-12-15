@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return StateAttributeCallback::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return StateAttributeCallback::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return StateAttributeCallback::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateAttributeCallback::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return StateAttributeCallback::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return StateAttributeCallback::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::StateAttributeCallback::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateAttributeCallback::cloneType();
+		return StateAttributeCallback::cloneType();
 	};
 
 	// osg::Object * osg::StateAttributeCallback::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::StateAttributeCallback::clone(arg1);
+		return StateAttributeCallback::clone(arg1);
 	};
 
 	// bool osg::StateAttributeCallback::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::StateAttributeCallback::isSameKindAs(obj);
+		return StateAttributeCallback::isSameKindAs(obj);
 	};
 
 	// const char * osg::StateAttributeCallback::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateAttributeCallback::libraryName();
+		return StateAttributeCallback::libraryName();
 	};
 
 	// const char * osg::StateAttributeCallback::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::StateAttributeCallback::className();
+		return StateAttributeCallback::className();
 	};
 
 	// void osg::StateAttributeCallback::operator()(osg::StateAttribute * arg1, osg::NodeVisitor * arg2)
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::StateAttributeCallback::operator()(arg1, arg2);
+		return StateAttributeCallback::operator()(arg1, arg2);
 	};
 
 

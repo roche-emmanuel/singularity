@@ -153,17 +153,17 @@ public:
 		return new wxRegEx();
 	}
 
-	// wxRegEx::wxRegEx(const wxString & expr, int flags = wxRE_DEFAULT)
+	// wxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT)
 	static wxRegEx* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx(const wxString & expr, int flags = wxRE_DEFAULT) function, expected prototype:\nwxRegEx::wxRegEx(const wxString & expr, int flags = wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT) function, expected prototype:\nwxRegEx::wxRegEx(const wxString & expr, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString expr(lua_tostring(L,1),lua_objlen(L,1));
-		int flags=luatop>1 ? (int)lua_tointeger(L,2) : wxRE_DEFAULT;
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : ::wxRE_DEFAULT;
 
 		return new wxRegEx(expr, flags);
 	}
@@ -179,17 +179,17 @@ public:
 
 
 	// Function binds:
-	// bool wxRegEx::Compile(const wxString & pattern, int flags = wxRE_DEFAULT)
+	// bool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT)
 	static int _bind_Compile(lua_State *L) {
 		if (!_lg_typecheck_Compile(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRegEx::Compile(const wxString & pattern, int flags = wxRE_DEFAULT) function, expected prototype:\nbool wxRegEx::Compile(const wxString & pattern, int flags = wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT) function, expected prototype:\nbool wxRegEx::Compile(const wxString & pattern, int flags = ::wxRE_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString pattern(lua_tostring(L,2),lua_objlen(L,2));
-		int flags=luatop>2 ? (int)lua_tointeger(L,3) : wxRE_DEFAULT;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : ::wxRE_DEFAULT;
 
 		wxRegEx* self=(Luna< wxRegEx >::check(L,1));
 		if(!self) {

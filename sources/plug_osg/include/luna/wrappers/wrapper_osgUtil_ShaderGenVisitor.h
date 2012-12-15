@@ -24,7 +24,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::libraryName();
+		return ShaderGenVisitor::libraryName();
 	};
 
 	// const char * osg::NodeVisitor::className() const
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::NodeVisitor::className();
+		return ShaderGenVisitor::className();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
@@ -42,7 +42,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getEyePoint();
+		return ShaderGenVisitor::getEyePoint();
 	};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
@@ -51,7 +51,7 @@ public:
 			return *(_obj.callFunction<osg::Vec3f*>());
 		}
 
-		return osg::NodeVisitor::getViewPoint();
+		return ShaderGenVisitor::getViewPoint();
 	};
 
 	// float osg::NodeVisitor::getDistanceToEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToEyePoint(arg1, arg2);
+		return ShaderGenVisitor::getDistanceToEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceFromEyePoint(const osg::Vec3f & arg1, bool arg2) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceFromEyePoint(arg1, arg2);
+		return ShaderGenVisitor::getDistanceFromEyePoint(arg1, arg2);
 	};
 
 	// float osg::NodeVisitor::getDistanceToViewPoint(const osg::Vec3f & arg1, bool arg2) const
@@ -84,7 +84,7 @@ public:
 			return (_obj.callFunction<float>());
 		}
 
-		return osg::NodeVisitor::getDistanceToViewPoint(arg1, arg2);
+		return ShaderGenVisitor::getDistanceToViewPoint(arg1, arg2);
 	};
 
 	// void osgUtil::ShaderGenVisitor::apply(osg::Node & node)
@@ -94,7 +94,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::ShaderGenVisitor::apply(node);
+		return ShaderGenVisitor::apply(node);
 	};
 
 	// void osgUtil::ShaderGenVisitor::apply(osg::Geode & geode)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::ShaderGenVisitor::apply(geode);
+		return ShaderGenVisitor::apply(geode);
 	};
 
 	// void osgUtil::ShaderGenVisitor::reset()
@@ -113,7 +113,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::ShaderGenVisitor::reset();
+		return ShaderGenVisitor::reset();
 	};
 
 

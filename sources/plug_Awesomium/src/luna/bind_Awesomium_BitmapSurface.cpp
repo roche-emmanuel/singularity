@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Surface(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		Awesomium::BitmapSurface* ptr= static_cast< Awesomium::BitmapSurface* >(Luna< Awesomium::Surface >::check(L,1));
+		//Awesomium::BitmapSurface* ptr= dynamic_cast< Awesomium::BitmapSurface* >(Luna< Awesomium::Surface >::check(L,1));
+		Awesomium::BitmapSurface* ptr= luna_caster< Awesomium::Surface, Awesomium::BitmapSurface >::cast(Luna< Awesomium::Surface >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -204,7 +205,7 @@ public:
 		}
 
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::BitmapSurface::buffer() const");
@@ -223,7 +224,7 @@ public:
 		}
 
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::width() const");
@@ -242,7 +243,7 @@ public:
 		}
 
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::height() const");
@@ -261,7 +262,7 @@ public:
 		}
 
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::row_span() const");
@@ -281,7 +282,7 @@ public:
 
 		bool is_dirty=(bool)(lua_toboolean(L,2)==1);
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::set_is_dirty(bool)");
@@ -299,7 +300,7 @@ public:
 		}
 
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::is_dirty() const");
@@ -323,7 +324,7 @@ public:
 		bool convert_to_rgba=(bool)(lua_toboolean(L,5)==1);
 		bool flip_y=(bool)(lua_toboolean(L,6)==1);
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::CopyTo(unsigned char *, int, int, bool, bool) const");
@@ -346,7 +347,7 @@ public:
 		Awesomium::WebString file_path = Awesomium::ToWebString(file_path_str);
 		bool preserve_transparency=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString &, bool) const");
@@ -370,7 +371,7 @@ public:
 		Awesomium::WebString file_path = Awesomium::ToWebString(file_path_str);
 		int quality=luatop>2 ? (int)lua_tointeger(L,3) : 90;
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString &, int) const");
@@ -391,7 +392,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int, int) const");
@@ -422,7 +423,7 @@ public:
 		}
 		const Awesomium::Rect & dest_rect=*dest_rect_ptr;
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &)");
@@ -447,7 +448,7 @@ public:
 		}
 		const Awesomium::Rect & clip_rect=*clip_rect_ptr;
 
-		Awesomium::BitmapSurface* self=static_cast< Awesomium::BitmapSurface* >(Luna< void >::rawPointer(L,1));
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Scroll(int, int, const Awesomium::Rect &)");

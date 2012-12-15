@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<Awesomium::Surface*>());
 		}
 
-		return Awesomium::BitmapSurfaceFactory::CreateSurface(view, width, height);
+		return BitmapSurfaceFactory::CreateSurface(view, width, height);
 	};
 
 	// void Awesomium::BitmapSurfaceFactory::DestroySurface(Awesomium::Surface * surface)
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return Awesomium::BitmapSurfaceFactory::DestroySurface(surface);
+		return BitmapSurfaceFactory::DestroySurface(surface);
 	};
 
 

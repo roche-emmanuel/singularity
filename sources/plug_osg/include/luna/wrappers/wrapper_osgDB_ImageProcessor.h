@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ImageProcessor::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ImageProcessor::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ImageProcessor::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageProcessor::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ImageProcessor::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -72,7 +72,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return ImageProcessor::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgDB::ImageProcessor::cloneType() const
@@ -81,7 +81,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ImageProcessor::cloneType();
+		return ImageProcessor::cloneType();
 	};
 
 	// osg::Object * osgDB::ImageProcessor::clone(const osg::CopyOp & arg1) const
@@ -91,7 +91,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgDB::ImageProcessor::clone(arg1);
+		return ImageProcessor::clone(arg1);
 	};
 
 	// bool osgDB::ImageProcessor::isSameKindAs(const osg::Object * obj) const
@@ -101,7 +101,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgDB::ImageProcessor::isSameKindAs(obj);
+		return ImageProcessor::isSameKindAs(obj);
 	};
 
 	// const char * osgDB::ImageProcessor::libraryName() const
@@ -110,7 +110,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::ImageProcessor::libraryName();
+		return ImageProcessor::libraryName();
 	};
 
 	// const char * osgDB::ImageProcessor::className() const
@@ -119,7 +119,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgDB::ImageProcessor::className();
+		return ImageProcessor::className();
 	};
 
 	// void osgDB::ImageProcessor::compress(osg::Image & arg1, osg::Texture::InternalFormatMode arg2, bool arg3, bool arg4, osgDB::ImageProcessor::CompressionMethod arg5, osgDB::ImageProcessor::CompressionQuality arg6)
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::ImageProcessor::compress(arg1, arg2, arg3, arg4, arg5, arg6);
+		return ImageProcessor::compress(arg1, arg2, arg3, arg4, arg5, arg6);
 	};
 
 	// void osgDB::ImageProcessor::generateMipMap(osg::Image & arg1, bool arg2, osgDB::ImageProcessor::CompressionMethod arg3)
@@ -146,7 +146,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgDB::ImageProcessor::generateMipMap(arg1, arg2, arg3);
+		return ImageProcessor::generateMipMap(arg1, arg2, arg3);
 	};
 
 

@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::NodeVisitor::DatabaseRequestHandler* ptr= dynamic_cast< osg::NodeVisitor::DatabaseRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		//osg::NodeVisitor::DatabaseRequestHandler* ptr= dynamic_cast< osg::NodeVisitor::DatabaseRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::DatabaseRequestHandler* ptr= luna_caster< osg::Referenced, osg::NodeVisitor::DatabaseRequestHandler >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -76,11 +77,11 @@ public:
 		}
 		osg::NodePath & nodePath=*nodePath_ptr;
 		float priority=(float)lua_tonumber(L,4);
-		const osg::FrameStamp* framestamp=dynamic_cast< osg::FrameStamp* >(Luna< osg::Referenced >::check(L,5));
+		const osg::FrameStamp* framestamp=(Luna< osg::Referenced >::checkSubType< osg::FrameStamp >(L,5));
 		osg::ref_ptr< osg::Referenced > databaseRequest = dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,6));
 		const osg::Referenced* options=luatop>6 ? (Luna< osg::Referenced >::check(L,7)) : (const osg::Referenced*)0;
 
-		osg::NodeVisitor::DatabaseRequestHandler* self=dynamic_cast< osg::NodeVisitor::DatabaseRequestHandler* >(Luna< osg::Referenced >::check(L,1));
+		osg::NodeVisitor::DatabaseRequestHandler* self=Luna< osg::Referenced >::checkSubType< osg::NodeVisitor::DatabaseRequestHandler >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string &, osg::NodePath &, float, const osg::FrameStamp *, osg::ref_ptr< osg::Referenced > &, const osg::Referenced *)");

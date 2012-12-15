@@ -28,7 +28,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return DrawArrayLengths::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -37,7 +37,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return DrawArrayLengths::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return DrawArrayLengths::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -56,7 +56,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawArrayLengths::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -65,7 +65,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return DrawArrayLengths::getUserData();
 	};
 
 	// void osg::BufferData::releaseGLObjects(osg::State * state = 0) const
@@ -75,7 +75,61 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::BufferData::releaseGLObjects(state);
+		return DrawArrayLengths::releaseGLObjects(state);
+	};
+
+	// const void * osg::PrimitiveSet::getDataPointer() const
+	const void * getDataPointer() const {
+		if(_obj.pushFunction("getDataPointer")) {
+			return (_obj.callFunction<void*>());
+		}
+
+		return DrawArrayLengths::getDataPointer();
+	};
+
+	// unsigned int osg::PrimitiveSet::getTotalDataSize() const
+	unsigned int getTotalDataSize() const {
+		if(_obj.pushFunction("getTotalDataSize")) {
+			return (_obj.callFunction<unsigned int>());
+		}
+
+		return DrawArrayLengths::getTotalDataSize();
+	};
+
+	// bool osg::PrimitiveSet::supportsBufferObject() const
+	bool supportsBufferObject() const {
+		if(_obj.pushFunction("supportsBufferObject")) {
+			return (_obj.callFunction<bool>());
+		}
+
+		return DrawArrayLengths::supportsBufferObject();
+	};
+
+	// osg::DrawElements * osg::PrimitiveSet::getDrawElements()
+	osg::DrawElements * getDrawElements() {
+		if(_obj.pushFunction("getDrawElements")) {
+			return (_obj.callFunction<osg::DrawElements*>());
+		}
+
+		return DrawArrayLengths::getDrawElements();
+	};
+
+	// const osg::DrawElements * osg::PrimitiveSet::getDrawElements() const
+	const osg::DrawElements * getDrawElements() const {
+		if(_obj.pushFunction("getDrawElements")) {
+			return (_obj.callFunction<osg::DrawElements*>());
+		}
+
+		return DrawArrayLengths::getDrawElements();
+	};
+
+	// void osg::PrimitiveSet::computeRange() const
+	void computeRange() const {
+		if(_obj.pushFunction("computeRange")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return DrawArrayLengths::computeRange();
 	};
 
 	// osg::Object * osg::DrawArrayLengths::cloneType() const
@@ -84,7 +138,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawArrayLengths::cloneType();
+		return DrawArrayLengths::cloneType();
 	};
 
 	// osg::Object * osg::DrawArrayLengths::clone(const osg::CopyOp & arg1) const
@@ -94,7 +148,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::DrawArrayLengths::clone(arg1);
+		return DrawArrayLengths::clone(arg1);
 	};
 
 	// bool osg::DrawArrayLengths::isSameKindAs(const osg::Object * obj) const
@@ -104,7 +158,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::DrawArrayLengths::isSameKindAs(obj);
+		return DrawArrayLengths::isSameKindAs(obj);
 	};
 
 	// const char * osg::DrawArrayLengths::libraryName() const
@@ -113,7 +167,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawArrayLengths::libraryName();
+		return DrawArrayLengths::libraryName();
 	};
 
 	// const char * osg::DrawArrayLengths::className() const
@@ -122,7 +176,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::DrawArrayLengths::className();
+		return DrawArrayLengths::className();
 	};
 
 	// void osg::DrawArrayLengths::draw(osg::State & state, bool useVertexBufferObjects) const
@@ -133,7 +187,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawArrayLengths::draw(state, useVertexBufferObjects);
+		return DrawArrayLengths::draw(state, useVertexBufferObjects);
 	};
 
 	// unsigned int osg::DrawArrayLengths::getNumIndices() const
@@ -142,7 +196,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawArrayLengths::getNumIndices();
+		return DrawArrayLengths::getNumIndices();
 	};
 
 	// unsigned int osg::DrawArrayLengths::index(unsigned int pos) const
@@ -152,7 +206,7 @@ public:
 			return (_obj.callFunction<unsigned int>());
 		}
 
-		return osg::DrawArrayLengths::index(pos);
+		return DrawArrayLengths::index(pos);
 	};
 
 	// void osg::DrawArrayLengths::offsetIndices(int offset)
@@ -162,7 +216,16 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::DrawArrayLengths::offsetIndices(offset);
+		return DrawArrayLengths::offsetIndices(offset);
+	};
+
+	// unsigned int osg::DrawArrayLengths::getNumPrimitives() const
+	unsigned int getNumPrimitives() const {
+		if(_obj.pushFunction("getNumPrimitives")) {
+			return (_obj.callFunction<unsigned int>());
+		}
+
+		return DrawArrayLengths::getNumPrimitives();
 	};
 
 

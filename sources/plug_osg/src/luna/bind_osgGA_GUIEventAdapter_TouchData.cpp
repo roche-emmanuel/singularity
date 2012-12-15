@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgGA::GUIEventAdapter::TouchData* ptr= dynamic_cast< osgGA::GUIEventAdapter::TouchData* >(Luna< osg::Referenced >::check(L,1));
+		//osgGA::GUIEventAdapter::TouchData* ptr= dynamic_cast< osgGA::GUIEventAdapter::TouchData* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::GUIEventAdapter::TouchData* ptr= luna_caster< osg::Referenced, osgGA::GUIEventAdapter::TouchData >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -116,7 +117,7 @@ public:
 		}
 
 
-		osgGA::GUIEventAdapter::TouchData* self=dynamic_cast< osgGA::GUIEventAdapter::TouchData* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call unsigned int osgGA::GUIEventAdapter::TouchData::getNumTouchPoints() const");
@@ -136,7 +137,7 @@ public:
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
-		osgGA::GUIEventAdapter::TouchData* self=dynamic_cast< osgGA::GUIEventAdapter::TouchData* >(Luna< osg::Referenced >::check(L,1));
+		osgGA::GUIEventAdapter::TouchData* self=Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter::TouchData >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osgGA::GUIEventAdapter::TouchData::TouchPoint osgGA::GUIEventAdapter::TouchData::get(unsigned int) const");

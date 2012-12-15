@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxFileDropTarget.h>
+
 class luna_wrapper_wxFileDropTarget {
 public:
 	typedef Luna< wxFileDropTarget > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDropTarget(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxFileDropTarget* ptr= dynamic_cast< wxFileDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		//wxFileDropTarget* ptr= dynamic_cast< wxFileDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxFileDropTarget* ptr= luna_caster< wxDropTarget, wxFileDropTarget >::cast(Luna< wxDropTarget >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -57,6 +60,38 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_OnDragOver(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnEnter(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnLeave(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_OnDrop(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -72,7 +107,7 @@ public:
 		int x=(int)lua_tointeger(L,2);
 		int y=(int)lua_tointeger(L,3);
 
-		wxFileDropTarget* self=dynamic_cast< wxFileDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDrop(int, int)");
@@ -98,12 +133,95 @@ public:
 		}
 		const wxArrayString & filenames=*filenames_ptr;
 
-		wxFileDropTarget* self=dynamic_cast< wxFileDropTarget* >(Luna< wxDropTarget >::check(L,1));
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::OnDropFiles(int, int, const wxArrayString &)");
 		}
 		bool lret = self->OnDropFiles(x, y, filenames);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxDragResult wxFileDropTarget::base_OnDragOver(int x, int y, wxDragResult def)
+	static int _bind_base_OnDragOver(lua_State *L) {
+		if (!_lg_typecheck_base_OnDragOver(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxFileDropTarget::base_OnDragOver(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxFileDropTarget::base_OnDragOver(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnDragOver(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxFileDropTarget::OnDragOver(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxDragResult wxFileDropTarget::base_OnEnter(int x, int y, wxDragResult def)
+	static int _bind_base_OnEnter(lua_State *L) {
+		if (!_lg_typecheck_base_OnEnter(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDragResult wxFileDropTarget::base_OnEnter(int x, int y, wxDragResult def) function, expected prototype:\nwxDragResult wxFileDropTarget::base_OnEnter(int x, int y, wxDragResult def)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		wxDragResult def=(wxDragResult)lua_tointeger(L,4);
+
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxDragResult wxFileDropTarget::base_OnEnter(int, int, wxDragResult)");
+		}
+		wxDragResult lret = self->wxFileDropTarget::OnEnter(x, y, def);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void wxFileDropTarget::base_OnLeave()
+	static int _bind_base_OnLeave(lua_State *L) {
+		if (!_lg_typecheck_base_OnLeave(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxFileDropTarget::base_OnLeave() function, expected prototype:\nvoid wxFileDropTarget::base_OnLeave()\nClass arguments details:\n");
+		}
+
+
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxFileDropTarget::base_OnLeave()");
+		}
+		self->wxFileDropTarget::OnLeave();
+
+		return 0;
+	}
+
+	// bool wxFileDropTarget::base_OnDrop(int x, int y)
+	static int _bind_base_OnDrop(lua_State *L) {
+		if (!_lg_typecheck_base_OnDrop(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxFileDropTarget::base_OnDrop(int x, int y) function, expected prototype:\nbool wxFileDropTarget::base_OnDrop(int x, int y)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+
+		wxFileDropTarget* self=Luna< wxDropTarget >::checkSubType< wxFileDropTarget >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxFileDropTarget::base_OnDrop(int, int)");
+		}
+		bool lret = self->wxFileDropTarget::OnDrop(x, y);
 		lua_pushboolean(L,lret?1:0);
 
 		return 1;
@@ -119,8 +237,7 @@ wxFileDropTarget* LunaTraits< wxFileDropTarget >::_bind_ctor(lua_State *L) {
 	// Abstract methods:
 	// bool wxFileDropTarget::OnDropFiles(int x, int y, const wxArrayString & filenames)
 	// bool wxDropTarget::GetData()
-
-	// Abstract operators:
+	// wxDragResult wxDropTarget::OnData(int x, int y, wxDragResult def)
 }
 
 void LunaTraits< wxFileDropTarget >::_bind_dtor(wxFileDropTarget* obj) {
@@ -137,6 +254,10 @@ const int LunaTraits< wxFileDropTarget >::uniqueIDs[] = {93694316,0};
 luna_RegType LunaTraits< wxFileDropTarget >::methods[] = {
 	{"OnDrop", &luna_wrapper_wxFileDropTarget::_bind_OnDrop},
 	{"OnDropFiles", &luna_wrapper_wxFileDropTarget::_bind_OnDropFiles},
+	{"base_OnDragOver", &luna_wrapper_wxFileDropTarget::_bind_base_OnDragOver},
+	{"base_OnEnter", &luna_wrapper_wxFileDropTarget::_bind_base_OnEnter},
+	{"base_OnLeave", &luna_wrapper_wxFileDropTarget::_bind_base_OnLeave},
+	{"base_OnDrop", &luna_wrapper_wxFileDropTarget::_bind_base_OnDrop},
 	{"__eq", &luna_wrapper_wxFileDropTarget::_bind___eq},
 	{0,0}
 };

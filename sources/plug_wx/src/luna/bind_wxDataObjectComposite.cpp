@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxDataObjectComposite.h>
+
 class luna_wrapper_wxDataObjectComposite {
 public:
 	typedef Luna< wxDataObjectComposite > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxDataObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxDataObjectComposite* ptr= dynamic_cast< wxDataObjectComposite* >(Luna< wxDataObject >::check(L,1));
+		//wxDataObjectComposite* ptr= dynamic_cast< wxDataObjectComposite* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectComposite* ptr= luna_caster< wxDataObject, wxDataObjectComposite >::cast(Luna< wxDataObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -64,6 +67,15 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_SetData(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -78,10 +90,10 @@ public:
 
 		int luatop = lua_gettop(L);
 
-		wxDataObjectSimple* dataObject=dynamic_cast< wxDataObjectSimple* >(Luna< wxDataObject >::check(L,2));
+		wxDataObjectSimple* dataObject=(Luna< wxDataObject >::checkSubType< wxDataObjectSimple >(L,2));
 		bool preferred=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
 
-		wxDataObjectComposite* self=dynamic_cast< wxDataObjectComposite* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxDataObjectComposite::Add(wxDataObjectSimple *, bool)");
@@ -99,7 +111,7 @@ public:
 		}
 
 
-		wxDataObjectComposite* self=dynamic_cast< wxDataObjectComposite* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataFormat wxDataObjectComposite::GetReceivedFormat() const");
@@ -129,7 +141,7 @@ public:
 		const wxDataFormat & format=*format_ptr;
 		wxDataObjectBase::Direction dir=luatop>2 ? (wxDataObjectBase::Direction)lua_tointeger(L,3) : wxDataObject::Get;
 
-		wxDataObjectComposite* self=dynamic_cast< wxDataObjectComposite* >(Luna< wxDataObject >::check(L,1));
+		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxDataObjectSimple * wxDataObjectComposite::GetObject(const wxDataFormat &, wxDataObjectBase::Direction) const");
@@ -138,6 +150,32 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxDataObjectSimple >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// bool wxDataObjectComposite::base_SetData(const wxDataFormat & format, size_t len, const void * buf)
+	static int _bind_base_SetData(lua_State *L) {
+		if (!_lg_typecheck_base_SetData(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataObjectComposite::base_SetData(const wxDataFormat & format, size_t len, const void * buf) function, expected prototype:\nbool wxDataObjectComposite::base_SetData(const wxDataFormat & format, size_t len, const void * buf)\nClass arguments details:\narg 1 ID = 9988153\n");
+		}
+
+		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
+		if( !format_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObjectComposite::base_SetData function");
+		}
+		const wxDataFormat & format=*format_ptr;
+		size_t len=(size_t)lua_tointeger(L,3);
+		void* buf=(Luna< void >::check(L,4));
+
+		wxDataObjectComposite* self=Luna< wxDataObject >::checkSubType< wxDataObjectComposite >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataObjectComposite::base_SetData(const wxDataFormat &, size_t, const void *)");
+		}
+		bool lret = self->wxDataObjectComposite::SetData(format, len, buf);
+		lua_pushboolean(L,lret?1:0);
 
 		return 1;
 	}
@@ -155,8 +193,6 @@ wxDataObjectComposite* LunaTraits< wxDataObjectComposite >::_bind_ctor(lua_State
 	// size_t wxDataObject::GetDataSize(const wxDataFormat & format) const
 	// size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const
 	// wxDataFormat wxDataObject::GetPreferredFormat(wxDataObject::Direction dir = wxDataObject::Get) const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxDataObjectComposite >::_bind_dtor(wxDataObjectComposite* obj) {
@@ -174,6 +210,7 @@ luna_RegType LunaTraits< wxDataObjectComposite >::methods[] = {
 	{"Add", &luna_wrapper_wxDataObjectComposite::_bind_Add},
 	{"GetReceivedFormat", &luna_wrapper_wxDataObjectComposite::_bind_GetReceivedFormat},
 	{"GetObject", &luna_wrapper_wxDataObjectComposite::_bind_GetObject},
+	{"base_SetData", &luna_wrapper_wxDataObjectComposite::_bind_base_SetData},
 	{"__eq", &luna_wrapper_wxDataObjectComposite::_bind___eq},
 	{0,0}
 };

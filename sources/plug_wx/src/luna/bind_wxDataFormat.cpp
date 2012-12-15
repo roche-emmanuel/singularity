@@ -94,16 +94,16 @@ public:
 
 
 	// Constructor binds:
-	// wxDataFormat::wxDataFormat(unsigned short format = wxDF_INVALID)
+	// wxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID)
 	static wxDataFormat* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(unsigned short format = wxDF_INVALID) function, expected prototype:\nwxDataFormat::wxDataFormat(unsigned short format = wxDF_INVALID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID) function, expected prototype:\nwxDataFormat::wxDataFormat(unsigned short format = ::wxDF_INVALID)\nClass arguments details:\n");
 		}
 
 		int luatop = lua_gettop(L);
 
-		unsigned short format=luatop>0 ? (unsigned short)lua_tointeger(L,1) : wxDF_INVALID;
+		unsigned short format=luatop>0 ? (unsigned short)lua_tointeger(L,1) : ::wxDF_INVALID;
 
 		return new wxDataFormat(format);
 	}

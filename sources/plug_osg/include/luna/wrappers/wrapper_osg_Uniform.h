@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Uniform::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -55,7 +55,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Uniform::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -64,7 +64,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Uniform::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Uniform::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Uniform::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osg::Uniform::cloneType() const
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Uniform::cloneType();
+		return Uniform::cloneType();
 	};
 
 	// osg::Object * osg::Uniform::clone(const osg::CopyOp & arg1) const
@@ -102,7 +102,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osg::Uniform::clone(arg1);
+		return Uniform::clone(arg1);
 	};
 
 	// bool osg::Uniform::isSameKindAs(const osg::Object * obj) const
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osg::Uniform::isSameKindAs(obj);
+		return Uniform::isSameKindAs(obj);
 	};
 
 	// const char * osg::Uniform::libraryName() const
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Uniform::libraryName();
+		return Uniform::libraryName();
 	};
 
 	// const char * osg::Uniform::className() const
@@ -130,7 +130,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osg::Uniform::className();
+		return Uniform::className();
 	};
 
 	// void osg::Uniform::setName(const std::string & name)
@@ -140,7 +140,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Uniform::setName(name);
+		return Uniform::setName(name);
 	};
 
 	// int osg::Uniform::compare(const osg::Uniform & rhs) const
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Uniform::compare(rhs);
+		return Uniform::compare(rhs);
 	};
 
 	// int osg::Uniform::compareData(const osg::Uniform & rhs) const
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osg::Uniform::compareData(rhs);
+		return Uniform::compareData(rhs);
 	};
 
 

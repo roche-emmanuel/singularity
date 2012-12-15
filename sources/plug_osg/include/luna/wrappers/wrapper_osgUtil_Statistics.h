@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2f * vertices)
@@ -36,7 +36,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4f * vertices)
@@ -47,7 +47,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3d * vertices)
@@ -58,7 +58,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec2d * vertices)
@@ -69,7 +69,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec4d * vertices)
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::setVertexArray(count, vertices);
+		return Statistics::setVertexArray(count, vertices);
 	};
 
 	// void osgUtil::Statistics::drawArrays(unsigned int mode, int first, int count)
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::drawArrays(mode, first, count);
+		return Statistics::drawArrays(mode, first, count);
 	};
 
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned char * indices)
@@ -104,7 +104,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::drawElements(mode, count, indices);
+		return Statistics::drawElements(mode, count, indices);
 	};
 
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned short * indices)
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::drawElements(mode, count, indices);
+		return Statistics::drawElements(mode, count, indices);
 	};
 
 	// void osgUtil::Statistics::drawElements(unsigned int mode, int count, const unsigned int * indices)
@@ -128,7 +128,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::drawElements(mode, count, indices);
+		return Statistics::drawElements(mode, count, indices);
 	};
 
 	// void osgUtil::Statistics::begin(unsigned int mode)
@@ -138,7 +138,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::begin(mode);
+		return Statistics::begin(mode);
 	};
 
 	// void osgUtil::Statistics::vertex(float x, float y, float z)
@@ -150,7 +150,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(x, y, z);
+		return Statistics::vertex(x, y, z);
 	};
 
 	// void osgUtil::Statistics::vertex(const osg::Vec3f & vert)
@@ -160,7 +160,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(vert);
+		return Statistics::vertex(vert);
 	};
 
 	// void osgUtil::Statistics::vertex(const osg::Vec2f & vert)
@@ -170,7 +170,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(vert);
+		return Statistics::vertex(vert);
 	};
 
 	// void osgUtil::Statistics::vertex(const osg::Vec4f & vert)
@@ -180,7 +180,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(vert);
+		return Statistics::vertex(vert);
 	};
 
 	// void osgUtil::Statistics::vertex(float x, float y)
@@ -191,7 +191,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(x, y);
+		return Statistics::vertex(x, y);
 	};
 
 	// void osgUtil::Statistics::vertex(float x, float y, float z, float w)
@@ -204,7 +204,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::vertex(x, y, z, w);
+		return Statistics::vertex(x, y, z, w);
 	};
 
 	// void osgUtil::Statistics::end()
@@ -213,7 +213,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgUtil::Statistics::end();
+		return Statistics::end();
 	};
 
 

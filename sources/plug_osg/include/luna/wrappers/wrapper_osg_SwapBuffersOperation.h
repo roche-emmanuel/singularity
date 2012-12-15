@@ -23,7 +23,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return SwapBuffersOperation::release();
 	};
 
 	// void osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context)
@@ -33,7 +33,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::SwapBuffersOperation::operator()(context);
+		return SwapBuffersOperation::operator()(context);
 	};
 
 

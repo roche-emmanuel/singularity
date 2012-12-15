@@ -116,6 +116,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_writePrimitiveSet(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_writeImage(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -164,7 +171,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgDB::OutputStream::OutputStream(const osgDB::Options * options) function, expected prototype:\nosgDB::OutputStream::OutputStream(const osgDB::Options * options)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osgDB::Options* options=dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,1));
+		const osgDB::Options* options=(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,1));
 
 		return new osgDB::OutputStream(options);
 	}
@@ -314,7 +321,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::writeArray(const osg::Array * a) function, expected prototype:\nvoid osgDB::OutputStream::writeArray(const osg::Array * a)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Array* a=dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Array* a=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
@@ -326,6 +333,25 @@ public:
 		return 0;
 	}
 
+	// void osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet * p)
+	static int _bind_writePrimitiveSet(lua_State *L) {
+		if (!_lg_typecheck_writePrimitiveSet(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet * p) function, expected prototype:\nvoid osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet * p)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		const osg::PrimitiveSet* p=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
+
+		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::OutputStream::writePrimitiveSet(const osg::PrimitiveSet *)");
+		}
+		self->writePrimitiveSet(p);
+
+		return 0;
+	}
+
 	// void osgDB::OutputStream::writeImage(const osg::Image * img)
 	static int _bind_writeImage(lua_State *L) {
 		if (!_lg_typecheck_writeImage(L)) {
@@ -333,7 +359,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::writeImage(const osg::Image * img) function, expected prototype:\nvoid osgDB::OutputStream::writeImage(const osg::Image * img)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Image* img=dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Image* img=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
@@ -352,7 +378,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::writeObject(const osg::Object * obj) function, expected prototype:\nvoid osgDB::OutputStream::writeObject(const osg::Object * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
@@ -371,7 +397,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::writeObjectFields(const osg::Object * obj) function, expected prototype:\nvoid osgDB::OutputStream::writeObjectFields(const osg::Object * obj)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::Object* obj=dynamic_cast< osg::Object* >(Luna< osg::Referenced >::check(L,2));
+		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
@@ -390,7 +416,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::setOutputIterator(osgDB::OutputIterator * oi) function, expected prototype:\nvoid osgDB::OutputStream::setOutputIterator(osgDB::OutputIterator * oi)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgDB::OutputIterator* oi=dynamic_cast< osgDB::OutputIterator* >(Luna< osg::Referenced >::check(L,2));
+		osgDB::OutputIterator* oi=(Luna< osg::Referenced >::checkSubType< osgDB::OutputIterator >(L,2));
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
 		if(!self) {
@@ -409,7 +435,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgDB::OutputStream::start(osgDB::OutputIterator * outIterator, osgDB::OutputStream::WriteType type) function, expected prototype:\nvoid osgDB::OutputStream::start(osgDB::OutputIterator * outIterator, osgDB::OutputStream::WriteType type)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgDB::OutputIterator* outIterator=dynamic_cast< osgDB::OutputIterator* >(Luna< osg::Referenced >::check(L,2));
+		osgDB::OutputIterator* outIterator=(Luna< osg::Referenced >::checkSubType< osgDB::OutputIterator >(L,2));
 		osgDB::OutputStream::WriteType type=(osgDB::OutputStream::WriteType)lua_tointeger(L,3);
 
 		osgDB::OutputStream* self=(Luna< osgDB::OutputStream >::check(L,1));
@@ -451,6 +477,7 @@ luna_RegType LunaTraits< osgDB::OutputStream >::methods[] = {
 	{"writeWrappedString", &luna_wrapper_osgDB_OutputStream::_bind_writeWrappedString},
 	{"writeCharArray", &luna_wrapper_osgDB_OutputStream::_bind_writeCharArray},
 	{"writeArray", &luna_wrapper_osgDB_OutputStream::_bind_writeArray},
+	{"writePrimitiveSet", &luna_wrapper_osgDB_OutputStream::_bind_writePrimitiveSet},
 	{"writeImage", &luna_wrapper_osgDB_OutputStream::_bind_writeImage},
 	{"writeObject", &luna_wrapper_osgDB_OutputStream::_bind_writeObject},
 	{"writeObjectFields", &luna_wrapper_osgDB_OutputStream::_bind_writeObjectFields},

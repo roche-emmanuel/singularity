@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::ApplicationUsage* ptr= dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		//osg::ApplicationUsage* ptr= dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* ptr= luna_caster< osg::Referenced, osg::ApplicationUsage >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -320,7 +321,7 @@ public:
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setApplicationName(const std::string &)");
@@ -338,7 +339,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getApplicationName() const");
@@ -358,7 +359,7 @@ public:
 
 		std::string desc(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setDescription(const std::string &)");
@@ -376,7 +377,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getDescription() const");
@@ -398,7 +399,7 @@ public:
 		std::string option(lua_tostring(L,3),lua_objlen(L,3));
 		std::string explanation(lua_tostring(L,4),lua_objlen(L,4));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addUsageExplanation(osg::ApplicationUsage::Type, const std::string &, const std::string &)");
@@ -417,7 +418,7 @@ public:
 
 		std::string explanation(lua_tostring(L,2),lua_objlen(L,2));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineUsage(const std::string &)");
@@ -435,7 +436,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const std::string & osg::ApplicationUsage::getCommandLineUsage() const");
@@ -459,7 +460,7 @@ public:
 		std::string explanation(lua_tostring(L,3),lua_objlen(L,3));
 		std::string defaultValue(lua_tostring(L,4),lua_objlen(L,4));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addCommandLineOption(const std::string &, const std::string &, const std::string &)");
@@ -482,7 +483,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & usageMap=*usageMap_ptr;
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineOptions(const osg::ApplicationUsage::UsageMap &)");
@@ -500,7 +501,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptions() const");
@@ -526,7 +527,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & usageMap=*usageMap_ptr;
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setCommandLineOptionsDefaults(const osg::ApplicationUsage::UsageMap &)");
@@ -544,7 +545,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getCommandLineOptionsDefaults() const");
@@ -570,7 +571,7 @@ public:
 		std::string explanation(lua_tostring(L,3),lua_objlen(L,3));
 		std::string defaultValue(lua_tostring(L,4),lua_objlen(L,4));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addEnvironmentalVariable(const std::string &, const std::string &, const std::string &)");
@@ -593,7 +594,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & usageMap=*usageMap_ptr;
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setEnvironmentalVariables(const osg::ApplicationUsage::UsageMap &)");
@@ -611,7 +612,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariables() const");
@@ -637,7 +638,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & usageMap=*usageMap_ptr;
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setEnvironmentalVariablesDefaults(const osg::ApplicationUsage::UsageMap &)");
@@ -655,7 +656,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getEnvironmentalVariablesDefaults() const");
@@ -678,7 +679,7 @@ public:
 		std::string option(lua_tostring(L,2),lua_objlen(L,2));
 		std::string explanation(lua_tostring(L,3),lua_objlen(L,3));
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::addKeyboardMouseBinding(const std::string &, const std::string &)");
@@ -701,7 +702,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & usageMap=*usageMap_ptr;
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::setKeyboardMouseBindings(const osg::ApplicationUsage::UsageMap &)");
@@ -719,7 +720,7 @@ public:
 		}
 
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::ApplicationUsage::UsageMap & osg::ApplicationUsage::getKeyboardMouseBindings() const");
@@ -755,7 +756,7 @@ public:
 		}
 		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : osg::ApplicationUsage::UsageMap ();
 
-		osg::ApplicationUsage* self=dynamic_cast< osg::ApplicationUsage* >(Luna< osg::Referenced >::check(L,1));
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::getFormattedString(std::string &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &)");

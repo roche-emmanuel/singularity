@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osgViewer::ThreadingHandler* ptr= dynamic_cast< osgViewer::ThreadingHandler* >(Luna< osg::Referenced >::check(L,1));
+		//osgViewer::ThreadingHandler* ptr= dynamic_cast< osgViewer::ThreadingHandler* >(Luna< osg::Referenced >::check(L,1));
+		osgViewer::ThreadingHandler* ptr= luna_caster< osg::Referenced, osgViewer::ThreadingHandler >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		

@@ -66,8 +66,7 @@ public:
         The values of the ::wxZlibCompressionLevels and ::wxZLibFlags
         enumerations can be used.
     */
-    wxZlibOutputStream(wxOutputStream& stream, int level = -1,
-                       int flags = wxZLIB_ZLIB);
+    wxZlibOutputStream(wxOutputStream& stream, int level = -1, int flags = 1);
 
     // at close curl
 
@@ -126,8 +125,8 @@ public:
 
         The values of the ::wxZLibFlags enumeration can be used.
     */
-    wxZlibInputStream(wxInputStream& stream, int flags = wxZLIB_AUTO);
-    wxZlibInputStream(wxInputStream* stream, int flags = wxZLIB_AUTO);
+    wxZlibInputStream(wxInputStream& stream, int flags = 3);
+    wxZlibInputStream(wxInputStream* stream, int flags = 3);
     // at close curl
 
     /**

@@ -85,6 +85,10 @@ function IgnoreManager:ignoreDefine(def)
     return self:ignore(def:getName(),"define")
 end
 
+function IgnoreManager:ignoreWrapper(class,func)
+	return self:ignore(func:getPrototype(false,class:getFullName()),"wrapper")
+end
+
 function IgnoreManager:ignoreClass(class)
 	return self:ignore(class:getFullName(),"class")
 end

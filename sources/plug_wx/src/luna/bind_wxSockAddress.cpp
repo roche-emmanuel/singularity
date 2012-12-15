@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxSockAddress.h>
+
 class luna_wrapper_wxSockAddress {
 public:
 	typedef Luna< wxSockAddress > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxSockAddress* ptr= dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		//wxSockAddress* ptr= dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		wxSockAddress* ptr= luna_caster< wxObject, wxSockAddress >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -58,6 +61,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -71,7 +80,7 @@ public:
 		}
 
 
-		wxSockAddress* self=dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxSockAddress::Clear()");
@@ -89,7 +98,7 @@ public:
 		}
 
 
-		wxSockAddress* self=dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const sockaddr * wxSockAddress::GetAddressData() const");
@@ -110,13 +119,34 @@ public:
 		}
 
 
-		wxSockAddress* self=dynamic_cast< wxSockAddress* >(Luna< wxObject >::check(L,1));
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call int wxSockAddress::GetAddressDataLen() const");
 		}
 		int lret = self->GetAddressDataLen();
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxClassInfo * wxSockAddress::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxSockAddress::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxSockAddress::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxSockAddress::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxSockAddress::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
 
 		return 1;
 	}
@@ -130,8 +160,6 @@ wxSockAddress* LunaTraits< wxSockAddress >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// void wxSockAddress::Clear()
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxSockAddress >::_bind_dtor(wxSockAddress* obj) {
@@ -149,6 +177,7 @@ luna_RegType LunaTraits< wxSockAddress >::methods[] = {
 	{"Clear", &luna_wrapper_wxSockAddress::_bind_Clear},
 	{"GetAddressData", &luna_wrapper_wxSockAddress::_bind_GetAddressData},
 	{"GetAddressDataLen", &luna_wrapper_wxSockAddress::_bind_GetAddressDataLen},
+	{"base_GetClassInfo", &luna_wrapper_wxSockAddress::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxSockAddress::_bind___eq},
 	{0,0}
 };

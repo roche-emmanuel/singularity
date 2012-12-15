@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::TextureRectangle::SubloadCallback* ptr= dynamic_cast< osg::TextureRectangle::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		//osg::TextureRectangle::SubloadCallback* ptr= dynamic_cast< osg::TextureRectangle::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle::SubloadCallback* ptr= luna_caster< osg::Referenced, osg::TextureRectangle::SubloadCallback >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -70,18 +71,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::TextureRectangle* _arg1_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,2));
+		const osg::TextureRectangle* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::TextureRectangle::SubloadCallback::load function");
 		}
 		const osg::TextureRectangle & _arg1=*_arg1_ptr;
-		osg::State* _arg2_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* _arg2_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !_arg2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::TextureRectangle::SubloadCallback::load function");
 		}
 		osg::State & _arg2=*_arg2_ptr;
 
-		osg::TextureRectangle::SubloadCallback* self=dynamic_cast< osg::TextureRectangle::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle &, osg::State &) const");
@@ -98,18 +99,18 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const function, expected prototype:\nvoid osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle & arg1, osg::State & arg2) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		const osg::TextureRectangle* _arg1_ptr=dynamic_cast< osg::TextureRectangle* >(Luna< osg::Referenced >::check(L,2));
+		const osg::TextureRectangle* _arg1_ptr=(Luna< osg::Referenced >::checkSubType< osg::TextureRectangle >(L,2));
 		if( !_arg1_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osg::TextureRectangle::SubloadCallback::subload function");
 		}
 		const osg::TextureRectangle & _arg1=*_arg1_ptr;
-		osg::State* _arg2_ptr=dynamic_cast< osg::State* >(Luna< osg::Referenced >::check(L,3));
+		osg::State* _arg2_ptr=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
 		if( !_arg2_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in osg::TextureRectangle::SubloadCallback::subload function");
 		}
 		osg::State & _arg2=*_arg2_ptr;
 
-		osg::TextureRectangle::SubloadCallback* self=dynamic_cast< osg::TextureRectangle::SubloadCallback* >(Luna< osg::Referenced >::check(L,1));
+		osg::TextureRectangle::SubloadCallback* self=Luna< osg::Referenced >::checkSubType< osg::TextureRectangle::SubloadCallback >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::TextureRectangle::SubloadCallback::subload(const osg::TextureRectangle &, osg::State &) const");

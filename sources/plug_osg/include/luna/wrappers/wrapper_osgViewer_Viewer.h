@@ -26,7 +26,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return Viewer::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -35,7 +35,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return Viewer::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -45,7 +45,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return Viewer::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -54,7 +54,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Viewer::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -63,7 +63,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return Viewer::getUserData();
 	};
 
 	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
@@ -73,7 +73,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::releaseGLObjects(arg1);
+		return Viewer::releaseGLObjects(arg1);
 	};
 
 	// void osgViewer::ViewerBase::frame(double simulationTime = DBL_MAX)
@@ -83,7 +83,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::frame(simulationTime);
+		return Viewer::frame(simulationTime);
 	};
 
 	// void osgViewer::ViewerBase::renderingTraversals()
@@ -92,7 +92,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::renderingTraversals();
+		return Viewer::renderingTraversals();
 	};
 
 	// void osgViewer::ViewerBase::getWindows(osgViewer::ViewerBase::Windows & windows, bool onlyValid = true)
@@ -103,7 +103,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::ViewerBase::getWindows(windows, onlyValid);
+		return Viewer::getWindows(windows, onlyValid);
 	};
 
 	// osg::View * osgViewer::View::asView()
@@ -112,7 +112,7 @@ public:
 			return (_obj.callFunction<osg::View*>());
 		}
 
-		return osgViewer::View::asView();
+		return Viewer::asView();
 	};
 
 	// void osgViewer::View::requestRedraw()
@@ -121,7 +121,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestRedraw();
+		return Viewer::requestRedraw();
 	};
 
 	// void osgViewer::View::requestContinuousUpdate(bool needed = true)
@@ -131,7 +131,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestContinuousUpdate(needed);
+		return Viewer::requestContinuousUpdate(needed);
 	};
 
 	// void osgViewer::View::requestWarpPointer(float x, float y)
@@ -142,7 +142,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::View::requestWarpPointer(x, y);
+		return Viewer::requestWarpPointer(x, y);
 	};
 
 	// osg::Object * osgViewer::Viewer::cloneType() const
@@ -151,7 +151,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::Viewer::cloneType();
+		return Viewer::cloneType();
 	};
 
 	// osg::Object * osgViewer::Viewer::clone(const osg::CopyOp & arg1) const
@@ -161,7 +161,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgViewer::Viewer::clone(arg1);
+		return Viewer::clone(arg1);
 	};
 
 	// bool osgViewer::Viewer::isSameKindAs(const osg::Object * obj) const
@@ -171,7 +171,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::Viewer::isSameKindAs(obj);
+		return Viewer::isSameKindAs(obj);
 	};
 
 	// const char * osgViewer::Viewer::libraryName() const
@@ -180,7 +180,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::Viewer::libraryName();
+		return Viewer::libraryName();
 	};
 
 	// const char * osgViewer::Viewer::className() const
@@ -189,7 +189,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgViewer::Viewer::className();
+		return Viewer::className();
 	};
 
 	// void osgViewer::Viewer::take(osg::View & rhs)
@@ -199,7 +199,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::take(rhs);
+		return Viewer::take(rhs);
 	};
 
 	// void osgViewer::Viewer::setViewerStats(osg::Stats * stats)
@@ -209,7 +209,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::setViewerStats(stats);
+		return Viewer::setViewerStats(stats);
 	};
 
 	// osg::Stats * osgViewer::Viewer::getViewerStats()
@@ -218,7 +218,7 @@ public:
 			return (_obj.callFunction<osg::Stats*>());
 		}
 
-		return osgViewer::Viewer::getViewerStats();
+		return Viewer::getViewerStats();
 	};
 
 	// const osg::Stats * osgViewer::Viewer::getViewerStats() const
@@ -227,7 +227,7 @@ public:
 			return (_obj.callFunction<osg::Stats*>());
 		}
 
-		return osgViewer::Viewer::getViewerStats();
+		return Viewer::getViewerStats();
 	};
 
 	// bool osgViewer::Viewer::readConfiguration(const std::string & filename)
@@ -237,7 +237,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::Viewer::readConfiguration(filename);
+		return Viewer::readConfiguration(filename);
 	};
 
 	// bool osgViewer::Viewer::isRealized() const
@@ -246,7 +246,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::Viewer::isRealized();
+		return Viewer::isRealized();
 	};
 
 	// void osgViewer::Viewer::realize()
@@ -255,7 +255,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::realize();
+		return Viewer::realize();
 	};
 
 	// void osgViewer::Viewer::setStartTick(unsigned long long tick)
@@ -265,7 +265,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::setStartTick(tick);
+		return Viewer::setStartTick(tick);
 	};
 
 	// void osgViewer::Viewer::setSceneData(osg::Node * node)
@@ -275,7 +275,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::setSceneData(node);
+		return Viewer::setSceneData(node);
 	};
 
 	// osgViewer::GraphicsWindowEmbedded * osgViewer::Viewer::setUpViewerAsEmbeddedInWindow(int x, int y, int width, int height)
@@ -288,7 +288,7 @@ public:
 			return (_obj.callFunction<osgViewer::GraphicsWindowEmbedded*>());
 		}
 
-		return osgViewer::Viewer::setUpViewerAsEmbeddedInWindow(x, y, width, height);
+		return Viewer::setUpViewerAsEmbeddedInWindow(x, y, width, height);
 	};
 
 	// double osgViewer::Viewer::elapsedTime()
@@ -297,7 +297,7 @@ public:
 			return (_obj.callFunction<double>());
 		}
 
-		return osgViewer::Viewer::elapsedTime();
+		return Viewer::elapsedTime();
 	};
 
 	// osg::FrameStamp * osgViewer::Viewer::getViewerFrameStamp()
@@ -306,7 +306,7 @@ public:
 			return (_obj.callFunction<osg::FrameStamp*>());
 		}
 
-		return osgViewer::Viewer::getViewerFrameStamp();
+		return Viewer::getViewerFrameStamp();
 	};
 
 	// int osgViewer::Viewer::run()
@@ -315,7 +315,7 @@ public:
 			return (_obj.callFunction<int>());
 		}
 
-		return osgViewer::Viewer::run();
+		return Viewer::run();
 	};
 
 	// bool osgViewer::Viewer::checkNeedToDoFrame()
@@ -324,7 +324,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgViewer::Viewer::checkNeedToDoFrame();
+		return Viewer::checkNeedToDoFrame();
 	};
 
 	// void osgViewer::Viewer::advance(double simulationTime = DBL_MAX)
@@ -334,7 +334,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::advance(simulationTime);
+		return Viewer::advance(simulationTime);
 	};
 
 	// void osgViewer::Viewer::eventTraversal()
@@ -343,7 +343,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::eventTraversal();
+		return Viewer::eventTraversal();
 	};
 
 	// void osgViewer::Viewer::updateTraversal()
@@ -352,7 +352,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::updateTraversal();
+		return Viewer::updateTraversal();
 	};
 
 	// void osgViewer::Viewer::getCameras(osgViewer::ViewerBase::Cameras & cameras, bool onlyActive = true)
@@ -363,7 +363,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::getCameras(cameras, onlyActive);
+		return Viewer::getCameras(cameras, onlyActive);
 	};
 
 	// void osgViewer::Viewer::getContexts(osgViewer::ViewerBase::Contexts & contexts, bool onlyValid = true)
@@ -374,7 +374,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::getContexts(contexts, onlyValid);
+		return Viewer::getContexts(contexts, onlyValid);
 	};
 
 	// void osgViewer::Viewer::getScenes(osgViewer::ViewerBase::Scenes & scenes, bool onlyValid = true)
@@ -385,7 +385,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::getScenes(scenes, onlyValid);
+		return Viewer::getScenes(scenes, onlyValid);
 	};
 
 	// void osgViewer::Viewer::getViews(osgViewer::ViewerBase::Views & views, bool onlyValid = true)
@@ -396,7 +396,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::getViews(views, onlyValid);
+		return Viewer::getViews(views, onlyValid);
 	};
 
 	// void osgViewer::Viewer::getUsage(osg::ApplicationUsage & usage) const
@@ -406,13 +406,30 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgViewer::Viewer::getUsage(usage);
+		return Viewer::getUsage(usage);
 	};
 
 
 protected:
 	// osg::GraphicsOperation * osgViewer::View::createRenderer(osg::Camera * camera)
+	osg::GraphicsOperation * createRenderer(osg::Camera * camera) {
+		if(_obj.pushFunction("createRenderer")) {
+			_obj.pushArg(camera);
+			return (_obj.callFunction<osg::GraphicsOperation*>());
+		}
+
+		return Viewer::createRenderer(camera);
+	};
+
 	// void osgViewer::Viewer::viewerInit()
+	void viewerInit() {
+		if(_obj.pushFunction("viewerInit")) {
+			return (_obj.callFunction<void>());
+		}
+
+		return Viewer::viewerInit();
+	};
+
 
 };
 

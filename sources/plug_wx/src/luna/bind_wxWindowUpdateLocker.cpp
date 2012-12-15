@@ -75,7 +75,7 @@ public:
 			luaL_error(L, "luna typecheck failed in wxWindowUpdateLocker::wxWindowUpdateLocker(wxWindow * win) function, expected prototype:\nwxWindowUpdateLocker::wxWindowUpdateLocker(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* win=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1));
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
 
 		return new wxWindowUpdateLocker(win);
 	}

@@ -35,7 +35,7 @@ public:
 		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
 
 		// ensure this object is a table:
-		THROW_IF(lua_type(_state,-1)!=LUA_TTABLE,"Invalid non table base for luaObject.");
+		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject.");
 
 		// remove from stack:
 		lua_pop(_state,1);
@@ -43,8 +43,16 @@ public:
 		reset();
 	}
 
-	void reset() const {
-		_nargs = 0;
+	inline lua_State* getState() {
+		return _state;
+	}
+
+	inline void reset() const {
+		_nargs = 1;
+	}
+
+	inline void incrementNArgs() {
+		++_nargs;
 	}
 
 	virtual ~LuaObject() {
@@ -55,133 +63,17 @@ public:
 	bool pushFunction(String name) const;
 
 	template <typename ArgType>
-	void pushArg(ArgType* arg) const {
+	void pushArg(ArgType arg) const {
 		++_nargs;
-		Luna< ArgType >::push(_state,arg,false);
+		sgt::pushValue(_state,arg);
 	};
-
-	template <typename ArgType>
-	void pushArg(const ArgType* arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg,false);
-	};
-
-	/*template <typename ArgType>
-	void pushArg(const ArgType *& arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg,false);
-	};*/
-
-	template <typename ArgType>
-	void pushArg(const osg::ref_ptr<ArgType>* arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg->get(),false);
-	};
-
-	template <typename ArgType>
-	void pushArg(const osg::observer_ptr<ArgType>* arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg->get(),false);
-	};
-
-	template <typename ArgType>
-	void pushArg(const osg::ref_ptr<ArgType>& arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg.get(),false);
-	};
-
-	template <typename ArgType>
-	void pushArg(const osg::observer_ptr<ArgType>& arg) const {
-		++_nargs;
-		Luna< ArgType >::push(_state,arg.get(),false);
-	};
-
-	void pushArg(bool arg) const {
-		++_nargs;
-		lua_pushboolean(_state,arg?1:0);
-	}
-
-	void pushArg(char arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(unsigned char arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(short arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-	
-	void pushArg(unsigned short arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(long arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(int arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(unsigned long arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(unsigned int arg) const {
-		++_nargs;
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(long long arg) const {
-		++_nargs;
-		logWARN("LuaObject: pushing long long as integer.");
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(unsigned long long arg) const {
-		++_nargs;
-		logWARN("LuaObject: pushing unsigned long long as integer.");
-		lua_pushinteger(_state,arg);
-	}
-
-	void pushArg(float arg) const {
-		++_nargs;
-		lua_pushnumber(_state,arg);
-	}
-
-	void pushArg(double arg) const {
-		++_nargs;
-		lua_pushnumber(_state,arg);
-	}
-
-	void pushArg(const String& arg) const {
-		++_nargs;
-		lua_pushlstring(_state,arg.data(),arg.size());
-	}
-
-	/*template < typename ResultType >
-	ResultType callFunction() {
-		THROW_IF(false,"this call is not implemented.");
-	}*/
 
 	template < typename ResultType>
 	ResultType callFunction() const {
-		typedef typename remove_pointer<ResultType>::type RealType;
-
 		lua_call(_state,_nargs,1);
 		reset();
 
-		// Retrieve the result from the stack:
-		RealType* res =(Luna< RealType >::check(_state,-1));
+		ResultType res = sgt::getValue<ResultType>(_state,-1);
 		lua_pop(_state,1);
 		return res;
 	}
@@ -191,95 +83,182 @@ public:
 		lua_call(_state,_nargs,0);
 		reset();
 	}
-
-	template <>
-	int callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		int res = lua_tointeger(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	unsigned int callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		unsigned int res = (unsigned int)lua_tointeger(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	long long callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		long long res = (long long)lua_tonumber(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	bool callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		bool res = lua_toboolean(_state,-1)==1;
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	double callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		double res = lua_tonumber(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	float callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		float res = (float)lua_tonumber(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	String callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		String res = lua_tostring(_state,-1);
-		lua_pop(_state,1);
-		return res;
-	}
-
-	template <>
-	const char* callFunction() const {
-		lua_call(_state,_nargs,1);
-		reset();
-
-		// Retrieve the result from the stack:
-		String res = lua_tostring(_state,-1);
-		lua_pop(_state,1);
-		return res.c_str();
-	}
 };
+
+template <typename ArgType>
+void pushValue(lua_State* L, ArgType* arg) {
+	Luna< ArgType >::push(L,arg,false);
+};
+
+template <typename ArgType>
+void pushValue(lua_State* L, const ArgType* arg) {
+	Luna< ArgType >::push(L,arg,false);
+};
+
+template <typename ArgType>
+void pushValue(lua_State* L, const osg::ref_ptr<ArgType>* arg) {
+	Luna< ArgType >::push(L,arg->get(),false);
+};
+
+template <typename ArgType>
+void pushValue(lua_State* L, const osg::observer_ptr<ArgType>* arg) {
+	Luna< ArgType >::push(L,arg->get(),false);
+};
+
+template <typename ArgType>
+void pushValue(lua_State* L, const osg::ref_ptr<ArgType>& arg) {
+	Luna< ArgType >::push(L,arg.get(),false);
+};
+
+template <typename ArgType>
+void pushValue(lua_State* L,const osg::observer_ptr<ArgType>& arg) {
+	Luna< ArgType >::push(L,arg.get(),false);
+};
+
+inline void pushValue(lua_State* L, bool arg) {
+	lua_pushboolean(L,arg?1:0);
+}
+
+inline void pushValue(lua_State* L, char arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, unsigned char arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, short arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, unsigned short arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, long arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, int arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, unsigned long arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, unsigned int arg) {
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, long long arg) {
+	logWARN("LuaObject: pushing long long as integer.");
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, unsigned long long arg) {
+	logWARN("LuaObject: pushing unsigned long long as integer.");
+	lua_pushinteger(L,arg);
+}
+
+inline void pushValue(lua_State* L, float arg) {
+	lua_pushnumber(L,arg);
+}
+
+inline void pushValue(lua_State* L, double arg) {
+	lua_pushnumber(L,arg);
+}
+
+//template <>
+inline void pushValue(lua_State* L, unsigned int * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
+//template <>
+inline void pushValue(lua_State* L, long * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
+//template <>
+inline void pushValue(lua_State* L, bool * arg) {
+	lua_pushnil(L);
+	//Luna< void >::push(L,(void*)arg,false);
+}
+
+inline void pushValue(lua_State* L, const String& arg) {
+	lua_pushlstring(L,arg.data(),arg.size());
+}
+
+template < typename ResultType>
+inline ResultType getValue(lua_State* L, int index) {
+	typedef typename remove_pointer<ResultType>::type RealType;
+	
+	// Retrieve the result from the stack:
+	return (Luna< RealType >::check(L,index));
+};
+
+template <>
+inline int getValue(lua_State* L, int index) {
+	return lua_tointeger(L,index);
+}
+
+
+/*template <>
+inline char getValue(lua_State* L, int index) {
+	return lua_tointeger(L,index);
+}*/
+
+template <>
+inline char getValue(lua_State* L, int index) {
+	return (char)lua_tointeger(L,index);
+}
+
+template <>
+inline long getValue(lua_State* L, int index) {
+	return lua_tointeger(L,index);
+}
+
+template <>
+inline unsigned int getValue(lua_State* L, int index) {
+	return (unsigned int)lua_tointeger(L,index);
+}
+
+template <>
+inline unsigned char getValue(lua_State* L, int index) {
+	return (unsigned char)lua_tointeger(L,index);
+}
+
+template <>
+inline long long getValue(lua_State* L, int index) {
+	return (long long)lua_tonumber(L,index);
+}
+
+template <>
+inline bool getValue(lua_State* L, int index) {
+	return lua_toboolean(L,index)==1;
+}
+
+template <>
+inline double getValue(lua_State* L, int index) {
+	return lua_tonumber(L,index);
+}
+
+template <>
+inline float getValue(lua_State* L, int index) {
+	return (float)lua_tonumber(L,index);
+}
+
+template <>
+inline String getValue(lua_State* L, int index) {
+	return String(lua_tostring(L,index));
+}
+
+template <>
+inline const char* getValue(lua_State* L, int index) {
+	return lua_tostring(L,index);
+}
 
 };
 

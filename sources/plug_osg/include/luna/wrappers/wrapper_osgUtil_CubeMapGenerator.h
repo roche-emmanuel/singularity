@@ -21,6 +21,12 @@ public:
 
 protected:
 	// osg::Vec4f osgUtil::CubeMapGenerator::compute_color(const osg::Vec3f & R) const
+	osg::Vec4f compute_color(const osg::Vec3f & R) const {
+		THROW_IF(!_obj.pushFunction("compute_color"),"No implementation for abstract function osgUtil::CubeMapGenerator::compute_color");
+		_obj.pushArg(&R);
+		return *(_obj.callFunction<osg::Vec4f*>());
+	};
+
 
 };
 

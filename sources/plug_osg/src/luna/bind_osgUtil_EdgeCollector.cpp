@@ -168,7 +168,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry) function, expected prototype:\nvoid osgUtil::EdgeCollector::setGeometry(osg::Geometry * geometry)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osg::Geometry* geometry=dynamic_cast< osg::Geometry* >(Luna< osg::Referenced >::check(L,2));
+		osg::Geometry* geometry=(Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,2));
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
@@ -251,9 +251,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3) function, expected prototype:\nosgUtil::EdgeCollector::Triangle * osgUtil::EdgeCollector::addTriangle(osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2, osgUtil::EdgeCollector::Point * p3)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Point* p1=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,2));
-		osgUtil::EdgeCollector::Point* p2=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3));
-		osgUtil::EdgeCollector::Point* p3=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,4));
+		osgUtil::EdgeCollector::Point* p1=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,2));
+		osgUtil::EdgeCollector::Point* p2=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3));
+		osgUtil::EdgeCollector::Point* p3=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,4));
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
@@ -284,9 +284,9 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2) function, expected prototype:\nosgUtil::EdgeCollector::Edge * osgUtil::EdgeCollector::addEdge(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * p1, osgUtil::EdgeCollector::Point * p2)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Triangle* triangle=dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2));
-		osgUtil::EdgeCollector::Point* p1=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3));
-		osgUtil::EdgeCollector::Point* p2=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,4));
+		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
+		osgUtil::EdgeCollector::Point* p1=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3));
+		osgUtil::EdgeCollector::Point* p2=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,4));
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
@@ -308,7 +308,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, unsigned int p1)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Triangle* triangle=dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2));
+		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
 		unsigned int p1=(unsigned int)lua_tointeger(L,3);
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
@@ -331,8 +331,8 @@ public:
 			luaL_error(L, "luna typecheck failed in osgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point) function, expected prototype:\nosgUtil::EdgeCollector::Point * osgUtil::EdgeCollector::addPoint(osgUtil::EdgeCollector::Triangle * triangle, osgUtil::EdgeCollector::Point * point)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
 		}
 
-		osgUtil::EdgeCollector::Triangle* triangle=dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2));
-		osgUtil::EdgeCollector::Point* point=dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3));
+		osgUtil::EdgeCollector::Triangle* triangle=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2));
+		osgUtil::EdgeCollector::Point* point=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3));
 
 		osgUtil::EdgeCollector* self=(Luna< osgUtil::EdgeCollector >::check(L,1));
 		if(!self) {
@@ -391,7 +391,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg el in osgUtil::EdgeCollector::extractBoundaryEdgeloop function");
 		}
 		osgUtil::EdgeCollector::EdgeList & el=*el_ptr;
-		osgUtil::EdgeCollector::Edgeloop* edgeloop_ptr=dynamic_cast< osgUtil::EdgeCollector::Edgeloop* >(Luna< osg::Referenced >::check(L,3));
+		osgUtil::EdgeCollector::Edgeloop* edgeloop_ptr=(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Edgeloop >(L,3));
 		if( !edgeloop_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg edgeloop in osgUtil::EdgeCollector::extractBoundaryEdgeloop function");
 		}

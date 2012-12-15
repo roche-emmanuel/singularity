@@ -25,7 +25,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setName(name);
+		return ParticleSystemUpdater::setName(name);
 	};
 
 	// void osg::Object::computeDataVariance()
@@ -34,7 +34,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::computeDataVariance();
+		return ParticleSystemUpdater::computeDataVariance();
 	};
 
 	// void osg::Object::setUserData(osg::Referenced * obj)
@@ -44,7 +44,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Object::setUserData(obj);
+		return ParticleSystemUpdater::setUserData(obj);
 	};
 
 	// osg::Referenced * osg::Object::getUserData()
@@ -53,7 +53,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ParticleSystemUpdater::getUserData();
 	};
 
 	// const osg::Referenced * osg::Object::getUserData() const
@@ -62,7 +62,7 @@ public:
 			return (_obj.callFunction<osg::Referenced*>());
 		}
 
-		return osg::Object::getUserData();
+		return ParticleSystemUpdater::getUserData();
 	};
 
 	// osg::Group * osg::Node::asGroup()
@@ -71,7 +71,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return ParticleSystemUpdater::asGroup();
 	};
 
 	// const osg::Group * osg::Node::asGroup() const
@@ -80,7 +80,7 @@ public:
 			return (_obj.callFunction<osg::Group*>());
 		}
 
-		return osg::Node::asGroup();
+		return ParticleSystemUpdater::asGroup();
 	};
 
 	// osg::Transform * osg::Node::asTransform()
@@ -89,7 +89,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return ParticleSystemUpdater::asTransform();
 	};
 
 	// const osg::Transform * osg::Node::asTransform() const
@@ -98,7 +98,7 @@ public:
 			return (_obj.callFunction<osg::Transform*>());
 		}
 
-		return osg::Node::asTransform();
+		return ParticleSystemUpdater::asTransform();
 	};
 
 	// osg::Switch * osg::Node::asSwitch()
@@ -107,7 +107,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return ParticleSystemUpdater::asSwitch();
 	};
 
 	// const osg::Switch * osg::Node::asSwitch() const
@@ -116,7 +116,7 @@ public:
 			return (_obj.callFunction<osg::Switch*>());
 		}
 
-		return osg::Node::asSwitch();
+		return ParticleSystemUpdater::asSwitch();
 	};
 
 	// osg::Geode * osg::Node::asGeode()
@@ -125,7 +125,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return ParticleSystemUpdater::asGeode();
 	};
 
 	// const osg::Geode * osg::Node::asGeode() const
@@ -134,7 +134,7 @@ public:
 			return (_obj.callFunction<osg::Geode*>());
 		}
 
-		return osg::Node::asGeode();
+		return ParticleSystemUpdater::asGeode();
 	};
 
 	// void osg::Node::ascend(osg::NodeVisitor & nv)
@@ -144,7 +144,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::ascend(nv);
+		return ParticleSystemUpdater::ascend(nv);
 	};
 
 	// void osg::Node::releaseGLObjects(osg::State * arg1 = 0) const
@@ -154,7 +154,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Node::releaseGLObjects(arg1);
+		return ParticleSystemUpdater::releaseGLObjects(arg1);
 	};
 
 	// osg::Object * osgParticle::ParticleSystemUpdater::cloneType() const
@@ -163,7 +163,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::cloneType();
+		return ParticleSystemUpdater::cloneType();
 	};
 
 	// osg::Object * osgParticle::ParticleSystemUpdater::clone(const osg::CopyOp & copyop) const
@@ -173,7 +173,7 @@ public:
 			return (_obj.callFunction<osg::Object*>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::clone(copyop);
+		return ParticleSystemUpdater::clone(copyop);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::isSameKindAs(const osg::Object * obj) const
@@ -183,7 +183,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::isSameKindAs(obj);
+		return ParticleSystemUpdater::isSameKindAs(obj);
 	};
 
 	// const char * osgParticle::ParticleSystemUpdater::className() const
@@ -192,7 +192,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::className();
+		return ParticleSystemUpdater::className();
 	};
 
 	// const char * osgParticle::ParticleSystemUpdater::libraryName() const
@@ -201,7 +201,7 @@ public:
 			return (_obj.callFunction<const char*>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::libraryName();
+		return ParticleSystemUpdater::libraryName();
 	};
 
 	// void osgParticle::ParticleSystemUpdater::accept(osg::NodeVisitor & nv)
@@ -211,7 +211,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::accept(nv);
+		return ParticleSystemUpdater::accept(nv);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::addParticleSystem(osgParticle::ParticleSystem * ps)
@@ -221,7 +221,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::addParticleSystem(ps);
+		return ParticleSystemUpdater::addParticleSystem(ps);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::removeParticleSystem(osgParticle::ParticleSystem * ps)
@@ -231,7 +231,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::removeParticleSystem(ps);
+		return ParticleSystemUpdater::removeParticleSystem(ps);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::removeParticleSystem(unsigned int i, unsigned int numParticleSystemsToRemove = 1)
@@ -242,7 +242,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::removeParticleSystem(i, numParticleSystemsToRemove);
+		return ParticleSystemUpdater::removeParticleSystem(i, numParticleSystemsToRemove);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::replaceParticleSystem(osgParticle::ParticleSystem * origPS, osgParticle::ParticleSystem * newPS)
@@ -253,7 +253,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::replaceParticleSystem(origPS, newPS);
+		return ParticleSystemUpdater::replaceParticleSystem(origPS, newPS);
 	};
 
 	// bool osgParticle::ParticleSystemUpdater::setParticleSystem(unsigned int i, osgParticle::ParticleSystem * ps)
@@ -264,7 +264,7 @@ public:
 			return (_obj.callFunction<bool>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::setParticleSystem(i, ps);
+		return ParticleSystemUpdater::setParticleSystem(i, ps);
 	};
 
 	// void osgParticle::ParticleSystemUpdater::traverse(osg::NodeVisitor & arg1)
@@ -274,7 +274,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::traverse(arg1);
+		return ParticleSystemUpdater::traverse(arg1);
 	};
 
 	// osg::BoundingSphered osgParticle::ParticleSystemUpdater::computeBound() const
@@ -283,7 +283,7 @@ public:
 			return *(_obj.callFunction<osg::BoundingSphered*>());
 		}
 
-		return osgParticle::ParticleSystemUpdater::computeBound();
+		return ParticleSystemUpdater::computeBound();
 	};
 
 

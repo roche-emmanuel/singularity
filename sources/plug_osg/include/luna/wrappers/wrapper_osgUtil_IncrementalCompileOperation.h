@@ -22,7 +22,7 @@ public:
 			return (_obj.callFunction<void>());
 		}
 
-		return osg::Operation::release();
+		return IncrementalCompileOperation::release();
 	};
 
 

@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxWithImages.h>
+
 class luna_wrapper_wxWithImages {
 public:
 	typedef Luna< wxWithImages > luna_t;
@@ -54,9 +56,16 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -82,20 +91,47 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_SetImageList(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxWithImages::wxWithImages()
-	static wxWithImages* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxWithImages* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages() function, expected prototype:\nwxWithImages::wxWithImages()\nClass arguments details:\n");
 		}
 
 
 		return new wxWithImages();
+	}
+
+	// wxWithImages::wxWithImages(lua_Table * data)
+	static wxWithImages* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages(lua_Table * data) function, expected prototype:\nwxWithImages::wxWithImages(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxWithImages(L,NULL);
+	}
+
+	// Overload binder for wxWithImages::wxWithImages
+	static wxWithImages* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxWithImages, cannot match any of the overloads for function wxWithImages:\n  wxWithImages()\n  wxWithImages(lua_Table *)\n");
+		return NULL;
 	}
 
 
@@ -107,7 +143,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxWithImages::AssignImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::AssignImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxImageList* imageList=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,2));
+		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
@@ -126,7 +162,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxWithImages::SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxImageList* imageList=dynamic_cast< wxImageList* >(Luna< wxObject >::check(L,2));
+		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
@@ -159,6 +195,25 @@ public:
 		return 1;
 	}
 
+	// void wxWithImages::base_SetImageList(wxImageList * imageList)
+	static int _bind_base_SetImageList(lua_State *L) {
+		if (!_lg_typecheck_base_SetImageList(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void wxWithImages::base_SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::base_SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
+
+		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void wxWithImages::base_SetImageList(wxImageList *)");
+		}
+		self->wxWithImages::SetImageList(imageList);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -183,6 +238,7 @@ luna_RegType LunaTraits< wxWithImages >::methods[] = {
 	{"AssignImageList", &luna_wrapper_wxWithImages::_bind_AssignImageList},
 	{"SetImageList", &luna_wrapper_wxWithImages::_bind_SetImageList},
 	{"GetImageList", &luna_wrapper_wxWithImages::_bind_GetImageList},
+	{"base_SetImageList", &luna_wrapper_wxWithImages::_bind_base_SetImageList},
 	{"dynCast", &luna_wrapper_wxWithImages::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxWithImages::_bind___eq},
 	{0,0}

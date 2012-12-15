@@ -31,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		osg::LineSegment* ptr= dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		//osg::LineSegment* ptr= dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* ptr= luna_caster< osg::Referenced, osg::LineSegment >::cast(Luna< osg::Referenced >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -258,7 +259,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(const osg::LineSegment & seg)\nClass arguments details:\narg 1 ID = 50169651\n");
 		}
 
-		const osg::LineSegment* seg_ptr=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1));
 		if( !seg_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg seg in osg::LineSegment::LineSegment function");
 		}
@@ -306,7 +307,7 @@ public:
 			luaL_error(L, "luna typecheck failed in osg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg) function, expected prototype:\nosg::LineSegment::LineSegment(lua_Table * data, const osg::LineSegment & seg)\nClass arguments details:\narg 2 ID = 50169651\n");
 		}
 
-		const osg::LineSegment* seg_ptr=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,2));
+		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
 		if( !seg_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg seg in osg::LineSegment::LineSegment function");
 		}
@@ -369,7 +370,7 @@ public:
 		}
 		const osg::Vec3d & e=*e_ptr;
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::LineSegment::set(const osg::Vec3d &, const osg::Vec3d &)");
@@ -387,7 +388,7 @@ public:
 		}
 
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::start()");
@@ -408,7 +409,7 @@ public:
 		}
 
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::start() const");
@@ -438,7 +439,7 @@ public:
 		}
 
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call osg::Vec3d & osg::LineSegment::end()");
@@ -459,7 +460,7 @@ public:
 		}
 
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const osg::Vec3d & osg::LineSegment::end() const");
@@ -489,7 +490,7 @@ public:
 		}
 
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::valid() const");
@@ -513,7 +514,7 @@ public:
 		}
 		const osg::BoundingBoxd & bb=*bb_ptr;
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &) const");
@@ -539,7 +540,7 @@ public:
 		float r1=(float)lua_tonumber(L,3);
 		float r2=(float)lua_tonumber(L,4);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, float &, float &) const");
@@ -565,7 +566,7 @@ public:
 		double r1=(double)lua_tonumber(L,3);
 		double r2=(double)lua_tonumber(L,4);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingBoxd &, double &, double &) const");
@@ -589,7 +590,7 @@ public:
 		}
 		const osg::BoundingSphered & bs=*bs_ptr;
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &) const");
@@ -615,7 +616,7 @@ public:
 		float r1=(float)lua_tonumber(L,3);
 		float r2=(float)lua_tonumber(L,4);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, float &, float &) const");
@@ -641,7 +642,7 @@ public:
 		double r1=(double)lua_tonumber(L,3);
 		double r2=(double)lua_tonumber(L,4);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::BoundingSphered &, double &, double &) const");
@@ -676,7 +677,7 @@ public:
 		const osg::Vec3f & v3=*v3_ptr;
 		float r=(float)lua_tonumber(L,5);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3f &, const osg::Vec3f &, const osg::Vec3f &, float &)");
@@ -711,7 +712,7 @@ public:
 		const osg::Vec3d & v3=*v3_ptr;
 		double r=(double)lua_tonumber(L,5);
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool osg::LineSegment::intersect(const osg::Vec3d &, const osg::Vec3d &, const osg::Vec3d &, double &)");
@@ -744,7 +745,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m) function, expected prototype:\nvoid osg::LineSegment::mult(const osg::LineSegment & seg, const osg::Matrixd & m)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 18903838\n");
 		}
 
-		const osg::LineSegment* seg_ptr=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,2));
+		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,2));
 		if( !seg_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg seg in osg::LineSegment::mult function");
 		}
@@ -755,7 +756,7 @@ public:
 		}
 		const osg::Matrixd & m=*m_ptr;
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::LineSegment &, const osg::Matrixd &)");
@@ -777,13 +778,13 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg m in osg::LineSegment::mult function");
 		}
 		const osg::Matrixd & m=*m_ptr;
-		const osg::LineSegment* seg_ptr=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,3));
+		const osg::LineSegment* seg_ptr=(Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,3));
 		if( !seg_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg seg in osg::LineSegment::mult function");
 		}
 		const osg::LineSegment & seg=*seg_ptr;
 
-		osg::LineSegment* self=dynamic_cast< osg::LineSegment* >(Luna< osg::Referenced >::check(L,1));
+		osg::LineSegment* self=Luna< osg::Referenced >::checkSubType< osg::LineSegment >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void osg::LineSegment::mult(const osg::Matrixd &, const osg::LineSegment &)");

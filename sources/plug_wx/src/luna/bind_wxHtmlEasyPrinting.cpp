@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxHtmlEasyPrinting.h>
+
 class luna_wrapper_wxHtmlEasyPrinting {
 public:
 	typedef Luna< wxHtmlEasyPrinting > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxHtmlEasyPrinting* ptr= dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		//wxHtmlEasyPrinting* ptr= dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* ptr= luna_caster< wxObject, wxHtmlEasyPrinting >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,12 +43,24 @@ public:
 
 
 	// Constructor checkers:
-	inline static bool _lg_typecheck_ctor(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
 		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -159,14 +174,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
 	// wxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = "Printing", wxWindow * parentWindow = NULL)
-	static wxHtmlEasyPrinting* _bind_ctor(lua_State *L) {
-		if (!_lg_typecheck_ctor(L)) {
+	static wxHtmlEasyPrinting* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
 		}
@@ -174,9 +195,33 @@ public:
 		int luatop = lua_gettop(L);
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
-		wxWindow* parentWindow=luatop>1 ? dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) : (wxWindow*)NULL;
+		wxWindow* parentWindow=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
 
 		return new wxHtmlEasyPrinting(name, parentWindow);
+	}
+
+	// wxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = "Printing", wxWindow * parentWindow = NULL)
+	static wxHtmlEasyPrinting* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL) function, expected prototype:\nwxHtmlEasyPrinting::wxHtmlEasyPrinting(lua_Table * data, const wxString & name = \"Printing\", wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString name(lua_tostring(L,2),lua_objlen(L,2));
+		wxWindow* parentWindow=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
+
+		return new wrapper_wxHtmlEasyPrinting(L,NULL, name, parentWindow);
+	}
+
+	// Overload binder for wxHtmlEasyPrinting::wxHtmlEasyPrinting
+	static wxHtmlEasyPrinting* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxHtmlEasyPrinting, cannot match any of the overloads for function wxHtmlEasyPrinting:\n  wxHtmlEasyPrinting(const wxString &, wxWindow *)\n  wxHtmlEasyPrinting(lua_Table *, const wxString &, wxWindow *)\n");
+		return NULL;
 	}
 
 
@@ -189,7 +234,7 @@ public:
 		}
 
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call const wxString & wxHtmlEasyPrinting::GetName() const");
@@ -208,7 +253,7 @@ public:
 		}
 
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxPageSetupDialogData * wxHtmlEasyPrinting::GetPageSetupData()");
@@ -229,7 +274,7 @@ public:
 		}
 
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call wxWindow * wxHtmlEasyPrinting::GetParentWindow() const");
@@ -250,7 +295,7 @@ public:
 		}
 
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::PageSetup()");
@@ -269,7 +314,7 @@ public:
 
 		wxString htmlfile(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewFile(const wxString &)");
@@ -292,7 +337,7 @@ public:
 		wxString htmltext(lua_tostring(L,2),lua_objlen(L,2));
 		wxString basepath(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PreviewText(const wxString &, const wxString &)");
@@ -312,7 +357,7 @@ public:
 
 		wxString htmlfile(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintFile(const wxString &)");
@@ -335,7 +380,7 @@ public:
 		wxString htmltext(lua_tostring(L,2),lua_objlen(L,2));
 		wxString basepath(lua_tostring(L,3),lua_objlen(L,3));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call bool wxHtmlEasyPrinting::PrintText(const wxString &, const wxString &)");
@@ -359,7 +404,7 @@ public:
 		wxString fixed_face(lua_tostring(L,3),lua_objlen(L,3));
 		int sizes=luatop>3 ? (int)lua_tointeger(L,4) : NULL;
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFonts(const wxString &, const wxString &, const int *)");
@@ -378,7 +423,7 @@ public:
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetName(const wxString &)");
@@ -401,7 +446,7 @@ public:
 		wxString normal_face(lua_tostring(L,3),lua_objlen(L,3));
 		wxString fixed_face(lua_tostring(L,4),lua_objlen(L,4));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetStandardFonts(int, const wxString &, const wxString &)");
@@ -411,19 +456,19 @@ public:
 		return 0;
 	}
 
-	// void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = wxPAGE_ALL)
+	// void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)
 	static int _bind_SetFooter(lua_State *L) {
 		if (!_lg_typecheck_SetFooter(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetFooter(const wxString & footer, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString footer(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetFooter(const wxString &, int)");
@@ -433,19 +478,19 @@ public:
 		return 0;
 	}
 
-	// void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = wxPAGE_ALL)
+	// void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)
 	static int _bind_SetHeader(lua_State *L) {
 		if (!_lg_typecheck_SetHeader(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetHeader(const wxString & header, int pg = ::wxPAGE_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString header(lua_tostring(L,2),lua_objlen(L,2));
-		int pg=luatop>2 ? (int)lua_tointeger(L,3) : wxPAGE_ALL;
+		int pg=luatop>2 ? (int)lua_tointeger(L,3) : ::wxPAGE_ALL;
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetHeader(const wxString &, int)");
@@ -462,9 +507,9 @@ public:
 			luaL_error(L, "luna typecheck failed in void wxHtmlEasyPrinting::SetParentWindow(wxWindow * window) function, expected prototype:\nvoid wxHtmlEasyPrinting::SetParentWindow(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
 		}
 
-		wxWindow* window=dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2));
+		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
-		wxHtmlEasyPrinting* self=dynamic_cast< wxHtmlEasyPrinting* >(Luna< wxObject >::check(L,1));
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
 		if(!self) {
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call void wxHtmlEasyPrinting::SetParentWindow(wxWindow *)");
@@ -472,6 +517,27 @@ public:
 		self->SetParentWindow(window);
 
 		return 0;
+	}
+
+	// wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxHtmlEasyPrinting* self=Luna< wxObject >::checkSubType< wxHtmlEasyPrinting >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlEasyPrinting::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxHtmlEasyPrinting::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
 	}
 
 
@@ -509,6 +575,7 @@ luna_RegType LunaTraits< wxHtmlEasyPrinting >::methods[] = {
 	{"SetFooter", &luna_wrapper_wxHtmlEasyPrinting::_bind_SetFooter},
 	{"SetHeader", &luna_wrapper_wxHtmlEasyPrinting::_bind_SetHeader},
 	{"SetParentWindow", &luna_wrapper_wxHtmlEasyPrinting::_bind_SetParentWindow},
+	{"base_GetClassInfo", &luna_wrapper_wxHtmlEasyPrinting::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxHtmlEasyPrinting::_bind___eq},
 	{0,0}
 };

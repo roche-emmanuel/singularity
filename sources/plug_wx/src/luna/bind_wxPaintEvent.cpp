@@ -1,5 +1,7 @@
 #include <plug_common.h>
 
+#include <luna/wrappers/wrapper_wxPaintEvent.h>
+
 class luna_wrapper_wxPaintEvent {
 public:
 	typedef Luna< wxPaintEvent > luna_t;
@@ -29,7 +31,8 @@ public:
 	// Derived class converters:
 	static int _cast_from_wxObject(lua_State *L) {
 		// all checked are already performed before reaching this point.
-		wxPaintEvent* ptr= dynamic_cast< wxPaintEvent* >(Luna< wxObject >::check(L,1));
+		//wxPaintEvent* ptr= dynamic_cast< wxPaintEvent* >(Luna< wxObject >::check(L,1));
+		wxPaintEvent* ptr= luna_caster< wxObject, wxPaintEvent >::cast(Luna< wxObject >::check(L,1));
 		if(!ptr)
 			return 0;
 		
@@ -40,11 +43,63 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetEventCategory(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Function binds:
+	// wxClassInfo * wxPaintEvent::base_GetClassInfo() const
+	static int _bind_base_GetClassInfo(lua_State *L) {
+		if (!_lg_typecheck_base_GetClassInfo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPaintEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPaintEvent::base_GetClassInfo() const\nClass arguments details:\n");
+		}
+
+
+		wxPaintEvent* self=Luna< wxObject >::checkSubType< wxPaintEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaintEvent::base_GetClassInfo() const");
+		}
+		wxClassInfo * lret = self->wxPaintEvent::GetClassInfo();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxClassInfo >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// wxEventCategory wxPaintEvent::base_GetEventCategory() const
+	static int _bind_base_GetEventCategory(lua_State *L) {
+		if (!_lg_typecheck_base_GetEventCategory(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxPaintEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPaintEvent::base_GetEventCategory() const\nClass arguments details:\n");
+		}
+
+
+		wxPaintEvent* self=Luna< wxObject >::checkSubType< wxPaintEvent >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPaintEvent::base_GetEventCategory() const");
+		}
+		wxEventCategory lret = self->wxPaintEvent::GetEventCategory();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -54,8 +109,6 @@ wxPaintEvent* LunaTraits< wxPaintEvent >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
-
-	// Abstract operators:
 }
 
 void LunaTraits< wxPaintEvent >::_bind_dtor(wxPaintEvent* obj) {
@@ -70,6 +123,8 @@ const int LunaTraits< wxPaintEvent >::hash = 27233890;
 const int LunaTraits< wxPaintEvent >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxPaintEvent >::methods[] = {
+	{"base_GetClassInfo", &luna_wrapper_wxPaintEvent::_bind_base_GetClassInfo},
+	{"base_GetEventCategory", &luna_wrapper_wxPaintEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxPaintEvent::_bind___eq},
 	{0,0}
 };
