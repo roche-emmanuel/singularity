@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextctrl.h>
 
-class wrapper_wxRichTextCtrl : public wxRichTextCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextCtrl : public wxRichTextCtrl, public luna_wrapper_base {
+
 public:
 	
 

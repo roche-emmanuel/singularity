@@ -8,14 +8,12 @@
 
 #include <osgUtil/ShaderGen>
 
-class wrapper_osgUtil_ShaderGenCache : public osgUtil::ShaderGenCache {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_ShaderGenCache : public osgUtil::ShaderGenCache, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_ShaderGenCache(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenCache(), _obj(L,-1) {};
+	wrapper_osgUtil_ShaderGenCache(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenCache(), luna_wrapper_base(L) {};
 
 
 

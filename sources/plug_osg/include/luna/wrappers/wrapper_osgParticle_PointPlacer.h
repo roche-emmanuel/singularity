@@ -8,15 +8,13 @@
 
 #include <osgParticle/PointPlacer>
 
-class wrapper_osgParticle_PointPlacer : public osgParticle::PointPlacer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_PointPlacer : public osgParticle::PointPlacer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum) : osgParticle::PointPlacer(), _obj(L,-1) {};
-	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum, const osgParticle::PointPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::PointPlacer(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum) : osgParticle::PointPlacer(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_PointPlacer(lua_State* L, lua_Table* dum, const osgParticle::PointPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::PointPlacer(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

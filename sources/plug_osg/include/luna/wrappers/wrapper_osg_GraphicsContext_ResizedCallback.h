@@ -8,10 +8,8 @@
 
 #include <osg/GraphicsContext>
 
-class wrapper_osg_GraphicsContext_ResizedCallback : public osg::GraphicsContext::ResizedCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsContext_ResizedCallback : public osg::GraphicsContext::ResizedCallback, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,10 +8,8 @@
 
 #include <wx/variant.h>
 
-class wrapper_wxVariantData : public wxVariantData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxVariantData : public wxVariantData, public luna_wrapper_base {
+
 public:
 	
 

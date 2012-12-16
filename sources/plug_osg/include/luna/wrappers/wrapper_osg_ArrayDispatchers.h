@@ -8,14 +8,12 @@
 
 #include <osg/ArrayDispatchers>
 
-class wrapper_osg_ArrayDispatchers : public osg::ArrayDispatchers {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ArrayDispatchers : public osg::ArrayDispatchers, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ArrayDispatchers(lua_State* L, lua_Table* dum) : osg::ArrayDispatchers(), _obj(L,-1) {};
+	wrapper_osg_ArrayDispatchers(lua_State* L, lua_Table* dum) : osg::ArrayDispatchers(), luna_wrapper_base(L) {};
 
 
 

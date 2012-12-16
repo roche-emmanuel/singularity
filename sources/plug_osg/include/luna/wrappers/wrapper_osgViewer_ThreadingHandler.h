@@ -8,10 +8,8 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_ThreadingHandler : public osgViewer::ThreadingHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_ThreadingHandler : public osgViewer::ThreadingHandler, public luna_wrapper_base {
+
 public:
 	
 

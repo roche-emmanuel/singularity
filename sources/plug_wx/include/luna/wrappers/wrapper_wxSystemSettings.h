@@ -8,10 +8,8 @@
 
 #include <wx/settings.h>
 
-class wrapper_wxSystemSettings : public wxSystemSettings {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSystemSettings : public wxSystemSettings, public luna_wrapper_base {
+
 public:
 	
 

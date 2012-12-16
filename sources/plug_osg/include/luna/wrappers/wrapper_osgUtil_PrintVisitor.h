@@ -8,10 +8,8 @@
 
 #include <osgUtil/PrintVisitor>
 
-class wrapper_osgUtil_PrintVisitor : public osgUtil::PrintVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_PrintVisitor : public osgUtil::PrintVisitor, public luna_wrapper_base {
+
 public:
 	
 

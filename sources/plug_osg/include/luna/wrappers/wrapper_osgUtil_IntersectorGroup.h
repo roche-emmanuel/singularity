@@ -8,14 +8,12 @@
 
 #include <osgUtil/IntersectionVisitor>
 
-class wrapper_osgUtil_IntersectorGroup : public osgUtil::IntersectorGroup {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IntersectorGroup : public osgUtil::IntersectorGroup, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_IntersectorGroup(lua_State* L, lua_Table* dum) : osgUtil::IntersectorGroup(), _obj(L,-1) {};
+	wrapper_osgUtil_IntersectorGroup(lua_State* L, lua_Table* dum) : osgUtil::IntersectorGroup(), luna_wrapper_base(L) {};
 
 	// osgUtil::Intersector * osgUtil::IntersectorGroup::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {

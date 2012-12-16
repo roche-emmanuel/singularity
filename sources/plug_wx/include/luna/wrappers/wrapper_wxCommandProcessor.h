@@ -8,14 +8,12 @@
 
 #include <wx/cmdproc.h>
 
-class wrapper_wxCommandProcessor : public wxCommandProcessor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCommandProcessor : public wxCommandProcessor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCommandProcessor(lua_State* L, lua_Table* dum, int maxCommands = -1) : wxCommandProcessor(maxCommands), _obj(L,-1) {};
+	wrapper_wxCommandProcessor(lua_State* L, lua_Table* dum, int maxCommands = -1) : wxCommandProcessor(maxCommands), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,10 +8,8 @@
 
 #include <wx/wfstream.h>
 
-class wrapper_wxFFileInputStream : public wxFFileInputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFFileInputStream : public wxFFileInputStream, public luna_wrapper_base {
+
 public:
 	
 

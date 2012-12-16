@@ -8,10 +8,8 @@
 
 #include <wx/propgrid/propgridiface.h>
 
-class wrapper_wxPropertyGridInterface : public wxPropertyGridInterface {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPropertyGridInterface : public wxPropertyGridInterface, public luna_wrapper_base {
+
 public:
 	
 

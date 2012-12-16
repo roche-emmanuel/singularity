@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextbuffer.h>
 
-class wrapper_wxRichTextObject : public wxRichTextObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextObject : public wxRichTextObject, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,16 +8,14 @@
 
 #include <osgUtil/PolytopeIntersector>
 
-class wrapper_osgUtil_PolytopeIntersector : public osgUtil::PolytopeIntersector {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_PolytopeIntersector : public osgUtil::PolytopeIntersector, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, const osg::Polytope & polytope) : osgUtil::PolytopeIntersector(polytope), _obj(L,-1) {};
-	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) : osgUtil::PolytopeIntersector(cf, polytope), _obj(L,-1) {};
-	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) : osgUtil::PolytopeIntersector(cf, xMin, yMin, xMax, yMax), _obj(L,-1) {};
+	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, const osg::Polytope & polytope) : osgUtil::PolytopeIntersector(polytope), luna_wrapper_base(L) {};
+	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Polytope & polytope) : osgUtil::PolytopeIntersector(cf, polytope), luna_wrapper_base(L) {};
+	wrapper_osgUtil_PolytopeIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double xMin, double yMin, double xMax, double yMax) : osgUtil::PolytopeIntersector(cf, xMin, yMin, xMax, yMax), luna_wrapper_base(L) {};
 
 	// osgUtil::Intersector * osgUtil::PolytopeIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {

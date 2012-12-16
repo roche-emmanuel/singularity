@@ -8,14 +8,12 @@
 
 #include <wx/ctrlsub.h>
 
-class wrapper_wxItemContainerImmutable : public wxItemContainerImmutable {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxItemContainerImmutable : public wxItemContainerImmutable, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxItemContainerImmutable(lua_State* L, lua_Table* dum) : wxItemContainerImmutable(), _obj(L,-1) {};
+	wrapper_wxItemContainerImmutable(lua_State* L, lua_Table* dum) : wxItemContainerImmutable(), luna_wrapper_base(L) {};
 
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {

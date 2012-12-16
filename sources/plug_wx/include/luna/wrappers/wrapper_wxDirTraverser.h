@@ -8,10 +8,8 @@
 
 #include <wx/dir.h>
 
-class wrapper_wxDirTraverser : public wxDirTraverser {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDirTraverser : public wxDirTraverser, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,14 +8,12 @@
 
 #include <wx/wizard.h>
 
-class wrapper_wxWizardPage : public wxWizardPage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWizardPage : public wxWizardPage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWizardPage(lua_State* L, lua_Table* dum, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap) : wxWizardPage(parent, bitmap), _obj(L,-1) {};
+	wrapper_wxWizardPage(lua_State* L, lua_Table* dum, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap) : wxWizardPage(parent, bitmap), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

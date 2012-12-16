@@ -20,9 +20,9 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), luna_wrapper_base(L) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)			
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), luna_wrapper_base(L) {};",wname,cname)			
 	end	
 end
 
@@ -158,7 +158,7 @@ function Class:writeHeader()
 
 	buf:newLine();
 
-	buf:writeLine(snippets:getWrapperEndCode())
+	buf:writeLine(snippets:getWrapperEndCode(class))
 	
 	buf:newLine();
 	

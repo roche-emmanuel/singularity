@@ -8,16 +8,14 @@
 
 #include <osgViewer/CompositeViewer>
 
-class wrapper_osgViewer_CompositeViewer : public osgViewer::CompositeViewer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_CompositeViewer : public osgViewer::CompositeViewer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) : osgViewer::CompositeViewer(), _obj(L,-1) {};
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), _obj(L,-1) {};
-	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), _obj(L,-1) {};
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum) : osgViewer::CompositeViewer(), luna_wrapper_base(L) {};
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, const osgViewer::CompositeViewer & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::CompositeViewer(arg1, copyop), luna_wrapper_base(L) {};
+	wrapper_osgViewer_CompositeViewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::CompositeViewer(arguments), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

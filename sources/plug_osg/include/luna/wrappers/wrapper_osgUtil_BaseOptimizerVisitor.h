@@ -8,14 +8,12 @@
 
 #include <osgUtil/Optimizer>
 
-class wrapper_osgUtil_BaseOptimizerVisitor : public osgUtil::BaseOptimizerVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_BaseOptimizerVisitor : public osgUtil::BaseOptimizerVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_BaseOptimizerVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, unsigned int operation) : osgUtil::BaseOptimizerVisitor(optimizer, operation), _obj(L,-1) {};
+	wrapper_osgUtil_BaseOptimizerVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, unsigned int operation) : osgUtil::BaseOptimizerVisitor(optimizer, operation), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

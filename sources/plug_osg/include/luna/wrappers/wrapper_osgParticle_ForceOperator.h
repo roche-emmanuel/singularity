@@ -8,15 +8,13 @@
 
 #include <osgParticle/ForceOperator>
 
-class wrapper_osgParticle_ForceOperator : public osgParticle::ForceOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ForceOperator : public osgParticle::ForceOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ForceOperator(lua_State* L, lua_Table* dum) : osgParticle::ForceOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_ForceOperator(lua_State* L, lua_Table* dum, const osgParticle::ForceOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ForceOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ForceOperator(lua_State* L, lua_Table* dum) : osgParticle::ForceOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ForceOperator(lua_State* L, lua_Table* dum, const osgParticle::ForceOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ForceOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

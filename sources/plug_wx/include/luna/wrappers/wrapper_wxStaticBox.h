@@ -8,15 +8,13 @@
 
 #include <wx/statbox.h>
 
-class wrapper_wxStaticBox : public wxStaticBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStaticBox : public wxStaticBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStaticBox(lua_State* L, lua_Table* dum) : wxStaticBox(), _obj(L,-1) {};
-	wrapper_wxStaticBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBoxNameStr) : wxStaticBox(parent, id, label, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxStaticBox(lua_State* L, lua_Table* dum) : wxStaticBox(), luna_wrapper_base(L) {};
+	wrapper_wxStaticBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBoxNameStr) : wxStaticBox(parent, id, label, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

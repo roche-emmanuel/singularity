@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellNumberRenderer : public wxGridCellNumberRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellNumberRenderer : public wxGridCellNumberRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellNumberRenderer(lua_State* L, lua_Table* dum) : wxGridCellNumberRenderer(), _obj(L,-1) {};
+	wrapper_wxGridCellNumberRenderer(lua_State* L, lua_Table* dum) : wxGridCellNumberRenderer(), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

@@ -8,15 +8,13 @@
 
 #include <wx/checklst.h>
 
-class wrapper_wxCheckListBox : public wxCheckListBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCheckListBox : public wxCheckListBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCheckListBox(lua_State* L, lua_Table* dum) : wxCheckListBox(), _obj(L,-1) {};
-	wrapper_wxCheckListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "listBox") : wxCheckListBox(parent, id, pos, size, choices, style, validator, name), _obj(L,-1) {};
+	wrapper_wxCheckListBox(lua_State* L, lua_Table* dum) : wxCheckListBox(), luna_wrapper_base(L) {};
+	wrapper_wxCheckListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "listBox") : wxCheckListBox(parent, id, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

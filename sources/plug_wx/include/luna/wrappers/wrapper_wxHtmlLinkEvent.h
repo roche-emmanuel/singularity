@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlwin.h>
 
-class wrapper_wxHtmlLinkEvent : public wxHtmlLinkEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlLinkEvent : public wxHtmlLinkEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlLinkEvent(lua_State* L, lua_Table* dum, int id, const wxHtmlLinkInfo & linkinfo) : wxHtmlLinkEvent(id, linkinfo), _obj(L,-1) {};
+	wrapper_wxHtmlLinkEvent(lua_State* L, lua_Table* dum, int id, const wxHtmlLinkInfo & linkinfo) : wxHtmlLinkEvent(id, linkinfo), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

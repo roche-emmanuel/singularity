@@ -8,14 +8,12 @@
 
 #include <base/Referenced.h>
 
-class wrapper_sgt_Referenced : public sgt::Referenced {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_Referenced : public sgt::Referenced, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_Referenced(lua_State* L, lua_Table* dum) : sgt::Referenced(), _obj(L,-1) {};
+	wrapper_sgt_Referenced(lua_State* L, lua_Table* dum) : sgt::Referenced(), luna_wrapper_base(L) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

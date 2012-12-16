@@ -8,14 +8,12 @@
 
 #include <wx/docview.h>
 
-class wrapper_wxDocument : public wxDocument {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDocument : public wxDocument, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), _obj(L,-1) {};
+	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

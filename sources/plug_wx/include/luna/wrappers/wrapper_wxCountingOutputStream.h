@@ -8,14 +8,12 @@
 
 #include <wx/stream.h>
 
-class wrapper_wxCountingOutputStream : public wxCountingOutputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCountingOutputStream : public wxCountingOutputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCountingOutputStream(lua_State* L, lua_Table* dum) : wxCountingOutputStream(), _obj(L,-1) {};
+	wrapper_wxCountingOutputStream(lua_State* L, lua_Table* dum) : wxCountingOutputStream(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

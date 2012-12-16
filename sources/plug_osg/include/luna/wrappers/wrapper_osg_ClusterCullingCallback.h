@@ -8,17 +8,15 @@
 
 #include <osg/ClusterCullingCallback>
 
-class wrapper_osg_ClusterCullingCallback : public osg::ClusterCullingCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ClusterCullingCallback : public osg::ClusterCullingCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum) : osg::ClusterCullingCallback(), _obj(L,-1) {};
-	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) : osg::ClusterCullingCallback(ccc, copyop), _obj(L,-1) {};
-	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) : osg::ClusterCullingCallback(controlPoint, normal, deviation), _obj(L,-1) {};
-	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Drawable * drawable) : osg::ClusterCullingCallback(drawable), _obj(L,-1) {};
+	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum) : osg::ClusterCullingCallback(), luna_wrapper_base(L) {};
+	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) : osg::ClusterCullingCallback(ccc, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) : osg::ClusterCullingCallback(controlPoint, normal, deviation), luna_wrapper_base(L) {};
+	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Drawable * drawable) : osg::ClusterCullingCallback(drawable), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -6,6 +6,30 @@ class luna_wrapper_osgText_Bevel {
 public:
 	typedef Luna< osgText::Bevel > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -897,6 +921,7 @@ luna_RegType LunaTraits< osgText::Bevel >::methods[] = {
 	{"base_libraryName", &luna_wrapper_osgText_Bevel::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgText_Bevel::_bind_base_className},
 	{"__eq", &luna_wrapper_osgText_Bevel::_bind___eq},
+	{"getTable", &luna_wrapper_osgText_Bevel::_bind_getTable},
 	{0,0}
 };
 

@@ -8,14 +8,12 @@
 
 #include <wx/laywin.h>
 
-class wrapper_wxQueryLayoutInfoEvent : public wxQueryLayoutInfoEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxQueryLayoutInfoEvent : public wxQueryLayoutInfoEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxQueryLayoutInfoEvent(lua_State* L, lua_Table* dum, int id = 0) : wxQueryLayoutInfoEvent(id), _obj(L,-1) {};
+	wrapper_wxQueryLayoutInfoEvent(lua_State* L, lua_Table* dum, int id = 0) : wxQueryLayoutInfoEvent(id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

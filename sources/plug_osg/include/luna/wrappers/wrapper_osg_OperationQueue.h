@@ -8,14 +8,12 @@
 
 #include <osg/OperationThread>
 
-class wrapper_osg_OperationQueue : public osg::OperationQueue {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_OperationQueue : public osg::OperationQueue, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_OperationQueue(lua_State* L, lua_Table* dum) : osg::OperationQueue(), _obj(L,-1) {};
+	wrapper_osg_OperationQueue(lua_State* L, lua_Table* dum) : osg::OperationQueue(), luna_wrapper_base(L) {};
 
 
 

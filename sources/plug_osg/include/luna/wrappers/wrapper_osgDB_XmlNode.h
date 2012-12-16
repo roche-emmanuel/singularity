@@ -8,14 +8,12 @@
 
 #include <osgDB/XmlParser>
 
-class wrapper_osgDB_XmlNode : public osgDB::XmlNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_XmlNode : public osgDB::XmlNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_XmlNode(lua_State* L, lua_Table* dum) : osgDB::XmlNode(), _obj(L,-1) {};
+	wrapper_osgDB_XmlNode(lua_State* L, lua_Table* dum) : osgDB::XmlNode(), luna_wrapper_base(L) {};
 
 
 

@@ -8,14 +8,12 @@
 
 #include <osgGA/EventVisitor>
 
-class wrapper_osgGA_EventVisitor : public osgGA::EventVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_EventVisitor : public osgGA::EventVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_EventVisitor(lua_State* L, lua_Table* dum) : osgGA::EventVisitor(), _obj(L,-1) {};
+	wrapper_osgGA_EventVisitor(lua_State* L, lua_Table* dum) : osgGA::EventVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {

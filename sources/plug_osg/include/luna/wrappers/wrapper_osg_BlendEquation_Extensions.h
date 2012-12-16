@@ -8,14 +8,12 @@
 
 #include <osg/BlendEquation>
 
-class wrapper_osg_BlendEquation_Extensions : public osg::BlendEquation::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BlendEquation_Extensions : public osg::BlendEquation::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BlendEquation_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::BlendEquation::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_BlendEquation_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::BlendEquation::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

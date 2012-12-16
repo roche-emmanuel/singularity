@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxWindowCreateEvent : public wxWindowCreateEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWindowCreateEvent : public wxWindowCreateEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWindowCreateEvent(lua_State* L, lua_Table* dum, wxWindow * win = NULL) : wxWindowCreateEvent(win), _obj(L,-1) {};
+	wrapper_wxWindowCreateEvent(lua_State* L, lua_Table* dum, wxWindow * win = NULL) : wxWindowCreateEvent(win), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

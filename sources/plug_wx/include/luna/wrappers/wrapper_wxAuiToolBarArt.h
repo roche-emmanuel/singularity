@@ -8,14 +8,12 @@
 
 #include <wx/aui/auibar.h>
 
-class wrapper_wxAuiToolBarArt : public wxAuiToolBarArt {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiToolBarArt : public wxAuiToolBarArt, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiToolBarArt(lua_State* L, lua_Table* dum) : wxAuiToolBarArt(), _obj(L,-1) {};
+	wrapper_wxAuiToolBarArt(lua_State* L, lua_Table* dum) : wxAuiToolBarArt(), luna_wrapper_base(L) {};
 
 	// wxAuiToolBarArt * wxAuiToolBarArt::Clone()
 	wxAuiToolBarArt * Clone() {

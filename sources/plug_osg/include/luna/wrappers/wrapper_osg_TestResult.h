@@ -8,14 +8,12 @@
 
 #include <osg/OcclusionQueryNode>
 
-class wrapper_osg_TestResult : public osg::TestResult {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TestResult : public osg::TestResult, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TestResult(lua_State* L, lua_Table* dum) : osg::TestResult(), _obj(L,-1) {};
+	wrapper_osg_TestResult(lua_State* L, lua_Table* dum) : osg::TestResult(), luna_wrapper_base(L) {};
 
 
 

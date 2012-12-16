@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxEraseEvent : public wxEraseEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxEraseEvent : public wxEraseEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxEraseEvent(lua_State* L, lua_Table* dum, int id = 0, wxDC * dc = NULL) : wxEraseEvent(id, dc), _obj(L,-1) {};
+	wrapper_wxEraseEvent(lua_State* L, lua_Table* dum, int id = 0, wxDC * dc = NULL) : wxEraseEvent(id, dc), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

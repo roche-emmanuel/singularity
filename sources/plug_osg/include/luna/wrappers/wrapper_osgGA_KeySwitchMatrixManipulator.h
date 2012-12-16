@@ -8,10 +8,8 @@
 
 #include <osgGA/KeySwitchMatrixManipulator>
 
-class wrapper_osgGA_KeySwitchMatrixManipulator : public osgGA::KeySwitchMatrixManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_KeySwitchMatrixManipulator : public osgGA::KeySwitchMatrixManipulator, public luna_wrapper_base {
+
 public:
 	
 

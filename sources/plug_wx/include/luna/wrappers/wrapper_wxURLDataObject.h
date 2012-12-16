@@ -8,14 +8,12 @@
 
 #include <wx/dataobj.h>
 
-class wrapper_wxURLDataObject : public wxURLDataObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxURLDataObject : public wxURLDataObject, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURLDataObject(url), _obj(L,-1) {};
+	wrapper_wxURLDataObject(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURLDataObject(url), luna_wrapper_base(L) {};
 
 
 

@@ -8,14 +8,12 @@
 
 #include <wx/validate.h>
 
-class wrapper_wxValidator : public wxValidator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxValidator : public wxValidator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxValidator(lua_State* L, lua_Table* dum) : wxValidator(), _obj(L,-1) {};
+	wrapper_wxValidator(lua_State* L, lua_Table* dum) : wxValidator(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

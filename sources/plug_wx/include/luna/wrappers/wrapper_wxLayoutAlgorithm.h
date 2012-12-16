@@ -8,14 +8,12 @@
 
 #include <wx/laywin.h>
 
-class wrapper_wxLayoutAlgorithm : public wxLayoutAlgorithm {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLayoutAlgorithm : public wxLayoutAlgorithm, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLayoutAlgorithm(lua_State* L, lua_Table* dum) : wxLayoutAlgorithm(), _obj(L,-1) {};
+	wrapper_wxLayoutAlgorithm(lua_State* L, lua_Table* dum) : wxLayoutAlgorithm(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,16 +8,14 @@
 
 #include <osg/ShapeDrawable>
 
-class wrapper_osg_ShapeDrawable : public osg::ShapeDrawable {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ShapeDrawable : public osg::ShapeDrawable, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum) : osg::ShapeDrawable(), _obj(L,-1) {};
-	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, osg::Shape * shape, osg::TessellationHints * hints = 0) : osg::ShapeDrawable(shape, hints), _obj(L,-1) {};
-	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShapeDrawable(pg, copyop), _obj(L,-1) {};
+	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum) : osg::ShapeDrawable(), luna_wrapper_base(L) {};
+	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, osg::Shape * shape, osg::TessellationHints * hints = 0) : osg::ShapeDrawable(shape, hints), luna_wrapper_base(L) {};
+	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShapeDrawable(pg, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

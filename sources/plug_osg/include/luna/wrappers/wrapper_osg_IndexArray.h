@@ -8,15 +8,13 @@
 
 #include <osg/Array>
 
-class wrapper_osg_IndexArray : public osg::IndexArray {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_IndexArray : public osg::IndexArray, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0) : osg::IndexArray(arrayType, dataSize, dataType), _obj(L,-1) {};
-	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::IndexArray(array, copyop), _obj(L,-1) {};
+	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0) : osg::IndexArray(arrayType, dataSize, dataType), luna_wrapper_base(L) {};
+	wrapper_osg_IndexArray(lua_State* L, lua_Table* dum, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::IndexArray(array, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

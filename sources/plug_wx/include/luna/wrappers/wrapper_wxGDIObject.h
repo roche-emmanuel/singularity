@@ -8,10 +8,8 @@
 
 #include <wx/gdiobj.h>
 
-class wrapper_wxGDIObject : public wxGDIObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGDIObject : public wxGDIObject, public luna_wrapper_base {
+
 public:
 	
 

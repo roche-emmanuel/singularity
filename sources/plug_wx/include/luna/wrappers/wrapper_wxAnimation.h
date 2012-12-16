@@ -8,15 +8,13 @@
 
 #include <wx/animate.h>
 
-class wrapper_wxAnimation : public wxAnimation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAnimation : public wxAnimation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxAnimation & anim) : wxAnimation(anim), _obj(L,-1) {};
-	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) : wxAnimation(name, type), _obj(L,-1) {};
+	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxAnimation & anim) : wxAnimation(anim), luna_wrapper_base(L) {};
+	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) : wxAnimation(name, type), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

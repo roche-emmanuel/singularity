@@ -8,14 +8,12 @@
 
 #include <wx/fontmap.h>
 
-class wrapper_wxFontMapper : public wxFontMapper {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFontMapper : public wxFontMapper, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFontMapper(lua_State* L, lua_Table* dum) : wxFontMapper(), _obj(L,-1) {};
+	wrapper_wxFontMapper(lua_State* L, lua_Table* dum) : wxFontMapper(), luna_wrapper_base(L) {};
 
 	// wxFontEncoding wxFontMapper::CharsetToEncoding(const wxString & charset, bool interactive = true)
 	wxFontEncoding CharsetToEncoding(const wxString & charset, bool interactive = true) {

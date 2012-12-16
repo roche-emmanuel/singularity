@@ -8,14 +8,12 @@
 
 #include <osgUtil/Simplifier>
 
-class wrapper_osgUtil_Simplifier : public osgUtil::Simplifier {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_Simplifier : public osgUtil::Simplifier, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) : osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), _obj(L,-1) {};
+	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) : osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()
 	void reset() {

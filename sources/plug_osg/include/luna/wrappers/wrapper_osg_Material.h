@@ -8,15 +8,13 @@
 
 #include <osg/Material>
 
-class wrapper_osg_Material : public osg::Material {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Material : public osg::Material, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Material(lua_State* L, lua_Table* dum) : osg::Material(), _obj(L,-1) {};
-	wrapper_osg_Material(lua_State* L, lua_Table* dum, const osg::Material & mat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Material(mat, copyop), _obj(L,-1) {};
+	wrapper_osg_Material(lua_State* L, lua_Table* dum) : osg::Material(), luna_wrapper_base(L) {};
+	wrapper_osg_Material(lua_State* L, lua_Table* dum, const osg::Material & mat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Material(mat, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

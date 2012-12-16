@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxFocusEvent : public wxFocusEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFocusEvent : public wxFocusEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFocusEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0) : wxFocusEvent(eventType, id), _obj(L,-1) {};
+	wrapper_wxFocusEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0) : wxFocusEvent(eventType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

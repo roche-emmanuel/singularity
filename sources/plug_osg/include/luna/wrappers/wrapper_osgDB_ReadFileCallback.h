@@ -8,10 +8,8 @@
 
 #include <osgDB/Callbacks>
 
-class wrapper_osgDB_ReadFileCallback : public osgDB::ReadFileCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ReadFileCallback : public osgDB::ReadFileCallback, public luna_wrapper_base {
+
 public:
 	
 

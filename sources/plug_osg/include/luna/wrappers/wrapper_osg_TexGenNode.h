@@ -8,16 +8,14 @@
 
 #include <osg/TexGenNode>
 
-class wrapper_osg_TexGenNode : public osg::TexGenNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TexGenNode : public osg::TexGenNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum) : osg::TexGenNode(), _obj(L,-1) {};
-	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, osg::TexGen * texgen) : osg::TexGenNode(texgen), _obj(L,-1) {};
-	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, const osg::TexGenNode & tgb, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexGenNode(tgb, copyop), _obj(L,-1) {};
+	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum) : osg::TexGenNode(), luna_wrapper_base(L) {};
+	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, osg::TexGen * texgen) : osg::TexGenNode(texgen), luna_wrapper_base(L) {};
+	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, const osg::TexGenNode & tgb, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexGenNode(tgb, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

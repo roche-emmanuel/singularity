@@ -8,15 +8,13 @@
 
 #include <osg/BufferObject>
 
-class wrapper_osg_PixelDataBufferObject : public osg::PixelDataBufferObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PixelDataBufferObject : public osg::PixelDataBufferObject, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum) : osg::PixelDataBufferObject(), _obj(L,-1) {};
-	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum, const osg::PixelDataBufferObject & pbo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PixelDataBufferObject(pbo, copyop), _obj(L,-1) {};
+	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum) : osg::PixelDataBufferObject(), luna_wrapper_base(L) {};
+	wrapper_osg_PixelDataBufferObject(lua_State* L, lua_Table* dum, const osg::PixelDataBufferObject & pbo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PixelDataBufferObject(pbo, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

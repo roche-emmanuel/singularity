@@ -8,14 +8,12 @@
 
 #include <osgDB/StreamOperator>
 
-class wrapper_osgDB_OutputIterator : public osgDB::OutputIterator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_OutputIterator : public osgDB::OutputIterator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_OutputIterator(lua_State* L, lua_Table* dum) : osgDB::OutputIterator(), _obj(L,-1) {};
+	wrapper_osgDB_OutputIterator(lua_State* L, lua_Table* dum) : osgDB::OutputIterator(), luna_wrapper_base(L) {};
 
 	// bool osgDB::OutputIterator::isBinary() const
 	bool isBinary() const {

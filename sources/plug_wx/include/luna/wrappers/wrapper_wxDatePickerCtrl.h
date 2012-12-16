@@ -8,14 +8,12 @@
 
 #include <wx/datectrl.h>
 
-class wrapper_wxDatePickerCtrl : public wxDatePickerCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDatePickerCtrl : public wxDatePickerCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDatePickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxDP_DEFAULT | ::wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = "datectrl") : wxDatePickerCtrl(parent, id, dt, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxDatePickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxDP_DEFAULT | ::wxDP_SHOWCENTURY, const wxValidator & validator = wxDefaultValidator, const wxString & name = "datectrl") : wxDatePickerCtrl(parent, id, dt, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

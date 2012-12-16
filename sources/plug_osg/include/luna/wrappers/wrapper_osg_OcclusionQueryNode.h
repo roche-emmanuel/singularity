@@ -8,15 +8,13 @@
 
 #include <osg/OcclusionQueryNode>
 
-class wrapper_osg_OcclusionQueryNode : public osg::OcclusionQueryNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_OcclusionQueryNode : public osg::OcclusionQueryNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_OcclusionQueryNode(lua_State* L, lua_Table* dum) : osg::OcclusionQueryNode(), _obj(L,-1) {};
-	wrapper_osg_OcclusionQueryNode(lua_State* L, lua_Table* dum, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::OcclusionQueryNode(oqn, copyop), _obj(L,-1) {};
+	wrapper_osg_OcclusionQueryNode(lua_State* L, lua_Table* dum) : osg::OcclusionQueryNode(), luna_wrapper_base(L) {};
+	wrapper_osg_OcclusionQueryNode(lua_State* L, lua_Table* dum, const osg::OcclusionQueryNode & oqn, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::OcclusionQueryNode(oqn, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

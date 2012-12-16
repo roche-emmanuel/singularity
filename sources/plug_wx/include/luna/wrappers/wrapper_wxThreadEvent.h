@@ -8,10 +8,8 @@
 
 #include <wx/event.h>
 
-class wrapper_wxThreadEvent : public wxThreadEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxThreadEvent : public wxThreadEvent, public luna_wrapper_base {
+
 public:
 	
 

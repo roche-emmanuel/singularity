@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_GraphicsOperation : public osg::GraphicsOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsOperation : public osg::GraphicsOperation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_GraphicsOperation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::GraphicsOperation(name, keep), _obj(L,-1) {};
+	wrapper_osg_GraphicsOperation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::GraphicsOperation(name, keep), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()
 	void release() {

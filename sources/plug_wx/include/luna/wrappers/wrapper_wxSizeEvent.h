@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxSizeEvent : public wxSizeEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSizeEvent : public wxSizeEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSizeEvent(lua_State* L, lua_Table* dum, const wxSize & sz, int id = 0) : wxSizeEvent(sz, id), _obj(L,-1) {};
+	wrapper_wxSizeEvent(lua_State* L, lua_Table* dum, const wxSize & sz, int id = 0) : wxSizeEvent(sz, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

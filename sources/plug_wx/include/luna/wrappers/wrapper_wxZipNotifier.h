@@ -8,10 +8,8 @@
 
 #include <wx/zipstrm.h>
 
-class wrapper_wxZipNotifier : public wxZipNotifier {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxZipNotifier : public wxZipNotifier, public luna_wrapper_base {
+
 public:
 	
 

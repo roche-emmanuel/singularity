@@ -8,15 +8,13 @@
 
 #include <osg/Transform>
 
-class wrapper_osg_Transform : public osg::Transform {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Transform : public osg::Transform, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Transform(lua_State* L, lua_Table* dum) : osg::Transform(), _obj(L,-1) {};
-	wrapper_osg_Transform(lua_State* L, lua_Table* dum, const osg::Transform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Transform(arg1, copyop), _obj(L,-1) {};
+	wrapper_osg_Transform(lua_State* L, lua_Table* dum) : osg::Transform(), luna_wrapper_base(L) {};
+	wrapper_osg_Transform(lua_State* L, lua_Table* dum, const osg::Transform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Transform(arg1, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

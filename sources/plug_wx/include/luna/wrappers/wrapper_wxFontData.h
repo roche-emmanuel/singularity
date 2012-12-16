@@ -8,14 +8,12 @@
 
 #include <wx/fontdata.h>
 
-class wrapper_wxFontData : public wxFontData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFontData : public wxFontData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFontData(lua_State* L, lua_Table* dum) : wxFontData(), _obj(L,-1) {};
+	wrapper_wxFontData(lua_State* L, lua_Table* dum) : wxFontData(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,14 +8,12 @@
 
 #include <wx/ipc.h>
 
-class wrapper_wxClient : public wxClient {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxClient : public wxClient, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxClient(lua_State* L, lua_Table* dum) : wxClient(), _obj(L,-1) {};
+	wrapper_wxClient(lua_State* L, lua_Table* dum) : wxClient(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

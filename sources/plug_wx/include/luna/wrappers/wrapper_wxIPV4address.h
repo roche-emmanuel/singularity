@@ -8,10 +8,8 @@
 
 #include <wx/socket.h>
 
-class wrapper_wxIPV4address : public wxIPV4address {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxIPV4address : public wxIPV4address, public luna_wrapper_base {
+
 public:
 	
 

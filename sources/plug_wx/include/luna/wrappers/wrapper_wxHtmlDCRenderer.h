@@ -8,14 +8,12 @@
 
 #include <wx/html/htmprint.h>
 
-class wrapper_wxHtmlDCRenderer : public wxHtmlDCRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlDCRenderer : public wxHtmlDCRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlDCRenderer(lua_State* L, lua_Table* dum) : wxHtmlDCRenderer(), _obj(L,-1) {};
+	wrapper_wxHtmlDCRenderer(lua_State* L, lua_Table* dum) : wxHtmlDCRenderer(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

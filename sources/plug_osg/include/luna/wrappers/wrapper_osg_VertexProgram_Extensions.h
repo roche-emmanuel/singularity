@@ -8,14 +8,12 @@
 
 #include <osg/VertexProgram>
 
-class wrapper_osg_VertexProgram_Extensions : public osg::VertexProgram::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_VertexProgram_Extensions : public osg::VertexProgram::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_VertexProgram_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::VertexProgram::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_VertexProgram_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::VertexProgram::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

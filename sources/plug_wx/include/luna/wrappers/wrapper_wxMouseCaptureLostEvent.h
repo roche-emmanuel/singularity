@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxMouseCaptureLostEvent : public wxMouseCaptureLostEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMouseCaptureLostEvent : public wxMouseCaptureLostEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMouseCaptureLostEvent(lua_State* L, lua_Table* dum, int windowId = 0) : wxMouseCaptureLostEvent(windowId), _obj(L,-1) {};
+	wrapper_wxMouseCaptureLostEvent(lua_State* L, lua_Table* dum, int windowId = 0) : wxMouseCaptureLostEvent(windowId), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

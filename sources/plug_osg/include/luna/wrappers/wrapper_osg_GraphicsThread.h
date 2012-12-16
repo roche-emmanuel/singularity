@@ -8,10 +8,8 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_GraphicsThread : public osg::GraphicsThread {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsThread : public osg::GraphicsThread, public luna_wrapper_base {
+
 public:
 	
 

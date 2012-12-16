@@ -8,15 +8,13 @@
 
 #include <wx/statbmp.h>
 
-class wrapper_wxStaticBitmap : public wxStaticBitmap {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStaticBitmap : public wxStaticBitmap, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum) : wxStaticBitmap(), _obj(L,-1) {};
-	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxBitmap & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBitmapNameStr) : wxStaticBitmap(parent, id, label, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum) : wxStaticBitmap(), luna_wrapper_base(L) {};
+	wrapper_wxStaticBitmap(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxBitmap & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxStaticBitmapNameStr) : wxStaticBitmap(parent, id, label, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

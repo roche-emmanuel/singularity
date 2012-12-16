@@ -8,10 +8,8 @@
 
 #include <wx/stream.h>
 
-class wrapper_wxFilterClassFactory : public wxFilterClassFactory {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFilterClassFactory : public wxFilterClassFactory, public luna_wrapper_base {
+
 public:
 	
 

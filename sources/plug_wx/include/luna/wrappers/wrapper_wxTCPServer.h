@@ -8,14 +8,12 @@
 
 #include <wx/sckipc.h>
 
-class wrapper_wxTCPServer : public wxTCPServer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTCPServer : public wxTCPServer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTCPServer(lua_State* L, lua_Table* dum) : wxTCPServer(), _obj(L,-1) {};
+	wrapper_wxTCPServer(lua_State* L, lua_Table* dum) : wxTCPServer(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

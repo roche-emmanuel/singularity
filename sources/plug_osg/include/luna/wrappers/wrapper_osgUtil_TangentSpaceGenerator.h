@@ -8,15 +8,13 @@
 
 #include <osgUtil/TangentSpaceGenerator>
 
-class wrapper_osgUtil_TangentSpaceGenerator : public osgUtil::TangentSpaceGenerator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_TangentSpaceGenerator : public osgUtil::TangentSpaceGenerator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) : osgUtil::TangentSpaceGenerator(), _obj(L,-1) {};
-	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::TangentSpaceGenerator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum) : osgUtil::TangentSpaceGenerator(), luna_wrapper_base(L) {};
+	wrapper_osgUtil_TangentSpaceGenerator(lua_State* L, lua_Table* dum, const osgUtil::TangentSpaceGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::TangentSpaceGenerator(copy, copyop), luna_wrapper_base(L) {};
 
 
 

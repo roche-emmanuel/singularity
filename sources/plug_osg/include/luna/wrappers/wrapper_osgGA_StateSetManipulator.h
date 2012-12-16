@@ -8,14 +8,12 @@
 
 #include <osgGA/StateSetManipulator>
 
-class wrapper_osgGA_StateSetManipulator : public osgGA::StateSetManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_StateSetManipulator : public osgGA::StateSetManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_StateSetManipulator(lua_State* L, lua_Table* dum, osg::StateSet * stateset = 0) : osgGA::StateSetManipulator(stateset), _obj(L,-1) {};
+	wrapper_osgGA_StateSetManipulator(lua_State* L, lua_Table* dum, osg::StateSet * stateset = 0) : osgGA::StateSetManipulator(stateset), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

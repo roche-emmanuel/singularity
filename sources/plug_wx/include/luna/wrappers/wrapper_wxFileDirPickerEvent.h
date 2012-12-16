@@ -8,14 +8,12 @@
 
 #include <wx/filepicker.h>
 
-class wrapper_wxFileDirPickerEvent : public wxFileDirPickerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileDirPickerEvent : public wxFileDirPickerEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileDirPickerEvent(lua_State* L, lua_Table* dum, int type, wxObject * generator, int id, const wxString & path) : wxFileDirPickerEvent(type, generator, id, path), _obj(L,-1) {};
+	wrapper_wxFileDirPickerEvent(lua_State* L, lua_Table* dum, int type, wxObject * generator, int id, const wxString & path) : wxFileDirPickerEvent(type, generator, id, path), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

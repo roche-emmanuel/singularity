@@ -8,16 +8,14 @@
 
 #include <osg/BlendColor>
 
-class wrapper_osg_BlendColor : public osg::BlendColor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BlendColor : public osg::BlendColor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum) : osg::BlendColor(), _obj(L,-1) {};
-	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum, const osg::Vec4f & constantColor) : osg::BlendColor(constantColor), _obj(L,-1) {};
-	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum, const osg::BlendColor & trans, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BlendColor(trans, copyop), _obj(L,-1) {};
+	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum) : osg::BlendColor(), luna_wrapper_base(L) {};
+	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum, const osg::Vec4f & constantColor) : osg::BlendColor(constantColor), luna_wrapper_base(L) {};
+	wrapper_osg_BlendColor(lua_State* L, lua_Table* dum, const osg::BlendColor & trans, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BlendColor(trans, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

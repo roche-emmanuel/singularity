@@ -8,15 +8,13 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewIconText : public wxDataViewIconText {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewIconText : public wxDataViewIconText, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon) : wxDataViewIconText(text, icon), _obj(L,-1) {};
-	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxDataViewIconText & other) : wxDataViewIconText(other), _obj(L,-1) {};
+	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon) : wxDataViewIconText(text, icon), luna_wrapper_base(L) {};
+	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxDataViewIconText & other) : wxDataViewIconText(other), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

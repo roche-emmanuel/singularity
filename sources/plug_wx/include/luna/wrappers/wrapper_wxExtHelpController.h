@@ -8,10 +8,8 @@
 
 #include <wx/generic/helpext.h>
 
-class wrapper_wxExtHelpController : public wxExtHelpController {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxExtHelpController : public wxExtHelpController, public luna_wrapper_base {
+
 public:
 	
 

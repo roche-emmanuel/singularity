@@ -8,15 +8,13 @@
 
 #include <osg/ImageSequence>
 
-class wrapper_osg_ImageSequence : public osg::ImageSequence {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ImageSequence : public osg::ImageSequence, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum) : osg::ImageSequence(), _obj(L,-1) {};
-	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum, const osg::ImageSequence & ImageSequence, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageSequence(ImageSequence, copyop), _obj(L,-1) {};
+	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum) : osg::ImageSequence(), luna_wrapper_base(L) {};
+	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum, const osg::ImageSequence & ImageSequence, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageSequence(ImageSequence, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

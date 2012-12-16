@@ -8,10 +8,8 @@
 
 #include <wx/html/htmlcell.h>
 
-class wrapper_wxHtmlRenderingStyle : public wxHtmlRenderingStyle {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlRenderingStyle : public wxHtmlRenderingStyle, public luna_wrapper_base {
+
 public:
 	
 

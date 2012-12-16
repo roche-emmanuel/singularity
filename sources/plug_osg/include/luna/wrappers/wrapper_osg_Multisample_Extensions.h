@@ -8,14 +8,12 @@
 
 #include <osg/Multisample>
 
-class wrapper_osg_Multisample_Extensions : public osg::Multisample::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Multisample_Extensions : public osg::Multisample::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Multisample_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Multisample::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_Multisample_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Multisample::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

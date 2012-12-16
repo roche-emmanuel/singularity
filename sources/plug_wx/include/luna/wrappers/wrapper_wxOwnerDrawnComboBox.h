@@ -8,15 +8,13 @@
 
 #include <wx/odcombo.h>
 
-class wrapper_wxOwnerDrawnComboBox : public wxOwnerDrawnComboBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxOwnerDrawnComboBox : public wxOwnerDrawnComboBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum) : wxOwnerDrawnComboBox(), _obj(L,-1) {};
-	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "comboBox") : wxOwnerDrawnComboBox(parent, id, value, pos, size, choices, style, validator, name), _obj(L,-1) {};
+	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum) : wxOwnerDrawnComboBox(), luna_wrapper_base(L) {};
+	wrapper_wxOwnerDrawnComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = "comboBox") : wxOwnerDrawnComboBox(parent, id, value, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

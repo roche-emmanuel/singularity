@@ -8,15 +8,13 @@
 
 #include <osg/PositionAttitudeTransform>
 
-class wrapper_osg_PositionAttitudeTransform : public osg::PositionAttitudeTransform {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PositionAttitudeTransform : public osg::PositionAttitudeTransform, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PositionAttitudeTransform(lua_State* L, lua_Table* dum) : osg::PositionAttitudeTransform(), _obj(L,-1) {};
-	wrapper_osg_PositionAttitudeTransform(lua_State* L, lua_Table* dum, const osg::PositionAttitudeTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PositionAttitudeTransform(pat, copyop), _obj(L,-1) {};
+	wrapper_osg_PositionAttitudeTransform(lua_State* L, lua_Table* dum) : osg::PositionAttitudeTransform(), luna_wrapper_base(L) {};
+	wrapper_osg_PositionAttitudeTransform(lua_State* L, lua_Table* dum, const osg::PositionAttitudeTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PositionAttitudeTransform(pat, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

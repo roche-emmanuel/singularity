@@ -24,6 +24,7 @@ function Class:writeFile()
 	local wname = corr:correct("filename",cname)
 	local cshortname = class:getName()
 	local external = class:isExternal()
+	local isVirtual = class:isVirtual()
 	
 	self:info_v("Writing file for ",not external and "NOT" or ""," external class ",cname)
 
@@ -51,8 +52,11 @@ function Class:writeFile()
 
 	if not external then
 		-- self:info_v("Testing virtual class...")
-	
-		if class:isVirtual() then 
+		local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
+		local bname = tm:getBaseTypeMapping(bclass:getFullName())
+		local hash = utils.getHash(bname)
+		
+		if isVirtual then 
 			buf:writeLine("#include <luna/wrappers/wrapper_".. wname ..".h>")
 			buf:newLine()
 			-- self:info_v("Adding wrapper constructors...")
@@ -69,11 +73,12 @@ function Class:writeFile()
 		buf:writeSubLine("typedef Luna< ${1} > luna_t;",cname)
 		buf:newLine()
 		
+		if isVirtual then
+			buf:writeLine(snippets:getTableAccessCode(bname,hash))
+		end
+		
 		if not equalityOperatorProvided then
 			-- provide our own equalityOperator:
-			local bclass = class:getNumBases()==0 and class or class:getFirstAbsoluteBase()
-			local bname = tm:getBaseTypeMapping(bclass:getFullName())
-			local hash = utils.getHash(bname)
 			buf:writeLine(snippets:getEqualityCode(bname,hash))
 		end
 		
@@ -233,7 +238,11 @@ function Class:writeFile()
 			if not equalityOperatorProvided then
 				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"__eq")			
 			end
-						
+			
+			if isVirtual then
+				buf:writeSubLine('{"${2}", &luna_wrapper_${1}::_bind_${2}},',wname,"getTable")			
+			end
+			
 		buf:writeSubLine("{0,0}")
 		buf:popIndent()
 		buf:writeLine("};")

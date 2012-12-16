@@ -8,14 +8,12 @@
 
 #include <wx/encconv.h>
 
-class wrapper_wxEncodingConverter : public wxEncodingConverter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxEncodingConverter : public wxEncodingConverter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxEncodingConverter(lua_State* L, lua_Table* dum) : wxEncodingConverter(), _obj(L,-1) {};
+	wrapper_wxEncodingConverter(lua_State* L, lua_Table* dum) : wxEncodingConverter(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

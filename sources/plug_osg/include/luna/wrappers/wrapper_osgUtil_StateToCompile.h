@@ -8,14 +8,12 @@
 
 #include <osgUtil/IncrementalCompileOperation>
 
-class wrapper_osgUtil_StateToCompile : public osgUtil::StateToCompile {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_StateToCompile : public osgUtil::StateToCompile, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_StateToCompile(lua_State* L, lua_Table* dum, unsigned int mode) : osgUtil::StateToCompile(mode), _obj(L,-1) {};
+	wrapper_osgUtil_StateToCompile(lua_State* L, lua_Table* dum, unsigned int mode) : osgUtil::StateToCompile(mode), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

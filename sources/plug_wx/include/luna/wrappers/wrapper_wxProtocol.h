@@ -8,10 +8,8 @@
 
 #include <wx/protocol/protocol.h>
 
-class wrapper_wxProtocol : public wxProtocol {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxProtocol : public wxProtocol, public luna_wrapper_base {
+
 public:
 	
 

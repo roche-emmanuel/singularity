@@ -8,14 +8,12 @@
 
 #include <wx/xrc/xmlres.h>
 
-class wrapper_wxXmlResourceHandler : public wxXmlResourceHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxXmlResourceHandler : public wxXmlResourceHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxXmlResourceHandler(lua_State* L, lua_Table* dum) : wxXmlResourceHandler(), _obj(L,-1) {};
+	wrapper_wxXmlResourceHandler(lua_State* L, lua_Table* dum) : wxXmlResourceHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

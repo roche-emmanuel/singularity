@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxDropFilesEvent : public wxDropFilesEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDropFilesEvent : public wxDropFilesEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDropFilesEvent(lua_State* L, lua_Table* dum, int id = 0, int noFiles = 0, wxString * files = NULL) : wxDropFilesEvent(id, noFiles, files), _obj(L,-1) {};
+	wrapper_wxDropFilesEvent(lua_State* L, lua_Table* dum, int id = 0, int noFiles = 0, wxString * files = NULL) : wxDropFilesEvent(id, noFiles, files), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

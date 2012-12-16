@@ -8,15 +8,13 @@
 
 #include <base/TimeProvider.h>
 
-class wrapper_sgt_TimeProvider : public sgt::TimeProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_TimeProvider : public sgt::TimeProvider, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum) : sgt::TimeProvider(), _obj(L,-1) {};
-	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), _obj(L,-1) {};
+	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum) : sgt::TimeProvider(), luna_wrapper_base(L) {};
+	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), luna_wrapper_base(L) {};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

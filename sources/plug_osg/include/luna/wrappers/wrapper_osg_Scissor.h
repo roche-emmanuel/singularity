@@ -8,16 +8,14 @@
 
 #include <osg/Scissor>
 
-class wrapper_osg_Scissor : public osg::Scissor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Scissor : public osg::Scissor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Scissor(lua_State* L, lua_Table* dum) : osg::Scissor(), _obj(L,-1) {};
-	wrapper_osg_Scissor(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osg::Scissor(x, y, width, height), _obj(L,-1) {};
-	wrapper_osg_Scissor(lua_State* L, lua_Table* dum, const osg::Scissor & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Scissor(vp, copyop), _obj(L,-1) {};
+	wrapper_osg_Scissor(lua_State* L, lua_Table* dum) : osg::Scissor(), luna_wrapper_base(L) {};
+	wrapper_osg_Scissor(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osg::Scissor(x, y, width, height), luna_wrapper_base(L) {};
+	wrapper_osg_Scissor(lua_State* L, lua_Table* dum, const osg::Scissor & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Scissor(vp, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

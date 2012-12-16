@@ -8,15 +8,13 @@
 
 #include <osg/ApplicationUsage>
 
-class wrapper_osg_ApplicationUsage : public osg::ApplicationUsage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ApplicationUsage : public osg::ApplicationUsage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum) : osg::ApplicationUsage(), _obj(L,-1) {};
-	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum, const std::string & commandLineUsage) : osg::ApplicationUsage(commandLineUsage), _obj(L,-1) {};
+	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum) : osg::ApplicationUsage(), luna_wrapper_base(L) {};
+	wrapper_osg_ApplicationUsage(lua_State* L, lua_Table* dum, const std::string & commandLineUsage) : osg::ApplicationUsage(commandLineUsage), luna_wrapper_base(L) {};
 
 
 

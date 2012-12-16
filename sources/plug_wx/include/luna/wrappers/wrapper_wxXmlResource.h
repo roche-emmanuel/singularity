@@ -8,10 +8,8 @@
 
 #include <wx/xrc/xmlres.h>
 
-class wrapper_wxXmlResource : public wxXmlResource {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxXmlResource : public wxXmlResource, public luna_wrapper_base {
+
 public:
 	
 

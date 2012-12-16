@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewIconTextRenderer : public wxDataViewIconTextRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewIconTextRenderer : public wxDataViewIconTextRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewIconTextRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "wxDataViewIconText", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewIconTextRenderer(varianttype, mode, align), _obj(L,-1) {};
+	wrapper_wxDataViewIconTextRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "wxDataViewIconText", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewIconTextRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

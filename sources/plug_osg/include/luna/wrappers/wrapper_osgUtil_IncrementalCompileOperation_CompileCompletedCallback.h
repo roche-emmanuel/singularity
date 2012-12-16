@@ -8,10 +8,8 @@
 
 #include <osgUtil/IncrementalCompileOperation>
 
-class wrapper_osgUtil_IncrementalCompileOperation_CompileCompletedCallback : public osgUtil::IncrementalCompileOperation::CompileCompletedCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IncrementalCompileOperation_CompileCompletedCallback : public osgUtil::IncrementalCompileOperation::CompileCompletedCallback, public luna_wrapper_base {
+
 public:
 	
 

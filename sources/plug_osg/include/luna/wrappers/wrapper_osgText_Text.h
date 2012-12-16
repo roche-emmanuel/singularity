@@ -8,15 +8,13 @@
 
 #include <osgText/Text>
 
-class wrapper_osgText_Text : public osgText::Text {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_Text : public osgText::Text, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_Text(lua_State* L, lua_Table* dum) : osgText::Text(), _obj(L,-1) {};
-	wrapper_osgText_Text(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Text(text, copyop), _obj(L,-1) {};
+	wrapper_osgText_Text(lua_State* L, lua_Table* dum) : osgText::Text(), luna_wrapper_base(L) {};
+	wrapper_osgText_Text(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Text(text, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

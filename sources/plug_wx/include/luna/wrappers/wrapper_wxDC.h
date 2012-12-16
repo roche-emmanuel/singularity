@@ -8,10 +8,8 @@
 
 #include <wx/dc.h>
 
-class wrapper_wxDC : public wxDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDC : public wxDC, public luna_wrapper_base {
+
 public:
 	
 

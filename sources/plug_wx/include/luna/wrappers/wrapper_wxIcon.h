@@ -8,18 +8,16 @@
 
 #include <wx/icon.h>
 
-class wrapper_wxIcon : public wxIcon {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxIcon : public wxIcon, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxIcon(lua_State* L, lua_Table* dum) : wxIcon(), _obj(L,-1) {};
-	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIcon & icon) : wxIcon(icon), _obj(L,-1) {};
-	wrapper_wxIcon(lua_State* L, lua_Table* dum, const char *const * bits) : wxIcon(bits), _obj(L,-1) {};
-	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) : wxIcon(name, type, desiredWidth, desiredHeight), _obj(L,-1) {};
-	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIconLocation & loc) : wxIcon(loc), _obj(L,-1) {};
+	wrapper_wxIcon(lua_State* L, lua_Table* dum) : wxIcon(), luna_wrapper_base(L) {};
+	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIcon & icon) : wxIcon(icon), luna_wrapper_base(L) {};
+	wrapper_wxIcon(lua_State* L, lua_Table* dum, const char *const * bits) : wxIcon(bits), luna_wrapper_base(L) {};
+	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxICON_DEFAULT_TYPE, int desiredWidth = -1, int desiredHeight = -1) : wxIcon(name, type, desiredWidth, desiredHeight), luna_wrapper_base(L) {};
+	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIconLocation & loc) : wxIcon(loc), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

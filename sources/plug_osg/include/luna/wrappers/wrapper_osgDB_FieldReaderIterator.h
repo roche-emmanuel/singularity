@@ -8,15 +8,13 @@
 
 #include <osgDB/Input>
 
-class wrapper_osgDB_FieldReaderIterator : public osgDB::FieldReaderIterator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_FieldReaderIterator : public osgDB::FieldReaderIterator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum) : osgDB::FieldReaderIterator(), _obj(L,-1) {};
-	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum, const osgDB::FieldReaderIterator & ic) : osgDB::FieldReaderIterator(ic), _obj(L,-1) {};
+	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum) : osgDB::FieldReaderIterator(), luna_wrapper_base(L) {};
+	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum, const osgDB::FieldReaderIterator & ic) : osgDB::FieldReaderIterator(ic), luna_wrapper_base(L) {};
 
 	// bool osgDB::FieldReaderIterator::eof() const
 	bool eof() const {

@@ -8,15 +8,13 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridEvent : public wxGridEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridEvent : public wxGridEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), _obj(L,-1) {};
-	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), _obj(L,-1) {};
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), luna_wrapper_base(L) {};
+	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

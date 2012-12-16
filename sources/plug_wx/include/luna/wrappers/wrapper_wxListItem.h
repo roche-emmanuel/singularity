@@ -8,14 +8,12 @@
 
 #include <wx/listctrl.h>
 
-class wrapper_wxListItem : public wxListItem {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxListItem : public wxListItem, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxListItem(lua_State* L, lua_Table* dum) : wxListItem(), _obj(L,-1) {};
+	wrapper_wxListItem(lua_State* L, lua_Table* dum) : wxListItem(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

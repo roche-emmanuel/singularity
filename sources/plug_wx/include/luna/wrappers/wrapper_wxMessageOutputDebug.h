@@ -8,14 +8,12 @@
 
 #include <wx/msgout.h>
 
-class wrapper_wxMessageOutputDebug : public wxMessageOutputDebug {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMessageOutputDebug : public wxMessageOutputDebug, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMessageOutputDebug(lua_State* L, lua_Table* dum) : wxMessageOutputDebug(), _obj(L,-1) {};
+	wrapper_wxMessageOutputDebug(lua_State* L, lua_Table* dum) : wxMessageOutputDebug(), luna_wrapper_base(L) {};
 
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {

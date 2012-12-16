@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewSpinRenderer : public wxDataViewSpinRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewSpinRenderer : public wxDataViewSpinRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewSpinRenderer(lua_State* L, lua_Table* dum, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) : wxDataViewSpinRenderer(min, max, mode, align), _obj(L,-1) {};
+	wrapper_wxDataViewSpinRenderer(lua_State* L, lua_Table* dum, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) : wxDataViewSpinRenderer(min, max, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

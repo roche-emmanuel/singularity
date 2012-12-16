@@ -8,15 +8,13 @@
 
 #include <wx/treelist.h>
 
-class wrapper_wxTreeListCtrl : public wxTreeListCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreeListCtrl : public wxTreeListCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum) : wxTreeListCtrl(), _obj(L,-1) {};
-	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTL_DEFAULT_STYLE, const wxString & name = wxTreeListCtrlNameStr) : wxTreeListCtrl(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum) : wxTreeListCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTL_DEFAULT_STYLE, const wxString & name = wxTreeListCtrlNameStr) : wxTreeListCtrl(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

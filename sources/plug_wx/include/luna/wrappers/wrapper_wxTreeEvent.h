@@ -8,14 +8,12 @@
 
 #include <wx/treectrl.h>
 
-class wrapper_wxTreeEvent : public wxTreeEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreeEvent : public wxTreeEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTreeEvent(lua_State* L, lua_Table* dum, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ()) : wxTreeEvent(commandType, tree, item), _obj(L,-1) {};
+	wrapper_wxTreeEvent(lua_State* L, lua_Table* dum, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ()) : wxTreeEvent(commandType, tree, item), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,10 +8,8 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation : public osgViewer::ScreenCaptureHandler::CaptureOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation : public osgViewer::ScreenCaptureHandler::CaptureOperation, public luna_wrapper_base {
+
 public:
 	
 

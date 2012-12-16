@@ -8,10 +8,8 @@
 
 #include <wx/dateevt.h>
 
-class wrapper_wxDateEvent : public wxDateEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDateEvent : public wxDateEvent, public luna_wrapper_base {
+
 public:
 	
 

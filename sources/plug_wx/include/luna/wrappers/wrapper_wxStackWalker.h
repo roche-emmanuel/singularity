@@ -8,14 +8,12 @@
 
 #include <wx/stackwalk.h>
 
-class wrapper_wxStackWalker : public wxStackWalker {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStackWalker : public wxStackWalker, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStackWalker(lua_State* L, lua_Table* dum, const char * argv0 = NULL) : wxStackWalker(argv0), _obj(L,-1) {};
+	wrapper_wxStackWalker(lua_State* L, lua_Table* dum, const char * argv0 = NULL) : wxStackWalker(argv0), luna_wrapper_base(L) {};
 
 	// void wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200))
 	void Walk(size_t skip = 1, size_t maxDepth = (200)) {

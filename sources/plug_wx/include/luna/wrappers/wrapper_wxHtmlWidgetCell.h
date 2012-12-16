@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlcell.h>
 
-class wrapper_wxHtmlWidgetCell : public wxHtmlWidgetCell {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlWidgetCell : public wxHtmlWidgetCell, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlWidgetCell(lua_State* L, lua_Table* dum, wxWindow * wnd, int w = 0) : wxHtmlWidgetCell(wnd, w), _obj(L,-1) {};
+	wrapper_wxHtmlWidgetCell(lua_State* L, lua_Table* dum, wxWindow * wnd, int w = 0) : wxHtmlWidgetCell(wnd, w), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

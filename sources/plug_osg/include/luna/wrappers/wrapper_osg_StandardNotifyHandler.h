@@ -8,10 +8,8 @@
 
 #include <osg/Notify>
 
-class wrapper_osg_StandardNotifyHandler : public osg::StandardNotifyHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_StandardNotifyHandler : public osg::StandardNotifyHandler, public luna_wrapper_base {
+
 public:
 	
 

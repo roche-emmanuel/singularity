@@ -26,10 +26,11 @@ public:
 		unrefLuaItem();
 	};
 
+	bool pushLuaItem() const;
+
 protected:
 	void refLuaItem(int index);
 	void unrefLuaItem();
-	bool pushLuaItem() const;
 };
 
 };

@@ -8,15 +8,13 @@
 
 #include <log/FileLogger.h>
 
-class wrapper_sgt_FileLogger : public sgt::FileLogger {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_FileLogger : public sgt::FileLogger, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum) : sgt::FileLogger(), _obj(L,-1) {};
-	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum, const std::string & filename, bool append = false, const std::string & name = "") : sgt::FileLogger(filename, append, name), _obj(L,-1) {};
+	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum) : sgt::FileLogger(), luna_wrapper_base(L) {};
+	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum, const std::string & filename, bool append = false, const std::string & name = "") : sgt::FileLogger(filename, append, name), luna_wrapper_base(L) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

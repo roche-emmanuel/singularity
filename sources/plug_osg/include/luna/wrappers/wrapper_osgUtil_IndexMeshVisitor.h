@@ -8,14 +8,12 @@
 
 #include <osgUtil/MeshOptimizers>
 
-class wrapper_osgUtil_IndexMeshVisitor : public osgUtil::IndexMeshVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IndexMeshVisitor : public osgUtil::IndexMeshVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_IndexMeshVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::IndexMeshVisitor(optimizer), _obj(L,-1) {};
+	wrapper_osgUtil_IndexMeshVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::IndexMeshVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

@@ -8,10 +8,8 @@
 
 #include <osg/OperationThread>
 
-class wrapper_osg_OperationThread : public osg::OperationThread {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_OperationThread : public osg::OperationThread, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,15 +8,13 @@
 
 #include <osgParticle/SinkOperator>
 
-class wrapper_osgParticle_SinkOperator : public osgParticle::SinkOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_SinkOperator : public osgParticle::SinkOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum) : osgParticle::SinkOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum, const osgParticle::SinkOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SinkOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum) : osgParticle::SinkOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SinkOperator(lua_State* L, lua_Table* dum, const osgParticle::SinkOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SinkOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

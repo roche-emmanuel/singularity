@@ -8,16 +8,14 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_Sphere : public osg::Sphere {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Sphere : public osg::Sphere, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Sphere(lua_State* L, lua_Table* dum) : osg::Sphere(), _obj(L,-1) {};
-	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius) : osg::Sphere(center, radius), _obj(L,-1) {};
-	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Sphere & sphere, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Sphere(sphere, copyop), _obj(L,-1) {};
+	wrapper_osg_Sphere(lua_State* L, lua_Table* dum) : osg::Sphere(), luna_wrapper_base(L) {};
+	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius) : osg::Sphere(center, radius), luna_wrapper_base(L) {};
+	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Sphere & sphere, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Sphere(sphere, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

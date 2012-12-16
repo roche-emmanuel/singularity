@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxContextMenuEvent : public wxContextMenuEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxContextMenuEvent : public wxContextMenuEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxContextMenuEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int id = 0, const wxPoint & pos = wxDefaultPosition) : wxContextMenuEvent(type, id, pos), _obj(L,-1) {};
+	wrapper_wxContextMenuEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int id = 0, const wxPoint & pos = wxDefaultPosition) : wxContextMenuEvent(type, id, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

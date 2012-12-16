@@ -8,15 +8,13 @@
 
 #include <osgUtil/CullVisitor>
 
-class wrapper_osgUtil_CullVisitor : public osgUtil::CullVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_CullVisitor : public osgUtil::CullVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), _obj(L,-1) {};
-	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), _obj(L,-1) {};
+	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), luna_wrapper_base(L) {};
+	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), luna_wrapper_base(L) {};
 
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {

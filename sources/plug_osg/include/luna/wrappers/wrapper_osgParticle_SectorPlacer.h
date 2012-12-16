@@ -8,15 +8,13 @@
 
 #include <osgParticle/SectorPlacer>
 
-class wrapper_osgParticle_SectorPlacer : public osgParticle::SectorPlacer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_SectorPlacer : public osgParticle::SectorPlacer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_SectorPlacer(lua_State* L, lua_Table* dum) : osgParticle::SectorPlacer(), _obj(L,-1) {};
-	wrapper_osgParticle_SectorPlacer(lua_State* L, lua_Table* dum, const osgParticle::SectorPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SectorPlacer(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_SectorPlacer(lua_State* L, lua_Table* dum) : osgParticle::SectorPlacer(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SectorPlacer(lua_State* L, lua_Table* dum, const osgParticle::SectorPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SectorPlacer(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

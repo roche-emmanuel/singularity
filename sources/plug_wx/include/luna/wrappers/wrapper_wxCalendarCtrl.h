@@ -8,15 +8,13 @@
 
 #include <wx/calctrl.h>
 
-class wrapper_wxCalendarCtrl : public wxCalendarCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCalendarCtrl : public wxCalendarCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCalendarCtrl(lua_State* L, lua_Table* dum) : wxCalendarCtrl(), _obj(L,-1) {};
-	wrapper_wxCalendarCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & date = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxCAL_SHOW_HOLIDAYS, const wxString & name = wxCalendarNameStr) : wxCalendarCtrl(parent, id, date, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxCalendarCtrl(lua_State* L, lua_Table* dum) : wxCalendarCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxCalendarCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & date = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxCAL_SHOW_HOLIDAYS, const wxString & name = wxCalendarNameStr) : wxCalendarCtrl(parent, id, date, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

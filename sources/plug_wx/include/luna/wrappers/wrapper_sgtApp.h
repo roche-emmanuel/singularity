@@ -8,10 +8,8 @@
 
 
 
-class wrapper_sgtApp : public sgtApp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgtApp : public sgtApp, public luna_wrapper_base {
+
 public:
 	
 

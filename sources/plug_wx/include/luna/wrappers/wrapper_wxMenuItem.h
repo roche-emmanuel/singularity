@@ -8,14 +8,12 @@
 
 #include <wx/menuitem.h>
 
-class wrapper_wxMenuItem : public wxMenuItem {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMenuItem : public wxMenuItem, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) : wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), _obj(L,-1) {};
+	wrapper_wxMenuItem(lua_State* L, lua_Table* dum, wxMenu * parentMenu = NULL, int id = ::wxID_SEPARATOR, const wxString & text = wxEmptyString, const wxString & helpString = wxEmptyString, wxItemKind kind = ::wxITEM_NORMAL, wxMenu * subMenu = NULL) : wxMenuItem(parentMenu, id, text, helpString, kind, subMenu), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

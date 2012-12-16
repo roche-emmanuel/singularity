@@ -8,14 +8,12 @@
 
 #include <osgUtil/DisplayRequirementsVisitor>
 
-class wrapper_osgUtil_DisplayRequirementsVisitor : public osgUtil::DisplayRequirementsVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_DisplayRequirementsVisitor : public osgUtil::DisplayRequirementsVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_DisplayRequirementsVisitor(lua_State* L, lua_Table* dum) : osgUtil::DisplayRequirementsVisitor(), _obj(L,-1) {};
+	wrapper_osgUtil_DisplayRequirementsVisitor(lua_State* L, lua_Table* dum) : osgUtil::DisplayRequirementsVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()
 	void reset() {

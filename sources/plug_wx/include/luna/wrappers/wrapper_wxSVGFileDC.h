@@ -8,14 +8,12 @@
 
 #include <wx/dcsvg.h>
 
-class wrapper_wxSVGFileDC : public wxSVGFileDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSVGFileDC : public wxSVGFileDC, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSVGFileDC(lua_State* L, lua_Table* dum, const wxString & filename, int width = 320, int height = 240, double dpi = 72) : wxSVGFileDC(filename, width, height, dpi), _obj(L,-1) {};
+	wrapper_wxSVGFileDC(lua_State* L, lua_Table* dum, const wxString & filename, int width = 320, int height = 240, double dpi = 72) : wxSVGFileDC(filename, width, height, dpi), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

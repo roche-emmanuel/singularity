@@ -8,14 +8,12 @@
 
 #include <osgText/Glyph>
 
-class wrapper_osgText_GlyphGeometry : public osgText::GlyphGeometry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_GlyphGeometry : public osgText::GlyphGeometry, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_GlyphGeometry(lua_State* L, lua_Table* dum) : osgText::GlyphGeometry(), _obj(L,-1) {};
+	wrapper_osgText_GlyphGeometry(lua_State* L, lua_Table* dum) : osgText::GlyphGeometry(), luna_wrapper_base(L) {};
 
 
 

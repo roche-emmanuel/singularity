@@ -42,6 +42,8 @@ function Class:__call(options)
 		table.insert(bases,type(base)=="string" and require(base) or base)
 	end
 	
+
+	
 	self:debug0_v("Generating class for ",options.name)
 	local result = oo.class({},unpack(bases))
 	result.CLASS_NAME = options.name -- kept for backward compatibility (see binding modules for instance)
@@ -49,19 +51,43 @@ function Class:__call(options)
 	
 	function result:__init(opt,instance)
 		local obj = instance or {}
+		
 		for _,base in ipairs(bases) do
 			obj = base:__init(opt,obj)
 		end
+		
 		obj =  oo.rawnew(self,obj)
 		obj._TRACE_ = options.name
-		
-		
+				
 		-- Call the initialize function if any:
 		if obj.initialize then
 			obj:initialize(opt)
 		end
-		
+				
 		return obj 
+	end
+	
+	function result:release()
+		self._wrappers = nil;
+	end
+	
+	function result:getWrapper(index)
+		index = index or 0
+		return self._wrappers and self._wrappers[index+1]
+	end
+	
+	function result:generateWrapping(wrapper,...) 
+		self._wrappers = self._wrappers or {}
+		local obj = wrapper(self,...)
+		table.insert(self._wrappers, obj)
+		
+		for name,func in pairs(wrapper) do
+			if(type(func)=="function" and not self[name]) and name~="new" and name~="__eq" and name~="__gc" then
+				--self:info("Adding auto wrapped function: ",name)
+				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
+				self[name] = function(arg1, ...) obj[wname](obj, ...) end
+			end
+		end			
 	end
 	
 	-- return the resulting class:

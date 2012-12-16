@@ -8,14 +8,12 @@
 
 #include <osg/NodeVisitor>
 
-class wrapper_osg_NodeVisitor_ImageRequestHandler : public osg::NodeVisitor::ImageRequestHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_NodeVisitor_ImageRequestHandler : public osg::NodeVisitor::ImageRequestHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_NodeVisitor_ImageRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::ImageRequestHandler(), _obj(L,-1) {};
+	wrapper_osg_NodeVisitor_ImageRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::ImageRequestHandler(), luna_wrapper_base(L) {};
 
 	// double osg::NodeVisitor::ImageRequestHandler::getPreLoadTime() const
 	double getPreLoadTime() const {

@@ -8,14 +8,12 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_ShapeVisitor : public osg::ShapeVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ShapeVisitor : public osg::ShapeVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ShapeVisitor(lua_State* L, lua_Table* dum) : osg::ShapeVisitor(), _obj(L,-1) {};
+	wrapper_osg_ShapeVisitor(lua_State* L, lua_Table* dum) : osg::ShapeVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ShapeVisitor::apply(osg::Shape & arg1)
 	void apply(osg::Shape & arg1) {

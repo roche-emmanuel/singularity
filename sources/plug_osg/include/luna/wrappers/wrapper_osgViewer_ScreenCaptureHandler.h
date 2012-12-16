@@ -8,14 +8,12 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_ScreenCaptureHandler : public osgViewer::ScreenCaptureHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_ScreenCaptureHandler : public osgViewer::ScreenCaptureHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_ScreenCaptureHandler(lua_State* L, lua_Table* dum, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) : osgViewer::ScreenCaptureHandler(defaultOperation, numFrames), _obj(L,-1) {};
+	wrapper_osgViewer_ScreenCaptureHandler(lua_State* L, lua_Table* dum, osgViewer::ScreenCaptureHandler::CaptureOperation * defaultOperation = 0, int numFrames = 1) : osgViewer::ScreenCaptureHandler(defaultOperation, numFrames), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

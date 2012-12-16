@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxClipboardTextEvent : public wxClipboardTextEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxClipboardTextEvent : public wxClipboardTextEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxClipboardTextEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxClipboardTextEvent(commandType, id), _obj(L,-1) {};
+	wrapper_wxClipboardTextEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxClipboardTextEvent(commandType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

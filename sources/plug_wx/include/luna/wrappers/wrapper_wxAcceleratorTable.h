@@ -8,15 +8,13 @@
 
 #include <wx/accel.h>
 
-class wrapper_wxAcceleratorTable : public wxAcceleratorTable {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAcceleratorTable : public wxAcceleratorTable, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum) : wxAcceleratorTable(), _obj(L,-1) {};
-	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum, const wxString & resource) : wxAcceleratorTable(resource), _obj(L,-1) {};
+	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum) : wxAcceleratorTable(), luna_wrapper_base(L) {};
+	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum, const wxString & resource) : wxAcceleratorTable(resource), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

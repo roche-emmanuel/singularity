@@ -8,14 +8,12 @@
 
 #include <log/LogSink.h>
 
-class wrapper_sgt_LogSink : public sgt::LogSink {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_LogSink : public sgt::LogSink, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_LogSink(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::LogSink(name), _obj(L,-1) {};
+	wrapper_sgt_LogSink(lua_State* L, lua_Table* dum, const std::string & name = "") : sgt::LogSink(name), luna_wrapper_base(L) {};
 
 	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

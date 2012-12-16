@@ -8,16 +8,14 @@
 
 #include <wx/gbsizer.h>
 
-class wrapper_wxGBSizerItem : public wxGBSizerItem {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGBSizerItem : public wxGBSizerItem, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(width, height, pos, span, flag, border, userData), _obj(L,-1) {};
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(window, pos, span, flag, border, userData), _obj(L,-1) {};
-	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(sizer, pos, span, flag, border, userData), _obj(L,-1) {};
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, int width, int height, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(width, height, pos, span, flag, border, userData), luna_wrapper_base(L) {};
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(window, pos, span, flag, border, userData), luna_wrapper_base(L) {};
+	wrapper_wxGBSizerItem(lua_State* L, lua_Table* dum, wxSizer * sizer, const wxGBPosition & pos, const wxGBSpan & span = wxDefaultSpan, int flag = 0, int border = 0, wxObject * userData = NULL) : wxGBSizerItem(sizer, pos, span, flag, border, userData), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

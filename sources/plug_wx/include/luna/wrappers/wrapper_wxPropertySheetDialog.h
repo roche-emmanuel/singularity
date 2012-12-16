@@ -8,14 +8,12 @@
 
 #include <wx/propdlg.h>
 
-class wrapper_wxPropertySheetDialog : public wxPropertySheetDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPropertySheetDialog : public wxPropertySheetDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPropertySheetDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE, const wxString & name = wxDialogNameStr) : wxPropertySheetDialog(parent, id, title, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxPropertySheetDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE, const wxString & name = wxDialogNameStr) : wxPropertySheetDialog(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

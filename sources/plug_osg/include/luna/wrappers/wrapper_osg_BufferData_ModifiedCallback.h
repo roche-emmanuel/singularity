@@ -8,15 +8,13 @@
 
 #include <osg/BufferObject>
 
-class wrapper_osg_BufferData_ModifiedCallback : public osg::BufferData::ModifiedCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BufferData_ModifiedCallback : public osg::BufferData::ModifiedCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum) : osg::BufferData::ModifiedCallback(), _obj(L,-1) {};
-	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum, const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2) : osg::BufferData::ModifiedCallback(arg1, arg2), _obj(L,-1) {};
+	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum) : osg::BufferData::ModifiedCallback(), luna_wrapper_base(L) {};
+	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum, const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2) : osg::BufferData::ModifiedCallback(arg1, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

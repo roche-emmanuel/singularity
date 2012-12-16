@@ -8,10 +8,8 @@
 
 #include <osgUtil/EdgeCollector>
 
-class wrapper_osgUtil_EdgeCollector_Edgeloop : public osgUtil::EdgeCollector::Edgeloop {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_EdgeCollector_Edgeloop : public osgUtil::EdgeCollector::Edgeloop, public luna_wrapper_base {
+
 public:
 	
 

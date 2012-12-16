@@ -8,10 +8,8 @@
 
 #include <wx/aui/auibar.h>
 
-class wrapper_wxAuiToolBarEvent : public wxAuiToolBarEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiToolBarEvent : public wxAuiToolBarEvent, public luna_wrapper_base {
+
 public:
 	
 

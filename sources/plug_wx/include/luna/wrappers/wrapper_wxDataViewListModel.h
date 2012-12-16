@@ -8,10 +8,8 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewListModel : public wxDataViewListModel {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewListModel : public wxDataViewListModel, public luna_wrapper_base {
+
 public:
 	
 

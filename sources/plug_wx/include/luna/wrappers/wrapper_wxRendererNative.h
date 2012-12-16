@@ -8,10 +8,8 @@
 
 #include <wx/renderer.h>
 
-class wrapper_wxRendererNative : public wxRendererNative {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRendererNative : public wxRendererNative, public luna_wrapper_base {
+
 public:
 	
 

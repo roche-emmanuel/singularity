@@ -6,6 +6,30 @@ class luna_wrapper_wxHelpController {
 public:
 	typedef Luna< wxHelpController > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1146,6 +1170,7 @@ luna_RegType LunaTraits< wxHelpController >::methods[] = {
 	{"base_SetViewer", &luna_wrapper_wxHelpController::_bind_base_SetViewer},
 	{"dynCast", &luna_wrapper_wxHelpController::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHelpController::_bind___eq},
+	{"getTable", &luna_wrapper_wxHelpController::_bind_getTable},
 	{0,0}
 };
 

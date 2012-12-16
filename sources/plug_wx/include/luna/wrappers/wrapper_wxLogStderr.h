@@ -8,10 +8,8 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogStderr : public wxLogStderr {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogStderr : public wxLogStderr, public luna_wrapper_base {
+
 public:
 	
 

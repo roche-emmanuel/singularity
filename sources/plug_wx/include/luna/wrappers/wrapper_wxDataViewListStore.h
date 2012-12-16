@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewListStore : public wxDataViewListStore {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewListStore : public wxDataViewListStore, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), _obj(L,-1) {};
+	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), luna_wrapper_base(L) {};
 
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {

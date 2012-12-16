@@ -8,15 +8,13 @@
 
 #include <osg/Shader>
 
-class wrapper_osg_ShaderComponent : public osg::ShaderComponent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ShaderComponent : public osg::ShaderComponent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum) : osg::ShaderComponent(), _obj(L,-1) {};
-	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum, const osg::ShaderComponent & sc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderComponent(sc, copyop), _obj(L,-1) {};
+	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum) : osg::ShaderComponent(), luna_wrapper_base(L) {};
+	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum, const osg::ShaderComponent & sc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderComponent(sc, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

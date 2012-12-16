@@ -8,14 +8,12 @@
 
 #include <wx/docmdi.h>
 
-class wrapper_wxDocMDIChildFrame : public wxDocMDIChildFrame {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDocMDIChildFrame : public wxDocMDIChildFrame, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDocMDIChildFrame(lua_State* L, lua_Table* dum, wxDocument * doc, wxView * view, wxMDIParentFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) : wxDocMDIChildFrame(doc, view, parent, id, title, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxDocMDIChildFrame(lua_State* L, lua_Table* dum, wxDocument * doc, wxView * view, wxMDIParentFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) : wxDocMDIChildFrame(doc, view, parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

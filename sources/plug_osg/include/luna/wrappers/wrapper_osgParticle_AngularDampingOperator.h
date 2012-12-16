@@ -8,15 +8,13 @@
 
 #include <osgParticle/AngularDampingOperator>
 
-class wrapper_osgParticle_AngularDampingOperator : public osgParticle::AngularDampingOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_AngularDampingOperator : public osgParticle::AngularDampingOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_AngularDampingOperator(lua_State* L, lua_Table* dum) : osgParticle::AngularDampingOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_AngularDampingOperator(lua_State* L, lua_Table* dum, const osgParticle::AngularDampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::AngularDampingOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_AngularDampingOperator(lua_State* L, lua_Table* dum) : osgParticle::AngularDampingOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_AngularDampingOperator(lua_State* L, lua_Table* dum, const osgParticle::AngularDampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::AngularDampingOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

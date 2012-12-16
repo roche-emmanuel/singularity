@@ -8,10 +8,8 @@
 
 #include <wx/vscroll.h>
 
-class wrapper_wxHVScrolledWindow : public wxHVScrolledWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHVScrolledWindow : public wxHVScrolledWindow, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,10 +8,8 @@
 
 #include <osgGA/CameraManipulator>
 
-class wrapper_osgGA_CameraManipulator_CoordinateFrameCallback : public osgGA::CameraManipulator::CoordinateFrameCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_CameraManipulator_CoordinateFrameCallback : public osgGA::CameraManipulator::CoordinateFrameCallback, public luna_wrapper_base {
+
 public:
 	
 

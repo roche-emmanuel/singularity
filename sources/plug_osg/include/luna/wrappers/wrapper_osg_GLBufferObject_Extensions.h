@@ -8,14 +8,12 @@
 
 #include <osg/BufferObject>
 
-class wrapper_osg_GLBufferObject_Extensions : public osg::GLBufferObject::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GLBufferObject_Extensions : public osg::GLBufferObject::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_GLBufferObject_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::GLBufferObject::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_GLBufferObject_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::GLBufferObject::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

@@ -8,14 +8,12 @@
 
 #include <wx/dialup.h>
 
-class wrapper_wxDialUpEvent : public wxDialUpEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDialUpEvent : public wxDialUpEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDialUpEvent(lua_State* L, lua_Table* dum, bool isConnected, bool isOwnEvent) : wxDialUpEvent(isConnected, isOwnEvent), _obj(L,-1) {};
+	wrapper_wxDialUpEvent(lua_State* L, lua_Table* dum, bool isConnected, bool isOwnEvent) : wxDialUpEvent(isConnected, isOwnEvent), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

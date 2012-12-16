@@ -8,14 +8,12 @@
 
 #include <osgUtil/Statistics>
 
-class wrapper_osgUtil_Statistics : public osgUtil::Statistics {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_Statistics : public osgUtil::Statistics, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_Statistics(lua_State* L, lua_Table* dum) : osgUtil::Statistics(), _obj(L,-1) {};
+	wrapper_osgUtil_Statistics(lua_State* L, lua_Table* dum) : osgUtil::Statistics(), luna_wrapper_base(L) {};
 
 	// void osgUtil::Statistics::setVertexArray(unsigned int count, const osg::Vec3f * vertices)
 	void setVertexArray(unsigned int count, const osg::Vec3f * vertices) {

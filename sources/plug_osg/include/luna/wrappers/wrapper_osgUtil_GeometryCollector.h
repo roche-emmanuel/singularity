@@ -8,14 +8,12 @@
 
 #include <osgUtil/MeshOptimizers>
 
-class wrapper_osgUtil_GeometryCollector : public osgUtil::GeometryCollector {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_GeometryCollector : public osgUtil::GeometryCollector, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_GeometryCollector(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) : osgUtil::GeometryCollector(optimizer, options), _obj(L,-1) {};
+	wrapper_osgUtil_GeometryCollector(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, osgUtil::Optimizer::OptimizationOptions options) : osgUtil::GeometryCollector(optimizer, options), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

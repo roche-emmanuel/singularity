@@ -8,21 +8,19 @@
 
 #include <wx/region.h>
 
-class wrapper_wxRegion : public wxRegion {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRegion : public wxRegion, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRegion(lua_State* L, lua_Table* dum) : wxRegion(), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : wxRegion(x, y, width, height), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxPoint & topLeft, const wxPoint & bottomRight) : wxRegion(topLeft, bottomRight), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxRect & rect) : wxRegion(rect), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxRegion & region) : wxRegion(region), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) : wxRegion(n, points, fillStyle), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxBitmap & bmp) : wxRegion(bmp), _obj(L,-1) {};
-	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0) : wxRegion(bmp, transColour, tolerance), _obj(L,-1) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum) : wxRegion(), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : wxRegion(x, y, width, height), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxPoint & topLeft, const wxPoint & bottomRight) : wxRegion(topLeft, bottomRight), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxRect & rect) : wxRegion(rect), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxRegion & region) : wxRegion(region), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, size_t n, const wxPoint * points, wxPolygonFillMode fillStyle = ::wxODDEVEN_RULE) : wxRegion(n, points, fillStyle), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxBitmap & bmp) : wxRegion(bmp), luna_wrapper_base(L) {};
+	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxBitmap & bmp, const wxColour & transColour, int tolerance = 0) : wxRegion(bmp, transColour, tolerance), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

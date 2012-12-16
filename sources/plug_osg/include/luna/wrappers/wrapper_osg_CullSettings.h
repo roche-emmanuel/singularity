@@ -8,16 +8,14 @@
 
 #include <osg/CullSettings>
 
-class wrapper_osg_CullSettings : public osg::CullSettings {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CullSettings : public osg::CullSettings, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), _obj(L,-1) {};
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), _obj(L,-1) {};
-	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), _obj(L,-1) {};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), luna_wrapper_base(L) {};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) {};
+	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) {};
 
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {

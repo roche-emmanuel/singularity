@@ -8,17 +8,15 @@
 
 #include <osg/Shader>
 
-class wrapper_osg_Shader : public osg::Shader {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Shader : public osg::Shader, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type = osg::Shader::UNDEFINED) : osg::Shader(type), _obj(L,-1) {};
-	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, const std::string & source) : osg::Shader(type, source), _obj(L,-1) {};
-	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, osg::ShaderBinary * shaderBinary) : osg::Shader(type, shaderBinary), _obj(L,-1) {};
-	wrapper_osg_Shader(lua_State* L, lua_Table* dum, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Shader(rhs, copyop), _obj(L,-1) {};
+	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type = osg::Shader::UNDEFINED) : osg::Shader(type), luna_wrapper_base(L) {};
+	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, const std::string & source) : osg::Shader(type, source), luna_wrapper_base(L) {};
+	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, osg::ShaderBinary * shaderBinary) : osg::Shader(type, shaderBinary), luna_wrapper_base(L) {};
+	wrapper_osg_Shader(lua_State* L, lua_Table* dum, const osg::Shader & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Shader(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

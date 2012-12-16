@@ -8,10 +8,8 @@
 
 #include <wx/power.h>
 
-class wrapper_wxPowerEvent : public wxPowerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPowerEvent : public wxPowerEvent, public luna_wrapper_base {
+
 public:
 	
 

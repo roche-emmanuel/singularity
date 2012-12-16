@@ -8,14 +8,12 @@
 
 #include <osgUtil/SmoothingVisitor>
 
-class wrapper_osgUtil_SmoothingVisitor : public osgUtil::SmoothingVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_SmoothingVisitor : public osgUtil::SmoothingVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_SmoothingVisitor(lua_State* L, lua_Table* dum) : osgUtil::SmoothingVisitor(), _obj(L,-1) {};
+	wrapper_osgUtil_SmoothingVisitor(lua_State* L, lua_Table* dum) : osgUtil::SmoothingVisitor(), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

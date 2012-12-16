@@ -8,15 +8,13 @@
 
 #include <wx/headerctrl.h>
 
-class wrapper_wxHeaderCtrl : public wxHeaderCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHeaderCtrl : public wxHeaderCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum) : wxHeaderCtrl(), _obj(L,-1) {};
-	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) : wxHeaderCtrl(parent, winid, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum) : wxHeaderCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) : wxHeaderCtrl(parent, winid, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

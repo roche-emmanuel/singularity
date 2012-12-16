@@ -8,16 +8,14 @@
 
 #include <osg/PolygonStipple>
 
-class wrapper_osg_PolygonStipple : public osg::PolygonStipple {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PolygonStipple : public osg::PolygonStipple, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum) : osg::PolygonStipple(), _obj(L,-1) {};
-	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const unsigned char * mask) : osg::PolygonStipple(mask), _obj(L,-1) {};
-	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const osg::PolygonStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonStipple(lw, copyop), _obj(L,-1) {};
+	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum) : osg::PolygonStipple(), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const unsigned char * mask) : osg::PolygonStipple(mask), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const osg::PolygonStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonStipple(lw, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

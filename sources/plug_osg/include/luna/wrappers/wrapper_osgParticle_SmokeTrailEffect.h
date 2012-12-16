@@ -8,16 +8,14 @@
 
 #include <osgParticle/SmokeTrailEffect>
 
-class wrapper_osgParticle_SmokeTrailEffect : public osgParticle::SmokeTrailEffect {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_SmokeTrailEffect : public osgParticle::SmokeTrailEffect, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::SmokeTrailEffect(automaticSetup), _obj(L,-1) {};
-	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::SmokeTrailEffect(position, scale, intensity), _obj(L,-1) {};
-	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, const osgParticle::SmokeTrailEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SmokeTrailEffect(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::SmokeTrailEffect(automaticSetup), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::SmokeTrailEffect(position, scale, intensity), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SmokeTrailEffect(lua_State* L, lua_Table* dum, const osgParticle::SmokeTrailEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SmokeTrailEffect(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

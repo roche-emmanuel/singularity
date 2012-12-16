@@ -8,14 +8,12 @@
 
 #include <wx/mediactrl.h>
 
-class wrapper_wxMediaEvent : public wxMediaEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMediaEvent : public wxMediaEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMediaEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0) : wxMediaEvent(commandType, winid), _obj(L,-1) {};
+	wrapper_wxMediaEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0) : wxMediaEvent(commandType, winid), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

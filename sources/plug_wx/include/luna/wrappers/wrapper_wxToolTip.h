@@ -8,14 +8,12 @@
 
 #include <wx/tooltip.h>
 
-class wrapper_wxToolTip : public wxToolTip {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxToolTip : public wxToolTip, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxToolTip(lua_State* L, lua_Table* dum, const wxString & tip) : wxToolTip(tip), _obj(L,-1) {};
+	wrapper_wxToolTip(lua_State* L, lua_Table* dum, const wxString & tip) : wxToolTip(tip), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

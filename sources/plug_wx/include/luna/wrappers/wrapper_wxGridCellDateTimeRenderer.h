@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellDateTimeRenderer : public wxGridCellDateTimeRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellDateTimeRenderer : public wxGridCellDateTimeRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellDateTimeRenderer(lua_State* L, lua_Table* dum, const wxString & outformat = wxDefaultDateTimeFormat, const wxString & informat = wxDefaultDateTimeFormat) : wxGridCellDateTimeRenderer(outformat, informat), _obj(L,-1) {};
+	wrapper_wxGridCellDateTimeRenderer(lua_State* L, lua_Table* dum, const wxString & outformat = wxDefaultDateTimeFormat, const wxString & informat = wxDefaultDateTimeFormat) : wxGridCellDateTimeRenderer(outformat, informat), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

@@ -8,10 +8,8 @@
 
 #include <wx/apptrait.h>
 
-class wrapper_wxAppTraits : public wxAppTraits {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAppTraits : public wxAppTraits, public luna_wrapper_base {
+
 public:
 	
 

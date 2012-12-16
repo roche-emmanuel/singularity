@@ -8,10 +8,8 @@
 
 #include <wx/stdpaths.h>
 
-class wrapper_wxStandardPaths : public wxStandardPaths {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStandardPaths : public wxStandardPaths, public luna_wrapper_base {
+
 public:
 	
 

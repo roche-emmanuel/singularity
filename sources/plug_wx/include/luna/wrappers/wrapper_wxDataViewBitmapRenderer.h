@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewBitmapRenderer : public wxDataViewBitmapRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewBitmapRenderer : public wxDataViewBitmapRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewBitmapRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "wxBitmap", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewBitmapRenderer(varianttype, mode, align), _obj(L,-1) {};
+	wrapper_wxDataViewBitmapRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "wxBitmap", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewBitmapRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

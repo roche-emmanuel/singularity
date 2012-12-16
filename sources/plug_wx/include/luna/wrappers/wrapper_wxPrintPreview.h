@@ -8,10 +8,8 @@
 
 #include <wx/print.h>
 
-class wrapper_wxPrintPreview : public wxPrintPreview {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPrintPreview : public wxPrintPreview, public luna_wrapper_base {
+
 public:
 	
 

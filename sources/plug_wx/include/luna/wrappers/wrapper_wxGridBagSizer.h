@@ -8,14 +8,12 @@
 
 #include <wx/gbsizer.h>
 
-class wrapper_wxGridBagSizer : public wxGridBagSizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridBagSizer : public wxGridBagSizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridBagSizer(lua_State* L, lua_Table* dum, int vgap = 0, int hgap = 0) : wxGridBagSizer(vgap, hgap), _obj(L,-1) {};
+	wrapper_wxGridBagSizer(lua_State* L, lua_Table* dum, int vgap = 0, int hgap = 0) : wxGridBagSizer(vgap, hgap), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

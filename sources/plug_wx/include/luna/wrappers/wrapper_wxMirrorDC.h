@@ -8,14 +8,12 @@
 
 #include <wx/dcmirror.h>
 
-class wrapper_wxMirrorDC : public wxMirrorDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMirrorDC : public wxMirrorDC, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMirrorDC(lua_State* L, lua_Table* dum, wxDC & dc, bool mirror) : wxMirrorDC(dc, mirror), _obj(L,-1) {};
+	wrapper_wxMirrorDC(lua_State* L, lua_Table* dum, wxDC & dc, bool mirror) : wxMirrorDC(dc, mirror), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

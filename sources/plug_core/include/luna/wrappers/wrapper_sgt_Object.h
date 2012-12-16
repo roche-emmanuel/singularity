@@ -8,16 +8,14 @@
 
 #include <base/Object.h>
 
-class wrapper_sgt_Object : public sgt::Object {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_Object : public sgt::Object, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_Object(lua_State* L, lua_Table* dum) : sgt::Object(), _obj(L,-1) {};
-	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs) : sgt::Object(rhs), _obj(L,-1) {};
-	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs, const osg::CopyOp & copyop) : sgt::Object(rhs, copyop), _obj(L,-1) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum) : sgt::Object(), luna_wrapper_base(L) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs) : sgt::Object(rhs), luna_wrapper_base(L) {};
+	wrapper_sgt_Object(lua_State* L, lua_Table* dum, const sgt::Object & rhs, const osg::CopyOp & copyop) : sgt::Object(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

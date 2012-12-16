@@ -8,17 +8,15 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_InteractiveImageHandler : public osgViewer::InteractiveImageHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_InteractiveImageHandler : public osgViewer::InteractiveImageHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image) : osgViewer::InteractiveImageHandler(image), _obj(L,-1) {};
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) : osgViewer::InteractiveImageHandler(image, texture, camera), _obj(L,-1) {};
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) : osgViewer::InteractiveImageHandler(), _obj(L,-1) {};
-	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, const osgViewer::InteractiveImageHandler & arg1, const osg::CopyOp & arg2 = osg::CopyOp::SHALLOW_COPY) : osgViewer::InteractiveImageHandler(arg1, arg2), _obj(L,-1) {};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image) : osgViewer::InteractiveImageHandler(image), luna_wrapper_base(L) {};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) : osgViewer::InteractiveImageHandler(image, texture, camera), luna_wrapper_base(L) {};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) : osgViewer::InteractiveImageHandler(), luna_wrapper_base(L) {};
+	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, const osgViewer::InteractiveImageHandler & arg1, const osg::CopyOp & arg2 = osg::CopyOp::SHALLOW_COPY) : osgViewer::InteractiveImageHandler(arg1, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

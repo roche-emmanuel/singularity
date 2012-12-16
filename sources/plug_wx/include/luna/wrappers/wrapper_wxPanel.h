@@ -8,15 +8,13 @@
 
 #include <wx/panel.h>
 
-class wrapper_wxPanel : public wxPanel {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPanel : public wxPanel, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPanel(lua_State* L, lua_Table* dum) : wxPanel(), _obj(L,-1) {};
-	wrapper_wxPanel(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTAB_TRAVERSAL, const wxString & name = wxPanelNameStr) : wxPanel(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxPanel(lua_State* L, lua_Table* dum) : wxPanel(), luna_wrapper_base(L) {};
+	wrapper_wxPanel(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTAB_TRAVERSAL, const wxString & name = wxPanelNameStr) : wxPanel(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

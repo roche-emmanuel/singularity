@@ -8,16 +8,14 @@
 
 #include <wx/wfstream.h>
 
-class wrapper_wxFileOutputStream : public wxFileOutputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileOutputStream : public wxFileOutputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), _obj(L,-1) {};
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), _obj(L,-1) {};
-	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), _obj(L,-1) {};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), luna_wrapper_base(L) {};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), luna_wrapper_base(L) {};
+	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

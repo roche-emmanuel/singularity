@@ -8,10 +8,8 @@
 
 #include <osgDB/ObjectWrapper>
 
-class wrapper_osgDB_ObjectWrapper : public osgDB::ObjectWrapper {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ObjectWrapper : public osgDB::ObjectWrapper, public luna_wrapper_base {
+
 public:
 	
 

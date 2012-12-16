@@ -8,14 +8,12 @@
 
 #include <osg/State>
 
-class wrapper_osg_State : public osg::State {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_State : public osg::State, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), _obj(L,-1) {};
+	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) {};
 
 	// void osg::State::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {

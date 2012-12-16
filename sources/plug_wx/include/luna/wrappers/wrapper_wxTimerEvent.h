@@ -8,15 +8,13 @@
 
 #include <wx/timer.h>
 
-class wrapper_wxTimerEvent : public wxTimerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTimerEvent : public wxTimerEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTimerEvent(lua_State* L, lua_Table* dum) : wxTimerEvent(), _obj(L,-1) {};
-	wrapper_wxTimerEvent(lua_State* L, lua_Table* dum, wxTimer & timer) : wxTimerEvent(timer), _obj(L,-1) {};
+	wrapper_wxTimerEvent(lua_State* L, lua_Table* dum) : wxTimerEvent(), luna_wrapper_base(L) {};
+	wrapper_wxTimerEvent(lua_State* L, lua_Table* dum, wxTimer & timer) : wxTimerEvent(timer), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,15 +8,13 @@
 
 #include <wx/mousemanager.h>
 
-class wrapper_wxMouseEventsManager : public wxMouseEventsManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMouseEventsManager : public wxMouseEventsManager, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum) : wxMouseEventsManager(), _obj(L,-1) {};
-	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum, wxWindow * win) : wxMouseEventsManager(win), _obj(L,-1) {};
+	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum) : wxMouseEventsManager(), luna_wrapper_base(L) {};
+	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum, wxWindow * win) : wxMouseEventsManager(win), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

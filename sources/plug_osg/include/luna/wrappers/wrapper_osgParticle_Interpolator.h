@@ -8,15 +8,13 @@
 
 #include <osgParticle/Interpolator>
 
-class wrapper_osgParticle_Interpolator : public osgParticle::Interpolator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_Interpolator : public osgParticle::Interpolator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum) : osgParticle::Interpolator(), _obj(L,-1) {};
-	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum, const osgParticle::Interpolator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Interpolator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum) : osgParticle::Interpolator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_Interpolator(lua_State* L, lua_Table* dum, const osgParticle::Interpolator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Interpolator(copy, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

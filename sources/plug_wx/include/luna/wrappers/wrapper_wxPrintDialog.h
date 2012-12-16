@@ -8,10 +8,8 @@
 
 #include <wx/printdlg.h>
 
-class wrapper_wxPrintDialog : public wxPrintDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPrintDialog : public wxPrintDialog, public luna_wrapper_base {
+
 public:
 	
 

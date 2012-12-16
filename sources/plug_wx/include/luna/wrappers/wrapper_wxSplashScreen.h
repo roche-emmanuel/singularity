@@ -8,14 +8,12 @@
 
 #include <wx/splash.h>
 
-class wrapper_wxSplashScreen : public wxSplashScreen {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSplashScreen : public wxSplashScreen, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSplashScreen(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) : wxSplashScreen(bitmap, splashStyle, milliseconds, parent, id, pos, size, style), _obj(L,-1) {};
+	wrapper_wxSplashScreen(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, long splashStyle, int milliseconds, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxBORDER_SIMPLE | wxFRAME_NO_TASKBAR | wxSTAY_ON_TOP) : wxSplashScreen(bitmap, splashStyle, milliseconds, parent, id, pos, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

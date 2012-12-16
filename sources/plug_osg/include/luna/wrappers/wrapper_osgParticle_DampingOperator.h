@@ -8,15 +8,13 @@
 
 #include <osgParticle/DampingOperator>
 
-class wrapper_osgParticle_DampingOperator : public osgParticle::DampingOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_DampingOperator : public osgParticle::DampingOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum) : osgParticle::DampingOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DampingOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum) : osgParticle::DampingOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DampingOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

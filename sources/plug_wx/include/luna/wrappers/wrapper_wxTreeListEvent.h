@@ -8,10 +8,8 @@
 
 #include <wx/treelist.h>
 
-class wrapper_wxTreeListEvent : public wxTreeListEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreeListEvent : public wxTreeListEvent, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,14 +8,12 @@
 
 #include <osgDB/SharedStateManager>
 
-class wrapper_osgDB_SharedStateManager : public osgDB::SharedStateManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_SharedStateManager : public osgDB::SharedStateManager, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) : osgDB::SharedStateManager(mode), _obj(L,-1) {};
+	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) : osgDB::SharedStateManager(mode), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()
 	void reset() {

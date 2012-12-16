@@ -8,14 +8,12 @@
 
 #include <wx/fdrepdlg.h>
 
-class wrapper_wxFindReplaceData : public wxFindReplaceData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFindReplaceData : public wxFindReplaceData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFindReplaceData(lua_State* L, lua_Table* dum, unsigned int flags = 0) : wxFindReplaceData(flags), _obj(L,-1) {};
+	wrapper_wxFindReplaceData(lua_State* L, lua_Table* dum, unsigned int flags = 0) : wxFindReplaceData(flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

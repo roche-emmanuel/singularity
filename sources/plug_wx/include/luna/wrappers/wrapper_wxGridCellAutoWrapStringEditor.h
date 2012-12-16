@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellAutoWrapStringEditor : public wxGridCellAutoWrapStringEditor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellAutoWrapStringEditor : public wxGridCellAutoWrapStringEditor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellAutoWrapStringEditor(lua_State* L, lua_Table* dum) : wxGridCellAutoWrapStringEditor(), _obj(L,-1) {};
+	wrapper_wxGridCellAutoWrapStringEditor(lua_State* L, lua_Table* dum) : wxGridCellAutoWrapStringEditor(), luna_wrapper_base(L) {};
 
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	void BeginEdit(int row, int col, wxGrid * grid) {

@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextstyles.h>
 
-class wrapper_wxRichTextStyleListCtrl : public wxRichTextStyleListCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextStyleListCtrl : public wxRichTextStyleListCtrl, public luna_wrapper_base {
+
 public:
 	
 

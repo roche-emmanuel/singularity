@@ -8,10 +8,8 @@
 
 #include <wx/calctrl.h>
 
-class wrapper_wxCalendarEvent : public wxCalendarEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCalendarEvent : public wxCalendarEvent, public luna_wrapper_base {
+
 public:
 	
 

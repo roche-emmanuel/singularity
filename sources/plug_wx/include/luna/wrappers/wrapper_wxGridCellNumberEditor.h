@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellNumberEditor : public wxGridCellNumberEditor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellNumberEditor : public wxGridCellNumberEditor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), _obj(L,-1) {};
+	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) {};
 
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	void BeginEdit(int row, int col, wxGrid * grid) {

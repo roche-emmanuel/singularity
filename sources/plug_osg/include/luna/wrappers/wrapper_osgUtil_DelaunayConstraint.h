@@ -8,14 +8,12 @@
 
 #include <osgUtil/DelaunayTriangulator>
 
-class wrapper_osgUtil_DelaunayConstraint : public osgUtil::DelaunayConstraint {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_DelaunayConstraint : public osgUtil::DelaunayConstraint, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_DelaunayConstraint(lua_State* L, lua_Table* dum) : osgUtil::DelaunayConstraint(), _obj(L,-1) {};
+	wrapper_osgUtil_DelaunayConstraint(lua_State* L, lua_Table* dum) : osgUtil::DelaunayConstraint(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

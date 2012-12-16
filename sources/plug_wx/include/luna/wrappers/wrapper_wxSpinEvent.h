@@ -8,14 +8,12 @@
 
 #include <wx/spinbutt.h>
 
-class wrapper_wxSpinEvent : public wxSpinEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSpinEvent : public wxSpinEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSpinEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxSpinEvent(commandType, id), _obj(L,-1) {};
+	wrapper_wxSpinEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxSpinEvent(commandType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

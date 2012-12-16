@@ -8,14 +8,12 @@
 
 #include <wx/process.h>
 
-class wrapper_wxProcessEvent : public wxProcessEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxProcessEvent : public wxProcessEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxProcessEvent(lua_State* L, lua_Table* dum, int id = 0, int pid = 0, int exitcode = 0) : wxProcessEvent(id, pid, exitcode), _obj(L,-1) {};
+	wrapper_wxProcessEvent(lua_State* L, lua_Table* dum, int id = 0, int pid = 0, int exitcode = 0) : wxProcessEvent(id, pid, exitcode), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

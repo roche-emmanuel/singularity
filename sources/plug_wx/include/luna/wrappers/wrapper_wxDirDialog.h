@@ -8,14 +8,12 @@
 
 #include <wx/dirdlg.h>
 
-class wrapper_wxDirDialog : public wxDirDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDirDialog : public wxDirDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDirDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxDirSelectorPromptStr, const wxString & defaultPath = wxEmptyString, long style = wxDD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxDirDialogNameStr) : wxDirDialog(parent, message, defaultPath, style, pos, size, name), _obj(L,-1) {};
+	wrapper_wxDirDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxDirSelectorPromptStr, const wxString & defaultPath = wxEmptyString, long style = wxDD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxDirDialogNameStr) : wxDirDialog(parent, message, defaultPath, style, pos, size, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

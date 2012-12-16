@@ -8,15 +8,13 @@
 
 #include <osgParticle/CenteredPlacer>
 
-class wrapper_osgParticle_CenteredPlacer : public osgParticle::CenteredPlacer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_CenteredPlacer : public osgParticle::CenteredPlacer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_CenteredPlacer(lua_State* L, lua_Table* dum) : osgParticle::CenteredPlacer(), _obj(L,-1) {};
-	wrapper_osgParticle_CenteredPlacer(lua_State* L, lua_Table* dum, const osgParticle::CenteredPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::CenteredPlacer(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_CenteredPlacer(lua_State* L, lua_Table* dum) : osgParticle::CenteredPlacer(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_CenteredPlacer(lua_State* L, lua_Table* dum, const osgParticle::CenteredPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::CenteredPlacer(copy, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

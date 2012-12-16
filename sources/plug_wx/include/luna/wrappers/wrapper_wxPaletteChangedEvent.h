@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxPaletteChangedEvent : public wxPaletteChangedEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPaletteChangedEvent : public wxPaletteChangedEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPaletteChangedEvent(lua_State* L, lua_Table* dum, int winid = 0) : wxPaletteChangedEvent(winid), _obj(L,-1) {};
+	wrapper_wxPaletteChangedEvent(lua_State* L, lua_Table* dum, int winid = 0) : wxPaletteChangedEvent(winid), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

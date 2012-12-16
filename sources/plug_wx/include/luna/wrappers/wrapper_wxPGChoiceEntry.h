@@ -8,14 +8,12 @@
 
 
 
-class wrapper_wxPGChoiceEntry : public wxPGChoiceEntry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPGChoiceEntry : public wxPGChoiceEntry, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPGChoiceEntry(lua_State* L, lua_Table* dum) : wxPGChoiceEntry(), _obj(L,-1) {};
+	wrapper_wxPGChoiceEntry(lua_State* L, lua_Table* dum) : wxPGChoiceEntry(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

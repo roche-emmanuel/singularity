@@ -8,14 +8,12 @@
 
 #include <wx/propgrid/manager.h>
 
-class wrapper_wxPropertyGridPage : public wxPropertyGridPage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPropertyGridPage : public wxPropertyGridPage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPropertyGridPage(lua_State* L, lua_Table* dum) : wxPropertyGridPage(), _obj(L,-1) {};
+	wrapper_wxPropertyGridPage(lua_State* L, lua_Table* dum) : wxPropertyGridPage(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

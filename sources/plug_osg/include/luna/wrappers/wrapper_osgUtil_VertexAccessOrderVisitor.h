@@ -8,14 +8,12 @@
 
 #include <osgUtil/MeshOptimizers>
 
-class wrapper_osgUtil_VertexAccessOrderVisitor : public osgUtil::VertexAccessOrderVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_VertexAccessOrderVisitor : public osgUtil::VertexAccessOrderVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_VertexAccessOrderVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexAccessOrderVisitor(optimizer), _obj(L,-1) {};
+	wrapper_osgUtil_VertexAccessOrderVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexAccessOrderVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

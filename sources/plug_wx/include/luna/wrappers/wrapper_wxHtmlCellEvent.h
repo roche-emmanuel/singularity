@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlwin.h>
 
-class wrapper_wxHtmlCellEvent : public wxHtmlCellEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlCellEvent : public wxHtmlCellEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlCellEvent(lua_State* L, lua_Table* dum, int commandType, int id, wxHtmlCell * cell, const wxPoint & point, const wxMouseEvent & ev) : wxHtmlCellEvent(commandType, id, cell, point, ev), _obj(L,-1) {};
+	wrapper_wxHtmlCellEvent(lua_State* L, lua_Table* dum, int commandType, int id, wxHtmlCell * cell, const wxPoint & point, const wxMouseEvent & ev) : wxHtmlCellEvent(commandType, id, cell, point, ev), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

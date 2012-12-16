@@ -8,15 +8,13 @@
 
 #include <wx/treectrl.h>
 
-class wrapper_wxTreeCtrl : public wxTreeCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreeCtrl : public wxTreeCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum) : wxTreeCtrl(), _obj(L,-1) {};
-	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxTreeCtrlNameStr) : wxTreeCtrl(parent, id, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum) : wxTreeCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxTreeCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxTR_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxTreeCtrlNameStr) : wxTreeCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

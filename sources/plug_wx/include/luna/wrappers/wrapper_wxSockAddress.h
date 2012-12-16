@@ -8,14 +8,12 @@
 
 #include <wx/socket.h>
 
-class wrapper_wxSockAddress : public wxSockAddress {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSockAddress : public wxSockAddress, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSockAddress(lua_State* L, lua_Table* dum) : wxSockAddress(), _obj(L,-1) {};
+	wrapper_wxSockAddress(lua_State* L, lua_Table* dum) : wxSockAddress(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

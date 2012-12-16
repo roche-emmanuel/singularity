@@ -8,14 +8,12 @@
 
 #include <wx/bookctrl.h>
 
-class wrapper_wxBookCtrlEvent : public wxBookCtrlEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBookCtrlEvent : public wxBookCtrlEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBookCtrlEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) : wxBookCtrlEvent(eventType, id, sel, oldSel), _obj(L,-1) {};
+	wrapper_wxBookCtrlEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) : wxBookCtrlEvent(eventType, id, sel, oldSel), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

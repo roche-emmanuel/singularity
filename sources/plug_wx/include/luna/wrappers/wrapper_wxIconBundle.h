@@ -8,18 +8,16 @@
 
 #include <wx/iconbndl.h>
 
-class wrapper_wxIconBundle : public wxIconBundle {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxIconBundle : public wxIconBundle, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxIconBundle(lua_State* L, lua_Table* dum) : wxIconBundle(), _obj(L,-1) {};
-	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(file, type), _obj(L,-1) {};
-	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(stream, type), _obj(L,-1) {};
-	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxIcon & icon) : wxIconBundle(icon), _obj(L,-1) {};
-	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxIconBundle & ic) : wxIconBundle(ic), _obj(L,-1) {};
+	wrapper_wxIconBundle(lua_State* L, lua_Table* dum) : wxIconBundle(), luna_wrapper_base(L) {};
+	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(file, type), luna_wrapper_base(L) {};
+	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(stream, type), luna_wrapper_base(L) {};
+	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxIcon & icon) : wxIconBundle(icon), luna_wrapper_base(L) {};
+	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxIconBundle & ic) : wxIconBundle(ic), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

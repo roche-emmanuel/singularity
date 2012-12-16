@@ -8,14 +8,12 @@
 
 #include <wx/html/htmprint.h>
 
-class wrapper_wxHtmlPrintout : public wxHtmlPrintout {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlPrintout : public wxHtmlPrintout, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlPrintout(lua_State* L, lua_Table* dum, const wxString & title = "Printout") : wxHtmlPrintout(title), _obj(L,-1) {};
+	wrapper_wxHtmlPrintout(lua_State* L, lua_Table* dum, const wxString & title = "Printout") : wxHtmlPrintout(title), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

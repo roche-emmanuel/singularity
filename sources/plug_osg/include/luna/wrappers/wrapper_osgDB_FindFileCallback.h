@@ -8,10 +8,8 @@
 
 #include <osgDB/Callbacks>
 
-class wrapper_osgDB_FindFileCallback : public osgDB::FindFileCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_FindFileCallback : public osgDB::FindFileCallback, public luna_wrapper_base {
+
 public:
 	
 

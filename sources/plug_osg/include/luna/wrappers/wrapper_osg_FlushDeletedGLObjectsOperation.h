@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_FlushDeletedGLObjectsOperation : public osg::FlushDeletedGLObjectsOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_FlushDeletedGLObjectsOperation : public osg::FlushDeletedGLObjectsOperation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_FlushDeletedGLObjectsOperation(lua_State* L, lua_Table* dum, double availableTime, bool keep = false) : osg::FlushDeletedGLObjectsOperation(availableTime, keep), _obj(L,-1) {};
+	wrapper_osg_FlushDeletedGLObjectsOperation(lua_State* L, lua_Table* dum, double availableTime, bool keep = false) : osg::FlushDeletedGLObjectsOperation(availableTime, keep), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()
 	void release() {

@@ -8,10 +8,8 @@
 
 #include <wx/listctrl.h>
 
-class wrapper_wxListView : public wxListView {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxListView : public wxListView, public luna_wrapper_base {
+
 public:
 	
 

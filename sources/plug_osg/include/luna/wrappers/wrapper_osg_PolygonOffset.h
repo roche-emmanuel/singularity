@@ -8,16 +8,14 @@
 
 #include <osg/PolygonOffset>
 
-class wrapper_osg_PolygonOffset : public osg::PolygonOffset {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PolygonOffset : public osg::PolygonOffset, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum) : osg::PolygonOffset(), _obj(L,-1) {};
-	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum, float factor, float units) : osg::PolygonOffset(factor, units), _obj(L,-1) {};
-	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonOffset(po, copyop), _obj(L,-1) {};
+	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum) : osg::PolygonOffset(), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum, float factor, float units) : osg::PolygonOffset(factor, units), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonOffset(lua_State* L, lua_Table* dum, const osg::PolygonOffset & po, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonOffset(po, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

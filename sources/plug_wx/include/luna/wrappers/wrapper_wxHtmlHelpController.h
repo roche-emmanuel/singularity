@@ -8,14 +8,12 @@
 
 #include <wx/html/helpctrl.h>
 
-class wrapper_wxHtmlHelpController : public wxHtmlHelpController {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlHelpController : public wxHtmlHelpController, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), _obj(L,-1) {};
+	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) {};
 
 	// bool wxHtmlHelpController::DisplayContents()
 	bool DisplayContents() {

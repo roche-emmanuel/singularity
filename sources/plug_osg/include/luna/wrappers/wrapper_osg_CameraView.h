@@ -8,15 +8,13 @@
 
 #include <osg/CameraView>
 
-class wrapper_osg_CameraView : public osg::CameraView {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CameraView : public osg::CameraView, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CameraView(lua_State* L, lua_Table* dum) : osg::CameraView(), _obj(L,-1) {};
-	wrapper_osg_CameraView(lua_State* L, lua_Table* dum, const osg::CameraView & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CameraView(pat, copyop), _obj(L,-1) {};
+	wrapper_osg_CameraView(lua_State* L, lua_Table* dum) : osg::CameraView(), luna_wrapper_base(L) {};
+	wrapper_osg_CameraView(lua_State* L, lua_Table* dum, const osg::CameraView & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CameraView(pat, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

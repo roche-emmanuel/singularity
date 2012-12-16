@@ -8,14 +8,12 @@
 
 #include <wx/propgrid/editors.h>
 
-class wrapper_wxPGEditor : public wxPGEditor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPGEditor : public wxPGEditor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPGEditor(lua_State* L, lua_Table* dum) : wxPGEditor(), _obj(L,-1) {};
+	wrapper_wxPGEditor(lua_State* L, lua_Table* dum) : wxPGEditor(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

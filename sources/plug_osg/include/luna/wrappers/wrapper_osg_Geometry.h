@@ -8,15 +8,13 @@
 
 #include <osg/Geometry>
 
-class wrapper_osg_Geometry : public osg::Geometry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Geometry : public osg::Geometry, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Geometry(lua_State* L, lua_Table* dum) : osg::Geometry(), _obj(L,-1) {};
-	wrapper_osg_Geometry(lua_State* L, lua_Table* dum, const osg::Geometry & geometry, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Geometry(geometry, copyop), _obj(L,-1) {};
+	wrapper_osg_Geometry(lua_State* L, lua_Table* dum) : osg::Geometry(), luna_wrapper_base(L) {};
+	wrapper_osg_Geometry(lua_State* L, lua_Table* dum, const osg::Geometry & geometry, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Geometry(geometry, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

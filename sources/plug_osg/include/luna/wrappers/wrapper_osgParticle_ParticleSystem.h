@@ -8,15 +8,13 @@
 
 #include <osgParticle/ParticleSystem>
 
-class wrapper_osgParticle_ParticleSystem : public osgParticle::ParticleSystem {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ParticleSystem : public osgParticle::ParticleSystem, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ParticleSystem(), _obj(L,-1) {};
-	wrapper_osgParticle_ParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleSystem(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ParticleSystem(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleSystem(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

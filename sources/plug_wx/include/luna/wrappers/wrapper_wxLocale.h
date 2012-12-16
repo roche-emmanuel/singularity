@@ -8,16 +8,14 @@
 
 #include <wx/intl.h>
 
-class wrapper_wxLocale : public wxLocale {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLocale : public wxLocale, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLocale(lua_State* L, lua_Table* dum) : wxLocale(), _obj(L,-1) {};
-	wrapper_wxLocale(lua_State* L, lua_Table* dum, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) : wxLocale(language, flags), _obj(L,-1) {};
-	wrapper_wxLocale(lua_State* L, lua_Table* dum, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) : wxLocale(name, shortName, locale, bLoadDefault), _obj(L,-1) {};
+	wrapper_wxLocale(lua_State* L, lua_Table* dum) : wxLocale(), luna_wrapper_base(L) {};
+	wrapper_wxLocale(lua_State* L, lua_Table* dum, int language, int flags = ::wxLOCALE_LOAD_DEFAULT) : wxLocale(language, flags), luna_wrapper_base(L) {};
+	wrapper_wxLocale(lua_State* L, lua_Table* dum, const wxString & name, const wxString & shortName = wxEmptyString, const wxString & locale = wxEmptyString, bool bLoadDefault = true) : wxLocale(name, shortName, locale, bLoadDefault), luna_wrapper_base(L) {};
 
 	// const wxString & wxLocale::GetString(const wxString & origString, const wxString & domain = wxEmptyString) const
 	const wxString & GetString(const wxString & origString, const wxString & domain = wxEmptyString) const {

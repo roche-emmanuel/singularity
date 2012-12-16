@@ -8,15 +8,13 @@
 
 #include <wx/toolbar.h>
 
-class wrapper_wxToolBar : public wxToolBar {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxToolBar : public wxToolBar, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxToolBar(lua_State* L, lua_Table* dum) : wxToolBar(), _obj(L,-1) {};
-	wrapper_wxToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr) : wxToolBar(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxToolBar(lua_State* L, lua_Table* dum) : wxToolBar(), luna_wrapper_base(L) {};
+	wrapper_wxToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTB_HORIZONTAL, const wxString & name = wxToolBarNameStr) : wxToolBar(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

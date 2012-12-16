@@ -8,16 +8,14 @@
 
 #include <osg/Projection>
 
-class wrapper_osg_Projection : public osg::Projection {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Projection : public osg::Projection, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Projection(lua_State* L, lua_Table* dum) : osg::Projection(), _obj(L,-1) {};
-	wrapper_osg_Projection(lua_State* L, lua_Table* dum, const osg::Projection & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Projection(arg1, copyop), _obj(L,-1) {};
-	wrapper_osg_Projection(lua_State* L, lua_Table* dum, const osg::Matrixd & matix) : osg::Projection(matix), _obj(L,-1) {};
+	wrapper_osg_Projection(lua_State* L, lua_Table* dum) : osg::Projection(), luna_wrapper_base(L) {};
+	wrapper_osg_Projection(lua_State* L, lua_Table* dum, const osg::Projection & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Projection(arg1, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_Projection(lua_State* L, lua_Table* dum, const osg::Matrixd & matix) : osg::Projection(matix), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

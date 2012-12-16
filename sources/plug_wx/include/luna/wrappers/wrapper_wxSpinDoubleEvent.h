@@ -8,15 +8,13 @@
 
 #include <wx/spinctrl.h>
 
-class wrapper_wxSpinDoubleEvent : public wxSpinDoubleEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSpinDoubleEvent : public wxSpinDoubleEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSpinDoubleEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0, double value = 0) : wxSpinDoubleEvent(commandType, winid, value), _obj(L,-1) {};
-	wrapper_wxSpinDoubleEvent(lua_State* L, lua_Table* dum, const wxSpinDoubleEvent & event) : wxSpinDoubleEvent(event), _obj(L,-1) {};
+	wrapper_wxSpinDoubleEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0, double value = 0) : wxSpinDoubleEvent(commandType, winid, value), luna_wrapper_base(L) {};
+	wrapper_wxSpinDoubleEvent(lua_State* L, lua_Table* dum, const wxSpinDoubleEvent & event) : wxSpinDoubleEvent(event), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

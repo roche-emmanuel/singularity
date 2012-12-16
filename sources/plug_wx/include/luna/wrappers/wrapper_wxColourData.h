@@ -8,14 +8,12 @@
 
 #include <wx/colourdata.h>
 
-class wrapper_wxColourData : public wxColourData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxColourData : public wxColourData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxColourData(lua_State* L, lua_Table* dum) : wxColourData(), _obj(L,-1) {};
+	wrapper_wxColourData(lua_State* L, lua_Table* dum) : wxColourData(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

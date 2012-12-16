@@ -8,15 +8,13 @@
 
 #include <wx/spinbutt.h>
 
-class wrapper_wxSpinButton : public wxSpinButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSpinButton : public wxSpinButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSpinButton(lua_State* L, lua_Table* dum) : wxSpinButton(), _obj(L,-1) {};
-	wrapper_wxSpinButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_VERTICAL, const wxString & name = "spinButton") : wxSpinButton(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxSpinButton(lua_State* L, lua_Table* dum) : wxSpinButton(), luna_wrapper_base(L) {};
+	wrapper_wxSpinButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_VERTICAL, const wxString & name = "spinButton") : wxSpinButton(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

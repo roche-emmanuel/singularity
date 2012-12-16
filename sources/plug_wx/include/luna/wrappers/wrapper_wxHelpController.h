@@ -8,14 +8,12 @@
 
 #include <wx/help.h>
 
-class wrapper_wxHelpController : public wxHelpController {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHelpController : public wxHelpController, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHelpController(lua_State* L, lua_Table* dum, wxWindow * parentWindow = NULL) : wxHelpController(parentWindow), _obj(L,-1) {};
+	wrapper_wxHelpController(lua_State* L, lua_Table* dum, wxWindow * parentWindow = NULL) : wxHelpController(parentWindow), luna_wrapper_base(L) {};
 
 	// bool wxHelpController::DisplayBlock(long blockNo)
 	bool DisplayBlock(long blockNo) {

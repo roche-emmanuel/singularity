@@ -44,3 +44,13 @@ function test_i18n()
 	locale:setLocale(cfg.default_locale)
 end
 
+function test_getTable()
+	local obj1 = sgt.Object()
+	assert_equal(nil,obj1:getTable(),"Invalid result in obj1");
+	
+	local tt = {}
+	local obj2 = sgt.Object(tt)
+	assert_equal(tt,obj2:getTable(),"Invalid result in obj2");
+	log:info("Tests","Done testing derivation table access.")
+end
+

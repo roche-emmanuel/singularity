@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxMoveEvent : public wxMoveEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMoveEvent : public wxMoveEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMoveEvent(lua_State* L, lua_Table* dum, const wxPoint & pt, int id = 0) : wxMoveEvent(pt, id), _obj(L,-1) {};
+	wrapper_wxMoveEvent(lua_State* L, lua_Table* dum, const wxPoint & pt, int id = 0) : wxMoveEvent(pt, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

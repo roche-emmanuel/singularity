@@ -8,14 +8,12 @@
 
 #include <wx/aui/auibook.h>
 
-class wrapper_wxAuiTabArt : public wxAuiTabArt {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiTabArt : public wxAuiTabArt, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), _obj(L,-1) {};
+	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) {};
 
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	wxAuiTabArt * Clone() {

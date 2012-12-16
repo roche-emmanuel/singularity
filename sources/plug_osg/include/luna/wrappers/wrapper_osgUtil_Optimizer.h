@@ -8,14 +8,12 @@
 
 #include <osgUtil/Optimizer>
 
-class wrapper_osgUtil_Optimizer : public osgUtil::Optimizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_Optimizer : public osgUtil::Optimizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_Optimizer(lua_State* L, lua_Table* dum) : osgUtil::Optimizer(), _obj(L,-1) {};
+	wrapper_osgUtil_Optimizer(lua_State* L, lua_Table* dum) : osgUtil::Optimizer(), luna_wrapper_base(L) {};
 
 	// void osgUtil::Optimizer::optimize(osg::Node * node, unsigned int options)
 	void optimize(osg::Node * node, unsigned int options) {

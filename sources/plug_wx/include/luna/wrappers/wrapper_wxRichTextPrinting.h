@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextprint.h>
 
-class wrapper_wxRichTextPrinting : public wxRichTextPrinting {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextPrinting : public wxRichTextPrinting, public luna_wrapper_base {
+
 public:
 	
 

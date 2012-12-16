@@ -8,14 +8,12 @@
 
 #include <osgGA/UFOManipulator>
 
-class wrapper_osgGA_UFOManipulator : public osgGA::UFOManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_UFOManipulator : public osgGA::UFOManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_UFOManipulator(lua_State* L, lua_Table* dum) : osgGA::UFOManipulator(), _obj(L,-1) {};
+	wrapper_osgGA_UFOManipulator(lua_State* L, lua_Table* dum) : osgGA::UFOManipulator(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

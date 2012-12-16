@@ -8,17 +8,15 @@
 
 #include <osg/BufferIndexBinding>
 
-class wrapper_osg_UniformBufferBinding : public osg::UniformBufferBinding {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_UniformBufferBinding : public osg::UniformBufferBinding, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum) : osg::UniformBufferBinding(), _obj(L,-1) {};
-	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index) : osg::UniformBufferBinding(index), _obj(L,-1) {};
-	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index, osg::BufferObject * bo, int offset, int size) : osg::UniformBufferBinding(index, bo, offset, size), _obj(L,-1) {};
-	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, const osg::UniformBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::UniformBufferBinding(rhs, copyop), _obj(L,-1) {};
+	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum) : osg::UniformBufferBinding(), luna_wrapper_base(L) {};
+	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index) : osg::UniformBufferBinding(index), luna_wrapper_base(L) {};
+	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index, osg::BufferObject * bo, int offset, int size) : osg::UniformBufferBinding(index, bo, offset, size), luna_wrapper_base(L) {};
+	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, const osg::UniformBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::UniformBufferBinding(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,14 +8,12 @@
 
 #include <osgDB/ObjectWrapper>
 
-class wrapper_osgDB_BaseCompressor : public osgDB::BaseCompressor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_BaseCompressor : public osgDB::BaseCompressor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_BaseCompressor(lua_State* L, lua_Table* dum) : osgDB::BaseCompressor(), _obj(L,-1) {};
+	wrapper_osgDB_BaseCompressor(lua_State* L, lua_Table* dum) : osgDB::BaseCompressor(), luna_wrapper_base(L) {};
 
 
 

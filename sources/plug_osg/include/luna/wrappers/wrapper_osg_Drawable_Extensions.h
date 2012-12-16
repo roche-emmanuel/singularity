@@ -8,14 +8,12 @@
 
 #include <osg/Drawable>
 
-class wrapper_osg_Drawable_Extensions : public osg::Drawable::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Drawable_Extensions : public osg::Drawable::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Drawable_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Drawable::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_Drawable_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Drawable::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

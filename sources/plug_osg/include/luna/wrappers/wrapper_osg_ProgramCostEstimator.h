@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsCostEstimator>
 
-class wrapper_osg_ProgramCostEstimator : public osg::ProgramCostEstimator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ProgramCostEstimator : public osg::ProgramCostEstimator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ProgramCostEstimator(lua_State* L, lua_Table* dum) : osg::ProgramCostEstimator(), _obj(L,-1) {};
+	wrapper_osg_ProgramCostEstimator(lua_State* L, lua_Table* dum) : osg::ProgramCostEstimator(), luna_wrapper_base(L) {};
 
 
 

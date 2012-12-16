@@ -8,10 +8,8 @@
 
 #include <osg/GraphicsContext>
 
-class wrapper_osg_GraphicsContext_WindowingSystemInterface : public osg::GraphicsContext::WindowingSystemInterface {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsContext_WindowingSystemInterface : public osg::GraphicsContext::WindowingSystemInterface, public luna_wrapper_base {
+
 public:
 	
 

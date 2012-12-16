@@ -8,14 +8,12 @@
 
 #include <osgUtil/TransformCallback>
 
-class wrapper_osgUtil_TransformCallback : public osgUtil::TransformCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_TransformCallback : public osgUtil::TransformCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_TransformCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity) : osgUtil::TransformCallback(pivot, axis, angularVelocity), _obj(L,-1) {};
+	wrapper_osgUtil_TransformCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & pivot, const osg::Vec3f & axis, float angularVelocity) : osgUtil::TransformCallback(pivot, axis, angularVelocity), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

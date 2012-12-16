@@ -8,14 +8,12 @@
 
 #include <osgText/Glyph>
 
-class wrapper_osgText_Glyph : public osgText::Glyph {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_Glyph : public osgText::Glyph, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_Glyph(lua_State* L, lua_Table* dum, osgText::Font * font, unsigned int glyphCode) : osgText::Glyph(font, glyphCode), _obj(L,-1) {};
+	wrapper_osgText_Glyph(lua_State* L, lua_Table* dum, osgText::Font * font, unsigned int glyphCode) : osgText::Glyph(font, glyphCode), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

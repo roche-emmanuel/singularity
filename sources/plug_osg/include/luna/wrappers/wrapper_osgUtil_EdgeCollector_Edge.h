@@ -8,10 +8,8 @@
 
 #include <osgUtil/EdgeCollector>
 
-class wrapper_osgUtil_EdgeCollector_Edge : public osgUtil::EdgeCollector::Edge {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_EdgeCollector_Edge : public osgUtil::EdgeCollector::Edge, public luna_wrapper_base {
+
 public:
 	
 

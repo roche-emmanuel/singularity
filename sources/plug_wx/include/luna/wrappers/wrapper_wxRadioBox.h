@@ -8,15 +8,13 @@
 
 #include <wx/radiobox.h>
 
-class wrapper_wxRadioBox : public wxRadioBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRadioBox : public wxRadioBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRadioBox(lua_State* L, lua_Table* dum) : wxRadioBox(), _obj(L,-1) {};
-	wrapper_wxRadioBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr) : wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name), _obj(L,-1) {};
+	wrapper_wxRadioBox(lua_State* L, lua_Table* dum) : wxRadioBox(), luna_wrapper_base(L) {};
+	wrapper_wxRadioBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, int majorDimension = 0, long style = wxRA_SPECIFY_COLS, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioBoxNameStr) : wxRadioBox(parent, id, label, pos, size, choices, majorDimension, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

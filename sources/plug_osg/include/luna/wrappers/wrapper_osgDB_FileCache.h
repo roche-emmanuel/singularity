@@ -8,14 +8,12 @@
 
 #include <osgDB/FileCache>
 
-class wrapper_osgDB_FileCache : public osgDB::FileCache {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_FileCache : public osgDB::FileCache, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), _obj(L,-1) {};
+	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), luna_wrapper_base(L) {};
 
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const
 	bool isFileAppropriateForFileCache(const std::string & originalFileName) const {

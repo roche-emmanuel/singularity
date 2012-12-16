@@ -8,18 +8,16 @@
 
 #include <wx/cursor.h>
 
-class wrapper_wxCursor : public wxCursor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCursor : public wxCursor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCursor(lua_State* L, lua_Table* dum) : wxCursor(), _obj(L,-1) {};
-	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) : wxCursor(cursorName, type, hotSpotX, hotSpotY), _obj(L,-1) {};
-	wrapper_wxCursor(lua_State* L, lua_Table* dum, wxStockCursor cursorId) : wxCursor(cursorId), _obj(L,-1) {};
-	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxImage & image) : wxCursor(image), _obj(L,-1) {};
-	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxCursor & cursor) : wxCursor(cursor), _obj(L,-1) {};
+	wrapper_wxCursor(lua_State* L, lua_Table* dum) : wxCursor(), luna_wrapper_base(L) {};
+	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxString & cursorName, wxBitmapType type = wxCURSOR_DEFAULT_TYPE, int hotSpotX = 0, int hotSpotY = 0) : wxCursor(cursorName, type, hotSpotX, hotSpotY), luna_wrapper_base(L) {};
+	wrapper_wxCursor(lua_State* L, lua_Table* dum, wxStockCursor cursorId) : wxCursor(cursorId), luna_wrapper_base(L) {};
+	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxImage & image) : wxCursor(image), luna_wrapper_base(L) {};
+	wrapper_wxCursor(lua_State* L, lua_Table* dum, const wxCursor & cursor) : wxCursor(cursor), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

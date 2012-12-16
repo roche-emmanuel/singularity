@@ -8,10 +8,8 @@
 
 #include <wx/vlbox.h>
 
-class wrapper_wxVListBox : public wxVListBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxVListBox : public wxVListBox, public luna_wrapper_base {
+
 public:
 	
 

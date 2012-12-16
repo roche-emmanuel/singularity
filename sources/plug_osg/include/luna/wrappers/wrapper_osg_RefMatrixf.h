@@ -8,18 +8,16 @@
 
 #include <osg/Matrixf>
 
-class wrapper_osg_RefMatrixf : public osg::RefMatrixf {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_RefMatrixf : public osg::RefMatrixf, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum) : osg::RefMatrixf(), _obj(L,-1) {};
-	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixf & other) : osg::RefMatrixf(other), _obj(L,-1) {};
-	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixd & other) : osg::RefMatrixf(other), _obj(L,-1) {};
-	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::RefMatrixf & other) : osg::RefMatrixf(other), _obj(L,-1) {};
-	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) : osg::RefMatrixf(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33), _obj(L,-1) {};
+	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum) : osg::RefMatrixf(), luna_wrapper_base(L) {};
+	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixf & other) : osg::RefMatrixf(other), luna_wrapper_base(L) {};
+	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixd & other) : osg::RefMatrixf(other), luna_wrapper_base(L) {};
+	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::RefMatrixf & other) : osg::RefMatrixf(other), luna_wrapper_base(L) {};
+	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, float a00, float a01, float a02, float a03, float a10, float a11, float a12, float a13, float a20, float a21, float a22, float a23, float a30, float a31, float a32, float a33) : osg::RefMatrixf(a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

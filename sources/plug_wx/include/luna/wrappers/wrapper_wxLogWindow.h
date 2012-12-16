@@ -8,14 +8,12 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogWindow : public wxLogWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogWindow : public wxLogWindow, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLogWindow(lua_State* L, lua_Table* dum, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) : wxLogWindow(pParent, szTitle, show, passToOld), _obj(L,-1) {};
+	wrapper_wxLogWindow(lua_State* L, lua_Table* dum, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) : wxLogWindow(pParent, szTitle, show, passToOld), luna_wrapper_base(L) {};
 
 	// void wxLog::Flush()
 	void Flush() {

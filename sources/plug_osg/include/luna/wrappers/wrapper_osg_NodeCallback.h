@@ -8,15 +8,13 @@
 
 #include <osg/NodeCallback>
 
-class wrapper_osg_NodeCallback : public osg::NodeCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_NodeCallback : public osg::NodeCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum) : osg::NodeCallback(), _obj(L,-1) {};
-	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum, const osg::NodeCallback & nc, const osg::CopyOp & arg2) : osg::NodeCallback(nc, arg2), _obj(L,-1) {};
+	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum) : osg::NodeCallback(), luna_wrapper_base(L) {};
+	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum, const osg::NodeCallback & nc, const osg::CopyOp & arg2) : osg::NodeCallback(nc, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

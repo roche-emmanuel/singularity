@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxDisplayChangedEvent : public wxDisplayChangedEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDisplayChangedEvent : public wxDisplayChangedEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDisplayChangedEvent(lua_State* L, lua_Table* dum) : wxDisplayChangedEvent(), _obj(L,-1) {};
+	wrapper_wxDisplayChangedEvent(lua_State* L, lua_Table* dum) : wxDisplayChangedEvent(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

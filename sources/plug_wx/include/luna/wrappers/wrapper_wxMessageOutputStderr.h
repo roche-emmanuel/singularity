@@ -8,10 +8,8 @@
 
 #include <wx/msgout.h>
 
-class wrapper_wxMessageOutputStderr : public wxMessageOutputStderr {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMessageOutputStderr : public wxMessageOutputStderr, public luna_wrapper_base {
+
 public:
 	
 

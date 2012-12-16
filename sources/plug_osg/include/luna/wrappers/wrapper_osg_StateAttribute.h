@@ -8,15 +8,13 @@
 
 #include <osg/StateAttribute>
 
-class wrapper_osg_StateAttribute : public osg::StateAttribute {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_StateAttribute : public osg::StateAttribute, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_StateAttribute(lua_State* L, lua_Table* dum) : osg::StateAttribute(), _obj(L,-1) {};
-	wrapper_osg_StateAttribute(lua_State* L, lua_Table* dum, const osg::StateAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::StateAttribute(sa, copyop), _obj(L,-1) {};
+	wrapper_osg_StateAttribute(lua_State* L, lua_Table* dum) : osg::StateAttribute(), luna_wrapper_base(L) {};
+	wrapper_osg_StateAttribute(lua_State* L, lua_Table* dum, const osg::StateAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::StateAttribute(sa, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

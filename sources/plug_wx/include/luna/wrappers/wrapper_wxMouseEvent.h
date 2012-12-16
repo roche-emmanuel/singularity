@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxMouseEvent : public wxMouseEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMouseEvent : public wxMouseEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMouseEvent(lua_State* L, lua_Table* dum, int mouseEventType = wxEVT_NULL) : wxMouseEvent(mouseEventType), _obj(L,-1) {};
+	wrapper_wxMouseEvent(lua_State* L, lua_Table* dum, int mouseEventType = wxEVT_NULL) : wxMouseEvent(mouseEventType), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

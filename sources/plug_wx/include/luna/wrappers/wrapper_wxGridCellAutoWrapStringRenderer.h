@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellAutoWrapStringRenderer : public wxGridCellAutoWrapStringRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellAutoWrapStringRenderer : public wxGridCellAutoWrapStringRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellAutoWrapStringRenderer(lua_State* L, lua_Table* dum) : wxGridCellAutoWrapStringRenderer(), _obj(L,-1) {};
+	wrapper_wxGridCellAutoWrapStringRenderer(lua_State* L, lua_Table* dum) : wxGridCellAutoWrapStringRenderer(), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

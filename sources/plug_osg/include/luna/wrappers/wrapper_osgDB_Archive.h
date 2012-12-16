@@ -8,14 +8,12 @@
 
 #include <osgDB/Archive>
 
-class wrapper_osgDB_Archive : public osgDB::Archive {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_Archive : public osgDB::Archive, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_Archive(lua_State* L, lua_Table* dum) : osgDB::Archive(), _obj(L,-1) {};
+	wrapper_osgDB_Archive(lua_State* L, lua_Table* dum) : osgDB::Archive(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

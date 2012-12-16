@@ -8,10 +8,8 @@
 
 #include <osg/Texture2D>
 
-class wrapper_osg_Texture2D_SubloadCallback : public osg::Texture2D::SubloadCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Texture2D_SubloadCallback : public osg::Texture2D::SubloadCallback, public luna_wrapper_base {
+
 public:
 	
 

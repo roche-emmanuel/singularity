@@ -8,16 +8,14 @@
 
 #include <osgParticle/ExplosionDebrisEffect>
 
-class wrapper_osgParticle_ExplosionDebrisEffect : public osgParticle::ExplosionDebrisEffect {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ExplosionDebrisEffect : public osgParticle::ExplosionDebrisEffect, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::ExplosionDebrisEffect(automaticSetup), _obj(L,-1) {};
-	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::ExplosionDebrisEffect(position, scale, intensity), _obj(L,-1) {};
-	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, const osgParticle::ExplosionDebrisEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ExplosionDebrisEffect(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::ExplosionDebrisEffect(automaticSetup), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::ExplosionDebrisEffect(position, scale, intensity), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ExplosionDebrisEffect(lua_State* L, lua_Table* dum, const osgParticle::ExplosionDebrisEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ExplosionDebrisEffect(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

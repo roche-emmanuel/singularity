@@ -8,10 +8,8 @@
 
 #include <wx/splitter.h>
 
-class wrapper_wxSplitterWindow : public wxSplitterWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSplitterWindow : public wxSplitterWindow, public luna_wrapper_base {
+
 public:
 	
 

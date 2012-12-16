@@ -8,14 +8,12 @@
 
 #include <wx/dataobj.h>
 
-class wrapper_wxBitmapDataObject : public wxBitmapDataObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBitmapDataObject : public wxBitmapDataObject, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBitmapDataObject(lua_State* L, lua_Table* dum, const wxBitmap & bitmap = wxNullBitmap) : wxBitmapDataObject(bitmap), _obj(L,-1) {};
+	wrapper_wxBitmapDataObject(lua_State* L, lua_Table* dum, const wxBitmap & bitmap = wxNullBitmap) : wxBitmapDataObject(bitmap), luna_wrapper_base(L) {};
 
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	void GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const {

@@ -8,15 +8,13 @@
 
 #include <osgParticle/RandomRateCounter>
 
-class wrapper_osgParticle_RandomRateCounter : public osgParticle::RandomRateCounter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_RandomRateCounter : public osgParticle::RandomRateCounter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_RandomRateCounter(lua_State* L, lua_Table* dum) : osgParticle::RandomRateCounter(), _obj(L,-1) {};
-	wrapper_osgParticle_RandomRateCounter(lua_State* L, lua_Table* dum, const osgParticle::RandomRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::RandomRateCounter(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_RandomRateCounter(lua_State* L, lua_Table* dum) : osgParticle::RandomRateCounter(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_RandomRateCounter(lua_State* L, lua_Table* dum, const osgParticle::RandomRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::RandomRateCounter(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

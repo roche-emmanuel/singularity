@@ -8,15 +8,13 @@
 
 #include <osg/TransferFunction>
 
-class wrapper_osg_TransferFunction : public osg::TransferFunction {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TransferFunction : public osg::TransferFunction, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum) : osg::TransferFunction(), _obj(L,-1) {};
-	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum, const osg::TransferFunction & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction(tf, copyop), _obj(L,-1) {};
+	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum) : osg::TransferFunction(), luna_wrapper_base(L) {};
+	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum, const osg::TransferFunction & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction(tf, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

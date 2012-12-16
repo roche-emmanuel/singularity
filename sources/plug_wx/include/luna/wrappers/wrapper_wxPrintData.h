@@ -8,10 +8,8 @@
 
 #include <wx/cmndata.h>
 
-class wrapper_wxPrintData : public wxPrintData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPrintData : public wxPrintData, public luna_wrapper_base {
+
 public:
 	
 

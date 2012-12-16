@@ -8,10 +8,8 @@
 
 #include <osg/StateAttribute>
 
-class wrapper_osg_StateAttribute_ModeUsage : public osg::StateAttribute::ModeUsage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_StateAttribute_ModeUsage : public osg::StateAttribute::ModeUsage, public luna_wrapper_base {
+
 public:
 	
 

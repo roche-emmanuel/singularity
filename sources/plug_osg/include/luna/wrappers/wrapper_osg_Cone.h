@@ -8,16 +8,14 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_Cone : public osg::Cone {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Cone : public osg::Cone, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Cone(lua_State* L, lua_Table* dum) : osg::Cone(), _obj(L,-1) {};
-	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Cone(center, radius, height), _obj(L,-1) {};
-	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Cone & cone, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Cone(cone, copyop), _obj(L,-1) {};
+	wrapper_osg_Cone(lua_State* L, lua_Table* dum) : osg::Cone(), luna_wrapper_base(L) {};
+	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Cone(center, radius, height), luna_wrapper_base(L) {};
+	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Cone & cone, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Cone(cone, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

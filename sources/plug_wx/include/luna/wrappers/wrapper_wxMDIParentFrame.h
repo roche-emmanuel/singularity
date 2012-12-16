@@ -8,15 +8,13 @@
 
 #include <wx/mdi.h>
 
-class wrapper_wxMDIParentFrame : public wxMDIParentFrame {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMDIParentFrame : public wxMDIParentFrame, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMDIParentFrame(lua_State* L, lua_Table* dum) : wxMDIParentFrame(), _obj(L,-1) {};
-	wrapper_wxMDIParentFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL, const wxString & name = wxFrameNameStr) : wxMDIParentFrame(parent, id, title, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxMDIParentFrame(lua_State* L, lua_Table* dum) : wxMDIParentFrame(), luna_wrapper_base(L) {};
+	wrapper_wxMDIParentFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE | wxVSCROLL | wxHSCROLL, const wxString & name = wxFrameNameStr) : wxMDIParentFrame(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

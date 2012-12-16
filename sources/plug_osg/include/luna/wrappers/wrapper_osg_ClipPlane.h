@@ -8,19 +8,17 @@
 
 #include <osg/ClipPlane>
 
-class wrapper_osg_ClipPlane : public osg::ClipPlane {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ClipPlane : public osg::ClipPlane, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum) : osg::ClipPlane(), _obj(L,-1) {};
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no) : osg::ClipPlane(no), _obj(L,-1) {};
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, const osg::Vec4d & plane) : osg::ClipPlane(no, plane), _obj(L,-1) {};
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, const osg::Plane & plane) : osg::ClipPlane(no, plane), _obj(L,-1) {};
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, double a, double b, double c, double d) : osg::ClipPlane(no, a, b, c, d), _obj(L,-1) {};
-	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipPlane(cp, copyop), _obj(L,-1) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum) : osg::ClipPlane(), luna_wrapper_base(L) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no) : osg::ClipPlane(no), luna_wrapper_base(L) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, const osg::Vec4d & plane) : osg::ClipPlane(no, plane), luna_wrapper_base(L) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, const osg::Plane & plane) : osg::ClipPlane(no, plane), luna_wrapper_base(L) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, double a, double b, double c, double d) : osg::ClipPlane(no, a, b, c, d), luna_wrapper_base(L) {};
+	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, const osg::ClipPlane & cp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipPlane(cp, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

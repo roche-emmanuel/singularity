@@ -8,15 +8,13 @@
 
 #include <osg/Observer>
 
-class wrapper_osg_ObserverSet : public osg::ObserverSet {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ObserverSet : public osg::ObserverSet, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::Referenced * observedObject) : osg::ObserverSet(observedObject), _obj(L,-1) {};
-	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::ObserverSet & rhs) : osg::ObserverSet(rhs), _obj(L,-1) {};
+	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::Referenced * observedObject) : osg::ObserverSet(observedObject), luna_wrapper_base(L) {};
+	wrapper_osg_ObserverSet(lua_State* L, lua_Table* dum, const osg::ObserverSet & rhs) : osg::ObserverSet(rhs), luna_wrapper_base(L) {};
 
 
 

@@ -8,10 +8,8 @@
 
 #include <osg/Image>
 
-class wrapper_osg_Image_UpdateCallback : public osg::Image::UpdateCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Image_UpdateCallback : public osg::Image::UpdateCallback, public luna_wrapper_base {
+
 public:
 	
 

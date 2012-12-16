@@ -8,16 +8,14 @@
 
 #include <osg/Viewport>
 
-class wrapper_osg_Viewport : public osg::Viewport {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Viewport : public osg::Viewport, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Viewport(lua_State* L, lua_Table* dum) : osg::Viewport(), _obj(L,-1) {};
-	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, double x, double y, double width, double height) : osg::Viewport(x, y, width, height), _obj(L,-1) {};
-	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, const osg::Viewport & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Viewport(vp, copyop), _obj(L,-1) {};
+	wrapper_osg_Viewport(lua_State* L, lua_Table* dum) : osg::Viewport(), luna_wrapper_base(L) {};
+	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, double x, double y, double width, double height) : osg::Viewport(x, y, width, height), luna_wrapper_base(L) {};
+	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, const osg::Viewport & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Viewport(vp, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

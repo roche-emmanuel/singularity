@@ -8,36 +8,34 @@
 
 #include <osg/Uniform>
 
-class wrapper_osg_Uniform : public osg::Uniform {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Uniform : public osg::Uniform, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum) : osg::Uniform(), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, osg::Uniform::Type type, const std::string & name, int numElements = 1) : osg::Uniform(type, name, numElements), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Uniform(rhs, copyop), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, float f) : osg::Uniform(name, f), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i) : osg::Uniform(name, i), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i) : osg::Uniform(name, i), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b) : osg::Uniform(name, b), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec2f & v2) : osg::Uniform(name, v2), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec3f & v3) : osg::Uniform(name, v3), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec4f & v4) : osg::Uniform(name, v4), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2 & m2) : osg::Uniform(name, m2), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3 & m3) : osg::Uniform(name, m3), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixf & m4) : osg::Uniform(name, m4), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixd & m4) : osg::Uniform(name, m4), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1) : osg::Uniform(name, i0, i1), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2) : osg::Uniform(name, i0, i1, i2), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2, int i3) : osg::Uniform(name, i0, i1, i2, i3), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1) : osg::Uniform(name, i0, i1), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) : osg::Uniform(name, i0, i1, i2), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) : osg::Uniform(name, i0, i1, i2, i3), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1) : osg::Uniform(name, b0, b1), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2) : osg::Uniform(name, b0, b1, b2), _obj(L,-1) {};
-	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2, bool b3) : osg::Uniform(name, b0, b1, b2, b3), _obj(L,-1) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum) : osg::Uniform(), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, osg::Uniform::Type type, const std::string & name, int numElements = 1) : osg::Uniform(type, name, numElements), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const osg::Uniform & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Uniform(rhs, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, float f) : osg::Uniform(name, f), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i) : osg::Uniform(name, i), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i) : osg::Uniform(name, i), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b) : osg::Uniform(name, b), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec2f & v2) : osg::Uniform(name, v2), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec3f & v3) : osg::Uniform(name, v3), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Vec4f & v4) : osg::Uniform(name, v4), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix2 & m2) : osg::Uniform(name, m2), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrix3 & m3) : osg::Uniform(name, m3), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixf & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, const osg::Matrixd & m4) : osg::Uniform(name, m4), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, int i0, int i1, int i2, int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1) : osg::Uniform(name, i0, i1), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2) : osg::Uniform(name, i0, i1, i2), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, unsigned int i0, unsigned int i1, unsigned int i2, unsigned int i3) : osg::Uniform(name, i0, i1, i2, i3), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1) : osg::Uniform(name, b0, b1), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2) : osg::Uniform(name, b0, b1, b2), luna_wrapper_base(L) {};
+	wrapper_osg_Uniform(lua_State* L, lua_Table* dum, const char * name, bool b0, bool b1, bool b2, bool b3) : osg::Uniform(name, b0, b1, b2, b3), luna_wrapper_base(L) {};
 
 	// void osg::Object::computeDataVariance()
 	void computeDataVariance() {

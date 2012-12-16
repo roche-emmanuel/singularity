@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewDateRenderer : public wxDataViewDateRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewDateRenderer : public wxDataViewDateRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewDateRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "datetime", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1) : wxDataViewDateRenderer(varianttype, mode, align), _obj(L,-1) {};
+	wrapper_wxDataViewDateRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "datetime", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1) : wxDataViewDateRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

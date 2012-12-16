@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsContext>
 
-class wrapper_osg_GraphicsContext_Traits : public osg::GraphicsContext::Traits {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsContext_Traits : public osg::GraphicsContext::Traits, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_GraphicsContext_Traits(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = 0) : osg::GraphicsContext::Traits(ds), _obj(L,-1) {};
+	wrapper_osg_GraphicsContext_Traits(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = 0) : osg::GraphicsContext::Traits(ds), luna_wrapper_base(L) {};
 
 
 

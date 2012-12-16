@@ -8,10 +8,8 @@
 
 #include <wx/fswatcher.h>
 
-class wrapper_wxFileSystemWatcherEvent : public wxFileSystemWatcherEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileSystemWatcherEvent : public wxFileSystemWatcherEvent, public luna_wrapper_base {
+
 public:
 	
 

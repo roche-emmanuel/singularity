@@ -8,15 +8,13 @@
 
 #include <osgText/TextBase>
 
-class wrapper_osgText_TextBase : public osgText::TextBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_TextBase : public osgText::TextBase, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum) : osgText::TextBase(), _obj(L,-1) {};
-	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::TextBase(text, copyop), _obj(L,-1) {};
+	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum) : osgText::TextBase(), luna_wrapper_base(L) {};
+	wrapper_osgText_TextBase(lua_State* L, lua_Table* dum, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::TextBase(text, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

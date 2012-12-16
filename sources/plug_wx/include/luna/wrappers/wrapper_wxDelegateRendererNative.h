@@ -8,15 +8,13 @@
 
 #include <wx/renderer.h>
 
-class wrapper_wxDelegateRendererNative : public wxDelegateRendererNative {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDelegateRendererNative : public wxDelegateRendererNative, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) : wxDelegateRendererNative(), _obj(L,-1) {};
-	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) : wxDelegateRendererNative(rendererNative), _obj(L,-1) {};
+	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) : wxDelegateRendererNative(), luna_wrapper_base(L) {};
+	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) : wxDelegateRendererNative(rendererNative), luna_wrapper_base(L) {};
 
 	// void wxRendererNative::DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {

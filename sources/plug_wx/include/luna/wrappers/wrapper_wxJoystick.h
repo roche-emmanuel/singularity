@@ -8,14 +8,12 @@
 
 #include <wx/joystick.h>
 
-class wrapper_wxJoystick : public wxJoystick {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxJoystick : public wxJoystick, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxJoystick(lua_State* L, lua_Table* dum, int joystick = ::wxJOYSTICK1) : wxJoystick(joystick), _obj(L,-1) {};
+	wrapper_wxJoystick(lua_State* L, lua_Table* dum, int joystick = ::wxJOYSTICK1) : wxJoystick(joystick), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,15 +8,13 @@
 
 #include <wx/minifram.h>
 
-class wrapper_wxMiniFrame : public wxMiniFrame {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMiniFrame : public wxMiniFrame, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMiniFrame(lua_State* L, lua_Table* dum) : wxMiniFrame(), _obj(L,-1) {};
-	wrapper_wxMiniFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCAPTION | wxRESIZE_BORDER, const wxString & name = wxFrameNameStr) : wxMiniFrame(parent, id, title, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxMiniFrame(lua_State* L, lua_Table* dum) : wxMiniFrame(), luna_wrapper_base(L) {};
+	wrapper_wxMiniFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCAPTION | wxRESIZE_BORDER, const wxString & name = wxFrameNameStr) : wxMiniFrame(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

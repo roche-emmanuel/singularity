@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewModelNotifier : public wxDataViewModelNotifier {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewModelNotifier : public wxDataViewModelNotifier, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), _obj(L,-1) {};
+	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), luna_wrapper_base(L) {};
 
 	// bool wxDataViewModelNotifier::Cleared()
 	bool Cleared() {

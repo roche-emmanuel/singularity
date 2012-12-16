@@ -8,16 +8,14 @@
 
 #include <osg/Light>
 
-class wrapper_osg_Light : public osg::Light {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Light : public osg::Light, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Light(lua_State* L, lua_Table* dum) : osg::Light(), _obj(L,-1) {};
-	wrapper_osg_Light(lua_State* L, lua_Table* dum, unsigned int lightnum) : osg::Light(lightnum), _obj(L,-1) {};
-	wrapper_osg_Light(lua_State* L, lua_Table* dum, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Light(light, copyop), _obj(L,-1) {};
+	wrapper_osg_Light(lua_State* L, lua_Table* dum) : osg::Light(), luna_wrapper_base(L) {};
+	wrapper_osg_Light(lua_State* L, lua_Table* dum, unsigned int lightnum) : osg::Light(lightnum), luna_wrapper_base(L) {};
+	wrapper_osg_Light(lua_State* L, lua_Table* dum, const osg::Light & light, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Light(light, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

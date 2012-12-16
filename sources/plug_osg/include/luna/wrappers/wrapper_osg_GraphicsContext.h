@@ -8,15 +8,13 @@
 
 #include <osg/GraphicsContext>
 
-class wrapper_osg_GraphicsContext : public osg::GraphicsContext {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsContext : public osg::GraphicsContext, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum) : osg::GraphicsContext(), _obj(L,-1) {};
-	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum, const osg::GraphicsContext & arg1, const osg::CopyOp & arg2) : osg::GraphicsContext(arg1, arg2), _obj(L,-1) {};
+	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum) : osg::GraphicsContext(), luna_wrapper_base(L) {};
+	wrapper_osg_GraphicsContext(lua_State* L, lua_Table* dum, const osg::GraphicsContext & arg1, const osg::CopyOp & arg2) : osg::GraphicsContext(arg1, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

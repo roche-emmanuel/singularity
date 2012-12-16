@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_BlockAndFlushOperation : public osg::BlockAndFlushOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BlockAndFlushOperation : public osg::BlockAndFlushOperation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BlockAndFlushOperation(lua_State* L, lua_Table* dum) : osg::BlockAndFlushOperation(), _obj(L,-1) {};
+	wrapper_osg_BlockAndFlushOperation(lua_State* L, lua_Table* dum) : osg::BlockAndFlushOperation(), luna_wrapper_base(L) {};
 
 	// void osg::BlockAndFlushOperation::release()
 	void release() {

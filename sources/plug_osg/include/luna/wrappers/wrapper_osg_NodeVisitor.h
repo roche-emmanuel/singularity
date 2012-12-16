@@ -8,15 +8,13 @@
 
 #include <osg/NodeVisitor>
 
-class wrapper_osg_NodeVisitor : public osg::NodeVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_NodeVisitor : public osg::NodeVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(tm), _obj(L,-1) {};
-	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(type, tm), _obj(L,-1) {};
+	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(tm), luna_wrapper_base(L) {};
+	wrapper_osg_NodeVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::VisitorType type, osg::NodeVisitor::TraversalMode tm = osg::NodeVisitor::TRAVERSE_NONE) : osg::NodeVisitor(type, tm), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

@@ -8,15 +8,13 @@
 
 #include <wx/notebook.h>
 
-class wrapper_wxNotebook : public wxNotebook {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxNotebook : public wxNotebook, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxNotebook(lua_State* L, lua_Table* dum) : wxNotebook(), _obj(L,-1) {};
-	wrapper_wxNotebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr) : wxNotebook(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxNotebook(lua_State* L, lua_Table* dum) : wxNotebook(), luna_wrapper_base(L) {};
+	wrapper_wxNotebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr) : wxNotebook(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

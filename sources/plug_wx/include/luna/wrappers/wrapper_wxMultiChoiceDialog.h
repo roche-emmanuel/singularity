@@ -8,15 +8,13 @@
 
 #include <wx/choicdlg.h>
 
-class wrapper_wxMultiChoiceDialog : public wxMultiChoiceDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMultiChoiceDialog : public wxMultiChoiceDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMultiChoiceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption, int n, const wxString * choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) : wxMultiChoiceDialog(parent, message, caption, n, choices, style, pos), _obj(L,-1) {};
-	wrapper_wxMultiChoiceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption, const wxArrayString & choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) : wxMultiChoiceDialog(parent, message, caption, choices, style, pos), _obj(L,-1) {};
+	wrapper_wxMultiChoiceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption, int n, const wxString * choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) : wxMultiChoiceDialog(parent, message, caption, n, choices, style, pos), luna_wrapper_base(L) {};
+	wrapper_wxMultiChoiceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption, const wxArrayString & choices, long style = wxCHOICEDLG_STYLE, const wxPoint & pos = wxDefaultPosition) : wxMultiChoiceDialog(parent, message, caption, choices, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,15 +8,13 @@
 
 #include <osg/AnimationPath>
 
-class wrapper_osg_AnimationPath : public osg::AnimationPath {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AnimationPath : public osg::AnimationPath, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AnimationPath(lua_State* L, lua_Table* dum) : osg::AnimationPath(), _obj(L,-1) {};
-	wrapper_osg_AnimationPath(lua_State* L, lua_Table* dum, const osg::AnimationPath & ap, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AnimationPath(ap, copyop), _obj(L,-1) {};
+	wrapper_osg_AnimationPath(lua_State* L, lua_Table* dum) : osg::AnimationPath(), luna_wrapper_base(L) {};
+	wrapper_osg_AnimationPath(lua_State* L, lua_Table* dum, const osg::AnimationPath & ap, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AnimationPath(ap, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

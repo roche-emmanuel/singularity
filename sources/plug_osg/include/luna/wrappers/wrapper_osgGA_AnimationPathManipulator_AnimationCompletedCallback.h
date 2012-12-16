@@ -8,10 +8,8 @@
 
 #include <osgGA/AnimationPathManipulator>
 
-class wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback : public osgGA::AnimationPathManipulator::AnimationCompletedCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback : public osgGA::AnimationPathManipulator::AnimationCompletedCallback, public luna_wrapper_base {
+
 public:
 	
 

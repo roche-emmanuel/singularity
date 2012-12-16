@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxInitDialogEvent : public wxInitDialogEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxInitDialogEvent : public wxInitDialogEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxInitDialogEvent(lua_State* L, lua_Table* dum, int id = 0) : wxInitDialogEvent(id), _obj(L,-1) {};
+	wrapper_wxInitDialogEvent(lua_State* L, lua_Table* dum, int id = 0) : wxInitDialogEvent(id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

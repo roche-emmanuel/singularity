@@ -8,14 +8,12 @@
 
 #include <wx/bitmap.h>
 
-class wrapper_wxBitmapHandler : public wxBitmapHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBitmapHandler : public wxBitmapHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBitmapHandler(lua_State* L, lua_Table* dum) : wxBitmapHandler(), _obj(L,-1) {};
+	wrapper_wxBitmapHandler(lua_State* L, lua_Table* dum) : wxBitmapHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

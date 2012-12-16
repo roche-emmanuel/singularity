@@ -8,10 +8,8 @@
 
 #include <wx/textentry.h>
 
-class wrapper_wxTextEntry : public wxTextEntry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTextEntry : public wxTextEntry, public luna_wrapper_base {
+
 public:
 	
 

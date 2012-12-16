@@ -8,15 +8,13 @@
 
 #include <osgParticle/Placer>
 
-class wrapper_osgParticle_Placer : public osgParticle::Placer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_Placer : public osgParticle::Placer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_Placer(lua_State* L, lua_Table* dum) : osgParticle::Placer(), _obj(L,-1) {};
-	wrapper_osgParticle_Placer(lua_State* L, lua_Table* dum, const osgParticle::Placer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Placer(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_Placer(lua_State* L, lua_Table* dum) : osgParticle::Placer(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_Placer(lua_State* L, lua_Table* dum, const osgParticle::Placer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Placer(copy, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

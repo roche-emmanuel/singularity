@@ -8,15 +8,13 @@
 
 #include <osg/TexGen>
 
-class wrapper_osg_TexGen : public osg::TexGen {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TexGen : public osg::TexGen, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TexGen(lua_State* L, lua_Table* dum) : osg::TexGen(), _obj(L,-1) {};
-	wrapper_osg_TexGen(lua_State* L, lua_Table* dum, const osg::TexGen & texgen, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexGen(texgen, copyop), _obj(L,-1) {};
+	wrapper_osg_TexGen(lua_State* L, lua_Table* dum) : osg::TexGen(), luna_wrapper_base(L) {};
+	wrapper_osg_TexGen(lua_State* L, lua_Table* dum, const osg::TexGen & texgen, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexGen(texgen, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

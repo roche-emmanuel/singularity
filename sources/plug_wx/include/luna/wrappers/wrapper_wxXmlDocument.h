@@ -8,10 +8,8 @@
 
 #include <wx/xml/xml.h>
 
-class wrapper_wxXmlDocument : public wxXmlDocument {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxXmlDocument : public wxXmlDocument, public luna_wrapper_base {
+
 public:
 	
 

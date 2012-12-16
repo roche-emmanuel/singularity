@@ -8,14 +8,12 @@
 
 #include <wx/aui/auibook.h>
 
-class wrapper_wxAuiNotebookEvent : public wxAuiNotebookEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiNotebookEvent : public wxAuiNotebookEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiNotebookEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0) : wxAuiNotebookEvent(command_type, win_id), _obj(L,-1) {};
+	wrapper_wxAuiNotebookEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0) : wxAuiNotebookEvent(command_type, win_id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

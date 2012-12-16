@@ -8,17 +8,15 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_Box : public osg::Box {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Box : public osg::Box, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Box(lua_State* L, lua_Table* dum) : osg::Box(), _obj(L,-1) {};
-	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float width) : osg::Box(center, width), _obj(L,-1) {};
-	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float lengthX, float lengthY, float lengthZ) : osg::Box(center, lengthX, lengthY, lengthZ), _obj(L,-1) {};
-	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Box & box, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Box(box, copyop), _obj(L,-1) {};
+	wrapper_osg_Box(lua_State* L, lua_Table* dum) : osg::Box(), luna_wrapper_base(L) {};
+	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float width) : osg::Box(center, width), luna_wrapper_base(L) {};
+	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float lengthX, float lengthY, float lengthZ) : osg::Box(center, lengthX, lengthY, lengthZ), luna_wrapper_base(L) {};
+	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Box & box, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Box(box, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

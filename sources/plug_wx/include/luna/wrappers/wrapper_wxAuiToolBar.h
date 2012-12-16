@@ -8,14 +8,12 @@
 
 #include <wx/aui/auibar.h>
 
-class wrapper_wxAuiToolBar : public wxAuiToolBar {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiToolBar : public wxAuiToolBar, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & position = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_TB_DEFAULT_STYLE) : wxAuiToolBar(parent, id, position, size, style), _obj(L,-1) {};
+	wrapper_wxAuiToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & position = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_TB_DEFAULT_STYLE) : wxAuiToolBar(parent, id, position, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

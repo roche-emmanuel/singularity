@@ -8,14 +8,12 @@
 
 #include <wx/vscroll.h>
 
-class wrapper_wxVarVScrollHelper : public wxVarVScrollHelper {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxVarVScrollHelper : public wxVarVScrollHelper, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxVarVScrollHelper(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarVScrollHelper(winToScroll), _obj(L,-1) {};
+	wrapper_wxVarVScrollHelper(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarVScrollHelper(winToScroll), luna_wrapper_base(L) {};
 
 	// int wxVarScrollHelperBase::GetNonOrientationTargetSize() const
 	int GetNonOrientationTargetSize() const {

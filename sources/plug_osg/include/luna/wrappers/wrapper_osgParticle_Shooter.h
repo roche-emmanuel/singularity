@@ -8,15 +8,13 @@
 
 #include <osgParticle/Shooter>
 
-class wrapper_osgParticle_Shooter : public osgParticle::Shooter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_Shooter : public osgParticle::Shooter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_Shooter(lua_State* L, lua_Table* dum) : osgParticle::Shooter(), _obj(L,-1) {};
-	wrapper_osgParticle_Shooter(lua_State* L, lua_Table* dum, const osgParticle::Shooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Shooter(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_Shooter(lua_State* L, lua_Table* dum) : osgParticle::Shooter(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_Shooter(lua_State* L, lua_Table* dum, const osgParticle::Shooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Shooter(copy, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

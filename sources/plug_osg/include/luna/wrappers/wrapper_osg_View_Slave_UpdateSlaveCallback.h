@@ -8,10 +8,8 @@
 
 #include <osg/View>
 
-class wrapper_osg_View_Slave_UpdateSlaveCallback : public osg::View::Slave::UpdateSlaveCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_View_Slave_UpdateSlaveCallback : public osg::View::Slave::UpdateSlaveCallback, public luna_wrapper_base {
+
 public:
 	
 

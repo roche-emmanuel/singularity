@@ -8,14 +8,12 @@
 
 #include <wx/wrapsizer.h>
 
-class wrapper_wxWrapSizer : public wxWrapSizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWrapSizer : public wxWrapSizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWrapSizer(lua_State* L, lua_Table* dum, int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS) : wxWrapSizer(orient, flags), _obj(L,-1) {};
+	wrapper_wxWrapSizer(lua_State* L, lua_Table* dum, int orient = ::wxHORIZONTAL, int flags = ::wxWRAPSIZER_DEFAULT_FLAGS) : wxWrapSizer(orient, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

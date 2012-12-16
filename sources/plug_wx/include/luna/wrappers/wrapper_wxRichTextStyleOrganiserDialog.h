@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextstyledlg.h>
 
-class wrapper_wxRichTextStyleOrganiserDialog : public wxRichTextStyleOrganiserDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextStyleOrganiserDialog : public wxRichTextStyleOrganiserDialog, public luna_wrapper_base {
+
 public:
 	
 

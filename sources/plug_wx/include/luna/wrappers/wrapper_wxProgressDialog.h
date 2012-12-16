@@ -8,14 +8,12 @@
 
 #include <wx/progdlg.h>
 
-class wrapper_wxProgressDialog : public wxProgressDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxProgressDialog : public wxProgressDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxProgressDialog(lua_State* L, lua_Table* dum, const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002) : wxProgressDialog(title, message, maximum, parent, style), _obj(L,-1) {};
+	wrapper_wxProgressDialog(lua_State* L, lua_Table* dum, const wxString & title, const wxString & message, int maximum = 100, wxWindow * parent = NULL, int style = 0x0004|0x0002) : wxProgressDialog(title, message, maximum, parent, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

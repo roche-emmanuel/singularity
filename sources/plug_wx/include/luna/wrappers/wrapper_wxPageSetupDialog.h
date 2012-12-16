@@ -8,14 +8,12 @@
 
 #include <wx/printdlg.h>
 
-class wrapper_wxPageSetupDialog : public wxPageSetupDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPageSetupDialog : public wxPageSetupDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) : wxPageSetupDialog(parent, data), _obj(L,-1) {};
+	wrapper_wxPageSetupDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxPageSetupDialogData * data = NULL) : wxPageSetupDialog(parent, data), luna_wrapper_base(L) {};
 
 
 

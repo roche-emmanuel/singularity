@@ -8,14 +8,12 @@
 
 #include <wx/metafile.h>
 
-class wrapper_wxMetafile : public wxMetafile {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMetafile : public wxMetafile, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMetafile(lua_State* L, lua_Table* dum, const wxString & filename = wxEmptyString) : wxMetafile(filename), _obj(L,-1) {};
+	wrapper_wxMetafile(lua_State* L, lua_Table* dum, const wxString & filename = wxEmptyString) : wxMetafile(filename), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

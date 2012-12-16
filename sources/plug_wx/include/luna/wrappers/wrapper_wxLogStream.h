@@ -8,10 +8,8 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogStream : public wxLogStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogStream : public wxLogStream, public luna_wrapper_base {
+
 public:
 	
 

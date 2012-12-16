@@ -8,10 +8,8 @@
 
 #include <wx/tipwin.h>
 
-class wrapper_wxTipWindow : public wxTipWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTipWindow : public wxTipWindow, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,14 +8,12 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_WindowSizeHandler : public osgViewer::WindowSizeHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_WindowSizeHandler : public osgViewer::WindowSizeHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_WindowSizeHandler(lua_State* L, lua_Table* dum) : osgViewer::WindowSizeHandler(), _obj(L,-1) {};
+	wrapper_osgViewer_WindowSizeHandler(lua_State* L, lua_Table* dum) : osgViewer::WindowSizeHandler(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

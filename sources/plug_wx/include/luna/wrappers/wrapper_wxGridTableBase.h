@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridTableBase : public wxGridTableBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridTableBase : public wxGridTableBase, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridTableBase(lua_State* L, lua_Table* dum) : wxGridTableBase(), _obj(L,-1) {};
+	wrapper_wxGridTableBase(lua_State* L, lua_Table* dum) : wxGridTableBase(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

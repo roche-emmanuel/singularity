@@ -8,16 +8,14 @@
 
 #include <osg/OperationThread>
 
-class wrapper_osg_Operation : public osg::Operation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Operation : public osg::Operation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::Operation(name, keep), _obj(L,-1) {};
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum) : osg::Operation(), _obj(L,-1) {};
-	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const osg::Operation & op) : osg::Operation(op), _obj(L,-1) {};
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::Operation(name, keep), luna_wrapper_base(L) {};
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum) : osg::Operation(), luna_wrapper_base(L) {};
+	wrapper_osg_Operation(lua_State* L, lua_Table* dum, const osg::Operation & op) : osg::Operation(op), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()
 	void release() {

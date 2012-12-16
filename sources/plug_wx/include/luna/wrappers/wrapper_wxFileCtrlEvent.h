@@ -8,14 +8,12 @@
 
 #include <wx/filectrl.h>
 
-class wrapper_wxFileCtrlEvent : public wxFileCtrlEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileCtrlEvent : public wxFileCtrlEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileCtrlEvent(lua_State* L, lua_Table* dum, int type, wxObject * evtObject, int id) : wxFileCtrlEvent(type, evtObject, id), _obj(L,-1) {};
+	wrapper_wxFileCtrlEvent(lua_State* L, lua_Table* dum, int type, wxObject * evtObject, int id) : wxFileCtrlEvent(type, evtObject, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,14 +8,12 @@
 
 #include <wx/timectrl.h>
 
-class wrapper_wxTimePickerCtrl : public wxTimePickerCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTimePickerCtrl : public wxTimePickerCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTimePickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTP_DEFAULT, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl") : wxTimePickerCtrl(parent, id, dt, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxTimePickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxDateTime & dt = wxDefaultDateTime, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTP_DEFAULT, const wxValidator & validator = wxDefaultValidator, const wxString & name = "timectrl") : wxTimePickerCtrl(parent, id, dt, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

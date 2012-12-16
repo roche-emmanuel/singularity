@@ -8,14 +8,12 @@
 
 #include <osgViewer/Renderer>
 
-class wrapper_osgViewer_OpenGLQuerySupport : public osgViewer::OpenGLQuerySupport {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_OpenGLQuerySupport : public osgViewer::OpenGLQuerySupport, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), _obj(L,-1) {};
+	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) {};
 
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, unsigned long long startTick)
 	void checkQuery(osg::Stats * stats, osg::State * state, unsigned long long startTick) {

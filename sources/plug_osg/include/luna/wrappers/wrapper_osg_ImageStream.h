@@ -8,15 +8,13 @@
 
 #include <osg/ImageStream>
 
-class wrapper_osg_ImageStream : public osg::ImageStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ImageStream : public osg::ImageStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum) : osg::ImageStream(), _obj(L,-1) {};
-	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageStream(image, copyop), _obj(L,-1) {};
+	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum) : osg::ImageStream(), luna_wrapper_base(L) {};
+	wrapper_osg_ImageStream(lua_State* L, lua_Table* dum, const osg::ImageStream & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageStream(image, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,10 +8,8 @@
 
 #include <wx/dcprint.h>
 
-class wrapper_wxPrinterDC : public wxPrinterDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPrinterDC : public wxPrinterDC, public luna_wrapper_base {
+
 public:
 	
 
