@@ -80,7 +80,7 @@ public:
 osgDB::FinishedObjectReadCallback* LunaTraits< osgDB::FinishedObjectReadCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // Class is abstract.
 	// Abstract methods:
-	// void osgDB::FinishedObjectReadCallback::objectRead(InputStream & is, osg::Object & obj)
+	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
 }
 
 void LunaTraits< osgDB::FinishedObjectReadCallback >::_bind_dtor(osgDB::FinishedObjectReadCallback* obj) {

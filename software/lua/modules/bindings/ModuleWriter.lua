@@ -49,7 +49,7 @@ function Class:writeFile()
 	
 	for _,v in classes:sequence() do
 		local tname = v:getTypeName()
-		if not v:isExternal() and not im:ignore("class_declaration",tname) and not written:contains(tname) then
+		if not v:isExternal() and not im:ignore(tname,"class_declaration") and not written:contains(tname) then
 			written:push_back(tname)
 			
 			-- check if we should change the currentModule:

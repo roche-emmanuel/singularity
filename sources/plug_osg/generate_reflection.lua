@@ -109,6 +109,7 @@ ReflectionGenerator.generate{
 		
 		"osgTerrain", -- ignore terrain stuff for now.
 		"StateSetManipulator::clone", -- ignore terrain stuff for now.
+		"XmlNode::Input",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",
@@ -134,9 +135,9 @@ ReflectionGenerator.generate{
 		"osgDB::DatabasePager::", --DatabaseRequest, ReadQueue, RequestQueue
 		"osgDB::ImagePager::", --ImageRequest, ReadQueue, RequestQueue
 		"osgDB::SharedStateManager::", --CompareStateAttributes, CompareStateSets
-		"Serializer",
+		--"Serializer",
 		"ControlMap",
-		"Input",
+		--"Input",
 
 		-- for osgGA:
 		"osgGA::FirstPersonManipulator::FirstPersonAnimationData",
@@ -170,6 +171,15 @@ ReflectionGenerator.generate{
 		"osg::TemplateArray< osg::Vec2f, osg::Array::Vec2ArrayType, 2, GL_FLOAT >",
 		"osg::TemplateArray< osg::Vec3f, osg::Array::Vec3ArrayType, 3, GL_FLOAT >",
 		"osg::TemplateArray< osg::Vec4f, osg::Array::Vec4ArrayType, 4, GL_FLOAT >",
+		"TemplateSerializer",
+		"PropByValSerializer",
+		"PropByRefSerializer",
+		"MatrixSerializer",
+		"GLenumSerializer",
+		"StringSerializer",
+		"ObjectSerializer",
+		"ImageSerializer",
+		"EnumSerializer",
 		},
 	locationPrefixes={
 		dest_path.."interface/",
