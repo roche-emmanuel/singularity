@@ -1,4 +1,3 @@
 module=FANN
 FANN::training_data => FANN::training_data
 FANN::neural_net => FANN::neural_net
-

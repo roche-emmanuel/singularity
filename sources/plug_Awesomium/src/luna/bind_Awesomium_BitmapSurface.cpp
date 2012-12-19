@@ -6,6 +6,30 @@ class luna_wrapper_Awesomium_BitmapSurface {
 public:
 	typedef Luna< Awesomium::BitmapSurface > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		Awesomium::Surface* self=(Luna< Awesomium::Surface >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -147,6 +171,25 @@ public:
 	}
 
 	inline static bool _lg_typecheck_Scroll(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Paint(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,8907551) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_Scroll(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
@@ -458,6 +501,61 @@ public:
 		return 0;
 	}
 
+	// void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
+	static int _bind_base_Paint(lua_State *L) {
+		if (!_lg_typecheck_base_Paint(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n");
+		}
+
+		unsigned char src_buffer = (unsigned char)(lua_tointeger(L,2));
+		int src_row_span=(int)lua_tointeger(L,3);
+		const Awesomium::Rect* src_rect_ptr=(Luna< Awesomium::Rect >::check(L,4));
+		if( !src_rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg src_rect in Awesomium::BitmapSurface::base_Paint function");
+		}
+		const Awesomium::Rect & src_rect=*src_rect_ptr;
+		const Awesomium::Rect* dest_rect_ptr=(Luna< Awesomium::Rect >::check(L,5));
+		if( !dest_rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg dest_rect in Awesomium::BitmapSurface::base_Paint function");
+		}
+		const Awesomium::Rect & dest_rect=*dest_rect_ptr;
+
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &)");
+		}
+		self->BitmapSurface::Paint(&src_buffer, src_row_span, src_rect, dest_rect);
+
+		return 0;
+	}
+
+	// void Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
+	static int _bind_base_Scroll(lua_State *L) {
+		if (!_lg_typecheck_base_Scroll(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n");
+		}
+
+		int dx=(int)lua_tointeger(L,2);
+		int dy=(int)lua_tointeger(L,3);
+		const Awesomium::Rect* clip_rect_ptr=(Luna< Awesomium::Rect >::check(L,4));
+		if( !clip_rect_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg clip_rect in Awesomium::BitmapSurface::base_Scroll function");
+		}
+		const Awesomium::Rect & clip_rect=*clip_rect_ptr;
+
+		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Scroll(int, int, const Awesomium::Rect &)");
+		}
+		self->BitmapSurface::Scroll(dx, dy, clip_rect);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -465,6 +563,8 @@ public:
 
 Awesomium::BitmapSurface* LunaTraits< Awesomium::BitmapSurface >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_Awesomium_BitmapSurface::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< Awesomium::BitmapSurface >::_bind_dtor(Awesomium::BitmapSurface* obj) {
@@ -491,7 +591,10 @@ luna_RegType LunaTraits< Awesomium::BitmapSurface >::methods[] = {
 	{"GetAlphaAtPoint", &luna_wrapper_Awesomium_BitmapSurface::_bind_GetAlphaAtPoint},
 	{"Paint", &luna_wrapper_Awesomium_BitmapSurface::_bind_Paint},
 	{"Scroll", &luna_wrapper_Awesomium_BitmapSurface::_bind_Scroll},
+	{"base_Paint", &luna_wrapper_Awesomium_BitmapSurface::_bind_base_Paint},
+	{"base_Scroll", &luna_wrapper_Awesomium_BitmapSurface::_bind_base_Scroll},
 	{"__eq", &luna_wrapper_Awesomium_BitmapSurface::_bind___eq},
+	{"getTable", &luna_wrapper_Awesomium_BitmapSurface::_bind_getTable},
 	{0,0}
 };
 

@@ -8,10 +8,8 @@
 
 #include <Awesomium/Surface.h>
 
-class wrapper_Awesomium_SurfaceFactory : public Awesomium::SurfaceFactory {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_SurfaceFactory : public Awesomium::SurfaceFactory, public luna_wrapper_base {
+
 public:
 	
 

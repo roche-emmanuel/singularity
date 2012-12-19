@@ -8,10 +8,8 @@
 
 #include <Awesomium/JSObject.h>
 
-class wrapper_Awesomium_JSMethodHandler : public Awesomium::JSMethodHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_JSMethodHandler : public Awesomium::JSMethodHandler, public luna_wrapper_base {
+
 public:
 	
 

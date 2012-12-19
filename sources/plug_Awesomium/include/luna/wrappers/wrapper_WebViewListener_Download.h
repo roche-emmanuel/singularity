@@ -8,10 +8,8 @@
 
 #include <Awesomium/WebViewListener.h>
 
-class wrapper_WebViewListener_Download : public WebViewListener::Download {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_WebViewListener_Download : public WebViewListener::Download, public luna_wrapper_base {
+
 public:
 	
 

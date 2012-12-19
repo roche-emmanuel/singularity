@@ -6,6 +6,30 @@ class luna_wrapper_WebViewListener_Load {
 public:
 	typedef Luna< WebViewListener::Load > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		WebViewListener::Load* self=(Luna< WebViewListener::Load >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -55,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_OnBeginLoadingFrame(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
@@ -100,6 +126,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
@@ -214,7 +242,8 @@ public:
 };
 
 WebViewListener::Load* LunaTraits< WebViewListener::Load >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
 	// void WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)
@@ -240,6 +269,7 @@ luna_RegType LunaTraits< WebViewListener::Load >::methods[] = {
 	{"OnDocumentReady", &luna_wrapper_WebViewListener_Load::_bind_OnDocumentReady},
 	{"dynCast", &luna_wrapper_WebViewListener_Load::_bind_dynCast},
 	{"__eq", &luna_wrapper_WebViewListener_Load::_bind___eq},
+	{"getTable", &luna_wrapper_WebViewListener_Load::_bind_getTable},
 	{0,0}
 };
 

@@ -8,14 +8,12 @@
 
 #include <Awesomium/DataSource.h>
 
-class wrapper_Awesomium_DataSource : public Awesomium::DataSource {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_Awesomium_DataSource : public Awesomium::DataSource, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_Awesomium_DataSource(lua_State* L, lua_Table* dum) : Awesomium::DataSource(), _obj(L,-1) {};
+	wrapper_Awesomium_DataSource(lua_State* L, lua_Table* dum) : Awesomium::DataSource(), luna_wrapper_base(L) {};
 
 	// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	void OnRequest(int request_id, const Awesomium::WebString & path) {

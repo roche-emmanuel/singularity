@@ -6,6 +6,30 @@ class luna_wrapper_WebViewListener_Menu {
 public:
 	typedef Luna< WebViewListener::Menu > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		WebViewListener::Menu* self=(Luna< WebViewListener::Menu >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -55,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_OnShowPopupMenu(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
@@ -75,6 +101,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
@@ -131,7 +159,8 @@ public:
 };
 
 WebViewListener::Menu* LunaTraits< WebViewListener::Menu >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void WebViewListener::Menu::OnShowPopupMenu(Awesomium::WebView * caller, const Awesomium::WebPopupMenuInfo & menu_info)
 	// void WebViewListener::Menu::OnShowContextMenu(Awesomium::WebView * caller, const Awesomium::WebContextMenuInfo & menu_info)
@@ -153,6 +182,7 @@ luna_RegType LunaTraits< WebViewListener::Menu >::methods[] = {
 	{"OnShowContextMenu", &luna_wrapper_WebViewListener_Menu::_bind_OnShowContextMenu},
 	{"dynCast", &luna_wrapper_WebViewListener_Menu::_bind_dynCast},
 	{"__eq", &luna_wrapper_WebViewListener_Menu::_bind___eq},
+	{"getTable", &luna_wrapper_WebViewListener_Menu::_bind_getTable},
 	{0,0}
 };
 

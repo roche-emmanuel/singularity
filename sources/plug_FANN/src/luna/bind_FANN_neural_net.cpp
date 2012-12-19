@@ -4,6 +4,28 @@ class luna_wrapper_FANN_neural_net {
 public:
 	typedef Luna< FANN::neural_net > luna_t;
 
+	inline static bool _lg_typecheck___eq(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,71064061) ) return false;
+		return true;
+	}
+	
+	static int _bind___eq(lua_State *L) {
+		if (!_lg_typecheck___eq(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(FANN::neural_net*)");
+		}
+
+		FANN::neural_net* rhs =(Luna< FANN::neural_net >::check(L,2));
+		FANN::neural_net* self=(Luna< FANN::neural_net >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call __eq(...)");
+		}
+		
+		return self==rhs;
+	}
+
 	// Base class dynamic cast support:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -42,6 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,71064061) ) return false;
+		if( (!dynamic_cast< FANN::neural_net* >(Luna< FANN::neural_net >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -64,6 +87,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,71064061)) ) return false;
+		if( (lua_isnil(L,1)==0 && !dynamic_cast< FANN::neural_net* >(Luna< FANN::neural_net >::check(L,1)) ) ) return false;
 		if( lua_istable(L,2)==0 ) return false;
 		return true;
 	}
@@ -3175,6 +3199,8 @@ public:
 
 FANN::neural_net* LunaTraits< FANN::neural_net >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_FANN_neural_net::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< FANN::neural_net >::_bind_dtor(FANN::neural_net* obj) {
@@ -3305,6 +3331,7 @@ luna_RegType LunaTraits< FANN::neural_net >::methods[] = {
 	{"print_error", &luna_wrapper_FANN_neural_net::_bind_print_error},
 	{"create_standard", &luna_wrapper_FANN_neural_net::_bind_create_standard},
 	{"dynCast", &luna_wrapper_FANN_neural_net::_bind_dynCast},
+	{"__eq", &luna_wrapper_FANN_neural_net::_bind___eq},
 	{0,0}
 };
 
