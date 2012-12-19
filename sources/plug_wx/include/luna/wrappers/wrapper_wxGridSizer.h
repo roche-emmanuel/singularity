@@ -8,17 +8,15 @@
 
 #include <wx/sizer.h>
 
-class wrapper_wxGridSizer : public wxGridSizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridSizer : public wxGridSizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int cols, int vgap, int hgap) : wxGridSizer(cols, vgap, hgap), _obj(L,-1) {};
-	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int cols, const wxSize & gap = wxSize (0, 0)) : wxGridSizer(cols, gap), _obj(L,-1) {};
-	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int rows, int cols, int vgap, int hgap) : wxGridSizer(rows, cols, vgap, hgap), _obj(L,-1) {};
-	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int rows, int cols, const wxSize & gap) : wxGridSizer(rows, cols, gap), _obj(L,-1) {};
+	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int cols, int vgap, int hgap) : wxGridSizer(cols, vgap, hgap), luna_wrapper_base(L) {};
+	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int cols, const wxSize & gap = wxSize (0, 0)) : wxGridSizer(cols, gap), luna_wrapper_base(L) {};
+	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int rows, int cols, int vgap, int hgap) : wxGridSizer(rows, cols, vgap, hgap), luna_wrapper_base(L) {};
+	wrapper_wxGridSizer(lua_State* L, lua_Table* dum, int rows, int cols, const wxSize & gap) : wxGridSizer(rows, cols, gap), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

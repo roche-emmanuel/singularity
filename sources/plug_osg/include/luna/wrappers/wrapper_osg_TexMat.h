@@ -8,16 +8,14 @@
 
 #include <osg/TexMat>
 
-class wrapper_osg_TexMat : public osg::TexMat {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TexMat : public osg::TexMat, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TexMat(lua_State* L, lua_Table* dum) : osg::TexMat(), _obj(L,-1) {};
-	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::Matrixd & matrix) : osg::TexMat(matrix), _obj(L,-1) {};
-	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::TexMat & texmat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexMat(texmat, copyop), _obj(L,-1) {};
+	wrapper_osg_TexMat(lua_State* L, lua_Table* dum) : osg::TexMat(), luna_wrapper_base(L) {};
+	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::Matrixd & matrix) : osg::TexMat(matrix), luna_wrapper_base(L) {};
+	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::TexMat & texmat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexMat(texmat, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

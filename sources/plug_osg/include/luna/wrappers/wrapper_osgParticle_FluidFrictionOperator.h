@@ -8,15 +8,13 @@
 
 #include <osgParticle/FluidFrictionOperator>
 
-class wrapper_osgParticle_FluidFrictionOperator : public osgParticle::FluidFrictionOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_FluidFrictionOperator : public osgParticle::FluidFrictionOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum) : osgParticle::FluidFrictionOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum, const osgParticle::FluidFrictionOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::FluidFrictionOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum) : osgParticle::FluidFrictionOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_FluidFrictionOperator(lua_State* L, lua_Table* dum, const osgParticle::FluidFrictionOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::FluidFrictionOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

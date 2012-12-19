@@ -70,6 +70,8 @@ public:
 
 osg::TransferFunction1D::ColorMap* LunaTraits< osg::TransferFunction1D::ColorMap >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::TransferFunction1D::ColorMap >::_bind_dtor(osg::TransferFunction1D::ColorMap* obj) {

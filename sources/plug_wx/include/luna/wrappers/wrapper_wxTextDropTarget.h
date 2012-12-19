@@ -8,14 +8,12 @@
 
 #include <wx/dnd.h>
 
-class wrapper_wxTextDropTarget : public wxTextDropTarget {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTextDropTarget : public wxTextDropTarget, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTextDropTarget(lua_State* L, lua_Table* dum) : wxTextDropTarget(), _obj(L,-1) {};
+	wrapper_wxTextDropTarget(lua_State* L, lua_Table* dum) : wxTextDropTarget(), luna_wrapper_base(L) {};
 
 	// bool wxDropTarget::GetData()
 	bool GetData() {

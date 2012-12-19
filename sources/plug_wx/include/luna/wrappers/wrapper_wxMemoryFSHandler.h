@@ -8,14 +8,12 @@
 
 #include <wx/fs_mem.h>
 
-class wrapper_wxMemoryFSHandler : public wxMemoryFSHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMemoryFSHandler : public wxMemoryFSHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMemoryFSHandler(lua_State* L, lua_Table* dum) : wxMemoryFSHandler(), _obj(L,-1) {};
+	wrapper_wxMemoryFSHandler(lua_State* L, lua_Table* dum) : wxMemoryFSHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,16 +8,14 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_Capsule : public osg::Capsule {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Capsule : public osg::Capsule, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Capsule(lua_State* L, lua_Table* dum) : osg::Capsule(), _obj(L,-1) {};
-	wrapper_osg_Capsule(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Capsule(center, radius, height), _obj(L,-1) {};
-	wrapper_osg_Capsule(lua_State* L, lua_Table* dum, const osg::Capsule & capsule, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Capsule(capsule, copyop), _obj(L,-1) {};
+	wrapper_osg_Capsule(lua_State* L, lua_Table* dum) : osg::Capsule(), luna_wrapper_base(L) {};
+	wrapper_osg_Capsule(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Capsule(center, radius, height), luna_wrapper_base(L) {};
+	wrapper_osg_Capsule(lua_State* L, lua_Table* dum, const osg::Capsule & capsule, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Capsule(capsule, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

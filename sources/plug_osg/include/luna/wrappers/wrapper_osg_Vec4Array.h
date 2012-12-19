@@ -8,14 +8,12 @@
 
 
 
-class wrapper_osg_Vec4Array : public osg::Vec4Array {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Vec4Array : public osg::Vec4Array, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Vec4Array(lua_State* L, lua_Table* dum) : osg::Vec4Array(), _obj(L,-1) {};
+	wrapper_osg_Vec4Array(lua_State* L, lua_Table* dum) : osg::Vec4Array(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

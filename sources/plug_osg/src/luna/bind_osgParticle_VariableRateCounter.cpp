@@ -6,6 +6,30 @@ class luna_wrapper_osgParticle_VariableRateCounter {
 public:
 	typedef Luna< osgParticle::VariableRateCounter > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,27 @@ public:
 		Luna< osgParticle::VariableRateCounter >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::VariableRateCounter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -146,6 +191,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data)
+	static osgParticle::VariableRateCounter* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data) function, expected prototype:\nosgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgParticle_VariableRateCounter(L,NULL);
+	}
+
+	// osgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data, const osgParticle::VariableRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgParticle::VariableRateCounter* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data, const osgParticle::VariableRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::VariableRateCounter::VariableRateCounter(lua_Table * data, const osgParticle::VariableRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgParticle::VariableRateCounter* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::VariableRateCounter >(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgParticle::VariableRateCounter::VariableRateCounter function");
+		}
+		const osgParticle::VariableRateCounter & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::VariableRateCounter::VariableRateCounter function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgParticle_VariableRateCounter(L,NULL, copy, copyop);
+	}
+
+	// Overload binder for osgParticle::VariableRateCounter::VariableRateCounter
+	static osgParticle::VariableRateCounter* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function VariableRateCounter, cannot match any of the overloads for function VariableRateCounter:\n  VariableRateCounter(lua_Table *)\n  VariableRateCounter(lua_Table *, const osgParticle::VariableRateCounter &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgParticle::VariableRateCounter::libraryName() const
@@ -471,7 +561,8 @@ public:
 };
 
 osgParticle::VariableRateCounter* LunaTraits< osgParticle::VariableRateCounter >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgParticle_VariableRateCounter::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// int osgParticle::Counter::numParticlesToCreate(double dt) const
 	// osg::Object * osg::Object::cloneType() const
@@ -504,6 +595,7 @@ luna_RegType LunaTraits< osgParticle::VariableRateCounter >::methods[] = {
 	{"base_className", &luna_wrapper_osgParticle_VariableRateCounter::_bind_base_className},
 	{"base_isSameKindAs", &luna_wrapper_osgParticle_VariableRateCounter::_bind_base_isSameKindAs},
 	{"__eq", &luna_wrapper_osgParticle_VariableRateCounter::_bind___eq},
+	{"getTable", &luna_wrapper_osgParticle_VariableRateCounter::_bind_getTable},
 	{0,0}
 };
 

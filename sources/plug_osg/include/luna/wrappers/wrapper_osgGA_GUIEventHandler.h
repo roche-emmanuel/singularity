@@ -8,15 +8,13 @@
 
 #include <osgGA/GUIEventHandler>
 
-class wrapper_osgGA_GUIEventHandler : public osgGA::GUIEventHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_GUIEventHandler : public osgGA::GUIEventHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_GUIEventHandler(lua_State* L, lua_Table* dum) : osgGA::GUIEventHandler(), _obj(L,-1) {};
-	wrapper_osgGA_GUIEventHandler(lua_State* L, lua_Table* dum, const osgGA::GUIEventHandler & eh, const osg::CopyOp & copyop) : osgGA::GUIEventHandler(eh, copyop), _obj(L,-1) {};
+	wrapper_osgGA_GUIEventHandler(lua_State* L, lua_Table* dum) : osgGA::GUIEventHandler(), luna_wrapper_base(L) {};
+	wrapper_osgGA_GUIEventHandler(lua_State* L, lua_Table* dum, const osgGA::GUIEventHandler & eh, const osg::CopyOp & copyop) : osgGA::GUIEventHandler(eh, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

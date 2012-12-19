@@ -8,14 +8,12 @@
 
 #include <wx/anybutton.h>
 
-class wrapper_wxAnyButton : public wxAnyButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAnyButton : public wxAnyButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAnyButton(lua_State* L, lua_Table* dum) : wxAnyButton(), _obj(L,-1) {};
+	wrapper_wxAnyButton(lua_State* L, lua_Table* dum) : wxAnyButton(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

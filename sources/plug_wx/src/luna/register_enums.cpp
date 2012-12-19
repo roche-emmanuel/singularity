@@ -22017,6 +22017,21 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,wxRegKey::WOW64ViewMode_64); lua_setfield(L,-2,"WOW64ViewMode_64");
 
 
+	lua_newtable(L); // enum Family
+
+	lua_pushnumber(L,wxSockAddress::NONE); lua_setfield(L,-2,"NONE");
+	lua_pushnumber(L,wxSockAddress::IPV4); lua_setfield(L,-2,"IPV4");
+	lua_pushnumber(L,wxSockAddress::IPV6); lua_setfield(L,-2,"IPV6");
+	lua_pushnumber(L,wxSockAddress::UNIX); lua_setfield(L,-2,"UNIX");
+
+	lua_setfield(L,-2,"Family");
+
+	lua_pushnumber(L,wxSockAddress::NONE); lua_setfield(L,-2,"NONE");
+	lua_pushnumber(L,wxSockAddress::IPV4); lua_setfield(L,-2,"IPV4");
+	lua_pushnumber(L,wxSockAddress::IPV6); lua_setfield(L,-2,"IPV6");
+	lua_pushnumber(L,wxSockAddress::UNIX); lua_setfield(L,-2,"UNIX");
+
+
 	lua_newtable(L); // enum ResourceCat
 
 	lua_pushnumber(L,wxStandardPaths::ResourceCat_None); lua_setfield(L,-2,"ResourceCat_None");

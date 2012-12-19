@@ -8,15 +8,13 @@
 
 #include <osg/FragmentProgram>
 
-class wrapper_osg_FragmentProgram : public osg::FragmentProgram {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_FragmentProgram : public osg::FragmentProgram, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum) : osg::FragmentProgram(), _obj(L,-1) {};
-	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FragmentProgram(vp, copyop), _obj(L,-1) {};
+	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum) : osg::FragmentProgram(), luna_wrapper_base(L) {};
+	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FragmentProgram(vp, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

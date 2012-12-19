@@ -8,13 +8,12 @@
 
 #include <osgDB/ObjectWrapper>
 
-class wrapper_osgDB_ObjectWrapperManager : public osgDB::ObjectWrapperManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ObjectWrapperManager : public osgDB::ObjectWrapperManager, public luna_wrapper_base {
+
 public:
 	
 
+	wrapper_osgDB_ObjectWrapperManager(lua_State* L, lua_Table* dum) : osgDB::ObjectWrapperManager(), luna_wrapper_base(L) {};
 
 
 

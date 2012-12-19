@@ -8,15 +8,13 @@
 
 #include <wx/aui/auibook.h>
 
-class wrapper_wxAuiNotebook : public wxAuiNotebook {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiNotebook : public wxAuiNotebook, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum) : wxAuiNotebook(), _obj(L,-1) {};
-	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) : wxAuiNotebook(parent, id, pos, size, style), _obj(L,-1) {};
+	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum) : wxAuiNotebook(), luna_wrapper_base(L) {};
+	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) : wxAuiNotebook(parent, id, pos, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1298,6 +1296,13 @@ protected:
 		}
 
 		return wxAuiNotebook::AddPendingEvent(event);
+	};
+
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	wxWindow * DoRemovePage(size_t arg1) {
+		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxWindow*>());
 	};
 
 

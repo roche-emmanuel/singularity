@@ -8,14 +8,12 @@
 
 #include <osg/ComputeBoundsVisitor>
 
-class wrapper_osg_ComputeBoundsVisitor : public osg::ComputeBoundsVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ComputeBoundsVisitor : public osg::ComputeBoundsVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ComputeBoundsVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN) : osg::ComputeBoundsVisitor(traversalMode), _obj(L,-1) {};
+	wrapper_osg_ComputeBoundsVisitor(lua_State* L, lua_Table* dum, osg::NodeVisitor::TraversalMode traversalMode = osg::NodeVisitor::TRAVERSE_ALL_CHILDREN) : osg::ComputeBoundsVisitor(traversalMode), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {

@@ -8,14 +8,12 @@
 
 #include <osg/AudioStream>
 
-class wrapper_osg_AudioSink : public osg::AudioSink {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AudioSink : public osg::AudioSink, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AudioSink(lua_State* L, lua_Table* dum) : osg::AudioSink(), _obj(L,-1) {};
+	wrapper_osg_AudioSink(lua_State* L, lua_Table* dum) : osg::AudioSink(), luna_wrapper_base(L) {};
 
 	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const
 	bool isSameKindAs(const osg::Object * arg1) const {

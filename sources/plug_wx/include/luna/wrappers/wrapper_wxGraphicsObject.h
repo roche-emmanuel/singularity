@@ -8,10 +8,8 @@
 
 #include <wx/graphics.h>
 
-class wrapper_wxGraphicsObject : public wxGraphicsObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGraphicsObject : public wxGraphicsObject, public luna_wrapper_base {
+
 public:
 	
 

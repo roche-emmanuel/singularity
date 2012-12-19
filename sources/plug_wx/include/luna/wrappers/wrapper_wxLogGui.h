@@ -8,14 +8,12 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogGui : public wxLogGui {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogGui : public wxLogGui, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLogGui(lua_State* L, lua_Table* dum) : wxLogGui(), _obj(L,-1) {};
+	wrapper_wxLogGui(lua_State* L, lua_Table* dum) : wxLogGui(), luna_wrapper_base(L) {};
 
 	// void wxLogGui::Flush()
 	void Flush() {

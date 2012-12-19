@@ -8,14 +8,12 @@
 
 #include <wx/url.h>
 
-class wrapper_wxURL : public wxURL {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxURL : public wxURL, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxURL(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURL(url), _obj(L,-1) {};
+	wrapper_wxURL(lua_State* L, lua_Table* dum, const wxString & url = wxEmptyString) : wxURL(url), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

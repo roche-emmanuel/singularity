@@ -8,15 +8,13 @@
 
 #include <wx/ribbon/bar.h>
 
-class wrapper_wxRibbonBar : public wxRibbonBar {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRibbonBar : public wxRibbonBar, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRibbonBar(lua_State* L, lua_Table* dum) : wxRibbonBar(), _obj(L,-1) {};
-	wrapper_wxRibbonBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxRIBBON_BAR_DEFAULT_STYLE) : wxRibbonBar(parent, id, pos, size, style), _obj(L,-1) {};
+	wrapper_wxRibbonBar(lua_State* L, lua_Table* dum) : wxRibbonBar(), luna_wrapper_base(L) {};
+	wrapper_wxRibbonBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxRIBBON_BAR_DEFAULT_STYLE) : wxRibbonBar(parent, id, pos, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

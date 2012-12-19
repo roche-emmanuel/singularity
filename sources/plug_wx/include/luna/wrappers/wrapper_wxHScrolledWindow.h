@@ -8,15 +8,13 @@
 
 #include <wx/vscroll.h>
 
-class wrapper_wxHScrolledWindow : public wxHScrolledWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHScrolledWindow : public wxHScrolledWindow, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHScrolledWindow(lua_State* L, lua_Table* dum) : wxHScrolledWindow(), _obj(L,-1) {};
-	wrapper_wxHScrolledWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr) : wxHScrolledWindow(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxHScrolledWindow(lua_State* L, lua_Table* dum) : wxHScrolledWindow(), luna_wrapper_base(L) {};
+	wrapper_wxHScrolledWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxPanelNameStr) : wxHScrolledWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

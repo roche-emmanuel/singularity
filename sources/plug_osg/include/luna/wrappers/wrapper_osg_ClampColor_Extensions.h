@@ -8,14 +8,12 @@
 
 #include <osg/ClampColor>
 
-class wrapper_osg_ClampColor_Extensions : public osg::ClampColor::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ClampColor_Extensions : public osg::ClampColor::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ClampColor_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::ClampColor::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_ClampColor_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::ClampColor::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

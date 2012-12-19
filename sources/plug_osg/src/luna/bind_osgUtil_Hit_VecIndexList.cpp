@@ -70,6 +70,8 @@ public:
 
 osgUtil::Hit::VecIndexList* LunaTraits< osgUtil::Hit::VecIndexList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::Hit::VecIndexList >::_bind_dtor(osgUtil::Hit::VecIndexList* obj) {

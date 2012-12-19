@@ -8,14 +8,12 @@
 
 #include <wx/eventfilter.h>
 
-class wrapper_wxEventFilter : public wxEventFilter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxEventFilter : public wxEventFilter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxEventFilter(lua_State* L, lua_Table* dum) : wxEventFilter(), _obj(L,-1) {};
+	wrapper_wxEventFilter(lua_State* L, lua_Table* dum) : wxEventFilter(), luna_wrapper_base(L) {};
 
 	// int wxEventFilter::FilterEvent(wxEvent & event)
 	int FilterEvent(wxEvent & event) {

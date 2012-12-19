@@ -8,10 +8,8 @@
 
 #include <wx/evtloop.h>
 
-class wrapper_wxEventLoopBase : public wxEventLoopBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxEventLoopBase : public wxEventLoopBase, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,15 +8,13 @@
 
 #include <osgUtil/HalfWayMapGenerator>
 
-class wrapper_osgUtil_HalfWayMapGenerator : public osgUtil::HalfWayMapGenerator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_HalfWayMapGenerator : public osgUtil::HalfWayMapGenerator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osg::Vec3f & light_direction, int texture_size = 64) : osgUtil::HalfWayMapGenerator(light_direction, texture_size), _obj(L,-1) {};
-	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) : osgUtil::HalfWayMapGenerator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osg::Vec3f & light_direction, int texture_size = 64) : osgUtil::HalfWayMapGenerator(light_direction, texture_size), luna_wrapper_base(L) {};
+	wrapper_osgUtil_HalfWayMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::HalfWayMapGenerator & copy, const osg::CopyOp & copyop) : osgUtil::HalfWayMapGenerator(copy, copyop), luna_wrapper_base(L) {};
 
 
 protected:

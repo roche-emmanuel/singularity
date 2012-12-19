@@ -8,14 +8,12 @@
 
 #include <osgUtil/EdgeCollector>
 
-class wrapper_osgUtil_EdgeCollector_Point : public osgUtil::EdgeCollector::Point {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_EdgeCollector_Point : public osgUtil::EdgeCollector::Point, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_EdgeCollector_Point(lua_State* L, lua_Table* dum) : osgUtil::EdgeCollector::Point(), _obj(L,-1) {};
+	wrapper_osgUtil_EdgeCollector_Point(lua_State* L, lua_Table* dum) : osgUtil::EdgeCollector::Point(), luna_wrapper_base(L) {};
 
 
 

@@ -8,15 +8,13 @@
 
 #include <wx/treebook.h>
 
-class wrapper_wxTreebook : public wxTreebook {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreebook : public wxTreebook, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTreebook(lua_State* L, lua_Table* dum) : wxTreebook(), _obj(L,-1) {};
-	wrapper_wxTreebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString) : wxTreebook(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxTreebook(lua_State* L, lua_Table* dum) : wxTreebook(), luna_wrapper_base(L) {};
+	wrapper_wxTreebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString) : wxTreebook(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1300,6 +1298,13 @@ protected:
 		}
 
 		return wxTreebook::AddPendingEvent(event);
+	};
+
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	wxWindow * DoRemovePage(size_t arg1) {
+		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxWindow*>());
 	};
 
 

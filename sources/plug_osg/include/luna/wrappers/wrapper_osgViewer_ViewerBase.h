@@ -8,15 +8,13 @@
 
 #include <osgViewer/ViewerBase>
 
-class wrapper_osgViewer_ViewerBase : public osgViewer::ViewerBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_ViewerBase : public osgViewer::ViewerBase, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) : osgViewer::ViewerBase(), _obj(L,-1) {};
-	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) : osgViewer::ViewerBase(vb), _obj(L,-1) {};
+	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) : osgViewer::ViewerBase(), luna_wrapper_base(L) {};
+	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) : osgViewer::ViewerBase(vb), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -271,6 +269,18 @@ protected:
 		return (_obj.callFunction<void>());
 	};
 
+
+public:
+// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+void getAllThreads(osgViewer::ViewerBase::Threads &, bool) {
+	THROW_IF(true,"The function call void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads &, bool) is not implemented in wrapper.");
+};
+
+public:
+// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+void getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) {
+	THROW_IF(true,"The function call void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) is not implemented in wrapper.");
+};
 
 };
 

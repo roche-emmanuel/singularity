@@ -8,15 +8,13 @@
 
 #include <osg/FrontFace>
 
-class wrapper_osg_FrontFace : public osg::FrontFace {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_FrontFace : public osg::FrontFace, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, osg::FrontFace::Mode face = osg::FrontFace::COUNTER_CLOCKWISE) : osg::FrontFace(face), _obj(L,-1) {};
-	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, const osg::FrontFace & ff, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FrontFace(ff, copyop), _obj(L,-1) {};
+	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, osg::FrontFace::Mode face = osg::FrontFace::COUNTER_CLOCKWISE) : osg::FrontFace(face), luna_wrapper_base(L) {};
+	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, const osg::FrontFace & ff, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FrontFace(ff, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,15 +8,13 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridEditorCreatedEvent : public wxGridEditorCreatedEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridEditorCreatedEvent : public wxGridEditorCreatedEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridEditorCreatedEvent(lua_State* L, lua_Table* dum) : wxGridEditorCreatedEvent(), _obj(L,-1) {};
-	wrapper_wxGridEditorCreatedEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) : wxGridEditorCreatedEvent(id, type, obj, row, col, ctrl), _obj(L,-1) {};
+	wrapper_wxGridEditorCreatedEvent(lua_State* L, lua_Table* dum) : wxGridEditorCreatedEvent(), luna_wrapper_base(L) {};
+	wrapper_wxGridEditorCreatedEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) : wxGridEditorCreatedEvent(id, type, obj, row, col, ctrl), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

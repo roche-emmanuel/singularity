@@ -217,6 +217,8 @@ public:
 
 wxStopWatch* LunaTraits< wxStopWatch >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxStopWatch::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxStopWatch >::_bind_dtor(wxStopWatch* obj) {

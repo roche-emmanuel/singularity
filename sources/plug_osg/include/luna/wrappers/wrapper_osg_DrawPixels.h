@@ -8,15 +8,13 @@
 
 #include <osg/DrawPixels>
 
-class wrapper_osg_DrawPixels : public osg::DrawPixels {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_DrawPixels : public osg::DrawPixels, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum) : osg::DrawPixels(), _obj(L,-1) {};
-	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum, const osg::DrawPixels & drawimage, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawPixels(drawimage, copyop), _obj(L,-1) {};
+	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum) : osg::DrawPixels(), luna_wrapper_base(L) {};
+	wrapper_osg_DrawPixels(lua_State* L, lua_Table* dum, const osg::DrawPixels & drawimage, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawPixels(drawimage, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

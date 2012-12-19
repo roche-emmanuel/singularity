@@ -8,15 +8,13 @@
 
 #include <osgViewer/View>
 
-class wrapper_osgViewer_View : public osgViewer::View {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_View : public osgViewer::View, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_View(lua_State* L, lua_Table* dum) : osgViewer::View(), _obj(L,-1) {};
-	wrapper_osgViewer_View(lua_State* L, lua_Table* dum, const osgViewer::View & view, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::View(view, copyop), _obj(L,-1) {};
+	wrapper_osgViewer_View(lua_State* L, lua_Table* dum) : osgViewer::View(), luna_wrapper_base(L) {};
+	wrapper_osgViewer_View(lua_State* L, lua_Table* dum, const osgViewer::View & view, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::View(view, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -141,8 +139,8 @@ public:
 		return View::take(rhs);
 	};
 
-	// void osgViewer::View::setStartTick(unsigned long long tick)
-	void setStartTick(unsigned long long tick) {
+	// void osgViewer::View::setStartTick(__int64 tick)
+	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
 			_obj.pushArg(tick);
 			return (_obj.callFunction<void>());

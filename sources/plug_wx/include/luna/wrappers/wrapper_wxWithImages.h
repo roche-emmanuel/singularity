@@ -8,14 +8,12 @@
 
 #include <wx/withimages.h>
 
-class wrapper_wxWithImages : public wxWithImages {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWithImages : public wxWithImages, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWithImages(lua_State* L, lua_Table* dum) : wxWithImages(), _obj(L,-1) {};
+	wrapper_wxWithImages(lua_State* L, lua_Table* dum) : wxWithImages(), luna_wrapper_base(L) {};
 
 	// void wxWithImages::SetImageList(wxImageList * imageList)
 	void SetImageList(wxImageList * imageList) {

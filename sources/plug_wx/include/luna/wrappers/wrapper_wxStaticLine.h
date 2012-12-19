@@ -8,15 +8,13 @@
 
 #include <wx/statline.h>
 
-class wrapper_wxStaticLine : public wxStaticLine {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStaticLine : public wxStaticLine, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStaticLine(lua_State* L, lua_Table* dum) : wxStaticLine(), _obj(L,-1) {};
-	wrapper_wxStaticLine(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) : wxStaticLine(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxStaticLine(lua_State* L, lua_Table* dum) : wxStaticLine(), luna_wrapper_base(L) {};
+	wrapper_wxStaticLine(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) : wxStaticLine(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -6,6 +6,30 @@ class luna_wrapper_wxFileDataObject {
 public:
 	typedef Luna< wxFileDataObject > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,15 @@ public:
 		Luna< wxFileDataObject >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -80,6 +113,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFileDataObject::wxFileDataObject(lua_Table * data)
+	static wxFileDataObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileDataObject::wxFileDataObject(lua_Table * data) function, expected prototype:\nwxFileDataObject::wxFileDataObject(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFileDataObject(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxFileDataObject::AddFile(const wxString & file)
@@ -188,7 +234,8 @@ public:
 };
 
 wxFileDataObject* LunaTraits< wxFileDataObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFileDataObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// bool wxDataObject::GetDataHere(const wxDataFormat & format, void * buf) const
@@ -215,6 +262,7 @@ luna_RegType LunaTraits< wxFileDataObject >::methods[] = {
 	{"base_GetDataSize", &luna_wrapper_wxFileDataObject::_bind_base_GetDataSize},
 	{"base_SetData", &luna_wrapper_wxFileDataObject::_bind_base_SetData},
 	{"__eq", &luna_wrapper_wxFileDataObject::_bind___eq},
+	{"getTable", &luna_wrapper_wxFileDataObject::_bind_getTable},
 	{0,0}
 };
 

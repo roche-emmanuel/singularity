@@ -8,14 +8,12 @@
 
 #include <wx/cshelp.h>
 
-class wrapper_wxHelpControllerHelpProvider : public wxHelpControllerHelpProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHelpControllerHelpProvider : public wxHelpControllerHelpProvider, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHelpControllerHelpProvider(lua_State* L, lua_Table* dum, wxHelpController * hc = NULL) : wxHelpControllerHelpProvider(hc), _obj(L,-1) {};
+	wrapper_wxHelpControllerHelpProvider(lua_State* L, lua_Table* dum, wxHelpController * hc = NULL) : wxHelpControllerHelpProvider(hc), luna_wrapper_base(L) {};
 
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {

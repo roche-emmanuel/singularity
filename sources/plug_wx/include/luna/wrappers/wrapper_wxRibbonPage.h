@@ -8,15 +8,13 @@
 
 #include <wx/ribbon/page.h>
 
-class wrapper_wxRibbonPage : public wxRibbonPage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRibbonPage : public wxRibbonPage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum) : wxRibbonPage(), _obj(L,-1) {};
-	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) : wxRibbonPage(parent, id, label, icon, style), _obj(L,-1) {};
+	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum) : wxRibbonPage(), luna_wrapper_base(L) {};
+	wrapper_wxRibbonPage(lua_State* L, lua_Table* dum, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) : wxRibbonPage(parent, id, label, icon, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,10 +8,8 @@
 
 #include <osgDB/DotOsgWrapper>
 
-class wrapper_osgDB_DeprecatedDotOsgWrapperManager : public osgDB::DeprecatedDotOsgWrapperManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_DeprecatedDotOsgWrapperManager : public osgDB::DeprecatedDotOsgWrapperManager, public luna_wrapper_base {
+
 public:
 	
 

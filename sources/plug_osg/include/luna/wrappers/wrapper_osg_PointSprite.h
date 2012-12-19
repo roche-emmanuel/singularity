@@ -8,15 +8,13 @@
 
 #include <osg/PointSprite>
 
-class wrapper_osg_PointSprite : public osg::PointSprite {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PointSprite : public osg::PointSprite, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum) : osg::PointSprite(), _obj(L,-1) {};
-	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum, const osg::PointSprite & ps, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PointSprite(ps, copyop), _obj(L,-1) {};
+	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum) : osg::PointSprite(), luna_wrapper_base(L) {};
+	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum, const osg::PointSprite & ps, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PointSprite(ps, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

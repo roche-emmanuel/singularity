@@ -6,6 +6,30 @@ class luna_wrapper_osgParticle_Shooter {
 public:
 	typedef Luna< osgParticle::Shooter > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,27 @@ public:
 		Luna< osgParticle::Shooter >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::Shooter* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -131,6 +176,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgParticle::Shooter::Shooter(lua_Table * data)
+	static osgParticle::Shooter* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::Shooter::Shooter(lua_Table * data) function, expected prototype:\nosgParticle::Shooter::Shooter(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgParticle_Shooter(L,NULL);
+	}
+
+	// osgParticle::Shooter::Shooter(lua_Table * data, const osgParticle::Shooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgParticle::Shooter* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::Shooter::Shooter(lua_Table * data, const osgParticle::Shooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::Shooter::Shooter(lua_Table * data, const osgParticle::Shooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgParticle::Shooter* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::Shooter >(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgParticle::Shooter::Shooter function");
+		}
+		const osgParticle::Shooter & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::Shooter::Shooter function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgParticle_Shooter(L,NULL, copy, copyop);
+	}
+
+	// Overload binder for osgParticle::Shooter::Shooter
+	static osgParticle::Shooter* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Shooter, cannot match any of the overloads for function Shooter:\n  Shooter(lua_Table *)\n  Shooter(lua_Table *, const osgParticle::Shooter &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgParticle::Shooter::libraryName() const
@@ -402,7 +492,8 @@ public:
 };
 
 osgParticle::Shooter* LunaTraits< osgParticle::Shooter >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgParticle_Shooter::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgParticle::Shooter::shoot(osgParticle::Particle * P) const
 	// osg::Object * osg::Object::cloneType() const
@@ -434,6 +525,7 @@ luna_RegType LunaTraits< osgParticle::Shooter >::methods[] = {
 	{"base_className", &luna_wrapper_osgParticle_Shooter::_bind_base_className},
 	{"base_isSameKindAs", &luna_wrapper_osgParticle_Shooter::_bind_base_isSameKindAs},
 	{"__eq", &luna_wrapper_osgParticle_Shooter::_bind___eq},
+	{"getTable", &luna_wrapper_osgParticle_Shooter::_bind_getTable},
 	{0,0}
 };
 

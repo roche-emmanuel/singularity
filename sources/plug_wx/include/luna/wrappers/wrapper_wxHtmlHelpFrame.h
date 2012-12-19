@@ -8,15 +8,13 @@
 
 #include <wx/html/helpfrm.h>
 
-class wrapper_wxHtmlHelpFrame : public wxHtmlHelpFrame {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlHelpFrame : public wxHtmlHelpFrame, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpFrame(data), _obj(L,-1) {};
-	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL, wxConfigBase * config = NULL, const wxString & rootpath = wxEmptyString) : wxHtmlHelpFrame(parent, wxWindowID, title, style, data, config, rootpath), _obj(L,-1) {};
+	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpFrame(data), luna_wrapper_base(L) {};
+	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL, wxConfigBase * config = NULL, const wxString & rootpath = wxEmptyString) : wxHtmlHelpFrame(parent, wxWindowID, title, style, data, config, rootpath), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

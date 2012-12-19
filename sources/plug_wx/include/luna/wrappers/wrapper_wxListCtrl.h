@@ -8,15 +8,13 @@
 
 #include <wx/listctrl.h>
 
-class wrapper_wxListCtrl : public wxListCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxListCtrl : public wxListCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxListCtrl(lua_State* L, lua_Table* dum) : wxListCtrl(), _obj(L,-1) {};
-	wrapper_wxListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) : wxListCtrl(parent, id, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxListCtrl(lua_State* L, lua_Table* dum) : wxListCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLC_ICON, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListCtrlNameStr) : wxListCtrl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

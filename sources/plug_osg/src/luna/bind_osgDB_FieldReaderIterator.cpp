@@ -6,6 +6,30 @@ class luna_wrapper_osgDB_FieldReaderIterator {
 public:
 	typedef Luna< osgDB::FieldReaderIterator > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -88,6 +112,13 @@ public:
 
 
 	// Function checkers:
+	inline static bool _lg_typecheck_attach(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,77972206)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_detach(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -410,6 +441,25 @@ public:
 
 
 	// Function binds:
+	// void osgDB::FieldReaderIterator::attach(std::istream * input)
+	static int _bind_attach(lua_State *L) {
+		if (!_lg_typecheck_attach(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::FieldReaderIterator::attach(std::istream * input) function, expected prototype:\nvoid osgDB::FieldReaderIterator::attach(std::istream * input)\nClass arguments details:\narg 1 ID = 77972206\n");
+		}
+
+		std::istream* input=(Luna< std::istream >::check(L,2));
+
+		osgDB::FieldReaderIterator* self=(Luna< osgDB::FieldReaderIterator >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::FieldReaderIterator::attach(std::istream *)");
+		}
+		self->attach(input);
+
+		return 0;
+	}
+
 	// void osgDB::FieldReaderIterator::detach()
 	static int _bind_detach(lua_State *L) {
 		if (!_lg_typecheck_detach(L)) {
@@ -1169,6 +1219,8 @@ public:
 
 osgDB::FieldReaderIterator* LunaTraits< osgDB::FieldReaderIterator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_FieldReaderIterator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::FieldReaderIterator >::_bind_dtor(osgDB::FieldReaderIterator* obj) {
@@ -1183,6 +1235,7 @@ const int LunaTraits< osgDB::FieldReaderIterator >::hash = 2696163;
 const int LunaTraits< osgDB::FieldReaderIterator >::uniqueIDs[] = {2696163,0};
 
 luna_RegType LunaTraits< osgDB::FieldReaderIterator >::methods[] = {
+	{"attach", &luna_wrapper_osgDB_FieldReaderIterator::_bind_attach},
 	{"detach", &luna_wrapper_osgDB_FieldReaderIterator::_bind_detach},
 	{"eof", &luna_wrapper_osgDB_FieldReaderIterator::_bind_eof},
 	{"getFieldReader", &luna_wrapper_osgDB_FieldReaderIterator::_bind_getFieldReader},
@@ -1198,6 +1251,7 @@ luna_RegType LunaTraits< osgDB::FieldReaderIterator >::methods[] = {
 	{"op_add", &luna_wrapper_osgDB_FieldReaderIterator::_bind_op_add},
 	{"dynCast", &luna_wrapper_osgDB_FieldReaderIterator::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_FieldReaderIterator::_bind___eq},
+	{"getTable", &luna_wrapper_osgDB_FieldReaderIterator::_bind_getTable},
 	{0,0}
 };
 

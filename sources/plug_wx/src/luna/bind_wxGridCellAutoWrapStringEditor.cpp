@@ -6,6 +6,30 @@ class luna_wrapper_wxGridCellAutoWrapStringEditor {
 public:
 	typedef Luna< wxGridCellAutoWrapStringEditor > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,15 @@ public:
 		Luna< wxGridCellAutoWrapStringEditor >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -103,6 +136,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data)
+	static wxGridCellAutoWrapStringEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data) function, expected prototype:\nwxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridCellAutoWrapStringEditor(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxGridCellAutoWrapStringEditor::base_Destroy()
@@ -281,8 +327,10 @@ public:
 };
 
 wxGridCellAutoWrapStringEditor* LunaTraits< wxGridCellAutoWrapStringEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellAutoWrapStringEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)
@@ -312,6 +360,7 @@ luna_RegType LunaTraits< wxGridCellAutoWrapStringEditor >::methods[] = {
 	{"base_StartingKey", &luna_wrapper_wxGridCellAutoWrapStringEditor::_bind_base_StartingKey},
 	{"base_SetParameters", &luna_wrapper_wxGridCellAutoWrapStringEditor::_bind_base_SetParameters},
 	{"__eq", &luna_wrapper_wxGridCellAutoWrapStringEditor::_bind___eq},
+	{"getTable", &luna_wrapper_wxGridCellAutoWrapStringEditor::_bind_getTable},
 	{0,0}
 };
 

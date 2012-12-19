@@ -8,25 +8,23 @@
 
 #include <wx/image.h>
 
-class wrapper_wxImage : public wxImage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxImage : public wxImage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxImage(lua_State* L, lua_Table* dum) : wxImage(), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, bool clear = true) : wxImage(width, height, clear), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, bool clear = true) : wxImage(sz, clear), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, unsigned char * data, bool static_data = false) : wxImage(width, height, data, static_data), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, unsigned char * data, bool static_data = false) : wxImage(sz, data, static_data), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false) : wxImage(width, height, data, alpha, static_data), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false) : wxImage(sz, data, alpha, static_data), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const char *const * xpmData) : wxImage(xpmData), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = ::wxBITMAP_TYPE_ANY, int index = -1) : wxImage(name, type, index), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxString & name, const wxString & mimetype, int index = -1) : wxImage(name, mimetype, index), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY, int index = -1) : wxImage(stream, type, index), _obj(L,-1) {};
-	wrapper_wxImage(lua_State* L, lua_Table* dum, wxInputStream & stream, const wxString & mimetype, int index = -1) : wxImage(stream, mimetype, index), _obj(L,-1) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum) : wxImage(), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, bool clear = true) : wxImage(width, height, clear), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, bool clear = true) : wxImage(sz, clear), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, unsigned char * data, bool static_data = false) : wxImage(width, height, data, static_data), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, unsigned char * data, bool static_data = false) : wxImage(sz, data, static_data), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, unsigned char * data, unsigned char * alpha, bool static_data = false) : wxImage(width, height, data, alpha, static_data), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, unsigned char * data, unsigned char * alpha, bool static_data = false) : wxImage(sz, data, alpha, static_data), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const char *const * xpmData) : wxImage(xpmData), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = ::wxBITMAP_TYPE_ANY, int index = -1) : wxImage(name, type, index), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxString & name, const wxString & mimetype, int index = -1) : wxImage(name, mimetype, index), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY, int index = -1) : wxImage(stream, type, index), luna_wrapper_base(L) {};
+	wrapper_wxImage(lua_State* L, lua_Table* dum, wxInputStream & stream, const wxString & mimetype, int index = -1) : wxImage(stream, mimetype, index), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

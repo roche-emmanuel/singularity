@@ -8,16 +8,14 @@
 
 #include <osg/ColorMask>
 
-class wrapper_osg_ColorMask : public osg::ColorMask {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ColorMask : public osg::ColorMask, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum) : osg::ColorMask(), _obj(L,-1) {};
-	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum, bool red, bool green, bool blue, bool alpha) : osg::ColorMask(red, green, blue, alpha), _obj(L,-1) {};
-	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum, const osg::ColorMask & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ColorMask(cm, copyop), _obj(L,-1) {};
+	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum) : osg::ColorMask(), luna_wrapper_base(L) {};
+	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum, bool red, bool green, bool blue, bool alpha) : osg::ColorMask(red, green, blue, alpha), luna_wrapper_base(L) {};
+	wrapper_osg_ColorMask(lua_State* L, lua_Table* dum, const osg::ColorMask & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ColorMask(cm, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

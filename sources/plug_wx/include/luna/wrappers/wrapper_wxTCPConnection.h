@@ -8,15 +8,13 @@
 
 #include <wx/sckipc.h>
 
-class wrapper_wxTCPConnection : public wxTCPConnection {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTCPConnection : public wxTCPConnection, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum) : wxTCPConnection(), _obj(L,-1) {};
-	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum, void * buffer, size_t size) : wxTCPConnection(buffer, size), _obj(L,-1) {};
+	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum) : wxTCPConnection(), luna_wrapper_base(L) {};
+	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum, void * buffer, size_t size) : wxTCPConnection(buffer, size), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

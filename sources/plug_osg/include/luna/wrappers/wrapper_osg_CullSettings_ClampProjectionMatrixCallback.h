@@ -8,10 +8,8 @@
 
 #include <osg/CullSettings>
 
-class wrapper_osg_CullSettings_ClampProjectionMatrixCallback : public osg::CullSettings::ClampProjectionMatrixCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CullSettings_ClampProjectionMatrixCallback : public osg::CullSettings::ClampProjectionMatrixCallback, public luna_wrapper_base {
+
 public:
 	
 

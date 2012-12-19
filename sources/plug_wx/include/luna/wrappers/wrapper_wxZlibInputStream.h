@@ -8,15 +8,13 @@
 
 #include <wx/zstream.h>
 
-class wrapper_wxZlibInputStream : public wxZlibInputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxZlibInputStream : public wxZlibInputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, int flags = 3) : wxZlibInputStream(stream, flags), _obj(L,-1) {};
-	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream, int flags = 3) : wxZlibInputStream(stream, flags), _obj(L,-1) {};
+	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) {};
+	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

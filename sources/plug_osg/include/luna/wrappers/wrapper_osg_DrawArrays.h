@@ -8,16 +8,14 @@
 
 #include <osg/PrimitiveSet>
 
-class wrapper_osg_DrawArrays : public osg::DrawArrays {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_DrawArrays : public osg::DrawArrays, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawArrays(mode), _obj(L,-1) {};
-	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode, int first, int count, int numInstances = 0) : osg::DrawArrays(mode, first, count, numInstances), _obj(L,-1) {};
-	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, const osg::DrawArrays & da, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawArrays(da, copyop), _obj(L,-1) {};
+	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawArrays(mode), luna_wrapper_base(L) {};
+	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode, int first, int count, int numInstances = 0) : osg::DrawArrays(mode, first, count, numInstances), luna_wrapper_base(L) {};
+	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, const osg::DrawArrays & da, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawArrays(da, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

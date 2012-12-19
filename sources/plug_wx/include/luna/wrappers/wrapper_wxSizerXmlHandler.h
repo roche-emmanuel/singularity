@@ -8,14 +8,12 @@
 
 #include <wx/xrc/xh_sizer.h>
 
-class wrapper_wxSizerXmlHandler : public wxSizerXmlHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSizerXmlHandler : public wxSizerXmlHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) : wxSizerXmlHandler(), _obj(L,-1) {};
+	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) : wxSizerXmlHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

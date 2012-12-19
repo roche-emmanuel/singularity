@@ -6,6 +6,30 @@ class luna_wrapper_wxProcessEvent {
 public:
 	typedef Luna< wxProcessEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetExitCode(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -70,6 +107,24 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxProcessEvent::wxProcessEvent(lua_Table * data, int id = 0, int pid = 0, int exitcode = 0)
+	static wxProcessEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxProcessEvent::wxProcessEvent(lua_Table * data, int id = 0, int pid = 0, int exitcode = 0) function, expected prototype:\nwxProcessEvent::wxProcessEvent(lua_Table * data, int id = 0, int pid = 0, int exitcode = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int pid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int exitcode=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_wxProcessEvent(L,NULL, id, pid, exitcode);
+	}
+
 
 	// Function binds:
 	// int wxProcessEvent::GetExitCode()
@@ -156,7 +211,8 @@ public:
 };
 
 wxProcessEvent* LunaTraits< wxProcessEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxProcessEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -178,6 +234,7 @@ luna_RegType LunaTraits< wxProcessEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxProcessEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxProcessEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxProcessEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxProcessEvent::_bind_getTable},
 	{0,0}
 };
 

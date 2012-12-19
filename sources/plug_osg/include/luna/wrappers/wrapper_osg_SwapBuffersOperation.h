@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_SwapBuffersOperation : public osg::SwapBuffersOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_SwapBuffersOperation : public osg::SwapBuffersOperation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_SwapBuffersOperation(lua_State* L, lua_Table* dum) : osg::SwapBuffersOperation(), _obj(L,-1) {};
+	wrapper_osg_SwapBuffersOperation(lua_State* L, lua_Table* dum) : osg::SwapBuffersOperation(), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()
 	void release() {

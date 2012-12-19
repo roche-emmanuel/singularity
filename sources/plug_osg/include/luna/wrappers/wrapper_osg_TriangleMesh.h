@@ -8,15 +8,13 @@
 
 #include <osg/Shape>
 
-class wrapper_osg_TriangleMesh : public osg::TriangleMesh {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TriangleMesh : public osg::TriangleMesh, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum) : osg::TriangleMesh(), _obj(L,-1) {};
-	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TriangleMesh(mesh, copyop), _obj(L,-1) {};
+	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum) : osg::TriangleMesh(), luna_wrapper_base(L) {};
+	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TriangleMesh(mesh, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

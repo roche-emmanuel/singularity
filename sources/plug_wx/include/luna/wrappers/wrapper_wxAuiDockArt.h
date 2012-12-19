@@ -8,14 +8,12 @@
 
 #include <wx/aui/dockart.h>
 
-class wrapper_wxAuiDockArt : public wxAuiDockArt {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiDockArt : public wxAuiDockArt, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), _obj(L,-1) {};
+	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), luna_wrapper_base(L) {};
 
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
 	void DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect) {

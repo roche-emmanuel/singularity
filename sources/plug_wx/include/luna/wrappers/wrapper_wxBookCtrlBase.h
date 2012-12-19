@@ -8,15 +8,13 @@
 
 #include <wx/bookctrl.h>
 
-class wrapper_wxBookCtrlBase : public wxBookCtrlBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBookCtrlBase : public wxBookCtrlBase, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum) : wxBookCtrlBase(), _obj(L,-1) {};
-	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum, wxWindow * parent, int winid, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxBookCtrlBase(parent, winid, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum) : wxBookCtrlBase(), luna_wrapper_base(L) {};
+	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum, wxWindow * parent, int winid, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxBookCtrlBase(parent, winid, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1246,6 +1244,13 @@ protected:
 		}
 
 		return wxBookCtrlBase::AddPendingEvent(event);
+	};
+
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	wxWindow * DoRemovePage(size_t arg1) {
+		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxWindow*>());
 	};
 
 

@@ -6,6 +6,30 @@ class luna_wrapper_wxTextDataObject {
 public:
 	typedef Luna< wxTextDataObject > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,17 @@ public:
 		Luna< wxTextDataObject >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -136,6 +171,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTextDataObject::wxTextDataObject(lua_Table * data, const wxString & text = wxEmptyString)
+	static wxTextDataObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTextDataObject::wxTextDataObject(lua_Table * data, const wxString & text = wxEmptyString) function, expected prototype:\nwxTextDataObject::wxTextDataObject(lua_Table * data, const wxString & text = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString text(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxTextDataObject(L,NULL, text);
+	}
+
 
 	// Function binds:
 	// wxString wxTextDataObject::GetText() const
@@ -405,7 +456,8 @@ public:
 };
 
 wxTextDataObject* LunaTraits< wxTextDataObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxTextDataObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxTextDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
@@ -441,6 +493,7 @@ luna_RegType LunaTraits< wxTextDataObject >::methods[] = {
 	{"base_GetFormatCount", &luna_wrapper_wxTextDataObject::_bind_base_GetFormatCount},
 	{"base_SetText", &luna_wrapper_wxTextDataObject::_bind_base_SetText},
 	{"__eq", &luna_wrapper_wxTextDataObject::_bind___eq},
+	{"getTable", &luna_wrapper_wxTextDataObject::_bind_getTable},
 	{0,0}
 };
 

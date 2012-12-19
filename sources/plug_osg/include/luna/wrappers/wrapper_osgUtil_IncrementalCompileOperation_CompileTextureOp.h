@@ -8,10 +8,8 @@
 
 #include <osgUtil/IncrementalCompileOperation>
 
-class wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp : public osgUtil::IncrementalCompileOperation::CompileTextureOp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp : public osgUtil::IncrementalCompileOperation::CompileTextureOp, public luna_wrapper_base {
+
 public:
 	
 

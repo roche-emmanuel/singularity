@@ -159,6 +159,9 @@ enum
 */
 class wxImageHandler : public wxObject
 {
+protected:
+	virtual bool DoCanRead(wxInputStream &) = 0;
+
 public:
     /**
         Default constructor.
@@ -168,6 +171,7 @@ public:
     */
     wxImageHandler();
 
+	
     /**
         Destroys the wxImageHandler object.
     */

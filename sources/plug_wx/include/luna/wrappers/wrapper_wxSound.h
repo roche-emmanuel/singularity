@@ -8,16 +8,14 @@
 
 #include <wx/sound.h>
 
-class wrapper_wxSound : public wxSound {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSound : public wxSound, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSound(lua_State* L, lua_Table* dum) : wxSound(), _obj(L,-1) {};
-	wrapper_wxSound(lua_State* L, lua_Table* dum, const wxString & fileName, bool isResource = false) : wxSound(fileName, isResource), _obj(L,-1) {};
-	wrapper_wxSound(lua_State* L, lua_Table* dum, size_t size, const void * data) : wxSound(size, data), _obj(L,-1) {};
+	wrapper_wxSound(lua_State* L, lua_Table* dum) : wxSound(), luna_wrapper_base(L) {};
+	wrapper_wxSound(lua_State* L, lua_Table* dum, const wxString & fileName, bool isResource = false) : wxSound(fileName, isResource), luna_wrapper_base(L) {};
+	wrapper_wxSound(lua_State* L, lua_Table* dum, size_t size, const void * data) : wxSound(size, data), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

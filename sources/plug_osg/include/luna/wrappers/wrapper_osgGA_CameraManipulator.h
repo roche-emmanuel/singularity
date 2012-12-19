@@ -8,15 +8,13 @@
 
 #include <osgGA/CameraManipulator>
 
-class wrapper_osgGA_CameraManipulator : public osgGA::CameraManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_CameraManipulator : public osgGA::CameraManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator(), _obj(L,-1) {};
-	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum, const osgGA::CameraManipulator & mm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::CameraManipulator(mm, copyOp), _obj(L,-1) {};
+	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum) : osgGA::CameraManipulator(), luna_wrapper_base(L) {};
+	wrapper_osgGA_CameraManipulator(lua_State* L, lua_Table* dum, const osgGA::CameraManipulator & mm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::CameraManipulator(mm, copyOp), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

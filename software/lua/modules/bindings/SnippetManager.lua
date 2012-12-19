@@ -110,6 +110,35 @@ function Class:getEqualityCode(bname,hash)
 	return utils.subLine(str,bname,hash)
 end
 
+function Class:getTableAccessCode(bname,hash)
+	local str = [[inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		${1}* self=(Luna< ${1} >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+]]
+
+	return utils.subLine(str,bname,hash)
+end
+
 function Class:getWrapperStartCode(class)
 	local str = [[
 #include "sgtCommon.h"
@@ -117,10 +146,8 @@ function Class:getWrapperStartCode(class)
 
 ${3}
 
-class wrapper_${1} : public ${2} {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_${1} : public ${2}, public luna_wrapper_base {
+
 public:
 	
 ]]
@@ -131,12 +158,12 @@ public:
 	return utils.subLine(str,wname,class:getFullName(),(not header or im:ignoreHeader(header)) and "" or "#include <"..header..">")
 end
 
-function Class:getWrapperEndCode()
+function Class:getWrapperEndCode(class)
 	local str = [[
 };
 
 ]]
-	
+
 	return str
 end
 

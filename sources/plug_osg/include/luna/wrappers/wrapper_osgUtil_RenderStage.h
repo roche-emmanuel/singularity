@@ -8,16 +8,14 @@
 
 #include <osgUtil/RenderStage>
 
-class wrapper_osgUtil_RenderStage : public osgUtil::RenderStage {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_RenderStage : public osgUtil::RenderStage, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum) : osgUtil::RenderStage(), _obj(L,-1) {};
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) : osgUtil::RenderStage(mode), _obj(L,-1) {};
-	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, const osgUtil::RenderStage & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::RenderStage(rhs, copyop), _obj(L,-1) {};
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum) : osgUtil::RenderStage(), luna_wrapper_base(L) {};
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) : osgUtil::RenderStage(mode), luna_wrapper_base(L) {};
+	wrapper_osgUtil_RenderStage(lua_State* L, lua_Table* dum, const osgUtil::RenderStage & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::RenderStage(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

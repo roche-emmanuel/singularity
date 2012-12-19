@@ -6,6 +6,30 @@ class luna_wrapper_wxTimerEvent {
 public:
 	typedef Luna< wxTimerEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,24 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxTimer* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetInterval(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -70,6 +112,44 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTimerEvent::wxTimerEvent(lua_Table * data)
+	static wxTimerEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTimerEvent::wxTimerEvent(lua_Table * data) function, expected prototype:\nwxTimerEvent::wxTimerEvent(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxTimerEvent(L,NULL);
+	}
+
+	// wxTimerEvent::wxTimerEvent(lua_Table * data, wxTimer & timer)
+	static wxTimerEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTimerEvent::wxTimerEvent(lua_Table * data, wxTimer & timer) function, expected prototype:\nwxTimerEvent::wxTimerEvent(lua_Table * data, wxTimer & timer)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxTimer* timer_ptr=(Luna< wxObject >::checkSubType< wxTimer >(L,2));
+		if( !timer_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg timer in wxTimerEvent::wxTimerEvent function");
+		}
+		wxTimer & timer=*timer_ptr;
+
+		return new wrapper_wxTimerEvent(L,NULL, timer);
+	}
+
+	// Overload binder for wxTimerEvent::wxTimerEvent
+	static wxTimerEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxTimerEvent, cannot match any of the overloads for function wxTimerEvent:\n  wxTimerEvent(lua_Table *)\n  wxTimerEvent(lua_Table *, wxTimer &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// int wxTimerEvent::GetInterval() const
@@ -158,7 +238,8 @@ public:
 };
 
 wxTimerEvent* LunaTraits< wxTimerEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxTimerEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -180,6 +261,7 @@ luna_RegType LunaTraits< wxTimerEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxTimerEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxTimerEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxTimerEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxTimerEvent::_bind_getTable},
 	{0,0}
 };
 

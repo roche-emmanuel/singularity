@@ -6,6 +6,30 @@ class luna_wrapper_osg_DrawElements {
 public:
 	typedef Luna< osg::DrawElements > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,31 @@ public:
 		Luna< osg::DrawElements >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::DrawElements* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -207,6 +256,56 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::DrawElements::DrawElements(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0)
+	static osg::DrawElements* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElements::DrawElements(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) function, expected prototype:\nosg::DrawElements::DrawElements(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::PrimitiveSet::Type primType=luatop>1 ? (osg::PrimitiveSet::Type)lua_tointeger(L,2) : osg::PrimitiveSet::PrimitiveType;
+		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_osg_DrawElements(L,NULL, primType, mode, numInstances);
+	}
+
+	// osg::DrawElements::DrawElements(lua_Table * data, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::DrawElements* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::DrawElements::DrawElements(lua_Table * data, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::DrawElements::DrawElements(lua_Table * data, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::DrawElements* copy_ptr=(Luna< osg::Referenced >::checkSubType< osg::DrawElements >(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osg::DrawElements::DrawElements function");
+		}
+		const osg::DrawElements & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::DrawElements::DrawElements function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_DrawElements(L,NULL, copy, copyop);
+	}
+
+	// Overload binder for osg::DrawElements::DrawElements
+	static osg::DrawElements* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function DrawElements, cannot match any of the overloads for function DrawElements:\n  DrawElements(lua_Table *, osg::PrimitiveSet::Type, unsigned int, int)\n  DrawElements(lua_Table *, const osg::DrawElements &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// osg::DrawElements * osg::DrawElements::getDrawElements()
@@ -747,7 +846,8 @@ public:
 };
 
 osg::DrawElements* LunaTraits< osg::DrawElements >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_DrawElements::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::DrawElements::reserveElements(unsigned int numIndices)
 	// void osg::DrawElements::setElement(unsigned int arg1, unsigned int arg2)
@@ -797,6 +897,7 @@ luna_RegType LunaTraits< osg::DrawElements >::methods[] = {
 	{"base_computeRange", &luna_wrapper_osg_DrawElements::_bind_base_computeRange},
 	{"base_getDrawElements", &luna_wrapper_osg_DrawElements::_bind_base_getDrawElements},
 	{"__eq", &luna_wrapper_osg_DrawElements::_bind___eq},
+	{"getTable", &luna_wrapper_osg_DrawElements::_bind_getTable},
 	{0,0}
 };
 

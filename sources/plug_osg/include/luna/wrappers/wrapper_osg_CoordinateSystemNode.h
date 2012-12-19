@@ -8,16 +8,14 @@
 
 #include <osg/CoordinateSystemNode>
 
-class wrapper_osg_CoordinateSystemNode : public osg::CoordinateSystemNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CoordinateSystemNode : public osg::CoordinateSystemNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum) : osg::CoordinateSystemNode(), _obj(L,-1) {};
-	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum, const std::string & format, const std::string & cs) : osg::CoordinateSystemNode(format, cs), _obj(L,-1) {};
-	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum, const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CoordinateSystemNode(arg1, copyop), _obj(L,-1) {};
+	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum) : osg::CoordinateSystemNode(), luna_wrapper_base(L) {};
+	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum, const std::string & format, const std::string & cs) : osg::CoordinateSystemNode(format, cs), luna_wrapper_base(L) {};
+	wrapper_osg_CoordinateSystemNode(lua_State* L, lua_Table* dum, const osg::CoordinateSystemNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CoordinateSystemNode(arg1, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -6,6 +6,30 @@ class luna_wrapper_wxHelpControllerHelpProvider {
 public:
 	typedef Luna< wxHelpControllerHelpProvider > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,17 @@ public:
 		Luna< wxHelpControllerHelpProvider >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15941327)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -93,6 +128,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL)
+	static wxHelpControllerHelpProvider* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL) function, expected prototype:\nwxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL)\nClass arguments details:\narg 2 ID = 15941327\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxHelpController* hc=luatop>1 ? (Luna< wxHelpController >::check(L,2)) : (wxHelpController*)NULL;
+
+		return new wrapper_wxHelpControllerHelpProvider(L,NULL, hc);
+	}
+
 
 	// Function binds:
 	// void wxHelpControllerHelpProvider::SetHelpController(wxHelpController * hc)
@@ -234,7 +285,8 @@ public:
 };
 
 wxHelpControllerHelpProvider* LunaTraits< wxHelpControllerHelpProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHelpControllerHelpProvider::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
 }
@@ -257,6 +309,7 @@ luna_RegType LunaTraits< wxHelpControllerHelpProvider >::methods[] = {
 	{"base_ShowHelp", &luna_wrapper_wxHelpControllerHelpProvider::_bind_base_ShowHelp},
 	{"base_ShowHelpAtPoint", &luna_wrapper_wxHelpControllerHelpProvider::_bind_base_ShowHelpAtPoint},
 	{"__eq", &luna_wrapper_wxHelpControllerHelpProvider::_bind___eq},
+	{"getTable", &luna_wrapper_wxHelpControllerHelpProvider::_bind_getTable},
 	{0,0}
 };
 

@@ -43,7 +43,7 @@ public:
 
     /** Destructor. */
     virtual ~wxPGEditor();
-
+	
     /**
         Returns pointer to the name of the editor. For example,
         wxPGEditor_TextCtrl has name "TextCtrl". If you dont' need to access

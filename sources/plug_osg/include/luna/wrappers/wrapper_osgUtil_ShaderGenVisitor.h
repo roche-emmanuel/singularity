@@ -8,15 +8,13 @@
 
 #include <osgUtil/ShaderGen>
 
-class wrapper_osgUtil_ShaderGenVisitor : public osgUtil::ShaderGenVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_ShaderGenVisitor : public osgUtil::ShaderGenVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenVisitor(), _obj(L,-1) {};
-	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum, osgUtil::ShaderGenCache * stateCache) : osgUtil::ShaderGenVisitor(stateCache), _obj(L,-1) {};
+	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenVisitor(), luna_wrapper_base(L) {};
+	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum, osgUtil::ShaderGenCache * stateCache) : osgUtil::ShaderGenVisitor(stateCache), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

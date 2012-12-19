@@ -8,15 +8,13 @@
 
 #include <wx/toolbook.h>
 
-class wrapper_wxToolbook : public wxToolbook {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxToolbook : public wxToolbook, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxToolbook(lua_State* L, lua_Table* dum) : wxToolbook(), _obj(L,-1) {};
-	wrapper_wxToolbook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxToolbook(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxToolbook(lua_State* L, lua_Table* dum) : wxToolbook(), luna_wrapper_base(L) {};
+	wrapper_wxToolbook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxToolbook(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1246,6 +1244,13 @@ protected:
 		}
 
 		return wxToolbook::AddPendingEvent(event);
+	};
+
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	wxWindow * DoRemovePage(size_t arg1) {
+		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxWindow*>());
 	};
 
 

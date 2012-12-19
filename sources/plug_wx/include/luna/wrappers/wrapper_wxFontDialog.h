@@ -8,16 +8,14 @@
 
 #include <wx/fontdlg.h>
 
-class wrapper_wxFontDialog : public wxFontDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFontDialog : public wxFontDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFontDialog(lua_State* L, lua_Table* dum) : wxFontDialog(), _obj(L,-1) {};
-	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent) : wxFontDialog(parent), _obj(L,-1) {};
-	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxFontData & data) : wxFontDialog(parent, data), _obj(L,-1) {};
+	wrapper_wxFontDialog(lua_State* L, lua_Table* dum) : wxFontDialog(), luna_wrapper_base(L) {};
+	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent) : wxFontDialog(parent), luna_wrapper_base(L) {};
+	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxFontData & data) : wxFontDialog(parent, data), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

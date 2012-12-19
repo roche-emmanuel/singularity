@@ -8,15 +8,13 @@
 
 #include <osgGA/GUIEventAdapter>
 
-class wrapper_osgGA_GUIEventAdapter : public osgGA::GUIEventAdapter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_GUIEventAdapter : public osgGA::GUIEventAdapter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter(), _obj(L,-1) {};
-	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgGA::GUIEventAdapter(rhs, copyop), _obj(L,-1) {};
+	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter(), luna_wrapper_base(L) {};
+	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgGA::GUIEventAdapter(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

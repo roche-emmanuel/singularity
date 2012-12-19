@@ -8,15 +8,13 @@
 
 #include <wx/propgrid/propgrid.h>
 
-class wrapper_wxPropertyGrid : public wxPropertyGrid {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPropertyGrid : public wxPropertyGrid, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum) : wxPropertyGrid(), _obj(L,-1) {};
-	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0), const wxString & name = wxPropertyGridNameStr) : wxPropertyGrid(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum) : wxPropertyGrid(), luna_wrapper_base(L) {};
+	wrapper_wxPropertyGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0), const wxString & name = wxPropertyGridNameStr) : wxPropertyGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

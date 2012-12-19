@@ -8,10 +8,8 @@
 
 #include <osg/ValueObject>
 
-class wrapper_osg_ValueObject_SetValueVisitor : public osg::ValueObject::SetValueVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ValueObject_SetValueVisitor : public osg::ValueObject::SetValueVisitor, public luna_wrapper_base {
+
 public:
 	
 

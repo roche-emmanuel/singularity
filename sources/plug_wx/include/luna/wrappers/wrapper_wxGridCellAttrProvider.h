@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellAttrProvider : public wxGridCellAttrProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellAttrProvider : public wxGridCellAttrProvider, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellAttrProvider(lua_State* L, lua_Table* dum) : wxGridCellAttrProvider(), _obj(L,-1) {};
+	wrapper_wxGridCellAttrProvider(lua_State* L, lua_Table* dum) : wxGridCellAttrProvider(), luna_wrapper_base(L) {};
 
 	// wxGridCellAttr * wxGridCellAttrProvider::GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const
 	wxGridCellAttr * GetAttr(int row, int col, wxGridCellAttr::wxAttrKind kind) const {

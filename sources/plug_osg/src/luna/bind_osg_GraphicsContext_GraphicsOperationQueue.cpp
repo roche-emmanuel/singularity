@@ -70,6 +70,8 @@ public:
 
 osg::GraphicsContext::GraphicsOperationQueue* LunaTraits< osg::GraphicsContext::GraphicsOperationQueue >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::GraphicsContext::GraphicsOperationQueue >::_bind_dtor(osg::GraphicsContext::GraphicsOperationQueue* obj) {

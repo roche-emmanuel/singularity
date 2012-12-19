@@ -8,14 +8,12 @@
 
 #include <wx/fontpicker.h>
 
-class wrapper_wxFontPickerEvent : public wxFontPickerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFontPickerEvent : public wxFontPickerEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFontPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxFont & font) : wxFontPickerEvent(generator, id, font), _obj(L,-1) {};
+	wrapper_wxFontPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxFont & font) : wxFontPickerEvent(generator, id, font), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

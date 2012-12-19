@@ -6,6 +6,30 @@ class luna_wrapper_wxDataViewVirtualListModel {
 public:
 	typedef Luna< wxDataViewVirtualListModel > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxDataViewModel* self=(Luna< wxDataViewModel >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,17 @@ public:
 		Luna< wxDataViewVirtualListModel >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -106,6 +141,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataViewVirtualListModel::wxDataViewVirtualListModel(lua_Table * data, unsigned int initial_size = 0)
+	static wxDataViewVirtualListModel* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewVirtualListModel::wxDataViewVirtualListModel(lua_Table * data, unsigned int initial_size = 0) function, expected prototype:\nwxDataViewVirtualListModel::wxDataViewVirtualListModel(lua_Table * data, unsigned int initial_size = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		unsigned int initial_size=luatop>1 ? (unsigned int)lua_tointeger(L,2) : 0;
+
+		return new wrapper_wxDataViewVirtualListModel(L,NULL, initial_size);
+	}
+
 
 	// Function binds:
 	// bool wxDataViewVirtualListModel::base_Cleared()
@@ -305,7 +356,8 @@ public:
 };
 
 wxDataViewVirtualListModel* LunaTraits< wxDataViewVirtualListModel >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewVirtualListModel::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataViewListModel::GetValueByRow(wxVariant & variant, unsigned int row, unsigned int col) const
 	// bool wxDataViewListModel::SetValueByRow(const wxVariant & variant, unsigned int row, unsigned int col)
@@ -339,6 +391,7 @@ luna_RegType LunaTraits< wxDataViewVirtualListModel >::methods[] = {
 	{"base_Resort", &luna_wrapper_wxDataViewVirtualListModel::_bind_base_Resort},
 	{"base_ValueChanged", &luna_wrapper_wxDataViewVirtualListModel::_bind_base_ValueChanged},
 	{"__eq", &luna_wrapper_wxDataViewVirtualListModel::_bind___eq},
+	{"getTable", &luna_wrapper_wxDataViewVirtualListModel::_bind_getTable},
 	{0,0}
 };
 

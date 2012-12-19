@@ -8,15 +8,13 @@
 
 #include <osg/DeleteHandler>
 
-class wrapper_osg_DeleteHandler : public osg::DeleteHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_DeleteHandler : public osg::DeleteHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, int numberOfFramesToRetainObjects = 0) : osg::DeleteHandler(numberOfFramesToRetainObjects), _obj(L,-1) {};
-	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, const osg::DeleteHandler & arg1) : osg::DeleteHandler(arg1), _obj(L,-1) {};
+	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, int numberOfFramesToRetainObjects = 0) : osg::DeleteHandler(numberOfFramesToRetainObjects), luna_wrapper_base(L) {};
+	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, const osg::DeleteHandler & arg1) : osg::DeleteHandler(arg1), luna_wrapper_base(L) {};
 
 	// void osg::DeleteHandler::flush()
 	void flush() {

@@ -8,15 +8,13 @@
 
 #include <wx/commandlinkbutton.h>
 
-class wrapper_wxCommandLinkButton : public wxCommandLinkButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCommandLinkButton : public wxCommandLinkButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCommandLinkButton(lua_State* L, lua_Table* dum) : wxCommandLinkButton(), _obj(L,-1) {};
-	wrapper_wxCommandLinkButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & mainLabel = wxEmptyString, const wxString & note = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxButtonNameStr) : wxCommandLinkButton(parent, id, mainLabel, note, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxCommandLinkButton(lua_State* L, lua_Table* dum) : wxCommandLinkButton(), luna_wrapper_base(L) {};
+	wrapper_wxCommandLinkButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & mainLabel = wxEmptyString, const wxString & note = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxButtonNameStr) : wxCommandLinkButton(parent, id, mainLabel, note, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

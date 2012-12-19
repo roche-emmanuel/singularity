@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextbuffer.h>
 
-class wrapper_wxRichTextRenderer : public wxRichTextRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextRenderer : public wxRichTextRenderer, public luna_wrapper_base {
+
 public:
 	
 
@@ -46,6 +44,34 @@ protected:
 		return wxRichTextRenderer::CloneRefData(data);
 	};
 
+
+public:
+// bool wxRichTextRenderer::DrawStandardBullet(wxRichTextParagraph * paragraph, wxDC & dc, const wxRichTextAttr & attr, const wxRect & rect)
+bool DrawStandardBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &) {
+	THROW_IF(true,"The function call bool wxRichTextRenderer::DrawStandardBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &) is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxRichTextRenderer::DrawTextBullet(wxRichTextParagraph * paragraph, wxDC & dc, const wxRichTextAttr & attr, const wxRect & rect, const wxString & text)
+bool DrawTextBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &, const wxString &) {
+	THROW_IF(true,"The function call bool wxRichTextRenderer::DrawTextBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &, const wxString &) is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxRichTextRenderer::DrawBitmapBullet(wxRichTextParagraph * paragraph, wxDC & dc, const wxRichTextAttr & attr, const wxRect & rect)
+bool DrawBitmapBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &) {
+	THROW_IF(true,"The function call bool wxRichTextRenderer::DrawBitmapBullet(wxRichTextParagraph *, wxDC &, const wxRichTextAttr &, const wxRect &) is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxRichTextRenderer::EnumerateStandardBulletNames(wxArrayString & bulletNames)
+bool EnumerateStandardBulletNames(wxArrayString &) {
+	THROW_IF(true,"The function call bool wxRichTextRenderer::EnumerateStandardBulletNames(wxArrayString &) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

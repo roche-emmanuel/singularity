@@ -8,16 +8,14 @@
 
 #include <osg/FrameBufferObject>
 
-class wrapper_osg_RenderBuffer : public osg::RenderBuffer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_RenderBuffer : public osg::RenderBuffer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum) : osg::RenderBuffer(), _obj(L,-1) {};
-	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, int width, int height, unsigned int internalFormat, int samples = 0, int colorSamples = 0) : osg::RenderBuffer(width, height, internalFormat, samples, colorSamples), _obj(L,-1) {};
-	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, const osg::RenderBuffer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::RenderBuffer(copy, copyop), _obj(L,-1) {};
+	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum) : osg::RenderBuffer(), luna_wrapper_base(L) {};
+	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, int width, int height, unsigned int internalFormat, int samples = 0, int colorSamples = 0) : osg::RenderBuffer(width, height, internalFormat, samples, colorSamples), luna_wrapper_base(L) {};
+	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, const osg::RenderBuffer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::RenderBuffer(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

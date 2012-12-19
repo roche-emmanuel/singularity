@@ -8,15 +8,13 @@
 
 #include <wx/rearrangectrl.h>
 
-class wrapper_wxRearrangeList : public wxRearrangeList {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRearrangeList : public wxRearrangeList, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRearrangeList(lua_State* L, lua_Table* dum) : wxRearrangeList(), _obj(L,-1) {};
-	wrapper_wxRearrangeList(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) : wxRearrangeList(parent, id, pos, size, order, items, style, validator, name), _obj(L,-1) {};
+	wrapper_wxRearrangeList(lua_State* L, lua_Table* dum) : wxRearrangeList(), luna_wrapper_base(L) {};
+	wrapper_wxRearrangeList(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) : wxRearrangeList(parent, id, pos, size, order, items, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,20 +8,18 @@
 
 #include <wx/bitmap.h>
 
-class wrapper_wxBitmap : public wxBitmap {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBitmap : public wxBitmap, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) : wxBitmap(sz, depth), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) : wxBitmap(bits), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) : wxBitmap(name, type), _obj(L,-1) {};
-	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) : wxBitmap(img, depth), _obj(L,-1) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxSize & sz, int depth = (-1)) : wxBitmap(sz, depth), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const char *const * bits) : wxBitmap(bits), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxString & name, wxBitmapType type = wxBITMAP_DEFAULT_TYPE) : wxBitmap(name, type), luna_wrapper_base(L) {};
+	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxImage & img, int depth = (-1)) : wxBitmap(img, depth), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

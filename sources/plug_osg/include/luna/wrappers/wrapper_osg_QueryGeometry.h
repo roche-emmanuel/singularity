@@ -8,10 +8,8 @@
 
 #include <osg/OcclusionQueryNode>
 
-class wrapper_osg_QueryGeometry : public osg::QueryGeometry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_QueryGeometry : public osg::QueryGeometry, public luna_wrapper_base {
+
 public:
 	
 

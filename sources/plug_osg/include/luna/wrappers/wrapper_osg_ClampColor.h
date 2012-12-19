@@ -8,16 +8,14 @@
 
 #include <osg/ClampColor>
 
-class wrapper_osg_ClampColor : public osg::ClampColor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ClampColor : public osg::ClampColor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum) : osg::ClampColor(), _obj(L,-1) {};
-	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, unsigned int vertexMode, unsigned int fragmentMode, unsigned int readMode) : osg::ClampColor(vertexMode, fragmentMode, readMode), _obj(L,-1) {};
-	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, const osg::ClampColor & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClampColor(rhs, copyop), _obj(L,-1) {};
+	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum) : osg::ClampColor(), luna_wrapper_base(L) {};
+	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, unsigned int vertexMode, unsigned int fragmentMode, unsigned int readMode) : osg::ClampColor(vertexMode, fragmentMode, readMode), luna_wrapper_base(L) {};
+	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, const osg::ClampColor & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClampColor(rhs, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

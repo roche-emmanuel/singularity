@@ -8,10 +8,8 @@
 
 #include <wx/graphics.h>
 
-class wrapper_wxGraphicsFont : public wxGraphicsFont {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGraphicsFont : public wxGraphicsFont, public luna_wrapper_base {
+
 public:
 	
 

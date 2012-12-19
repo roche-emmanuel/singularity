@@ -6,6 +6,30 @@ class luna_wrapper_osg_GLBufferObjectManager {
 public:
 	typedef Luna< osg::GLBufferObjectManager > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -219,6 +243,20 @@ public:
 	inline static bool _lg_typecheck_resetStats(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_reportStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_recomputeStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -826,6 +864,52 @@ public:
 		return 0;
 	}
 
+	// void osg::GLBufferObjectManager::reportStats(std::ostream & out)
+	static int _bind_reportStats(lua_State *L) {
+		if (!_lg_typecheck_reportStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObjectManager::reportStats(std::ostream & out) function, expected prototype:\nvoid osg::GLBufferObjectManager::reportStats(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::GLBufferObjectManager::reportStats function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::GLBufferObjectManager* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObjectManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObjectManager::reportStats(std::ostream &)");
+		}
+		self->reportStats(out);
+
+		return 0;
+	}
+
+	// void osg::GLBufferObjectManager::recomputeStats(std::ostream & out)
+	static int _bind_recomputeStats(lua_State *L) {
+		if (!_lg_typecheck_recomputeStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::GLBufferObjectManager::recomputeStats(std::ostream & out) function, expected prototype:\nvoid osg::GLBufferObjectManager::recomputeStats(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::GLBufferObjectManager::recomputeStats function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::GLBufferObjectManager* self=Luna< osg::Referenced >::checkSubType< osg::GLBufferObjectManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::GLBufferObjectManager::recomputeStats(std::ostream &)");
+		}
+		self->recomputeStats(out);
+
+		return 0;
+	}
+
 	// unsigned int & osg::GLBufferObjectManager::getFrameNumber()
 	static int _bind_getFrameNumber(lua_State *L) {
 		if (!_lg_typecheck_getFrameNumber(L)) {
@@ -1000,6 +1084,8 @@ public:
 
 osg::GLBufferObjectManager* LunaTraits< osg::GLBufferObjectManager >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_GLBufferObjectManager::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::GLBufferObjectManager >::_bind_dtor(osg::GLBufferObjectManager* obj) {
@@ -1036,6 +1122,8 @@ luna_RegType LunaTraits< osg::GLBufferObjectManager >::methods[] = {
 	{"getGLBufferObjectSet", &luna_wrapper_osg_GLBufferObjectManager::_bind_getGLBufferObjectSet},
 	{"newFrame", &luna_wrapper_osg_GLBufferObjectManager::_bind_newFrame},
 	{"resetStats", &luna_wrapper_osg_GLBufferObjectManager::_bind_resetStats},
+	{"reportStats", &luna_wrapper_osg_GLBufferObjectManager::_bind_reportStats},
+	{"recomputeStats", &luna_wrapper_osg_GLBufferObjectManager::_bind_recomputeStats},
 	{"getFrameNumber", &luna_wrapper_osg_GLBufferObjectManager::_bind_getFrameNumber},
 	{"getNumberFrames", &luna_wrapper_osg_GLBufferObjectManager::_bind_getNumberFrames},
 	{"getNumberDeleted", &luna_wrapper_osg_GLBufferObjectManager::_bind_getNumberDeleted},
@@ -1046,6 +1134,7 @@ luna_RegType LunaTraits< osg::GLBufferObjectManager >::methods[] = {
 	{"getApplyTime", &luna_wrapper_osg_GLBufferObjectManager::_bind_getApplyTime},
 	{"getGLBufferObjectManager", &luna_wrapper_osg_GLBufferObjectManager::_bind_getGLBufferObjectManager},
 	{"__eq", &luna_wrapper_osg_GLBufferObjectManager::_bind___eq},
+	{"getTable", &luna_wrapper_osg_GLBufferObjectManager::_bind_getTable},
 	{0,0}
 };
 

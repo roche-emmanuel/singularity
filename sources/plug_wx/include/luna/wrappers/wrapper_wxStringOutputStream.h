@@ -8,10 +8,8 @@
 
 #include <wx/sstream.h>
 
-class wrapper_wxStringOutputStream : public wxStringOutputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStringOutputStream : public wxStringOutputStream, public luna_wrapper_base {
+
 public:
 	
 

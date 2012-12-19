@@ -6,6 +6,30 @@ class luna_wrapper_wxTransform2D {
 public:
 	typedef Luna< wxTransform2D > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxTransform2D* self=(Luna< wxTransform2D >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -54,6 +78,8 @@ public:
 		return luna_dynamicCast(L,converters,"wxTransform2D",name);
 	}
 
+
+	// Constructor checkers:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Transform_overload_1(lua_State *L) {
@@ -171,6 +197,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
@@ -551,7 +579,8 @@ public:
 };
 
 wxTransform2D* LunaTraits< wxTransform2D >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	// void wxTransform2D::InverseTransform(wxPoint2DInt * pt) const
@@ -575,6 +604,7 @@ luna_RegType LunaTraits< wxTransform2D >::methods[] = {
 	{"base_InverseTransform", &luna_wrapper_wxTransform2D::_bind_base_InverseTransform},
 	{"dynCast", &luna_wrapper_wxTransform2D::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxTransform2D::_bind___eq},
+	{"getTable", &luna_wrapper_wxTransform2D::_bind_getTable},
 	{0,0}
 };
 

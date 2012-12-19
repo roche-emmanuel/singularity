@@ -8,15 +8,13 @@
 
 #include <osg/KdTree>
 
-class wrapper_osg_KdTreeBuilder : public osg::KdTreeBuilder {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_KdTreeBuilder : public osg::KdTreeBuilder, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum) : osg::KdTreeBuilder(), _obj(L,-1) {};
-	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum, const osg::KdTreeBuilder & rhs) : osg::KdTreeBuilder(rhs), _obj(L,-1) {};
+	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum) : osg::KdTreeBuilder(), luna_wrapper_base(L) {};
+	wrapper_osg_KdTreeBuilder(lua_State* L, lua_Table* dum, const osg::KdTreeBuilder & rhs) : osg::KdTreeBuilder(rhs), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()
 	void reset() {

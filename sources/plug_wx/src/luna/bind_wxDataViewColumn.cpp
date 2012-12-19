@@ -6,6 +6,30 @@ class luna_wrapper_wxDataViewColumn {
 public:
 	typedef Luna< wxDataViewColumn > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxHeaderColumn* self=(Luna< wxHeaderColumn >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,39 @@ public:
 		Luna< wxDataViewColumn >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxDataViewRenderer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxBitmap* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnil(L,3)==0 && !dynamic_cast< wxDataViewRenderer* >(Luna< wxObject >::check(L,3)) ) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -116,6 +173,59 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
+	static wxDataViewColumn* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+		wxDataViewRenderer* renderer=(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3));
+		unsigned int model_column=(unsigned int)lua_tointeger(L,4);
+		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
+
+		return new wrapper_wxDataViewColumn(L,NULL, title, renderer, model_column, width, align, flags);
+	}
+
+	// wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)
+	static wxDataViewColumn* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) function, expected prototype:\nwxDataViewColumn::wxDataViewColumn(lua_Table * data, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
+		if( !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxDataViewColumn::wxDataViewColumn function");
+		}
+		const wxBitmap & bitmap=*bitmap_ptr;
+		wxDataViewRenderer* renderer=(Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,3));
+		unsigned int model_column=(unsigned int)lua_tointeger(L,4);
+		int width=luatop>4 ? (int)lua_tointeger(L,5) : 80;
+		wxAlignment align=luatop>5 ? (wxAlignment)lua_tointeger(L,6) : ::wxALIGN_CENTER;
+		int flags=luatop>6 ? (int)lua_tointeger(L,7) : ::wxDATAVIEW_COL_RESIZABLE;
+
+		return new wrapper_wxDataViewColumn(L,NULL, bitmap, renderer, model_column, width, align, flags);
+	}
+
+	// Overload binder for wxDataViewColumn::wxDataViewColumn
+	static wxDataViewColumn* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDataViewColumn, cannot match any of the overloads for function wxDataViewColumn:\n  wxDataViewColumn(lua_Table *, const wxString &, wxDataViewRenderer *, unsigned int, int, wxAlignment, int)\n  wxDataViewColumn(lua_Table *, const wxBitmap &, wxDataViewRenderer *, unsigned int, int, wxAlignment, int)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// unsigned int wxDataViewColumn::GetModelColumn() const
@@ -337,7 +447,8 @@ public:
 };
 
 wxDataViewColumn* LunaTraits< wxDataViewColumn >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewColumn::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxSettableHeaderColumn::SetTitle(const wxString & title)
 	// void wxSettableHeaderColumn::SetBitmap(const wxBitmap & bitmap)
@@ -380,6 +491,7 @@ luna_RegType LunaTraits< wxDataViewColumn >::methods[] = {
 	{"base_SetReorderable", &luna_wrapper_wxDataViewColumn::_bind_base_SetReorderable},
 	{"base_SetHidden", &luna_wrapper_wxDataViewColumn::_bind_base_SetHidden},
 	{"__eq", &luna_wrapper_wxDataViewColumn::_bind___eq},
+	{"getTable", &luna_wrapper_wxDataViewColumn::_bind_getTable},
 	{0,0}
 };
 

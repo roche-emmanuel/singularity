@@ -8,15 +8,13 @@
 
 #include <osg/Stencil>
 
-class wrapper_osg_Stencil : public osg::Stencil {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Stencil : public osg::Stencil, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Stencil(lua_State* L, lua_Table* dum) : osg::Stencil(), _obj(L,-1) {};
-	wrapper_osg_Stencil(lua_State* L, lua_Table* dum, const osg::Stencil & stencil, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Stencil(stencil, copyop), _obj(L,-1) {};
+	wrapper_osg_Stencil(lua_State* L, lua_Table* dum) : osg::Stencil(), luna_wrapper_base(L) {};
+	wrapper_osg_Stencil(lua_State* L, lua_Table* dum, const osg::Stencil & stencil, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Stencil(stencil, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

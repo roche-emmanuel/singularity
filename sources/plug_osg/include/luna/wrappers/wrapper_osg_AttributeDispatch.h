@@ -8,10 +8,8 @@
 
 #include <osg/ArrayDispatchers>
 
-class wrapper_osg_AttributeDispatch : public osg::AttributeDispatch {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AttributeDispatch : public osg::AttributeDispatch, public luna_wrapper_base {
+
 public:
 	
 

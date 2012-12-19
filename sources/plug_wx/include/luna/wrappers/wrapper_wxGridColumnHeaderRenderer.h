@@ -8,10 +8,8 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridColumnHeaderRenderer : public wxGridColumnHeaderRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridColumnHeaderRenderer : public wxGridColumnHeaderRenderer, public luna_wrapper_base {
+
 public:
 	
 

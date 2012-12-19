@@ -8,10 +8,8 @@
 
 #include <wx/tokenzr.h>
 
-class wrapper_wxStringTokenizer : public wxStringTokenizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStringTokenizer : public wxStringTokenizer, public luna_wrapper_base {
+
 public:
 	
 

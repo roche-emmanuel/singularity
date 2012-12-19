@@ -6,6 +6,30 @@ class luna_wrapper_wxHtmlPrintout {
 public:
 	typedef Luna< wxHtmlPrintout > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,17 @@ public:
 		Luna< wxHtmlPrintout >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -116,6 +151,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHtmlPrintout::wxHtmlPrintout(lua_Table * data, const wxString & title = "Printout")
+	static wxHtmlPrintout* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlPrintout::wxHtmlPrintout(lua_Table * data, const wxString & title = \"Printout\") function, expected prototype:\nwxHtmlPrintout::wxHtmlPrintout(lua_Table * data, const wxString & title = \"Printout\")\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString title(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxHtmlPrintout(L,NULL, title);
+	}
+
 
 	// Function binds:
 	// void wxHtmlPrintout::SetFonts(const wxString & normal_face, const wxString & fixed_face, const int * sizes = NULL)
@@ -293,7 +344,8 @@ public:
 };
 
 wxHtmlPrintout* LunaTraits< wxHtmlPrintout >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHtmlPrintout::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxPrintout::OnPrintPage(int pageNum)
 }
@@ -319,6 +371,7 @@ luna_RegType LunaTraits< wxHtmlPrintout >::methods[] = {
 	{"AddFilter", &luna_wrapper_wxHtmlPrintout::_bind_AddFilter},
 	{"base_GetClassInfo", &luna_wrapper_wxHtmlPrintout::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxHtmlPrintout::_bind___eq},
+	{"getTable", &luna_wrapper_wxHtmlPrintout::_bind_getTable},
 	{0,0}
 };
 

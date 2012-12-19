@@ -8,16 +8,14 @@
 
 #include <osgViewer/Viewer>
 
-class wrapper_osgViewer_Viewer : public osgViewer::Viewer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_Viewer : public osgViewer::Viewer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum) : osgViewer::Viewer(), _obj(L,-1) {};
-	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::Viewer(arguments), _obj(L,-1) {};
-	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum, const osgViewer::Viewer & viewer, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::Viewer(viewer, copyop), _obj(L,-1) {};
+	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum) : osgViewer::Viewer(), luna_wrapper_base(L) {};
+	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osgViewer::Viewer(arguments), luna_wrapper_base(L) {};
+	wrapper_osgViewer_Viewer(lua_State* L, lua_Table* dum, const osgViewer::Viewer & viewer, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgViewer::Viewer(viewer, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -258,8 +256,8 @@ public:
 		return Viewer::realize();
 	};
 
-	// void osgViewer::Viewer::setStartTick(unsigned long long tick)
-	void setStartTick(unsigned long long tick) {
+	// void osgViewer::Viewer::setStartTick(__int64 tick)
+	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
 			_obj.pushArg(tick);
 			return (_obj.callFunction<void>());

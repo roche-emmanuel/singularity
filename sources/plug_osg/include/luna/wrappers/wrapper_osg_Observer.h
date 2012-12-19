@@ -8,14 +8,12 @@
 
 #include <osg/Observer>
 
-class wrapper_osg_Observer : public osg::Observer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Observer : public osg::Observer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), _obj(L,-1) {};
+	wrapper_osg_Observer(lua_State* L, lua_Table* dum) : osg::Observer(), luna_wrapper_base(L) {};
 
 	// void osg::Observer::objectDeleted(void * arg1)
 	void objectDeleted(void * arg1) {

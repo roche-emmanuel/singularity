@@ -8,15 +8,13 @@
 
 #include <osgParticle/ModularProgram>
 
-class wrapper_osgParticle_ModularProgram : public osgParticle::ModularProgram {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ModularProgram : public osgParticle::ModularProgram, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ModularProgram(lua_State* L, lua_Table* dum) : osgParticle::ModularProgram(), _obj(L,-1) {};
-	wrapper_osgParticle_ModularProgram(lua_State* L, lua_Table* dum, const osgParticle::ModularProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ModularProgram(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ModularProgram(lua_State* L, lua_Table* dum) : osgParticle::ModularProgram(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ModularProgram(lua_State* L, lua_Table* dum, const osgParticle::ModularProgram & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ModularProgram(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

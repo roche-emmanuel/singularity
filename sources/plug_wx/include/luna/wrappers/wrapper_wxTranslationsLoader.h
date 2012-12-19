@@ -8,14 +8,12 @@
 
 #include <wx/translation.h>
 
-class wrapper_wxTranslationsLoader : public wxTranslationsLoader {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTranslationsLoader : public wxTranslationsLoader, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTranslationsLoader(lua_State* L, lua_Table* dum) : wxTranslationsLoader(), _obj(L,-1) {};
+	wrapper_wxTranslationsLoader(lua_State* L, lua_Table* dum) : wxTranslationsLoader(), luna_wrapper_base(L) {};
 
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {

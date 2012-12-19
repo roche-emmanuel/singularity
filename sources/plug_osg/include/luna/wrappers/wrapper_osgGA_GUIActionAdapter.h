@@ -8,10 +8,8 @@
 
 #include <osgGA/GUIActionAdapter>
 
-class wrapper_osgGA_GUIActionAdapter : public osgGA::GUIActionAdapter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_GUIActionAdapter : public osgGA::GUIActionAdapter, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,14 +8,12 @@
 
 #include <osg/FragmentProgram>
 
-class wrapper_osg_FragmentProgram_Extensions : public osg::FragmentProgram::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_FragmentProgram_Extensions : public osg::FragmentProgram::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_FragmentProgram_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::FragmentProgram::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_FragmentProgram_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::FragmentProgram::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

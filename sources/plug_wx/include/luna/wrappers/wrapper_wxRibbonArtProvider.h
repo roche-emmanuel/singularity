@@ -8,14 +8,12 @@
 
 #include <wx/ribbon/art.h>
 
-class wrapper_wxRibbonArtProvider : public wxRibbonArtProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRibbonArtProvider : public wxRibbonArtProvider, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRibbonArtProvider(lua_State* L, lua_Table* dum) : wxRibbonArtProvider(), _obj(L,-1) {};
+	wrapper_wxRibbonArtProvider(lua_State* L, lua_Table* dum) : wxRibbonArtProvider(), luna_wrapper_base(L) {};
 
 	// wxRibbonArtProvider * wxRibbonArtProvider::Clone() const
 	wxRibbonArtProvider * Clone() const {
@@ -343,7 +341,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
 		_obj.pushArg(desired_bitmap_size);
-		_obj.pushArg(expanded_panel_direction);
+		_obj.pushArg((int*)expanded_panel_direction);
 		return *(_obj.callFunction<wxSize*>());
 	};
 

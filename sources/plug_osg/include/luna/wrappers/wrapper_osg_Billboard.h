@@ -8,15 +8,13 @@
 
 #include <osg/Billboard>
 
-class wrapper_osg_Billboard : public osg::Billboard {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Billboard : public osg::Billboard, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Billboard(lua_State* L, lua_Table* dum) : osg::Billboard(), _obj(L,-1) {};
-	wrapper_osg_Billboard(lua_State* L, lua_Table* dum, const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Billboard(arg1, copyop), _obj(L,-1) {};
+	wrapper_osg_Billboard(lua_State* L, lua_Table* dum) : osg::Billboard(), luna_wrapper_base(L) {};
+	wrapper_osg_Billboard(lua_State* L, lua_Table* dum, const osg::Billboard & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Billboard(arg1, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

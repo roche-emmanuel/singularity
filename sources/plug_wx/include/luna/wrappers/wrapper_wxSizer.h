@@ -8,14 +8,12 @@
 
 #include <wx/sizer.h>
 
-class wrapper_wxSizer : public wxSizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSizer : public wxSizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSizer(lua_State* L, lua_Table* dum) : wxSizer(), _obj(L,-1) {};
+	wrapper_wxSizer(lua_State* L, lua_Table* dum) : wxSizer(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,16 +8,14 @@
 
 #include <osg/Texture3D>
 
-class wrapper_osg_Texture3D : public osg::Texture3D {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Texture3D : public osg::Texture3D, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum) : osg::Texture3D(), _obj(L,-1) {};
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture3D(image), _obj(L,-1) {};
-	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, const osg::Texture3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture3D(text, copyop), _obj(L,-1) {};
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum) : osg::Texture3D(), luna_wrapper_base(L) {};
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture3D(image), luna_wrapper_base(L) {};
+	wrapper_osg_Texture3D(lua_State* L, lua_Table* dum, const osg::Texture3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture3D(text, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

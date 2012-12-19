@@ -8,10 +8,8 @@
 
 #include <osg/ProxyNode>
 
-class wrapper_osg_ProxyNode : public osg::ProxyNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ProxyNode : public osg::ProxyNode, public luna_wrapper_base {
+
 public:
 	
 

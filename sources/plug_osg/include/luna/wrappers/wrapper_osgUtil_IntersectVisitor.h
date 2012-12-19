@@ -8,14 +8,12 @@
 
 #include <osgUtil/IntersectVisitor>
 
-class wrapper_osgUtil_IntersectVisitor : public osgUtil::IntersectVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IntersectVisitor : public osgUtil::IntersectVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_IntersectVisitor(lua_State* L, lua_Table* dum) : osgUtil::IntersectVisitor(), _obj(L,-1) {};
+	wrapper_osgUtil_IntersectVisitor(lua_State* L, lua_Table* dum) : osgUtil::IntersectVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const
 	osg::Vec3f getViewPoint() const {

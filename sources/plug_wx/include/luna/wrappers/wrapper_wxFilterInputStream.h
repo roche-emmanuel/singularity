@@ -8,15 +8,13 @@
 
 #include <wx/stream.h>
 
-class wrapper_wxFilterInputStream : public wxFilterInputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFilterInputStream : public wxFilterInputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream) : wxFilterInputStream(stream), _obj(L,-1) {};
-	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream) : wxFilterInputStream(stream), _obj(L,-1) {};
+	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream) : wxFilterInputStream(stream), luna_wrapper_base(L) {};
+	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream) : wxFilterInputStream(stream), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

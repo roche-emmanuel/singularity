@@ -8,14 +8,12 @@
 
 #include <wx/filesys.h>
 
-class wrapper_wxFileSystemHandler : public wxFileSystemHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileSystemHandler : public wxFileSystemHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileSystemHandler(lua_State* L, lua_Table* dum) : wxFileSystemHandler(), _obj(L,-1) {};
+	wrapper_wxFileSystemHandler(lua_State* L, lua_Table* dum) : wxFileSystemHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

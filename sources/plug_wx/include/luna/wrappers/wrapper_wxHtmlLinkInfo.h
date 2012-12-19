@@ -8,15 +8,13 @@
 
 #include <wx/html/htmlcell.h>
 
-class wrapper_wxHtmlLinkInfo : public wxHtmlLinkInfo {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlLinkInfo : public wxHtmlLinkInfo, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum) : wxHtmlLinkInfo(), _obj(L,-1) {};
-	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum, const wxString & href, const wxString & target = wxEmptyString) : wxHtmlLinkInfo(href, target), _obj(L,-1) {};
+	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum) : wxHtmlLinkInfo(), luna_wrapper_base(L) {};
+	wrapper_wxHtmlLinkInfo(lua_State* L, lua_Table* dum, const wxString & href, const wxString & target = wxEmptyString) : wxHtmlLinkInfo(href, target), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

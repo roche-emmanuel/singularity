@@ -8,14 +8,12 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellFloatRenderer : public wxGridCellFloatRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellFloatRenderer : public wxGridCellFloatRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellFloatRenderer(lua_State* L, lua_Table* dum, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) : wxGridCellFloatRenderer(width, precision, format), _obj(L,-1) {};
+	wrapper_wxGridCellFloatRenderer(lua_State* L, lua_Table* dum, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) : wxGridCellFloatRenderer(width, precision, format), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

@@ -8,14 +8,12 @@
 
 #include <wx/msgdlg.h>
 
-class wrapper_wxMessageDialog : public wxMessageDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMessageDialog : public wxMessageDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxMessageDialog(parent, message, caption, style, pos), _obj(L,-1) {};
+	wrapper_wxMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxMessageDialog(parent, message, caption, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

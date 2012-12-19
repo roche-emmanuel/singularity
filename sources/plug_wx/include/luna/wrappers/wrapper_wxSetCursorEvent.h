@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxSetCursorEvent : public wxSetCursorEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSetCursorEvent : public wxSetCursorEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSetCursorEvent(lua_State* L, lua_Table* dum, int x = 0, int y = 0) : wxSetCursorEvent(x, y), _obj(L,-1) {};
+	wrapper_wxSetCursorEvent(lua_State* L, lua_Table* dum, int x = 0, int y = 0) : wxSetCursorEvent(x, y), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

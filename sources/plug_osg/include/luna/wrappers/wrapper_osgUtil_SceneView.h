@@ -8,15 +8,13 @@
 
 #include <osgUtil/SceneView>
 
-class wrapper_osgUtil_SceneView : public osgUtil::SceneView {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_SceneView : public osgUtil::SceneView, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), _obj(L,-1) {};
-	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), _obj(L,-1) {};
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) {};
+	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

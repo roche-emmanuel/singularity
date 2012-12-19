@@ -8,14 +8,12 @@
 
 #include <wx/hyperlink.h>
 
-class wrapper_wxHyperlinkEvent : public wxHyperlinkEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHyperlinkEvent : public wxHyperlinkEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHyperlinkEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxString & url) : wxHyperlinkEvent(generator, id, url), _obj(L,-1) {};
+	wrapper_wxHyperlinkEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxString & url) : wxHyperlinkEvent(generator, id, url), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

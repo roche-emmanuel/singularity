@@ -8,15 +8,13 @@
 
 #include <osgDB/DatabaseRevisions>
 
-class wrapper_osgDB_DatabaseRevisions : public osgDB::DatabaseRevisions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_DatabaseRevisions : public osgDB::DatabaseRevisions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum) : osgDB::DatabaseRevisions(), _obj(L,-1) {};
-	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) : osgDB::DatabaseRevisions(revisions, arg2), _obj(L,-1) {};
+	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum) : osgDB::DatabaseRevisions(), luna_wrapper_base(L) {};
+	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) : osgDB::DatabaseRevisions(revisions, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

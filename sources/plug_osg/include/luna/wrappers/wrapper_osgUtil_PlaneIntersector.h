@@ -8,15 +8,13 @@
 
 #include <osgUtil/PlaneIntersector>
 
-class wrapper_osgUtil_PlaneIntersector : public osgUtil::PlaneIntersector {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_PlaneIntersector : public osgUtil::PlaneIntersector, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(plane, boundingPolytope), _obj(L,-1) {};
-	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(cf, plane, boundingPolytope), _obj(L,-1) {};
+	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(plane, boundingPolytope), luna_wrapper_base(L) {};
+	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(cf, plane, boundingPolytope), luna_wrapper_base(L) {};
 
 	// osgUtil::Intersector * osgUtil::PlaneIntersector::clone(osgUtil::IntersectionVisitor & iv)
 	osgUtil::Intersector * clone(osgUtil::IntersectionVisitor & iv) {

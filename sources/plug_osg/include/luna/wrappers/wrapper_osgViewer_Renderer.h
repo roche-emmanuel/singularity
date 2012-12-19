@@ -8,14 +8,12 @@
 
 #include <osgViewer/Renderer>
 
-class wrapper_osgViewer_Renderer : public osgViewer::Renderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_Renderer : public osgViewer::Renderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), _obj(L,-1) {};
+	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), luna_wrapper_base(L) {};
 
 	// void osgViewer::Renderer::cull()
 	void cull() {

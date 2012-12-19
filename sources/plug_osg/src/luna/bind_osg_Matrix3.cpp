@@ -451,6 +451,8 @@ public:
 
 osg::Matrix3* LunaTraits< osg::Matrix3 >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Matrix3::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Matrix3 >::_bind_dtor(osg::Matrix3* obj) {

@@ -8,10 +8,8 @@
 
 #include <wx/textcompleter.h>
 
-class wrapper_wxTextCompleter : public wxTextCompleter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTextCompleter : public wxTextCompleter, public luna_wrapper_base {
+
 public:
 	
 

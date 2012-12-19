@@ -8,14 +8,12 @@
 
 #include <wx/socket.h>
 
-class wrapper_wxSockAddress : public wxSockAddress {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSockAddress : public wxSockAddress, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSockAddress(lua_State* L, lua_Table* dum) : wxSockAddress(), _obj(L,-1) {};
+	wrapper_wxSockAddress(lua_State* L, lua_Table* dum) : wxSockAddress(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -30,6 +28,18 @@ public:
 	void Clear() {
 		THROW_IF(!_obj.pushFunction("Clear"),"No implementation for abstract function wxSockAddress::Clear");
 		return (_obj.callFunction<void>());
+	};
+
+	// wxSockAddress::Family wxSockAddress::Type()
+	wxSockAddress::Family Type() {
+		THROW_IF(!_obj.pushFunction("Type"),"No implementation for abstract function wxSockAddress::Type");
+		return (wxSockAddress::Family)(_obj.callFunction<int>());
+	};
+
+	// wxSockAddress * wxSockAddress::Clone() const
+	wxSockAddress * Clone() const {
+		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxSockAddress::Clone");
+		return (_obj.callFunction<wxSockAddress*>());
 	};
 
 

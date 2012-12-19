@@ -8,10 +8,8 @@
 
 #include <osgUtil/RenderBin>
 
-class wrapper_osgUtil_RenderBin_SortCallback : public osgUtil::RenderBin::SortCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_RenderBin_SortCallback : public osgUtil::RenderBin::SortCallback, public luna_wrapper_base {
+
 public:
 	
 

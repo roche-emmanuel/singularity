@@ -8,10 +8,8 @@
 
 #include <wx/app.h>
 
-class wrapper_wxAppConsole : public wxAppConsole {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAppConsole : public wxAppConsole, public luna_wrapper_base {
+
 public:
 	
 

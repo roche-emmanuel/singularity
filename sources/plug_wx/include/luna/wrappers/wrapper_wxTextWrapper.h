@@ -8,14 +8,12 @@
 
 #include <wx/textwrapper.h>
 
-class wrapper_wxTextWrapper : public wxTextWrapper {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTextWrapper : public wxTextWrapper, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), _obj(L,-1) {};
+	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), luna_wrapper_base(L) {};
 
 
 protected:

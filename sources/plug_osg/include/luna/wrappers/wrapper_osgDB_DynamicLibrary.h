@@ -8,16 +8,14 @@
 
 #include <osgDB/DynamicLibrary>
 
-class wrapper_osgDB_DynamicLibrary : public osgDB::DynamicLibrary {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_DynamicLibrary : public osgDB::DynamicLibrary, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum) : osgDB::DynamicLibrary(), _obj(L,-1) {};
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const osgDB::DynamicLibrary & arg1) : osgDB::DynamicLibrary(arg1), _obj(L,-1) {};
-	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const std::string & name, void * handle) : osgDB::DynamicLibrary(name, handle), _obj(L,-1) {};
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum) : osgDB::DynamicLibrary(), luna_wrapper_base(L) {};
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const osgDB::DynamicLibrary & arg1) : osgDB::DynamicLibrary(arg1), luna_wrapper_base(L) {};
+	wrapper_osgDB_DynamicLibrary(lua_State* L, lua_Table* dum, const std::string & name, void * handle) : osgDB::DynamicLibrary(name, handle), luna_wrapper_base(L) {};
 
 
 

@@ -6,6 +6,30 @@ class luna_wrapper_wxDataViewProgressRenderer {
 public:
 	typedef Luna< wxDataViewProgressRenderer > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -71,6 +109,25 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataViewProgressRenderer::wxDataViewProgressRenderer(lua_Table * data, const wxString & label = wxEmptyString, const wxString & varianttype = "long", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)
+	static wxDataViewProgressRenderer* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewProgressRenderer::wxDataViewProgressRenderer(lua_Table * data, const wxString & label = wxEmptyString, const wxString & varianttype = \"long\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewProgressRenderer::wxDataViewProgressRenderer(lua_Table * data, const wxString & label = wxEmptyString, const wxString & varianttype = \"long\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString label(lua_tostring(L,2),lua_objlen(L,2));
+		wxString varianttype(lua_tostring(L,3),lua_objlen(L,3));
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_INERT;
+		int align=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+
+		return new wrapper_wxDataViewProgressRenderer(L,NULL, label, varianttype, mode, align);
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxDataViewProgressRenderer::base_GetClassInfo() const
@@ -157,8 +214,11 @@ public:
 };
 
 wxDataViewProgressRenderer* LunaTraits< wxDataViewProgressRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewProgressRenderer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxSize wxDataViewRenderer::GetSize() const
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
 }
@@ -180,6 +240,7 @@ luna_RegType LunaTraits< wxDataViewProgressRenderer >::methods[] = {
 	{"base_GetMode", &luna_wrapper_wxDataViewProgressRenderer::_bind_base_GetMode},
 	{"base_SetAlignment", &luna_wrapper_wxDataViewProgressRenderer::_bind_base_SetAlignment},
 	{"__eq", &luna_wrapper_wxDataViewProgressRenderer::_bind___eq},
+	{"getTable", &luna_wrapper_wxDataViewProgressRenderer::_bind_getTable},
 	{0,0}
 };
 

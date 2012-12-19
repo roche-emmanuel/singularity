@@ -8,16 +8,14 @@
 
 #include <osg/TextureRectangle>
 
-class wrapper_osg_TextureRectangle : public osg::TextureRectangle {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TextureRectangle : public osg::TextureRectangle, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum) : osg::TextureRectangle(), _obj(L,-1) {};
-	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum, osg::Image * image) : osg::TextureRectangle(image), _obj(L,-1) {};
-	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum, const osg::TextureRectangle & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TextureRectangle(text, copyop), _obj(L,-1) {};
+	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum) : osg::TextureRectangle(), luna_wrapper_base(L) {};
+	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum, osg::Image * image) : osg::TextureRectangle(image), luna_wrapper_base(L) {};
+	wrapper_osg_TextureRectangle(lua_State* L, lua_Table* dum, const osg::TextureRectangle & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TextureRectangle(text, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

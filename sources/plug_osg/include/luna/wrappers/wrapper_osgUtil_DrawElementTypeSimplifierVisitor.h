@@ -8,10 +8,8 @@
 
 #include <osgUtil/DrawElementTypeSimplifier>
 
-class wrapper_osgUtil_DrawElementTypeSimplifierVisitor : public osgUtil::DrawElementTypeSimplifierVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_DrawElementTypeSimplifierVisitor : public osgUtil::DrawElementTypeSimplifierVisitor, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,15 +8,13 @@
 
 #include <osg/AutoTransform>
 
-class wrapper_osg_AutoTransform : public osg::AutoTransform {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AutoTransform : public osg::AutoTransform, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AutoTransform(lua_State* L, lua_Table* dum) : osg::AutoTransform(), _obj(L,-1) {};
-	wrapper_osg_AutoTransform(lua_State* L, lua_Table* dum, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AutoTransform(pat, copyop), _obj(L,-1) {};
+	wrapper_osg_AutoTransform(lua_State* L, lua_Table* dum) : osg::AutoTransform(), luna_wrapper_base(L) {};
+	wrapper_osg_AutoTransform(lua_State* L, lua_Table* dum, const osg::AutoTransform & pat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AutoTransform(pat, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

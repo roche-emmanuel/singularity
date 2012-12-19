@@ -8,15 +8,13 @@
 
 #include <osgParticle/ConnectedParticleSystem>
 
-class wrapper_osgParticle_ConnectedParticleSystem : public osgParticle::ConnectedParticleSystem {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ConnectedParticleSystem : public osgParticle::ConnectedParticleSystem, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ConnectedParticleSystem(), _obj(L,-1) {};
-	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ConnectedParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ConnectedParticleSystem(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ConnectedParticleSystem(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ConnectedParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ConnectedParticleSystem(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

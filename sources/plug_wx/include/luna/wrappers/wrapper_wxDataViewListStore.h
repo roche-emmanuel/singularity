@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewListStore : public wxDataViewListStore {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewListStore : public wxDataViewListStore, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), _obj(L,-1) {};
+	wrapper_wxDataViewListStore(lua_State* L, lua_Table* dum) : wxDataViewListStore(), luna_wrapper_base(L) {};
 
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {
@@ -144,6 +142,19 @@ public:
 
 
 
+
+public:
+// void wxDataViewModel::GetValue(wxVariant & variant, const wxDataViewItem & item, unsigned int col) const
+void GetValue(wxVariant &, const wxDataViewItem &, unsigned int) const {
+	THROW_IF(true,"The function call void wxDataViewModel::GetValue(wxVariant &, const wxDataViewItem &, unsigned int) const is not implemented in wrapper.");
+};
+
+public:
+// bool wxDataViewModel::SetValue(const wxVariant & variant, const wxDataViewItem & item, unsigned int col)
+bool SetValue(const wxVariant &, const wxDataViewItem &, unsigned int) {
+	THROW_IF(true,"The function call bool wxDataViewModel::SetValue(const wxVariant &, const wxDataViewItem &, unsigned int) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

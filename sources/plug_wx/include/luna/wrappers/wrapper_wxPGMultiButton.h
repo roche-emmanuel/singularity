@@ -8,14 +8,12 @@
 
 #include <wx/propgrid/editors.h>
 
-class wrapper_wxPGMultiButton : public wxPGMultiButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPGMultiButton : public wxPGMultiButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPGMultiButton(lua_State* L, lua_Table* dum, wxPropertyGrid * pg, const wxSize & sz) : wxPGMultiButton(pg, sz), _obj(L,-1) {};
+	wrapper_wxPGMultiButton(lua_State* L, lua_Table* dum, wxPropertyGrid * pg, const wxSize & sz) : wxPGMultiButton(pg, sz), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

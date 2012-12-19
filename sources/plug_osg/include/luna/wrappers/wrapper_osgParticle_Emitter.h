@@ -8,15 +8,13 @@
 
 #include <osgParticle/Emitter>
 
-class wrapper_osgParticle_Emitter : public osgParticle::Emitter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_Emitter : public osgParticle::Emitter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_Emitter(lua_State* L, lua_Table* dum) : osgParticle::Emitter(), _obj(L,-1) {};
-	wrapper_osgParticle_Emitter(lua_State* L, lua_Table* dum, const osgParticle::Emitter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Emitter(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_Emitter(lua_State* L, lua_Table* dum) : osgParticle::Emitter(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_Emitter(lua_State* L, lua_Table* dum, const osgParticle::Emitter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Emitter(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

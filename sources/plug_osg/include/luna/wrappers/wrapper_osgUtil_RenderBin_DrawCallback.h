@@ -8,10 +8,8 @@
 
 #include <osgUtil/RenderBin>
 
-class wrapper_osgUtil_RenderBin_DrawCallback : public osgUtil::RenderBin::DrawCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_RenderBin_DrawCallback : public osgUtil::RenderBin::DrawCallback, public luna_wrapper_base {
+
 public:
 	
 

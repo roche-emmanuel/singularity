@@ -8,10 +8,8 @@
 
 #include <wx/metafile.h>
 
-class wrapper_wxMetafileDC : public wxMetafileDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMetafileDC : public wxMetafileDC, public luna_wrapper_base {
+
 public:
 	
 

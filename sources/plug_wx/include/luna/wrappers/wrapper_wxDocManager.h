@@ -8,14 +8,12 @@
 
 #include <wx/docview.h>
 
-class wrapper_wxDocManager : public wxDocManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDocManager : public wxDocManager, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDocManager(lua_State* L, lua_Table* dum, long flags = 0, bool initialize = true) : wxDocManager(flags, initialize), _obj(L,-1) {};
+	wrapper_wxDocManager(lua_State* L, lua_Table* dum, long flags = 0, bool initialize = true) : wxDocManager(flags, initialize), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

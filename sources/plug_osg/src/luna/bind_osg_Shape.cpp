@@ -6,6 +6,30 @@ class luna_wrapper_osg_Shape {
 public:
 	typedef Luna< osg::Shape > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,27 @@ public:
 		Luna< osg::Shape >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -153,6 +198,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::Shape::Shape(lua_Table * data)
+	static osg::Shape* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Shape::Shape(lua_Table * data) function, expected prototype:\nosg::Shape::Shape(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Shape(L,NULL);
+	}
+
+	// osg::Shape::Shape(lua_Table * data, const osg::Shape & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Shape* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Shape::Shape(lua_Table * data, const osg::Shape & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Shape::Shape(lua_Table * data, const osg::Shape & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Shape* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::Shape >(L,2));
+		if( !sa_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sa in osg::Shape::Shape function");
+		}
+		const osg::Shape & sa=*sa_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Shape::Shape function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Shape(L,NULL, sa, copyop);
+	}
+
+	// Overload binder for osg::Shape::Shape
+	static osg::Shape* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Shape, cannot match any of the overloads for function Shape:\n  Shape(lua_Table *)\n  Shape(lua_Table *, const osg::Shape &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// osg::Object * osg::Shape::cloneType() const
@@ -507,7 +597,8 @@ public:
 };
 
 osg::Shape* LunaTraits< osg::Shape >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_Shape::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// osg::Object * osg::Shape::cloneType() const
 	// osg::Object * osg::Shape::clone(const osg::CopyOp & arg1) const
@@ -544,6 +635,7 @@ luna_RegType LunaTraits< osg::Shape >::methods[] = {
 	{"base_libraryName", &luna_wrapper_osg_Shape::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osg_Shape::_bind_base_className},
 	{"__eq", &luna_wrapper_osg_Shape::_bind___eq},
+	{"getTable", &luna_wrapper_osg_Shape::_bind_getTable},
 	{0,0}
 };
 

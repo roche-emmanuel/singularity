@@ -8,10 +8,8 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_BarrierOperation : public osg::BarrierOperation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BarrierOperation : public osg::BarrierOperation, public luna_wrapper_base {
+
 public:
 	
 

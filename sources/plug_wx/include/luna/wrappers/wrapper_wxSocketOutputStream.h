@@ -8,14 +8,12 @@
 
 #include <wx/sckstrm.h>
 
-class wrapper_wxSocketOutputStream : public wxSocketOutputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSocketOutputStream : public wxSocketOutputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSocketOutputStream(lua_State* L, lua_Table* dum, wxSocketBase & s) : wxSocketOutputStream(s), _obj(L,-1) {};
+	wrapper_wxSocketOutputStream(lua_State* L, lua_Table* dum, wxSocketBase & s) : wxSocketOutputStream(s), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,15 +8,13 @@
 
 #include <osg/BufferObject>
 
-class wrapper_osg_BufferObject : public osg::BufferObject {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BufferObject : public osg::BufferObject, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum) : osg::BufferObject(), _obj(L,-1) {};
-	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BufferObject(bo, copyop), _obj(L,-1) {};
+	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum) : osg::BufferObject(), luna_wrapper_base(L) {};
+	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BufferObject(bo, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

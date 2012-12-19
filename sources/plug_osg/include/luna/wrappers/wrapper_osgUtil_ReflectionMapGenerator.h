@@ -8,15 +8,13 @@
 
 #include <osgUtil/ReflectionMapGenerator>
 
-class wrapper_osgUtil_ReflectionMapGenerator : public osgUtil::ReflectionMapGenerator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_ReflectionMapGenerator : public osgUtil::ReflectionMapGenerator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::ReflectionMapGenerator(texture_size), _obj(L,-1) {};
-	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::ReflectionMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::ReflectionMapGenerator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::ReflectionMapGenerator(texture_size), luna_wrapper_base(L) {};
+	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::ReflectionMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::ReflectionMapGenerator(copy, copyop), luna_wrapper_base(L) {};
 
 
 protected:

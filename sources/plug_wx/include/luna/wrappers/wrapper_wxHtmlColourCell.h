@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlcell.h>
 
-class wrapper_wxHtmlColourCell : public wxHtmlColourCell {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlColourCell : public wxHtmlColourCell, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlColourCell(lua_State* L, lua_Table* dum, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) : wxHtmlColourCell(clr, flags), _obj(L,-1) {};
+	wrapper_wxHtmlColourCell(lua_State* L, lua_Table* dum, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) : wxHtmlColourCell(clr, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

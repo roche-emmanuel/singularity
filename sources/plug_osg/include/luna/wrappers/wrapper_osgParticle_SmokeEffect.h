@@ -8,16 +8,14 @@
 
 #include <osgParticle/SmokeEffect>
 
-class wrapper_osgParticle_SmokeEffect : public osgParticle::SmokeEffect {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_SmokeEffect : public osgParticle::SmokeEffect, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::SmokeEffect(automaticSetup), _obj(L,-1) {};
-	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::SmokeEffect(position, scale, intensity), _obj(L,-1) {};
-	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osgParticle::SmokeEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SmokeEffect(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::SmokeEffect(automaticSetup), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::SmokeEffect(position, scale, intensity), luna_wrapper_base(L) {};
+	wrapper_osgParticle_SmokeEffect(lua_State* L, lua_Table* dum, const osgParticle::SmokeEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SmokeEffect(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

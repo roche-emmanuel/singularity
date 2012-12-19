@@ -8,14 +8,12 @@
 
 #include <osgText/Font>
 
-class wrapper_osgText_Font_FontImplementation : public osgText::Font::FontImplementation {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_Font_FontImplementation : public osgText::Font::FontImplementation, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) : osgText::Font::FontImplementation(), _obj(L,-1) {};
+	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) : osgText::Font::FontImplementation(), luna_wrapper_base(L) {};
 
 	// std::string osgText::Font::FontImplementation::getFileName() const
 	std::string getFileName() const {

@@ -6,6 +6,30 @@ class luna_wrapper_osg_GraphicsOperation {
 public:
 	typedef Luna< osg::GraphicsOperation > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_release(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -66,6 +101,21 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::GraphicsContext* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
+	}
+
+
+	// Constructor binds:
+	// osg::GraphicsOperation::GraphicsOperation(lua_Table * data, const std::string & name, bool keep)
+	static osg::GraphicsOperation* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::GraphicsOperation::GraphicsOperation(lua_Table * data, const std::string & name, bool keep) function, expected prototype:\nosg::GraphicsOperation::GraphicsOperation(lua_Table * data, const std::string & name, bool keep)\nClass arguments details:\n");
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+		bool keep=(bool)(lua_toboolean(L,3)==1);
+
+		return new wrapper_osg_GraphicsOperation(L,NULL, name, keep);
 	}
 
 
@@ -141,7 +191,8 @@ public:
 };
 
 osg::GraphicsOperation* LunaTraits< osg::GraphicsOperation >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_GraphicsOperation::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::GraphicsOperation::operator()(osg::GraphicsContext * context)
 }
@@ -161,6 +212,7 @@ luna_RegType LunaTraits< osg::GraphicsOperation >::methods[] = {
 	{"base_release", &luna_wrapper_osg_GraphicsOperation::_bind_base_release},
 	{"op_call", &luna_wrapper_osg_GraphicsOperation::_bind_op_call},
 	{"__eq", &luna_wrapper_osg_GraphicsOperation::_bind___eq},
+	{"getTable", &luna_wrapper_osg_GraphicsOperation::_bind_getTable},
 	{0,0}
 };
 

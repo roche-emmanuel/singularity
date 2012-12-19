@@ -8,14 +8,12 @@
 
 #include <osg/FrameBufferObject>
 
-class wrapper_osg_FBOExtensions : public osg::FBOExtensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_FBOExtensions : public osg::FBOExtensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_FBOExtensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::FBOExtensions(contextID), _obj(L,-1) {};
+	wrapper_osg_FBOExtensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::FBOExtensions(contextID), luna_wrapper_base(L) {};
 
 
 

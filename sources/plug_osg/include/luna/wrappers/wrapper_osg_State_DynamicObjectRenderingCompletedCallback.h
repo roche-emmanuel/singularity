@@ -8,10 +8,8 @@
 
 #include <osg/State>
 
-class wrapper_osg_State_DynamicObjectRenderingCompletedCallback : public osg::State::DynamicObjectRenderingCompletedCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_State_DynamicObjectRenderingCompletedCallback : public osg::State::DynamicObjectRenderingCompletedCallback, public luna_wrapper_base {
+
 public:
 	
 

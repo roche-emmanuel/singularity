@@ -8,15 +8,13 @@
 
 #include <osgViewer/GraphicsWindow>
 
-class wrapper_osgViewer_GraphicsWindowEmbedded : public osgViewer::GraphicsWindowEmbedded {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_GraphicsWindowEmbedded : public osgViewer::GraphicsWindowEmbedded, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, osg::GraphicsContext::Traits * traits = 0) : osgViewer::GraphicsWindowEmbedded(traits), _obj(L,-1) {};
-	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osgViewer::GraphicsWindowEmbedded(x, y, width, height), _obj(L,-1) {};
+	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, osg::GraphicsContext::Traits * traits = 0) : osgViewer::GraphicsWindowEmbedded(traits), luna_wrapper_base(L) {};
+	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osgViewer::GraphicsWindowEmbedded(x, y, width, height), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

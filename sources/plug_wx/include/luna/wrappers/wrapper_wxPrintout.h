@@ -8,10 +8,8 @@
 
 #include <wx/print.h>
 
-class wrapper_wxPrintout : public wxPrintout {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPrintout : public wxPrintout, public luna_wrapper_base {
+
 public:
 	
 
@@ -46,6 +44,13 @@ protected:
 		return wxPrintout::CloneRefData(data);
 	};
 
+
+public:
+// bool wxPrintout::OnPrintPage(int pageNum)
+bool OnPrintPage(int) {
+	THROW_IF(true,"The function call bool wxPrintout::OnPrintPage(int) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

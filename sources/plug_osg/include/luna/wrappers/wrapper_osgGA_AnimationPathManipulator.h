@@ -8,15 +8,13 @@
 
 #include <osgGA/AnimationPathManipulator>
 
-class wrapper_osgGA_AnimationPathManipulator : public osgGA::AnimationPathManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_AnimationPathManipulator : public osgGA::AnimationPathManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, osg::AnimationPath * animationPath = 0) : osgGA::AnimationPathManipulator(animationPath), _obj(L,-1) {};
-	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, const std::string & filename) : osgGA::AnimationPathManipulator(filename), _obj(L,-1) {};
+	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, osg::AnimationPath * animationPath = 0) : osgGA::AnimationPathManipulator(animationPath), luna_wrapper_base(L) {};
+	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, const std::string & filename) : osgGA::AnimationPathManipulator(filename), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

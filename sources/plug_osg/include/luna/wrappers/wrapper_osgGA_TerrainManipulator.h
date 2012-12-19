@@ -8,15 +8,13 @@
 
 #include <osgGA/TerrainManipulator>
 
-class wrapper_osgGA_TerrainManipulator : public osgGA::TerrainManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_TerrainManipulator : public osgGA::TerrainManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::TerrainManipulator(flags), _obj(L,-1) {};
-	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, const osgGA::TerrainManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::TerrainManipulator(tm, copyOp), _obj(L,-1) {};
+	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::TerrainManipulator(flags), luna_wrapper_base(L) {};
+	wrapper_osgGA_TerrainManipulator(lua_State* L, lua_Table* dum, const osgGA::TerrainManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::TerrainManipulator(tm, copyOp), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

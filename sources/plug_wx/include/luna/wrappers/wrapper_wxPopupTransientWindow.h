@@ -8,14 +8,12 @@
 
 #include <wx/popupwin.h>
 
-class wrapper_wxPopupTransientWindow : public wxPopupTransientWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPopupTransientWindow : public wxPopupTransientWindow, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPopupTransientWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int flags = ::wxBORDER_NONE) : wxPopupTransientWindow(parent, flags), _obj(L,-1) {};
+	wrapper_wxPopupTransientWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int flags = ::wxBORDER_NONE) : wxPopupTransientWindow(parent, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

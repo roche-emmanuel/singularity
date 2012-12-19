@@ -8,15 +8,13 @@
 
 #include <wx/radiobut.h>
 
-class wrapper_wxRadioButton : public wxRadioButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRadioButton : public wxRadioButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRadioButton(lua_State* L, lua_Table* dum) : wxRadioButton(), _obj(L,-1) {};
-	wrapper_wxRadioButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioButtonNameStr) : wxRadioButton(parent, id, label, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxRadioButton(lua_State* L, lua_Table* dum) : wxRadioButton(), luna_wrapper_base(L) {};
+	wrapper_wxRadioButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRadioButtonNameStr) : wxRadioButton(parent, id, label, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

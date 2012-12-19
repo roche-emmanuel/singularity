@@ -8,14 +8,12 @@
 
 #include <osg/Stencil>
 
-class wrapper_osg_Stencil_Extensions : public osg::Stencil::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Stencil_Extensions : public osg::Stencil::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Stencil_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Stencil::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_Stencil_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Stencil::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

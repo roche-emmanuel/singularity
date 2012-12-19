@@ -8,14 +8,12 @@
 
 #include <wx/clipbrd.h>
 
-class wrapper_wxClipboard : public wxClipboard {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxClipboard : public wxClipboard, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxClipboard(lua_State* L, lua_Table* dum) : wxClipboard(), _obj(L,-1) {};
+	wrapper_wxClipboard(lua_State* L, lua_Table* dum) : wxClipboard(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

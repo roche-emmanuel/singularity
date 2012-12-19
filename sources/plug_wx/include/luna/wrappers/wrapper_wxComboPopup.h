@@ -8,14 +8,12 @@
 
 #include <wx/combo.h>
 
-class wrapper_wxComboPopup : public wxComboPopup {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxComboPopup : public wxComboPopup, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), _obj(L,-1) {};
+	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), luna_wrapper_base(L) {};
 
 	// bool wxComboPopup::Create(wxWindow * parent)
 	bool Create(wxWindow * parent) {

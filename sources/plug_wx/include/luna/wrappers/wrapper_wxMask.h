@@ -8,17 +8,15 @@
 
 #include <wx/bitmap.h>
 
-class wrapper_wxMask : public wxMask {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMask : public wxMask, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMask(lua_State* L, lua_Table* dum) : wxMask(), _obj(L,-1) {};
-	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int index) : wxMask(bitmap, index), _obj(L,-1) {};
-	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxMask(bitmap), _obj(L,-1) {};
-	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, const wxColour & colour) : wxMask(bitmap, colour), _obj(L,-1) {};
+	wrapper_wxMask(lua_State* L, lua_Table* dum) : wxMask(), luna_wrapper_base(L) {};
+	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int index) : wxMask(bitmap, index), luna_wrapper_base(L) {};
+	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxMask(bitmap), luna_wrapper_base(L) {};
+	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, const wxColour & colour) : wxMask(bitmap, colour), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

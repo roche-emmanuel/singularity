@@ -70,6 +70,8 @@ public:
 
 osg::ImageSequence::FileNames* LunaTraits< osg::ImageSequence::FileNames >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ImageSequence::FileNames >::_bind_dtor(osg::ImageSequence::FileNames* obj) {

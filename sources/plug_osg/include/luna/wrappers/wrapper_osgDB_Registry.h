@@ -8,14 +8,12 @@
 
 #include <osgDB/Registry>
 
-class wrapper_osgDB_Registry : public osgDB::Registry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_Registry : public osgDB::Registry, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) : osgDB::Registry(), _obj(L,-1) {};
+	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) : osgDB::Registry(), luna_wrapper_base(L) {};
 
 
 

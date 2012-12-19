@@ -8,15 +8,13 @@
 
 #include <osgParticle/Operator>
 
-class wrapper_osgParticle_Operator : public osgParticle::Operator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_Operator : public osgParticle::Operator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum) : osgParticle::Operator(), _obj(L,-1) {};
-	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum, const osgParticle::Operator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Operator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum) : osgParticle::Operator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_Operator(lua_State* L, lua_Table* dum, const osgParticle::Operator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Operator(copy, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

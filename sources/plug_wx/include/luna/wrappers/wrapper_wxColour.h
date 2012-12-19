@@ -8,18 +8,16 @@
 
 #include <wx/colour.h>
 
-class wrapper_wxColour : public wxColour {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxColour : public wxColour, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxColour(lua_State* L, lua_Table* dum) : wxColour(), _obj(L,-1) {};
-	wrapper_wxColour(lua_State* L, lua_Table* dum, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) : wxColour(red, green, blue, alpha), _obj(L,-1) {};
-	wrapper_wxColour(lua_State* L, lua_Table* dum, const wxString & colourName) : wxColour(colourName), _obj(L,-1) {};
-	wrapper_wxColour(lua_State* L, lua_Table* dum, unsigned long colRGB) : wxColour(colRGB), _obj(L,-1) {};
-	wrapper_wxColour(lua_State* L, lua_Table* dum, const wxColour & colour) : wxColour(colour), _obj(L,-1) {};
+	wrapper_wxColour(lua_State* L, lua_Table* dum) : wxColour(), luna_wrapper_base(L) {};
+	wrapper_wxColour(lua_State* L, lua_Table* dum, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) : wxColour(red, green, blue, alpha), luna_wrapper_base(L) {};
+	wrapper_wxColour(lua_State* L, lua_Table* dum, const wxString & colourName) : wxColour(colourName), luna_wrapper_base(L) {};
+	wrapper_wxColour(lua_State* L, lua_Table* dum, unsigned long colRGB) : wxColour(colRGB), luna_wrapper_base(L) {};
+	wrapper_wxColour(lua_State* L, lua_Table* dum, const wxColour & colour) : wxColour(colour), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

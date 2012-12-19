@@ -8,14 +8,12 @@
 
 #include <wx/socket.h>
 
-class wrapper_wxDatagramSocket : public wxDatagramSocket {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDatagramSocket : public wxDatagramSocket, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDatagramSocket(lua_State* L, lua_Table* dum, const wxSockAddress & addr, int flags = ::wxSOCKET_NONE) : wxDatagramSocket(addr, flags), _obj(L,-1) {};
+	wrapper_wxDatagramSocket(lua_State* L, lua_Table* dum, const wxSockAddress & addr, int flags = ::wxSOCKET_NONE) : wxDatagramSocket(addr, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

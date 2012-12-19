@@ -70,6 +70,8 @@ public:
 
 osgViewer::ViewerBase::Views* LunaTraits< osgViewer::ViewerBase::Views >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::ViewerBase::Views >::_bind_dtor(osgViewer::ViewerBase::Views* obj) {

@@ -8,15 +8,13 @@
 
 #include <wx/richtext/richtextsymboldlg.h>
 
-class wrapper_wxSymbolPickerDialog : public wxSymbolPickerDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSymbolPickerDialog : public wxSymbolPickerDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum) : wxSymbolPickerDialog(), _obj(L,-1) {};
-	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) : wxSymbolPickerDialog(symbol, initialFont, normalTextFont, parent, id, title, pos, size, style), _obj(L,-1) {};
+	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum) : wxSymbolPickerDialog(), luna_wrapper_base(L) {};
+	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) : wxSymbolPickerDialog(symbol, initialFont, normalTextFont, parent, id, title, pos, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

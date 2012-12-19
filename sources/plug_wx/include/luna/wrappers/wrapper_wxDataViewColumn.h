@@ -8,15 +8,13 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewColumn : public wxDataViewColumn {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewColumn : public wxDataViewColumn, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), _obj(L,-1) {};
-	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), _obj(L,-1) {};
+	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
+	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
 
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {

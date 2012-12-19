@@ -8,16 +8,14 @@
 
 #include <osg/LineStipple>
 
-class wrapper_osg_LineStipple : public osg::LineStipple {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_LineStipple : public osg::LineStipple, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum) : osg::LineStipple(), _obj(L,-1) {};
-	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, int factor, unsigned short pattern) : osg::LineStipple(factor, pattern), _obj(L,-1) {};
-	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, const osg::LineStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::LineStipple(lw, copyop), _obj(L,-1) {};
+	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum) : osg::LineStipple(), luna_wrapper_base(L) {};
+	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, int factor, unsigned short pattern) : osg::LineStipple(factor, pattern), luna_wrapper_base(L) {};
+	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, const osg::LineStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::LineStipple(lw, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

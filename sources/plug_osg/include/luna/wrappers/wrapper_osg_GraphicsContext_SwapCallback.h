@@ -8,10 +8,8 @@
 
 #include <osg/GraphicsContext>
 
-class wrapper_osg_GraphicsContext_SwapCallback : public osg::GraphicsContext::SwapCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_GraphicsContext_SwapCallback : public osg::GraphicsContext::SwapCallback, public luna_wrapper_base {
+
 public:
 	
 

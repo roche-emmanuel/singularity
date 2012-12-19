@@ -6,6 +6,30 @@ class luna_wrapper_wxHelpProvider {
 public:
 	typedef Luna< wxHelpProvider > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxHelpProvider* self=(Luna< wxHelpProvider >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -54,6 +78,8 @@ public:
 		return luna_dynamicCast(L,converters,"wxHelpProvider",name);
 	}
 
+
+	// Constructor checkers:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_AddHelp_overload_1(lua_State *L) {
@@ -159,6 +185,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
@@ -448,7 +476,8 @@ public:
 };
 
 wxHelpProvider* LunaTraits< wxHelpProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
 }
@@ -478,6 +507,7 @@ luna_RegType LunaTraits< wxHelpProvider >::methods[] = {
 	{"base_ShowHelpAtPoint", &luna_wrapper_wxHelpProvider::_bind_base_ShowHelpAtPoint},
 	{"dynCast", &luna_wrapper_wxHelpProvider::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxHelpProvider::_bind___eq},
+	{"getTable", &luna_wrapper_wxHelpProvider::_bind_getTable},
 	{0,0}
 };
 

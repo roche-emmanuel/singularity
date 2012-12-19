@@ -8,10 +8,8 @@
 
 #include <osg/TextureRectangle>
 
-class wrapper_osg_TextureRectangle_SubloadCallback : public osg::TextureRectangle::SubloadCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TextureRectangle_SubloadCallback : public osg::TextureRectangle::SubloadCallback, public luna_wrapper_base {
+
 public:
 	
 

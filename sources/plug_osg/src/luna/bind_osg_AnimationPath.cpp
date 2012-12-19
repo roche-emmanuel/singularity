@@ -6,6 +6,30 @@ class luna_wrapper_osg_AnimationPath {
 public:
 	typedef Luna< osg::AnimationPath > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -224,6 +248,20 @@ public:
 	inline static bool _lg_typecheck_clear(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_read(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,77972206) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_write(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -871,6 +909,52 @@ public:
 		return 0;
 	}
 
+	// void osg::AnimationPath::read(std::istream & in)
+	static int _bind_read(lua_State *L) {
+		if (!_lg_typecheck_read(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::read(std::istream & in) function, expected prototype:\nvoid osg::AnimationPath::read(std::istream & in)\nClass arguments details:\narg 1 ID = 77972206\n");
+		}
+
+		std::istream* in_ptr=(Luna< std::istream >::check(L,2));
+		if( !in_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg in in osg::AnimationPath::read function");
+		}
+		std::istream & in=*in_ptr;
+
+		osg::AnimationPath* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::read(std::istream &)");
+		}
+		self->read(in);
+
+		return 0;
+	}
+
+	// void osg::AnimationPath::write(std::ostream & out) const
+	static int _bind_write(lua_State *L) {
+		if (!_lg_typecheck_write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::AnimationPath::write(std::ostream & out) const function, expected prototype:\nvoid osg::AnimationPath::write(std::ostream & out) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::AnimationPath::write function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::AnimationPath* self=Luna< osg::Referenced >::checkSubType< osg::AnimationPath >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::AnimationPath::write(std::ostream &) const");
+		}
+		self->write(out);
+
+		return 0;
+	}
+
 	// void osg::AnimationPath::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -1136,6 +1220,8 @@ public:
 
 osg::AnimationPath* LunaTraits< osg::AnimationPath >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_AnimationPath::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::AnimationPath >::_bind_dtor(osg::AnimationPath* obj) {
@@ -1168,6 +1254,8 @@ luna_RegType LunaTraits< osg::AnimationPath >::methods[] = {
 	{"getTimeControlPointMap", &luna_wrapper_osg_AnimationPath::_bind_getTimeControlPointMap},
 	{"empty", &luna_wrapper_osg_AnimationPath::_bind_empty},
 	{"clear", &luna_wrapper_osg_AnimationPath::_bind_clear},
+	{"read", &luna_wrapper_osg_AnimationPath::_bind_read},
+	{"write", &luna_wrapper_osg_AnimationPath::_bind_write},
 	{"base_setName", &luna_wrapper_osg_AnimationPath::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osg_AnimationPath::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_AnimationPath::_bind_base_setUserData},
@@ -1180,6 +1268,7 @@ luna_RegType LunaTraits< osg::AnimationPath >::methods[] = {
 	{"base_className", &luna_wrapper_osg_AnimationPath::_bind_base_className},
 	{"base_getInterpolatedControlPoint", &luna_wrapper_osg_AnimationPath::_bind_base_getInterpolatedControlPoint},
 	{"__eq", &luna_wrapper_osg_AnimationPath::_bind___eq},
+	{"getTable", &luna_wrapper_osg_AnimationPath::_bind_getTable},
 	{0,0}
 };
 

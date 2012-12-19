@@ -8,14 +8,12 @@
 
 #include <osg/Texture3D>
 
-class wrapper_osg_Texture3D_Extensions : public osg::Texture3D::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Texture3D_Extensions : public osg::Texture3D::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Texture3D_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Texture3D::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_Texture3D_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Texture3D::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

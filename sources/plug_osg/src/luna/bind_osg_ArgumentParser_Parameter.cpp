@@ -276,6 +276,8 @@ public:
 
 osg::ArgumentParser::Parameter* LunaTraits< osg::ArgumentParser::Parameter >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ArgumentParser_Parameter::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ArgumentParser::Parameter >::_bind_dtor(osg::ArgumentParser::Parameter* obj) {

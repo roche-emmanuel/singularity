@@ -8,10 +8,8 @@
 
 #include <wx/fontenum.h>
 
-class wrapper_wxFontEnumerator : public wxFontEnumerator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFontEnumerator : public wxFontEnumerator, public luna_wrapper_base {
+
 public:
 	
 

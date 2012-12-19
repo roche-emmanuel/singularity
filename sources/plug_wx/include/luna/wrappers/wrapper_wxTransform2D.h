@@ -8,10 +8,8 @@
 
 #include <wx/geometry.h>
 
-class wrapper_wxTransform2D : public wxTransform2D {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTransform2D : public wxTransform2D, public luna_wrapper_base {
+
 public:
 	
 

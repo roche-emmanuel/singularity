@@ -8,14 +8,12 @@
 
 #include <wx/protocol/http.h>
 
-class wrapper_wxHTTP : public wxHTTP {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHTTP : public wxHTTP, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHTTP(lua_State* L, lua_Table* dum) : wxHTTP(), _obj(L,-1) {};
+	wrapper_wxHTTP(lua_State* L, lua_Table* dum) : wxHTTP(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

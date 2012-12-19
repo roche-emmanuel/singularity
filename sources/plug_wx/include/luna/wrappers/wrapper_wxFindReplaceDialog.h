@@ -8,15 +8,13 @@
 
 #include <wx/fdrepdlg.h>
 
-class wrapper_wxFindReplaceDialog : public wxFindReplaceDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFindReplaceDialog : public wxFindReplaceDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum) : wxFindReplaceDialog(), _obj(L,-1) {};
-	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0) : wxFindReplaceDialog(parent, data, title, style), _obj(L,-1) {};
+	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum) : wxFindReplaceDialog(), luna_wrapper_base(L) {};
+	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0) : wxFindReplaceDialog(parent, data, title, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

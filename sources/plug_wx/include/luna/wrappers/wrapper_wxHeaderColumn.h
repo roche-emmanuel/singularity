@@ -8,10 +8,8 @@
 
 #include <wx/headercol.h>
 
-class wrapper_wxHeaderColumn : public wxHeaderColumn {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHeaderColumn : public wxHeaderColumn, public luna_wrapper_base {
+
 public:
 	
 

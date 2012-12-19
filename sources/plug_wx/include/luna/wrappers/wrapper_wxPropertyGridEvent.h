@@ -8,15 +8,13 @@
 
 #include <wx/propgrid/propgrid.h>
 
-class wrapper_wxPropertyGridEvent : public wxPropertyGridEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPropertyGridEvent : public wxPropertyGridEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxPropertyGridEvent(commandType, id), _obj(L,-1) {};
-	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, const wxPropertyGridEvent & event) : wxPropertyGridEvent(event), _obj(L,-1) {};
+	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxPropertyGridEvent(commandType, id), luna_wrapper_base(L) {};
+	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, const wxPropertyGridEvent & event) : wxPropertyGridEvent(event), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,14 +8,12 @@
 
 #include <wx/collpane.h>
 
-class wrapper_wxCollapsiblePaneEvent : public wxCollapsiblePaneEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxCollapsiblePaneEvent : public wxCollapsiblePaneEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxCollapsiblePaneEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, bool collapsed) : wxCollapsiblePaneEvent(generator, id, collapsed), _obj(L,-1) {};
+	wrapper_wxCollapsiblePaneEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, bool collapsed) : wxCollapsiblePaneEvent(generator, id, collapsed), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

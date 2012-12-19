@@ -8,15 +8,13 @@
 
 #include <osgText/FadeText>
 
-class wrapper_osgText_FadeText : public osgText::FadeText {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgText_FadeText : public osgText::FadeText, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum) : osgText::FadeText(), _obj(L,-1) {};
-	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::FadeText(text, copyop), _obj(L,-1) {};
+	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum) : osgText::FadeText(), luna_wrapper_base(L) {};
+	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::FadeText(text, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,15 +8,13 @@
 
 #include <osg/Image>
 
-class wrapper_osg_Image : public osg::Image {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Image : public osg::Image, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Image(lua_State* L, lua_Table* dum) : osg::Image(), _obj(L,-1) {};
-	wrapper_osg_Image(lua_State* L, lua_Table* dum, const osg::Image & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Image(image, copyop), _obj(L,-1) {};
+	wrapper_osg_Image(lua_State* L, lua_Table* dum) : osg::Image(), luna_wrapper_base(L) {};
+	wrapper_osg_Image(lua_State* L, lua_Table* dum, const osg::Image & image, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Image(image, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

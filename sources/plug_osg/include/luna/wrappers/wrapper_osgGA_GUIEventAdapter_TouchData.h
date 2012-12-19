@@ -8,14 +8,12 @@
 
 #include <osgGA/GUIEventAdapter>
 
-class wrapper_osgGA_GUIEventAdapter_TouchData : public osgGA::GUIEventAdapter::TouchData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_GUIEventAdapter_TouchData : public osgGA::GUIEventAdapter::TouchData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_GUIEventAdapter_TouchData(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter::TouchData(), _obj(L,-1) {};
+	wrapper_osgGA_GUIEventAdapter_TouchData(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter::TouchData(), luna_wrapper_base(L) {};
 
 
 

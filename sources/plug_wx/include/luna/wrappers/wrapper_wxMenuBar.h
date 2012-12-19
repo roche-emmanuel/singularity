@@ -8,14 +8,12 @@
 
 #include <wx/menu.h>
 
-class wrapper_wxMenuBar : public wxMenuBar {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMenuBar : public wxMenuBar, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMenuBar(lua_State* L, lua_Table* dum, long style = 0) : wxMenuBar(style), _obj(L,-1) {};
+	wrapper_wxMenuBar(lua_State* L, lua_Table* dum, long style = 0) : wxMenuBar(style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

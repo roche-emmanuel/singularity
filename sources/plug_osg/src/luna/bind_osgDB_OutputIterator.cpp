@@ -6,6 +6,30 @@ class luna_wrapper_osgDB_OutputIterator {
 public:
 	typedef Luna< osgDB::OutputIterator > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,7 +66,35 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
+	inline static bool _lg_typecheck_setStream(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,2993706)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getStream_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getStream_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_isBinary(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -185,7 +237,90 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// osgDB::OutputIterator::OutputIterator(lua_Table * data)
+	static osgDB::OutputIterator* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::OutputIterator::OutputIterator(lua_Table * data) function, expected prototype:\nosgDB::OutputIterator::OutputIterator(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_OutputIterator(L,NULL);
+	}
+
+
 	// Function binds:
+	// void osgDB::OutputIterator::setStream(std::ostream * ostream)
+	static int _bind_setStream(lua_State *L) {
+		if (!_lg_typecheck_setStream(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::OutputIterator::setStream(std::ostream * ostream) function, expected prototype:\nvoid osgDB::OutputIterator::setStream(std::ostream * ostream)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* ostream=(Luna< std::ostream >::check(L,2));
+
+		osgDB::OutputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::OutputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::OutputIterator::setStream(std::ostream *)");
+		}
+		self->setStream(ostream);
+
+		return 0;
+	}
+
+	// std::ostream * osgDB::OutputIterator::getStream()
+	static int _bind_getStream_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getStream_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::ostream * osgDB::OutputIterator::getStream() function, expected prototype:\nstd::ostream * osgDB::OutputIterator::getStream()\nClass arguments details:\n");
+		}
+
+
+		osgDB::OutputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::OutputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call std::ostream * osgDB::OutputIterator::getStream()");
+		}
+		std::ostream * lret = self->getStream();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< std::ostream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const std::ostream * osgDB::OutputIterator::getStream() const
+	static int _bind_getStream_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getStream_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const std::ostream * osgDB::OutputIterator::getStream() const function, expected prototype:\nconst std::ostream * osgDB::OutputIterator::getStream() const\nClass arguments details:\n");
+		}
+
+
+		osgDB::OutputIterator* self=Luna< osg::Referenced >::checkSubType< osgDB::OutputIterator >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const std::ostream * osgDB::OutputIterator::getStream() const");
+		}
+		const std::ostream * lret = self->getStream();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< std::ostream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::OutputIterator::getStream
+	static int _bind_getStream(lua_State *L) {
+		if (_lg_typecheck_getStream_overload_1(L)) return _bind_getStream_overload_1(L);
+		if (_lg_typecheck_getStream_overload_2(L)) return _bind_getStream_overload_2(L);
+
+		luaL_error(L, "error in function getStream, cannot match any of the overloads for function getStream:\n  getStream()\n  getStream()\n");
+		return 0;
+	}
+
 	// bool osgDB::OutputIterator::isBinary() const
 	static int _bind_isBinary(lua_State *L) {
 		if (!_lg_typecheck_isBinary(L)) {
@@ -583,7 +718,8 @@ public:
 };
 
 osgDB::OutputIterator* LunaTraits< osgDB::OutputIterator >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgDB_OutputIterator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool osgDB::OutputIterator::isBinary() const
 	// void osgDB::OutputIterator::writeBool(bool b)
@@ -619,6 +755,8 @@ const int LunaTraits< osgDB::OutputIterator >::hash = 52451979;
 const int LunaTraits< osgDB::OutputIterator >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::OutputIterator >::methods[] = {
+	{"setStream", &luna_wrapper_osgDB_OutputIterator::_bind_setStream},
+	{"getStream", &luna_wrapper_osgDB_OutputIterator::_bind_getStream},
 	{"isBinary", &luna_wrapper_osgDB_OutputIterator::_bind_isBinary},
 	{"writeBool", &luna_wrapper_osgDB_OutputIterator::_bind_writeBool},
 	{"writeChar", &luna_wrapper_osgDB_OutputIterator::_bind_writeChar},
@@ -640,6 +778,7 @@ luna_RegType LunaTraits< osgDB::OutputIterator >::methods[] = {
 	{"flush", &luna_wrapper_osgDB_OutputIterator::_bind_flush},
 	{"base_flush", &luna_wrapper_osgDB_OutputIterator::_bind_base_flush},
 	{"__eq", &luna_wrapper_osgDB_OutputIterator::_bind___eq},
+	{"getTable", &luna_wrapper_osgDB_OutputIterator::_bind_getTable},
 	{0,0}
 };
 

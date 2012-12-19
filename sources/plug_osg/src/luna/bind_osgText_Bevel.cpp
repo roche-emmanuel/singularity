@@ -6,6 +6,30 @@ class luna_wrapper_osgText_Bevel {
 public:
 	typedef Luna< osgText::Bevel > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	// Derived class converters:
 	static int _cast_from_Referenced(lua_State *L) {
 		// all checked are already performed before reaching this point.
@@ -146,6 +170,13 @@ public:
 	inline static bool _lg_typecheck_getVertices_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_print(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -596,6 +627,29 @@ public:
 		return 0;
 	}
 
+	// void osgText::Bevel::print(std::ostream & fout)
+	static int _bind_print(lua_State *L) {
+		if (!_lg_typecheck_print(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgText::Bevel::print(std::ostream & fout) function, expected prototype:\nvoid osgText::Bevel::print(std::ostream & fout)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* fout_ptr=(Luna< std::ostream >::check(L,2));
+		if( !fout_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fout in osgText::Bevel::print function");
+		}
+		std::ostream & fout=*fout_ptr;
+
+		osgText::Bevel* self=Luna< osg::Referenced >::checkSubType< osgText::Bevel >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgText::Bevel::print(std::ostream &)");
+		}
+		self->print(fout);
+
+		return 0;
+	}
+
 	// void osgText::Bevel::base_setName(const std::string & name)
 	static int _bind_base_setName(lua_State *L) {
 		if (!_lg_typecheck_base_setName(L)) {
@@ -860,6 +914,8 @@ public:
 
 osgText::Bevel* LunaTraits< osgText::Bevel >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgText_Bevel::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgText::Bevel >::_bind_dtor(osgText::Bevel* obj) {
@@ -886,6 +942,7 @@ luna_RegType LunaTraits< osgText::Bevel >::methods[] = {
 	{"roundedBevel2", &luna_wrapper_osgText_Bevel::_bind_roundedBevel2},
 	{"setVertices", &luna_wrapper_osgText_Bevel::_bind_setVertices},
 	{"getVertices", &luna_wrapper_osgText_Bevel::_bind_getVertices},
+	{"print", &luna_wrapper_osgText_Bevel::_bind_print},
 	{"base_setName", &luna_wrapper_osgText_Bevel::_bind_base_setName},
 	{"base_computeDataVariance", &luna_wrapper_osgText_Bevel::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osgText_Bevel::_bind_base_setUserData},
@@ -897,6 +954,7 @@ luna_RegType LunaTraits< osgText::Bevel >::methods[] = {
 	{"base_libraryName", &luna_wrapper_osgText_Bevel::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_osgText_Bevel::_bind_base_className},
 	{"__eq", &luna_wrapper_osgText_Bevel::_bind___eq},
+	{"getTable", &luna_wrapper_osgText_Bevel::_bind_getTable},
 	{0,0}
 };
 

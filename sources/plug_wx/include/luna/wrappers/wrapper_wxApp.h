@@ -8,14 +8,12 @@
 
 #include <wx/app.h>
 
-class wrapper_wxApp : public wxApp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxApp : public wxApp, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxApp(lua_State* L, lua_Table* dum) : wxApp(), _obj(L,-1) {};
+	wrapper_wxApp(lua_State* L, lua_Table* dum) : wxApp(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

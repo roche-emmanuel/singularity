@@ -8,14 +8,12 @@
 
 #include <osgGA/EventQueue>
 
-class wrapper_osgGA_EventQueue : public osgGA::EventQueue {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_EventQueue : public osgGA::EventQueue, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_EventQueue(lua_State* L, lua_Table* dum, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) : osgGA::EventQueue(mouseYOrientation), _obj(L,-1) {};
+	wrapper_osgGA_EventQueue(lua_State* L, lua_Table* dum, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) : osgGA::EventQueue(mouseYOrientation), luna_wrapper_base(L) {};
 
 
 

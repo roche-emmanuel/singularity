@@ -8,14 +8,12 @@
 
 #include <osgUtil/RenderLeaf>
 
-class wrapper_osgUtil_RenderLeaf : public osgUtil::RenderLeaf {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_RenderLeaf : public osgUtil::RenderLeaf, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_RenderLeaf(lua_State* L, lua_Table* dum, osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0) : osgUtil::RenderLeaf(drawable, projection, modelview, depth, traversalNumber), _obj(L,-1) {};
+	wrapper_osgUtil_RenderLeaf(lua_State* L, lua_Table* dum, osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * modelview, float depth = 0.0f, unsigned int traversalNumber = 0) : osgUtil::RenderLeaf(drawable, projection, modelview, depth, traversalNumber), luna_wrapper_base(L) {};
 
 	// void osgUtil::RenderLeaf::render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous)
 	void render(osg::RenderInfo & renderInfo, osgUtil::RenderLeaf * previous) {

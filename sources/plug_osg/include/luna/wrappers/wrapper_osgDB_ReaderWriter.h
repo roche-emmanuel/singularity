@@ -8,15 +8,13 @@
 
 #include <osgDB/ReaderWriter>
 
-class wrapper_osgDB_ReaderWriter : public osgDB::ReaderWriter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ReaderWriter : public osgDB::ReaderWriter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_ReaderWriter(lua_State* L, lua_Table* dum) : osgDB::ReaderWriter(), _obj(L,-1) {};
-	wrapper_osgDB_ReaderWriter(lua_State* L, lua_Table* dum, const osgDB::ReaderWriter & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ReaderWriter(rw, copyop), _obj(L,-1) {};
+	wrapper_osgDB_ReaderWriter(lua_State* L, lua_Table* dum) : osgDB::ReaderWriter(), luna_wrapper_base(L) {};
+	wrapper_osgDB_ReaderWriter(lua_State* L, lua_Table* dum, const osgDB::ReaderWriter & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ReaderWriter(rw, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {
@@ -192,6 +190,17 @@ public:
 		return ReaderWriter::openArchive(arg1, arg2, arg3, arg4);
 	};
 
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("openArchive")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::openArchive(arg1, arg2);
+	};
+
 	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const
 	osgDB::ReaderWriter::ReadResult readObject(const std::string & arg1, const osgDB::Options * arg2 = NULL) const {
 		if(_obj.pushFunction("readObject")) {
@@ -300,6 +309,121 @@ public:
 		if(_obj.pushFunction("writeShader")) {
 			_obj.pushArg(&arg1);
 			_obj.pushArg(arg2);
+			_obj.pushArg(arg3);
+			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
+		}
+
+		return ReaderWriter::writeShader(arg1, arg2, arg3);
+	};
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readObject(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult readObject(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("readObject")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::readObject(arg1, arg2);
+	};
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readImage(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult readImage(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("readImage")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::readImage(arg1, arg2);
+	};
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readHeightField(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult readHeightField(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("readHeightField")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::readHeightField(arg1, arg2);
+	};
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readNode(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult readNode(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("readNode")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::readNode(arg1, arg2);
+	};
+
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::readShader(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult readShader(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("readShader")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return ReaderWriter::readShader(arg1, arg2);
+	};
+
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeObject(const osg::Object & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const
+	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const {
+		if(_obj.pushFunction("writeObject")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
+			_obj.pushArg(arg3);
+			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
+		}
+
+		return ReaderWriter::writeObject(arg1, arg2, arg3);
+	};
+
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeImage(const osg::Image & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const
+	osgDB::ReaderWriter::WriteResult writeImage(const osg::Image & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const {
+		if(_obj.pushFunction("writeImage")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
+			_obj.pushArg(arg3);
+			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
+		}
+
+		return ReaderWriter::writeImage(arg1, arg2, arg3);
+	};
+
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeHeightField(const osg::HeightField & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const
+	osgDB::ReaderWriter::WriteResult writeHeightField(const osg::HeightField & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const {
+		if(_obj.pushFunction("writeHeightField")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
+			_obj.pushArg(arg3);
+			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
+		}
+
+		return ReaderWriter::writeHeightField(arg1, arg2, arg3);
+	};
+
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeNode(const osg::Node & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const
+	osgDB::ReaderWriter::WriteResult writeNode(const osg::Node & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const {
+		if(_obj.pushFunction("writeNode")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
+			_obj.pushArg(arg3);
+			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
+		}
+
+		return ReaderWriter::writeNode(arg1, arg2, arg3);
+	};
+
+	// osgDB::ReaderWriter::WriteResult osgDB::ReaderWriter::writeShader(const osg::Shader & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const
+	osgDB::ReaderWriter::WriteResult writeShader(const osg::Shader & arg1, std::ostream & arg2, const osgDB::Options * arg3 = NULL) const {
+		if(_obj.pushFunction("writeShader")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(&arg2);
 			_obj.pushArg(arg3);
 			return *(_obj.callFunction<osgDB::ReaderWriter::WriteResult*>());
 		}

@@ -6,6 +6,30 @@ class luna_wrapper_osg_Geometry {
 public:
 	typedef Luna< osg::Geometry > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -806,6 +830,13 @@ public:
 	inline static bool _lg_typecheck_computeCorrectBindingsAndArraySizes(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_verifyArrays(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -3623,6 +3654,30 @@ public:
 		return 0;
 	}
 
+	// bool osg::Geometry::verifyArrays(std::ostream & out) const
+	static int _bind_verifyArrays(lua_State *L) {
+		if (!_lg_typecheck_verifyArrays(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::verifyArrays(std::ostream & out) const function, expected prototype:\nbool osg::Geometry::verifyArrays(std::ostream & out) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Geometry::verifyArrays function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::verifyArrays(std::ostream &) const");
+		}
+		bool lret = self->verifyArrays(out);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// bool osg::Geometry::suitableForOptimization() const
 	static int _bind_suitableForOptimization(lua_State *L) {
 		if (!_lg_typecheck_suitableForOptimization(L)) {
@@ -4364,6 +4419,8 @@ public:
 
 osg::Geometry* LunaTraits< osg::Geometry >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Geometry::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Geometry >::_bind_dtor(osg::Geometry* obj) {
@@ -4463,6 +4520,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"computeFastPathsUsed", &luna_wrapper_osg_Geometry::_bind_computeFastPathsUsed},
 	{"verifyBindings", &luna_wrapper_osg_Geometry::_bind_verifyBindings},
 	{"computeCorrectBindingsAndArraySizes", &luna_wrapper_osg_Geometry::_bind_computeCorrectBindingsAndArraySizes},
+	{"verifyArrays", &luna_wrapper_osg_Geometry::_bind_verifyArrays},
 	{"suitableForOptimization", &luna_wrapper_osg_Geometry::_bind_suitableForOptimization},
 	{"copyToAndOptimize", &luna_wrapper_osg_Geometry::_bind_copyToAndOptimize},
 	{"containsSharedArrays", &luna_wrapper_osg_Geometry::_bind_containsSharedArrays},
@@ -4496,6 +4554,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"base_compileGLObjects", &luna_wrapper_osg_Geometry::_bind_base_compileGLObjects},
 	{"base_drawImplementation", &luna_wrapper_osg_Geometry::_bind_base_drawImplementation},
 	{"__eq", &luna_wrapper_osg_Geometry::_bind___eq},
+	{"getTable", &luna_wrapper_osg_Geometry::_bind_getTable},
 	{0,0}
 };
 

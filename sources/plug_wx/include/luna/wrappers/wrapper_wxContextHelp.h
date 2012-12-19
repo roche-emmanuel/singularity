@@ -8,14 +8,12 @@
 
 #include <wx/cshelp.h>
 
-class wrapper_wxContextHelp : public wxContextHelp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxContextHelp : public wxContextHelp, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxContextHelp(lua_State* L, lua_Table* dum, wxWindow * window = NULL, bool doNow = true) : wxContextHelp(window, doNow), _obj(L,-1) {};
+	wrapper_wxContextHelp(lua_State* L, lua_Table* dum, wxWindow * window = NULL, bool doNow = true) : wxContextHelp(window, doNow), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

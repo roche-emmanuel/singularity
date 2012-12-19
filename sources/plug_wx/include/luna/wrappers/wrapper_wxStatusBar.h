@@ -8,15 +8,13 @@
 
 #include <wx/statusbr.h>
 
-class wrapper_wxStatusBar : public wxStatusBar {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStatusBar : public wxStatusBar, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStatusBar(lua_State* L, lua_Table* dum) : wxStatusBar(), _obj(L,-1) {};
-	wrapper_wxStatusBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, long style = (0x0010|0x0100|0x0020|wxFULL_REPAINT_ON_RESIZE), const wxString & name = wxStatusBarNameStr) : wxStatusBar(parent, id, style, name), _obj(L,-1) {};
+	wrapper_wxStatusBar(lua_State* L, lua_Table* dum) : wxStatusBar(), luna_wrapper_base(L) {};
+	wrapper_wxStatusBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, long style = (0x0010|0x0100|0x0020|wxFULL_REPAINT_ON_RESIZE), const wxString & name = wxStatusBarNameStr) : wxStatusBar(parent, id, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

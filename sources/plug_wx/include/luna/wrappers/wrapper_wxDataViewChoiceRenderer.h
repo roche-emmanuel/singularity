@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewChoiceRenderer : public wxDataViewChoiceRenderer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewChoiceRenderer : public wxDataViewChoiceRenderer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewChoiceRenderer(lua_State* L, lua_Table* dum, const wxArrayString & choices, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int alignment = -1) : wxDataViewChoiceRenderer(choices, mode, alignment), _obj(L,-1) {};
+	wrapper_wxDataViewChoiceRenderer(lua_State* L, lua_Table* dum, const wxArrayString & choices, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int alignment = -1) : wxDataViewChoiceRenderer(choices, mode, alignment), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -24,6 +22,21 @@ public:
 		}
 
 		return wxDataViewChoiceRenderer::GetClassInfo();
+	};
+
+	// wxSize wxDataViewRenderer::GetSize() const
+	wxSize GetSize() const {
+		THROW_IF(!_obj.pushFunction("GetSize"),"No implementation for abstract function wxDataViewRenderer::GetSize");
+		return *(_obj.callFunction<wxSize*>());
+	};
+
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
+	bool Render(wxRect arg1, wxDC * arg2, int arg3) {
+		THROW_IF(!_obj.pushFunction("Render"),"No implementation for abstract function wxDataViewRenderer::Render");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<bool>());
 	};
 
 	// int wxDataViewRenderer::GetAlignment() const
@@ -75,6 +88,20 @@ protected:
 		return wxDataViewChoiceRenderer::CloneRefData(data);
 	};
 
+
+public:
+// bool wxDataViewRenderer::GetValue(wxVariant & value) const
+bool GetValue(wxVariant &) const {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::GetValue(wxVariant &) const is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxDataViewRenderer::SetValue(const wxVariant & value)
+bool SetValue(const wxVariant &) {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::SetValue(const wxVariant &) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

@@ -120,6 +120,8 @@ public:
 
 wxDateTime::Tm* LunaTraits< wxDateTime::Tm >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxDateTime::Tm >::_bind_dtor(wxDateTime::Tm* obj) {

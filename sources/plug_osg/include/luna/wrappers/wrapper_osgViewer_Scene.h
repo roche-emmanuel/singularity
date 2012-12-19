@@ -8,14 +8,12 @@
 
 #include <osgViewer/Scene>
 
-class wrapper_osgViewer_Scene : public osgViewer::Scene {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_Scene : public osgViewer::Scene, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) : osgViewer::Scene(), _obj(L,-1) {};
+	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) : osgViewer::Scene(), luna_wrapper_base(L) {};
 
 	// const char * osgViewer::Scene::className() const
 	const char * className() const {

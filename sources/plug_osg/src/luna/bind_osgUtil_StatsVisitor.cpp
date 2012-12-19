@@ -6,6 +6,30 @@ class luna_wrapper_osgUtil_StatsVisitor {
 public:
 	typedef Luna< osgUtil::StatsVisitor > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -135,6 +159,13 @@ public:
 	inline static bool _lg_typecheck_totalUpStats(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_print(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -527,6 +558,29 @@ public:
 		return 0;
 	}
 
+	// void osgUtil::StatsVisitor::print(std::ostream & out)
+	static int _bind_print(lua_State *L) {
+		if (!_lg_typecheck_print(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgUtil::StatsVisitor::print(std::ostream & out) function, expected prototype:\nvoid osgUtil::StatsVisitor::print(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osgUtil::StatsVisitor::print function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osgUtil::StatsVisitor* self=Luna< osg::Referenced >::checkSubType< osgUtil::StatsVisitor >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgUtil::StatsVisitor::print(std::ostream &)");
+		}
+		self->print(out);
+
+		return 0;
+	}
+
 	// osg::Vec3f osgUtil::StatsVisitor::base_getEyePoint() const
 	static int _bind_base_getEyePoint(lua_State *L) {
 		if (!_lg_typecheck_base_getEyePoint(L)) {
@@ -860,6 +914,8 @@ public:
 
 osgUtil::StatsVisitor* LunaTraits< osgUtil::StatsVisitor >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_StatsVisitor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::StatsVisitor >::_bind_dtor(osgUtil::StatsVisitor* obj) {
@@ -879,6 +935,7 @@ luna_RegType LunaTraits< osgUtil::StatsVisitor >::methods[] = {
 	{"reset", &luna_wrapper_osgUtil_StatsVisitor::_bind_reset},
 	{"apply", &luna_wrapper_osgUtil_StatsVisitor::_bind_apply},
 	{"totalUpStats", &luna_wrapper_osgUtil_StatsVisitor::_bind_totalUpStats},
+	{"print", &luna_wrapper_osgUtil_StatsVisitor::_bind_print},
 	{"base_getEyePoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getEyePoint},
 	{"base_getViewPoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getViewPoint},
 	{"base_getDistanceToEyePoint", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_getDistanceToEyePoint},
@@ -889,6 +946,7 @@ luna_RegType LunaTraits< osgUtil::StatsVisitor >::methods[] = {
 	{"base_reset", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_reset},
 	{"base_apply", &luna_wrapper_osgUtil_StatsVisitor::_bind_base_apply},
 	{"__eq", &luna_wrapper_osgUtil_StatsVisitor::_bind___eq},
+	{"getTable", &luna_wrapper_osgUtil_StatsVisitor::_bind_getTable},
 	{0,0}
 };
 

@@ -6,6 +6,30 @@ class luna_wrapper_wxMouseEventsManager {
 public:
 	typedef Luna< wxMouseEventsManager > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,24 @@ public:
 		Luna< wxMouseEventsManager >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -94,6 +136,40 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMouseEventsManager::wxMouseEventsManager(lua_Table * data)
+	static wxMouseEventsManager* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMouseEventsManager::wxMouseEventsManager(lua_Table * data) function, expected prototype:\nwxMouseEventsManager::wxMouseEventsManager(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMouseEventsManager(L,NULL);
+	}
+
+	// wxMouseEventsManager::wxMouseEventsManager(lua_Table * data, wxWindow * win)
+	static wxMouseEventsManager* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMouseEventsManager::wxMouseEventsManager(lua_Table * data, wxWindow * win) function, expected prototype:\nwxMouseEventsManager::wxMouseEventsManager(lua_Table * data, wxWindow * win)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		return new wrapper_wxMouseEventsManager(L,NULL, win);
+	}
+
+	// Overload binder for wxMouseEventsManager::wxMouseEventsManager
+	static wxMouseEventsManager* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxMouseEventsManager, cannot match any of the overloads for function wxMouseEventsManager:\n  wxMouseEventsManager(lua_Table *)\n  wxMouseEventsManager(lua_Table *, wxWindow *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxMouseEventsManager::Create(wxWindow * win)
@@ -247,7 +323,8 @@ public:
 };
 
 wxMouseEventsManager* LunaTraits< wxMouseEventsManager >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMouseEventsManager::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// int wxMouseEventsManager::MouseHitTest(const wxPoint & pos)
 	// bool wxMouseEventsManager::MouseClicked(int item)
@@ -277,6 +354,7 @@ luna_RegType LunaTraits< wxMouseEventsManager >::methods[] = {
 	{"base_SetNextHandler", &luna_wrapper_wxMouseEventsManager::_bind_base_SetNextHandler},
 	{"base_SetPreviousHandler", &luna_wrapper_wxMouseEventsManager::_bind_base_SetPreviousHandler},
 	{"__eq", &luna_wrapper_wxMouseEventsManager::_bind___eq},
+	{"getTable", &luna_wrapper_wxMouseEventsManager::_bind_getTable},
 	{0,0}
 };
 

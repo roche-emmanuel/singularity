@@ -6,6 +6,30 @@ class luna_wrapper_osgText_Glyph3D {
 public:
 	typedef Luna< osgText::Glyph3D > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -694,6 +718,8 @@ public:
 
 osgText::Glyph3D* LunaTraits< osgText::Glyph3D >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgText_Glyph3D::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgText::Glyph3D >::_bind_dtor(osgText::Glyph3D* obj) {
@@ -728,6 +754,7 @@ luna_RegType LunaTraits< osgText::Glyph3D >::methods[] = {
 	{"getRawVertexArray", &luna_wrapper_osgText_Glyph3D::_bind_getRawVertexArray},
 	{"getGlyphGeometry", &luna_wrapper_osgText_Glyph3D::_bind_getGlyphGeometry},
 	{"__eq", &luna_wrapper_osgText_Glyph3D::_bind___eq},
+	{"getTable", &luna_wrapper_osgText_Glyph3D::_bind_getTable},
 	{0,0}
 };
 

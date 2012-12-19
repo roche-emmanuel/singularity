@@ -8,16 +8,14 @@
 
 #include <osg/AlphaFunc>
 
-class wrapper_osg_AlphaFunc : public osg::AlphaFunc {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AlphaFunc : public osg::AlphaFunc, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum) : osg::AlphaFunc(), _obj(L,-1) {};
-	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum, osg::AlphaFunc::ComparisonFunction func, float ref) : osg::AlphaFunc(func, ref), _obj(L,-1) {};
-	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum, const osg::AlphaFunc & af, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AlphaFunc(af, copyop), _obj(L,-1) {};
+	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum) : osg::AlphaFunc(), luna_wrapper_base(L) {};
+	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum, osg::AlphaFunc::ComparisonFunction func, float ref) : osg::AlphaFunc(func, ref), luna_wrapper_base(L) {};
+	wrapper_osg_AlphaFunc(lua_State* L, lua_Table* dum, const osg::AlphaFunc & af, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AlphaFunc(af, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

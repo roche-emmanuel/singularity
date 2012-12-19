@@ -6,6 +6,30 @@ class luna_wrapper_wxAuiDockArt {
 public:
 	typedef Luna< wxAuiDockArt > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxAuiDockArt* self=(Luna< wxAuiDockArt >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -52,6 +76,15 @@ public:
 		static LunaConverterMap& converters = luna_getConverterMap("wxAuiDockArt");
 		
 		return luna_dynamicCast(L,converters,"wxAuiDockArt",name);
+	}
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
 	}
 
 
@@ -167,6 +200,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxAuiDockArt::wxAuiDockArt(lua_Table * data)
+	static wxAuiDockArt* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiDockArt::wxAuiDockArt(lua_Table * data) function, expected prototype:\nwxAuiDockArt::wxAuiDockArt(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAuiDockArt(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
@@ -508,7 +554,8 @@ public:
 };
 
 wxAuiDockArt* LunaTraits< wxAuiDockArt >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxAuiDockArt::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
 	// void wxAuiDockArt::DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)
@@ -550,6 +597,7 @@ luna_RegType LunaTraits< wxAuiDockArt >::methods[] = {
 	{"SetMetric", &luna_wrapper_wxAuiDockArt::_bind_SetMetric},
 	{"dynCast", &luna_wrapper_wxAuiDockArt::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxAuiDockArt::_bind___eq},
+	{"getTable", &luna_wrapper_wxAuiDockArt::_bind_getTable},
 	{0,0}
 };
 

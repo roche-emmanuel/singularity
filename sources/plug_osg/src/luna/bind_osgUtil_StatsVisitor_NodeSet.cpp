@@ -70,6 +70,8 @@ public:
 
 osgUtil::StatsVisitor::NodeSet* LunaTraits< osgUtil::StatsVisitor::NodeSet >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::StatsVisitor::NodeSet >::_bind_dtor(osgUtil::StatsVisitor::NodeSet* obj) {

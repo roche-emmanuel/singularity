@@ -8,15 +8,13 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGrid : public wxGrid {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGrid : public wxGrid, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), _obj(L,-1) {};
-	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxGrid(lua_State* L, lua_Table* dum) : wxGrid(), luna_wrapper_base(L) {};
+	wrapper_wxGrid(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxWANTS_CHARS, const wxString & name = wxGridNameStr) : wxGrid(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxPen wxGrid::GetColGridLinePen(int col)
 	wxPen GetColGridLinePen(int col) {

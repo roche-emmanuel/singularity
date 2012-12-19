@@ -8,14 +8,12 @@
 
 #include <osgViewer/View>
 
-class wrapper_osgViewer_DepthPartitionSettings : public osgViewer::DepthPartitionSettings {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_DepthPartitionSettings : public osgViewer::DepthPartitionSettings, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_DepthPartitionSettings(lua_State* L, lua_Table* dum, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) : osgViewer::DepthPartitionSettings(mode), _obj(L,-1) {};
+	wrapper_osgViewer_DepthPartitionSettings(lua_State* L, lua_Table* dum, osgViewer::DepthPartitionSettings::DepthMode mode = osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) : osgViewer::DepthPartitionSettings(mode), luna_wrapper_base(L) {};
 
 	// bool osgViewer::DepthPartitionSettings::getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar)
 	bool getDepthRange(osg::View & view, unsigned int partition, double & zNear, double & zFar) {

@@ -70,6 +70,8 @@ public:
 
 osg::AnimationPath::TimeControlPointMap* LunaTraits< osg::AnimationPath::TimeControlPointMap >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::AnimationPath::TimeControlPointMap >::_bind_dtor(osg::AnimationPath::TimeControlPointMap* obj) {

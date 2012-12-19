@@ -8,14 +8,12 @@
 
 #include <wx/protocol/log.h>
 
-class wrapper_wxProtocolLog : public wxProtocolLog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxProtocolLog : public wxProtocolLog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxProtocolLog(lua_State* L, lua_Table* dum, const wxString & traceMask) : wxProtocolLog(traceMask), _obj(L,-1) {};
+	wrapper_wxProtocolLog(lua_State* L, lua_Table* dum, const wxString & traceMask) : wxProtocolLog(traceMask), luna_wrapper_base(L) {};
 
 	// void wxProtocolLog::LogRequest(const wxString & str)
 	void LogRequest(const wxString & str) {

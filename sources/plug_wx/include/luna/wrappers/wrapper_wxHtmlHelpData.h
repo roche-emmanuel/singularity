@@ -8,14 +8,12 @@
 
 #include <wx/html/helpdata.h>
 
-class wrapper_wxHtmlHelpData : public wxHtmlHelpData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlHelpData : public wxHtmlHelpData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlHelpData(lua_State* L, lua_Table* dum) : wxHtmlHelpData(), _obj(L,-1) {};
+	wrapper_wxHtmlHelpData(lua_State* L, lua_Table* dum) : wxHtmlHelpData(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

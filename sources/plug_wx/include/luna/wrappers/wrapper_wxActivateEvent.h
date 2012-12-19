@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxActivateEvent : public wxActivateEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxActivateEvent : public wxActivateEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxActivateEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, bool active = true, int id = 0) : wxActivateEvent(eventType, active, id), _obj(L,-1) {};
+	wrapper_wxActivateEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, bool active = true, int id = 0) : wxActivateEvent(eventType, active, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

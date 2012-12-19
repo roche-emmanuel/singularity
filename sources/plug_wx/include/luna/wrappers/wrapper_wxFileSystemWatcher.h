@@ -8,14 +8,12 @@
 
 #include <wx/fswatcher.h>
 
-class wrapper_wxFileSystemWatcher : public wxFileSystemWatcher {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileSystemWatcher : public wxFileSystemWatcher, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileSystemWatcher(lua_State* L, lua_Table* dum) : wxFileSystemWatcher(), _obj(L,-1) {};
+	wrapper_wxFileSystemWatcher(lua_State* L, lua_Table* dum) : wxFileSystemWatcher(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

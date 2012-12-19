@@ -8,14 +8,12 @@
 
 #include <wx/html/htmprint.h>
 
-class wrapper_wxHtmlEasyPrinting : public wxHtmlEasyPrinting {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlEasyPrinting : public wxHtmlEasyPrinting, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlEasyPrinting(lua_State* L, lua_Table* dum, const wxString & name = "Printing", wxWindow * parentWindow = NULL) : wxHtmlEasyPrinting(name, parentWindow), _obj(L,-1) {};
+	wrapper_wxHtmlEasyPrinting(lua_State* L, lua_Table* dum, const wxString & name = "Printing", wxWindow * parentWindow = NULL) : wxHtmlEasyPrinting(name, parentWindow), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

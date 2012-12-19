@@ -8,15 +8,13 @@
 
 #include <wx/propgrid/property.h>
 
-class wrapper_wxPGProperty : public wxPGProperty {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPGProperty : public wxPGProperty, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPGProperty(lua_State* L, lua_Table* dum) : wxPGProperty(), _obj(L,-1) {};
-	wrapper_wxPGProperty(lua_State* L, lua_Table* dum, const wxString & label, const wxString & name) : wxPGProperty(label, name), _obj(L,-1) {};
+	wrapper_wxPGProperty(lua_State* L, lua_Table* dum) : wxPGProperty(), luna_wrapper_base(L) {};
+	wrapper_wxPGProperty(lua_State* L, lua_Table* dum, const wxString & label, const wxString & name) : wxPGProperty(label, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -6,6 +6,30 @@ class luna_wrapper_wxFocusEvent {
 public:
 	typedef Luna< wxFocusEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -71,6 +107,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFocusEvent::wxFocusEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0)
+	static wxFocusEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFocusEvent::wxFocusEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxFocusEvent::wxFocusEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int eventType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxFocusEvent(L,NULL, eventType, id);
+	}
+
 
 	// Function binds:
 	// wxWindow * wxFocusEvent::GetWindow() const
@@ -159,7 +212,8 @@ public:
 };
 
 wxFocusEvent* LunaTraits< wxFocusEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFocusEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -181,6 +235,7 @@ luna_RegType LunaTraits< wxFocusEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxFocusEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxFocusEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxFocusEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxFocusEvent::_bind_getTable},
 	{0,0}
 };
 

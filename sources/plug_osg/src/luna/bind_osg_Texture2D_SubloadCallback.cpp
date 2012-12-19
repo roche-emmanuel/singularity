@@ -6,6 +6,30 @@ class luna_wrapper_osg_Texture2D_SubloadCallback {
 public:
 	typedef Luna< osg::Texture2D::SubloadCallback > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -41,6 +65,8 @@ public:
 		return 1;
 	};
 
+
+	// Constructor checkers:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_textureObjectValid(lua_State *L) {
@@ -94,6 +120,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
@@ -278,7 +306,8 @@ public:
 };
 
 osg::Texture2D::SubloadCallback* LunaTraits< osg::Texture2D::SubloadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::Texture2D::SubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const
 	// void osg::Texture2D::SubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const
@@ -303,6 +332,7 @@ luna_RegType LunaTraits< osg::Texture2D::SubloadCallback >::methods[] = {
 	{"base_textureObjectValid", &luna_wrapper_osg_Texture2D_SubloadCallback::_bind_base_textureObjectValid},
 	{"base_generateTextureObject", &luna_wrapper_osg_Texture2D_SubloadCallback::_bind_base_generateTextureObject},
 	{"__eq", &luna_wrapper_osg_Texture2D_SubloadCallback::_bind___eq},
+	{"getTable", &luna_wrapper_osg_Texture2D_SubloadCallback::_bind_getTable},
 	{0,0}
 };
 

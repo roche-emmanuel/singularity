@@ -8,16 +8,20 @@
 
 #include <wx/thread.h>
 
-class wrapper_wxThread : public wxThread {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxThread : public wxThread, public luna_wrapper_base {
+
 public:
 	
 
 
 
 
+
+protected:
+// void * wxThread::Entry()
+void * Entry() {
+	THROW_IF(true,"The function call void * wxThread::Entry() is not implemented in wrapper.");
+};
 
 };
 

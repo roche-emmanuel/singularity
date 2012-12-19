@@ -6,6 +6,30 @@ class luna_wrapper_wxWizardPageSimple {
 public:
 	typedef Luna< wxWizardPageSimple > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,20 @@ public:
 		Luna< wxWizardPageSimple >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -768,6 +806,29 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxWizardPageSimple::wxWizardPageSimple(lua_Table * data, wxWizard * parent, wxWizardPage * prev = NULL, wxWizardPage * next = NULL, const wxBitmap & bitmap = wxNullBitmap)
+	static wxWizardPageSimple* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWizardPageSimple::wxWizardPageSimple(lua_Table * data, wxWizard * parent, wxWizardPage * prev = NULL, wxWizardPage * next = NULL, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nwxWizardPageSimple::wxWizardPageSimple(lua_Table * data, wxWizard * parent, wxWizardPage * prev = NULL, wxWizardPage * next = NULL, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWizard* parent=(Luna< wxObject >::checkSubType< wxWizard >(L,2));
+		wxWizardPage* prev=luatop>2 ? (Luna< wxObject >::checkSubType< wxWizardPage >(L,3)) : (wxWizardPage*)NULL;
+		wxWizardPage* next=luatop>3 ? (Luna< wxObject >::checkSubType< wxWizardPage >(L,4)) : (wxWizardPage*)NULL;
+		const wxBitmap* bitmap_ptr=luatop>4 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,5)) : NULL;
+		if( luatop>4 && !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxWizardPageSimple::wxWizardPageSimple function");
+		}
+		const wxBitmap & bitmap=luatop>4 ? *bitmap_ptr : wxNullBitmap;
+
+		return new wrapper_wxWizardPageSimple(L,NULL, parent, prev, next, bitmap);
+	}
+
 
 	// Function binds:
 	// void wxWizardPageSimple::SetNext(wxWizardPage * next)
@@ -2922,7 +2983,8 @@ public:
 };
 
 wxWizardPageSimple* LunaTraits< wxWizardPageSimple >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxWizardPageSimple::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxWizardPage * wxWizardPage::GetNext() const
 	// wxWizardPage * wxWizardPage::GetPrev() const
@@ -3044,6 +3106,7 @@ luna_RegType LunaTraits< wxWizardPageSimple >::methods[] = {
 	{"base_SetFocus", &luna_wrapper_wxWizardPageSimple::_bind_base_SetFocus},
 	{"base_GetBitmap", &luna_wrapper_wxWizardPageSimple::_bind_base_GetBitmap},
 	{"__eq", &luna_wrapper_wxWizardPageSimple::_bind___eq},
+	{"getTable", &luna_wrapper_wxWizardPageSimple::_bind_getTable},
 	{0,0}
 };
 

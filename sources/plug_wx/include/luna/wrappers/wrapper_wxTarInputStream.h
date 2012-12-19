@@ -8,10 +8,8 @@
 
 #include <wx/tarstrm.h>
 
-class wrapper_wxTarInputStream : public wxTarInputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTarInputStream : public wxTarInputStream, public luna_wrapper_base {
+
 public:
 	
 

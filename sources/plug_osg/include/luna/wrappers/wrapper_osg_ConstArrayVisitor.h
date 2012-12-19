@@ -8,14 +8,12 @@
 
 #include <osg/Array>
 
-class wrapper_osg_ConstArrayVisitor : public osg::ConstArrayVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ConstArrayVisitor : public osg::ConstArrayVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), _obj(L,-1) {};
+	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Array & arg1)
 	void apply(const osg::Array & arg1) {

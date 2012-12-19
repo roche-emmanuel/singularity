@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsCostEstimator>
 
-class wrapper_osg_TextureCostEstimator : public osg::TextureCostEstimator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TextureCostEstimator : public osg::TextureCostEstimator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TextureCostEstimator(lua_State* L, lua_Table* dum) : osg::TextureCostEstimator(), _obj(L,-1) {};
+	wrapper_osg_TextureCostEstimator(lua_State* L, lua_Table* dum) : osg::TextureCostEstimator(), luna_wrapper_base(L) {};
 
 
 

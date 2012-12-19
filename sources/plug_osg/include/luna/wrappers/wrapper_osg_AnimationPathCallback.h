@@ -8,17 +8,15 @@
 
 #include <osg/AnimationPath>
 
-class wrapper_osg_AnimationPathCallback : public osg::AnimationPathCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AnimationPathCallback : public osg::AnimationPathCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum) : osg::AnimationPathCallback(), _obj(L,-1) {};
-	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) : osg::AnimationPathCallback(apc, copyop), _obj(L,-1) {};
-	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) : osg::AnimationPathCallback(ap, timeOffset, timeMultiplier), _obj(L,-1) {};
-	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) : osg::AnimationPathCallback(pivot, axis, angularVelocity), _obj(L,-1) {};
+	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum) : osg::AnimationPathCallback(), luna_wrapper_base(L) {};
+	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) : osg::AnimationPathCallback(apc, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) : osg::AnimationPathCallback(ap, timeOffset, timeMultiplier), luna_wrapper_base(L) {};
+	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::Vec3d & pivot, const osg::Vec3d & axis, float angularVelocity) : osg::AnimationPathCallback(pivot, axis, angularVelocity), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

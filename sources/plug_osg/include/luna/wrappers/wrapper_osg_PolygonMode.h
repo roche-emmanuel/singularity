@@ -8,16 +8,14 @@
 
 #include <osg/PolygonMode>
 
-class wrapper_osg_PolygonMode : public osg::PolygonMode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PolygonMode : public osg::PolygonMode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum) : osg::PolygonMode(), _obj(L,-1) {};
-	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, osg::PolygonMode::Face face, osg::PolygonMode::Mode mode) : osg::PolygonMode(face, mode), _obj(L,-1) {};
-	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, const osg::PolygonMode & pm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonMode(pm, copyop), _obj(L,-1) {};
+	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum) : osg::PolygonMode(), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, osg::PolygonMode::Face face, osg::PolygonMode::Mode mode) : osg::PolygonMode(face, mode), luna_wrapper_base(L) {};
+	wrapper_osg_PolygonMode(lua_State* L, lua_Table* dum, const osg::PolygonMode & pm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonMode(pm, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,14 +8,12 @@
 
 #include <wx/stream.h>
 
-class wrapper_wxOutputStream : public wxOutputStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxOutputStream : public wxOutputStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxOutputStream(lua_State* L, lua_Table* dum) : wxOutputStream(), _obj(L,-1) {};
+	wrapper_wxOutputStream(lua_State* L, lua_Table* dum) : wxOutputStream(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

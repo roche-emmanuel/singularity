@@ -8,16 +8,14 @@
 
 #include <wx/dcgraph.h>
 
-class wrapper_wxGCDC : public wxGCDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGCDC : public wxGCDC, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxWindowDC & windowDC) : wxGCDC(windowDC), _obj(L,-1) {};
-	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxMemoryDC & memoryDC) : wxGCDC(memoryDC), _obj(L,-1) {};
-	wrapper_wxGCDC(lua_State* L, lua_Table* dum) : wxGCDC(), _obj(L,-1) {};
+	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxWindowDC & windowDC) : wxGCDC(windowDC), luna_wrapper_base(L) {};
+	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxMemoryDC & memoryDC) : wxGCDC(memoryDC), luna_wrapper_base(L) {};
+	wrapper_wxGCDC(lua_State* L, lua_Table* dum) : wxGCDC(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

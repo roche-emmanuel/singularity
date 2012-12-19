@@ -8,14 +8,12 @@
 
 #include <wx/textdlg.h>
 
-class wrapper_wxTextEntryDialog : public wxTextEntryDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTextEntryDialog : public wxTextEntryDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTextEntryDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxGetTextFromUserPromptStr, const wxString & value = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxTextEntryDialog(parent, message, caption, value, style, pos), _obj(L,-1) {};
+	wrapper_wxTextEntryDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxGetTextFromUserPromptStr, const wxString & value = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxTextEntryDialog(parent, message, caption, value, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,16 +8,14 @@
 
 #include <osg/LineSegment>
 
-class wrapper_osg_LineSegment : public osg::LineSegment {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_LineSegment : public osg::LineSegment, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum) : osg::LineSegment(), _obj(L,-1) {};
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) : osg::LineSegment(seg), _obj(L,-1) {};
-	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) : osg::LineSegment(s, e), _obj(L,-1) {};
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum) : osg::LineSegment(), luna_wrapper_base(L) {};
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::LineSegment & seg) : osg::LineSegment(seg), luna_wrapper_base(L) {};
+	wrapper_osg_LineSegment(lua_State* L, lua_Table* dum, const osg::Vec3d & s, const osg::Vec3d & e) : osg::LineSegment(s, e), luna_wrapper_base(L) {};
 
 
 

@@ -8,16 +8,14 @@
 
 #include <osg/MatrixTransform>
 
-class wrapper_osg_MatrixTransform : public osg::MatrixTransform {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_MatrixTransform : public osg::MatrixTransform, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum) : osg::MatrixTransform(), _obj(L,-1) {};
-	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::MatrixTransform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::MatrixTransform(arg1, copyop), _obj(L,-1) {};
-	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::Matrixd & matix) : osg::MatrixTransform(matix), _obj(L,-1) {};
+	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum) : osg::MatrixTransform(), luna_wrapper_base(L) {};
+	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::MatrixTransform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::MatrixTransform(arg1, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::Matrixd & matix) : osg::MatrixTransform(matix), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

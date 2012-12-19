@@ -8,15 +8,13 @@
 
 #include <wx/event.h>
 
-class wrapper_wxNavigationKeyEvent : public wxNavigationKeyEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxNavigationKeyEvent : public wxNavigationKeyEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum) : wxNavigationKeyEvent(), _obj(L,-1) {};
-	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum, const wxNavigationKeyEvent & event) : wxNavigationKeyEvent(event), _obj(L,-1) {};
+	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum) : wxNavigationKeyEvent(), luna_wrapper_base(L) {};
+	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum, const wxNavigationKeyEvent & event) : wxNavigationKeyEvent(event), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

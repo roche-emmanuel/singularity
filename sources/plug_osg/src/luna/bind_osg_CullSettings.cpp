@@ -6,6 +6,30 @@ class luna_wrapper_osg_CullSettings {
 public:
 	typedef Luna< osg::CullSettings > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -353,6 +377,13 @@ public:
 	inline static bool _lg_typecheck_getClampProjectionMatrixCallback_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_write(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
 		return true;
 	}
 
@@ -1244,6 +1275,29 @@ public:
 		return 0;
 	}
 
+	// void osg::CullSettings::write(std::ostream & out)
+	static int _bind_write(lua_State *L) {
+		if (!_lg_typecheck_write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullSettings::write(std::ostream & out) function, expected prototype:\nvoid osg::CullSettings::write(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::CullSettings::write function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::write(std::ostream &)");
+		}
+		self->write(out);
+
+		return 0;
+	}
+
 	// void osg::CullSettings::base_setDefaults()
 	static int _bind_base_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_base_setDefaults(L)) {
@@ -1325,6 +1379,8 @@ public:
 
 osg::CullSettings* LunaTraits< osg::CullSettings >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_CullSettings::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::CullSettings >::_bind_dtor(osg::CullSettings* obj) {
@@ -1375,10 +1431,12 @@ luna_RegType LunaTraits< osg::CullSettings >::methods[] = {
 	{"getSmallFeatureCullingPixelSize", &luna_wrapper_osg_CullSettings::_bind_getSmallFeatureCullingPixelSize},
 	{"setClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_setClampProjectionMatrixCallback},
 	{"getClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_getClampProjectionMatrixCallback},
+	{"write", &luna_wrapper_osg_CullSettings::_bind_write},
 	{"base_setDefaults", &luna_wrapper_osg_CullSettings::_bind_base_setDefaults},
 	{"base_inheritCullSettings", &luna_wrapper_osg_CullSettings::_bind_base_inheritCullSettings},
 	{"dynCast", &luna_wrapper_osg_CullSettings::_bind_dynCast},
 	{"__eq", &luna_wrapper_osg_CullSettings::_bind___eq},
+	{"getTable", &luna_wrapper_osg_CullSettings::_bind_getTable},
 	{0,0}
 };
 

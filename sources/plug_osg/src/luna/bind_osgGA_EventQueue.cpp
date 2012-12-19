@@ -6,6 +6,30 @@ class luna_wrapper_osgGA_EventQueue {
 public:
 	typedef Luna< osgGA::EventQueue > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1719,39 +1743,39 @@ public:
 		return 0;
 	}
 
-	// void osgGA::EventQueue::setStartTick(unsigned long long tick)
+	// void osgGA::EventQueue::setStartTick(__int64 tick)
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(unsigned long long tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(unsigned long long tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(__int64 tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(__int64 tick)\nClass arguments details:\n");
 		}
 
-		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
+		__int64 tick=(__int64)lua_tointeger(L,2);
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setStartTick(unsigned long long)");
+			luaL_error(L, "Invalid object in function call void osgGA::EventQueue::setStartTick(__int64)");
 		}
 		self->setStartTick(tick);
 
 		return 0;
 	}
 
-	// unsigned long long osgGA::EventQueue::getStartTick() const
+	// __int64 osgGA::EventQueue::getStartTick() const
 	static int _bind_getStartTick(lua_State *L) {
 		if (!_lg_typecheck_getStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long long osgGA::EventQueue::getStartTick() const function, expected prototype:\nunsigned long long osgGA::EventQueue::getStartTick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in __int64 osgGA::EventQueue::getStartTick() const function, expected prototype:\n__int64 osgGA::EventQueue::getStartTick() const\nClass arguments details:\n");
 		}
 
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long long osgGA::EventQueue::getStartTick() const");
+			luaL_error(L, "Invalid object in function call __int64 osgGA::EventQueue::getStartTick() const");
 		}
-		unsigned long long lret = self->getStartTick();
+		__int64 lret = self->getStartTick();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -1922,6 +1946,8 @@ public:
 
 osgGA::EventQueue* LunaTraits< osgGA::EventQueue >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_EventQueue::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgGA::EventQueue >::_bind_dtor(osgGA::EventQueue* obj) {
@@ -1972,6 +1998,7 @@ luna_RegType LunaTraits< osgGA::EventQueue >::methods[] = {
 	{"getCurrentEventState", &luna_wrapper_osgGA_EventQueue::_bind_getCurrentEventState},
 	{"userEvent", &luna_wrapper_osgGA_EventQueue::_bind_userEvent},
 	{"__eq", &luna_wrapper_osgGA_EventQueue::_bind___eq},
+	{"getTable", &luna_wrapper_osgGA_EventQueue::_bind_getTable},
 	{0,0}
 };
 

@@ -8,10 +8,8 @@
 
 #include <wx/cshelp.h>
 
-class wrapper_wxSimpleHelpProvider : public wxSimpleHelpProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSimpleHelpProvider : public wxSimpleHelpProvider, public luna_wrapper_base {
+
 public:
 	
 

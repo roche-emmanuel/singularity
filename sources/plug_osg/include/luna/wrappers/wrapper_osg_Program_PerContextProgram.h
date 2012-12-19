@@ -8,14 +8,12 @@
 
 #include <osg/Program>
 
-class wrapper_osg_Program_PerContextProgram : public osg::Program::PerContextProgram {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Program_PerContextProgram : public osg::Program::PerContextProgram, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Program_PerContextProgram(lua_State* L, lua_Table* dum, const osg::Program * program, unsigned int contextID) : osg::Program::PerContextProgram(program, contextID), _obj(L,-1) {};
+	wrapper_osg_Program_PerContextProgram(lua_State* L, lua_Table* dum, const osg::Program * program, unsigned int contextID) : osg::Program::PerContextProgram(program, contextID), luna_wrapper_base(L) {};
 
 
 

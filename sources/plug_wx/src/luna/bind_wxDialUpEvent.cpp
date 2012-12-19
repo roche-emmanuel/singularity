@@ -6,6 +6,30 @@ class luna_wrapper_wxDialUpEvent {
 public:
 	typedef Luna< wxDialUpEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isboolean(L,2)==0 ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_IsConnectedEvent(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -70,6 +105,21 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDialUpEvent::wxDialUpEvent(lua_Table * data, bool isConnected, bool isOwnEvent)
+	static wxDialUpEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDialUpEvent::wxDialUpEvent(lua_Table * data, bool isConnected, bool isOwnEvent) function, expected prototype:\nwxDialUpEvent::wxDialUpEvent(lua_Table * data, bool isConnected, bool isOwnEvent)\nClass arguments details:\n");
+		}
+
+		bool isConnected=(bool)(lua_toboolean(L,2)==1);
+		bool isOwnEvent=(bool)(lua_toboolean(L,3)==1);
+
+		return new wrapper_wxDialUpEvent(L,NULL, isConnected, isOwnEvent);
+	}
+
 
 	// Function binds:
 	// bool wxDialUpEvent::IsConnectedEvent() const
@@ -156,7 +206,8 @@ public:
 };
 
 wxDialUpEvent* LunaTraits< wxDialUpEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDialUpEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -178,6 +229,7 @@ luna_RegType LunaTraits< wxDialUpEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxDialUpEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxDialUpEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxDialUpEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxDialUpEvent::_bind_getTable},
 	{0,0}
 };
 

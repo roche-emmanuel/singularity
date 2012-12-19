@@ -8,14 +8,12 @@
 
 #include <wx/tipdlg.h>
 
-class wrapper_wxTipProvider : public wxTipProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTipProvider : public wxTipProvider, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTipProvider(lua_State* L, lua_Table* dum, size_t currentTip) : wxTipProvider(currentTip), _obj(L,-1) {};
+	wrapper_wxTipProvider(lua_State* L, lua_Table* dum, size_t currentTip) : wxTipProvider(currentTip), luna_wrapper_base(L) {};
 
 	// wxString wxTipProvider::GetTip()
 	wxString GetTip() {

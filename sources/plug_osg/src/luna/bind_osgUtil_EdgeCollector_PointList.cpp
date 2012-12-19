@@ -70,6 +70,8 @@ public:
 
 osgUtil::EdgeCollector::PointList* LunaTraits< osgUtil::EdgeCollector::PointList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::EdgeCollector::PointList >::_bind_dtor(osgUtil::EdgeCollector::PointList* obj) {

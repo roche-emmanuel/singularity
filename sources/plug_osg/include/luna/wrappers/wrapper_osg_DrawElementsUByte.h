@@ -8,17 +8,15 @@
 
 #include <osg/PrimitiveSet>
 
-class wrapper_osg_DrawElementsUByte : public osg::DrawElementsUByte {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_DrawElementsUByte : public osg::DrawElementsUByte, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawElementsUByte(mode), _obj(L,-1) {};
-	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElementsUByte(array, copyop), _obj(L,-1) {};
-	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) : osg::DrawElementsUByte(mode, no, ptr, numInstances), _obj(L,-1) {};
-	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no) : osg::DrawElementsUByte(mode, no), _obj(L,-1) {};
+	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawElementsUByte(mode), luna_wrapper_base(L) {};
+	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElementsUByte(array, copyop), luna_wrapper_base(L) {};
+	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) : osg::DrawElementsUByte(mode, no, ptr, numInstances), luna_wrapper_base(L) {};
+	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no) : osg::DrawElementsUByte(mode, no), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

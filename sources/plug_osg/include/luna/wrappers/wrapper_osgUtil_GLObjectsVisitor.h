@@ -8,14 +8,12 @@
 
 #include <osgUtil/GLObjectsVisitor>
 
-class wrapper_osgUtil_GLObjectsVisitor : public osgUtil::GLObjectsVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_GLObjectsVisitor : public osgUtil::GLObjectsVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_GLObjectsVisitor(lua_State* L, lua_Table* dum, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) : osgUtil::GLObjectsVisitor(mode), _obj(L,-1) {};
+	wrapper_osgUtil_GLObjectsVisitor(lua_State* L, lua_Table* dum, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) : osgUtil::GLObjectsVisitor(mode), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {

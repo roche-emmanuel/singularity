@@ -8,15 +8,13 @@
 
 #include <osgGA/FirstPersonManipulator>
 
-class wrapper_osgGA_FirstPersonManipulator : public osgGA::FirstPersonManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_FirstPersonManipulator : public osgGA::FirstPersonManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::FirstPersonManipulator(flags), _obj(L,-1) {};
-	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::FirstPersonManipulator(fpm, copyOp), _obj(L,-1) {};
+	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::FirstPersonManipulator(flags), luna_wrapper_base(L) {};
+	wrapper_osgGA_FirstPersonManipulator(lua_State* L, lua_Table* dum, const osgGA::FirstPersonManipulator & fpm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::FirstPersonManipulator(fpm, copyOp), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

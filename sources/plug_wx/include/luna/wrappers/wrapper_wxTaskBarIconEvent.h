@@ -8,14 +8,12 @@
 
 #include <wx/taskbar.h>
 
-class wrapper_wxTaskBarIconEvent : public wxTaskBarIconEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTaskBarIconEvent : public wxTaskBarIconEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTaskBarIconEvent(lua_State* L, lua_Table* dum, int evtType, wxTaskBarIcon * tbIcon) : wxTaskBarIconEvent(evtType, tbIcon), _obj(L,-1) {};
+	wrapper_wxTaskBarIconEvent(lua_State* L, lua_Table* dum, int evtType, wxTaskBarIcon * tbIcon) : wxTaskBarIconEvent(evtType, tbIcon), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

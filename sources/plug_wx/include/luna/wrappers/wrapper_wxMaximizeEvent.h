@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxMaximizeEvent : public wxMaximizeEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMaximizeEvent : public wxMaximizeEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMaximizeEvent(lua_State* L, lua_Table* dum, int id = 0) : wxMaximizeEvent(id), _obj(L,-1) {};
+	wrapper_wxMaximizeEvent(lua_State* L, lua_Table* dum, int id = 0) : wxMaximizeEvent(id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

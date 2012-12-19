@@ -8,14 +8,12 @@
 
 #include <osg/TextureCubeMap>
 
-class wrapper_osg_TextureCubeMap_Extensions : public osg::TextureCubeMap::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TextureCubeMap_Extensions : public osg::TextureCubeMap::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TextureCubeMap_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::TextureCubeMap::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_TextureCubeMap_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::TextureCubeMap::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

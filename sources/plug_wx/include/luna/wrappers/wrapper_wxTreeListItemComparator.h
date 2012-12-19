@@ -8,14 +8,12 @@
 
 #include <wx/treelist.h>
 
-class wrapper_wxTreeListItemComparator : public wxTreeListItemComparator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxTreeListItemComparator : public wxTreeListItemComparator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxTreeListItemComparator(lua_State* L, lua_Table* dum) : wxTreeListItemComparator(), _obj(L,-1) {};
+	wrapper_wxTreeListItemComparator(lua_State* L, lua_Table* dum) : wxTreeListItemComparator(), luna_wrapper_base(L) {};
 
 	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 	int Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) {

@@ -8,14 +8,12 @@
 
 #include <osgDB/ImagePager>
 
-class wrapper_osgDB_ImagePager : public osgDB::ImagePager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ImagePager : public osgDB::ImagePager, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) : osgDB::ImagePager(), _obj(L,-1) {};
+	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) : osgDB::ImagePager(), luna_wrapper_base(L) {};
 
 	// double osgDB::ImagePager::getPreLoadTime() const
 	double getPreLoadTime() const {

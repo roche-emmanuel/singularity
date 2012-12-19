@@ -6,6 +6,30 @@ class luna_wrapper_osgDB_XmlNode {
 public:
 	typedef Luna< osgDB::XmlNode > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -61,6 +85,15 @@ public:
 	inline static bool _lg_typecheck_getTrimmedContents(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_write(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -121,6 +154,33 @@ public:
 		return 1;
 	}
 
+	// bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = "") const
+	static int _bind_write(lua_State *L) {
+		if (!_lg_typecheck_write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const function, expected prototype:\nbool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* fout_ptr=(Luna< std::ostream >::check(L,2));
+		if( !fout_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fout in osgDB::XmlNode::write function");
+		}
+		std::ostream & fout=*fout_ptr;
+		std::string indent(lua_tostring(L,3),lua_objlen(L,3));
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const");
+		}
+		bool lret = self->write(fout, indent);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -128,6 +188,8 @@ public:
 
 osgDB::XmlNode* LunaTraits< osgDB::XmlNode >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_XmlNode::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::XmlNode >::_bind_dtor(osgDB::XmlNode* obj) {
@@ -143,7 +205,9 @@ const int LunaTraits< osgDB::XmlNode >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::XmlNode >::methods[] = {
 	{"getTrimmedContents", &luna_wrapper_osgDB_XmlNode::_bind_getTrimmedContents},
+	{"write", &luna_wrapper_osgDB_XmlNode::_bind_write},
 	{"__eq", &luna_wrapper_osgDB_XmlNode::_bind___eq},
+	{"getTable", &luna_wrapper_osgDB_XmlNode::_bind_getTable},
 	{0,0}
 };
 

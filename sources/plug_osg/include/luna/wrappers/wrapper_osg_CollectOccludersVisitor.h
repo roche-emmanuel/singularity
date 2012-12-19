@@ -8,14 +8,12 @@
 
 #include <osg/CollectOccludersVisitor>
 
-class wrapper_osg_CollectOccludersVisitor : public osg::CollectOccludersVisitor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CollectOccludersVisitor : public osg::CollectOccludersVisitor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) : osg::CollectOccludersVisitor(), _obj(L,-1) {};
+	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) : osg::CollectOccludersVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const
 	osg::Vec3f getEyePoint() const {

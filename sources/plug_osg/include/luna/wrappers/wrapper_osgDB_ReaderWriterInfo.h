@@ -8,14 +8,12 @@
 
 #include <osgDB/PluginQuery>
 
-class wrapper_osgDB_ReaderWriterInfo : public osgDB::ReaderWriterInfo {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ReaderWriterInfo : public osgDB::ReaderWriterInfo, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_ReaderWriterInfo(lua_State* L, lua_Table* dum) : osgDB::ReaderWriterInfo(), _obj(L,-1) {};
+	wrapper_osgDB_ReaderWriterInfo(lua_State* L, lua_Table* dum) : osgDB::ReaderWriterInfo(), luna_wrapper_base(L) {};
 
 
 

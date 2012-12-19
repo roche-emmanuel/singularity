@@ -70,6 +70,8 @@ public:
 
 osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap >::_bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable::CellMatrixMap* obj) {

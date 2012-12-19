@@ -8,19 +8,17 @@
 
 #include <wx/font.h>
 
-class wrapper_wxFont : public wxFont {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFont : public wxFont, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFont(lua_State* L, lua_Table* dum) : wxFont(), _obj(L,-1) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxFont & font) : wxFont(font), _obj(L,-1) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, int pointSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pointSize, family, style, weight, underline, faceName, encoding), _obj(L,-1) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxSize & pixelSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pixelSize, family, style, weight, underline, faceName, encoding), _obj(L,-1) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxString & nativeInfoString) : wxFont(nativeInfoString), _obj(L,-1) {};
-	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxNativeFontInfo & nativeInfo) : wxFont(nativeInfo), _obj(L,-1) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum) : wxFont(), luna_wrapper_base(L) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxFont & font) : wxFont(font), luna_wrapper_base(L) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum, int pointSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pointSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxSize & pixelSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pixelSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxString & nativeInfoString) : wxFont(nativeInfoString), luna_wrapper_base(L) {};
+	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxNativeFontInfo & nativeInfo) : wxFont(nativeInfo), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

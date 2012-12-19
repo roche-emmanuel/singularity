@@ -6,6 +6,30 @@ class luna_wrapper_osg_ImageSequence {
 public:
 	typedef Luna< osg::ImageSequence > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -220,6 +244,18 @@ public:
 	}
 
 	inline static bool _lg_typecheck_getNumImageFiles(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFileNames_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFileNames_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		return true;
@@ -1120,6 +1156,57 @@ public:
 		lua_pushnumber(L,lret);
 
 		return 1;
+	}
+
+	// osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()
+	static int _bind_getFileNames_overload_1(lua_State *L) {
+		if (!_lg_typecheck_getFileNames_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() function, expected prototype:\nosg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()\nClass arguments details:\n");
+		}
+
+
+		osg::ImageSequence* self=Luna< osg::Referenced >::checkSubType< osg::ImageSequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames()");
+		}
+		const osg::ImageSequence::FileNames* lret = &self->getFileNames();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::ImageSequence::FileNames >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const
+	static int _bind_getFileNames_overload_2(lua_State *L) {
+		if (!_lg_typecheck_getFileNames_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const function, expected prototype:\nconst osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const\nClass arguments details:\n");
+		}
+
+
+		osg::ImageSequence* self=Luna< osg::Referenced >::checkSubType< osg::ImageSequence >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call const osg::ImageSequence::FileNames & osg::ImageSequence::getFileNames() const");
+		}
+		const osg::ImageSequence::FileNames* lret = &self->getFileNames();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::ImageSequence::FileNames >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// Overload binder for osg::ImageSequence::getFileNames
+	static int _bind_getFileNames(lua_State *L) {
+		if (_lg_typecheck_getFileNames_overload_1(L)) return _bind_getFileNames_overload_1(L);
+		if (_lg_typecheck_getFileNames_overload_2(L)) return _bind_getFileNames_overload_2(L);
+
+		luaL_error(L, "error in function getFileNames, cannot match any of the overloads for function getFileNames:\n  getFileNames()\n  getFileNames()\n");
+		return 0;
 	}
 
 	// void osg::ImageSequence::addImage(osg::Image * image)
@@ -2214,6 +2301,8 @@ public:
 
 osg::ImageSequence* LunaTraits< osg::ImageSequence >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ImageSequence::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ImageSequence >::_bind_dtor(osg::ImageSequence* obj) {
@@ -2250,6 +2339,7 @@ luna_RegType LunaTraits< osg::ImageSequence >::methods[] = {
 	{"setImageFile", &luna_wrapper_osg_ImageSequence::_bind_setImageFile},
 	{"getImageFile", &luna_wrapper_osg_ImageSequence::_bind_getImageFile},
 	{"getNumImageFiles", &luna_wrapper_osg_ImageSequence::_bind_getNumImageFiles},
+	{"getFileNames", &luna_wrapper_osg_ImageSequence::_bind_getFileNames},
 	{"addImage", &luna_wrapper_osg_ImageSequence::_bind_addImage},
 	{"setImage", &luna_wrapper_osg_ImageSequence::_bind_setImage},
 	{"getImage", &luna_wrapper_osg_ImageSequence::_bind_getImage},
@@ -2298,6 +2388,7 @@ luna_RegType LunaTraits< osg::ImageSequence >::methods[] = {
 	{"base_requiresUpdateCall", &luna_wrapper_osg_ImageSequence::_bind_base_requiresUpdateCall},
 	{"base_update", &luna_wrapper_osg_ImageSequence::_bind_base_update},
 	{"__eq", &luna_wrapper_osg_ImageSequence::_bind___eq},
+	{"getTable", &luna_wrapper_osg_ImageSequence::_bind_getTable},
 	{0,0}
 };
 

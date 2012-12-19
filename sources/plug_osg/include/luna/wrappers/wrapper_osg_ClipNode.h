@@ -8,15 +8,13 @@
 
 #include <osg/ClipNode>
 
-class wrapper_osg_ClipNode : public osg::ClipNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_ClipNode : public osg::ClipNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_ClipNode(lua_State* L, lua_Table* dum) : osg::ClipNode(), _obj(L,-1) {};
-	wrapper_osg_ClipNode(lua_State* L, lua_Table* dum, const osg::ClipNode & es, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipNode(es, copyop), _obj(L,-1) {};
+	wrapper_osg_ClipNode(lua_State* L, lua_Table* dum) : osg::ClipNode(), luna_wrapper_base(L) {};
+	wrapper_osg_ClipNode(lua_State* L, lua_Table* dum, const osg::ClipNode & es, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClipNode(es, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

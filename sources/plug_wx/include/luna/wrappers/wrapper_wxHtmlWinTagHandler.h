@@ -8,10 +8,8 @@
 
 #include <wx/html/winpars.h>
 
-class wrapper_wxHtmlWinTagHandler : public wxHtmlWinTagHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlWinTagHandler : public wxHtmlWinTagHandler, public luna_wrapper_base {
+
 public:
 	
 

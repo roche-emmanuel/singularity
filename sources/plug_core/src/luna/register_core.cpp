@@ -41,6 +41,10 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< sgt::StdLogger >::Register(L);
 	Luna< sgt::AnyVector >::Register(L);
 	luna_popModule(L);
+	luna_pushModule(L,"std");
+	Luna< std::istream >::Register(L);
+	Luna< std::ostream >::Register(L);
+	luna_popModule(L);
 
 	luna_pushModule(L,"sgt");
 
@@ -55,6 +59,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_copyParents(L,"posix_time");
 	luna_copyParents(L,"osg");
 	luna_copyParents(L,"sgt");
+	luna_copyParents(L,"std");
 
 	luna_pushModule(L,"sgt");
 	return 1;

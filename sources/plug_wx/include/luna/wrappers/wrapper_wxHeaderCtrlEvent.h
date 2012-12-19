@@ -8,10 +8,8 @@
 
 #include <wx/headerctrl.h>
 
-class wrapper_wxHeaderCtrlEvent : public wxHeaderCtrlEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHeaderCtrlEvent : public wxHeaderCtrlEvent, public luna_wrapper_base {
+
 public:
 	
 

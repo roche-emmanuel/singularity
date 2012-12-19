@@ -8,10 +8,8 @@
 
 #include <wx/choicdlg.h>
 
-class wrapper_wxSingleChoiceDialog : public wxSingleChoiceDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSingleChoiceDialog : public wxSingleChoiceDialog, public luna_wrapper_base {
+
 public:
 	
 

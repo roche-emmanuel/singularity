@@ -8,14 +8,12 @@
 
 #include <wx/dcclient.h>
 
-class wrapper_wxWindowDC : public wxWindowDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWindowDC : public wxWindowDC, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWindowDC(lua_State* L, lua_Table* dum, wxWindow * window) : wxWindowDC(window), _obj(L,-1) {};
+	wrapper_wxWindowDC(lua_State* L, lua_Table* dum, wxWindow * window) : wxWindowDC(window), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

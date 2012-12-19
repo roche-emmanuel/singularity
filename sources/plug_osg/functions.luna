@@ -72,6 +72,7 @@ osg::setNotifyLevel
 osg::getNotifyLevel
 osg::initNotifyLevel
 osg::isNotifyEnabled
+osg::notify
 osg::setNotifyHandler
 osg::getNotifyHandler
 osg::isTextureMode
@@ -130,6 +131,7 @@ osgDB::appendPlatformSpecificResourceFilePaths
 osgDB::split
 osgDB::listAllAvailablePlugins
 osgDB::queryPlugin
+osgDB::outputPluginDetails
 osgDB::readObjectFile
 osgDB::readImageFile
 osgDB::readHeightFieldFile
@@ -147,10 +149,15 @@ osgDB::writeHeightFieldFile
 osgDB::writeNodeFile
 osgDB::writeShaderFile
 osgDB::readXmlFile
+osgDB::readXmlStream
 osgDB::trimEnclosingSpaces
 osgText::readFontFile
+osgText::readFontStream
 osgText::readRefFontFile
+osgText::readRefFontStream
 osgText::findFontFile
 osgText::readFont3DFile
+osgText::readFont3DStream
 osgText::readRefFont3DFile
+osgText::readRefFont3DStream
 osgText::findFont3DFile

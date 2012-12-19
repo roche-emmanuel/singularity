@@ -8,15 +8,13 @@
 
 #include <osg/Texture>
 
-class wrapper_osg_Texture : public osg::Texture {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Texture : public osg::Texture, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Texture(lua_State* L, lua_Table* dum) : osg::Texture(), _obj(L,-1) {};
-	wrapper_osg_Texture(lua_State* L, lua_Table* dum, const osg::Texture & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture(text, copyop), _obj(L,-1) {};
+	wrapper_osg_Texture(lua_State* L, lua_Table* dum) : osg::Texture(), luna_wrapper_base(L) {};
+	wrapper_osg_Texture(lua_State* L, lua_Table* dum, const osg::Texture & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture(text, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

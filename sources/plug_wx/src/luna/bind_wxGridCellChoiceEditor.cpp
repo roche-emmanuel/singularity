@@ -6,6 +6,30 @@ class luna_wrapper_wxGridCellChoiceEditor {
 public:
 	typedef Luna< wxGridCellChoiceEditor > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,18 @@ public:
 		Luna< wxGridCellChoiceEditor >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -110,6 +146,27 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)
+	static wxGridCellChoiceEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false) function, expected prototype:\nwxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)\nClass arguments details:\narg 2 ID = 59507769\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,2));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxGridCellChoiceEditor::wxGridCellChoiceEditor function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		bool allowOthers=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		return new wrapper_wxGridCellChoiceEditor(L,NULL, choices, allowOthers);
+	}
+
 
 	// Function binds:
 	// void wxGridCellChoiceEditor::SetParameters(const wxString & params)
@@ -307,8 +364,10 @@ public:
 };
 
 wxGridCellChoiceEditor* LunaTraits< wxGridCellChoiceEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellChoiceEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)
@@ -339,6 +398,7 @@ luna_RegType LunaTraits< wxGridCellChoiceEditor >::methods[] = {
 	{"base_StartingKey", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_StartingKey},
 	{"base_SetParameters", &luna_wrapper_wxGridCellChoiceEditor::_bind_base_SetParameters},
 	{"__eq", &luna_wrapper_wxGridCellChoiceEditor::_bind___eq},
+	{"getTable", &luna_wrapper_wxGridCellChoiceEditor::_bind_getTable},
 	{0,0}
 };
 

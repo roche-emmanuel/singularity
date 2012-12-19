@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtexthtml.h>
 
-class wrapper_wxRichTextHTMLHandler : public wxRichTextHTMLHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextHTMLHandler : public wxRichTextHTMLHandler, public luna_wrapper_base {
+
 public:
 	
 
@@ -46,6 +44,12 @@ protected:
 		return wxRichTextHTMLHandler::CloneRefData(data);
 	};
 
+
+public:
+// void wxRichTextFileHandler::SetVisible(bool visible)
+void SetVisible(bool) {
+	THROW_IF(true,"The function call void wxRichTextFileHandler::SetVisible(bool) is not implemented in wrapper.");
+};
 
 };
 

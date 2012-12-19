@@ -6,6 +6,30 @@ class luna_wrapper_wxStyledTextEvent {
 public:
 	typedef Luna< wxStyledTextEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,27 @@ public:
 		Luna< wxStyledTextEvent >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxStyledTextEvent* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -336,6 +381,48 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxStyledTextEvent::wxStyledTextEvent(lua_Table * data, int commandType = 0, int id = 0)
+	static wxStyledTextEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStyledTextEvent::wxStyledTextEvent(lua_Table * data, int commandType = 0, int id = 0) function, expected prototype:\nwxStyledTextEvent::wxStyledTextEvent(lua_Table * data, int commandType = 0, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxStyledTextEvent(L,NULL, commandType, id);
+	}
+
+	// wxStyledTextEvent::wxStyledTextEvent(lua_Table * data, const wxStyledTextEvent & event)
+	static wxStyledTextEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxStyledTextEvent::wxStyledTextEvent(lua_Table * data, const wxStyledTextEvent & event) function, expected prototype:\nwxStyledTextEvent::wxStyledTextEvent(lua_Table * data, const wxStyledTextEvent & event)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxStyledTextEvent* event_ptr=(Luna< wxObject >::checkSubType< wxStyledTextEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxStyledTextEvent::wxStyledTextEvent function");
+		}
+		const wxStyledTextEvent & event=*event_ptr;
+
+		return new wrapper_wxStyledTextEvent(L,NULL, event);
+	}
+
+	// Overload binder for wxStyledTextEvent::wxStyledTextEvent
+	static wxStyledTextEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxStyledTextEvent, cannot match any of the overloads for function wxStyledTextEvent:\n  wxStyledTextEvent(lua_Table *, int, int)\n  wxStyledTextEvent(lua_Table *, const wxStyledTextEvent &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxStyledTextEvent::GetAlt() const
@@ -1201,7 +1288,8 @@ public:
 };
 
 wxStyledTextEvent* LunaTraits< wxStyledTextEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxStyledTextEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -1264,6 +1352,7 @@ luna_RegType LunaTraits< wxStyledTextEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxStyledTextEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxStyledTextEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxStyledTextEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxStyledTextEvent::_bind_getTable},
 	{0,0}
 };
 

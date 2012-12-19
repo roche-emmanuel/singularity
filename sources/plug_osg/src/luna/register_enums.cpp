@@ -85,11 +85,13 @@
 #include <osgDB/ImagePager>
 #include <osgDB/ImageProcessor>
 #include <osgDB/Input>
+#include <osgDB/InputStream>
 #include <osgDB/Options>
 #include <osgDB/Output>
 #include <osgDB/OutputStream>
 #include <osgDB/ReaderWriter>
 #include <osgDB/Registry>
+#include <osgDB/Serializer>
 #include <osgDB/SharedStateManager>
 #include <osgDB/XmlParser>
 #include <osgGA/FlightManipulator>
@@ -2444,6 +2446,21 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osgDB::FieldReaderIterator::MINIMUM_FIELD_READER_QUEUE_SIZE); lua_setfield(L,-2,"MINIMUM_FIELD_READER_QUEUE_SIZE");
 
 
+	lua_newtable(L); // enum ReadType
+
+	lua_pushnumber(L,osgDB::InputStream::READ_UNKNOWN); lua_setfield(L,-2,"READ_UNKNOWN");
+	lua_pushnumber(L,osgDB::InputStream::READ_SCENE); lua_setfield(L,-2,"READ_SCENE");
+	lua_pushnumber(L,osgDB::InputStream::READ_IMAGE); lua_setfield(L,-2,"READ_IMAGE");
+	lua_pushnumber(L,osgDB::InputStream::READ_OBJECT); lua_setfield(L,-2,"READ_OBJECT");
+
+	lua_setfield(L,-2,"ReadType");
+
+	lua_pushnumber(L,osgDB::InputStream::READ_UNKNOWN); lua_setfield(L,-2,"READ_UNKNOWN");
+	lua_pushnumber(L,osgDB::InputStream::READ_SCENE); lua_setfield(L,-2,"READ_SCENE");
+	lua_pushnumber(L,osgDB::InputStream::READ_IMAGE); lua_setfield(L,-2,"READ_IMAGE");
+	lua_pushnumber(L,osgDB::InputStream::READ_OBJECT); lua_setfield(L,-2,"READ_OBJECT");
+
+
 	lua_newtable(L); // enum CacheHintOptions
 
 	lua_pushnumber(L,osgDB::Options::CACHE_NONE); lua_setfield(L,-2,"CACHE_NONE");
@@ -2645,6 +2662,69 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,osgDB::Registry::NOT_LOADED); lua_setfield(L,-2,"NOT_LOADED");
 	lua_pushnumber(L,osgDB::Registry::PREVIOUSLY_LOADED); lua_setfield(L,-2,"PREVIOUSLY_LOADED");
 	lua_pushnumber(L,osgDB::Registry::LOADED); lua_setfield(L,-2,"LOADED");
+
+
+	lua_newtable(L); // enum Type
+
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UNDEFINED); lua_setfield(L,-2,"RW_UNDEFINED");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_USER); lua_setfield(L,-2,"RW_USER");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_OBJECT); lua_setfield(L,-2,"RW_OBJECT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_IMAGE); lua_setfield(L,-2,"RW_IMAGE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_LIST); lua_setfield(L,-2,"RW_LIST");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_BOOL); lua_setfield(L,-2,"RW_BOOL");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_CHAR); lua_setfield(L,-2,"RW_CHAR");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UCHAR); lua_setfield(L,-2,"RW_UCHAR");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_SHORT); lua_setfield(L,-2,"RW_SHORT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_USHORT); lua_setfield(L,-2,"RW_USHORT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_INT); lua_setfield(L,-2,"RW_INT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UINT); lua_setfield(L,-2,"RW_UINT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_FLOAT); lua_setfield(L,-2,"RW_FLOAT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_DOUBLE); lua_setfield(L,-2,"RW_DOUBLE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC2F); lua_setfield(L,-2,"RW_VEC2F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC2D); lua_setfield(L,-2,"RW_VEC2D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC3F); lua_setfield(L,-2,"RW_VEC3F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC3D); lua_setfield(L,-2,"RW_VEC3D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC4F); lua_setfield(L,-2,"RW_VEC4F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC4D); lua_setfield(L,-2,"RW_VEC4D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_QUAT); lua_setfield(L,-2,"RW_QUAT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_PLANE); lua_setfield(L,-2,"RW_PLANE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIXF); lua_setfield(L,-2,"RW_MATRIXF");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIXD); lua_setfield(L,-2,"RW_MATRIXD");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIX); lua_setfield(L,-2,"RW_MATRIX");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_GLENUM); lua_setfield(L,-2,"RW_GLENUM");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_STRING); lua_setfield(L,-2,"RW_STRING");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_ENUM); lua_setfield(L,-2,"RW_ENUM");
+
+	lua_setfield(L,-2,"Type");
+
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UNDEFINED); lua_setfield(L,-2,"RW_UNDEFINED");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_USER); lua_setfield(L,-2,"RW_USER");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_OBJECT); lua_setfield(L,-2,"RW_OBJECT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_IMAGE); lua_setfield(L,-2,"RW_IMAGE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_LIST); lua_setfield(L,-2,"RW_LIST");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_BOOL); lua_setfield(L,-2,"RW_BOOL");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_CHAR); lua_setfield(L,-2,"RW_CHAR");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UCHAR); lua_setfield(L,-2,"RW_UCHAR");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_SHORT); lua_setfield(L,-2,"RW_SHORT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_USHORT); lua_setfield(L,-2,"RW_USHORT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_INT); lua_setfield(L,-2,"RW_INT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_UINT); lua_setfield(L,-2,"RW_UINT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_FLOAT); lua_setfield(L,-2,"RW_FLOAT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_DOUBLE); lua_setfield(L,-2,"RW_DOUBLE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC2F); lua_setfield(L,-2,"RW_VEC2F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC2D); lua_setfield(L,-2,"RW_VEC2D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC3F); lua_setfield(L,-2,"RW_VEC3F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC3D); lua_setfield(L,-2,"RW_VEC3D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC4F); lua_setfield(L,-2,"RW_VEC4F");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_VEC4D); lua_setfield(L,-2,"RW_VEC4D");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_QUAT); lua_setfield(L,-2,"RW_QUAT");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_PLANE); lua_setfield(L,-2,"RW_PLANE");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIXF); lua_setfield(L,-2,"RW_MATRIXF");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIXD); lua_setfield(L,-2,"RW_MATRIXD");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_MATRIX); lua_setfield(L,-2,"RW_MATRIX");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_GLENUM); lua_setfield(L,-2,"RW_GLENUM");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_STRING); lua_setfield(L,-2,"RW_STRING");
+	lua_pushnumber(L,osgDB::BaseSerializer::RW_ENUM); lua_setfield(L,-2,"RW_ENUM");
 
 
 	lua_newtable(L); // enum ShareMode

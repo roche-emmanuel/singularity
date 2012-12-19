@@ -8,14 +8,12 @@
 
 #include <wx/ipc.h>
 
-class wrapper_wxServer : public wxServer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxServer : public wxServer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), _obj(L,-1) {};
+	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) {};
 
 	// wxConnectionBase * wxServer::OnAcceptConnection(const wxString & topic)
 	wxConnectionBase * OnAcceptConnection(const wxString & topic) {

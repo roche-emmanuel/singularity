@@ -58,9 +58,10 @@ function Class:writeFile()
 	
 	for k,v in classes:sequence() do
 		if v:getBases():empty() then
-			local hash = utils.getHash(v:getFullName())
-			if not writtenTypes:contains(hash) then
-				buf:writeLine(snippets:getLunaTypeCode(hash,v:getFullName()))
+			local cname = v:getFullName()
+			local hash = utils.getHash(cname)
+			if not writtenTypes:contains(hash) and not im:ignore(cname,"class_declaration") then
+				buf:writeLine(snippets:getLunaTypeCode(hash,cname))
 				writtenTypes:push_back(hash)
 			else
 				self:warn("Luna type already written for hash=",hash," type=",v:getFullName())

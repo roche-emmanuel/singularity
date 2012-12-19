@@ -8,10 +8,8 @@
 
 #include <wx/ctrlsub.h>
 
-class wrapper_wxItemContainer : public wxItemContainer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxItemContainer : public wxItemContainer, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,15 +8,13 @@
 
 #include <osg/Node>
 
-class wrapper_osg_Node_ComputeBoundingSphereCallback : public osg::Node::ComputeBoundingSphereCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Node_ComputeBoundingSphereCallback : public osg::Node::ComputeBoundingSphereCallback, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Node_ComputeBoundingSphereCallback(lua_State* L, lua_Table* dum) : osg::Node::ComputeBoundingSphereCallback(), _obj(L,-1) {};
-	wrapper_osg_Node_ComputeBoundingSphereCallback(lua_State* L, lua_Table* dum, const osg::Node::ComputeBoundingSphereCallback & arg1, const osg::CopyOp & arg2) : osg::Node::ComputeBoundingSphereCallback(arg1, arg2), _obj(L,-1) {};
+	wrapper_osg_Node_ComputeBoundingSphereCallback(lua_State* L, lua_Table* dum) : osg::Node::ComputeBoundingSphereCallback(), luna_wrapper_base(L) {};
+	wrapper_osg_Node_ComputeBoundingSphereCallback(lua_State* L, lua_Table* dum, const osg::Node::ComputeBoundingSphereCallback & arg1, const osg::CopyOp & arg2) : osg::Node::ComputeBoundingSphereCallback(arg1, arg2), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

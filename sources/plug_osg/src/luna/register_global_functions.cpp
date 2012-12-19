@@ -1032,6 +1032,19 @@ inline static bool _lg_typecheck_isNotifyEnabled(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_notify_overload_1(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_notify_overload_2(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
+	return true;
+}
+
 inline static bool _lg_typecheck_setNotifyHandler(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
@@ -2536,6 +2549,48 @@ static int _bind_isNotifyEnabled(lua_State *L) {
 	return 1;
 }
 
+// std::ostream & osg::notify(const osg::NotifySeverity severity)
+static int _bind_notify_overload_1(lua_State *L) {
+	if (!_lg_typecheck_notify_overload_1(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify(const osg::NotifySeverity severity) function, expected prototype:\nstd::ostream & osg::notify(const osg::NotifySeverity severity)\nClass arguments details:\n");
+	}
+
+	osg::NotifySeverity severity=(osg::NotifySeverity)lua_tointeger(L,1);
+
+	const std::ostream* lret = &notify(severity);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< std::ostream >::push(L,lret,false);
+
+	return 1;
+}
+
+// std::ostream & osg::notify()
+static int _bind_notify_overload_2(lua_State *L) {
+	if (!_lg_typecheck_notify_overload_2(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in std::ostream & osg::notify() function, expected prototype:\nstd::ostream & osg::notify()\nClass arguments details:\n");
+	}
+
+
+	const std::ostream* lret = &notify();
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< std::ostream >::push(L,lret,false);
+
+	return 1;
+}
+
+// Overload binder for osg::notify
+static int _bind_notify(lua_State *L) {
+	if (_lg_typecheck_notify_overload_1(L)) return _bind_notify_overload_1(L);
+	if (_lg_typecheck_notify_overload_2(L)) return _bind_notify_overload_2(L);
+
+	luaL_error(L, "error in function notify, cannot match any of the overloads for function notify:\n  notify(const osg::NotifySeverity)\n  notify()\n");
+	return 0;
+}
+
 // void osg::setNotifyHandler(osg::NotifyHandler * handler)
 static int _bind_setNotifyHandler(lua_State *L) {
 	if (!_lg_typecheck_setNotifyHandler(L)) {
@@ -3647,6 +3702,14 @@ inline static bool _lg_typecheck_queryPlugin(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_outputPluginDetails(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,2993706) ) return false;
+	if( lua_isstring(L,2)==0 ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_readObjectFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
@@ -3945,6 +4008,13 @@ inline static bool _lg_typecheck_readXmlFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readXmlStream(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,77972206) ) return false;
 	return true;
 }
 
@@ -4966,6 +5036,26 @@ static int _bind_queryPlugin(lua_State *L) {
 	return 1;
 }
 
+// bool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName)
+static int _bind_outputPluginDetails(lua_State *L) {
+	if (!_lg_typecheck_outputPluginDetails(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in bool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName) function, expected prototype:\nbool osgDB::outputPluginDetails(std::ostream & out, const std::string & fileName)\nClass arguments details:\narg 1 ID = 2993706\n");
+	}
+
+	std::ostream* out_ptr=(Luna< std::ostream >::check(L,1));
+	if( !out_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg out in osgDB::outputPluginDetails function");
+	}
+	std::ostream & out=*out_ptr;
+	std::string fileName(lua_tostring(L,2),lua_objlen(L,2));
+
+	bool lret = outputPluginDetails(out, fileName);
+	lua_pushboolean(L,lret?1:0);
+
+	return 1;
+}
+
 // osg::Object * osgDB::readObjectFile(const std::string & filename, const osgDB::Options * options)
 static int _bind_readObjectFile_overload_1(lua_State *L) {
 	if (!_lg_typecheck_readObjectFile_overload_1(L)) {
@@ -5737,6 +5827,27 @@ static int _bind_readXmlFile(lua_State *L) {
 	return 0;
 }
 
+// osgDB::XmlNode * osgDB::readXmlStream(std::istream & fin)
+static int _bind_readXmlStream(lua_State *L) {
+	if (!_lg_typecheck_readXmlStream(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgDB::XmlNode * osgDB::readXmlStream(std::istream & fin) function, expected prototype:\nosgDB::XmlNode * osgDB::readXmlStream(std::istream & fin)\nClass arguments details:\narg 1 ID = 77972206\n");
+	}
+
+	std::istream* fin_ptr=(Luna< std::istream >::check(L,1));
+	if( !fin_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg fin in osgDB::readXmlStream function");
+	}
+	std::istream & fin=*fin_ptr;
+
+	osgDB::XmlNode * lret = readXmlStream(fin);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgDB::XmlNode >::push(L,lret,false);
+
+	return 1;
+}
+
 // std::string osgDB::trimEnclosingSpaces(const std::string & str)
 static int _bind_trimEnclosingSpaces(lua_State *L) {
 	if (!_lg_typecheck_trimEnclosingSpaces(L)) {
@@ -5767,11 +5878,29 @@ inline static bool _lg_typecheck_readFontFile(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_readFontStream(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,77972206) ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_readRefFontFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readRefFontStream(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,77972206) ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5792,11 +5921,29 @@ inline static bool _lg_typecheck_readFont3DFile(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_readFont3DStream(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,77972206) ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_readRefFont3DFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
 	if( lua_isstring(L,1)==0 ) return false;
+	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_readRefFont3DStream(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<1 || luatop>2 ) return false;
+
+	if( !Luna<void>::has_uniqueid(L,1,77972206) ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5830,6 +5977,30 @@ static int _bind_readFontFile(lua_State *L) {
 	return 1;
 }
 
+// osgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)
+static int _bind_readFontStream(lua_State *L) {
+	if (!_lg_typecheck_readFontStream(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::istream* stream_ptr=(Luna< std::istream >::check(L,1));
+	if( !stream_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg stream in osgText::readFontStream function");
+	}
+	std::istream & stream=*stream_ptr;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
+
+	osgText::Font * lret = readFontStream(stream, userOptions);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgText::Font >::push(L,lret,false);
+
+	return 1;
+}
+
 // osg::ref_ptr< osgText::Font > osgText::readRefFontFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFontFile(lua_State *L) {
 	if (!_lg_typecheck_readRefFontFile(L)) {
@@ -5843,6 +6014,28 @@ static int _bind_readRefFontFile(lua_State *L) {
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osg::ref_ptr< osgText::Font > lret = readRefFontFile(filename, userOptions);
+	Luna< osgText::Font >::push(L,lret.get(),false);
+
+	return 1;
+}
+
+// osg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)
+static int _bind_readRefFontStream(lua_State *L) {
+	if (!_lg_typecheck_readRefFontStream(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFontStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::istream* stream_ptr=(Luna< std::istream >::check(L,1));
+	if( !stream_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg stream in osgText::readRefFontStream function");
+	}
+	std::istream & stream=*stream_ptr;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
+
+	osg::ref_ptr< osgText::Font > lret = readRefFontStream(stream, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -5883,6 +6076,30 @@ static int _bind_readFont3DFile(lua_State *L) {
 	return 1;
 }
 
+// osgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)
+static int _bind_readFont3DStream(lua_State *L) {
+	if (!_lg_typecheck_readFont3DStream(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosgText::Font * osgText::readFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::istream* stream_ptr=(Luna< std::istream >::check(L,1));
+	if( !stream_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg stream in osgText::readFont3DStream function");
+	}
+	std::istream & stream=*stream_ptr;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
+
+	osgText::Font * lret = readFont3DStream(stream, userOptions);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< osgText::Font >::push(L,lret,false);
+
+	return 1;
+}
+
 // osg::ref_ptr< osgText::Font > osgText::readRefFont3DFile(const std::string & filename, const osgDB::Options * userOptions = 0)
 static int _bind_readRefFont3DFile(lua_State *L) {
 	if (!_lg_typecheck_readRefFont3DFile(L)) {
@@ -5896,6 +6113,28 @@ static int _bind_readRefFont3DFile(lua_State *L) {
 	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
 
 	osg::ref_ptr< osgText::Font > lret = readRefFont3DFile(filename, userOptions);
+	Luna< osgText::Font >::push(L,lret.get(),false);
+
+	return 1;
+}
+
+// osg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)
+static int _bind_readRefFont3DStream(lua_State *L) {
+	if (!_lg_typecheck_readRefFont3DStream(L)) {
+		luna_printStack(L);
+		luaL_error(L, "luna typecheck failed in osg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0) function, expected prototype:\nosg::ref_ptr< osgText::Font > osgText::readRefFont3DStream(std::istream & stream, const osgDB::Options * userOptions = 0)\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::istream* stream_ptr=(Luna< std::istream >::check(L,1));
+	if( !stream_ptr ) {
+		luaL_error(L, "Dereferencing NULL pointer for arg stream in osgText::readRefFont3DStream function");
+	}
+	std::istream & stream=*stream_ptr;
+	const osgDB::Options* userOptions=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) : (const osgDB::Options*)0;
+
+	osg::ref_ptr< osgText::Font > lret = readRefFont3DStream(stream, userOptions);
 	Luna< osgText::Font >::push(L,lret.get(),false);
 
 	return 1;
@@ -5999,6 +6238,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_getNotifyLevel); lua_setfield(L,-2,"getNotifyLevel");
 	lua_pushcfunction(L, _bind_initNotifyLevel); lua_setfield(L,-2,"initNotifyLevel");
 	lua_pushcfunction(L, _bind_isNotifyEnabled); lua_setfield(L,-2,"isNotifyEnabled");
+	lua_pushcfunction(L, _bind_notify); lua_setfield(L,-2,"notify");
 	lua_pushcfunction(L, _bind_setNotifyHandler); lua_setfield(L,-2,"setNotifyHandler");
 	lua_pushcfunction(L, _bind_getNotifyHandler); lua_setfield(L,-2,"getNotifyHandler");
 	lua_pushcfunction(L, _bind_isTextureMode); lua_setfield(L,-2,"isTextureMode");
@@ -6057,6 +6297,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_split); lua_setfield(L,-2,"split");
 	lua_pushcfunction(L, _bind_listAllAvailablePlugins); lua_setfield(L,-2,"listAllAvailablePlugins");
 	lua_pushcfunction(L, _bind_queryPlugin); lua_setfield(L,-2,"queryPlugin");
+	lua_pushcfunction(L, _bind_outputPluginDetails); lua_setfield(L,-2,"outputPluginDetails");
 	lua_pushcfunction(L, _bind_readObjectFile); lua_setfield(L,-2,"readObjectFile");
 	lua_pushcfunction(L, _bind_readImageFile); lua_setfield(L,-2,"readImageFile");
 	lua_pushcfunction(L, _bind_readHeightFieldFile); lua_setfield(L,-2,"readHeightFieldFile");
@@ -6074,12 +6315,17 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_writeNodeFile); lua_setfield(L,-2,"writeNodeFile");
 	lua_pushcfunction(L, _bind_writeShaderFile); lua_setfield(L,-2,"writeShaderFile");
 	lua_pushcfunction(L, _bind_readXmlFile); lua_setfield(L,-2,"readXmlFile");
+	lua_pushcfunction(L, _bind_readXmlStream); lua_setfield(L,-2,"readXmlStream");
 	lua_pushcfunction(L, _bind_trimEnclosingSpaces); lua_setfield(L,-2,"trimEnclosingSpaces");
 	lua_pushcfunction(L, _bind_readFontFile); lua_setfield(L,-2,"readFontFile");
+	lua_pushcfunction(L, _bind_readFontStream); lua_setfield(L,-2,"readFontStream");
 	lua_pushcfunction(L, _bind_readRefFontFile); lua_setfield(L,-2,"readRefFontFile");
+	lua_pushcfunction(L, _bind_readRefFontStream); lua_setfield(L,-2,"readRefFontStream");
 	lua_pushcfunction(L, _bind_findFontFile); lua_setfield(L,-2,"findFontFile");
 	lua_pushcfunction(L, _bind_readFont3DFile); lua_setfield(L,-2,"readFont3DFile");
+	lua_pushcfunction(L, _bind_readFont3DStream); lua_setfield(L,-2,"readFont3DStream");
 	lua_pushcfunction(L, _bind_readRefFont3DFile); lua_setfield(L,-2,"readRefFont3DFile");
+	lua_pushcfunction(L, _bind_readRefFont3DStream); lua_setfield(L,-2,"readRefFont3DStream");
 	lua_pushcfunction(L, _bind_findFont3DFile); lua_setfield(L,-2,"findFont3DFile");
 }
 

@@ -22,6 +22,22 @@ protected:
 typedef GLUtesselator GLUtesselatorObj;
 typedef GLUtesselator GLUtriangulatorObj;
 
+namespace std {
+
+class istream {
+protected:
+	istream();
+	~istream();
+};
+
+class ostream {
+protected:
+	ostream();
+	~ostream();
+};
+
+}
+
 namespace osg {
 
 typedef NodeList RefNodePath;

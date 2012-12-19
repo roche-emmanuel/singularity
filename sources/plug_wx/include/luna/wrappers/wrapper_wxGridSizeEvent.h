@@ -8,15 +8,13 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridSizeEvent : public wxGridSizeEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridSizeEvent : public wxGridSizeEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridSizeEvent(lua_State* L, lua_Table* dum) : wxGridSizeEvent(), _obj(L,-1) {};
-	wrapper_wxGridSizeEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int rowOrCol = -1, int x = -1, int y = -1, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridSizeEvent(id, type, obj, rowOrCol, x, y, kbd), _obj(L,-1) {};
+	wrapper_wxGridSizeEvent(lua_State* L, lua_Table* dum) : wxGridSizeEvent(), luna_wrapper_base(L) {};
+	wrapper_wxGridSizeEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int rowOrCol = -1, int x = -1, int y = -1, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridSizeEvent(id, type, obj, rowOrCol, x, y, kbd), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

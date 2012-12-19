@@ -8,15 +8,13 @@
 
 #include <osg/PrimitiveSet>
 
-class wrapper_osg_PrimitiveSet : public osg::PrimitiveSet {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_PrimitiveSet : public osg::PrimitiveSet, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::PrimitiveSet(primType, mode, numInstances), _obj(L,-1) {};
-	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PrimitiveSet(prim, copyop), _obj(L,-1) {};
+	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::PrimitiveSet(primType, mode, numInstances), luna_wrapper_base(L) {};
+	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PrimitiveSet(prim, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {
@@ -209,6 +207,18 @@ public:
 
 
 
+
+public:
+// void osg::PrimitiveSet::accept(PrimitiveFunctor & functor) const
+void accept(PrimitiveFunctor &) const {
+	THROW_IF(true,"The function call void osg::PrimitiveSet::accept(PrimitiveFunctor &) const is not implemented in wrapper.");
+};
+
+public:
+// void osg::PrimitiveSet::accept(PrimitiveIndexFunctor & functor) const
+void accept(PrimitiveIndexFunctor &) const {
+	THROW_IF(true,"The function call void osg::PrimitiveSet::accept(PrimitiveIndexFunctor &) const is not implemented in wrapper.");
+};
 
 };
 

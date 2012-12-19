@@ -6,6 +6,30 @@ class luna_wrapper_wxItemContainer {
 public:
 	typedef Luna< wxItemContainer > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -41,6 +65,8 @@ public:
 		return 1;
 	};
 
+
+	// Constructor checkers:
 
 	// Function checkers:
 	inline static bool _lg_typecheck_Append_overload_1(lua_State *L) {
@@ -198,6 +224,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// int wxItemContainer::Append(const wxString & item)
@@ -651,7 +679,8 @@ public:
 };
 
 wxItemContainer* LunaTraits< wxItemContainer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	// wxString wxItemContainerImmutable::GetString(unsigned int n) const
@@ -685,6 +714,7 @@ luna_RegType LunaTraits< wxItemContainer >::methods[] = {
 	{"base_FindString", &luna_wrapper_wxItemContainer::_bind_base_FindString},
 	{"base_GetStringSelection", &luna_wrapper_wxItemContainer::_bind_base_GetStringSelection},
 	{"__eq", &luna_wrapper_wxItemContainer::_bind___eq},
+	{"getTable", &luna_wrapper_wxItemContainer::_bind_getTable},
 	{0,0}
 };
 

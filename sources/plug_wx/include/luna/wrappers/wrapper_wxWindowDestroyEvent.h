@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxWindowDestroyEvent : public wxWindowDestroyEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWindowDestroyEvent : public wxWindowDestroyEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWindowDestroyEvent(lua_State* L, lua_Table* dum, wxWindow * win = NULL) : wxWindowDestroyEvent(win), _obj(L,-1) {};
+	wrapper_wxWindowDestroyEvent(lua_State* L, lua_Table* dum, wxWindow * win = NULL) : wxWindowDestroyEvent(win), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

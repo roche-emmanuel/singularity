@@ -8,15 +8,13 @@
 
 #include <osgParticle/AngularAccelOperator>
 
-class wrapper_osgParticle_AngularAccelOperator : public osgParticle::AngularAccelOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_AngularAccelOperator : public osgParticle::AngularAccelOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_AngularAccelOperator(lua_State* L, lua_Table* dum) : osgParticle::AngularAccelOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_AngularAccelOperator(lua_State* L, lua_Table* dum, const osgParticle::AngularAccelOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::AngularAccelOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_AngularAccelOperator(lua_State* L, lua_Table* dum) : osgParticle::AngularAccelOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_AngularAccelOperator(lua_State* L, lua_Table* dum, const osgParticle::AngularAccelOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::AngularAccelOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

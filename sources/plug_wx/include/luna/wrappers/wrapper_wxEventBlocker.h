@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxEventBlocker : public wxEventBlocker {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxEventBlocker : public wxEventBlocker, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxEventBlocker(lua_State* L, lua_Table* dum, wxWindow * win, int type = -1) : wxEventBlocker(win, type), _obj(L,-1) {};
+	wrapper_wxEventBlocker(lua_State* L, lua_Table* dum, wxWindow * win, int type = -1) : wxEventBlocker(win, type), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

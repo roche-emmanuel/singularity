@@ -8,14 +8,12 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_ToggleSyncToVBlankHandler : public osgViewer::ToggleSyncToVBlankHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_ToggleSyncToVBlankHandler : public osgViewer::ToggleSyncToVBlankHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_ToggleSyncToVBlankHandler(lua_State* L, lua_Table* dum) : osgViewer::ToggleSyncToVBlankHandler(), _obj(L,-1) {};
+	wrapper_osgViewer_ToggleSyncToVBlankHandler(lua_State* L, lua_Table* dum) : osgViewer::ToggleSyncToVBlankHandler(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

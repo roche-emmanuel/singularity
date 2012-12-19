@@ -8,10 +8,8 @@
 
 #include <osg/TextureCubeMap>
 
-class wrapper_osg_TextureCubeMap_SubloadCallback : public osg::TextureCubeMap::SubloadCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TextureCubeMap_SubloadCallback : public osg::TextureCubeMap::SubloadCallback, public luna_wrapper_base {
+
 public:
 	
 

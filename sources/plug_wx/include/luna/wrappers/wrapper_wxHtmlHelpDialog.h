@@ -8,15 +8,13 @@
 
 #include <wx/html/helpdlg.h>
 
-class wrapper_wxHtmlHelpDialog : public wxHtmlHelpDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlHelpDialog : public wxHtmlHelpDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(data), _obj(L,-1) {};
-	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(parent, wxWindowID, title, style, data), _obj(L,-1) {};
+	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(data), luna_wrapper_base(L) {};
+	wrapper_wxHtmlHelpDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) : wxHtmlHelpDialog(parent, wxWindowID, title, style, data), luna_wrapper_base(L) {};
 
 
 

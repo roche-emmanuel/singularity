@@ -8,15 +8,13 @@
 
 #include <osg/CullFace>
 
-class wrapper_osg_CullFace : public osg::CullFace {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CullFace : public osg::CullFace, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CullFace(lua_State* L, lua_Table* dum, osg::CullFace::Mode mode = osg::CullFace::BACK) : osg::CullFace(mode), _obj(L,-1) {};
-	wrapper_osg_CullFace(lua_State* L, lua_Table* dum, const osg::CullFace & cf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CullFace(cf, copyop), _obj(L,-1) {};
+	wrapper_osg_CullFace(lua_State* L, lua_Table* dum, osg::CullFace::Mode mode = osg::CullFace::BACK) : osg::CullFace(mode), luna_wrapper_base(L) {};
+	wrapper_osg_CullFace(lua_State* L, lua_Table* dum, const osg::CullFace & cf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CullFace(cf, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

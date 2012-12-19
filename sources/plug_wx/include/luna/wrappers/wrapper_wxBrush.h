@@ -8,17 +8,15 @@
 
 #include <wx/brush.h>
 
-class wrapper_wxBrush : public wxBrush {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxBrush : public wxBrush, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxBrush(lua_State* L, lua_Table* dum) : wxBrush(), _obj(L,-1) {};
-	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) : wxBrush(colour, style), _obj(L,-1) {};
-	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxBitmap & stippleBitmap) : wxBrush(stippleBitmap), _obj(L,-1) {};
-	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxBrush & brush) : wxBrush(brush), _obj(L,-1) {};
+	wrapper_wxBrush(lua_State* L, lua_Table* dum) : wxBrush(), luna_wrapper_base(L) {};
+	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) : wxBrush(colour, style), luna_wrapper_base(L) {};
+	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxBitmap & stippleBitmap) : wxBrush(stippleBitmap), luna_wrapper_base(L) {};
+	wrapper_wxBrush(lua_State* L, lua_Table* dum, const wxBrush & brush) : wxBrush(brush), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

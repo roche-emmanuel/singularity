@@ -277,6 +277,8 @@ public:
 
 wxRichToolTip* LunaTraits< wxRichToolTip >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRichToolTip::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxRichToolTip >::_bind_dtor(wxRichToolTip* obj) {

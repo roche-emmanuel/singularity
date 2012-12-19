@@ -8,16 +8,14 @@
 
 #include <wx/dcmemory.h>
 
-class wrapper_wxMemoryDC : public wxMemoryDC {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMemoryDC : public wxMemoryDC, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum) : wxMemoryDC(), _obj(L,-1) {};
-	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxDC * dc) : wxMemoryDC(dc), _obj(L,-1) {};
-	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxBitmap & bitmap) : wxMemoryDC(bitmap), _obj(L,-1) {};
+	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum) : wxMemoryDC(), luna_wrapper_base(L) {};
+	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxDC * dc) : wxMemoryDC(dc), luna_wrapper_base(L) {};
+	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxBitmap & bitmap) : wxMemoryDC(bitmap), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

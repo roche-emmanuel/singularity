@@ -8,15 +8,13 @@
 
 #include <osgParticle/CompositePlacer>
 
-class wrapper_osgParticle_CompositePlacer : public osgParticle::CompositePlacer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_CompositePlacer : public osgParticle::CompositePlacer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_CompositePlacer(lua_State* L, lua_Table* dum) : osgParticle::CompositePlacer(), _obj(L,-1) {};
-	wrapper_osgParticle_CompositePlacer(lua_State* L, lua_Table* dum, const osgParticle::CompositePlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::CompositePlacer(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_CompositePlacer(lua_State* L, lua_Table* dum) : osgParticle::CompositePlacer(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_CompositePlacer(lua_State* L, lua_Table* dum, const osgParticle::CompositePlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::CompositePlacer(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

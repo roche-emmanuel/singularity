@@ -8,14 +8,12 @@
 
 #include <wx/protocol/ftp.h>
 
-class wrapper_wxFTP : public wxFTP {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFTP : public wxFTP, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFTP(lua_State* L, lua_Table* dum) : wxFTP(), _obj(L,-1) {};
+	wrapper_wxFTP(lua_State* L, lua_Table* dum) : wxFTP(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

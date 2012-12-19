@@ -452,7 +452,7 @@ public:
         This function is called by wxWidgets itself and should never be called
         directly.
     */
-    virtual ExitCode Entry() = 0;
+    virtual wxThread::ExitCode Entry() = 0;
 
     /**
         Callback called by Delete() before actually deleting the thread.

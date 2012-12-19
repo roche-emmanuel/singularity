@@ -8,14 +8,12 @@
 
 #include <wx/cshelp.h>
 
-class wrapper_wxContextHelpButton : public wxContextHelpButton {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxContextHelpButton : public wxContextHelpButton, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxContextHelpButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_CONTEXT_HELP, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBU_AUTODRAW) : wxContextHelpButton(parent, id, pos, size, style), _obj(L,-1) {};
+	wrapper_wxContextHelpButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_CONTEXT_HELP, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBU_AUTODRAW) : wxContextHelpButton(parent, id, pos, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

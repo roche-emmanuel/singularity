@@ -8,14 +8,12 @@
 
 #include <osg/Point>
 
-class wrapper_osg_Point_Extensions : public osg::Point::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_Point_Extensions : public osg::Point::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_Point_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Point::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_Point_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Point::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

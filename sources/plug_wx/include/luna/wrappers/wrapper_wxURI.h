@@ -8,16 +8,14 @@
 
 #include <wx/uri.h>
 
-class wrapper_wxURI : public wxURI {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxURI : public wxURI, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxURI(lua_State* L, lua_Table* dum) : wxURI(), _obj(L,-1) {};
-	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxString & uri) : wxURI(uri), _obj(L,-1) {};
-	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxURI & uri) : wxURI(uri), _obj(L,-1) {};
+	wrapper_wxURI(lua_State* L, lua_Table* dum) : wxURI(), luna_wrapper_base(L) {};
+	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxString & uri) : wxURI(uri), luna_wrapper_base(L) {};
+	wrapper_wxURI(lua_State* L, lua_Table* dum, const wxURI & uri) : wxURI(uri), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

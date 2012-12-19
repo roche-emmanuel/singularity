@@ -8,14 +8,12 @@
 
 #include <wx/persist.h>
 
-class wrapper_wxPersistenceManager : public wxPersistenceManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPersistenceManager : public wxPersistenceManager, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), _obj(L,-1) {};
+	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) {};
 
 
 protected:

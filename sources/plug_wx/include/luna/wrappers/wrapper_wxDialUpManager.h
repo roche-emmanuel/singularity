@@ -8,10 +8,8 @@
 
 #include <wx/dialup.h>
 
-class wrapper_wxDialUpManager : public wxDialUpManager {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDialUpManager : public wxDialUpManager, public luna_wrapper_base {
+
 public:
 	
 

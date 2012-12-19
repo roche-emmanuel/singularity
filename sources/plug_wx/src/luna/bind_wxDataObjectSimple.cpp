@@ -6,6 +6,30 @@ class luna_wrapper_wxDataObjectSimple {
 public:
 	typedef Luna< wxDataObjectSimple > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,17 @@ public:
 		Luna< wxDataObjectSimple >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -101,6 +136,26 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)
+	static wxDataObjectSimple* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxDataObjectSimple::wxDataObjectSimple(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxDataFormat* format_ptr=luatop>1 ? (Luna< wxDataFormat >::check(L,2)) : NULL;
+		if( luatop>1 && !format_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg format in wxDataObjectSimple::wxDataObjectSimple function");
+		}
+		const wxDataFormat & format=luatop>1 ? *format_ptr : wxFormatInvalid;
+
+		return new wrapper_wxDataObjectSimple(L,NULL, format);
+	}
+
 
 	// Function binds:
 	// bool wxDataObjectSimple::GetDataHere(void * buf) const
@@ -273,7 +328,8 @@ public:
 };
 
 wxDataObjectSimple* LunaTraits< wxDataObjectSimple >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataObjectSimple::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// bool wxDataObject::GetDataHere(const wxDataFormat & format, void * buf) const
@@ -303,6 +359,7 @@ luna_RegType LunaTraits< wxDataObjectSimple >::methods[] = {
 	{"base_GetDataSize", &luna_wrapper_wxDataObjectSimple::_bind_base_GetDataSize},
 	{"base_SetData", &luna_wrapper_wxDataObjectSimple::_bind_base_SetData},
 	{"__eq", &luna_wrapper_wxDataObjectSimple::_bind___eq},
+	{"getTable", &luna_wrapper_wxDataObjectSimple::_bind_getTable},
 	{0,0}
 };
 

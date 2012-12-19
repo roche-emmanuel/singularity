@@ -108,6 +108,9 @@ protected:
 */
 class wxHtmlParser
 {
+protected:
+	virtual void AddText(const wxString &) = 0;
+
 public:
     /**
         Constructor.
@@ -170,7 +173,7 @@ public:
         See wxHtmlWinParser for details.
     */
     virtual wxObject* GetProduct() = 0;
-
+	
     /**
         Returns pointer to the source being parsed.
     */

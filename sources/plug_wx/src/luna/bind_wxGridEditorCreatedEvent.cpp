@@ -6,6 +6,30 @@ class luna_wrapper_wxGridEditorCreatedEvent {
 public:
 	typedef Luna< wxGridEditorCreatedEvent > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,30 @@ public:
 		Luna< wxGridEditorCreatedEvent >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,4)) ) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
+		if( (lua_isnil(L,7)==0 && !dynamic_cast< wxControl* >(Luna< wxObject >::check(L,7)) ) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -97,6 +145,45 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data)
+	static wxGridEditorCreatedEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridEditorCreatedEvent(L,NULL);
+	}
+
+	// wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)
+	static wxGridEditorCreatedEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl) function, expected prototype:\nwxGridEditorCreatedEvent::wxGridEditorCreatedEvent(lua_Table * data, int id, int type, wxObject * obj, int row, int col, wxControl * ctrl)\nClass arguments details:\narg 4 ID = 56813631\narg 7 ID = 56813631\n");
+		}
+
+		int id=(int)lua_tointeger(L,2);
+		int type=(int)lua_tointeger(L,3);
+		wxObject* obj=(Luna< wxObject >::check(L,4));
+		int row=(int)lua_tointeger(L,5);
+		int col=(int)lua_tointeger(L,6);
+		wxControl* ctrl=(Luna< wxObject >::checkSubType< wxControl >(L,7));
+
+		return new wrapper_wxGridEditorCreatedEvent(L,NULL, id, type, obj, row, col, ctrl);
+	}
+
+	// Overload binder for wxGridEditorCreatedEvent::wxGridEditorCreatedEvent
+	static wxGridEditorCreatedEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGridEditorCreatedEvent, cannot match any of the overloads for function wxGridEditorCreatedEvent:\n  wxGridEditorCreatedEvent(lua_Table *)\n  wxGridEditorCreatedEvent(lua_Table *, int, int, wxObject *, int, int, wxControl *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// int wxGridEditorCreatedEvent::GetCol()
@@ -261,7 +348,8 @@ public:
 };
 
 wxGridEditorCreatedEvent* LunaTraits< wxGridEditorCreatedEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridEditorCreatedEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }
@@ -287,6 +375,7 @@ luna_RegType LunaTraits< wxGridEditorCreatedEvent >::methods[] = {
 	{"base_GetClassInfo", &luna_wrapper_wxGridEditorCreatedEvent::_bind_base_GetClassInfo},
 	{"base_GetEventCategory", &luna_wrapper_wxGridEditorCreatedEvent::_bind_base_GetEventCategory},
 	{"__eq", &luna_wrapper_wxGridEditorCreatedEvent::_bind___eq},
+	{"getTable", &luna_wrapper_wxGridEditorCreatedEvent::_bind_getTable},
 	{0,0}
 };
 

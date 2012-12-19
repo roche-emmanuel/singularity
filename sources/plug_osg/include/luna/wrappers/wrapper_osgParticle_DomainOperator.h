@@ -8,15 +8,13 @@
 
 #include <osgParticle/DomainOperator>
 
-class wrapper_osgParticle_DomainOperator : public osgParticle::DomainOperator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_DomainOperator : public osgParticle::DomainOperator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum) : osgParticle::DomainOperator(), _obj(L,-1) {};
-	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum, const osgParticle::DomainOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DomainOperator(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum) : osgParticle::DomainOperator(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_DomainOperator(lua_State* L, lua_Table* dum, const osgParticle::DomainOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DomainOperator(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

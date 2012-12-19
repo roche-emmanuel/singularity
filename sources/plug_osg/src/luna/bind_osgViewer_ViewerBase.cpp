@@ -6,6 +6,30 @@ class luna_wrapper_osgViewer_ViewerBase {
 public:
 	typedef Luna< osgViewer::ViewerBase > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,24 @@ public:
 		Luna< osgViewer::ViewerBase >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgViewer::ViewerBase* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -459,6 +501,44 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgViewer::ViewerBase::ViewerBase(lua_Table * data)
+	static osgViewer::ViewerBase* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ViewerBase(lua_Table * data) function, expected prototype:\nosgViewer::ViewerBase::ViewerBase(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgViewer_ViewerBase(L,NULL);
+	}
+
+	// osgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb)
+	static osgViewer::ViewerBase* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb) function, expected prototype:\nosgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osgViewer::ViewerBase* vb_ptr=(Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,2));
+		if( !vb_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vb in osgViewer::ViewerBase::ViewerBase function");
+		}
+		const osgViewer::ViewerBase & vb=*vb_ptr;
+
+		return new wrapper_osgViewer_ViewerBase(L,NULL, vb);
+	}
+
+	// Overload binder for osgViewer::ViewerBase::ViewerBase
+	static osgViewer::ViewerBase* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ViewerBase, cannot match any of the overloads for function ViewerBase:\n  ViewerBase(lua_Table *)\n  ViewerBase(lua_Table *, const osgViewer::ViewerBase &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
@@ -1757,7 +1837,8 @@ public:
 };
 
 osgViewer::ViewerBase* LunaTraits< osgViewer::ViewerBase >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgViewer_ViewerBase::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
 	// osg::Stats * osgViewer::ViewerBase::getViewerStats()
@@ -1853,6 +1934,7 @@ luna_RegType LunaTraits< osgViewer::ViewerBase >::methods[] = {
 	{"base_renderingTraversals", &luna_wrapper_osgViewer_ViewerBase::_bind_base_renderingTraversals},
 	{"base_getWindows", &luna_wrapper_osgViewer_ViewerBase::_bind_base_getWindows},
 	{"__eq", &luna_wrapper_osgViewer_ViewerBase::_bind___eq},
+	{"getTable", &luna_wrapper_osgViewer_ViewerBase::_bind_getTable},
 	{0,0}
 };
 

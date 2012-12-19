@@ -70,6 +70,8 @@ public:
 
 osg::Vec2dArray* LunaTraits< osg::Vec2dArray >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Vec2dArray >::_bind_dtor(osg::Vec2dArray* obj) {

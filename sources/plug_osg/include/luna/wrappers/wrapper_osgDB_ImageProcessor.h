@@ -8,15 +8,13 @@
 
 #include <osgDB/ImageProcessor>
 
-class wrapper_osgDB_ImageProcessor : public osgDB::ImageProcessor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ImageProcessor : public osgDB::ImageProcessor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum) : osgDB::ImageProcessor(), _obj(L,-1) {};
-	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ImageProcessor(rw, copyop), _obj(L,-1) {};
+	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum) : osgDB::ImageProcessor(), luna_wrapper_base(L) {};
+	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ImageProcessor(rw, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -8,17 +8,15 @@
 
 #include <wx/pen.h>
 
-class wrapper_wxPen : public wxPen {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPen : public wxPen, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), _obj(L,-1) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), _obj(L,-1) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), _obj(L,-1) {};
-	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) : wxPen(pen), _obj(L,-1) {};
+	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), luna_wrapper_base(L) {};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), luna_wrapper_base(L) {};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), luna_wrapper_base(L) {};
+	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxPen & pen) : wxPen(pen), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

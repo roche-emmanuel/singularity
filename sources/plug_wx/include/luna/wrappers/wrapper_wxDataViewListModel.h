@@ -8,10 +8,8 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewListModel : public wxDataViewListModel {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewListModel : public wxDataViewListModel, public luna_wrapper_base {
+
 public:
 	
 
@@ -137,6 +135,32 @@ public:
 
 
 
+
+public:
+// void wxDataViewModel::GetValue(wxVariant & variant, const wxDataViewItem & item, unsigned int col) const
+void GetValue(wxVariant &, const wxDataViewItem &, unsigned int) const {
+	THROW_IF(true,"The function call void wxDataViewModel::GetValue(wxVariant &, const wxDataViewItem &, unsigned int) const is not implemented in wrapper.");
+};
+
+public:
+// bool wxDataViewModel::SetValue(const wxVariant & variant, const wxDataViewItem & item, unsigned int col)
+bool SetValue(const wxVariant &, const wxDataViewItem &, unsigned int) {
+	THROW_IF(true,"The function call bool wxDataViewModel::SetValue(const wxVariant &, const wxDataViewItem &, unsigned int) is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// void wxDataViewListModel::GetValueByRow(wxVariant & variant, unsigned int row, unsigned int col) const
+void GetValueByRow(wxVariant &, unsigned int, unsigned int) const {
+	THROW_IF(true,"The function call void wxDataViewListModel::GetValueByRow(wxVariant &, unsigned int, unsigned int) const is not implemented in wrapper.");
+};
+
+public:
+// bool wxDataViewListModel::SetValueByRow(const wxVariant & variant, unsigned int row, unsigned int col)
+bool SetValueByRow(const wxVariant &, unsigned int, unsigned int) {
+	THROW_IF(true,"The function call bool wxDataViewListModel::SetValueByRow(const wxVariant &, unsigned int, unsigned int) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

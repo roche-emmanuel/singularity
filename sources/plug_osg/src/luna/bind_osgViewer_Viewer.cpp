@@ -6,6 +6,30 @@ class luna_wrapper_osgViewer_Viewer {
 public:
 	typedef Luna< osgViewer::Viewer > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -979,19 +1003,19 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::Viewer::setStartTick(unsigned long long tick)
+	// void osgViewer::Viewer::setStartTick(__int64 tick)
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::setStartTick(unsigned long long tick) function, expected prototype:\nvoid osgViewer::Viewer::setStartTick(unsigned long long tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::setStartTick(__int64 tick)\nClass arguments details:\n");
 		}
 
-		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
+		__int64 tick=(__int64)lua_tointeger(L,2);
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Viewer::setStartTick(unsigned long long)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Viewer::setStartTick(__int64)");
 		}
 		self->setStartTick(tick);
 
@@ -1923,19 +1947,19 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::Viewer::base_setStartTick(unsigned long long tick)
+	// void osgViewer::Viewer::base_setStartTick(__int64 tick)
 	static int _bind_base_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_base_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::base_setStartTick(unsigned long long tick) function, expected prototype:\nvoid osgViewer::Viewer::base_setStartTick(unsigned long long tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::Viewer::base_setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::Viewer::base_setStartTick(__int64 tick)\nClass arguments details:\n");
 		}
 
-		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
+		__int64 tick=(__int64)lua_tointeger(L,2);
 
 		osgViewer::Viewer* self=Luna< osg::Referenced >::checkSubType< osgViewer::Viewer >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::Viewer::base_setStartTick(unsigned long long)");
+			luaL_error(L, "Invalid object in function call void osgViewer::Viewer::base_setStartTick(__int64)");
 		}
 		self->Viewer::setStartTick(tick);
 
@@ -2255,6 +2279,8 @@ public:
 
 osgViewer::Viewer* LunaTraits< osgViewer::Viewer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_Viewer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::Viewer >::_bind_dtor(osgViewer::Viewer* obj) {
@@ -2337,6 +2363,7 @@ luna_RegType LunaTraits< osgViewer::Viewer >::methods[] = {
 	{"base_getViews", &luna_wrapper_osgViewer_Viewer::_bind_base_getViews},
 	{"base_getUsage", &luna_wrapper_osgViewer_Viewer::_bind_base_getUsage},
 	{"__eq", &luna_wrapper_osgViewer_Viewer::_bind___eq},
+	{"getTable", &luna_wrapper_osgViewer_Viewer::_bind_getTable},
 	{0,0}
 };
 

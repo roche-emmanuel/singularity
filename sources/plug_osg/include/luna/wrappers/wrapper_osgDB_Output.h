@@ -8,15 +8,13 @@
 
 #include <osgDB/Output>
 
-class wrapper_osgDB_Output : public osgDB::Output {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_Output : public osgDB::Output, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_Output(lua_State* L, lua_Table* dum) : osgDB::Output(), _obj(L,-1) {};
-	wrapper_osgDB_Output(lua_State* L, lua_Table* dum, const char * name) : osgDB::Output(name), _obj(L,-1) {};
+	wrapper_osgDB_Output(lua_State* L, lua_Table* dum) : osgDB::Output(), luna_wrapper_base(L) {};
+	wrapper_osgDB_Output(lua_State* L, lua_Table* dum, const char * name) : osgDB::Output(name), luna_wrapper_base(L) {};
 
 	// bool osgDB::Output::writeObject(const osg::Object & obj)
 	bool writeObject(const osg::Object & obj) {

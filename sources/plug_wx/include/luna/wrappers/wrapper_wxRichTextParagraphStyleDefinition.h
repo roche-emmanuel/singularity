@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextstyles.h>
 
-class wrapper_wxRichTextParagraphStyleDefinition : public wxRichTextParagraphStyleDefinition {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextParagraphStyleDefinition : public wxRichTextParagraphStyleDefinition, public luna_wrapper_base {
+
 public:
 	
 

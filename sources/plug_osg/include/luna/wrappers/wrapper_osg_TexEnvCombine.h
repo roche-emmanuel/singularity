@@ -8,15 +8,13 @@
 
 #include <osg/TexEnvCombine>
 
-class wrapper_osg_TexEnvCombine : public osg::TexEnvCombine {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_TexEnvCombine : public osg::TexEnvCombine, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum) : osg::TexEnvCombine(), _obj(L,-1) {};
-	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum, const osg::TexEnvCombine & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexEnvCombine(texenv, copyop), _obj(L,-1) {};
+	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum) : osg::TexEnvCombine(), luna_wrapper_base(L) {};
+	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum, const osg::TexEnvCombine & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexEnvCombine(texenv, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

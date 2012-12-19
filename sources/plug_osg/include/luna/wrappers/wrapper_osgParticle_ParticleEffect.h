@@ -8,15 +8,13 @@
 
 #include <osgParticle/ParticleEffect>
 
-class wrapper_osgParticle_ParticleEffect : public osgParticle::ParticleEffect {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_ParticleEffect : public osgParticle::ParticleEffect, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_ParticleEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::ParticleEffect(automaticSetup), _obj(L,-1) {};
-	wrapper_osgParticle_ParticleEffect(lua_State* L, lua_Table* dum, const osgParticle::ParticleEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleEffect(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_ParticleEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::ParticleEffect(automaticSetup), luna_wrapper_base(L) {};
+	wrapper_osgParticle_ParticleEffect(lua_State* L, lua_Table* dum, const osgParticle::ParticleEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ParticleEffect(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

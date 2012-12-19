@@ -8,14 +8,12 @@
 
 #include <wx/aui/framemanager.h>
 
-class wrapper_wxAuiManagerEvent : public wxAuiManagerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiManagerEvent : public wxAuiManagerEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiManagerEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL) : wxAuiManagerEvent(type), _obj(L,-1) {};
+	wrapper_wxAuiManagerEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL) : wxAuiManagerEvent(type), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

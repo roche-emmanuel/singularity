@@ -76,10 +76,9 @@ function Class:writeBindings()
 	
 	local gfuncWriter = GlobalFunctionWriter()
 	gfuncWriter:writeFile();
-	
-    self:writeClassSources()
-	
+		
 	self:writeClassWrappers()
+    self:writeClassSources()
 end
 
 return Class

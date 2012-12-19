@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlfilt.h>
 
-class wrapper_wxHtmlFilter : public wxHtmlFilter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlFilter : public wxHtmlFilter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlFilter(lua_State* L, lua_Table* dum) : wxHtmlFilter(), _obj(L,-1) {};
+	wrapper_wxHtmlFilter(lua_State* L, lua_Table* dum) : wxHtmlFilter(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

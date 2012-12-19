@@ -6,6 +6,30 @@ class luna_wrapper_wxCommand {
 public:
 	typedef Luna< wxCommand > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,18 @@ public:
 		Luna< wxCommand >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -88,6 +124,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString)
+	static wxCommand* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString) function, expected prototype:\nwxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool canUndo=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxCommand(L,NULL, canUndo, name);
+	}
+
 
 	// Function binds:
 	// bool wxCommand::CanUndo() const
@@ -231,7 +284,8 @@ public:
 };
 
 wxCommand* LunaTraits< wxCommand >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxCommand::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxCommand::Do()
 	// bool wxCommand::Undo()
@@ -257,6 +311,7 @@ luna_RegType LunaTraits< wxCommand >::methods[] = {
 	{"base_CanUndo", &luna_wrapper_wxCommand::_bind_base_CanUndo},
 	{"base_GetName", &luna_wrapper_wxCommand::_bind_base_GetName},
 	{"__eq", &luna_wrapper_wxCommand::_bind___eq},
+	{"getTable", &luna_wrapper_wxCommand::_bind_getTable},
 	{0,0}
 };
 

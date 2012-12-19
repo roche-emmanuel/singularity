@@ -8,15 +8,13 @@
 
 #include <wx/cmndata.h>
 
-class wrapper_wxPageSetupDialogData : public wxPageSetupDialogData {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPageSetupDialogData : public wxPageSetupDialogData, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxPageSetupDialogData(lua_State* L, lua_Table* dum) : wxPageSetupDialogData(), _obj(L,-1) {};
-	wrapper_wxPageSetupDialogData(lua_State* L, lua_Table* dum, const wxPageSetupDialogData & data) : wxPageSetupDialogData(data), _obj(L,-1) {};
+	wrapper_wxPageSetupDialogData(lua_State* L, lua_Table* dum) : wxPageSetupDialogData(), luna_wrapper_base(L) {};
+	wrapper_wxPageSetupDialogData(lua_State* L, lua_Table* dum, const wxPageSetupDialogData & data) : wxPageSetupDialogData(data), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

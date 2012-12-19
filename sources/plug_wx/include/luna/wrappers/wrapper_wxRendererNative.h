@@ -8,10 +8,8 @@
 
 #include <wx/renderer.h>
 
-class wrapper_wxRendererNative : public wxRendererNative {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRendererNative : public wxRendererNative, public luna_wrapper_base {
+
 public:
 	
 
@@ -202,6 +200,13 @@ public:
 		THROW_IF(!_obj.pushFunction("GetHeaderButtonMargin"),"No implementation for abstract function wxRendererNative::GetHeaderButtonMargin");
 		_obj.pushArg(win);
 		return (_obj.callFunction<int>());
+	};
+
+	// wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)
+	wxSplitterRenderParams GetSplitterParams(const wxWindow * win) {
+		THROW_IF(!_obj.pushFunction("GetSplitterParams"),"No implementation for abstract function wxRendererNative::GetSplitterParams");
+		_obj.pushArg(win);
+		return *(_obj.callFunction<wxSplitterRenderParams*>());
 	};
 
 	// wxRendererVersion wxRendererNative::GetVersion() const

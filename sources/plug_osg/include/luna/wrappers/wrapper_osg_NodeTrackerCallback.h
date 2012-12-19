@@ -8,10 +8,8 @@
 
 #include <osg/NodeTrackerCallback>
 
-class wrapper_osg_NodeTrackerCallback : public osg::NodeTrackerCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_NodeTrackerCallback : public osg::NodeTrackerCallback, public luna_wrapper_base {
+
 public:
 	
 

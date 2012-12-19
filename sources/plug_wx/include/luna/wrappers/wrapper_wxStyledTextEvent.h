@@ -8,15 +8,13 @@
 
 #include <wx/stc/stc.h>
 
-class wrapper_wxStyledTextEvent : public wxStyledTextEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStyledTextEvent : public wxStyledTextEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), _obj(L,-1) {};
-	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), _obj(L,-1) {};
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), luna_wrapper_base(L) {};
+	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

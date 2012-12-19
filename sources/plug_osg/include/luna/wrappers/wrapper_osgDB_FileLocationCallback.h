@@ -8,10 +8,8 @@
 
 #include <osgDB/Callbacks>
 
-class wrapper_osgDB_FileLocationCallback : public osgDB::FileLocationCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_FileLocationCallback : public osgDB::FileLocationCallback, public luna_wrapper_base {
+
 public:
 	
 

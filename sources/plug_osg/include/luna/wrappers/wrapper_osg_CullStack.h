@@ -8,15 +8,13 @@
 
 #include <osg/CullStack>
 
-class wrapper_osg_CullStack : public osg::CullStack {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CullStack : public osg::CullStack, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), _obj(L,-1) {};
-	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), _obj(L,-1) {};
+	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), luna_wrapper_base(L) {};
+	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), luna_wrapper_base(L) {};
 
 	// void osg::CullSettings::setDefaults()
 	void setDefaults() {

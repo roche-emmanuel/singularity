@@ -8,15 +8,13 @@
 
 #include <osgParticle/RadialShooter>
 
-class wrapper_osgParticle_RadialShooter : public osgParticle::RadialShooter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgParticle_RadialShooter : public osgParticle::RadialShooter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum) : osgParticle::RadialShooter(), _obj(L,-1) {};
-	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::RadialShooter(copy, copyop), _obj(L,-1) {};
+	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum) : osgParticle::RadialShooter(), luna_wrapper_base(L) {};
+	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::RadialShooter(copy, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

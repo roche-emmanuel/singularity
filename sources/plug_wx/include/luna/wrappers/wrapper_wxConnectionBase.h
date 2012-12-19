@@ -8,10 +8,8 @@
 
 #include <wx/ipcbase.h>
 
-class wrapper_wxConnectionBase : public wxConnectionBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxConnectionBase : public wxConnectionBase, public luna_wrapper_base {
+
 public:
 	
 

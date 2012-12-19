@@ -20,9 +20,9 @@ function Class:writeConstructor(cons)
 	local wname = corr:correct("filename",cname)
 	
 	if cons:getNumParameters()>0 then
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), _obj(L,-1) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum, ${3}) : ${2}(${4}), luna_wrapper_base(L) {};",wname,cname,cons:getArgumentsPrototype(true),cons:getArgumentNames())
 	else
-		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)			
+		buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), luna_wrapper_base(L) {};",wname,cname)			
 	end	
 end
 
@@ -41,6 +41,8 @@ function Class:pushParam(param,k)
 		name = "(void*)"..name
 	elseif rtname:find("osg::ref_ptr") then
 		-- do nothing.
+	elseif rt:isEnum() and rt:isPointer() then
+		name = "(int*)"..name
 	else
 		name = (rt:isReference() and rt:isClass() and not rt:isPointer() and "&" or "") .. name
 	end
@@ -101,6 +103,26 @@ function Class:writeFunction(func)
 	buf:newLine()
 end
 
+function Class:writeInvalidFunction(func)
+	local buf = self;
+	
+	buf:writeLine(func:getPrototype(false,false,true).." {");
+	buf:pushIndent()
+	-- return only the default value:
+	buf:writeLine("THROW_IF(true,\"The function call " .. func:getPrototype(false,true,true) .. " is not implemented in wrapper.\");");
+	local rt = func:getReturnType()
+	if not rt:isVoid() then
+		if rt:isPointer() then
+			buf:writeLine("return NULL;");
+		else
+			buf:writeLine("return ".. rt:getName() .."();");		
+		end
+	end
+	buf:popIndent();
+	buf:writeLine("};")
+	buf:newLine()
+end
+
 function Class:writeHeader()
 	local buf = self;
 	local class = self._class;
@@ -121,19 +143,12 @@ function Class:writeHeader()
 	
 	buf:pushIndent()
 	
-	--[[if constructors:empty() then
-		-- write the default constructor:
-		if allConstructors:empty() then
-			buf:writeSubLine("wrapper_${1}(lua_State* L, lua_Table* dum) : ${2}(), _obj(L,-1) {};",wname,cname)
+	for _,cons in constructors:sequence() do
+		if not cons:isWrapper() then
+			self:writeConstructor(cons)
 		end
-	else
-	]]
-		for _,cons in constructors:sequence() do
-			if not cons:isWrapper() then
-				self:writeConstructor(cons)
-			end
-		end
-	--end
+	end
+
 	buf:newLine();
 	
 	local publicFuncs = funcs:filterItems{"Public"}
@@ -158,7 +173,15 @@ function Class:writeHeader()
 
 	buf:newLine();
 
-	buf:writeLine(snippets:getWrapperEndCode())
+	-- Now we write the invalid functions wrappers:
+	local invalidFuncs = self._class:getVirtualFunctions():filterItems({"InvalidWrapper","Abstract"},{self._class})
+	for _,func in invalidFuncs:sequence() do
+		buf:writeLine(func:isPublic() and "public:" or "protected:");
+		buf:writeLine("// ".. func:getPrototype(true,true,true))
+		self:writeInvalidFunction(func)
+	end
+	
+	buf:writeLine(snippets:getWrapperEndCode(class))
 	
 	buf:newLine();
 	

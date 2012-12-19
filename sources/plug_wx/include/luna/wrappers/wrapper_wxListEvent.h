@@ -8,14 +8,12 @@
 
 #include <wx/listctrl.h>
 
-class wrapper_wxListEvent : public wxListEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxListEvent : public wxListEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxListEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxListEvent(commandType, id), _obj(L,-1) {};
+	wrapper_wxListEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxListEvent(commandType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

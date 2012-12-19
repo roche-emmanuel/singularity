@@ -8,10 +8,8 @@
 
 #include <osgDB/Callbacks>
 
-class wrapper_osgDB_WriteFileCallback : public osgDB::WriteFileCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_WriteFileCallback : public osgDB::WriteFileCallback, public luna_wrapper_base {
+
 public:
 	
 

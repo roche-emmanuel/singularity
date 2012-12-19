@@ -8,22 +8,20 @@
 
 #include <wx/valgen.h>
 
-class wrapper_wxGenericValidator : public wxGenericValidator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGenericValidator : public wxGenericValidator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, const wxGenericValidator & validator) : wxGenericValidator(validator), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, bool * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxString * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, int * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxArrayInt * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxDateTime * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxFileName * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, float * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
-	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, double * valPtr) : wxGenericValidator(valPtr), _obj(L,-1) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, const wxGenericValidator & validator) : wxGenericValidator(validator), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, bool * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxString * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, int * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxArrayInt * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxDateTime * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxFileName * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, float * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
+	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, double * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

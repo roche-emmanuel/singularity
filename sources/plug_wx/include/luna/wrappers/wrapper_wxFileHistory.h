@@ -8,10 +8,8 @@
 
 #include <wx/filehistory.h>
 
-class wrapper_wxFileHistory : public wxFileHistory {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileHistory : public wxFileHistory, public luna_wrapper_base {
+
 public:
 	
 

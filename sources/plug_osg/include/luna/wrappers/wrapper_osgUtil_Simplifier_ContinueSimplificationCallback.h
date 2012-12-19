@@ -8,10 +8,8 @@
 
 #include <osgUtil/Simplifier>
 
-class wrapper_osgUtil_Simplifier_ContinueSimplificationCallback : public osgUtil::Simplifier::ContinueSimplificationCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_Simplifier_ContinueSimplificationCallback : public osgUtil::Simplifier::ContinueSimplificationCallback, public luna_wrapper_base {
+
 public:
 	
 

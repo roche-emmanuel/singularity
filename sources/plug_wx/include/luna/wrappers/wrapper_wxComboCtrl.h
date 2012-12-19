@@ -8,15 +8,13 @@
 
 #include <wx/combo.h>
 
-class wrapper_wxComboCtrl : public wxComboCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxComboCtrl : public wxComboCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxComboCtrl(lua_State* L, lua_Table* dum) : wxComboCtrl(), _obj(L,-1) {};
-	wrapper_wxComboCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) : wxComboCtrl(parent, id, value, pos, size, style, validator, name), _obj(L,-1) {};
+	wrapper_wxComboCtrl(lua_State* L, lua_Table* dum) : wxComboCtrl(), luna_wrapper_base(L) {};
+	wrapper_wxComboCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxComboBoxNameStr) : wxComboCtrl(parent, id, value, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

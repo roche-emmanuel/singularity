@@ -87,6 +87,8 @@ public:
 
 sgt::LogRecord* LunaTraits< sgt::LogRecord >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_LogRecord::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< sgt::LogRecord >::_bind_dtor(sgt::LogRecord* obj) {

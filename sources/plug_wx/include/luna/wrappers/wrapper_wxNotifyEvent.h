@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxNotifyEvent : public wxNotifyEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxNotifyEvent : public wxNotifyEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxNotifyEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0) : wxNotifyEvent(eventType, id), _obj(L,-1) {};
+	wrapper_wxNotifyEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0) : wxNotifyEvent(eventType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,10 +8,8 @@
 
 #include <wx/stackwalk.h>
 
-class wrapper_wxStackFrame : public wxStackFrame {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStackFrame : public wxStackFrame, public luna_wrapper_base {
+
 public:
 	
 

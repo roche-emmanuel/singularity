@@ -8,15 +8,13 @@
 
 #include <wx/choice.h>
 
-class wrapper_wxChoice : public wxChoice {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxChoice : public wxChoice, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxChoice(lua_State* L, lua_Table* dum) : wxChoice(), _obj(L,-1) {};
-	wrapper_wxChoice(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr) : wxChoice(parent, id, pos, size, choices, style, validator, name), _obj(L,-1) {};
+	wrapper_wxChoice(lua_State* L, lua_Table* dum) : wxChoice(), luna_wrapper_base(L) {};
+	wrapper_wxChoice(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxChoiceNameStr) : wxChoice(parent, id, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

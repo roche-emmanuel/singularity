@@ -8,10 +8,8 @@
 
 #include <osgUtil/IntersectionVisitor>
 
-class wrapper_osgUtil_IntersectionVisitor_ReadCallback : public osgUtil::IntersectionVisitor::ReadCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_IntersectionVisitor_ReadCallback : public osgUtil::IntersectionVisitor::ReadCallback, public luna_wrapper_base {
+
 public:
 	
 

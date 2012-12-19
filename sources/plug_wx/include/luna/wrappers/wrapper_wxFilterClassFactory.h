@@ -8,10 +8,8 @@
 
 #include <wx/stream.h>
 
-class wrapper_wxFilterClassFactory : public wxFilterClassFactory {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFilterClassFactory : public wxFilterClassFactory, public luna_wrapper_base {
+
 public:
 	
 
@@ -74,6 +72,13 @@ protected:
 		return wxFilterClassFactory::CloneRefData(data);
 	};
 
+
+public:
+// const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
+const wxChar *const * GetProtocols(wxStreamProtocolType) const {
+	THROW_IF(true,"The function call const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType) const is not implemented in wrapper.");
+	return NULL;
+};
 
 };
 

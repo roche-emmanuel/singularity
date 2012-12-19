@@ -8,14 +8,12 @@
 
 #include <osgGA/DriveManipulator>
 
-class wrapper_osgGA_DriveManipulator : public osgGA::DriveManipulator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgGA_DriveManipulator : public osgGA::DriveManipulator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgGA_DriveManipulator(lua_State* L, lua_Table* dum) : osgGA::DriveManipulator(), _obj(L,-1) {};
+	wrapper_osgGA_DriveManipulator(lua_State* L, lua_Table* dum) : osgGA::DriveManipulator(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

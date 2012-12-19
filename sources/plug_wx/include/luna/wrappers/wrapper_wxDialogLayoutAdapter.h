@@ -8,14 +8,12 @@
 
 #include <wx/dialog.h>
 
-class wrapper_wxDialogLayoutAdapter : public wxDialogLayoutAdapter {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDialogLayoutAdapter : public wxDialogLayoutAdapter, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDialogLayoutAdapter(lua_State* L, lua_Table* dum) : wxDialogLayoutAdapter(), _obj(L,-1) {};
+	wrapper_wxDialogLayoutAdapter(lua_State* L, lua_Table* dum) : wxDialogLayoutAdapter(), luna_wrapper_base(L) {};
 
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)
 	bool CanDoLayoutAdaptation(wxDialog * dialog) {

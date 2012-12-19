@@ -8,13 +8,19 @@
 
 #include <osgDB/ObjectWrapper>
 
-class wrapper_osgDB_FinishedObjectReadCallback : public osgDB::FinishedObjectReadCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_FinishedObjectReadCallback : public osgDB::FinishedObjectReadCallback, public luna_wrapper_base {
+
 public:
 	
 
+
+	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
+	void objectRead(osgDB::InputStream & is, osg::Object & obj) {
+		THROW_IF(!_obj.pushFunction("objectRead"),"No implementation for abstract function osgDB::FinishedObjectReadCallback::objectRead");
+		_obj.pushArg(&is);
+		_obj.pushArg(&obj);
+		return (_obj.callFunction<void>());
+	};
 
 
 

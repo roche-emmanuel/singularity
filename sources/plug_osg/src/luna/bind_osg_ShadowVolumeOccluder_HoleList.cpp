@@ -70,6 +70,8 @@ public:
 
 osg::ShadowVolumeOccluder::HoleList* LunaTraits< osg::ShadowVolumeOccluder::HoleList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ShadowVolumeOccluder::HoleList >::_bind_dtor(osg::ShadowVolumeOccluder::HoleList* obj) {

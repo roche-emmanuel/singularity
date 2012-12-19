@@ -6,6 +6,30 @@ class luna_wrapper_wxWizardPage {
 public:
 	typedef Luna< wxWizardPage > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,18 @@ public:
 		Luna< wxWizardPage >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -764,6 +800,27 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxWizardPage::wxWizardPage(lua_Table * data, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap)
+	static wxWizardPage* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWizardPage::wxWizardPage(lua_Table * data, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nwxWizardPage::wxWizardPage(lua_Table * data, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWizard* parent=(Luna< wxObject >::checkSubType< wxWizard >(L,2));
+		const wxBitmap* bitmap_ptr=luatop>2 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,3)) : NULL;
+		if( luatop>2 && !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxWizardPage::wxWizardPage function");
+		}
+		const wxBitmap & bitmap=luatop>2 ? *bitmap_ptr : wxNullBitmap;
+
+		return new wrapper_wxWizardPage(L,NULL, parent, bitmap);
+	}
+
 
 	// Function binds:
 	// wxBitmap wxWizardPage::GetBitmap() const
@@ -2929,7 +2986,8 @@ public:
 };
 
 wxWizardPage* LunaTraits< wxWizardPage >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxWizardPage::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxWizardPage * wxWizardPage::GetNext() const
 	// wxWizardPage * wxWizardPage::GetPrev() const
@@ -3051,6 +3109,7 @@ luna_RegType LunaTraits< wxWizardPage >::methods[] = {
 	{"base_SetFocus", &luna_wrapper_wxWizardPage::_bind_base_SetFocus},
 	{"base_GetBitmap", &luna_wrapper_wxWizardPage::_bind_base_GetBitmap},
 	{"__eq", &luna_wrapper_wxWizardPage::_bind___eq},
+	{"getTable", &luna_wrapper_wxWizardPage::_bind_getTable},
 	{0,0}
 };
 

@@ -8,14 +8,12 @@
 
 #include <wx/colordlg.h>
 
-class wrapper_wxColourDialog : public wxColourDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxColourDialog : public wxColourDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxColourDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxColourData * data = NULL) : wxColourDialog(parent, data), _obj(L,-1) {};
+	wrapper_wxColourDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxColourData * data = NULL) : wxColourDialog(parent, data), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

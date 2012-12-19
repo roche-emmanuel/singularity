@@ -8,16 +8,14 @@
 
 #include <wx/xml/xml.h>
 
-class wrapper_wxXmlNode : public wxXmlNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxXmlNode : public wxXmlNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) : wxXmlNode(parent, type, name, content, attrs, next, lineNo), _obj(L,-1) {};
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) : wxXmlNode(type, name, content, lineNo), _obj(L,-1) {};
-	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, const wxXmlNode & node) : wxXmlNode(node), _obj(L,-1) {};
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) : wxXmlNode(parent, type, name, content, attrs, next, lineNo), luna_wrapper_base(L) {};
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) : wxXmlNode(type, name, content, lineNo), luna_wrapper_base(L) {};
+	wrapper_wxXmlNode(lua_State* L, lua_Table* dum, const wxXmlNode & node) : wxXmlNode(node), luna_wrapper_base(L) {};
 
 	// void wxXmlNode::AddAttribute(const wxString & name, const wxString & value)
 	void AddAttribute(const wxString & name, const wxString & value) {

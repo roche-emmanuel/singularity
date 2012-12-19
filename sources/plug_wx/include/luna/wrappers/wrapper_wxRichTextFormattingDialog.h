@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextformatdlg.h>
 
-class wrapper_wxRichTextFormattingDialog : public wxRichTextFormattingDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextFormattingDialog : public wxRichTextFormattingDialog, public luna_wrapper_base {
+
 public:
 	
 

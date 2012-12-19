@@ -70,6 +70,8 @@ public:
 
 osg::StateSet::RefUniformPair* LunaTraits< osg::StateSet::RefUniformPair >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::StateSet::RefUniformPair >::_bind_dtor(osg::StateSet::RefUniformPair* obj) {

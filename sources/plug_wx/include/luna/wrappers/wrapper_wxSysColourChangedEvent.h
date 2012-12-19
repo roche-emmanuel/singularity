@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxSysColourChangedEvent : public wxSysColourChangedEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxSysColourChangedEvent : public wxSysColourChangedEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxSysColourChangedEvent(lua_State* L, lua_Table* dum) : wxSysColourChangedEvent(), _obj(L,-1) {};
+	wrapper_wxSysColourChangedEvent(lua_State* L, lua_Table* dum) : wxSysColourChangedEvent(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

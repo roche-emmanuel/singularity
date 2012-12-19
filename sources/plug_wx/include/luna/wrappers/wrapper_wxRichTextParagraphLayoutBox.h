@@ -8,10 +8,8 @@
 
 #include <wx/richtext/richtextbuffer.h>
 
-class wrapper_wxRichTextParagraphLayoutBox : public wxRichTextParagraphLayoutBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichTextParagraphLayoutBox : public wxRichTextParagraphLayoutBox, public luna_wrapper_base {
+
 public:
 	
 

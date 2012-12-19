@@ -8,14 +8,12 @@
 
 #include <wx/ribbon/gallery.h>
 
-class wrapper_wxRibbonGalleryEvent : public wxRibbonGalleryEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRibbonGalleryEvent : public wxRibbonGalleryEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRibbonGalleryEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) : wxRibbonGalleryEvent(command_type, win_id, gallery, item), _obj(L,-1) {};
+	wrapper_wxRibbonGalleryEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) : wxRibbonGalleryEvent(command_type, win_id, gallery, item), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

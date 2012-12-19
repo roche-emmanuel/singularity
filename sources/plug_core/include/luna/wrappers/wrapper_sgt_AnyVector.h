@@ -8,14 +8,12 @@
 
 
 
-class wrapper_sgt_AnyVector : public sgt::AnyVector {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_sgt_AnyVector : public sgt::AnyVector, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_sgt_AnyVector(lua_State* L, lua_Table* dum) : sgt::AnyVector(), _obj(L,-1) {};
+	wrapper_sgt_AnyVector(lua_State* L, lua_Table* dum) : sgt::AnyVector(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {

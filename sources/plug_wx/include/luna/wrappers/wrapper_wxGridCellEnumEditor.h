@@ -8,14 +8,18 @@
 
 #include <wx/grid.h>
 
-class wrapper_wxGridCellEnumEditor : public wxGridCellEnumEditor {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxGridCellEnumEditor : public wxGridCellEnumEditor, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxGridCellEnumEditor(lua_State* L, lua_Table* dum, const wxString & choices = wxEmptyString) : wxGridCellEnumEditor(choices), _obj(L,-1) {};
+	wrapper_wxGridCellEnumEditor(lua_State* L, lua_Table* dum, const wxString & choices = wxEmptyString) : wxGridCellEnumEditor(choices), luna_wrapper_base(L) {};
+
+	// wxString wxGridCellEditor::GetValue() const
+	wxString GetValue() const {
+		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridCellEditor::GetValue");
+		return *(_obj.callFunction<wxString*>());
+	};
 
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	void BeginEdit(int row, int col, wxGrid * grid) {

@@ -8,14 +8,12 @@
 
 #include <wx/stc/stc.h>
 
-class wrapper_wxStyledTextCtrl : public wxStyledTextCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStyledTextCtrl : public wxStyledTextCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStyledTextCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) : wxStyledTextCtrl(parent, id, pos, size, style, name), _obj(L,-1) {};
+	wrapper_wxStyledTextCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxSTCNameStr) : wxStyledTextCtrl(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

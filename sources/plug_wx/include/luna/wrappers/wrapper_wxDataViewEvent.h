@@ -8,14 +8,12 @@
 
 #include <wx/dataview.h>
 
-class wrapper_wxDataViewEvent : public wxDataViewEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataViewEvent : public wxDataViewEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataViewEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0) : wxDataViewEvent(commandType, winid), _obj(L,-1) {};
+	wrapper_wxDataViewEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0) : wxDataViewEvent(commandType, winid), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

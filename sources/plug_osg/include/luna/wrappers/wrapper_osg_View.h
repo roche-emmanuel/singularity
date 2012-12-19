@@ -8,15 +8,13 @@
 
 #include <osg/View>
 
-class wrapper_osg_View : public osg::View {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_View : public osg::View, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_View(lua_State* L, lua_Table* dum) : osg::View(), _obj(L,-1) {};
-	wrapper_osg_View(lua_State* L, lua_Table* dum, const osg::View & view, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::View(view, copyop), _obj(L,-1) {};
+	wrapper_osg_View(lua_State* L, lua_Table* dum) : osg::View(), luna_wrapper_base(L) {};
+	wrapper_osg_View(lua_State* L, lua_Table* dum, const osg::View & view, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::View(view, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

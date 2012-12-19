@@ -8,15 +8,13 @@
 
 #include <osgDB/Input>
 
-class wrapper_osgDB_Field : public osgDB::Field {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_Field : public osgDB::Field, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), _obj(L,-1) {};
-	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), _obj(L,-1) {};
+	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), luna_wrapper_base(L) {};
+	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), luna_wrapper_base(L) {};
 
 	// osgDB::Field & osgDB::Field::operator=(const osgDB::Field & ic)
 	osgDB::Field & operator=(const osgDB::Field & ic) {

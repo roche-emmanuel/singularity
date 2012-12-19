@@ -8,15 +8,13 @@
 
 #include <wx/imaglist.h>
 
-class wrapper_wxImageList : public wxImageList {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxImageList : public wxImageList, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxImageList(lua_State* L, lua_Table* dum) : wxImageList(), _obj(L,-1) {};
-	wrapper_wxImageList(lua_State* L, lua_Table* dum, int width, int height, bool mask = true, int initialCount = 1) : wxImageList(width, height, mask, initialCount), _obj(L,-1) {};
+	wrapper_wxImageList(lua_State* L, lua_Table* dum) : wxImageList(), luna_wrapper_base(L) {};
+	wrapper_wxImageList(lua_State* L, lua_Table* dum, int width, int height, bool mask = true, int initialCount = 1) : wxImageList(width, height, mask, initialCount), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,14 +8,12 @@
 
 #include <wx/clrpicker.h>
 
-class wrapper_wxColourPickerEvent : public wxColourPickerEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxColourPickerEvent : public wxColourPickerEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxColourPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxColour & colour) : wxColourPickerEvent(generator, id, colour), _obj(L,-1) {};
+	wrapper_wxColourPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxColour & colour) : wxColourPickerEvent(generator, id, colour), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

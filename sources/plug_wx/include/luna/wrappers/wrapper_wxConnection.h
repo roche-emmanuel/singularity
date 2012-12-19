@@ -8,15 +8,13 @@
 
 #include <wx/ipc.h>
 
-class wrapper_wxConnection : public wxConnection {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxConnection : public wxConnection, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxConnection(lua_State* L, lua_Table* dum) : wxConnection(), _obj(L,-1) {};
-	wrapper_wxConnection(lua_State* L, lua_Table* dum, void * buffer, size_t size) : wxConnection(buffer, size), _obj(L,-1) {};
+	wrapper_wxConnection(lua_State* L, lua_Table* dum) : wxConnection(), luna_wrapper_base(L) {};
+	wrapper_wxConnection(lua_State* L, lua_Table* dum, void * buffer, size_t size) : wxConnection(buffer, size), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

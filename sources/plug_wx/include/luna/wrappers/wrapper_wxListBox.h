@@ -8,15 +8,13 @@
 
 #include <wx/listbox.h>
 
-class wrapper_wxListBox : public wxListBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxListBox : public wxListBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxListBox(lua_State* L, lua_Table* dum) : wxListBox(), _obj(L,-1) {};
-	wrapper_wxListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr) : wxListBox(parent, id, pos, size, choices, style, validator, name), _obj(L,-1) {};
+	wrapper_wxListBox(lua_State* L, lua_Table* dum) : wxListBox(), luna_wrapper_base(L) {};
+	wrapper_wxListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxListBoxNameStr) : wxListBox(parent, id, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

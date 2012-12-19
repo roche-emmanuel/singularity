@@ -8,14 +8,12 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogTextCtrl : public wxLogTextCtrl {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogTextCtrl : public wxLogTextCtrl, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLogTextCtrl(lua_State* L, lua_Table* dum, wxTextCtrl * pTextCtrl) : wxLogTextCtrl(pTextCtrl), _obj(L,-1) {};
+	wrapper_wxLogTextCtrl(lua_State* L, lua_Table* dum, wxTextCtrl * pTextCtrl) : wxLogTextCtrl(pTextCtrl), luna_wrapper_base(L) {};
 
 	// void wxLog::Flush()
 	void Flush() {

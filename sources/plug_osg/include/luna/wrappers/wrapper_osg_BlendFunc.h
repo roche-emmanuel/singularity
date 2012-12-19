@@ -8,17 +8,15 @@
 
 #include <osg/BlendFunc>
 
-class wrapper_osg_BlendFunc : public osg::BlendFunc {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BlendFunc : public osg::BlendFunc, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum) : osg::BlendFunc(), _obj(L,-1) {};
-	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination) : osg::BlendFunc(source, destination), _obj(L,-1) {};
-	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination, unsigned int source_alpha, unsigned int destination_alpha) : osg::BlendFunc(source, destination, source_alpha, destination_alpha), _obj(L,-1) {};
-	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, const osg::BlendFunc & trans, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BlendFunc(trans, copyop), _obj(L,-1) {};
+	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum) : osg::BlendFunc(), luna_wrapper_base(L) {};
+	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination) : osg::BlendFunc(source, destination), luna_wrapper_base(L) {};
+	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination, unsigned int source_alpha, unsigned int destination_alpha) : osg::BlendFunc(source, destination, source_alpha, destination_alpha), luna_wrapper_base(L) {};
+	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, const osg::BlendFunc & trans, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BlendFunc(trans, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

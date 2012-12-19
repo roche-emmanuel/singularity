@@ -8,14 +8,12 @@
 
 #include <osg/GraphicsThread>
 
-class wrapper_osg_EndOfDynamicDrawBlock : public osg::EndOfDynamicDrawBlock {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_EndOfDynamicDrawBlock : public osg::EndOfDynamicDrawBlock, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_EndOfDynamicDrawBlock(lua_State* L, lua_Table* dum, unsigned int arg1) : osg::EndOfDynamicDrawBlock(arg1), _obj(L,-1) {};
+	wrapper_osg_EndOfDynamicDrawBlock(lua_State* L, lua_Table* dum, unsigned int arg1) : osg::EndOfDynamicDrawBlock(arg1), luna_wrapper_base(L) {};
 
 	// void osg::EndOfDynamicDrawBlock::completed(osg::State * state)
 	void completed(osg::State * state) {

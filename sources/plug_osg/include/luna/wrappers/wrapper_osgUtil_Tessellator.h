@@ -8,14 +8,12 @@
 
 #include <osgUtil/Tessellator>
 
-class wrapper_osgUtil_Tessellator : public osgUtil::Tessellator {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_Tessellator : public osgUtil::Tessellator, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) : osgUtil::Tessellator(), _obj(L,-1) {};
+	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) : osgUtil::Tessellator(), luna_wrapper_base(L) {};
 
 
 

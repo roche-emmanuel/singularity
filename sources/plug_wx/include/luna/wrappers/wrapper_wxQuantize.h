@@ -8,14 +8,12 @@
 
 #include <wx/quantize.h>
 
-class wrapper_wxQuantize : public wxQuantize {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxQuantize : public wxQuantize, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxQuantize(lua_State* L, lua_Table* dum) : wxQuantize(), _obj(L,-1) {};
+	wrapper_wxQuantize(lua_State* L, lua_Table* dum) : wxQuantize(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

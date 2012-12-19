@@ -6,6 +6,30 @@ class luna_wrapper_sgt_TimeProvider {
 public:
 	typedef Luna< sgt::TimeProvider > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -1044,6 +1068,8 @@ public:
 
 sgt::TimeProvider* LunaTraits< sgt::TimeProvider >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_TimeProvider::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< sgt::TimeProvider >::_bind_dtor(sgt::TimeProvider* obj) {
@@ -1087,6 +1113,7 @@ luna_RegType LunaTraits< sgt::TimeProvider >::methods[] = {
 	{"base_libraryName", &luna_wrapper_sgt_TimeProvider::_bind_base_libraryName},
 	{"base_className", &luna_wrapper_sgt_TimeProvider::_bind_base_className},
 	{"__eq", &luna_wrapper_sgt_TimeProvider::_bind___eq},
+	{"getTable", &luna_wrapper_sgt_TimeProvider::_bind_getTable},
 	{0,0}
 };
 

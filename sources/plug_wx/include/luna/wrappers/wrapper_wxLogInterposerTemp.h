@@ -8,14 +8,12 @@
 
 #include <wx/log.h>
 
-class wrapper_wxLogInterposerTemp : public wxLogInterposerTemp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxLogInterposerTemp : public wxLogInterposerTemp, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxLogInterposerTemp(lua_State* L, lua_Table* dum) : wxLogInterposerTemp(), _obj(L,-1) {};
+	wrapper_wxLogInterposerTemp(lua_State* L, lua_Table* dum) : wxLogInterposerTemp(), luna_wrapper_base(L) {};
 
 	// void wxLog::Flush()
 	void Flush() {

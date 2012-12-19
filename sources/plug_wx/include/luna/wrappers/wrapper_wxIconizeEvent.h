@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxIconizeEvent : public wxIconizeEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxIconizeEvent : public wxIconizeEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxIconizeEvent(lua_State* L, lua_Table* dum, int id = 0, bool iconized = true) : wxIconizeEvent(id, iconized), _obj(L,-1) {};
+	wrapper_wxIconizeEvent(lua_State* L, lua_Table* dum, int id = 0, bool iconized = true) : wxIconizeEvent(id, iconized), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -6,6 +6,30 @@ class luna_wrapper_osgViewer_GraphicsWindowEmbedded {
 public:
 	typedef Luna< osgViewer::GraphicsWindowEmbedded > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -52,6 +76,29 @@ public:
 		Luna< osgViewer::GraphicsWindowEmbedded >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::GraphicsContext::Traits* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -381,6 +428,46 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0)
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0) function, expected prototype:\nosgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::GraphicsContext::Traits* traits=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,2)) : (osg::GraphicsContext::Traits*)0;
+
+		return new wrapper_osgViewer_GraphicsWindowEmbedded(L,NULL, traits);
+	}
+
+	// osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height)
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height) function, expected prototype:\nosgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int width=(int)lua_tointeger(L,4);
+		int height=(int)lua_tointeger(L,5);
+
+		return new wrapper_osgViewer_GraphicsWindowEmbedded(L,NULL, x, y, width, height);
+	}
+
+	// Overload binder for osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function GraphicsWindowEmbedded, cannot match any of the overloads for function GraphicsWindowEmbedded:\n  GraphicsWindowEmbedded(lua_Table *, osg::GraphicsContext::Traits *)\n  GraphicsWindowEmbedded(lua_Table *, int, int, int, int)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgViewer::GraphicsWindowEmbedded::libraryName() const
@@ -1338,7 +1425,8 @@ public:
 };
 
 osgViewer::GraphicsWindowEmbedded* LunaTraits< osgViewer::GraphicsWindowEmbedded >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool osg::GraphicsContext::makeContextCurrentImplementation(osg::GraphicsContext * readContext)
 }
@@ -1404,6 +1492,7 @@ luna_RegType LunaTraits< osgViewer::GraphicsWindowEmbedded >::methods[] = {
 	{"base_grabFocusIfPointerInWindow", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_grabFocusIfPointerInWindow},
 	{"base_raiseWindow", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_base_raiseWindow},
 	{"__eq", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind___eq},
+	{"getTable", &luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_getTable},
 	{0,0}
 };
 

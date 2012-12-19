@@ -8,14 +8,12 @@
 
 #include <osgViewer/ViewerEventHandlers>
 
-class wrapper_osgViewer_StatsHandler : public osgViewer::StatsHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgViewer_StatsHandler : public osgViewer::StatsHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgViewer_StatsHandler(lua_State* L, lua_Table* dum) : osgViewer::StatsHandler(), _obj(L,-1) {};
+	wrapper_osgViewer_StatsHandler(lua_State* L, lua_Table* dum) : osgViewer::StatsHandler(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

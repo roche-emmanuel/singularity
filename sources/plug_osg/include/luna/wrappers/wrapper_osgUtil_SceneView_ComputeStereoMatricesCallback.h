@@ -8,10 +8,8 @@
 
 #include <osgUtil/SceneView>
 
-class wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback : public osgUtil::SceneView::ComputeStereoMatricesCallback {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback : public osgUtil::SceneView::ComputeStereoMatricesCallback, public luna_wrapper_base {
+
 public:
 	
 

@@ -8,14 +8,12 @@
 
 #include <osg/CopyOp>
 
-class wrapper_osg_CopyOp : public osg::CopyOp {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_CopyOp : public osg::CopyOp, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_CopyOp(lua_State* L, lua_Table* dum, unsigned int flags = osg::CopyOp::SHALLOW_COPY) : osg::CopyOp(flags), _obj(L,-1) {};
+	wrapper_osg_CopyOp(lua_State* L, lua_Table* dum, unsigned int flags = osg::CopyOp::SHALLOW_COPY) : osg::CopyOp(flags), luna_wrapper_base(L) {};
 
 	// osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const
 	osg::Referenced * operator()(const osg::Referenced * ref) const {

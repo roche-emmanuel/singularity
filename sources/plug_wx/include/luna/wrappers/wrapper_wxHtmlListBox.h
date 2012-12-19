@@ -8,15 +8,13 @@
 
 #include <wx/htmllbox.h>
 
-class wrapper_wxHtmlListBox : public wxHtmlListBox {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlListBox : public wxHtmlListBox, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr) : wxHtmlListBox(parent, id, pos, size, style, name), _obj(L,-1) {};
-	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum) : wxHtmlListBox(), _obj(L,-1) {};
+	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr) : wxHtmlListBox(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
+	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum) : wxHtmlListBox(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -1273,6 +1271,19 @@ protected:
 		return *(_obj.callFunction<wxString*>());
 	};
 
+
+protected:
+// void wxVListBox::OnDrawItem(wxDC & dc, const wxRect & rect, size_t n) const
+void OnDrawItem(wxDC &, const wxRect &, size_t) const {
+	THROW_IF(true,"The function call void wxVListBox::OnDrawItem(wxDC &, const wxRect &, size_t) const is not implemented in wrapper.");
+};
+
+protected:
+// int wxVListBox::OnMeasureItem(size_t n) const
+int OnMeasureItem(size_t) const {
+	THROW_IF(true,"The function call int wxVListBox::OnMeasureItem(size_t) const is not implemented in wrapper.");
+	return int();
+};
 
 };
 

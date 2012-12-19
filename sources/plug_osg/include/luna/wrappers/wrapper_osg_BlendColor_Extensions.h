@@ -8,14 +8,12 @@
 
 #include <osg/BlendColor>
 
-class wrapper_osg_BlendColor_Extensions : public osg::BlendColor::Extensions {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_BlendColor_Extensions : public osg::BlendColor::Extensions, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_BlendColor_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::BlendColor::Extensions(contextID), _obj(L,-1) {};
+	wrapper_osg_BlendColor_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::BlendColor::Extensions(contextID), luna_wrapper_base(L) {};
 
 
 

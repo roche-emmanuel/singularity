@@ -8,15 +8,13 @@
 
 #include <osgUtil/StateGraph>
 
-class wrapper_osgUtil_StateGraph : public osgUtil::StateGraph {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgUtil_StateGraph : public osgUtil::StateGraph, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgUtil_StateGraph(lua_State* L, lua_Table* dum) : osgUtil::StateGraph(), _obj(L,-1) {};
-	wrapper_osgUtil_StateGraph(lua_State* L, lua_Table* dum, osgUtil::StateGraph * parent, const osg::StateSet * stateset) : osgUtil::StateGraph(parent, stateset), _obj(L,-1) {};
+	wrapper_osgUtil_StateGraph(lua_State* L, lua_Table* dum) : osgUtil::StateGraph(), luna_wrapper_base(L) {};
+	wrapper_osgUtil_StateGraph(lua_State* L, lua_Table* dum, osgUtil::StateGraph * parent, const osg::StateSet * stateset) : osgUtil::StateGraph(parent, stateset), luna_wrapper_base(L) {};
 
 
 

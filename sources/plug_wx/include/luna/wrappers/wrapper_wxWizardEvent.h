@@ -8,14 +8,12 @@
 
 #include <wx/wizard.h>
 
-class wrapper_wxWizardEvent : public wxWizardEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWizardEvent : public wxWizardEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWizardEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int id = ::wxID_ANY, bool direction = true, wxWizardPage * page = 0) : wxWizardEvent(type, id, direction, page), _obj(L,-1) {};
+	wrapper_wxWizardEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int id = ::wxID_ANY, bool direction = true, wxWizardPage * page = 0) : wxWizardEvent(type, id, direction, page), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

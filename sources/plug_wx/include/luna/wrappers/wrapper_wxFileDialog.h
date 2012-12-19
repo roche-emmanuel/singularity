@@ -8,14 +8,12 @@
 
 #include <wx/filedlg.h>
 
-class wrapper_wxFileDialog : public wxFileDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileDialog : public wxFileDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxFileDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxFileSelectorPromptStr, const wxString & defaultDir = wxEmptyString, const wxString & defaultFile = wxEmptyString, const wxString & wildcard = wxFileSelectorDefaultWildcardStr, long style = wxFD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxFileDialogNameStr) : wxFileDialog(parent, message, defaultDir, defaultFile, wildcard, style, pos, size, name), _obj(L,-1) {};
+	wrapper_wxFileDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxFileSelectorPromptStr, const wxString & defaultDir = wxEmptyString, const wxString & defaultFile = wxEmptyString, const wxString & wildcard = wxFileSelectorDefaultWildcardStr, long style = wxFD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxFileDialogNameStr) : wxFileDialog(parent, message, defaultDir, defaultFile, wildcard, style, pos, size, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -8,10 +8,8 @@
 
 #include <wx/artprov.h>
 
-class wrapper_wxArtProvider : public wxArtProvider {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxArtProvider : public wxArtProvider, public luna_wrapper_base {
+
 public:
 	
 

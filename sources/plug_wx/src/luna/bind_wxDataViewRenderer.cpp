@@ -6,6 +6,30 @@ class luna_wrapper_wxDataViewRenderer {
 public:
 	typedef Luna< wxDataViewRenderer > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,7 +66,35 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
+	inline static bool _lg_typecheck_GetSize(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Render(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,20234418) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_EnableEllipsize(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
@@ -130,7 +182,73 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// wxDataViewRenderer::wxDataViewRenderer(lua_Table * data, const wxString & varianttype, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)
+	static wxDataViewRenderer* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewRenderer::wxDataViewRenderer(lua_Table * data, const wxString & varianttype, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewRenderer::wxDataViewRenderer(lua_Table * data, const wxString & varianttype, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString varianttype(lua_tostring(L,2),lua_objlen(L,2));
+		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : ::wxDATAVIEW_CELL_INERT;
+		int align=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+
+		return new wrapper_wxDataViewRenderer(L,NULL, varianttype, mode, align);
+	}
+
+
 	// Function binds:
+	// wxSize wxDataViewRenderer::GetSize() const
+	static int _bind_GetSize(lua_State *L) {
+		if (!_lg_typecheck_GetSize(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSize wxDataViewRenderer::GetSize() const function, expected prototype:\nwxSize wxDataViewRenderer::GetSize() const\nClass arguments details:\n");
+		}
+
+
+		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSize wxDataViewRenderer::GetSize() const");
+		}
+		wxSize stack_lret = self->GetSize();
+		wxSize* lret = new wxSize(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSize >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
+	static int _bind_Render(lua_State *L) {
+		if (!_lg_typecheck_Render(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3) function, expected prototype:\nbool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 56813631\n");
+		}
+
+		wxRect* _arg1_ptr=(Luna< wxRect >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in wxDataViewRenderer::Render function");
+		}
+		wxRect _arg1=*_arg1_ptr;
+		wxDC* _arg2=(Luna< wxObject >::checkSubType< wxDC >(L,3));
+		int _arg3=(int)lua_tointeger(L,4);
+
+		wxDataViewRenderer* self=Luna< wxObject >::checkSubType< wxDataViewRenderer >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool wxDataViewRenderer::Render(wxRect, wxDC *, int)");
+		}
+		bool lret = self->Render(_arg1, _arg2, _arg3);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// void wxDataViewRenderer::EnableEllipsize(wxEllipsizeMode mode = ::wxELLIPSIZE_MIDDLE)
 	static int _bind_EnableEllipsize(lua_State *L) {
 		if (!_lg_typecheck_EnableEllipsize(L)) {
@@ -389,8 +507,11 @@ public:
 };
 
 wxDataViewRenderer* LunaTraits< wxDataViewRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewRenderer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxSize wxDataViewRenderer::GetSize() const
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
 }
@@ -407,6 +528,8 @@ const int LunaTraits< wxDataViewRenderer >::hash = 62992239;
 const int LunaTraits< wxDataViewRenderer >::uniqueIDs[] = {56813631,0};
 
 luna_RegType LunaTraits< wxDataViewRenderer >::methods[] = {
+	{"GetSize", &luna_wrapper_wxDataViewRenderer::_bind_GetSize},
+	{"Render", &luna_wrapper_wxDataViewRenderer::_bind_Render},
 	{"EnableEllipsize", &luna_wrapper_wxDataViewRenderer::_bind_EnableEllipsize},
 	{"DisableEllipsize", &luna_wrapper_wxDataViewRenderer::_bind_DisableEllipsize},
 	{"GetAlignment", &luna_wrapper_wxDataViewRenderer::_bind_GetAlignment},
@@ -421,6 +544,7 @@ luna_RegType LunaTraits< wxDataViewRenderer >::methods[] = {
 	{"base_GetMode", &luna_wrapper_wxDataViewRenderer::_bind_base_GetMode},
 	{"base_SetAlignment", &luna_wrapper_wxDataViewRenderer::_bind_base_SetAlignment},
 	{"__eq", &luna_wrapper_wxDataViewRenderer::_bind___eq},
+	{"getTable", &luna_wrapper_wxDataViewRenderer::_bind_getTable},
 	{0,0}
 };
 

@@ -8,10 +8,8 @@
 
 #include <wx/pickerbase.h>
 
-class wrapper_wxPickerBase : public wxPickerBase {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxPickerBase : public wxPickerBase, public luna_wrapper_base {
+
 public:
 	
 

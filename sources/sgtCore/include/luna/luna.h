@@ -17,6 +17,7 @@ extern "C" {
 #include <string>
 #include <iostream>
 #include <sstream>
+#include "lua/LuaObject.h"
 
 // Dummy struct used to declare a lua function parameter for a function.
 struct lua_Function {};
@@ -43,6 +44,18 @@ SGTCORE_EXPORT int luna_dynamicCast(lua_State* L, LunaConverterMap& converters, 
 SGTCORE_EXPORT int luna_pushModule(lua_State* L, const std::string& mname);
 SGTCORE_EXPORT int luna_popModule(lua_State* L);
 
+class SGTCORE_EXPORT luna_wrapper_base {
+protected:
+	sgt::LuaObject _obj;
+
+public:
+	luna_wrapper_base(lua_State* L) : _obj(L,1) {};
+
+	inline bool pushTable() { return _obj.pushLuaItem(); };
+
+	virtual ~luna_wrapper_base() {};
+};
+
 struct luna_eqstr{
 	bool operator()(const char* s1, const char* s2) const {
 		return strcmp(s1,s2)==0;
@@ -60,7 +73,6 @@ class luna_same_types<T, T>
 {
 public: enum {result = true};
 };
-
 
 // Caster templates used for the convertion of types in gc_T()
 template <typename srcType, typename dstType>

@@ -6,6 +6,30 @@ class luna_wrapper_wxDelegateRendererNative {
 public:
 	typedef Luna< wxDelegateRendererNative > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,24 @@ public:
 		Luna< wxDelegateRendererNative >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,18398493) ) return false;
+		if( (!dynamic_cast< wxRendererNative* >(Luna< wxRendererNative >::check(L,2))) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -188,6 +230,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,20234418) ) return false;
 		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetSplitterParams(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		return true;
 	}
 
@@ -345,6 +394,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetSplitterParams(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_GetVersion(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -354,6 +410,44 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data)
+	static wxDelegateRendererNative* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDelegateRendererNative(L,NULL);
+	}
+
+	// wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative)
+	static wxDelegateRendererNative* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative) function, expected prototype:\nwxDelegateRendererNative::wxDelegateRendererNative(lua_Table * data, wxRendererNative & rendererNative)\nClass arguments details:\narg 2 ID = 18398493\n");
+		}
+
+		wxRendererNative* rendererNative_ptr=(Luna< wxRendererNative >::check(L,2));
+		if( !rendererNative_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg rendererNative in wxDelegateRendererNative::wxDelegateRendererNative function");
+		}
+		wxRendererNative & rendererNative=*rendererNative_ptr;
+
+		return new wrapper_wxDelegateRendererNative(L,NULL, rendererNative);
+	}
+
+	// Overload binder for wxDelegateRendererNative::wxDelegateRendererNative
+	static wxDelegateRendererNative* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxDelegateRendererNative, cannot match any of the overloads for function wxDelegateRendererNative:\n  wxDelegateRendererNative(lua_Table *)\n  wxDelegateRendererNative(lua_Table *, wxRendererNative &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// int wxDelegateRendererNative::DrawHeaderButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0, wxHeaderSortIconType sortArrow = ::wxHDR_SORT_ICON_NONE, wxHeaderButtonParams * params = NULL)
@@ -777,6 +871,29 @@ public:
 		self->DrawFocusRect(win, dc, rect, flags);
 
 		return 0;
+	}
+
+	// wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)
+	static int _bind_GetSplitterParams(lua_State *L) {
+		if (!_lg_typecheck_GetSplitterParams(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow *)");
+		}
+		wxSplitterRenderParams stack_lret = self->GetSplitterParams(win);
+		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSplitterRenderParams >::push(L,lret,true);
+
+		return 1;
 	}
 
 	// wxRendererVersion wxDelegateRendererNative::GetVersion() const
@@ -1224,6 +1341,29 @@ public:
 		return 0;
 	}
 
+	// wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win)
+	static int _bind_base_GetSplitterParams(lua_State *L) {
+		if (!_lg_typecheck_base_GetSplitterParams(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxDelegateRendererNative* self=Luna< wxRendererNative >::checkSubType< wxDelegateRendererNative >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxDelegateRendererNative::base_GetSplitterParams(const wxWindow *)");
+		}
+		wxSplitterRenderParams stack_lret = self->wxDelegateRendererNative::GetSplitterParams(win);
+		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSplitterRenderParams >::push(L,lret,true);
+
+		return 1;
+	}
+
 	// wxRendererVersion wxDelegateRendererNative::base_GetVersion() const
 	static int _bind_base_GetVersion(lua_State *L) {
 		if (!_lg_typecheck_base_GetVersion(L)) {
@@ -1252,7 +1392,8 @@ public:
 };
 
 wxDelegateRendererNative* LunaTraits< wxDelegateRendererNative >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDelegateRendererNative::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxRendererNative::DrawChoice(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawComboBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
@@ -1287,6 +1428,7 @@ luna_RegType LunaTraits< wxDelegateRendererNative >::methods[] = {
 	{"DrawPushButton", &luna_wrapper_wxDelegateRendererNative::_bind_DrawPushButton},
 	{"DrawItemSelectionRect", &luna_wrapper_wxDelegateRendererNative::_bind_DrawItemSelectionRect},
 	{"DrawFocusRect", &luna_wrapper_wxDelegateRendererNative::_bind_DrawFocusRect},
+	{"GetSplitterParams", &luna_wrapper_wxDelegateRendererNative::_bind_GetSplitterParams},
 	{"GetVersion", &luna_wrapper_wxDelegateRendererNative::_bind_GetVersion},
 	{"base_DrawHeaderButton", &luna_wrapper_wxDelegateRendererNative::_bind_base_DrawHeaderButton},
 	{"base_DrawHeaderButtonContents", &luna_wrapper_wxDelegateRendererNative::_bind_base_DrawHeaderButtonContents},
@@ -1302,8 +1444,10 @@ luna_RegType LunaTraits< wxDelegateRendererNative >::methods[] = {
 	{"base_DrawPushButton", &luna_wrapper_wxDelegateRendererNative::_bind_base_DrawPushButton},
 	{"base_DrawItemSelectionRect", &luna_wrapper_wxDelegateRendererNative::_bind_base_DrawItemSelectionRect},
 	{"base_DrawFocusRect", &luna_wrapper_wxDelegateRendererNative::_bind_base_DrawFocusRect},
+	{"base_GetSplitterParams", &luna_wrapper_wxDelegateRendererNative::_bind_base_GetSplitterParams},
 	{"base_GetVersion", &luna_wrapper_wxDelegateRendererNative::_bind_base_GetVersion},
 	{"__eq", &luna_wrapper_wxDelegateRendererNative::_bind___eq},
+	{"getTable", &luna_wrapper_wxDelegateRendererNative::_bind_getTable},
 	{0,0}
 };
 

@@ -8,14 +8,12 @@
 
 #include <wx/dataobj.h>
 
-class wrapper_wxDataObjectSimple : public wxDataObjectSimple {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxDataObjectSimple : public wxDataObjectSimple, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxDataObjectSimple(lua_State* L, lua_Table* dum, const wxDataFormat & format = wxFormatInvalid) : wxDataObjectSimple(format), _obj(L,-1) {};
+	wrapper_wxDataObjectSimple(lua_State* L, lua_Table* dum, const wxDataFormat & format = wxFormatInvalid) : wxDataObjectSimple(format), luna_wrapper_base(L) {};
 
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	void GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const {

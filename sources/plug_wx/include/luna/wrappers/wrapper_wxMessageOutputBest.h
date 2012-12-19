@@ -8,14 +8,12 @@
 
 #include <wx/msgout.h>
 
-class wrapper_wxMessageOutputBest : public wxMessageOutputBest {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxMessageOutputBest : public wxMessageOutputBest, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxMessageOutputBest(lua_State* L, lua_Table* dum, wxMessageOutputFlags flags = ::wxMSGOUT_PREFER_STDERR) : wxMessageOutputBest(flags), _obj(L,-1) {};
+	wrapper_wxMessageOutputBest(lua_State* L, lua_Table* dum, wxMessageOutputFlags flags = ::wxMSGOUT_PREFER_STDERR) : wxMessageOutputBest(flags), luna_wrapper_base(L) {};
 
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {

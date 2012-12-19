@@ -447,6 +447,42 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< std::istream > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::istream* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::istream* obj);
+	typedef std::istream parent_t;
+	typedef std::istream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::ostream > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::ostream* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::ostream* obj);
+	typedef std::ostream parent_t;
+	typedef std::ostream base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 12269219 > {
@@ -529,6 +565,20 @@ template<>
 class LunaType< 59964048 > {
 public:
 	typedef sgt::LogSink::StringSet type;
+	
+};
+
+template<>
+class LunaType< 77972206 > {
+public:
+	typedef std::istream type;
+	
+};
+
+template<>
+class LunaType< 2993706 > {
+public:
+	typedef std::ostream type;
 	
 };
 

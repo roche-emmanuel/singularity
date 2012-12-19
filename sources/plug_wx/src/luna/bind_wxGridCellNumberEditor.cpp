@@ -6,6 +6,30 @@ class luna_wrapper_wxGridCellNumberEditor {
 public:
 	typedef Luna< wxGridCellNumberEditor > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -40,6 +64,18 @@ public:
 		Luna< wxGridCellNumberEditor >::push(L,ptr,false);
 		return 1;
 	};
+
+
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
 
 
 	// Function checkers:
@@ -110,6 +146,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellNumberEditor::wxGridCellNumberEditor(lua_Table * data, int min = -1, int max = -1)
+	static wxGridCellNumberEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellNumberEditor::wxGridCellNumberEditor(lua_Table * data, int min = -1, int max = -1) function, expected prototype:\nwxGridCellNumberEditor::wxGridCellNumberEditor(lua_Table * data, int min = -1, int max = -1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int min=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int max=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+
+		return new wrapper_wxGridCellNumberEditor(L,NULL, min, max);
+	}
+
 
 	// Function binds:
 	// void wxGridCellNumberEditor::SetParameters(const wxString & params)
@@ -307,8 +360,10 @@ public:
 };
 
 wxGridCellNumberEditor* LunaTraits< wxGridCellNumberEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellNumberEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)
@@ -339,6 +394,7 @@ luna_RegType LunaTraits< wxGridCellNumberEditor >::methods[] = {
 	{"base_StartingKey", &luna_wrapper_wxGridCellNumberEditor::_bind_base_StartingKey},
 	{"base_SetParameters", &luna_wrapper_wxGridCellNumberEditor::_bind_base_SetParameters},
 	{"__eq", &luna_wrapper_wxGridCellNumberEditor::_bind___eq},
+	{"getTable", &luna_wrapper_wxGridCellNumberEditor::_bind_getTable},
 	{0,0}
 };
 

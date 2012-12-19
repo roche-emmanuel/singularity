@@ -432,6 +432,8 @@ public:
         Sets sizing information.
     */
     virtual void SetSizingInfo(const wxSize& tab_ctrl_size, size_t tab_count) = 0;
+	
+	virtual int ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int) = 0;
 };
 
 /**

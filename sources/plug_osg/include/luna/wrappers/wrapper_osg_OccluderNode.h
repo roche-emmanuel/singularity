@@ -8,15 +8,13 @@
 
 #include <osg/OccluderNode>
 
-class wrapper_osg_OccluderNode : public osg::OccluderNode {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_OccluderNode : public osg::OccluderNode, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_OccluderNode(lua_State* L, lua_Table* dum) : osg::OccluderNode(), _obj(L,-1) {};
-	wrapper_osg_OccluderNode(lua_State* L, lua_Table* dum, const osg::OccluderNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::OccluderNode(arg1, copyop), _obj(L,-1) {};
+	wrapper_osg_OccluderNode(lua_State* L, lua_Table* dum) : osg::OccluderNode(), luna_wrapper_base(L) {};
+	wrapper_osg_OccluderNode(lua_State* L, lua_Table* dum, const osg::OccluderNode & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::OccluderNode(arg1, copyop), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

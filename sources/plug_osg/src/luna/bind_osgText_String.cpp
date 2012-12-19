@@ -250,6 +250,8 @@ public:
 
 osgText::String* LunaTraits< osgText::String >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgText_String::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgText::String >::_bind_dtor(osgText::String* obj) {

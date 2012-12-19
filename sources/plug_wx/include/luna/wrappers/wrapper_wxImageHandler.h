@@ -8,14 +8,12 @@
 
 #include <wx/image.h>
 
-class wrapper_wxImageHandler : public wxImageHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxImageHandler : public wxImageHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), _obj(L,-1) {};
+	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -77,6 +75,13 @@ protected:
 		}
 
 		return wxImageHandler::CloneRefData(data);
+	};
+
+	// bool wxImageHandler::DoCanRead(wxInputStream & arg1)
+	bool DoCanRead(wxInputStream & arg1) {
+		THROW_IF(!_obj.pushFunction("DoCanRead"),"No implementation for abstract function wxImageHandler::DoCanRead");
+		_obj.pushArg(&arg1);
+		return (_obj.callFunction<bool>());
 	};
 
 

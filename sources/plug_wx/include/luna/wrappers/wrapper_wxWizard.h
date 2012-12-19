@@ -8,15 +8,13 @@
 
 #include <wx/wizard.h>
 
-class wrapper_wxWizard : public wxWizard {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxWizard : public wxWizard, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxWizard(lua_State* L, lua_Table* dum) : wxWizard(), _obj(L,-1) {};
-	wrapper_wxWizard(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = wxEmptyString, const wxBitmap & bitmap = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, long style = wxDEFAULT_DIALOG_STYLE) : wxWizard(parent, id, title, bitmap, pos, style), _obj(L,-1) {};
+	wrapper_wxWizard(lua_State* L, lua_Table* dum) : wxWizard(), luna_wrapper_base(L) {};
+	wrapper_wxWizard(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = wxEmptyString, const wxBitmap & bitmap = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, long style = wxDEFAULT_DIALOG_STYLE) : wxWizard(parent, id, title, bitmap, pos, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

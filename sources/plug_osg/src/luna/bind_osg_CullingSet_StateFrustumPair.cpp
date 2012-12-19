@@ -70,6 +70,8 @@ public:
 
 osg::CullingSet::StateFrustumPair* LunaTraits< osg::CullingSet::StateFrustumPair >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::CullingSet::StateFrustumPair >::_bind_dtor(osg::CullingSet::StateFrustumPair* obj) {

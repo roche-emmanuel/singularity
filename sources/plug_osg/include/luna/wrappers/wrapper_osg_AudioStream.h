@@ -8,15 +8,13 @@
 
 #include <osg/AudioStream>
 
-class wrapper_osg_AudioStream : public osg::AudioStream {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osg_AudioStream : public osg::AudioStream, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum) : osg::AudioStream(), _obj(L,-1) {};
-	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum, const osg::AudioStream & audio, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AudioStream(audio, copyop), _obj(L,-1) {};
+	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum) : osg::AudioStream(), luna_wrapper_base(L) {};
+	wrapper_osg_AudioStream(lua_State* L, lua_Table* dum, const osg::AudioStream & audio, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::AudioStream(audio, copyop), luna_wrapper_base(L) {};
 
 	// osg::Object * osg::Object::cloneType() const
 	osg::Object * cloneType() const {

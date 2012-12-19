@@ -8,15 +8,13 @@
 
 #include <wx/sizer.h>
 
-class wrapper_wxStaticBoxSizer : public wxStaticBoxSizer {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxStaticBoxSizer : public wxStaticBoxSizer, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, wxStaticBox * box, int orient) : wxStaticBoxSizer(box, orient), _obj(L,-1) {};
-	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, int orient, wxWindow * parent, const wxString & label = wxEmptyString) : wxStaticBoxSizer(orient, parent, label), _obj(L,-1) {};
+	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, wxStaticBox * box, int orient) : wxStaticBoxSizer(box, orient), luna_wrapper_base(L) {};
+	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, int orient, wxWindow * parent, const wxString & label = wxEmptyString) : wxStaticBoxSizer(orient, parent, label), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

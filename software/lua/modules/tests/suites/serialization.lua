@@ -128,3 +128,57 @@ function test_anyvector_serialization()
 	log:info("Tests","AnyVector serialization test done.")
 end
 
+function test_basicnode_serialization()
+	log:info("Tests","Performing BasicNode serialization...")
+	
+	require "serialization.SerializationManager"
+	
+	log:info("Tests","Creating basic node hierarchy...")
+	local grp = osg.Group()
+	grp:setName("my_root")
+	
+	local BasicNode = require "osg.BasicNode"
+	
+	local child1 = BasicNode();
+	--child1:setMyValue(234.8);
+	
+	grp:addChild(child1:getWrapper())
+	
+	local child2 = BasicNode();
+	child2:setDoubleValue(234.8);
+	child2:setBoolValue(true);
+	child2:setName("My child 2");
+	
+	grp:addChild(child2:getWrapper())
+
+	local file = fs:getRootPath(true).."tests/basicnode.osgt"
+	local file2 = fs:getRootPath(true).."tests/basicnode.osgx"
+	
+	if fs:exists(file) then
+		log:info("Tests","Removing previous version of file ",file)
+		fs:removeFile(file)
+	end
+	
+	log:info("Tests","Writing test object to "..file)
+	local res = osg.writeObjectFile(grp,file)
+	assert_equal(true,res,"Cannot write object file.")
+	
+	grp:setName("Hello manu");
+	
+	log:info("Tests","Writing test object to "..file2)
+	local res = osg.writeObjectFile(grp,file2)
+	assert_equal(true,res,"Cannot write object file.")
+	
+	log:info("Tests","Reading object from file=",file)
+	local res = osg.readObjectFile(file,nil)
+	log:info("Tests","Object read.")
+	
+	assert_not_equal(nil,res,"Cannot read object file.")
+	
+	local grp = res:dynCast("osg::Group")
+	
+	assert_not_equal(nil,grp,"Cannot dyncast root group.")
+
+	log:info("Tests","BasicNode serialization test done.")
+end
+

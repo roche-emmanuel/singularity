@@ -8,14 +8,12 @@
 
 #include <wx/aui/auibook.h>
 
-class wrapper_wxAuiTabArt : public wxAuiTabArt {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxAuiTabArt : public wxAuiTabArt, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), _obj(L,-1) {};
+	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) {};
 
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	wxAuiTabArt * Clone() {
@@ -135,6 +133,15 @@ public:
 		_obj.pushArg(&tab_ctrl_size);
 		_obj.pushArg(tab_count);
 		return (_obj.callFunction<void>());
+	};
+
+	// int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)
+	int ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3) {
+		THROW_IF(!_obj.pushFunction("ShowDropDown"),"No implementation for abstract function wxAuiTabArt::ShowDropDown");
+		_obj.pushArg(arg1);
+		_obj.pushArg(&arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<int>());
 	};
 
 

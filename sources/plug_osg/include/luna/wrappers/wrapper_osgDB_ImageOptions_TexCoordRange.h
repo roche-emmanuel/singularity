@@ -8,14 +8,12 @@
 
 #include <osgDB/ImageOptions>
 
-class wrapper_osgDB_ImageOptions_TexCoordRange : public osgDB::ImageOptions::TexCoordRange {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_ImageOptions_TexCoordRange : public osgDB::ImageOptions::TexCoordRange, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_osgDB_ImageOptions_TexCoordRange(lua_State* L, lua_Table* dum) : osgDB::ImageOptions::TexCoordRange(), _obj(L,-1) {};
+	wrapper_osgDB_ImageOptions_TexCoordRange(lua_State* L, lua_Table* dum) : osgDB::ImageOptions::TexCoordRange(), luna_wrapper_base(L) {};
 
 
 

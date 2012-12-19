@@ -6,6 +6,30 @@ class luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler {
 public:
 	typedef Luna< osg::NodeVisitor::DatabaseRequestHandler > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -42,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_requestNodeFile(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -59,6 +92,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::NodeVisitor::DatabaseRequestHandler::DatabaseRequestHandler(lua_Table * data)
+	static osg::NodeVisitor::DatabaseRequestHandler* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::NodeVisitor::DatabaseRequestHandler::DatabaseRequestHandler(lua_Table * data) function, expected prototype:\nosg::NodeVisitor::DatabaseRequestHandler::DatabaseRequestHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_NodeVisitor_DatabaseRequestHandler(L,NULL);
+	}
+
 
 	// Function binds:
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)
@@ -97,7 +143,8 @@ public:
 };
 
 osg::NodeVisitor::DatabaseRequestHandler* LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)
 }
@@ -116,6 +163,7 @@ const int LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::uniqueIDs[] = 
 luna_RegType LunaTraits< osg::NodeVisitor::DatabaseRequestHandler >::methods[] = {
 	{"requestNodeFile", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_requestNodeFile},
 	{"__eq", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind___eq},
+	{"getTable", &luna_wrapper_osg_NodeVisitor_DatabaseRequestHandler::_bind_getTable},
 	{0,0}
 };
 

@@ -70,6 +70,8 @@ public:
 
 osg::Vec3fValueObject* LunaTraits< osg::Vec3fValueObject >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Vec3fValueObject >::_bind_dtor(osg::Vec3fValueObject* obj) {

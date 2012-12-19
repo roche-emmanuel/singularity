@@ -8,10 +8,8 @@
 
 #include <wx/fileconf.h>
 
-class wrapper_wxFileConfig : public wxFileConfig {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileConfig : public wxFileConfig, public luna_wrapper_base {
+
 public:
 	
 

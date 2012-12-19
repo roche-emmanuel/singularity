@@ -8,14 +8,12 @@
 
 #include <wx/event.h>
 
-class wrapper_wxScrollEvent : public wxScrollEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxScrollEvent : public wxScrollEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxScrollEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) : wxScrollEvent(commandType, id, pos, orientation), _obj(L,-1) {};
+	wrapper_wxScrollEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) : wxScrollEvent(commandType, id, pos, orientation), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

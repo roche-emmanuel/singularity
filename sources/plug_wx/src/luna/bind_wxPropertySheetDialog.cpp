@@ -6,6 +6,30 @@ class luna_wrapper_wxPropertySheetDialog {
 public:
 	typedef Luna< wxPropertySheetDialog > luna_t;
 
+	inline static bool _lg_typecheck_getTable(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+		return true;
+	}
+	
+	static int _bind_getTable(lua_State *L) {
+		if (!_lg_typecheck_getTable(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+		}
+
+		wxObject* self=(Luna< wxObject >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call getTable()");
+		}
+		
+		luna_wrapper_base* wrapper = dynamic_cast<luna_wrapper_base*>(self);
+		if(wrapper) {
+			CHECK_RET(wrapper->pushTable(),0,"Cannot push table from value wrapper.");
+			return 1;
+		}
+		return 0;
+	}
+
 	inline static bool _lg_typecheck___eq(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -3911,6 +3935,8 @@ public:
 
 wxPropertySheetDialog* LunaTraits< wxPropertySheetDialog >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPropertySheetDialog::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxPropertySheetDialog >::_bind_dtor(wxPropertySheetDialog* obj) {
@@ -4061,6 +4087,7 @@ luna_RegType LunaTraits< wxPropertySheetDialog >::methods[] = {
 	{"base_CreateButtons", &luna_wrapper_wxPropertySheetDialog::_bind_base_CreateButtons},
 	{"base_LayoutDialog", &luna_wrapper_wxPropertySheetDialog::_bind_base_LayoutDialog},
 	{"__eq", &luna_wrapper_wxPropertySheetDialog::_bind___eq},
+	{"getTable", &luna_wrapper_wxPropertySheetDialog::_bind_getTable},
 	{0,0}
 };
 

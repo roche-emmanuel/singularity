@@ -8,10 +8,8 @@
 
 #include <wx/translation.h>
 
-class wrapper_wxFileTranslationsLoader : public wxFileTranslationsLoader {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxFileTranslationsLoader : public wxFileTranslationsLoader, public luna_wrapper_base {
+
 public:
 	
 

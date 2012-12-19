@@ -8,14 +8,12 @@
 
 #include <wx/ribbon/buttonbar.h>
 
-class wrapper_wxRibbonButtonBarEvent : public wxRibbonButtonBarEvent {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRibbonButtonBarEvent : public wxRibbonButtonBarEvent, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRibbonButtonBarEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL) : wxRibbonButtonBarEvent(command_type, win_id, bar), _obj(L,-1) {};
+	wrapper_wxRibbonButtonBarEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonButtonBar * bar = NULL) : wxRibbonButtonBarEvent(command_type, win_id, bar), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

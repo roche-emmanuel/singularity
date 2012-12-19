@@ -8,10 +8,8 @@
 
 #include <wx/zipstrm.h>
 
-class wrapper_wxZipEntry : public wxZipEntry {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxZipEntry : public wxZipEntry, public luna_wrapper_base {
+
 public:
 	
 

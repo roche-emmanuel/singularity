@@ -8,10 +8,8 @@
 
 #include <osgDB/OutputStream>
 
-class wrapper_osgDB_OutputException : public osgDB::OutputException {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_osgDB_OutputException : public osgDB::OutputException, public luna_wrapper_base {
+
 public:
 	
 

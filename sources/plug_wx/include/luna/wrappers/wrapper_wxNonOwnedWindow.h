@@ -8,10 +8,8 @@
 
 #include <wx/nonownedwnd.h>
 
-class wrapper_wxNonOwnedWindow : public wxNonOwnedWindow {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxNonOwnedWindow : public wxNonOwnedWindow, public luna_wrapper_base {
+
 public:
 	
 

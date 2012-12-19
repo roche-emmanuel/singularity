@@ -8,14 +8,12 @@
 
 #include <wx/html/htmlpars.h>
 
-class wrapper_wxHtmlTagHandler : public wxHtmlTagHandler {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxHtmlTagHandler : public wxHtmlTagHandler, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxHtmlTagHandler(lua_State* L, lua_Table* dum) : wxHtmlTagHandler(), _obj(L,-1) {};
+	wrapper_wxHtmlTagHandler(lua_State* L, lua_Table* dum) : wxHtmlTagHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

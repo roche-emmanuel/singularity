@@ -8,14 +8,12 @@
 
 #include <wx/richmsgdlg.h>
 
-class wrapper_wxRichMessageDialog : public wxRichMessageDialog {
-protected:
-	sgt::LuaObject _obj;
-	
+class wrapper_wxRichMessageDialog : public wxRichMessageDialog, public luna_wrapper_base {
+
 public:
 	
 
-	wrapper_wxRichMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE) : wxRichMessageDialog(parent, message, caption, style), _obj(L,-1) {};
+	wrapper_wxRichMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE) : wxRichMessageDialog(parent, message, caption, style), luna_wrapper_base(L) {};
 
 	// int wxRichMessageDialog::ShowModal()
 	int ShowModal() {
