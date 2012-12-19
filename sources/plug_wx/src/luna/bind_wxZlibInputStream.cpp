@@ -66,6 +66,30 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_SetDictionary(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
@@ -161,6 +185,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream & stream, int flags = 3)
+	static wxZlibInputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream & stream, int flags = 3) function, expected prototype:\nwxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream & stream, int flags = 3)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxZlibInputStream::wxZlibInputStream function");
+		}
+		wxInputStream & stream=*stream_ptr;
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+
+		return new wrapper_wxZlibInputStream(L,NULL, stream, flags);
+	}
+
+	// wxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream * stream, int flags = 3)
+	static wxZlibInputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream * stream, int flags = 3) function, expected prototype:\nwxZlibInputStream::wxZlibInputStream(lua_Table * data, wxInputStream * stream, int flags = 3)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxInputStream* stream=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
+		int flags=luatop>2 ? (int)lua_tointeger(L,3) : 3;
+
+		return new wrapper_wxZlibInputStream(L,NULL, stream, flags);
+	}
+
+	// Overload binder for wxZlibInputStream::wxZlibInputStream
+	static wxZlibInputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxZlibInputStream, cannot match any of the overloads for function wxZlibInputStream:\n  wxZlibInputStream(lua_Table *, wxInputStream &, int)\n  wxZlibInputStream(lua_Table *, wxInputStream *, int)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxZlibInputStream::SetDictionary(const char * data, const size_t datalen)
@@ -442,7 +511,8 @@ public:
 };
 
 wxZlibInputStream* LunaTraits< wxZlibInputStream >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxZlibInputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
 }

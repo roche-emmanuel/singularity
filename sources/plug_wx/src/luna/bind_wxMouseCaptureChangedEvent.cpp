@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCapturedWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -88,6 +100,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL)
+	static wxMouseCaptureChangedEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL) function, expected prototype:\nwxMouseCaptureChangedEvent::wxMouseCaptureChangedEvent(lua_Table * data, int windowId = 0, wxWindow * gainedCapture = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int windowId=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		wxWindow* gainedCapture=luatop>2 ? (Luna< wxObject >::checkSubType< wxWindow >(L,3)) : (wxWindow*)NULL;
+
+		return new wrapper_wxMouseCaptureChangedEvent(L,NULL, windowId, gainedCapture);
+	}
+
 
 	// Function binds:
 	// wxWindow * wxMouseCaptureChangedEvent::GetCapturedWindow() const
@@ -157,7 +186,8 @@ public:
 };
 
 wxMouseCaptureChangedEvent* LunaTraits< wxMouseCaptureChangedEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMouseCaptureChangedEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

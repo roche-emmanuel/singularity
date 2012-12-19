@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_libraryName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -115,6 +124,13 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getFileNames(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,1372978) ) return false;
 		return true;
 	}
 
@@ -304,7 +320,7 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_base_openArchive(lua_State *L) {
+	inline static bool _lg_typecheck_base_openArchive_overload_1(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
@@ -312,6 +328,18 @@ public:
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,5)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_openArchive_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,77972206) ) return false;
+		if( (!dynamic_cast< std::istream* >(Luna< std::istream >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -344,6 +372,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgDB::Archive::Archive(lua_Table * data)
+	static osgDB::Archive* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::Archive::Archive(lua_Table * data) function, expected prototype:\nosgDB::Archive::Archive(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgDB_Archive(L,NULL);
+	}
+
 
 	// Function binds:
 	// const char * osgDB::Archive::libraryName() const
@@ -496,6 +537,30 @@ public:
 		}
 		osgDB::FileType lret = self->getFileType(filename);
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const
+	static int _bind_getFileNames(lua_State *L) {
+		if (!_lg_typecheck_getFileNames(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const function, expected prototype:\nbool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const\nClass arguments details:\narg 1 ID = 1372978\n");
+		}
+
+		osgDB::DirectoryContents* fileNames_ptr=(Luna< osgDB::DirectoryContents >::check(L,2));
+		if( !fileNames_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fileNames in osgDB::Archive::getFileNames function");
+		}
+		osgDB::DirectoryContents & fileNames=*fileNames_ptr;
+
+		osgDB::Archive* self=Luna< osg::Referenced >::checkSubType< osgDB::Archive >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::Archive::getFileNames(osgDB::DirectoryContents &) const");
+		}
+		bool lret = self->getFileNames(fileNames);
+		lua_pushboolean(L,lret?1:0);
 
 		return 1;
 	}
@@ -1086,8 +1151,8 @@ public:
 	}
 
 	// osgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const
-	static int _bind_base_openArchive(lua_State *L) {
-		if (!_lg_typecheck_base_openArchive(L)) {
+	static int _bind_base_openArchive_overload_1(lua_State *L) {
+		if (!_lg_typecheck_base_openArchive_overload_1(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(const std::string & arg1, osgDB::ReaderWriter::ArchiveStatus arg2, unsigned int arg3 = 4096, const osgDB::Options * arg4 = NULL) const\nClass arguments details:\narg 4 ID = 50169651\n");
 		}
@@ -1111,6 +1176,45 @@ public:
 		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
 
 		return 1;
+	}
+
+	// osgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	static int _bind_base_openArchive_overload_2(lua_State *L) {
+		if (!_lg_typecheck_base_openArchive_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const function, expected prototype:\nosgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const\nClass arguments details:\narg 1 ID = 77972206\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::istream* _arg1_ptr=(Luna< std::istream >::check(L,2));
+		if( !_arg1_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg1 in osgDB::Archive::base_openArchive function");
+		}
+		std::istream & _arg1=*_arg1_ptr;
+		const osgDB::Options* _arg2=luatop>2 ? (Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) : (const osgDB::Options*)((void *) 0);
+
+		osgDB::Archive* self=Luna< osg::Referenced >::checkSubType< osgDB::Archive >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ReaderWriter::ReadResult osgDB::Archive::base_openArchive(std::istream &, const osgDB::Options *) const");
+		}
+		osgDB::ReaderWriter::ReadResult stack_lret = self->Archive::openArchive(_arg1, _arg2);
+		osgDB::ReaderWriter::ReadResult* lret = new osgDB::ReaderWriter::ReadResult(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ReaderWriter::ReadResult >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// Overload binder for osgDB::Archive::base_openArchive
+	static int _bind_base_openArchive(lua_State *L) {
+		if (_lg_typecheck_base_openArchive_overload_1(L)) return _bind_base_openArchive_overload_1(L);
+		if (_lg_typecheck_base_openArchive_overload_2(L)) return _bind_base_openArchive_overload_2(L);
+
+		luaL_error(L, "error in function base_openArchive, cannot match any of the overloads for function base_openArchive:\n  base_openArchive(const std::string &, osgDB::ReaderWriter::ArchiveStatus, unsigned int, const osgDB::Options *)\n  base_openArchive(std::istream &, const osgDB::Options *)\n");
+		return 0;
 	}
 
 	// const char * osgDB::Archive::base_libraryName() const
@@ -1200,7 +1304,8 @@ public:
 };
 
 osgDB::Archive* LunaTraits< osgDB::Archive >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgDB_Archive::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgDB::Archive::close()
 	// std::string osgDB::Archive::getArchiveFileName() const
@@ -1240,6 +1345,7 @@ luna_RegType LunaTraits< osgDB::Archive >::methods[] = {
 	{"getMasterFileName", &luna_wrapper_osgDB_Archive::_bind_getMasterFileName},
 	{"fileExists", &luna_wrapper_osgDB_Archive::_bind_fileExists},
 	{"getFileType", &luna_wrapper_osgDB_Archive::_bind_getFileType},
+	{"getFileNames", &luna_wrapper_osgDB_Archive::_bind_getFileNames},
 	{"getDirectoryContents", &luna_wrapper_osgDB_Archive::_bind_getDirectoryContents},
 	{"readObject", &luna_wrapper_osgDB_Archive::_bind_readObject},
 	{"readImage", &luna_wrapper_osgDB_Archive::_bind_readImage},

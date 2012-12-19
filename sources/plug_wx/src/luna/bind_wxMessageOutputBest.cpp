@@ -66,10 +66,37 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMessageOutputBest::wxMessageOutputBest(lua_Table * data, wxMessageOutputFlags flags = ::wxMSGOUT_PREFER_STDERR)
+	static wxMessageOutputBest* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMessageOutputBest::wxMessageOutputBest(lua_Table * data, wxMessageOutputFlags flags = ::wxMSGOUT_PREFER_STDERR) function, expected prototype:\nwxMessageOutputBest::wxMessageOutputBest(lua_Table * data, wxMessageOutputFlags flags = ::wxMSGOUT_PREFER_STDERR)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxMessageOutputFlags flags=luatop>1 ? (wxMessageOutputFlags)lua_tointeger(L,2) : ::wxMSGOUT_PREFER_STDERR;
+
+		return new wrapper_wxMessageOutputBest(L,NULL, flags);
+	}
+
 
 	// Function binds:
 
@@ -78,7 +105,8 @@ public:
 };
 
 wxMessageOutputBest* LunaTraits< wxMessageOutputBest >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMessageOutputBest::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxMessageOutput::Output(const wxString & str)
 }

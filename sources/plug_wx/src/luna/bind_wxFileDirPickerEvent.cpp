@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetPath(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +108,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path)
+	static wxFileDirPickerEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path) function, expected prototype:\nwxFileDirPickerEvent::wxFileDirPickerEvent(lua_Table * data, int type, wxObject * generator, int id, const wxString & path)\nClass arguments details:\narg 3 ID = 56813631\narg 5 ID = 88196105\n");
+		}
+
+		int type=(int)lua_tointeger(L,2);
+		wxObject* generator=(Luna< wxObject >::check(L,3));
+		int id=(int)lua_tointeger(L,4);
+		wxString path(lua_tostring(L,5),lua_objlen(L,5));
+
+		return new wrapper_wxFileDirPickerEvent(L,NULL, type, generator, id, path);
+	}
+
 
 	// Function binds:
 	// wxString wxFileDirPickerEvent::GetPath() const
@@ -181,7 +211,8 @@ public:
 };
 
 wxFileDirPickerEvent* LunaTraits< wxFileDirPickerEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFileDirPickerEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

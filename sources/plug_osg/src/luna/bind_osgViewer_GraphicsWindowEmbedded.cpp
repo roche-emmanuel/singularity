@@ -78,6 +78,29 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::GraphicsContext::Traits* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_libraryName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -405,6 +428,46 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0)
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0) function, expected prototype:\nosgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, osg::GraphicsContext::Traits * traits = 0)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::GraphicsContext::Traits* traits=luatop>1 ? (Luna< osg::Referenced >::checkSubType< osg::GraphicsContext::Traits >(L,2)) : (osg::GraphicsContext::Traits*)0;
+
+		return new wrapper_osgViewer_GraphicsWindowEmbedded(L,NULL, traits);
+	}
+
+	// osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height)
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height) function, expected prototype:\nosgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded(lua_Table * data, int x, int y, int width, int height)\nClass arguments details:\n");
+		}
+
+		int x=(int)lua_tointeger(L,2);
+		int y=(int)lua_tointeger(L,3);
+		int width=(int)lua_tointeger(L,4);
+		int height=(int)lua_tointeger(L,5);
+
+		return new wrapper_osgViewer_GraphicsWindowEmbedded(L,NULL, x, y, width, height);
+	}
+
+	// Overload binder for osgViewer::GraphicsWindowEmbedded::GraphicsWindowEmbedded
+	static osgViewer::GraphicsWindowEmbedded* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function GraphicsWindowEmbedded, cannot match any of the overloads for function GraphicsWindowEmbedded:\n  GraphicsWindowEmbedded(lua_Table *, osg::GraphicsContext::Traits *)\n  GraphicsWindowEmbedded(lua_Table *, int, int, int, int)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgViewer::GraphicsWindowEmbedded::libraryName() const
@@ -1362,7 +1425,8 @@ public:
 };
 
 osgViewer::GraphicsWindowEmbedded* LunaTraits< osgViewer::GraphicsWindowEmbedded >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgViewer_GraphicsWindowEmbedded::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool osg::GraphicsContext::makeContextCurrentImplementation(osg::GraphicsContext * readContext)
 }

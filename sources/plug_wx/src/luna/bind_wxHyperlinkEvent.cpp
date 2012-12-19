@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetURL(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +107,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url)
+	static wxHyperlinkEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url) function, expected prototype:\nwxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\n");
+		}
+
+		wxObject* generator=(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString url(lua_tostring(L,4),lua_objlen(L,4));
+
+		return new wrapper_wxHyperlinkEvent(L,NULL, generator, id, url);
+	}
+
 
 	// Function binds:
 	// wxString wxHyperlinkEvent::GetURL() const
@@ -181,7 +209,8 @@ public:
 };
 
 wxHyperlinkEvent* LunaTraits< wxHyperlinkEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHyperlinkEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

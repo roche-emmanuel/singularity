@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -82,6 +91,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDisplayChangedEvent::wxDisplayChangedEvent(lua_Table * data)
+	static wxDisplayChangedEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDisplayChangedEvent::wxDisplayChangedEvent(lua_Table * data) function, expected prototype:\nwxDisplayChangedEvent::wxDisplayChangedEvent(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDisplayChangedEvent(L,NULL);
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxDisplayChangedEvent::base_GetClassInfo() const
@@ -130,7 +152,8 @@ public:
 };
 
 wxDisplayChangedEvent* LunaTraits< wxDisplayChangedEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDisplayChangedEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetFormat(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -123,6 +136,24 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT)
+	static wxGridCellFloatRenderer* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) function, expected prototype:\nwxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int width=luatop>1 ? (int)lua_tointeger(L,2) : -1;
+		int precision=luatop>2 ? (int)lua_tointeger(L,3) : -1;
+		int format=luatop>3 ? (int)lua_tointeger(L,4) : ::wxGRID_FLOAT_FORMAT_DEFAULT;
+
+		return new wrapper_wxGridCellFloatRenderer(L,NULL, width, precision, format);
+	}
+
 
 	// Function binds:
 	// int wxGridCellFloatRenderer::GetFormat() const
@@ -283,7 +314,8 @@ public:
 };
 
 wxGridCellFloatRenderer* LunaTraits< wxGridCellFloatRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellFloatRenderer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)

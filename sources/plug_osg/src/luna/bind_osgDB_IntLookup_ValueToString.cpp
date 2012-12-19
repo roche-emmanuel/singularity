@@ -70,6 +70,8 @@ public:
 
 osgDB::IntLookup::ValueToString* LunaTraits< osgDB::IntLookup::ValueToString >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::IntLookup::ValueToString >::_bind_dtor(osgDB::IntLookup::ValueToString* obj) {

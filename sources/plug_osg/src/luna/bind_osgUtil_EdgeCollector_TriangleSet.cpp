@@ -70,6 +70,8 @@ public:
 
 osgUtil::EdgeCollector::TriangleSet* LunaTraits< osgUtil::EdgeCollector::TriangleSet >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::EdgeCollector::TriangleSet >::_bind_dtor(osgUtil::EdgeCollector::TriangleSet* obj) {

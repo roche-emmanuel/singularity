@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +108,24 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataViewDateRenderer::wxDataViewDateRenderer(lua_Table * data, const wxString & varianttype = "datetime", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1)
+	static wxDataViewDateRenderer* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewDateRenderer::wxDataViewDateRenderer(lua_Table * data, const wxString & varianttype = \"datetime\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1) function, expected prototype:\nwxDataViewDateRenderer::wxDataViewDateRenderer(lua_Table * data, const wxString & varianttype = \"datetime\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString varianttype(lua_tostring(L,2),lua_objlen(L,2));
+		wxDataViewCellMode mode=luatop>2 ? (wxDataViewCellMode)lua_tointeger(L,3) : ::wxDATAVIEW_CELL_ACTIVATABLE;
+		int align=luatop>3 ? (int)lua_tointeger(L,4) : -1;
+
+		return new wrapper_wxDataViewDateRenderer(L,NULL, varianttype, mode, align);
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxDataViewDateRenderer::base_GetClassInfo() const
@@ -181,8 +212,11 @@ public:
 };
 
 wxDataViewDateRenderer* LunaTraits< wxDataViewDateRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewDateRenderer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxSize wxDataViewRenderer::GetSize() const
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
 }

@@ -1350,6 +1350,8 @@ public:
 
 osg::FrameBufferObject* LunaTraits< osg::FrameBufferObject >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_FrameBufferObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::FrameBufferObject >::_bind_dtor(osg::FrameBufferObject* obj) {

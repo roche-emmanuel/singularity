@@ -685,6 +685,8 @@ public:
 
 wxWrapSizer* LunaTraits< wxWrapSizer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxWrapSizer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxWrapSizer >::_bind_dtor(wxWrapSizer* obj) {

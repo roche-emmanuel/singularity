@@ -24,6 +24,25 @@ public:
 
 
 
+public:
+// unsigned int osg::GraphicsContext::WindowingSystemInterface::getNumScreens(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier = osg::GraphicsContext::ScreenIdentifier ())
+unsigned int getNumScreens(const osg::GraphicsContext::ScreenIdentifier &) {
+	THROW_IF(true,"The function call unsigned int osg::GraphicsContext::WindowingSystemInterface::getNumScreens(const osg::GraphicsContext::ScreenIdentifier &) is not implemented in wrapper.");
+	return unsigned int();
+};
+
+public:
+// void osg::GraphicsContext::WindowingSystemInterface::getScreenSettings(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier, osg::GraphicsContext::ScreenSettings & resolution)
+void getScreenSettings(const osg::GraphicsContext::ScreenIdentifier &, osg::GraphicsContext::ScreenSettings &) {
+	THROW_IF(true,"The function call void osg::GraphicsContext::WindowingSystemInterface::getScreenSettings(const osg::GraphicsContext::ScreenIdentifier &, osg::GraphicsContext::ScreenSettings &) is not implemented in wrapper.");
+};
+
+public:
+// void osg::GraphicsContext::WindowingSystemInterface::enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier & screenIdentifier, osg::GraphicsContext::ScreenSettingsList & resolutionList)
+void enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier &, osg::GraphicsContext::ScreenSettingsList &) {
+	THROW_IF(true,"The function call void osg::GraphicsContext::WindowingSystemInterface::enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier &, osg::GraphicsContext::ScreenSettingsList &) is not implemented in wrapper.");
+};
+
 };
 
 

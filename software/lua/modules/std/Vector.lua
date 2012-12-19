@@ -23,6 +23,14 @@ function Class:push_back(item)
     table.insert(self._data,item);
 end
 
+function Class:concat(sep)
+	if self:empty() then
+		return "";
+	end
+	
+	return table.concat(self._data,sep or "");
+end
+
 --- Append item at vector front.
 -- Push an item at the front of the vector.
 -- @param item The item to add

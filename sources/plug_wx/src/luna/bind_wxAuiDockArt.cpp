@@ -79,6 +79,15 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_DrawBackground(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
@@ -191,6 +200,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxAuiDockArt::wxAuiDockArt(lua_Table * data)
+	static wxAuiDockArt* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiDockArt::wxAuiDockArt(lua_Table * data) function, expected prototype:\nwxAuiDockArt::wxAuiDockArt(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAuiDockArt(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
@@ -532,7 +554,8 @@ public:
 };
 
 wxAuiDockArt* LunaTraits< wxAuiDockArt >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxAuiDockArt::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)
 	// void wxAuiDockArt::DrawBorder(wxDC & dc, wxWindow * window, const wxRect & rect, wxAuiPaneInfo & pane)

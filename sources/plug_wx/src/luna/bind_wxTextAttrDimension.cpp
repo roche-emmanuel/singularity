@@ -666,6 +666,8 @@ public:
 
 wxTextAttrDimension* LunaTraits< wxTextAttrDimension >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTextAttrDimension::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxTextAttrDimension >::_bind_dtor(wxTextAttrDimension* obj) {

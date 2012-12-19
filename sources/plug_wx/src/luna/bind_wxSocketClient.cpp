@@ -440,6 +440,8 @@ public:
 
 wxSocketClient* LunaTraits< wxSocketClient >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxSocketClient::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxSocketClient >::_bind_dtor(wxSocketClient* obj) {

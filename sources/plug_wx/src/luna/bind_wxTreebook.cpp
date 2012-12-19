@@ -78,6 +78,32 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>7 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>3 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( luatop>4 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_AddPage(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -1002,6 +1028,55 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTreebook::wxTreebook(lua_Table * data)
+	static wxTreebook* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTreebook::wxTreebook(lua_Table * data) function, expected prototype:\nwxTreebook::wxTreebook(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxTreebook(L,NULL);
+	}
+
+	// wxTreebook::wxTreebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString)
+	static wxTreebook* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTreebook::wxTreebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString) function, expected prototype:\nwxTreebook::wxTreebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxTreebook::wxTreebook function");
+		}
+		const wxPoint & pos=luatop>3 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>4 ? (Luna< wxSize >::check(L,5)) : NULL;
+		if( luatop>4 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxTreebook::wxTreebook function");
+		}
+		const wxSize & size=luatop>4 ? *size_ptr : wxDefaultSize;
+		long style=luatop>5 ? (long)lua_tointeger(L,6) : wxBK_DEFAULT;
+		wxString name(lua_tostring(L,7),lua_objlen(L,7));
+
+		return new wrapper_wxTreebook(L,NULL, parent, id, pos, size, style, name);
+	}
+
+	// Overload binder for wxTreebook::wxTreebook
+	static wxTreebook* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxTreebook, cannot match any of the overloads for function wxTreebook:\n  wxTreebook(lua_Table *)\n  wxTreebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxTreebook::AddPage(wxWindow * page, const wxString & text, bool bSelect = false, int imageId = wxNOT_FOUND)
@@ -3674,7 +3749,8 @@ public:
 };
 
 wxTreebook* LunaTraits< wxTreebook >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxTreebook::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
 	// bool wxBookCtrlBase::SetPageImage(size_t page, int image)
@@ -3682,6 +3758,7 @@ wxTreebook* LunaTraits< wxTreebook >::_bind_ctor(lua_State *L) {
 	// bool wxBookCtrlBase::SetPageText(size_t page, const wxString & text)
 	// int wxBookCtrlBase::SetSelection(size_t page)
 	// int wxBookCtrlBase::ChangeSelection(size_t page)
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
 }
 
 void LunaTraits< wxTreebook >::_bind_dtor(wxTreebook* obj) {

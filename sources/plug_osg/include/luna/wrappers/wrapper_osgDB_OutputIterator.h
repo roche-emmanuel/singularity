@@ -153,6 +153,18 @@ public:
 
 
 
+public:
+// void osgDB::OutputIterator::writeStream(std::ostream &(*)(std::ostream &) fn)
+void writeStream(std::ostream &(*)(std::ostream &)) {
+	THROW_IF(true,"The function call void osgDB::OutputIterator::writeStream(std::ostream &(*)(std::ostream &)) is not implemented in wrapper.");
+};
+
+public:
+// void osgDB::OutputIterator::writeBase(std::ios_base &(*)(std::ios_base &) fn)
+void writeBase(std::ios_base &(*)(std::ios_base &)) {
+	THROW_IF(true,"The function call void osgDB::OutputIterator::writeBase(std::ios_base &(*)(std::ios_base &)) is not implemented in wrapper.");
+};
+
 };
 
 

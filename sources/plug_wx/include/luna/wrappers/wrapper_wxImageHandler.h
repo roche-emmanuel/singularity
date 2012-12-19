@@ -77,6 +77,13 @@ protected:
 		return wxImageHandler::CloneRefData(data);
 	};
 
+	// bool wxImageHandler::DoCanRead(wxInputStream & arg1)
+	bool DoCanRead(wxInputStream & arg1) {
+		THROW_IF(!_obj.pushFunction("DoCanRead"),"No implementation for abstract function wxImageHandler::DoCanRead");
+		_obj.pushArg(&arg1);
+		return (_obj.callFunction<bool>());
+	};
+
 
 };
 

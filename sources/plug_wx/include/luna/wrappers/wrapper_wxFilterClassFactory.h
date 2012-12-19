@@ -73,6 +73,13 @@ protected:
 	};
 
 
+public:
+// const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
+const wxChar *const * GetProtocols(wxStreamProtocolType) const {
+	THROW_IF(true,"The function call const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType) const is not implemented in wrapper.");
+	return NULL;
+};
+
 };
 
 

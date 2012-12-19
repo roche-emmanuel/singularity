@@ -788,6 +788,8 @@ public:
 
 osg::VertexBufferObject* LunaTraits< osg::VertexBufferObject >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_VertexBufferObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::VertexBufferObject >::_bind_dtor(osg::VertexBufferObject* obj) {

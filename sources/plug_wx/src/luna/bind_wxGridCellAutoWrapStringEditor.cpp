@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_Destroy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -127,6 +136,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data)
+	static wxGridCellAutoWrapStringEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data) function, expected prototype:\nwxGridCellAutoWrapStringEditor::wxGridCellAutoWrapStringEditor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridCellAutoWrapStringEditor(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxGridCellAutoWrapStringEditor::base_Destroy()
@@ -305,8 +327,10 @@ public:
 };
 
 wxGridCellAutoWrapStringEditor* LunaTraits< wxGridCellAutoWrapStringEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellAutoWrapStringEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)

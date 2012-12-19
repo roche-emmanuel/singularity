@@ -237,6 +237,18 @@ public:
 
 
 
+public:
+// void osg::PrimitiveSet::accept(PrimitiveFunctor & functor) const
+void accept(PrimitiveFunctor &) const {
+	THROW_IF(true,"The function call void osg::PrimitiveSet::accept(PrimitiveFunctor &) const is not implemented in wrapper.");
+};
+
+public:
+// void osg::PrimitiveSet::accept(PrimitiveIndexFunctor & functor) const
+void accept(PrimitiveIndexFunctor &) const {
+	THROW_IF(true,"The function call void osg::PrimitiveSet::accept(PrimitiveIndexFunctor &) const is not implemented in wrapper.");
+};
+
 };
 
 

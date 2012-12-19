@@ -66,19 +66,60 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
+	inline static bool _lg_typecheck_objectRead(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,47918182) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,50169651) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+
 	// Function binds:
+	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
+	static int _bind_objectRead(lua_State *L) {
+		if (!_lg_typecheck_objectRead(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj) function, expected prototype:\nvoid osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)\nClass arguments details:\narg 1 ID = 47918182\narg 2 ID = 50169651\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,2));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::FinishedObjectReadCallback::objectRead function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+		osg::Object* obj_ptr=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,3));
+		if( !obj_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg obj in osgDB::FinishedObjectReadCallback::objectRead function");
+		}
+		osg::Object & obj=*obj_ptr;
+
+		osgDB::FinishedObjectReadCallback* self=Luna< osg::Referenced >::checkSubType< osgDB::FinishedObjectReadCallback >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream &, osg::Object &)");
+		}
+		self->objectRead(is, obj);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
 };
 
 osgDB::FinishedObjectReadCallback* LunaTraits< osgDB::FinishedObjectReadCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
 }
@@ -95,6 +136,7 @@ const int LunaTraits< osgDB::FinishedObjectReadCallback >::hash = 36083873;
 const int LunaTraits< osgDB::FinishedObjectReadCallback >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::FinishedObjectReadCallback >::methods[] = {
+	{"objectRead", &luna_wrapper_osgDB_FinishedObjectReadCallback::_bind_objectRead},
 	{"__eq", &luna_wrapper_osgDB_FinishedObjectReadCallback::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_FinishedObjectReadCallback::_bind_getTable},
 	{0,0}

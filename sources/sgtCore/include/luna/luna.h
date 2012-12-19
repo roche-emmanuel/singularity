@@ -49,7 +49,7 @@ protected:
 	sgt::LuaObject _obj;
 
 public:
-	luna_wrapper_base(lua_State* L) : _obj(L,-1) {};
+	luna_wrapper_base(lua_State* L) : _obj(L,1) {};
 
 	inline bool pushTable() { return _obj.pushLuaItem(); };
 

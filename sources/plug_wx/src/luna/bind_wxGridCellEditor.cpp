@@ -79,7 +79,22 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
+	inline static bool _lg_typecheck_GetValue(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_BeginEdit(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
@@ -240,7 +255,39 @@ public:
 	// Operator checkers:
 	// (found 0 valid operators)
 
+	// Constructor binds:
+	// wxGridCellEditor::wxGridCellEditor(lua_Table * data)
+	static wxGridCellEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellEditor::wxGridCellEditor(lua_Table * data) function, expected prototype:\nwxGridCellEditor::wxGridCellEditor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridCellEditor(L,NULL);
+	}
+
+
 	// Function binds:
+	// wxString wxGridCellEditor::GetValue() const
+	static int _bind_GetValue(lua_State *L) {
+		if (!_lg_typecheck_GetValue(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxString wxGridCellEditor::GetValue() const function, expected prototype:\nwxString wxGridCellEditor::GetValue() const\nClass arguments details:\n");
+		}
+
+
+		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxString wxGridCellEditor::GetValue() const");
+		}
+		wxString lret = self->GetValue();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	static int _bind_BeginEdit(lua_State *L) {
 		if (!_lg_typecheck_BeginEdit(L)) {
@@ -694,8 +741,10 @@ public:
 };
 
 wxGridCellEditor* LunaTraits< wxGridCellEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)
@@ -716,6 +765,7 @@ const int LunaTraits< wxGridCellEditor >::hash = 53399133;
 const int LunaTraits< wxGridCellEditor >::uniqueIDs[] = {53399133,0};
 
 luna_RegType LunaTraits< wxGridCellEditor >::methods[] = {
+	{"GetValue", &luna_wrapper_wxGridCellEditor::_bind_GetValue},
 	{"BeginEdit", &luna_wrapper_wxGridCellEditor::_bind_BeginEdit},
 	{"Clone", &luna_wrapper_wxGridCellEditor::_bind_Clone},
 	{"Create", &luna_wrapper_wxGridCellEditor::_bind_Create},

@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetDragRect(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -100,6 +112,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxSashEvent::wxSashEvent(lua_Table * data, int id = 0, wxSashEdgePosition edge = ::wxSASH_NONE)
+	static wxSashEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSashEvent::wxSashEvent(lua_Table * data, int id = 0, wxSashEdgePosition edge = ::wxSASH_NONE) function, expected prototype:\nwxSashEvent::wxSashEvent(lua_Table * data, int id = 0, wxSashEdgePosition edge = ::wxSASH_NONE)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		wxSashEdgePosition edge=luatop>2 ? (wxSashEdgePosition)lua_tointeger(L,3) : ::wxSASH_NONE;
+
+		return new wrapper_wxSashEvent(L,NULL, id, edge);
+	}
+
 
 	// Function binds:
 	// wxRect wxSashEvent::GetDragRect() const
@@ -208,7 +237,8 @@ public:
 };
 
 wxSashEvent* LunaTraits< wxSashEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxSashEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

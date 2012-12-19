@@ -1135,6 +1135,8 @@ public:
 
 wxColour* LunaTraits< wxColour >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxColour::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxColour >::_bind_dtor(wxColour* obj) {

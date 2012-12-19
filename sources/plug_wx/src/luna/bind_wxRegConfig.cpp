@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -83,6 +85,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// wxClassInfo * wxRegConfig::base_GetClassInfo() const
@@ -132,7 +136,8 @@ public:
 };
 
 wxRegConfig* LunaTraits< wxRegConfig >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// const wxString & wxConfigBase::GetPath() const
 	// void wxConfigBase::SetPath(const wxString & strPath)

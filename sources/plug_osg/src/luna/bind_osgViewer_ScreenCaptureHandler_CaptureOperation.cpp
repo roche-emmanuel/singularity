@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 
 	// Operator checkers:
@@ -78,6 +80,8 @@ public:
 		return true;
 	}
 
+
+	// Constructor binds:
 
 	// Function binds:
 
@@ -110,7 +114,8 @@ public:
 };
 
 osgViewer::ScreenCaptureHandler::CaptureOperation* LunaTraits< osgViewer::ScreenCaptureHandler::CaptureOperation >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 }

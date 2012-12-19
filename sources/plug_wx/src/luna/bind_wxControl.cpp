@@ -3350,6 +3350,8 @@ public:
 
 wxControl* LunaTraits< wxControl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxControl::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxControl >::_bind_dtor(wxControl* obj) {

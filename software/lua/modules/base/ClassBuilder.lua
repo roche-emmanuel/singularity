@@ -48,6 +48,7 @@ function Class:__call(options)
 	local result = oo.class({},unpack(bases))
 	result.CLASS_NAME = options.name -- kept for backward compatibility (see binding modules for instance)
 	result._CLASSNAME_ = options.name
+	result._LIBRARYNAME_ = options.library or "sgt"
 	
 	function result:__init(opt,instance)
 		local obj = instance or {}
@@ -76,9 +77,33 @@ function Class:__call(options)
 		return self._wrappers and self._wrappers[index+1]
 	end
 	
+	function result:defineMember(options)
+		local name = options.name
+		local fname = options.fullname or options.name
+		fname = fname:sub(1,1):upper() .. fname:sub(2)
+		
+		if options.defVal~= nil then
+			self["_" .. name] = options.defVal
+		end
+		
+		if not result["get"..fname] then
+			result["get"..fname] = function(self)
+				return self["_" .. name];
+			end
+		end
+		
+		if not options.readonly and not result["set"..fname] then
+			result["set"..fname] = function(self,val)
+				self["_" .. name] = val;
+			end
+		end
+	end
+	
 	function result:generateWrapping(wrapper,...) 
 		self._wrappers = self._wrappers or {}
 		local obj = wrapper(self,...)
+		self:check(obj,"Could not create wrapper object.");
+		
 		table.insert(self._wrappers, obj)
 		
 		for name,func in pairs(wrapper) do

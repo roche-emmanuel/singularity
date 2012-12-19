@@ -66,10 +66,14 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 
@@ -78,7 +82,8 @@ public:
 };
 
 wxRichTextObject* LunaTraits< wxRichTextObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxRichTextObject::Draw(wxDC & dc, const wxRichTextRange & range, const wxRichTextSelection & selection, const wxRect & rect, int descent, int style)
 	// bool wxRichTextObject::Layout(wxDC & dc, const wxRect & rect, int style)

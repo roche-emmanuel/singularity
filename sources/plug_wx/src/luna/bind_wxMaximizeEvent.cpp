@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -82,6 +93,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMaximizeEvent::wxMaximizeEvent(lua_Table * data, int id = 0)
+	static wxMaximizeEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMaximizeEvent::wxMaximizeEvent(lua_Table * data, int id = 0) function, expected prototype:\nwxMaximizeEvent::wxMaximizeEvent(lua_Table * data, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+
+		return new wrapper_wxMaximizeEvent(L,NULL, id);
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxMaximizeEvent::base_GetClassInfo() const
@@ -130,7 +157,8 @@ public:
 };
 
 wxMaximizeEvent* LunaTraits< wxMaximizeEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMaximizeEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

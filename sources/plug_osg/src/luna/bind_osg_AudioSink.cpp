@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_libraryName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -217,6 +226,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::AudioSink::AudioSink(lua_Table * data)
+	static osg::AudioSink* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::AudioSink::AudioSink(lua_Table * data) function, expected prototype:\nosg::AudioSink::AudioSink(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_AudioSink(L,NULL);
+	}
+
 
 	// Function binds:
 	// const char * osg::AudioSink::libraryName() const
@@ -674,7 +696,8 @@ public:
 };
 
 osg::AudioSink* LunaTraits< osg::AudioSink >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_AudioSink::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::AudioSink::play()
 	// void osg::AudioSink::pause()

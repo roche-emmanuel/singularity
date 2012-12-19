@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetMenu(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -100,6 +113,24 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMenuEvent::wxMenuEvent(lua_Table * data, int type = wxEVT_NULL, int id = 0, wxMenu * menu = NULL)
+	static wxMenuEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMenuEvent::wxMenuEvent(lua_Table * data, int type = wxEVT_NULL, int id = 0, wxMenu * menu = NULL) function, expected prototype:\nwxMenuEvent::wxMenuEvent(lua_Table * data, int type = wxEVT_NULL, int id = 0, wxMenu * menu = NULL)\nClass arguments details:\narg 4 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		wxMenu* menu=luatop>3 ? (Luna< wxObject >::checkSubType< wxMenu >(L,4)) : (wxMenu*)NULL;
+
+		return new wrapper_wxMenuEvent(L,NULL, type, id, menu);
+	}
+
 
 	// Function binds:
 	// wxMenu * wxMenuEvent::GetMenu() const
@@ -207,7 +238,8 @@ public:
 };
 
 wxMenuEvent* LunaTraits< wxMenuEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMenuEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

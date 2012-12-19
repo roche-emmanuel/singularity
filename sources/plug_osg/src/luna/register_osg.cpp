@@ -540,6 +540,7 @@ int PLUG_EXPORT luaopen_osg(lua_State* L) {
 	Luna< osgDB::InputIterator >::Register(L);
 	Luna< osgDB::XmlNode >::Register(L);
 	Luna< std::vector< osg::ref_ptr< osgDB::XmlNode > > >::Register(L);
+	Luna< osgDB::XmlNode::ControlMap >::Register(L);
 	Luna< osgDB::XmlNode::Input >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"osgGA");

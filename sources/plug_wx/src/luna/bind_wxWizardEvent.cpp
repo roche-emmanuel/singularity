@@ -66,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetDirection(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -94,6 +108,25 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxWizardEvent::wxWizardEvent(lua_Table * data, int type = wxEVT_NULL, int id = ::wxID_ANY, bool direction = true, wxWizardPage * page = 0)
+	static wxWizardEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWizardEvent::wxWizardEvent(lua_Table * data, int type = wxEVT_NULL, int id = ::wxID_ANY, bool direction = true, wxWizardPage * page = 0) function, expected prototype:\nwxWizardEvent::wxWizardEvent(lua_Table * data, int type = wxEVT_NULL, int id = ::wxID_ANY, bool direction = true, wxWizardPage * page = 0)\nClass arguments details:\narg 5 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : ::wxID_ANY;
+		bool direction=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+		wxWizardPage* page=luatop>4 ? (Luna< wxObject >::checkSubType< wxWizardPage >(L,5)) : (wxWizardPage*)0;
+
+		return new wrapper_wxWizardEvent(L,NULL, type, id, direction, page);
+	}
+
 
 	// Function binds:
 	// bool wxWizardEvent::GetDirection() const
@@ -182,7 +215,8 @@ public:
 };
 
 wxWizardEvent* LunaTraits< wxWizardEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxWizardEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

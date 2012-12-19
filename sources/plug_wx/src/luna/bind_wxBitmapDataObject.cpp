@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetBitmap(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -117,6 +128,26 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxBitmapDataObject::wxBitmapDataObject(lua_Table * data, const wxBitmap & bitmap = wxNullBitmap)
+	static wxBitmapDataObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxBitmapDataObject::wxBitmapDataObject(lua_Table * data, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nwxBitmapDataObject::wxBitmapDataObject(lua_Table * data, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxBitmap* bitmap_ptr=luatop>1 ? (Luna< wxObject >::checkSubType< wxBitmap >(L,2)) : NULL;
+		if( luatop>1 && !bitmap_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bitmap in wxBitmapDataObject::wxBitmapDataObject function");
+		}
+		const wxBitmap & bitmap=luatop>1 ? *bitmap_ptr : wxNullBitmap;
+
+		return new wrapper_wxBitmapDataObject(L,NULL, bitmap);
+	}
+
 
 	// Function binds:
 	// wxBitmap wxBitmapDataObject::GetBitmap() const
@@ -275,7 +306,8 @@ public:
 };
 
 wxBitmapDataObject* LunaTraits< wxBitmapDataObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxBitmapDataObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// bool wxDataObject::GetDataHere(const wxDataFormat & format, void * buf) const

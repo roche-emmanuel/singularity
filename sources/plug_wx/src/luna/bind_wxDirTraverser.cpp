@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_OnDir(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -111,6 +113,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
@@ -199,7 +203,8 @@ public:
 };
 
 wxDirTraverser* LunaTraits< wxDirTraverser >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	// wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)

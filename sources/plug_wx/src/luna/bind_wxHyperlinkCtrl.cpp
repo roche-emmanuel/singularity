@@ -66,6 +66,24 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<5 || luatop>9 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_isstring(L,5)==0 ) return false;
+		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
+		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,20268751) ) return false;
+		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetHoverColour(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -889,6 +907,37 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHyperlinkCtrl::wxHyperlinkCtrl(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxString & url, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHL_DEFAULT_STYLE, const wxString & name = wxHyperlinkCtrlNameStr)
+	static wxHyperlinkCtrl* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHyperlinkCtrl::wxHyperlinkCtrl(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxString & url, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHL_DEFAULT_STYLE, const wxString & name = wxHyperlinkCtrlNameStr) function, expected prototype:\nwxHyperlinkCtrl::wxHyperlinkCtrl(lua_Table * data, wxWindow * parent, int id, const wxString & label, const wxString & url, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHL_DEFAULT_STYLE, const wxString & name = wxHyperlinkCtrlNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 25723480\narg 7 ID = 20268751\narg 9 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		int id=(int)lua_tointeger(L,3);
+		wxString label(lua_tostring(L,4),lua_objlen(L,4));
+		wxString url(lua_tostring(L,5),lua_objlen(L,5));
+		const wxPoint* pos_ptr=luatop>5 ? (Luna< wxPoint >::check(L,6)) : NULL;
+		if( luatop>5 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxHyperlinkCtrl::wxHyperlinkCtrl function");
+		}
+		const wxPoint & pos=luatop>5 ? *pos_ptr : wxDefaultPosition;
+		const wxSize* size_ptr=luatop>6 ? (Luna< wxSize >::check(L,7)) : NULL;
+		if( luatop>6 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxHyperlinkCtrl::wxHyperlinkCtrl function");
+		}
+		const wxSize & size=luatop>6 ? *size_ptr : wxDefaultSize;
+		long style=luatop>7 ? (long)lua_tointeger(L,8) : wxHL_DEFAULT_STYLE;
+		wxString name(lua_tostring(L,9),lua_objlen(L,9));
+
+		return new wrapper_wxHyperlinkCtrl(L,NULL, parent, id, label, url, pos, size, style, name);
+	}
+
 
 	// Function binds:
 	// wxColour wxHyperlinkCtrl::GetHoverColour() const
@@ -3377,7 +3426,8 @@ public:
 };
 
 wxHyperlinkCtrl* LunaTraits< wxHyperlinkCtrl >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHyperlinkCtrl::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxHyperlinkCtrl::GetVisited() const
 	// void wxHyperlinkCtrl::SetVisited(bool visited = true)

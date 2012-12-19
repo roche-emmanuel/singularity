@@ -87,6 +87,8 @@ public:
 
 wxFontMetrics* LunaTraits< wxFontMetrics >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFontMetrics::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxFontMetrics >::_bind_dtor(wxFontMetrics* obj) {

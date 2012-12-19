@@ -172,6 +172,8 @@ public:
 
 wxMirrorDC* LunaTraits< wxMirrorDC >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxMirrorDC::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxMirrorDC >::_bind_dtor(wxMirrorDC* obj) {

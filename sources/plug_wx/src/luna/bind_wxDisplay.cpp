@@ -364,6 +364,8 @@ public:
 
 wxDisplay* LunaTraits< wxDisplay >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxDisplay::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxDisplay >::_bind_dtor(wxDisplay* obj) {

@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,28400299) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetItem(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -131,6 +144,28 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTreeEvent::wxTreeEvent(lua_Table * data, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ())
+	static wxTreeEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTreeEvent::wxTreeEvent(lua_Table * data, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ()) function, expected prototype:\nwxTreeEvent::wxTreeEvent(lua_Table * data, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ())\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 28400299\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=(int)lua_tointeger(L,2);
+		wxTreeCtrl* tree=(Luna< wxObject >::checkSubType< wxTreeCtrl >(L,3));
+		const wxTreeItemId* item_ptr=luatop>3 ? (Luna< wxTreeItemId >::check(L,4)) : NULL;
+		if( luatop>3 && !item_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg item in wxTreeEvent::wxTreeEvent function");
+		}
+		const wxTreeItemId & item=luatop>3 ? *item_ptr : wxTreeItemId ();
+
+		return new wrapper_wxTreeEvent(L,NULL, commandType, tree, item);
+	}
+
 
 	// Function binds:
 	// wxTreeItemId wxTreeEvent::GetItem() const
@@ -342,7 +377,8 @@ public:
 };
 
 wxTreeEvent* LunaTraits< wxTreeEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxTreeEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

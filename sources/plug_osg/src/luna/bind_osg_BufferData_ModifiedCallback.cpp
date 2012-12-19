@@ -686,6 +686,8 @@ public:
 
 osg::BufferData::ModifiedCallback* LunaTraits< osg::BufferData::ModifiedCallback >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_BufferData_ModifiedCallback::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::BufferData::ModifiedCallback >::_bind_dtor(osg::BufferData::ModifiedCallback* obj) {

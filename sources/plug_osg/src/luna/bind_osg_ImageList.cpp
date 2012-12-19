@@ -70,6 +70,8 @@ public:
 
 osg::ImageList* LunaTraits< osg::ImageList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ImageList >::_bind_dtor(osg::ImageList* obj) {

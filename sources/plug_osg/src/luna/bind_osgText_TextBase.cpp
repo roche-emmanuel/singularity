@@ -66,6 +66,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgText::TextBase* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -586,6 +607,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgText::TextBase::TextBase(lua_Table * data)
+	static osgText::TextBase* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgText_TextBase(L,NULL);
+	}
+
+	// osgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgText::TextBase* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgText::TextBase::TextBase(lua_Table * data, const osgText::TextBase & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgText::TextBase* text_ptr=(Luna< osg::Referenced >::checkSubType< osgText::TextBase >(L,2));
+		if( !text_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg text in osgText::TextBase::TextBase function");
+		}
+		const osgText::TextBase & text=*text_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgText::TextBase::TextBase function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgText_TextBase(L,NULL, text, copyop);
+	}
+
+	// Overload binder for osgText::TextBase::TextBase
+	static osgText::TextBase* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function TextBase, cannot match any of the overloads for function TextBase:\n  TextBase(lua_Table *)\n  TextBase(lua_Table *, const osgText::TextBase &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osgText::TextBase::isSameKindAs(const osg::Object * obj) const
@@ -2217,7 +2283,8 @@ public:
 };
 
 osgText::TextBase* LunaTraits< osgText::TextBase >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgText_TextBase::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgText::TextBase::computePositions(unsigned int contextID) const
 	// void osgText::TextBase::computeGlyphRepresentation()

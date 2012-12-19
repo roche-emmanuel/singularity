@@ -182,6 +182,8 @@ public:
 
 osgGA::GUIEventAdapter::TouchData* LunaTraits< osgGA::GUIEventAdapter::TouchData >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_GUIEventAdapter_TouchData::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgGA::GUIEventAdapter::TouchData >::_bind_dtor(osgGA::GUIEventAdapter::TouchData* obj) {

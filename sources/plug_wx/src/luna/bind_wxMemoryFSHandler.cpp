@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_AddFile_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
@@ -137,6 +146,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data)
+	static wxMemoryFSHandler* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data) function, expected prototype:\nwxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMemoryFSHandler(L,NULL);
+	}
+
 
 	// Function binds:
 	// static void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type)
@@ -313,7 +335,8 @@ public:
 };
 
 wxMemoryFSHandler* LunaTraits< wxMemoryFSHandler >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMemoryFSHandler::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxFileSystemHandler::CanOpen(const wxString & location)
 	// wxFSFile * wxFileSystemHandler::OpenFile(wxFileSystem & fs, const wxString & location)

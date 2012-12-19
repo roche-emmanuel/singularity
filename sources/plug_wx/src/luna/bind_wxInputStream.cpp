@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanRead(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -223,6 +232,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxInputStream::wxInputStream(lua_Table * data)
+	static wxInputStream* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxInputStream::wxInputStream(lua_Table * data) function, expected prototype:\nwxInputStream::wxInputStream(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxInputStream(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool wxInputStream::CanRead() const
@@ -714,7 +736,8 @@ public:
 };
 
 wxInputStream* LunaTraits< wxInputStream >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxInputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
 }

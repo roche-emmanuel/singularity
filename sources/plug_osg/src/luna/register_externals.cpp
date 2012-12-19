@@ -24,4 +24,16 @@ const char LunaTraits< osgDB::IntLookup::StringToValue >::moduleName[] = "sgt";
 const int LunaTraits< osgDB::IntLookup::StringToValue >::hash = 34334607;
 const int LunaTraits< osgDB::IntLookup::StringToValue >::uniqueIDs[] = {65247664,0};
 
+const char LunaTraits< std::istream >::className[] = "istream";
+const char LunaTraits< std::istream >::fullName[] = "std::istream";
+const char LunaTraits< std::istream >::moduleName[] = "std";
+const int LunaTraits< std::istream >::hash = 77972206;
+const int LunaTraits< std::istream >::uniqueIDs[] = {77972206,0};
+
+const char LunaTraits< std::ostream >::className[] = "ostream";
+const char LunaTraits< std::ostream >::fullName[] = "std::ostream";
+const char LunaTraits< std::ostream >::moduleName[] = "std";
+const int LunaTraits< std::ostream >::hash = 2993706;
+const int LunaTraits< std::ostream >::uniqueIDs[] = {2993706,0};
+
 

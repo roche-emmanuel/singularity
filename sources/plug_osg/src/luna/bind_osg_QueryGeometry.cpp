@@ -83,6 +83,8 @@ public:
 
 osg::QueryGeometry* LunaTraits< osg::QueryGeometry >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::QueryGeometry >::_bind_dtor(osg::QueryGeometry* obj) {

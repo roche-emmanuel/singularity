@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,15941327)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_SetHelpController(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -117,6 +128,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL)
+	static wxHelpControllerHelpProvider* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL) function, expected prototype:\nwxHelpControllerHelpProvider::wxHelpControllerHelpProvider(lua_Table * data, wxHelpController * hc = NULL)\nClass arguments details:\narg 2 ID = 15941327\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxHelpController* hc=luatop>1 ? (Luna< wxHelpController >::check(L,2)) : (wxHelpController*)NULL;
+
+		return new wrapper_wxHelpControllerHelpProvider(L,NULL, hc);
+	}
+
 
 	// Function binds:
 	// void wxHelpControllerHelpProvider::SetHelpController(wxHelpController * hc)
@@ -258,7 +285,8 @@ public:
 };
 
 wxHelpControllerHelpProvider* LunaTraits< wxHelpControllerHelpProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHelpControllerHelpProvider::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
 }

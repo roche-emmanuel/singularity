@@ -45,6 +45,12 @@ protected:
 	};
 
 
+public:
+// void wxRichTextFileHandler::SetVisible(bool visible)
+void SetVisible(bool) {
+	THROW_IF(true,"The function call void wxRichTextFileHandler::SetVisible(bool) is not implemented in wrapper.");
+};
+
 };
 
 

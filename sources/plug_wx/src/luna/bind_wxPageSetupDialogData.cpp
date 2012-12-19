@@ -928,6 +928,8 @@ public:
 
 wxPageSetupDialogData* LunaTraits< wxPageSetupDialogData >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPageSetupDialogData::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxPageSetupDialogData >::_bind_dtor(wxPageSetupDialogData* obj) {

@@ -88,6 +88,15 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_write(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -145,6 +154,33 @@ public:
 		return 1;
 	}
 
+	// bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = "") const
+	static int _bind_write(lua_State *L) {
+		if (!_lg_typecheck_write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const function, expected prototype:\nbool osgDB::XmlNode::write(std::ostream & fout, const std::string & indent = \"\") const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* fout_ptr=(Luna< std::ostream >::check(L,2));
+		if( !fout_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fout in osgDB::XmlNode::write function");
+		}
+		std::ostream & fout=*fout_ptr;
+		std::string indent(lua_tostring(L,3),lua_objlen(L,3));
+
+		osgDB::XmlNode* self=Luna< osg::Referenced >::checkSubType< osgDB::XmlNode >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osgDB::XmlNode::write(std::ostream &, const std::string &) const");
+		}
+		bool lret = self->write(fout, indent);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -152,6 +188,8 @@ public:
 
 osgDB::XmlNode* LunaTraits< osgDB::XmlNode >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_XmlNode::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::XmlNode >::_bind_dtor(osgDB::XmlNode* obj) {
@@ -167,6 +205,7 @@ const int LunaTraits< osgDB::XmlNode >::uniqueIDs[] = {50169651,0};
 
 luna_RegType LunaTraits< osgDB::XmlNode >::methods[] = {
 	{"getTrimmedContents", &luna_wrapper_osgDB_XmlNode::_bind_getTrimmedContents},
+	{"write", &luna_wrapper_osgDB_XmlNode::_bind_write},
 	{"__eq", &luna_wrapper_osgDB_XmlNode::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_XmlNode::_bind_getTable},
 	{0,0}

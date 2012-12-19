@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_DrawLabel(lua_State *L) {
 		if( lua_gettop(L)!=8 ) return false;
@@ -96,6 +98,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
@@ -178,7 +182,8 @@ public:
 };
 
 wxGridHeaderLabelsRenderer* LunaTraits< wxGridHeaderLabelsRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxGridCornerHeaderRenderer::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 }

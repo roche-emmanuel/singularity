@@ -2967,6 +2967,8 @@ public:
 
 wxPGProperty* LunaTraits< wxPGProperty >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPGProperty::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxPGProperty >::_bind_dtor(wxPGProperty* obj) {

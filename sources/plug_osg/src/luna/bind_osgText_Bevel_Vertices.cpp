@@ -70,6 +70,8 @@ public:
 
 osgText::Bevel::Vertices* LunaTraits< osgText::Bevel::Vertices >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgText::Bevel::Vertices >::_bind_dtor(osgText::Bevel::Vertices* obj) {

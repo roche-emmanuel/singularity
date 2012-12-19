@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanVeto(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -161,6 +172,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxAuiManagerEvent::wxAuiManagerEvent(lua_Table * data, int type = wxEVT_NULL)
+	static wxAuiManagerEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiManagerEvent::wxAuiManagerEvent(lua_Table * data, int type = wxEVT_NULL) function, expected prototype:\nwxAuiManagerEvent::wxAuiManagerEvent(lua_Table * data, int type = wxEVT_NULL)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+
+		return new wrapper_wxAuiManagerEvent(L,NULL, type);
+	}
+
 
 	// Function binds:
 	// bool wxAuiManagerEvent::CanVeto()
@@ -445,7 +472,8 @@ public:
 };
 
 wxAuiManagerEvent* LunaTraits< wxAuiManagerEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxAuiManagerEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

@@ -66,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=6 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,25723480) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,56813631) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCell(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -107,6 +121,32 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHtmlCellEvent::wxHtmlCellEvent(lua_Table * data, int commandType, int id, wxHtmlCell * cell, const wxPoint & point, const wxMouseEvent & ev)
+	static wxHtmlCellEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHtmlCellEvent::wxHtmlCellEvent(lua_Table * data, int commandType, int id, wxHtmlCell * cell, const wxPoint & point, const wxMouseEvent & ev) function, expected prototype:\nwxHtmlCellEvent::wxHtmlCellEvent(lua_Table * data, int commandType, int id, wxHtmlCell * cell, const wxPoint & point, const wxMouseEvent & ev)\nClass arguments details:\narg 4 ID = 56813631\narg 5 ID = 25723480\narg 6 ID = 56813631\n");
+		}
+
+		int commandType=(int)lua_tointeger(L,2);
+		int id=(int)lua_tointeger(L,3);
+		wxHtmlCell* cell=(Luna< wxObject >::checkSubType< wxHtmlCell >(L,4));
+		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,5));
+		if( !point_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg point in wxHtmlCellEvent::wxHtmlCellEvent function");
+		}
+		const wxPoint & point=*point_ptr;
+		const wxMouseEvent* ev_ptr=(Luna< wxObject >::checkSubType< wxMouseEvent >(L,6));
+		if( !ev_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ev in wxHtmlCellEvent::wxHtmlCellEvent function");
+		}
+		const wxMouseEvent & ev=*ev_ptr;
+
+		return new wrapper_wxHtmlCellEvent(L,NULL, commandType, id, cell, point, ev);
+	}
+
 
 	// Function binds:
 	// wxHtmlCell * wxHtmlCellEvent::GetCell() const
@@ -236,7 +276,8 @@ public:
 };
 
 wxHtmlCellEvent* LunaTraits< wxHtmlCellEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHtmlCellEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

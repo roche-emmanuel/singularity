@@ -833,6 +833,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_verifyArrays(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_suitableForOptimization(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -3647,6 +3654,30 @@ public:
 		return 0;
 	}
 
+	// bool osg::Geometry::verifyArrays(std::ostream & out) const
+	static int _bind_verifyArrays(lua_State *L) {
+		if (!_lg_typecheck_verifyArrays(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osg::Geometry::verifyArrays(std::ostream & out) const function, expected prototype:\nbool osg::Geometry::verifyArrays(std::ostream & out) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Geometry::verifyArrays function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::Geometry* self=Luna< osg::Referenced >::checkSubType< osg::Geometry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call bool osg::Geometry::verifyArrays(std::ostream &) const");
+		}
+		bool lret = self->verifyArrays(out);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 	// bool osg::Geometry::suitableForOptimization() const
 	static int _bind_suitableForOptimization(lua_State *L) {
 		if (!_lg_typecheck_suitableForOptimization(L)) {
@@ -4388,6 +4419,8 @@ public:
 
 osg::Geometry* LunaTraits< osg::Geometry >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Geometry::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Geometry >::_bind_dtor(osg::Geometry* obj) {
@@ -4487,6 +4520,7 @@ luna_RegType LunaTraits< osg::Geometry >::methods[] = {
 	{"computeFastPathsUsed", &luna_wrapper_osg_Geometry::_bind_computeFastPathsUsed},
 	{"verifyBindings", &luna_wrapper_osg_Geometry::_bind_verifyBindings},
 	{"computeCorrectBindingsAndArraySizes", &luna_wrapper_osg_Geometry::_bind_computeCorrectBindingsAndArraySizes},
+	{"verifyArrays", &luna_wrapper_osg_Geometry::_bind_verifyArrays},
 	{"suitableForOptimization", &luna_wrapper_osg_Geometry::_bind_suitableForOptimization},
 	{"copyToAndOptimize", &luna_wrapper_osg_Geometry::_bind_copyToAndOptimize},
 	{"containsSharedArrays", &luna_wrapper_osg_Geometry::_bind_containsSharedArrays},

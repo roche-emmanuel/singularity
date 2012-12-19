@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetActive(lua_State *L) {
 		if( lua_gettop(L)!=0 ) return false;
@@ -224,6 +226,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// static wxEventLoopBase * wxEventLoopBase::GetActive()
@@ -648,7 +652,8 @@ public:
 };
 
 wxEventLoopBase* LunaTraits< wxEventLoopBase >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// int wxEventLoopBase::Run()
 	// void wxEventLoopBase::Exit(int rc = 0)

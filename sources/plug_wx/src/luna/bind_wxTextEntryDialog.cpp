@@ -3594,6 +3594,8 @@ public:
 
 wxTextEntryDialog* LunaTraits< wxTextEntryDialog >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTextEntryDialog::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxTextEntryDialog >::_bind_dtor(wxTextEntryDialog* obj) {

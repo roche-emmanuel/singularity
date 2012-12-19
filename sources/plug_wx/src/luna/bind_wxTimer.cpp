@@ -664,6 +664,8 @@ public:
 
 wxTimer* LunaTraits< wxTimer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTimer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxTimer >::_bind_dtor(wxTimer* obj) {

@@ -202,6 +202,13 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
+	// wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)
+	wxSplitterRenderParams GetSplitterParams(const wxWindow * win) {
+		THROW_IF(!_obj.pushFunction("GetSplitterParams"),"No implementation for abstract function wxRendererNative::GetSplitterParams");
+		_obj.pushArg(win);
+		return *(_obj.callFunction<wxSplitterRenderParams*>());
+	};
+
 	// wxRendererVersion wxRendererNative::GetVersion() const
 	wxRendererVersion GetVersion() const {
 		THROW_IF(!_obj.pushFunction("GetVersion"),"No implementation for abstract function wxRendererNative::GetVersion");

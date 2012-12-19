@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Clear(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -85,6 +94,18 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_Type(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_Clone(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -94,6 +115,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxSockAddress::wxSockAddress(lua_Table * data)
+	static wxSockAddress* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSockAddress::wxSockAddress(lua_Table * data) function, expected prototype:\nwxSockAddress::wxSockAddress(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxSockAddress(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxSockAddress::Clear()
@@ -154,6 +188,46 @@ public:
 		return 1;
 	}
 
+	// wxSockAddress::Family wxSockAddress::Type()
+	static int _bind_Type(lua_State *L) {
+		if (!_lg_typecheck_Type(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSockAddress::Family wxSockAddress::Type() function, expected prototype:\nwxSockAddress::Family wxSockAddress::Type()\nClass arguments details:\n");
+		}
+
+
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSockAddress::Family wxSockAddress::Type()");
+		}
+		wxSockAddress::Family lret = self->Type();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// wxSockAddress * wxSockAddress::Clone() const
+	static int _bind_Clone(lua_State *L) {
+		if (!_lg_typecheck_Clone(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSockAddress * wxSockAddress::Clone() const function, expected prototype:\nwxSockAddress * wxSockAddress::Clone() const\nClass arguments details:\n");
+		}
+
+
+		wxSockAddress* self=Luna< wxObject >::checkSubType< wxSockAddress >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSockAddress * wxSockAddress::Clone() const");
+		}
+		wxSockAddress * lret = self->Clone();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSockAddress >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// wxClassInfo * wxSockAddress::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
@@ -181,9 +255,12 @@ public:
 };
 
 wxSockAddress* LunaTraits< wxSockAddress >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxSockAddress::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxSockAddress::Clear()
+	// wxSockAddress::Family wxSockAddress::Type()
+	// wxSockAddress * wxSockAddress::Clone() const
 }
 
 void LunaTraits< wxSockAddress >::_bind_dtor(wxSockAddress* obj) {
@@ -201,6 +278,8 @@ luna_RegType LunaTraits< wxSockAddress >::methods[] = {
 	{"Clear", &luna_wrapper_wxSockAddress::_bind_Clear},
 	{"GetAddressData", &luna_wrapper_wxSockAddress::_bind_GetAddressData},
 	{"GetAddressDataLen", &luna_wrapper_wxSockAddress::_bind_GetAddressDataLen},
+	{"Type", &luna_wrapper_wxSockAddress::_bind_Type},
+	{"Clone", &luna_wrapper_wxSockAddress::_bind_Clone},
 	{"base_GetClassInfo", &luna_wrapper_wxSockAddress::_bind_base_GetClassInfo},
 	{"__eq", &luna_wrapper_wxSockAddress::_bind___eq},
 	{"getTable", &luna_wrapper_wxSockAddress::_bind_getTable},
@@ -213,6 +292,10 @@ luna_ConverterType LunaTraits< wxSockAddress >::converters[] = {
 };
 
 luna_RegEnumType LunaTraits< wxSockAddress >::enumValues[] = {
+	{"NONE", wxSockAddress::NONE},
+	{"IPV4", wxSockAddress::IPV4},
+	{"IPV6", wxSockAddress::IPV6},
+	{"UNIX", wxSockAddress::UNIX},
 	{0,0}
 };
 

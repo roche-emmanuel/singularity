@@ -127,6 +127,8 @@ public:
 
 osgDB::ReaderWriterInfo* LunaTraits< osgDB::ReaderWriterInfo >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ReaderWriterInfo::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ReaderWriterInfo >::_bind_dtor(osgDB::ReaderWriterInfo* obj) {

@@ -32,6 +32,7 @@ upx.exe
 #software/bin/linux64
 
 software/tests/*.osgt
+software/tests/*.osgx
 software/tests/*.sql
 software/tests/*.net
 software/tests/*.png

@@ -3381,6 +3381,8 @@ public:
 
 wxRibbonControl* LunaTraits< wxRibbonControl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRibbonControl::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxRibbonControl >::_bind_dtor(wxRibbonControl* obj) {

@@ -1189,6 +1189,8 @@ public:
 
 osg::Hint* LunaTraits< osg::Hint >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Hint::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Hint >::_bind_dtor(osg::Hint* obj) {

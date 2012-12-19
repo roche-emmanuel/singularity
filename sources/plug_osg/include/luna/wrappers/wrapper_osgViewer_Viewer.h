@@ -256,8 +256,8 @@ public:
 		return Viewer::realize();
 	};
 
-	// void osgViewer::Viewer::setStartTick(unsigned long long tick)
-	void setStartTick(unsigned long long tick) {
+	// void osgViewer::Viewer::setStartTick(__int64 tick)
+	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
 			_obj.pushArg(tick);
 			return (_obj.callFunction<void>());

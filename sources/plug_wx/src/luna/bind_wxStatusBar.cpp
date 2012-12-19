@@ -3629,6 +3629,8 @@ public:
 
 wxStatusBar* LunaTraits< wxStatusBar >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxStatusBar::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxStatusBar >::_bind_dtor(wxStatusBar* obj) {

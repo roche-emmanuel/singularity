@@ -17,6 +17,13 @@ public:
 
 
 
+public:
+// bool osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted(osgUtil::IncrementalCompileOperation::CompileSet * compileSet)
+bool compileCompleted(osgUtil::IncrementalCompileOperation::CompileSet *) {
+	THROW_IF(true,"The function call bool osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted(osgUtil::IncrementalCompileOperation::CompileSet *) is not implemented in wrapper.");
+	return bool();
+};
+
 };
 
 

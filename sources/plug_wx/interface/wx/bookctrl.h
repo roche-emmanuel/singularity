@@ -283,8 +283,9 @@ public:
     wxWindow* GetPage(size_t page) const;
 
     // at close curl
-
-
+protected:
+	virtual wxWindow* DoRemovePage(size_t) = 0;
+	
 /*
     other functions which may be worth documenting:
 

@@ -66,6 +66,31 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::PrimitiveSet* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -292,6 +317,56 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::PrimitiveSet::PrimitiveSet(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0)
+	static osg::PrimitiveSet* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet::PrimitiveSet(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) function, expected prototype:\nosg::PrimitiveSet::PrimitiveSet(lua_Table * data, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::PrimitiveSet::Type primType=luatop>1 ? (osg::PrimitiveSet::Type)lua_tointeger(L,2) : osg::PrimitiveSet::PrimitiveType;
+		unsigned int mode=luatop>2 ? (unsigned int)lua_tointeger(L,3) : 0;
+		int numInstances=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_osg_PrimitiveSet(L,NULL, primType, mode, numInstances);
+	}
+
+	// osg::PrimitiveSet::PrimitiveSet(lua_Table * data, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::PrimitiveSet* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::PrimitiveSet::PrimitiveSet(lua_Table * data, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::PrimitiveSet::PrimitiveSet(lua_Table * data, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::PrimitiveSet* prim_ptr=(Luna< osg::Referenced >::checkSubType< osg::PrimitiveSet >(L,2));
+		if( !prim_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg prim in osg::PrimitiveSet::PrimitiveSet function");
+		}
+		const osg::PrimitiveSet & prim=*prim_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::PrimitiveSet::PrimitiveSet function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_PrimitiveSet(L,NULL, prim, copyop);
+	}
+
+	// Overload binder for osg::PrimitiveSet::PrimitiveSet
+	static osg::PrimitiveSet* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function PrimitiveSet, cannot match any of the overloads for function PrimitiveSet:\n  PrimitiveSet(lua_Table *, osg::PrimitiveSet::Type, unsigned int, int)\n  PrimitiveSet(lua_Table *, const osg::PrimitiveSet &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osg::PrimitiveSet::isSameKindAs(const osg::Object * obj) const
@@ -1015,7 +1090,8 @@ public:
 };
 
 osg::PrimitiveSet* LunaTraits< osg::PrimitiveSet >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_PrimitiveSet::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::PrimitiveSet::draw(osg::State & state, bool useVertexBufferObjects) const
 	// void osg::PrimitiveSet::accept(PrimitiveFunctor & functor) const

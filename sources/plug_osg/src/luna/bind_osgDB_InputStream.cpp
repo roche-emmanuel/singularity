@@ -172,9 +172,128 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_readSchema(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,77972206) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_resetSchema(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_readDouble(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_readInt(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_readString(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_readBool(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeMatrixd(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec2d(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec2f(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec3d(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec3f(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec4d(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeVec4f(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeQuat(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_useHexMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_useDecMode(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_beginBracket(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_endBracket(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,1,47918182) ) return false;
 		return true;
 	}
 
@@ -524,6 +643,29 @@ public:
 		return 0;
 	}
 
+	// void osgDB::InputStream::readSchema(std::istream & fin)
+	static int _bind_readSchema(lua_State *L) {
+		if (!_lg_typecheck_readSchema(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osgDB::InputStream::readSchema(std::istream & fin) function, expected prototype:\nvoid osgDB::InputStream::readSchema(std::istream & fin)\nClass arguments details:\narg 1 ID = 77972206\n");
+		}
+
+		std::istream* fin_ptr=(Luna< std::istream >::check(L,2));
+		if( !fin_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg fin in osgDB::InputStream::readSchema function");
+		}
+		std::istream & fin=*fin_ptr;
+
+		osgDB::InputStream* self=(Luna< osgDB::InputStream >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osgDB::InputStream::readSchema(std::istream &)");
+		}
+		self->readSchema(fin);
+
+		return 0;
+	}
+
 	// void osgDB::InputStream::resetSchema()
 	static int _bind_resetSchema(lua_State *L) {
 		if (!_lg_typecheck_resetSchema(L)) {
@@ -542,6 +684,342 @@ public:
 		return 0;
 	}
 
+	// double osgDB::InputStream::readDouble(osgDB::InputStream & is)
+	static int _bind_readDouble(lua_State *L) {
+		if (!_lg_typecheck_readDouble(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in double osgDB::InputStream::readDouble(osgDB::InputStream & is) function, expected prototype:\ndouble osgDB::InputStream::readDouble(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::readDouble function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		double lret = readDouble(is);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int osgDB::InputStream::readInt(osgDB::InputStream & is)
+	static int _bind_readInt(lua_State *L) {
+		if (!_lg_typecheck_readInt(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int osgDB::InputStream::readInt(osgDB::InputStream & is) function, expected prototype:\nint osgDB::InputStream::readInt(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::readInt function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		int lret = readInt(is);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// std::string osgDB::InputStream::readString(osgDB::InputStream & is)
+	static int _bind_readString(lua_State *L) {
+		if (!_lg_typecheck_readString(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in std::string osgDB::InputStream::readString(osgDB::InputStream & is) function, expected prototype:\nstd::string osgDB::InputStream::readString(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::readString function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		std::string lret = readString(is);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool osgDB::InputStream::readBool(osgDB::InputStream & is)
+	static int _bind_readBool(lua_State *L) {
+		if (!_lg_typecheck_readBool(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in bool osgDB::InputStream::readBool(osgDB::InputStream & is) function, expected prototype:\nbool osgDB::InputStream::readBool(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::readBool function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		bool lret = readBool(is);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// osg::Matrixd osgDB::InputStream::writeMatrixd(osgDB::InputStream & is)
+	static int _bind_writeMatrixd(lua_State *L) {
+		if (!_lg_typecheck_writeMatrixd(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Matrixd osgDB::InputStream::writeMatrixd(osgDB::InputStream & is) function, expected prototype:\nosg::Matrixd osgDB::InputStream::writeMatrixd(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeMatrixd function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Matrixd stack_lret = writeMatrixd(is);
+		osg::Matrixd* lret = new osg::Matrixd(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Matrixd >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec2d osgDB::InputStream::writeVec2d(osgDB::InputStream & is)
+	static int _bind_writeVec2d(lua_State *L) {
+		if (!_lg_typecheck_writeVec2d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec2d osgDB::InputStream::writeVec2d(osgDB::InputStream & is) function, expected prototype:\nosg::Vec2d osgDB::InputStream::writeVec2d(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec2d function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec2d stack_lret = writeVec2d(is);
+		osg::Vec2d* lret = new osg::Vec2d(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec2d >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec2f osgDB::InputStream::writeVec2f(osgDB::InputStream & is)
+	static int _bind_writeVec2f(lua_State *L) {
+		if (!_lg_typecheck_writeVec2f(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec2f osgDB::InputStream::writeVec2f(osgDB::InputStream & is) function, expected prototype:\nosg::Vec2f osgDB::InputStream::writeVec2f(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec2f function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec2f stack_lret = writeVec2f(is);
+		osg::Vec2f* lret = new osg::Vec2f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec2f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec3d osgDB::InputStream::writeVec3d(osgDB::InputStream & is)
+	static int _bind_writeVec3d(lua_State *L) {
+		if (!_lg_typecheck_writeVec3d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3d osgDB::InputStream::writeVec3d(osgDB::InputStream & is) function, expected prototype:\nosg::Vec3d osgDB::InputStream::writeVec3d(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec3d function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec3d stack_lret = writeVec3d(is);
+		osg::Vec3d* lret = new osg::Vec3d(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3d >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec3f osgDB::InputStream::writeVec3f(osgDB::InputStream & is)
+	static int _bind_writeVec3f(lua_State *L) {
+		if (!_lg_typecheck_writeVec3f(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec3f osgDB::InputStream::writeVec3f(osgDB::InputStream & is) function, expected prototype:\nosg::Vec3f osgDB::InputStream::writeVec3f(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec3f function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec3f stack_lret = writeVec3f(is);
+		osg::Vec3f* lret = new osg::Vec3f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec3f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec4d osgDB::InputStream::writeVec4d(osgDB::InputStream & is)
+	static int _bind_writeVec4d(lua_State *L) {
+		if (!_lg_typecheck_writeVec4d(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4d osgDB::InputStream::writeVec4d(osgDB::InputStream & is) function, expected prototype:\nosg::Vec4d osgDB::InputStream::writeVec4d(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec4d function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec4d stack_lret = writeVec4d(is);
+		osg::Vec4d* lret = new osg::Vec4d(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4d >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Vec4f osgDB::InputStream::writeVec4f(osgDB::InputStream & is)
+	static int _bind_writeVec4f(lua_State *L) {
+		if (!_lg_typecheck_writeVec4f(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osgDB::InputStream::writeVec4f(osgDB::InputStream & is) function, expected prototype:\nosg::Vec4f osgDB::InputStream::writeVec4f(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeVec4f function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Vec4f stack_lret = writeVec4f(is);
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osg::Quat osgDB::InputStream::writeQuat(osgDB::InputStream & is)
+	static int _bind_writeQuat(lua_State *L) {
+		if (!_lg_typecheck_writeQuat(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Quat osgDB::InputStream::writeQuat(osgDB::InputStream & is) function, expected prototype:\nosg::Quat osgDB::InputStream::writeQuat(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::writeQuat function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		osg::Quat stack_lret = writeQuat(is);
+		osg::Quat* lret = new osg::Quat(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Quat >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// osgDB::InputStream & osgDB::InputStream::useHexMode(osgDB::InputStream & is)
+	static int _bind_useHexMode(lua_State *L) {
+		if (!_lg_typecheck_useHexMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream & osgDB::InputStream::useHexMode(osgDB::InputStream & is) function, expected prototype:\nosgDB::InputStream & osgDB::InputStream::useHexMode(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::useHexMode function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		const osgDB::InputStream* lret = &useHexMode(is);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::InputStream & osgDB::InputStream::useDecMode(osgDB::InputStream & is)
+	static int _bind_useDecMode(lua_State *L) {
+		if (!_lg_typecheck_useDecMode(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream & osgDB::InputStream::useDecMode(osgDB::InputStream & is) function, expected prototype:\nosgDB::InputStream & osgDB::InputStream::useDecMode(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::useDecMode function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		const osgDB::InputStream* lret = &useDecMode(is);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::InputStream & osgDB::InputStream::beginBracket(osgDB::InputStream & is)
+	static int _bind_beginBracket(lua_State *L) {
+		if (!_lg_typecheck_beginBracket(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream & osgDB::InputStream::beginBracket(osgDB::InputStream & is) function, expected prototype:\nosgDB::InputStream & osgDB::InputStream::beginBracket(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::beginBracket function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		const osgDB::InputStream* lret = &beginBracket(is);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// osgDB::InputStream & osgDB::InputStream::endBracket(osgDB::InputStream & is)
+	static int _bind_endBracket(lua_State *L) {
+		if (!_lg_typecheck_endBracket(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::InputStream & osgDB::InputStream::endBracket(osgDB::InputStream & is) function, expected prototype:\nosgDB::InputStream & osgDB::InputStream::endBracket(osgDB::InputStream & is)\nClass arguments details:\narg 1 ID = 47918182\n");
+		}
+
+		osgDB::InputStream* is_ptr=(Luna< osgDB::InputStream >::check(L,1));
+		if( !is_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg is in osgDB::InputStream::endBracket function");
+		}
+		osgDB::InputStream & is=*is_ptr;
+
+		const osgDB::InputStream* lret = &endBracket(is);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::InputStream >::push(L,lret,false);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -549,6 +1027,8 @@ public:
 
 osgDB::InputStream* LunaTraits< osgDB::InputStream >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_InputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::InputStream >::_bind_dtor(osgDB::InputStream* obj) {
@@ -579,7 +1059,24 @@ luna_RegType LunaTraits< osgDB::InputStream >::methods[] = {
 	{"setInputIterator", &luna_wrapper_osgDB_InputStream::_bind_setInputIterator},
 	{"start", &luna_wrapper_osgDB_InputStream::_bind_start},
 	{"decompress", &luna_wrapper_osgDB_InputStream::_bind_decompress},
+	{"readSchema", &luna_wrapper_osgDB_InputStream::_bind_readSchema},
 	{"resetSchema", &luna_wrapper_osgDB_InputStream::_bind_resetSchema},
+	{"readDouble", &luna_wrapper_osgDB_InputStream::_bind_readDouble},
+	{"readInt", &luna_wrapper_osgDB_InputStream::_bind_readInt},
+	{"readString", &luna_wrapper_osgDB_InputStream::_bind_readString},
+	{"readBool", &luna_wrapper_osgDB_InputStream::_bind_readBool},
+	{"writeMatrixd", &luna_wrapper_osgDB_InputStream::_bind_writeMatrixd},
+	{"writeVec2d", &luna_wrapper_osgDB_InputStream::_bind_writeVec2d},
+	{"writeVec2f", &luna_wrapper_osgDB_InputStream::_bind_writeVec2f},
+	{"writeVec3d", &luna_wrapper_osgDB_InputStream::_bind_writeVec3d},
+	{"writeVec3f", &luna_wrapper_osgDB_InputStream::_bind_writeVec3f},
+	{"writeVec4d", &luna_wrapper_osgDB_InputStream::_bind_writeVec4d},
+	{"writeVec4f", &luna_wrapper_osgDB_InputStream::_bind_writeVec4f},
+	{"writeQuat", &luna_wrapper_osgDB_InputStream::_bind_writeQuat},
+	{"useHexMode", &luna_wrapper_osgDB_InputStream::_bind_useHexMode},
+	{"useDecMode", &luna_wrapper_osgDB_InputStream::_bind_useDecMode},
+	{"beginBracket", &luna_wrapper_osgDB_InputStream::_bind_beginBracket},
+	{"endBracket", &luna_wrapper_osgDB_InputStream::_bind_endBracket},
 	{"dynCast", &luna_wrapper_osgDB_InputStream::_bind_dynCast},
 	{"__eq", &luna_wrapper_osgDB_InputStream::_bind___eq},
 	{0,0}

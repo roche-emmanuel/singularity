@@ -66,6 +66,19 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetFiles(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -100,6 +113,24 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDropFilesEvent::wxDropFilesEvent(lua_Table * data, int id = 0, int noFiles = 0, wxString * files = NULL)
+	static wxDropFilesEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDropFilesEvent::wxDropFilesEvent(lua_Table * data, int id = 0, int noFiles = 0, wxString * files = NULL) function, expected prototype:\nwxDropFilesEvent::wxDropFilesEvent(lua_Table * data, int id = 0, int noFiles = 0, wxString * files = NULL)\nClass arguments details:\narg 4 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int noFiles=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		wxString files(lua_tostring(L,4),lua_objlen(L,4));
+
+		return new wrapper_wxDropFilesEvent(L,NULL, id, noFiles, &files);
+	}
+
 
 	// Function binds:
 	// wxString * wxDropFilesEvent::GetFiles() const
@@ -208,7 +239,8 @@ public:
 };
 
 wxDropFilesEvent* LunaTraits< wxDropFilesEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDropFilesEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

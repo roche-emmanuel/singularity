@@ -66,10 +66,32 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMessageOutputDebug::wxMessageOutputDebug(lua_Table * data)
+	static wxMessageOutputDebug* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMessageOutputDebug::wxMessageOutputDebug(lua_Table * data) function, expected prototype:\nwxMessageOutputDebug::wxMessageOutputDebug(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxMessageOutputDebug(L,NULL);
+	}
+
 
 	// Function binds:
 
@@ -78,7 +100,8 @@ public:
 };
 
 wxMessageOutputDebug* LunaTraits< wxMessageOutputDebug >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMessageOutputDebug::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxMessageOutput::Output(const wxString & str)
 }

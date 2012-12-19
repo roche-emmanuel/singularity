@@ -3169,6 +3169,8 @@ public:
 
 wxFilePickerCtrl* LunaTraits< wxFilePickerCtrl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFilePickerCtrl::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxFilePickerCtrl >::_bind_dtor(wxFilePickerCtrl* obj) {

@@ -70,6 +70,8 @@ public:
 
 osgGA::EventQueue::Events* LunaTraits< osgGA::EventQueue::Events >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgGA::EventQueue::Events >::_bind_dtor(osgGA::EventQueue::Events* obj) {

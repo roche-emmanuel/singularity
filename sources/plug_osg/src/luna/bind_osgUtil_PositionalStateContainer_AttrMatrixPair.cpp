@@ -70,6 +70,8 @@ public:
 
 osgUtil::PositionalStateContainer::AttrMatrixPair* LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::PositionalStateContainer::AttrMatrixPair >::_bind_dtor(osgUtil::PositionalStateContainer::AttrMatrixPair* obj) {

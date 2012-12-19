@@ -13,6 +13,7 @@ class wrapper_osgDB_ObjectWrapperManager : public osgDB::ObjectWrapperManager, p
 public:
 	
 
+	wrapper_osgDB_ObjectWrapperManager(lua_State* L, lua_Table* dum) : osgDB::ObjectWrapperManager(), luna_wrapper_base(L) {};
 
 
 

@@ -99,6 +99,8 @@ public:
 
 wxDCPenChanger* LunaTraits< wxDCPenChanger >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxDCPenChanger::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxDCPenChanger >::_bind_dtor(wxDCPenChanger* obj) {

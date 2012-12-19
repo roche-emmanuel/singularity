@@ -87,6 +87,8 @@ public:
 
 osgDB::ofstream* LunaTraits< osgDB::ofstream >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ofstream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ofstream >::_bind_dtor(osgDB::ofstream* obj) {

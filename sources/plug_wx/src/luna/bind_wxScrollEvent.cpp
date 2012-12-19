@@ -66,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetOrientation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -108,6 +122,25 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)
+	static wxScrollEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) function, expected prototype:\nwxScrollEvent::wxScrollEvent(lua_Table * data, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		int pos=luatop>3 ? (int)lua_tointeger(L,4) : 0;
+		int orientation=luatop>4 ? (int)lua_tointeger(L,5) : 0;
+
+		return new wrapper_wxScrollEvent(L,NULL, commandType, id, pos, orientation);
+	}
+
 
 	// Function binds:
 	// int wxScrollEvent::GetOrientation() const
@@ -232,7 +265,8 @@ public:
 };
 
 wxScrollEvent* LunaTraits< wxScrollEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxScrollEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

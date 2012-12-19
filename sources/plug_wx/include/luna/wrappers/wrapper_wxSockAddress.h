@@ -30,6 +30,18 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// wxSockAddress::Family wxSockAddress::Type()
+	wxSockAddress::Family Type() {
+		THROW_IF(!_obj.pushFunction("Type"),"No implementation for abstract function wxSockAddress::Type");
+		return (wxSockAddress::Family)(_obj.callFunction<int>());
+	};
+
+	// wxSockAddress * wxSockAddress::Clone() const
+	wxSockAddress * Clone() const {
+		THROW_IF(!_obj.pushFunction("Clone"),"No implementation for abstract function wxSockAddress::Clone");
+		return (_obj.callFunction<wxSockAddress*>());
+	};
+
 
 protected:
 	// wxObjectRefData * wxObject::CreateRefData() const

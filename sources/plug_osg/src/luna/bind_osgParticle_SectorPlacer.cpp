@@ -988,6 +988,8 @@ public:
 
 osgParticle::SectorPlacer* LunaTraits< osgParticle::SectorPlacer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgParticle_SectorPlacer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::SectorPlacer >::_bind_dtor(osgParticle::SectorPlacer* obj) {

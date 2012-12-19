@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanUndo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -112,6 +124,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString)
+	static wxCommand* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString) function, expected prototype:\nwxCommand::wxCommand(lua_Table * data, bool canUndo = false, const wxString & name = wxEmptyString)\nClass arguments details:\narg 3 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		bool canUndo=luatop>1 ? (bool)(lua_toboolean(L,2)==1) : false;
+		wxString name(lua_tostring(L,3),lua_objlen(L,3));
+
+		return new wrapper_wxCommand(L,NULL, canUndo, name);
+	}
+
 
 	// Function binds:
 	// bool wxCommand::CanUndo() const
@@ -255,7 +284,8 @@ public:
 };
 
 wxCommand* LunaTraits< wxCommand >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxCommand::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxCommand::Do()
 	// bool wxCommand::Undo()

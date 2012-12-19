@@ -1272,6 +1272,19 @@ protected:
 	};
 
 
+protected:
+// void wxVListBox::OnDrawItem(wxDC & dc, const wxRect & rect, size_t n) const
+void OnDrawItem(wxDC &, const wxRect &, size_t) const {
+	THROW_IF(true,"The function call void wxVListBox::OnDrawItem(wxDC &, const wxRect &, size_t) const is not implemented in wrapper.");
+};
+
+protected:
+// int wxVListBox::OnMeasureItem(size_t n) const
+int OnMeasureItem(size_t) const {
+	THROW_IF(true,"The function call int wxVListBox::OnMeasureItem(size_t) const is not implemented in wrapper.");
+	return int();
+};
+
 };
 
 

@@ -33,6 +33,8 @@ opmap["operator/="] = "op_div"
 opmap["operator^"] = "op_pow"
 opmap["operator[]"] = "op_index"
 opmap["operator()"] = "op_call"
+-- opmap["operator>>"] = "op_read"
+-- opmap["operator<<"] = "op_write"
 opmap["operator="] = "" -- ignored
 opmap["operator delete"] = "" -- ignored
 opmap["operator new"] = "" -- ignored

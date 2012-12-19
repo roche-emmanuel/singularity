@@ -486,6 +486,8 @@ public:
 
 osgUtil::Tessellator* LunaTraits< osgUtil::Tessellator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgUtil_Tessellator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::Tessellator >::_bind_dtor(osgUtil::Tessellator* obj) {

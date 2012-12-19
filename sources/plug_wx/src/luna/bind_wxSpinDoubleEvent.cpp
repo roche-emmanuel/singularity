@@ -66,6 +66,28 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxSpinDoubleEvent* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetValue(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +117,49 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, int commandType = wxEVT_NULL, int winid = 0, double value = 0)
+	static wxSpinDoubleEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, int commandType = wxEVT_NULL, int winid = 0, double value = 0) function, expected prototype:\nwxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, int commandType = wxEVT_NULL, int winid = 0, double value = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		double value=luatop>3 ? (double)lua_tonumber(L,4) : 0;
+
+		return new wrapper_wxSpinDoubleEvent(L,NULL, commandType, winid, value);
+	}
+
+	// wxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, const wxSpinDoubleEvent & event)
+	static wxSpinDoubleEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, const wxSpinDoubleEvent & event) function, expected prototype:\nwxSpinDoubleEvent::wxSpinDoubleEvent(lua_Table * data, const wxSpinDoubleEvent & event)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxSpinDoubleEvent* event_ptr=(Luna< wxObject >::checkSubType< wxSpinDoubleEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxSpinDoubleEvent::wxSpinDoubleEvent function");
+		}
+		const wxSpinDoubleEvent & event=*event_ptr;
+
+		return new wrapper_wxSpinDoubleEvent(L,NULL, event);
+	}
+
+	// Overload binder for wxSpinDoubleEvent::wxSpinDoubleEvent
+	static wxSpinDoubleEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSpinDoubleEvent, cannot match any of the overloads for function wxSpinDoubleEvent:\n  wxSpinDoubleEvent(lua_Table *, int, int, double)\n  wxSpinDoubleEvent(lua_Table *, const wxSpinDoubleEvent &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// double wxSpinDoubleEvent::GetValue() const
@@ -181,7 +246,8 @@ public:
 };
 
 wxSpinDoubleEvent* LunaTraits< wxSpinDoubleEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxSpinDoubleEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

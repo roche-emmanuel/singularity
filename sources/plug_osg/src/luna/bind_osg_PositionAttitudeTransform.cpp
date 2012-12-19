@@ -1732,6 +1732,8 @@ public:
 
 osg::PositionAttitudeTransform* LunaTraits< osg::PositionAttitudeTransform >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_PositionAttitudeTransform::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::PositionAttitudeTransform >::_bind_dtor(osg::PositionAttitudeTransform* obj) {

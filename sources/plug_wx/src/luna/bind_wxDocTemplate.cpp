@@ -951,6 +951,8 @@ public:
 
 wxDocTemplate* LunaTraits< wxDocTemplate >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxDocTemplate::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxDocTemplate >::_bind_dtor(wxDocTemplate* obj) {

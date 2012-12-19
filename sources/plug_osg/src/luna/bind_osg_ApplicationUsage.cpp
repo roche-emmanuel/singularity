@@ -256,6 +256,40 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_write_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>6 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,31149124) ) return false;
+		if( (!dynamic_cast< osg::ApplicationUsage::UsageMap* >(Luna< osg::ApplicationUsage::UsageMap >::check(L,3))) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,31149124) ) return false;
+		if( luatop>5 && (!dynamic_cast< osg::ApplicationUsage::UsageMap* >(Luna< osg::ApplicationUsage::UsageMap >::check(L,6))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_write_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>5 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_writeEnvironmentSettings(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -790,6 +824,103 @@ public:
 		return 0;
 	}
 
+	// void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())
+	static int _bind_write_overload_1(lua_State *L) {
+		if (!_lg_typecheck_write_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ()) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, const osg::ApplicationUsage::UsageMap & um, unsigned int widthOfOutput = 80, bool showDefaults = false, const osg::ApplicationUsage::UsageMap & ud = osg::ApplicationUsage::UsageMap ())\nClass arguments details:\narg 1 ID = 2993706\narg 2 ID = 31149124\narg 5 ID = 31149124\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* output_ptr=(Luna< std::ostream >::check(L,2));
+		if( !output_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ApplicationUsage::write function");
+		}
+		std::ostream & output=*output_ptr;
+		const osg::ApplicationUsage::UsageMap* um_ptr=(Luna< osg::ApplicationUsage::UsageMap >::check(L,3));
+		if( !um_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg um in osg::ApplicationUsage::write function");
+		}
+		const osg::ApplicationUsage::UsageMap & um=*um_ptr;
+		unsigned int widthOfOutput=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 80;
+		bool showDefaults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+		const osg::ApplicationUsage::UsageMap* ud_ptr=luatop>5 ? (Luna< osg::ApplicationUsage::UsageMap >::check(L,6)) : NULL;
+		if( luatop>5 && !ud_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg ud in osg::ApplicationUsage::write function");
+		}
+		const osg::ApplicationUsage::UsageMap & ud=luatop>5 ? *ud_ptr : osg::ApplicationUsage::UsageMap ();
+
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &)");
+		}
+		self->write(output, um, widthOfOutput, showDefaults, ud);
+
+		return 0;
+	}
+
+	// void osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false)
+	static int _bind_write_overload_2(lua_State *L) {
+		if (!_lg_typecheck_write_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false) function, expected prototype:\nvoid osg::ApplicationUsage::write(std::ostream & output, unsigned int type = osg::ApplicationUsage::COMMAND_LINE_OPTION, unsigned int widthOfOutput = 80, bool showDefaults = false)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* output_ptr=(Luna< std::ostream >::check(L,2));
+		if( !output_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ApplicationUsage::write function");
+		}
+		std::ostream & output=*output_ptr;
+		unsigned int type=luatop>2 ? (unsigned int)lua_tointeger(L,3) : osg::ApplicationUsage::COMMAND_LINE_OPTION;
+		unsigned int widthOfOutput=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 80;
+		bool showDefaults=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : false;
+
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::write(std::ostream &, unsigned int, unsigned int, bool)");
+		}
+		self->write(output, type, widthOfOutput, showDefaults);
+
+		return 0;
+	}
+
+	// Overload binder for osg::ApplicationUsage::write
+	static int _bind_write(lua_State *L) {
+		if (_lg_typecheck_write_overload_1(L)) return _bind_write_overload_1(L);
+		if (_lg_typecheck_write_overload_2(L)) return _bind_write_overload_2(L);
+
+		luaL_error(L, "error in function write, cannot match any of the overloads for function write:\n  write(std::ostream &, const osg::ApplicationUsage::UsageMap &, unsigned int, bool, const osg::ApplicationUsage::UsageMap &)\n  write(std::ostream &, unsigned int, unsigned int, bool)\n");
+		return 0;
+	}
+
+	// void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output)
+	static int _bind_writeEnvironmentSettings(lua_State *L) {
+		if (!_lg_typecheck_writeEnvironmentSettings(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output) function, expected prototype:\nvoid osg::ApplicationUsage::writeEnvironmentSettings(std::ostream & output)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* output_ptr=(Luna< std::ostream >::check(L,2));
+		if( !output_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ApplicationUsage::writeEnvironmentSettings function");
+		}
+		std::ostream & output=*output_ptr;
+
+		osg::ApplicationUsage* self=Luna< osg::Referenced >::checkSubType< osg::ApplicationUsage >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ApplicationUsage::writeEnvironmentSettings(std::ostream &)");
+		}
+		self->writeEnvironmentSettings(output);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -797,6 +928,8 @@ public:
 
 osg::ApplicationUsage* LunaTraits< osg::ApplicationUsage >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ApplicationUsage::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ApplicationUsage >::_bind_dtor(osg::ApplicationUsage* obj) {
@@ -833,6 +966,8 @@ luna_RegType LunaTraits< osg::ApplicationUsage >::methods[] = {
 	{"setKeyboardMouseBindings", &luna_wrapper_osg_ApplicationUsage::_bind_setKeyboardMouseBindings},
 	{"getKeyboardMouseBindings", &luna_wrapper_osg_ApplicationUsage::_bind_getKeyboardMouseBindings},
 	{"getFormattedString", &luna_wrapper_osg_ApplicationUsage::_bind_getFormattedString},
+	{"write", &luna_wrapper_osg_ApplicationUsage::_bind_write},
+	{"writeEnvironmentSettings", &luna_wrapper_osg_ApplicationUsage::_bind_writeEnvironmentSettings},
 	{"__eq", &luna_wrapper_osg_ApplicationUsage::_bind___eq},
 	{"getTable", &luna_wrapper_osg_ApplicationUsage::_bind_getTable},
 	{0,0}

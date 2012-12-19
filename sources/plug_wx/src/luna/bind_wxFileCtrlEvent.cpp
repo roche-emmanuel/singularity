@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetDirectory(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -127,6 +139,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFileCtrlEvent::wxFileCtrlEvent(lua_Table * data, int type, wxObject * evtObject, int id)
+	static wxFileCtrlEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileCtrlEvent::wxFileCtrlEvent(lua_Table * data, int type, wxObject * evtObject, int id) function, expected prototype:\nwxFileCtrlEvent::wxFileCtrlEvent(lua_Table * data, int type, wxObject * evtObject, int id)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int type=(int)lua_tointeger(L,2);
+		wxObject* evtObject=(Luna< wxObject >::check(L,3));
+		int id=(int)lua_tointeger(L,4);
+
+		return new wrapper_wxFileCtrlEvent(L,NULL, type, evtObject, id);
+	}
+
 
 	// Function binds:
 	// wxString wxFileCtrlEvent::GetDirectory() const
@@ -315,7 +343,8 @@ public:
 };
 
 wxFileCtrlEvent* LunaTraits< wxFileCtrlEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFileCtrlEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

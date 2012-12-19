@@ -124,6 +124,8 @@ public:
 
 osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgParticle_PrecipitationEffect_PrecipitationDrawable_Cell::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell >::_bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable::Cell* obj) {

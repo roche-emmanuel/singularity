@@ -13,6 +13,7 @@ class wrapper_osgUtil_PrintVisitor : public osgUtil::PrintVisitor, public luna_w
 public:
 	
 
+	wrapper_osgUtil_PrintVisitor(lua_State* L, lua_Table* dum, std::ostream & out, int indent = 0, int step = 2) : osgUtil::PrintVisitor(out, indent, step), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const
 	const char * libraryName() const {

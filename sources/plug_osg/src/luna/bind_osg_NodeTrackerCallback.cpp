@@ -633,6 +633,8 @@ public:
 
 osg::NodeTrackerCallback* LunaTraits< osg::NodeTrackerCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::NodeTrackerCallback >::_bind_dtor(osg::NodeTrackerCallback* obj) {

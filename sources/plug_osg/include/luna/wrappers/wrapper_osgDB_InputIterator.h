@@ -170,6 +170,18 @@ public:
 
 
 
+public:
+// void osgDB::InputIterator::readStream(std::istream &(*)(std::istream &) fn)
+void readStream(std::istream &(*)(std::istream &)) {
+	THROW_IF(true,"The function call void osgDB::InputIterator::readStream(std::istream &(*)(std::istream &)) is not implemented in wrapper.");
+};
+
+public:
+// void osgDB::InputIterator::readBase(std::ios_base &(*)(std::ios_base &) fn)
+void readBase(std::ios_base &(*)(std::ios_base &)) {
+	THROW_IF(true,"The function call void osgDB::InputIterator::readBase(std::ios_base &(*)(std::ios_base &)) is not implemented in wrapper.");
+};
+
 };
 
 

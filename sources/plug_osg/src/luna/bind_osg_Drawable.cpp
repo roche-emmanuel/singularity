@@ -66,6 +66,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Drawable* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -617,6 +638,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::Drawable::Drawable(lua_Table * data)
+	static osg::Drawable* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable::Drawable(lua_Table * data) function, expected prototype:\nosg::Drawable::Drawable(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_Drawable(L,NULL);
+	}
+
+	// osg::Drawable::Drawable(lua_Table * data, const osg::Drawable & drawable, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::Drawable* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::Drawable::Drawable(lua_Table * data, const osg::Drawable & drawable, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::Drawable::Drawable(lua_Table * data, const osg::Drawable & drawable, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Drawable* drawable_ptr=(Luna< osg::Referenced >::checkSubType< osg::Drawable >(L,2));
+		if( !drawable_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg drawable in osg::Drawable::Drawable function");
+		}
+		const osg::Drawable & drawable=*drawable_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::Drawable::Drawable function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_Drawable(L,NULL, drawable, copyop);
+	}
+
+	// Overload binder for osg::Drawable::Drawable
+	static osg::Drawable* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Drawable, cannot match any of the overloads for function Drawable:\n  Drawable(lua_Table *)\n  Drawable(lua_Table *, const osg::Drawable &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osg::Drawable::isSameKindAs(const osg::Object * obj) const
@@ -2370,7 +2436,8 @@ public:
 };
 
 osg::Drawable* LunaTraits< osg::Drawable >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_Drawable::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::Drawable::drawImplementation(osg::RenderInfo & renderInfo) const
 	// osg::Object * osg::Object::cloneType() const

@@ -66,6 +66,24 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxNavigationKeyEvent* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCurrentFocus(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -141,6 +159,44 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data)
+	static wxNavigationKeyEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data) function, expected prototype:\nwxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxNavigationKeyEvent(L,NULL);
+	}
+
+	// wxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data, const wxNavigationKeyEvent & event)
+	static wxNavigationKeyEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data, const wxNavigationKeyEvent & event) function, expected prototype:\nwxNavigationKeyEvent::wxNavigationKeyEvent(lua_Table * data, const wxNavigationKeyEvent & event)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxNavigationKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxNavigationKeyEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxNavigationKeyEvent::wxNavigationKeyEvent function");
+		}
+		const wxNavigationKeyEvent & event=*event_ptr;
+
+		return new wrapper_wxNavigationKeyEvent(L,NULL, event);
+	}
+
+	// Overload binder for wxNavigationKeyEvent::wxNavigationKeyEvent
+	static wxNavigationKeyEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxNavigationKeyEvent, cannot match any of the overloads for function wxNavigationKeyEvent:\n  wxNavigationKeyEvent(lua_Table *)\n  wxNavigationKeyEvent(lua_Table *, const wxNavigationKeyEvent &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// wxWindow * wxNavigationKeyEvent::GetCurrentFocus() const
@@ -362,7 +418,8 @@ public:
 };
 
 wxNavigationKeyEvent* LunaTraits< wxNavigationKeyEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxNavigationKeyEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

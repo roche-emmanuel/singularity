@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -266,6 +275,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxPGEditor::wxPGEditor(lua_Table * data)
+	static wxPGEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPGEditor::wxPGEditor(lua_Table * data) function, expected prototype:\nwxPGEditor::wxPGEditor(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxPGEditor(L,NULL);
+	}
+
 
 	// Function binds:
 	// wxString wxPGEditor::GetName() const
@@ -803,7 +825,8 @@ public:
 };
 
 wxPGEditor* LunaTraits< wxPGEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxPGEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const
 	// void wxPGEditor::UpdateControl(wxPGProperty * property, wxWindow * ctrl) const

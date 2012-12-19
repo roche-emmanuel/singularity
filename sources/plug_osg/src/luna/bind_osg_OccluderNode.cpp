@@ -1300,6 +1300,8 @@ public:
 
 osg::OccluderNode* LunaTraits< osg::OccluderNode >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_OccluderNode::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::OccluderNode >::_bind_dtor(osg::OccluderNode* obj) {

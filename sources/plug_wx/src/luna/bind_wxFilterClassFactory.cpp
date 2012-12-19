@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanHandle(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -163,6 +165,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// bool wxFilterClassFactory::CanHandle(const wxString & protocol, wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
@@ -454,7 +458,8 @@ public:
 };
 
 wxFilterClassFactory* LunaTraits< wxFilterClassFactory >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// const wxChar *const * wxFilterClassFactory::GetProtocols(wxStreamProtocolType type = ::wxSTREAM_PROTOCOL) const
 	// wxFilterInputStream * wxFilterClassFactory::NewStream(wxInputStream & stream) const

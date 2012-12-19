@@ -599,6 +599,8 @@ public:
 
 wxOutputStream* LunaTraits< wxOutputStream >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxOutputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxOutputStream >::_bind_dtor(wxOutputStream* obj) {

@@ -66,6 +66,31 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -149,6 +174,56 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::IndexArray::IndexArray(lua_Table * data, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0)
+	static osg::IndexArray* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::IndexArray::IndexArray(lua_Table * data, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0) function, expected prototype:\nosg::IndexArray::IndexArray(lua_Table * data, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		osg::Array::Type arrayType=luatop>1 ? (osg::Array::Type)lua_tointeger(L,2) : osg::Array::ArrayType;
+		int dataSize=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		unsigned int dataType=luatop>3 ? (unsigned int)lua_tointeger(L,4) : 0;
+
+		return new wrapper_osg_IndexArray(L,NULL, arrayType, dataSize, dataType);
+	}
+
+	// osg::IndexArray::IndexArray(lua_Table * data, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::IndexArray* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::IndexArray::IndexArray(lua_Table * data, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::IndexArray::IndexArray(lua_Table * data, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::Array* array_ptr=(Luna< osg::Referenced >::checkSubType< osg::Array >(L,2));
+		if( !array_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg array in osg::IndexArray::IndexArray function");
+		}
+		const osg::Array & array=*array_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::IndexArray::IndexArray function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_IndexArray(L,NULL, array, copyop);
+	}
+
+	// Overload binder for osg::IndexArray::IndexArray
+	static osg::IndexArray* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function IndexArray, cannot match any of the overloads for function IndexArray:\n  IndexArray(lua_Table *, osg::Array::Type, int, unsigned int)\n  IndexArray(lua_Table *, const osg::Array &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osg::IndexArray::isSameKindAs(const osg::Object * obj) const
@@ -401,7 +476,8 @@ public:
 };
 
 osg::IndexArray* LunaTraits< osg::IndexArray >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_IndexArray::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// unsigned int osg::IndexArray::index(unsigned int pos) const
 	// void osg::Array::accept(osg::ArrayVisitor & arg1)

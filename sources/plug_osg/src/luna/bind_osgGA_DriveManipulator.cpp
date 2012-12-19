@@ -1565,6 +1565,8 @@ public:
 
 osgGA::DriveManipulator* LunaTraits< osgGA::DriveManipulator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_DriveManipulator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgGA::DriveManipulator >::_bind_dtor(osgGA::DriveManipulator* obj) {

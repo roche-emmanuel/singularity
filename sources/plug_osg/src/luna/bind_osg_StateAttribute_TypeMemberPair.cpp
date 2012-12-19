@@ -70,6 +70,8 @@ public:
 
 osg::StateAttribute::TypeMemberPair* LunaTraits< osg::StateAttribute::TypeMemberPair >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::StateAttribute::TypeMemberPair >::_bind_dtor(osg::StateAttribute::TypeMemberPair* obj) {

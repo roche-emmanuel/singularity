@@ -225,6 +225,8 @@ public:
 
 wxServer* LunaTraits< wxServer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxServer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxServer >::_bind_dtor(wxServer* obj) {

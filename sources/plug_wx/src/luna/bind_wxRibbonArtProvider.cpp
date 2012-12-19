@@ -79,6 +79,15 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Clone(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -441,6 +450,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxRibbonArtProvider::wxRibbonArtProvider(lua_Table * data)
+	static wxRibbonArtProvider* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxRibbonArtProvider::wxRibbonArtProvider(lua_Table * data) function, expected prototype:\nwxRibbonArtProvider::wxRibbonArtProvider(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxRibbonArtProvider(L,NULL);
+	}
+
 
 	// Function binds:
 	// wxRibbonArtProvider * wxRibbonArtProvider::Clone() const
@@ -1554,7 +1576,8 @@ public:
 };
 
 wxRibbonArtProvider* LunaTraits< wxRibbonArtProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxRibbonArtProvider::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxRibbonArtProvider * wxRibbonArtProvider::Clone() const
 	// void wxRibbonArtProvider::SetFlags(long flags)

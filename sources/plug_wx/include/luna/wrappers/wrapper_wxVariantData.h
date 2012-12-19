@@ -17,6 +17,20 @@ public:
 
 
 
+public:
+// bool wxVariantData::Eq(wxVariantData & data) const
+bool Eq(wxVariantData &) const {
+	THROW_IF(true,"The function call bool wxVariantData::Eq(wxVariantData &) const is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// wxString wxVariantData::GetType() const
+wxString GetType() const {
+	THROW_IF(true,"The function call wxString wxVariantData::GetType() const is not implemented in wrapper.");
+	return wxString();
+};
+
 };
 
 

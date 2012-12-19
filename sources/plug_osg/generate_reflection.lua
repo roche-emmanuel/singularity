@@ -61,8 +61,8 @@ ReflectionGenerator.generate{
 		"double const %*const",
 		"const %*const",
 		"Mutex",
-		"std::ostream",
-		"std::istream",
+		--"std::ostream",
+		--"std::istream",
 		"Extensions%(const",
 		"lowestCommonDenominator",
 		"osg::Texture3D::.-Proc",
@@ -82,17 +82,17 @@ ReflectionGenerator.generate{
 		"PrimList",
 
 		-- for osgDB:
-		"objectRead",
+		--"objectRead",
 		"osgDB::XmlNode::read",
 		"ios_base",
 		"Exception",
-		"getFileNames",
+		--"getFileNames",
 		"DatabaseRevisionList",
 		"getPathElements",
 		"FILE",
 		"readNodeFiles",
 		"Proxy",
-		"Wrapper",
+		"OsgWrapper",
 		"wstring",
 		"wchar_t",
 		"BEGIN_BRACKET",
@@ -110,6 +110,7 @@ ReflectionGenerator.generate{
 		"osgTerrain", -- ignore terrain stuff for now.
 		"StateSetManipulator::clone", -- ignore terrain stuff for now.
 		"XmlNode::Input",
+		"ControlMap",
 	},
 	ignoreWrappers={
 		"StateSetManipulator::clone",
@@ -136,7 +137,7 @@ ReflectionGenerator.generate{
 		"osgDB::ImagePager::", --ImageRequest, ReadQueue, RequestQueue
 		"osgDB::SharedStateManager::", --CompareStateAttributes, CompareStateSets
 		--"Serializer",
-		"ControlMap",
+		--"ControlMap",
 		--"Input",
 
 		-- for osgGA:

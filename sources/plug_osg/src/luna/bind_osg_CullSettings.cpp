@@ -380,6 +380,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_write(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_setDefaults(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1268,6 +1275,29 @@ public:
 		return 0;
 	}
 
+	// void osg::CullSettings::write(std::ostream & out)
+	static int _bind_write(lua_State *L) {
+		if (!_lg_typecheck_write(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::CullSettings::write(std::ostream & out) function, expected prototype:\nvoid osg::CullSettings::write(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::CullSettings::write function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::CullSettings* self=(Luna< osg::CullSettings >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::CullSettings::write(std::ostream &)");
+		}
+		self->write(out);
+
+		return 0;
+	}
+
 	// void osg::CullSettings::base_setDefaults()
 	static int _bind_base_setDefaults(lua_State *L) {
 		if (!_lg_typecheck_base_setDefaults(L)) {
@@ -1349,6 +1379,8 @@ public:
 
 osg::CullSettings* LunaTraits< osg::CullSettings >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_CullSettings::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::CullSettings >::_bind_dtor(osg::CullSettings* obj) {
@@ -1399,6 +1431,7 @@ luna_RegType LunaTraits< osg::CullSettings >::methods[] = {
 	{"getSmallFeatureCullingPixelSize", &luna_wrapper_osg_CullSettings::_bind_getSmallFeatureCullingPixelSize},
 	{"setClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_setClampProjectionMatrixCallback},
 	{"getClampProjectionMatrixCallback", &luna_wrapper_osg_CullSettings::_bind_getClampProjectionMatrixCallback},
+	{"write", &luna_wrapper_osg_CullSettings::_bind_write},
 	{"base_setDefaults", &luna_wrapper_osg_CullSettings::_bind_base_setDefaults},
 	{"base_inheritCullSettings", &luna_wrapper_osg_CullSettings::_bind_base_inheritCullSettings},
 	{"dynCast", &luna_wrapper_osg_CullSettings::_bind_dynCast},

@@ -66,6 +66,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgParticle::Program* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_libraryName(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -243,6 +264,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgParticle::Program::Program(lua_Table * data)
+	static osgParticle::Program* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::Program::Program(lua_Table * data) function, expected prototype:\nosgParticle::Program::Program(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgParticle_Program(L,NULL);
+	}
+
+	// osgParticle::Program::Program(lua_Table * data, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osgParticle::Program* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgParticle::Program::Program(lua_Table * data, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgParticle::Program::Program(lua_Table * data, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgParticle::Program* copy_ptr=(Luna< osg::Referenced >::checkSubType< osgParticle::Program >(L,2));
+		if( !copy_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copy in osgParticle::Program::Program function");
+		}
+		const osgParticle::Program & copy=*copy_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osgParticle::Program::Program function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgParticle_Program(L,NULL, copy, copyop);
+	}
+
+	// Overload binder for osgParticle::Program::Program
+	static osgParticle::Program* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function Program, cannot match any of the overloads for function Program:\n  Program(lua_Table *)\n  Program(lua_Table *, const osgParticle::Program &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgParticle::Program::libraryName() const
@@ -860,7 +926,8 @@ public:
 };
 
 osgParticle::Program* LunaTraits< osgParticle::Program >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgParticle_Program::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgParticle::Program::execute(double dt)
 }

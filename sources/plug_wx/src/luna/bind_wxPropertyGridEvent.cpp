@@ -66,6 +66,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxPropertyGridEvent* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanVeto(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -160,6 +181,48 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, int commandType = 0, int id = 0)
+	static wxPropertyGridEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, int commandType = 0, int id = 0) function, expected prototype:\nwxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, int commandType = 0, int id = 0)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int commandType=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		int id=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+
+		return new wrapper_wxPropertyGridEvent(L,NULL, commandType, id);
+	}
+
+	// wxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, const wxPropertyGridEvent & event)
+	static wxPropertyGridEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, const wxPropertyGridEvent & event) function, expected prototype:\nwxPropertyGridEvent::wxPropertyGridEvent(lua_Table * data, const wxPropertyGridEvent & event)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxPropertyGridEvent* event_ptr=(Luna< wxObject >::checkSubType< wxPropertyGridEvent >(L,2));
+		if( !event_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg event in wxPropertyGridEvent::wxPropertyGridEvent function");
+		}
+		const wxPropertyGridEvent & event=*event_ptr;
+
+		return new wrapper_wxPropertyGridEvent(L,NULL, event);
+	}
+
+	// Overload binder for wxPropertyGridEvent::wxPropertyGridEvent
+	static wxPropertyGridEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxPropertyGridEvent, cannot match any of the overloads for function wxPropertyGridEvent:\n  wxPropertyGridEvent(lua_Table *, int, int)\n  wxPropertyGridEvent(lua_Table *, const wxPropertyGridEvent &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxPropertyGridEvent::CanVeto() const
@@ -442,7 +505,8 @@ public:
 };
 
 wxPropertyGridEvent* LunaTraits< wxPropertyGridEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxPropertyGridEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

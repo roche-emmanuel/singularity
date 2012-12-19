@@ -90,6 +90,8 @@ public:
 
 osg::ValueObjectClassNameTrait< float >* LunaTraits< osg::ValueObjectClassNameTrait< float > >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ValueObjectClassNameTrait< float > >::_bind_dtor(osg::ValueObjectClassNameTrait< float >* obj) {

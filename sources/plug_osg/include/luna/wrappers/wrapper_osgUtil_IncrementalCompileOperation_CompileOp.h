@@ -17,6 +17,20 @@ public:
 
 
 
+public:
+// double osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo & compileInfo) const
+double estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo &) const {
+	THROW_IF(true,"The function call double osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile(osgUtil::IncrementalCompileOperation::CompileInfo &) const is not implemented in wrapper.");
+	return double();
+};
+
+public:
+// bool osgUtil::IncrementalCompileOperation::CompileOp::compile(osgUtil::IncrementalCompileOperation::CompileInfo & compileInfo)
+bool compile(osgUtil::IncrementalCompileOperation::CompileInfo &) {
+	THROW_IF(true,"The function call bool osgUtil::IncrementalCompileOperation::CompileOp::compile(osgUtil::IncrementalCompileOperation::CompileInfo &) is not implemented in wrapper.");
+	return bool();
+};
+
 };
 
 

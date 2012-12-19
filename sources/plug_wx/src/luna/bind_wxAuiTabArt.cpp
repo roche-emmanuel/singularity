@@ -79,6 +79,15 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Clone(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -200,9 +209,31 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_ShowDropDown(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,39809356) ) return false;
+		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxAuiTabArt::wxAuiTabArt(lua_Table * data)
+	static wxAuiTabArt* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxAuiTabArt::wxAuiTabArt(lua_Table * data) function, expected prototype:\nwxAuiTabArt::wxAuiTabArt(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxAuiTabArt(L,NULL);
+	}
+
 
 	// Function binds:
 	// wxAuiTabArt * wxAuiTabArt::Clone()
@@ -570,13 +601,40 @@ public:
 		return 0;
 	}
 
+	// int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)
+	static int _bind_ShowDropDown(lua_State *L) {
+		if (!_lg_typecheck_ShowDropDown(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3) function, expected prototype:\nint wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\n");
+		}
+
+		wxWindow* _arg1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		const wxAuiNotebookPageArray* _arg2_ptr=(Luna< wxAuiNotebookPageArray >::check(L,3));
+		if( !_arg2_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg _arg2 in wxAuiTabArt::ShowDropDown function");
+		}
+		const wxAuiNotebookPageArray & _arg2=*_arg2_ptr;
+		int _arg3=(int)lua_tointeger(L,4);
+
+		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int)");
+		}
+		int lret = self->ShowDropDown(_arg1, _arg2, _arg3);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
 };
 
 wxAuiTabArt* LunaTraits< wxAuiTabArt >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxAuiTabArt::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	// void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)
@@ -592,6 +650,7 @@ wxAuiTabArt* LunaTraits< wxAuiTabArt >::_bind_ctor(lua_State *L) {
 	// void wxAuiTabArt::SetColour(const wxColour & colour)
 	// void wxAuiTabArt::SetActiveColour(const wxColour & colour)
 	// void wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count)
+	// int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)
 }
 
 void LunaTraits< wxAuiTabArt >::_bind_dtor(wxAuiTabArt* obj) {
@@ -620,6 +679,7 @@ luna_RegType LunaTraits< wxAuiTabArt >::methods[] = {
 	{"SetColour", &luna_wrapper_wxAuiTabArt::_bind_SetColour},
 	{"SetActiveColour", &luna_wrapper_wxAuiTabArt::_bind_SetActiveColour},
 	{"SetSizingInfo", &luna_wrapper_wxAuiTabArt::_bind_SetSizingInfo},
+	{"ShowDropDown", &luna_wrapper_wxAuiTabArt::_bind_ShowDropDown},
 	{"dynCast", &luna_wrapper_wxAuiTabArt::_bind_dynCast},
 	{"__eq", &luna_wrapper_wxAuiTabArt::_bind___eq},
 	{"getTable", &luna_wrapper_wxAuiTabArt::_bind_getTable},

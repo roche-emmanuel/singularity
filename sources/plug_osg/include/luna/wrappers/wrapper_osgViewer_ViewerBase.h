@@ -270,6 +270,18 @@ protected:
 	};
 
 
+public:
+// void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads & threads, bool onlyActive = true)
+void getAllThreads(osgViewer::ViewerBase::Threads &, bool) {
+	THROW_IF(true,"The function call void osgViewer::ViewerBase::getAllThreads(osgViewer::ViewerBase::Threads &, bool) is not implemented in wrapper.");
+};
+
+public:
+// void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads & threads, bool onlyActive = true)
+void getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) {
+	THROW_IF(true,"The function call void osgViewer::ViewerBase::getOperationThreads(osgViewer::ViewerBase::OperationThreads &, bool) is not implemented in wrapper.");
+};
+
 };
 
 

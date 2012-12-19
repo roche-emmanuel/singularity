@@ -1095,6 +1095,8 @@ public:
 
 wxFlexGridSizer* LunaTraits< wxFlexGridSizer >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxFlexGridSizer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxFlexGridSizer >::_bind_dtor(wxFlexGridSizer* obj) {

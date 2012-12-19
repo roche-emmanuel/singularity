@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,9988153) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Alloc(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -157,6 +168,26 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)
+	static wxCustomDataObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxDataFormat* format_ptr=luatop>1 ? (Luna< wxDataFormat >::check(L,2)) : NULL;
+		if( luatop>1 && !format_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg format in wxCustomDataObject::wxCustomDataObject function");
+		}
+		const wxDataFormat & format=luatop>1 ? *format_ptr : wxFormatInvalid;
+
+		return new wrapper_wxCustomDataObject(L,NULL, format);
+	}
+
 
 	// Function binds:
 	// void * wxCustomDataObject::Alloc(size_t size)
@@ -426,7 +457,8 @@ public:
 };
 
 wxCustomDataObject* LunaTraits< wxCustomDataObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxCustomDataObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// bool wxDataObject::GetDataHere(const wxDataFormat & format, void * buf) const

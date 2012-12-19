@@ -308,6 +308,8 @@ public:
 
 wxMemoryDC* LunaTraits< wxMemoryDC >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxMemoryDC::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxMemoryDC >::_bind_dtor(wxMemoryDC* obj) {

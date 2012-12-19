@@ -101,6 +101,8 @@ public:
 
 osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime >::_bind_dtor(osgParticle::PrecipitationEffect::PrecipitationDrawable::DepthMatrixStartTime* obj) {

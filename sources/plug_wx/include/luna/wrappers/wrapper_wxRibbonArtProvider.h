@@ -341,7 +341,7 @@ public:
 		_obj.pushArg(&dc);
 		_obj.pushArg(wnd);
 		_obj.pushArg(desired_bitmap_size);
-		_obj.pushArg(expanded_panel_direction);
+		_obj.pushArg((int*)expanded_panel_direction);
 		return *(_obj.callFunction<wxSize*>());
 	};
 

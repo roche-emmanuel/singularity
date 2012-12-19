@@ -959,6 +959,8 @@ public:
 
 wxTarEntry* LunaTraits< wxTarEntry >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxTarEntry::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxTarEntry >::_bind_dtor(wxTarEntry* obj) {

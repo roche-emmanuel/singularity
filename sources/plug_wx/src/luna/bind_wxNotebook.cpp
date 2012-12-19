@@ -80,35 +80,13 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
-		if( lua_gettop(L)!=0 ) return false;
-
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
-		int luatop = lua_gettop(L);
-		if( luatop<2 || luatop>6 ) return false;
-
-		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
-		if( luatop>2 && (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,3))) ) return false;
-		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
-		if( luatop>3 && (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		return true;
-	}
-
-	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>7 ) return false;
 
@@ -1068,47 +1046,9 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxNotebook::wxNotebook()
+	// wxNotebook::wxNotebook(lua_Table * data)
 	static wxNotebook* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxNotebook::wxNotebook() function, expected prototype:\nwxNotebook::wxNotebook()\nClass arguments details:\n");
-		}
-
-
-		return new wxNotebook();
-	}
-
-	// wxNotebook::wxNotebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr)
-	static wxNotebook* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxNotebook::wxNotebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr) function, expected prototype:\nwxNotebook::wxNotebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n");
-		}
-
-		int luatop = lua_gettop(L);
-
-		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
-		int id=(int)lua_tointeger(L,2);
-		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
-		if( luatop>2 && !pos_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxNotebook::wxNotebook function");
-		}
-		const wxPoint & pos=luatop>2 ? *pos_ptr : wxDefaultPosition;
-		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
-		if( luatop>3 && !size_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg size in wxNotebook::wxNotebook function");
-		}
-		const wxSize & size=luatop>3 ? *size_ptr : wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : 0;
-		wxString name(lua_tostring(L,6),lua_objlen(L,6));
-
-		return new wxNotebook(parent, id, pos, size, style, name);
-	}
-
-	// wxNotebook::wxNotebook(lua_Table * data)
-	static wxNotebook* _bind_ctor_overload_3(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxNotebook::wxNotebook(lua_Table * data) function, expected prototype:\nwxNotebook::wxNotebook(lua_Table * data)\nClass arguments details:\n");
 		}
@@ -1118,8 +1058,8 @@ public:
 	}
 
 	// wxNotebook::wxNotebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr)
-	static wxNotebook* _bind_ctor_overload_4(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_4(L)) {
+	static wxNotebook* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
 			luna_printStack(L);
 			luaL_error(L, "luna typecheck failed in wxNotebook::wxNotebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr) function, expected prototype:\nwxNotebook::wxNotebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxNotebookNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n");
 		}
@@ -1148,10 +1088,8 @@ public:
 	static wxNotebook* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
-		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
-		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxNotebook, cannot match any of the overloads for function wxNotebook:\n  wxNotebook()\n  wxNotebook(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n  wxNotebook(lua_Table *)\n  wxNotebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		luaL_error(L, "error in function wxNotebook, cannot match any of the overloads for function wxNotebook:\n  wxNotebook(lua_Table *)\n  wxNotebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
 		return NULL;
 	}
 
@@ -3927,6 +3865,9 @@ public:
 
 wxNotebook* LunaTraits< wxNotebook >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxNotebook::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
 }
 
 void LunaTraits< wxNotebook >::_bind_dtor(wxNotebook* obj) {

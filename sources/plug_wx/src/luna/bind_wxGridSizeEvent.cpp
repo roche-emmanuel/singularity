@@ -66,6 +66,32 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>8 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
+		if( (lua_isnil(L,4)==0 && !dynamic_cast< wxObject* >(Luna< wxObject >::check(L,4)) ) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,92036952) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxKeyboardState* >(Luna< wxKeyboardState >::check(L,8))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_AltDown(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -118,6 +144,52 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridSizeEvent::wxGridSizeEvent(lua_Table * data)
+	static wxGridSizeEvent* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridSizeEvent::wxGridSizeEvent(lua_Table * data) function, expected prototype:\nwxGridSizeEvent::wxGridSizeEvent(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxGridSizeEvent(L,NULL);
+	}
+
+	// wxGridSizeEvent::wxGridSizeEvent(lua_Table * data, int id, int type, wxObject * obj, int rowOrCol = -1, int x = -1, int y = -1, const wxKeyboardState & kbd = wxKeyboardState ())
+	static wxGridSizeEvent* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridSizeEvent::wxGridSizeEvent(lua_Table * data, int id, int type, wxObject * obj, int rowOrCol = -1, int x = -1, int y = -1, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridSizeEvent::wxGridSizeEvent(lua_Table * data, int id, int type, wxObject * obj, int rowOrCol = -1, int x = -1, int y = -1, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 8 ID = 92036952\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=(int)lua_tointeger(L,2);
+		int type=(int)lua_tointeger(L,3);
+		wxObject* obj=(Luna< wxObject >::check(L,4));
+		int rowOrCol=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+		int x=luatop>5 ? (int)lua_tointeger(L,6) : -1;
+		int y=luatop>6 ? (int)lua_tointeger(L,7) : -1;
+		const wxKeyboardState* kbd_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxKeyboardState >(L,8)) : NULL;
+		if( luatop>7 && !kbd_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg kbd in wxGridSizeEvent::wxGridSizeEvent function");
+		}
+		const wxKeyboardState & kbd=luatop>7 ? *kbd_ptr : wxKeyboardState ();
+
+		return new wrapper_wxGridSizeEvent(L,NULL, id, type, obj, rowOrCol, x, y, kbd);
+	}
+
+	// Overload binder for wxGridSizeEvent::wxGridSizeEvent
+	static wxGridSizeEvent* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxGridSizeEvent, cannot match any of the overloads for function wxGridSizeEvent:\n  wxGridSizeEvent(lua_Table *)\n  wxGridSizeEvent(lua_Table *, int, int, wxObject *, int, int, int, const wxKeyboardState &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxGridSizeEvent::AltDown() const
@@ -283,7 +355,8 @@ public:
 };
 
 wxGridSizeEvent* LunaTraits< wxGridSizeEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridSizeEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

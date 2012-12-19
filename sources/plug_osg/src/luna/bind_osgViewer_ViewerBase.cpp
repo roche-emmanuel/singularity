@@ -66,6 +66,24 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgViewer::ViewerBase* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_setViewerStats(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -483,6 +501,44 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgViewer::ViewerBase::ViewerBase(lua_Table * data)
+	static osgViewer::ViewerBase* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ViewerBase(lua_Table * data) function, expected prototype:\nosgViewer::ViewerBase::ViewerBase(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osgViewer_ViewerBase(L,NULL);
+	}
+
+	// osgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb)
+	static osgViewer::ViewerBase* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb) function, expected prototype:\nosgViewer::ViewerBase::ViewerBase(lua_Table * data, const osgViewer::ViewerBase & vb)\nClass arguments details:\narg 2 ID = 50169651\n");
+		}
+
+		const osgViewer::ViewerBase* vb_ptr=(Luna< osg::Referenced >::checkSubType< osgViewer::ViewerBase >(L,2));
+		if( !vb_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg vb in osgViewer::ViewerBase::ViewerBase function");
+		}
+		const osgViewer::ViewerBase & vb=*vb_ptr;
+
+		return new wrapper_osgViewer_ViewerBase(L,NULL, vb);
+	}
+
+	// Overload binder for osgViewer::ViewerBase::ViewerBase
+	static osgViewer::ViewerBase* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function ViewerBase, cannot match any of the overloads for function ViewerBase:\n  ViewerBase(lua_Table *)\n  ViewerBase(lua_Table *, const osgViewer::ViewerBase &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
@@ -1781,7 +1837,8 @@ public:
 };
 
 osgViewer::ViewerBase* LunaTraits< osgViewer::ViewerBase >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgViewer_ViewerBase::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgViewer::ViewerBase::setViewerStats(osg::Stats * stats)
 	// osg::Stats * osgViewer::ViewerBase::getViewerStats()

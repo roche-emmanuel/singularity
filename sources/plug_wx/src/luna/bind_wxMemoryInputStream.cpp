@@ -66,6 +66,37 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxMemoryOutputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
+		if( (!dynamic_cast< wxInputStream* >(Luna< wxObject >::check(L,2))) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -147,6 +178,66 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const void * data, size_t len)
+	static wxMemoryInputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const void * data, size_t len) function, expected prototype:\nwxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const void * data, size_t len)\nClass arguments details:\n");
+		}
+
+		void* data=(Luna< void >::check(L,2));
+		size_t len=(size_t)lua_tointeger(L,3);
+
+		return new wrapper_wxMemoryInputStream(L,NULL, data, len);
+	}
+
+	// wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const wxMemoryOutputStream & stream)
+	static wxMemoryInputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const wxMemoryOutputStream & stream) function, expected prototype:\nwxMemoryInputStream::wxMemoryInputStream(lua_Table * data, const wxMemoryOutputStream & stream)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		const wxMemoryOutputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxMemoryOutputStream >(L,2));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxMemoryInputStream::wxMemoryInputStream function");
+		}
+		const wxMemoryOutputStream & stream=*stream_ptr;
+
+		return new wrapper_wxMemoryInputStream(L,NULL, stream);
+	}
+
+	// wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, wxInputStream & stream, long long len = wxInvalidOffset)
+	static wxMemoryInputStream* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxMemoryInputStream::wxMemoryInputStream(lua_Table * data, wxInputStream & stream, long long len = wxInvalidOffset) function, expected prototype:\nwxMemoryInputStream::wxMemoryInputStream(lua_Table * data, wxInputStream & stream, long long len = wxInvalidOffset)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxInputStream* stream_ptr=(Luna< wxObject >::checkSubType< wxInputStream >(L,2));
+		if( !stream_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg stream in wxMemoryInputStream::wxMemoryInputStream function");
+		}
+		wxInputStream & stream=*stream_ptr;
+		long long len=luatop>2 ? (long long)lua_tointeger(L,3) : wxInvalidOffset;
+
+		return new wrapper_wxMemoryInputStream(L,NULL, stream, len);
+	}
+
+	// Overload binder for wxMemoryInputStream::wxMemoryInputStream
+	static wxMemoryInputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+
+		luaL_error(L, "error in function wxMemoryInputStream, cannot match any of the overloads for function wxMemoryInputStream:\n  wxMemoryInputStream(lua_Table *, const void *, size_t)\n  wxMemoryInputStream(lua_Table *, const wxMemoryOutputStream &)\n  wxMemoryInputStream(lua_Table *, wxInputStream &, long long)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxMemoryInputStream::base_GetClassInfo() const
@@ -393,7 +484,8 @@ public:
 };
 
 wxMemoryInputStream* LunaTraits< wxMemoryInputStream >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxMemoryInputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
 }

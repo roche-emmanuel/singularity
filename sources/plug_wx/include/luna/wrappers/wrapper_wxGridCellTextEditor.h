@@ -15,6 +15,12 @@ public:
 
 	wrapper_wxGridCellTextEditor(lua_State* L, lua_Table* dum) : wxGridCellTextEditor(), luna_wrapper_base(L) {};
 
+	// wxString wxGridCellEditor::GetValue() const
+	wxString GetValue() const {
+		THROW_IF(!_obj.pushFunction("GetValue"),"No implementation for abstract function wxGridCellEditor::GetValue");
+		return *(_obj.callFunction<wxString*>());
+	};
+
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	void BeginEdit(int row, int col, wxGrid * grid) {
 		THROW_IF(!_obj.pushFunction("BeginEdit"),"No implementation for abstract function wxGridCellEditor::BeginEdit");

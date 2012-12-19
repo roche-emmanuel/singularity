@@ -263,6 +263,20 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_reportStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_recomputeStats(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_checkConsistency(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -905,6 +919,52 @@ public:
 		return 0;
 	}
 
+	// void osg::Texture::TextureObjectManager::reportStats(std::ostream & out)
+	static int _bind_reportStats(lua_State *L) {
+		if (!_lg_typecheck_reportStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectManager::reportStats(std::ostream & out) function, expected prototype:\nvoid osg::Texture::TextureObjectManager::reportStats(std::ostream & out)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Texture::TextureObjectManager::reportStats function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::Texture::TextureObjectManager* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectManager::reportStats(std::ostream &)");
+		}
+		self->reportStats(out);
+
+		return 0;
+	}
+
+	// void osg::Texture::TextureObjectManager::recomputeStats(std::ostream & out) const
+	static int _bind_recomputeStats(lua_State *L) {
+		if (!_lg_typecheck_recomputeStats(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Texture::TextureObjectManager::recomputeStats(std::ostream & out) const function, expected prototype:\nvoid osg::Texture::TextureObjectManager::recomputeStats(std::ostream & out) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Texture::TextureObjectManager::recomputeStats function");
+		}
+		std::ostream & out=*out_ptr;
+
+		osg::Texture::TextureObjectManager* self=Luna< osg::Referenced >::checkSubType< osg::Texture::TextureObjectManager >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Texture::TextureObjectManager::recomputeStats(std::ostream &) const");
+		}
+		self->recomputeStats(out);
+
+		return 0;
+	}
+
 	// bool osg::Texture::TextureObjectManager::checkConsistency() const
 	static int _bind_checkConsistency(lua_State *L) {
 		if (!_lg_typecheck_checkConsistency(L)) {
@@ -1083,6 +1143,8 @@ public:
 
 osg::Texture::TextureObjectManager* LunaTraits< osg::Texture::TextureObjectManager >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Texture_TextureObjectManager::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Texture::TextureObjectManager >::_bind_dtor(osg::Texture::TextureObjectManager* obj) {
@@ -1119,6 +1181,8 @@ luna_RegType LunaTraits< osg::Texture::TextureObjectManager >::methods[] = {
 	{"getTextureObjectSet", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_getTextureObjectSet},
 	{"newFrame", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_newFrame},
 	{"resetStats", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_resetStats},
+	{"reportStats", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_reportStats},
+	{"recomputeStats", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_recomputeStats},
 	{"checkConsistency", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_checkConsistency},
 	{"getFrameNumber", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_getFrameNumber},
 	{"getNumberFrames", &luna_wrapper_osg_Texture_TextureObjectManager::_bind_getNumberFrames},

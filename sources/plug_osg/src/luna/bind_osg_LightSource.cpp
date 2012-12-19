@@ -1412,6 +1412,8 @@ public:
 
 osg::LightSource* LunaTraits< osg::LightSource >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_LightSource::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::LightSource >::_bind_dtor(osg::LightSource* obj) {

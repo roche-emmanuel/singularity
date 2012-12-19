@@ -70,6 +70,8 @@ public:
 
 osg::Texture::TextureObjectList* LunaTraits< osg::Texture::TextureObjectList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Texture::TextureObjectList >::_bind_dtor(osg::Texture::TextureObjectList* obj) {

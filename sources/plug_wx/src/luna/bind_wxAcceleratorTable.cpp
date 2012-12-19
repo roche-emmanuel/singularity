@@ -220,6 +220,8 @@ public:
 
 wxAcceleratorTable* LunaTraits< wxAcceleratorTable >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxAcceleratorTable::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxAcceleratorTable >::_bind_dtor(wxAcceleratorTable* obj) {

@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetWindow(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -88,6 +99,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL)
+	static wxWindowDestroyEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL) function, expected prototype:\nwxWindowDestroyEvent::wxWindowDestroyEvent(lua_Table * data, wxWindow * win = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* win=luatop>1 ? (Luna< wxObject >::checkSubType< wxWindow >(L,2)) : (wxWindow*)NULL;
+
+		return new wrapper_wxWindowDestroyEvent(L,NULL, win);
+	}
+
 
 	// Function binds:
 	// wxWindow * wxWindowDestroyEvent::GetWindow() const
@@ -157,7 +184,8 @@ public:
 };
 
 wxWindowDestroyEvent* LunaTraits< wxWindowDestroyEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxWindowDestroyEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Append(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -254,6 +256,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)
@@ -749,7 +753,8 @@ public:
 };
 
 wxPropertyGridInterface* LunaTraits< wxPropertyGridInterface >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxPropertyGridInterface::Clear()
 }

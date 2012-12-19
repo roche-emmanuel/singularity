@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_SetParameters(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -134,6 +146,27 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)
+	static wxGridCellChoiceEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false) function, expected prototype:\nwxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)\nClass arguments details:\narg 2 ID = 59507769\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,2));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxGridCellChoiceEditor::wxGridCellChoiceEditor function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		bool allowOthers=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : false;
+
+		return new wrapper_wxGridCellChoiceEditor(L,NULL, choices, allowOthers);
+	}
+
 
 	// Function binds:
 	// void wxGridCellChoiceEditor::SetParameters(const wxString & params)
@@ -331,8 +364,10 @@ public:
 };
 
 wxGridCellChoiceEditor* LunaTraits< wxGridCellChoiceEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellChoiceEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)

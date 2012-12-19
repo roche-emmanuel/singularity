@@ -475,6 +475,8 @@ public:
 
 osgDB::ReadFileCallback* LunaTraits< osgDB::ReadFileCallback >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ReadFileCallback >::_bind_dtor(osgDB::ReadFileCallback* obj) {

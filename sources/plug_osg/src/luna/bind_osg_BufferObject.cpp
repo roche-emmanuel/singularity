@@ -66,6 +66,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::BufferObject* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_isSameKindAs(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -299,6 +320,51 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osg::BufferObject::BufferObject(lua_Table * data)
+	static osg::BufferObject* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BufferObject::BufferObject(lua_Table * data) function, expected prototype:\nosg::BufferObject::BufferObject(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_BufferObject(L,NULL);
+	}
+
+	// osg::BufferObject::BufferObject(lua_Table * data, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::BufferObject* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::BufferObject::BufferObject(lua_Table * data, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::BufferObject::BufferObject(lua_Table * data, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::BufferObject* bo_ptr=(Luna< osg::Referenced >::checkSubType< osg::BufferObject >(L,2));
+		if( !bo_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg bo in osg::BufferObject::BufferObject function");
+		}
+		const osg::BufferObject & bo=*bo_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::BufferObject::BufferObject function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_BufferObject(L,NULL, bo, copyop);
+	}
+
+	// Overload binder for osg::BufferObject::BufferObject
+	static osg::BufferObject* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function BufferObject, cannot match any of the overloads for function BufferObject:\n  BufferObject(lua_Table *)\n  BufferObject(lua_Table *, const osg::BufferObject &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool osg::BufferObject::isSameKindAs(const osg::Object * obj) const
@@ -1012,7 +1078,8 @@ public:
 };
 
 osg::BufferObject* LunaTraits< osg::BufferObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_BufferObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// osg::Object * osg::Object::cloneType() const
 	// osg::Object * osg::Object::clone(const osg::CopyOp & arg1) const

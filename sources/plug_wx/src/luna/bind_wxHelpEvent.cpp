@@ -66,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetOrigin(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -108,6 +122,29 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)
+	static wxHelpEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown) function, expected prototype:\nwxHelpEvent::wxHelpEvent(lua_Table * data, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown)\nClass arguments details:\narg 4 ID = 25723480\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int type=luatop>1 ? (int)lua_tointeger(L,2) : wxEVT_NULL;
+		int winid=luatop>2 ? (int)lua_tointeger(L,3) : 0;
+		const wxPoint* pt_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
+		if( luatop>3 && !pt_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pt in wxHelpEvent::wxHelpEvent function");
+		}
+		const wxPoint & pt=luatop>3 ? *pt_ptr : wxDefaultPosition;
+		wxHelpEvent::Origin origin=luatop>4 ? (wxHelpEvent::Origin)lua_tointeger(L,5) : wxHelpEvent::Origin_Unknown;
+
+		return new wrapper_wxHelpEvent(L,NULL, type, winid, pt, origin);
+	}
+
 
 	// Function binds:
 	// wxHelpEvent::Origin wxHelpEvent::GetOrigin() const
@@ -238,7 +275,8 @@ public:
 };
 
 wxHelpEvent* LunaTraits< wxHelpEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxHelpEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

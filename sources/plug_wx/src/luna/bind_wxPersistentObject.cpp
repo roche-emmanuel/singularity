@@ -79,6 +79,16 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Save(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -113,6 +123,20 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxPersistentObject::wxPersistentObject(lua_Table * data, void * obj)
+	static wxPersistentObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxPersistentObject::wxPersistentObject(lua_Table * data, void * obj) function, expected prototype:\nwxPersistentObject::wxPersistentObject(lua_Table * data, void * obj)\nClass arguments details:\n");
+		}
+
+		void* obj=(Luna< void >::check(L,2));
+
+		return new wrapper_wxPersistentObject(L,NULL, obj);
+	}
+
 
 	// Function binds:
 	// void wxPersistentObject::Save() const
@@ -217,7 +241,8 @@ public:
 };
 
 wxPersistentObject* LunaTraits< wxPersistentObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxPersistentObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxPersistentObject::Save() const
 	// bool wxPersistentObject::Restore()

@@ -100,13 +100,28 @@ function Class:writeFile()
 		local typeChecker = self._typeChecker
 		local writeBind = self._writeBind
 		local writeOverloadBind = self._writeOverloadBind
+
+		local cons = class:getValidPublicConstructors();
 		
-		
-		if not class:isAbstract() then
-			buf:writeLine("// Constructor checkers:")
-			buf:writeForAll(class:getValidPublicConstructors(),typeChecker)
-			buf:newLine()
+		if class:isAbstract() then
+			-- remove non wrapper constructors:
+			local list = Set();
+			for _,func in cons:sequence() do
+				if not func:isWrapper() then
+					list:push_back(func)
+				end
+			end
+			
+			for _,func in list:sequence() do
+				class:removeFunction(func)
+			end
 		end
+
+		cons = class:getValidPublicConstructors();
+		
+		buf:writeLine("// Constructor checkers:")
+		buf:writeForAll(cons,typeChecker)
+		buf:newLine()
 		
 		buf:writeLine("// Function checkers:")
 		buf:writeForAll(class:getValidPublicFunctions(),typeChecker)
@@ -117,11 +132,9 @@ function Class:writeFile()
 		buf:writeForAll(class:getValidPublicOperators(),typeChecker)
 		buf:newLine()
 		
-		if not class:isAbstract() then	
-			buf:writeLine("// Constructor binds:")
-			buf:writeForAll(class:getValidPublicConstructors(),writeBind,writeOverloadBind)
-			buf:newLine()
-		end
+		buf:writeLine("// Constructor binds:")
+		buf:writeForAll(cons,writeBind,writeOverloadBind)
+		buf:newLine()
 		
 		buf:writeLine("// Function binds:")
 		buf:writeForAll(class:getValidPublicFunctions(),writeBind,writeOverloadBind)
@@ -138,15 +151,15 @@ function Class:writeFile()
 		-- implement the lunatraits constructor:
 		buf:writeSubLine("${1}* LunaTraits< ${1} >::_bind_ctor(lua_State *L) {",cname)
 		buf:pushIndent()
-		if not class:isAbstract() then
+		--if not class:isAbstract() then
 			if class:getValidPublicConstructors():empty() then
 				buf:writeLine("return NULL; // No valid default constructor.")
 				--buf:writeSubLine("return new ${1}(); // No default constructor:",cname)
 			else
 				buf:writeSubLine("return luna_wrapper_${1}::_bind_ctor(L);",wname) --cshortname)
 			end
-		else
-			buf:writeLine("return NULL; // Class is abstract.")
+		--else
+			buf:writeLine("// Note that this class is abstract (only lua wrappers can be created).")
 			
 			-- write the abstract methods:
 			local funcs = class:getAbstractFunctions()
@@ -154,14 +167,7 @@ function Class:writeFile()
 			for _,func in funcs:sequence() do
 				buf:writeLine("// ".. func:getPrototype(true,true,true))
 			end
-			-- buf:newLine()
-			-- local funcs = class:getAbstractOperators()
-			-- buf:writeLine("// Abstract operators:")
-			-- for _,func in funcs:sequence() do
-				-- buf:writeLine("// ".. func:getPrototype(true,true,true))
-			-- end
-			
-		end
+		--end
 		buf:popIndent()
 		buf:writeLine("}")
 		buf:newLine()

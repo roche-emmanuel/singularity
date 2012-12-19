@@ -19,3 +19,6 @@ sgt::LogRecord => sgt::LogRecord
 std::set< std::string > => sgt::LogSink::StringSet
 sgt::StdLogger => osg::Referenced
 sgt::AnyVector => osg::Referenced
+module=std
+std::istream => std::istream
+std::ostream => std::ostream

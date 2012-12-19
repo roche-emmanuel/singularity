@@ -66,6 +66,33 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,19881034) ) return false;
+		if( (!dynamic_cast< wxFile* >(Luna< wxFile >::check(L,2))) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_IsOk(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -153,6 +180,58 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName)
+	static wxFileInputStream* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		wxString ifileName(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxFileInputStream(L,NULL, ifileName);
+	}
+
+	// wxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file)
+	static wxFileInputStream* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file)\nClass arguments details:\narg 2 ID = 19881034\n");
+		}
+
+		wxFile* file_ptr=(Luna< wxFile >::check(L,2));
+		if( !file_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg file in wxFileInputStream::wxFileInputStream function");
+		}
+		wxFile & file=*file_ptr;
+
+		return new wrapper_wxFileInputStream(L,NULL, file);
+	}
+
+	// wxFileInputStream::wxFileInputStream(lua_Table * data, int fd)
+	static wxFileInputStream* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, int fd) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, int fd)\nClass arguments details:\n");
+		}
+
+		int fd=(int)lua_tointeger(L,2);
+
+		return new wrapper_wxFileInputStream(L,NULL, fd);
+	}
+
+	// Overload binder for wxFileInputStream::wxFileInputStream
+	static wxFileInputStream* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+
+		luaL_error(L, "error in function wxFileInputStream, cannot match any of the overloads for function wxFileInputStream:\n  wxFileInputStream(lua_Table *, const wxString &)\n  wxFileInputStream(lua_Table *, wxFile &)\n  wxFileInputStream(lua_Table *, int)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxFileInputStream::IsOk() const
@@ -418,7 +497,8 @@ public:
 };
 
 wxFileInputStream* LunaTraits< wxFileInputStream >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFileInputStream::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// size_t wxInputStream::OnSysRead(void * buffer, size_t bufsize)
 }

@@ -253,6 +253,8 @@ public:
 
 sgt::StdLogger* LunaTraits< sgt::StdLogger >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_sgt_StdLogger::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< sgt::StdLogger >::_bind_dtor(sgt::StdLogger* obj) {

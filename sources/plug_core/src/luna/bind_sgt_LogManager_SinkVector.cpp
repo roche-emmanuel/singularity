@@ -70,6 +70,8 @@ public:
 
 sgt::LogManager::SinkVector* LunaTraits< sgt::LogManager::SinkVector >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< sgt::LogManager::SinkVector >::_bind_dtor(sgt::LogManager::SinkVector* obj) {

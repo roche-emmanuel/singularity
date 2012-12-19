@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetPath(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -118,6 +120,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// const wxFileName & wxFileSystemWatcherEvent::GetPath() const
@@ -284,7 +288,8 @@ public:
 };
 
 wxFileSystemWatcherEvent* LunaTraits< wxFileSystemWatcherEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

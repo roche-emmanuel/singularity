@@ -176,6 +176,13 @@ protected:
 	};
 
 
+public:
+// wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid * propgrid, wxPGProperty * property, const wxPoint & pos, const wxSize & size) const
+wxPGWindowList CreateControls(wxPropertyGrid *, wxPGProperty *, const wxPoint &, const wxSize &) const {
+	THROW_IF(true,"The function call wxPGWindowList wxPGEditor::CreateControls(wxPropertyGrid *, wxPGProperty *, const wxPoint &, const wxSize &) const is not implemented in wrapper.");
+	return wxPGWindowList();
+};
+
 };
 
 

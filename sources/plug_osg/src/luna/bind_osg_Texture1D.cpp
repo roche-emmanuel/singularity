@@ -1860,6 +1860,8 @@ public:
 
 osg::Texture1D* LunaTraits< osg::Texture1D >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Texture1D::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Texture1D >::_bind_dtor(osg::Texture1D* obj) {

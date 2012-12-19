@@ -1435,6 +1435,14 @@ public:
                        wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                        int align = wxDVR_DEFAULT_ALIGNMENT );
 
+	
+	    /**
+        Return size required to show content.
+    */
+    virtual wxSize GetSize() const = 0;
+	
+	virtual bool Render(wxRect,wxDC *,int) = 0;
+	
     /**
         Enable or disable replacing parts of the item text with ellipsis to
         make it fit the column width.
@@ -1741,6 +1749,8 @@ public:
     */
     virtual ~wxDataViewCustomRenderer();
 
+	virtual wxSize GetSize() const = 0;
+	
     /**
         Override this to react to cell @em activation. Activating a cell is an
         alternative to showing inline editor when the value can be edited in a
@@ -1837,11 +1847,6 @@ public:
         @since 2.9.1
      */
     const wxDataViewItemAttr& GetAttr() const;
-
-    /**
-        Return size required to show content.
-    */
-    virtual wxSize GetSize() const = 0;
 
     /**
         Override this so that the renderer can get the value from the editor

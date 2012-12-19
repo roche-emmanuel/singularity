@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_setEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -140,6 +151,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// sgt::LogSink::LogSink(lua_Table * data, const std::string & name = "")
+	static sgt::LogSink* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in sgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\") function, expected prototype:\nsgt::LogSink::LogSink(lua_Table * data, const std::string & name = \"\")\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_sgt_LogSink(L,NULL, name);
+	}
+
 
 	// Function binds:
 	// void sgt::LogSink::setEnabled(bool enabled)
@@ -326,7 +353,8 @@ public:
 };
 
 sgt::LogSink* LunaTraits< sgt::LogSink >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_sgt_LogSink::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void sgt::LogSink::output(int level, std::string trace, std::string msg)
 }

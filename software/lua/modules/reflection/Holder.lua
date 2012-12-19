@@ -53,6 +53,12 @@ function Class:addFunction(func)
 	self._functions:addItem(func)
 end
 
+function Class:removeFunction(func)
+	self:check(func and self:isInstanceOf(require"reflection.Function",func),"Invalid function: ",func);
+	
+	self._functions:eraseValue(func)
+end
+
 function Class:getValidPublicFunctions()
 	return self:getFunctions{"Public","Valid","Method"}
 end

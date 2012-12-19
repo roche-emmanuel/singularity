@@ -916,39 +916,39 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::View::setStartTick(unsigned long long tick)
+	// void osgViewer::View::setStartTick(__int64 tick)
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::View::setStartTick(unsigned long long tick) function, expected prototype:\nvoid osgViewer::View::setStartTick(unsigned long long tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::View::setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::View::setStartTick(__int64 tick)\nClass arguments details:\n");
 		}
 
-		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
+		__int64 tick=(__int64)lua_tointeger(L,2);
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::View::setStartTick(unsigned long long)");
+			luaL_error(L, "Invalid object in function call void osgViewer::View::setStartTick(__int64)");
 		}
 		self->setStartTick(tick);
 
 		return 0;
 	}
 
-	// unsigned long long osgViewer::View::getStartTick() const
+	// __int64 osgViewer::View::getStartTick() const
 	static int _bind_getStartTick(lua_State *L) {
 		if (!_lg_typecheck_getStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long long osgViewer::View::getStartTick() const function, expected prototype:\nunsigned long long osgViewer::View::getStartTick() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in __int64 osgViewer::View::getStartTick() const function, expected prototype:\n__int64 osgViewer::View::getStartTick() const\nClass arguments details:\n");
 		}
 
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long long osgViewer::View::getStartTick() const");
+			luaL_error(L, "Invalid object in function call __int64 osgViewer::View::getStartTick() const");
 		}
-		unsigned long long lret = self->getStartTick();
+		__int64 lret = self->getStartTick();
 		lua_pushnumber(L,lret);
 
 		return 1;
@@ -2340,19 +2340,19 @@ public:
 		return 0;
 	}
 
-	// void osgViewer::View::base_setStartTick(unsigned long long tick)
+	// void osgViewer::View::base_setStartTick(__int64 tick)
 	static int _bind_base_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_base_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::View::base_setStartTick(unsigned long long tick) function, expected prototype:\nvoid osgViewer::View::base_setStartTick(unsigned long long tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::View::base_setStartTick(__int64 tick) function, expected prototype:\nvoid osgViewer::View::base_setStartTick(__int64 tick)\nClass arguments details:\n");
 		}
 
-		unsigned long long tick=(unsigned long long)lua_tointeger(L,2);
+		__int64 tick=(__int64)lua_tointeger(L,2);
 
 		osgViewer::View* self=Luna< osg::Referenced >::checkSubType< osgViewer::View >(L,1);
 		if(!self) {
 			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void osgViewer::View::base_setStartTick(unsigned long long)");
+			luaL_error(L, "Invalid object in function call void osgViewer::View::base_setStartTick(__int64)");
 		}
 		self->View::setStartTick(tick);
 
@@ -2444,6 +2444,8 @@ public:
 
 osgViewer::View* LunaTraits< osgViewer::View >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgViewer_View::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgViewer::View >::_bind_dtor(osgViewer::View* obj) {

@@ -70,6 +70,8 @@ public:
 
 osg::UByteArray* LunaTraits< osg::UByteArray >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::UByteArray >::_bind_dtor(osg::UByteArray* obj) {

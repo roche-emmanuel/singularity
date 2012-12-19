@@ -79,6 +79,16 @@ public:
 	}
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCurrentTip(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +105,20 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip)
+	static wxTipProvider* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip) function, expected prototype:\nwxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip)\nClass arguments details:\n");
+		}
+
+		size_t currentTip=(size_t)lua_tointeger(L,2);
+
+		return new wrapper_wxTipProvider(L,NULL, currentTip);
+	}
+
 
 	// Function binds:
 	// size_t wxTipProvider::GetCurrentTip() const
@@ -141,7 +165,8 @@ public:
 };
 
 wxTipProvider* LunaTraits< wxTipProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxTipProvider::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxTipProvider::GetTip()
 }

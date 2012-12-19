@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetDC(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -88,6 +100,23 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL)
+	static wxEraseEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL) function, expected prototype:\nwxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int id=luatop>1 ? (int)lua_tointeger(L,2) : 0;
+		wxDC* dc=luatop>2 ? (Luna< wxObject >::checkSubType< wxDC >(L,3)) : (wxDC*)NULL;
+
+		return new wrapper_wxEraseEvent(L,NULL, id, dc);
+	}
+
 
 	// Function binds:
 	// wxDC * wxEraseEvent::GetDC() const
@@ -157,7 +186,8 @@ public:
 };
 
 wxEraseEvent* LunaTraits< wxEraseEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxEraseEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

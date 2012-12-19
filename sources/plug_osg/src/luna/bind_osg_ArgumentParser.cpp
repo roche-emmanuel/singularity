@@ -488,6 +488,15 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_writeErrorMessages(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_readHelpType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -1743,6 +1752,32 @@ public:
 		return 0;
 	}
 
+	// void osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN)
+	static int _bind_writeErrorMessages(lua_State *L) {
+		if (!_lg_typecheck_writeErrorMessages(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN) function, expected prototype:\nvoid osg::ArgumentParser::writeErrorMessages(std::ostream & output, osg::ArgumentParser::ErrorSeverity sevrity = osg::ArgumentParser::BENIGN)\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* output_ptr=(Luna< std::ostream >::check(L,2));
+		if( !output_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg output in osg::ArgumentParser::writeErrorMessages function");
+		}
+		std::ostream & output=*output_ptr;
+		osg::ArgumentParser::ErrorSeverity sevrity=luatop>2 ? (osg::ArgumentParser::ErrorSeverity)lua_tointeger(L,3) : osg::ArgumentParser::BENIGN;
+
+		osg::ArgumentParser* self=(Luna< osg::ArgumentParser >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::ArgumentParser::writeErrorMessages(std::ostream &, osg::ArgumentParser::ErrorSeverity)");
+		}
+		self->writeErrorMessages(output, sevrity);
+
+		return 0;
+	}
+
 	// osg::ApplicationUsage::Type osg::ArgumentParser::readHelpType()
 	static int _bind_readHelpType(lua_State *L) {
 		if (!_lg_typecheck_readHelpType(L)) {
@@ -1818,6 +1853,8 @@ public:
 
 osg::ArgumentParser* LunaTraits< osg::ArgumentParser >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ArgumentParser >::_bind_dtor(osg::ArgumentParser* obj) {
@@ -1850,6 +1887,7 @@ luna_RegType LunaTraits< osg::ArgumentParser >::methods[] = {
 	{"reportError", &luna_wrapper_osg_ArgumentParser::_bind_reportError},
 	{"reportRemainingOptionsAsUnrecognized", &luna_wrapper_osg_ArgumentParser::_bind_reportRemainingOptionsAsUnrecognized},
 	{"getErrorMessageMap", &luna_wrapper_osg_ArgumentParser::_bind_getErrorMessageMap},
+	{"writeErrorMessages", &luna_wrapper_osg_ArgumentParser::_bind_writeErrorMessages},
 	{"readHelpType", &luna_wrapper_osg_ArgumentParser::_bind_readHelpType},
 	{"op_index", &luna_wrapper_osg_ArgumentParser::_bind_op_index},
 	{"dynCast", &luna_wrapper_osg_ArgumentParser::_bind_dynCast},

@@ -9746,6 +9746,24 @@ public:
 };
 
 template<>
+class LunaTraits< osgDB::XmlNode::ControlMap > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osgDB::XmlNode::ControlMap* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osgDB::XmlNode::ControlMap* obj);
+	typedef osgDB::XmlNode::ControlMap parent_t;
+	typedef osgDB::XmlNode::ControlMap base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
 class LunaTraits< osgDB::XmlNode::Input > {
 public:
 	static const char className[];
@@ -9758,7 +9776,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static osgDB::XmlNode::Input* _bind_ctor(lua_State *L);
 	static void _bind_dtor(osgDB::XmlNode::Input* obj);
-	typedef osgDB::XmlNode::Input parent_t;
+	typedef osgDB::XmlNode::ControlMap parent_t;
 	typedef osgDB::XmlNode::Input base_t;
 	static luna_ConverterType converters[];
 };
@@ -14191,6 +14209,42 @@ public:
 	static luna_ConverterType converters[];
 };
 
+template<>
+class LunaTraits< std::istream > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::istream* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::istream* obj);
+	typedef std::istream parent_t;
+	typedef std::istream base_t;
+	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaTraits< std::ostream > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static std::ostream* _bind_ctor(lua_State *L);
+	static void _bind_dtor(std::ostream* obj);
+	typedef std::ostream parent_t;
+	typedef std::ostream base_t;
+	static luna_ConverterType converters[];
+};
+
 
 template<>
 class LunaType< 37525689 > {
@@ -16188,9 +16242,23 @@ public:
 };
 
 template<>
-class LunaType< 63781548 > {
+class LunaType< 95509303 > {
 public:
-	typedef osgDB::XmlNode::Input type;
+	typedef osgDB::XmlNode::ControlMap type;
+	
+};
+
+template<>
+class LunaType< 12849652 > {
+public:
+	typedef osgDB::XmlNode::ControlMap::ControlToCharacterMap type;
+	
+};
+
+template<>
+class LunaType< 7205304 > {
+public:
+	typedef osgDB::XmlNode::ControlMap::CharacterToControlMap type;
 	
 };
 
@@ -16905,6 +16973,20 @@ template<>
 class LunaType< 2917259 > {
 public:
 	typedef osgViewer::ViewerBase::Views type;
+	
+};
+
+template<>
+class LunaType< 77972206 > {
+public:
+	typedef std::istream type;
+	
+};
+
+template<>
+class LunaType< 2993706 > {
+public:
+	typedef std::ostream type;
 	
 };
 

@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_CanRead_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -198,6 +207,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxImageHandler::wxImageHandler(lua_Table * data)
+	static wxImageHandler* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxImageHandler::wxImageHandler(lua_Table * data) function, expected prototype:\nwxImageHandler::wxImageHandler(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxImageHandler(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool wxImageHandler::CanRead(wxInputStream & stream)
@@ -595,8 +617,10 @@ public:
 };
 
 wxImageHandler* LunaTraits< wxImageHandler >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxImageHandler::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// bool wxImageHandler::DoCanRead(wxInputStream & arg1)
 	// int wxImageHandler::GetImageCount(wxInputStream & stream)
 }
 

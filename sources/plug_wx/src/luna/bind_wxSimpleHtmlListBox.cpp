@@ -90,6 +90,36 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<6 || luatop>9 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnil(L,2)==0 && !dynamic_cast< wxWindow* >(Luna< wxObject >::check(L,2)) ) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
+		if( (!dynamic_cast< wxPoint* >(Luna< wxPoint >::check(L,4))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
+		if( (!dynamic_cast< wxSize* >(Luna< wxSize >::check(L,5))) ) return false;
+		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
+		if( (!dynamic_cast< wxArrayString* >(Luna< wxArrayString >::check(L,6))) ) return false;
+		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
+		if( luatop>7 && (!dynamic_cast< wxValidator* >(Luna< wxObject >::check(L,8))) ) return false;
+		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Create(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -858,6 +888,65 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = wxHLB_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSimpleHtmlListBoxNameStr)
+	static wxSimpleHtmlListBox* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = wxHLB_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSimpleHtmlListBoxNameStr) function, expected prototype:\nwxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = wxHLB_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSimpleHtmlListBoxNameStr)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+		int id=(int)lua_tointeger(L,3);
+		const wxPoint* pos_ptr=(Luna< wxPoint >::check(L,4));
+		if( !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxSimpleHtmlListBox::wxSimpleHtmlListBox function");
+		}
+		const wxPoint & pos=*pos_ptr;
+		const wxSize* size_ptr=(Luna< wxSize >::check(L,5));
+		if( !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxSimpleHtmlListBox::wxSimpleHtmlListBox function");
+		}
+		const wxSize & size=*size_ptr;
+		const wxArrayString* choices_ptr=(Luna< wxArrayString >::check(L,6));
+		if( !choices_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg choices in wxSimpleHtmlListBox::wxSimpleHtmlListBox function");
+		}
+		const wxArrayString & choices=*choices_ptr;
+		long style=luatop>6 ? (long)lua_tointeger(L,7) : wxHLB_DEFAULT_STYLE;
+		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
+		if( luatop>7 && !validator_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxSimpleHtmlListBox::wxSimpleHtmlListBox function");
+		}
+		const wxValidator & validator=luatop>7 ? *validator_ptr : wxDefaultValidator;
+		wxString name(lua_tostring(L,9),lua_objlen(L,9));
+
+		return new wrapper_wxSimpleHtmlListBox(L,NULL, parent, id, pos, size, choices, style, validator, name);
+	}
+
+	// wxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data)
+	static wxSimpleHtmlListBox* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data) function, expected prototype:\nwxSimpleHtmlListBox::wxSimpleHtmlListBox(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxSimpleHtmlListBox(L,NULL);
+	}
+
+	// Overload binder for wxSimpleHtmlListBox::wxSimpleHtmlListBox
+	static wxSimpleHtmlListBox* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function wxSimpleHtmlListBox, cannot match any of the overloads for function wxSimpleHtmlListBox:\n  wxSimpleHtmlListBox(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayString &, long, const wxValidator &, const wxString &)\n  wxSimpleHtmlListBox(lua_Table *)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// bool wxSimpleHtmlListBox::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style = wxHLB_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSimpleHtmlListBoxNameStr)
@@ -3139,7 +3228,8 @@ public:
 };
 
 wxSimpleHtmlListBox* LunaTraits< wxSimpleHtmlListBox >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxSimpleHtmlListBox::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxHtmlListBox::OnGetItem(size_t n) const
 	// void wxVListBox::OnDrawItem(wxDC & dc, const wxRect & rect, size_t n) const

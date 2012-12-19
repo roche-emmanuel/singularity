@@ -44,6 +44,27 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osg::StateAttribute* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_cloneType(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -372,6 +393,51 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
 		return true;
+	}
+
+
+	// Constructor binds:
+	// osg::StateAttribute::StateAttribute(lua_Table * data)
+	static osg::StateAttribute* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::StateAttribute(lua_Table * data) function, expected prototype:\nosg::StateAttribute::StateAttribute(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_osg_StateAttribute(L,NULL);
+	}
+
+	// osg::StateAttribute::StateAttribute(lua_Table * data, const osg::StateAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
+	static osg::StateAttribute* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osg::StateAttribute::StateAttribute(lua_Table * data, const osg::StateAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosg::StateAttribute::StateAttribute(lua_Table * data, const osg::StateAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osg::StateAttribute* sa_ptr=(Luna< osg::Referenced >::checkSubType< osg::StateAttribute >(L,2));
+		if( !sa_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg sa in osg::StateAttribute::StateAttribute function");
+		}
+		const osg::StateAttribute & sa=*sa_ptr;
+		const osg::CopyOp* copyop_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyop_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyop in osg::StateAttribute::StateAttribute function");
+		}
+		const osg::CopyOp & copyop=luatop>2 ? *copyop_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osg_StateAttribute(L,NULL, sa, copyop);
+	}
+
+	// Overload binder for osg::StateAttribute::StateAttribute
+	static osg::StateAttribute* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StateAttribute, cannot match any of the overloads for function StateAttribute:\n  StateAttribute(lua_Table *)\n  StateAttribute(lua_Table *, const osg::StateAttribute &, const osg::CopyOp &)\n");
+		return NULL;
 	}
 
 
@@ -1500,7 +1566,8 @@ public:
 };
 
 osg::StateAttribute* LunaTraits< osg::StateAttribute >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osg_StateAttribute::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// osg::Object * osg::StateAttribute::cloneType() const
 	// osg::Object * osg::StateAttribute::clone(const osg::CopyOp & arg1) const

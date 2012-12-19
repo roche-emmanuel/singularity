@@ -3756,6 +3756,8 @@ public:
 
 wxRibbonGallery* LunaTraits< wxRibbonGallery >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRibbonGallery::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxRibbonGallery >::_bind_dtor(wxRibbonGallery* obj) {

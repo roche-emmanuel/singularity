@@ -66,6 +66,20 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>5 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_GetClassInfo(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -134,6 +148,25 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataViewSpinRenderer::wxDataViewSpinRenderer(lua_Table * data, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1)
+	static wxDataViewSpinRenderer* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataViewSpinRenderer::wxDataViewSpinRenderer(lua_Table * data, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) function, expected prototype:\nwxDataViewSpinRenderer::wxDataViewSpinRenderer(lua_Table * data, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int min=(int)lua_tointeger(L,2);
+		int max=(int)lua_tointeger(L,3);
+		wxDataViewCellMode mode=luatop>3 ? (wxDataViewCellMode)lua_tointeger(L,4) : ::wxDATAVIEW_CELL_EDITABLE;
+		int align=luatop>4 ? (int)lua_tointeger(L,5) : -1;
+
+		return new wrapper_wxDataViewSpinRenderer(L,NULL, min, max, mode, align);
+	}
+
 
 	// Function binds:
 	// wxClassInfo * wxDataViewSpinRenderer::base_GetClassInfo() const
@@ -343,10 +376,13 @@ public:
 };
 
 wxDataViewSpinRenderer* LunaTraits< wxDataViewSpinRenderer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataViewSpinRenderer::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxSize wxDataViewCustomRenderer::GetSize() const
 	// bool wxDataViewCustomRenderer::Render(wxRect cell, wxDC * dc, int state)
+	// wxSize wxDataViewRenderer::GetSize() const
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
 	// bool wxDataViewRenderer::GetValue(wxVariant & value) const
 	// bool wxDataViewRenderer::SetValue(const wxVariant & value)
 }

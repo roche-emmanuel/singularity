@@ -4266,6 +4266,8 @@ public:
 
 wxGenericDirCtrl* LunaTraits< wxGenericDirCtrl >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxGenericDirCtrl::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxGenericDirCtrl >::_bind_dtor(wxGenericDirCtrl* obj) {

@@ -17,6 +17,12 @@ public:
 
 
 
+protected:
+// void * wxThread::Entry()
+void * Entry() {
+	THROW_IF(true,"The function call void * wxThread::Entry() is not implemented in wrapper.");
+};
+
 };
 
 

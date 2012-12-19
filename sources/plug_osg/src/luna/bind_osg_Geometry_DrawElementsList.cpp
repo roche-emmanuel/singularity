@@ -70,6 +70,8 @@ public:
 
 osg::Geometry::DrawElementsList* LunaTraits< osg::Geometry::DrawElementsList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Geometry::DrawElementsList >::_bind_dtor(osg::Geometry::DrawElementsList* obj) {

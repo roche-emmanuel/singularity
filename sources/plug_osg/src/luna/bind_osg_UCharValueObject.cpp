@@ -70,6 +70,8 @@ public:
 
 osg::UCharValueObject* LunaTraits< osg::UCharValueObject >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::UCharValueObject >::_bind_dtor(osg::UCharValueObject* obj) {

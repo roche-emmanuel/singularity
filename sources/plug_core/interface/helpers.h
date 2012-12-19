@@ -53,6 +53,22 @@ protected:
 
 };
 
+namespace std {
+
+class istream {
+protected:
+	istream();
+	~istream();
+};
+
+class ostream {
+protected:
+	ostream();
+	~ostream();
+};
+
+}
+
 void doLog(int level, const std::string& msg);
 void doLogV(int level, const std::string& msg);
 void doTrace(int level, const std::string& trace, const std::string& msg);

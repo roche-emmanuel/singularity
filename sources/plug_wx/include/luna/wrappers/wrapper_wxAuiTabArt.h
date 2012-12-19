@@ -135,6 +135,15 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)
+	int ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3) {
+		THROW_IF(!_obj.pushFunction("ShowDropDown"),"No implementation for abstract function wxAuiTabArt::ShowDropDown");
+		_obj.pushArg(arg1);
+		_obj.pushArg(&arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<int>());
+	};
+
 
 
 

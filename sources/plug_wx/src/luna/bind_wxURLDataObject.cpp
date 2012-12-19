@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetURL(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -83,6 +94,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString)
+	static wxURLDataObject* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString) function, expected prototype:\nwxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString url(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxURLDataObject(L,NULL, url);
+	}
+
 
 	// Function binds:
 	// wxString wxURLDataObject::GetURL() const
@@ -129,7 +156,8 @@ public:
 };
 
 wxURLDataObject* LunaTraits< wxURLDataObject >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxURLDataObject::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxTextDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const

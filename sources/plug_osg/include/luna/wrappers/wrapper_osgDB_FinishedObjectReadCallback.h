@@ -14,6 +14,14 @@ public:
 	
 
 
+	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
+	void objectRead(osgDB::InputStream & is, osg::Object & obj) {
+		THROW_IF(!_obj.pushFunction("objectRead"),"No implementation for abstract function osgDB::FinishedObjectReadCallback::objectRead");
+		_obj.pushArg(&is);
+		_obj.pushArg(&obj);
+		return (_obj.callFunction<void>());
+	};
+
 
 
 

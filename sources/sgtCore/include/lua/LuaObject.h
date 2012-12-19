@@ -35,7 +35,7 @@ public:
 		THROW_IF(!pushLuaItem(),"Cannot push lua item.");
 
 		// ensure this object is a table:
-		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject.");
+		THROW_IF(lua_type(_state,index)!=LUA_TTABLE,"Invalid non table base for luaObject, type is: "<<lua_type(_state,index));
 
 		// remove from stack:
 		lua_pop(_state,1);
@@ -185,6 +185,14 @@ inline void pushValue(lua_State* L, long * arg) {
 inline void pushValue(lua_State* L, bool * arg) {
 	lua_pushnil(L);
 	//Luna< void >::push(L,(void*)arg,false);
+}
+
+inline void pushValue(lua_State* L, char* arg) {
+	lua_pushstring(L,arg);
+}
+
+inline void pushValue(lua_State* L, const char* arg) {
+	lua_pushstring(L,arg);
 }
 
 inline void pushValue(lua_State* L, const String& arg) {

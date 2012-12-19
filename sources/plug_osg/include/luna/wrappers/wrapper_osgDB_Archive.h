@@ -150,6 +150,17 @@ public:
 		return Archive::openArchive(arg1, arg2, arg3, arg4);
 	};
 
+	// osgDB::ReaderWriter::ReadResult osgDB::ReaderWriter::openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const
+	osgDB::ReaderWriter::ReadResult openArchive(std::istream & arg1, const osgDB::Options * arg2 = NULL) const {
+		if(_obj.pushFunction("openArchive")) {
+			_obj.pushArg(&arg1);
+			_obj.pushArg(arg2);
+			return *(_obj.callFunction<osgDB::ReaderWriter::ReadResult*>());
+		}
+
+		return Archive::openArchive(arg1, arg2);
+	};
+
 	// const char * osgDB::Archive::libraryName() const
 	const char * libraryName() const {
 		if(_obj.pushFunction("libraryName")) {
@@ -208,6 +219,13 @@ public:
 		THROW_IF(!_obj.pushFunction("getFileType"),"No implementation for abstract function osgDB::Archive::getFileType");
 		_obj.pushArg(filename);
 		return (osgDB::FileType)(_obj.callFunction<int>());
+	};
+
+	// bool osgDB::Archive::getFileNames(osgDB::DirectoryContents & fileNames) const
+	bool getFileNames(osgDB::DirectoryContents & fileNames) const {
+		THROW_IF(!_obj.pushFunction("getFileNames"),"No implementation for abstract function osgDB::Archive::getFileNames");
+		_obj.pushArg(&fileNames);
+		return (_obj.callFunction<bool>());
 	};
 
 	// osgDB::DirectoryContents osgDB::Archive::getDirectoryContents(const std::string & dirName) const

@@ -52,6 +52,12 @@ public:
 		return wxDataViewSpinRenderer::SetAlignment(align);
 	};
 
+	// wxSize wxDataViewCustomRenderer::GetSize() const
+	wxSize GetSize() const {
+		THROW_IF(!_obj.pushFunction("GetSize"),"No implementation for abstract function wxDataViewCustomRenderer::GetSize");
+		return *(_obj.callFunction<wxSize*>());
+	};
+
 	// bool wxDataViewCustomRenderer::ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent)
 	bool ActivateCell(const wxRect & cell, wxDataViewModel * model, const wxDataViewItem & item, unsigned int col, const wxMouseEvent * mouseEvent) {
 		if(_obj.pushFunction("ActivateCell")) {
@@ -64,12 +70,6 @@ public:
 		}
 
 		return wxDataViewSpinRenderer::ActivateCell(cell, model, item, col, mouseEvent);
-	};
-
-	// wxSize wxDataViewCustomRenderer::GetSize() const
-	wxSize GetSize() const {
-		THROW_IF(!_obj.pushFunction("GetSize"),"No implementation for abstract function wxDataViewCustomRenderer::GetSize");
-		return *(_obj.callFunction<wxSize*>());
 	};
 
 	// bool wxDataViewCustomRenderer::HasEditorCtrl() const
@@ -139,6 +139,20 @@ protected:
 		return wxDataViewSpinRenderer::CloneRefData(data);
 	};
 
+
+public:
+// bool wxDataViewRenderer::GetValue(wxVariant & value) const
+bool GetValue(wxVariant &) const {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::GetValue(wxVariant &) const is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxDataViewRenderer::SetValue(const wxVariant & value)
+bool SetValue(const wxVariant &) {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::SetValue(const wxVariant &) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

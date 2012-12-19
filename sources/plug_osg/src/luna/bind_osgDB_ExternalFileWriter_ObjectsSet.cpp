@@ -70,6 +70,8 @@ public:
 
 osgDB::ExternalFileWriter::ObjectsSet* LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ExternalFileWriter::ObjectsSet >::_bind_dtor(osgDB::ExternalFileWriter::ObjectsSet* obj) {

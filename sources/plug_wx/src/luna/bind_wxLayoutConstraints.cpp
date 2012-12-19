@@ -208,6 +208,8 @@ public:
 
 wxLayoutConstraints* LunaTraits< wxLayoutConstraints >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxLayoutConstraints::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxLayoutConstraints >::_bind_dtor(wxLayoutConstraints* obj) {

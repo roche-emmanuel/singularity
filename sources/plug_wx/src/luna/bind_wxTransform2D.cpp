@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Transform_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -195,6 +197,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
@@ -575,7 +579,8 @@ public:
 };
 
 wxTransform2D* LunaTraits< wxTransform2D >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	// void wxTransform2D::InverseTransform(wxPoint2DInt * pt) const

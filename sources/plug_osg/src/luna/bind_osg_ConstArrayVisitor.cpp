@@ -1626,6 +1626,8 @@ public:
 
 osg::ConstArrayVisitor* LunaTraits< osg::ConstArrayVisitor >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ConstArrayVisitor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ConstArrayVisitor >::_bind_dtor(osg::ConstArrayVisitor* obj) {

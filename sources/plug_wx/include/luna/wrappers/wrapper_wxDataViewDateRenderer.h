@@ -24,6 +24,21 @@ public:
 		return wxDataViewDateRenderer::GetClassInfo();
 	};
 
+	// wxSize wxDataViewRenderer::GetSize() const
+	wxSize GetSize() const {
+		THROW_IF(!_obj.pushFunction("GetSize"),"No implementation for abstract function wxDataViewRenderer::GetSize");
+		return *(_obj.callFunction<wxSize*>());
+	};
+
+	// bool wxDataViewRenderer::Render(wxRect arg1, wxDC * arg2, int arg3)
+	bool Render(wxRect arg1, wxDC * arg2, int arg3) {
+		THROW_IF(!_obj.pushFunction("Render"),"No implementation for abstract function wxDataViewRenderer::Render");
+		_obj.pushArg(arg1);
+		_obj.pushArg(arg2);
+		_obj.pushArg(arg3);
+		return (_obj.callFunction<bool>());
+	};
+
 	// int wxDataViewRenderer::GetAlignment() const
 	int GetAlignment() const {
 		if(_obj.pushFunction("GetAlignment")) {
@@ -73,6 +88,20 @@ protected:
 		return wxDataViewDateRenderer::CloneRefData(data);
 	};
 
+
+public:
+// bool wxDataViewRenderer::GetValue(wxVariant & value) const
+bool GetValue(wxVariant &) const {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::GetValue(wxVariant &) const is not implemented in wrapper.");
+	return bool();
+};
+
+public:
+// bool wxDataViewRenderer::SetValue(const wxVariant & value)
+bool SetValue(const wxVariant &) {
+	THROW_IF(true,"The function call bool wxDataViewRenderer::SetValue(const wxVariant &) is not implemented in wrapper.");
+	return bool();
+};
 
 };
 

@@ -351,6 +351,8 @@ public:
     */
     wxGridCellEditor();
 
+	virtual wxString GetValue(void) const = 0;
+	
     /**
         Fetch the value from the table and prepare the edit control to begin
         editing.

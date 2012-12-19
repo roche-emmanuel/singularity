@@ -13,6 +13,7 @@ class wrapper_wxSplitterEvent : public wxSplitterEvent, public luna_wrapper_base
 public:
 	
 
+	wrapper_wxSplitterEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, wxSplitterWindow * splitter = NULL) : wxSplitterEvent(eventType, splitter), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

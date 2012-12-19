@@ -1663,6 +1663,8 @@ public:
 
 wxRect2DDouble* LunaTraits< wxRect2DDouble >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxRect2DDouble::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxRect2DDouble >::_bind_dtor(wxRect2DDouble* obj) {

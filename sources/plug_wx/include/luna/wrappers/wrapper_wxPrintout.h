@@ -45,6 +45,13 @@ protected:
 	};
 
 
+public:
+// bool wxPrintout::OnPrintPage(int pageNum)
+bool OnPrintPage(int) {
+	THROW_IF(true,"The function call bool wxPrintout::OnPrintPage(int) is not implemented in wrapper.");
+	return bool();
+};
+
 };
 
 

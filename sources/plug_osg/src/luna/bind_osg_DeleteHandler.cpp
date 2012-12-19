@@ -426,6 +426,8 @@ public:
 
 osg::DeleteHandler* LunaTraits< osg::DeleteHandler >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_DeleteHandler::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::DeleteHandler >::_bind_dtor(osg::DeleteHandler* obj) {

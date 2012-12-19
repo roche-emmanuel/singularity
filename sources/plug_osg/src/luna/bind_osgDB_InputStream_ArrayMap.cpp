@@ -70,6 +70,8 @@ public:
 
 osgDB::InputStream::ArrayMap* LunaTraits< osgDB::InputStream::ArrayMap >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::InputStream::ArrayMap >::_bind_dtor(osgDB::InputStream::ArrayMap* obj) {

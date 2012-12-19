@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_OnDrop(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
@@ -119,6 +128,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFileDropTarget::wxFileDropTarget(lua_Table * data)
+	static wxFileDropTarget* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFileDropTarget::wxFileDropTarget(lua_Table * data) function, expected prototype:\nwxFileDropTarget::wxFileDropTarget(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFileDropTarget(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool wxFileDropTarget::OnDrop(int x, int y)
@@ -257,7 +279,8 @@ public:
 };
 
 wxFileDropTarget* LunaTraits< wxFileDropTarget >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFileDropTarget::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// bool wxFileDropTarget::OnDropFiles(int x, int y, const wxArrayString & filenames)
 	// bool wxDropTarget::GetData()

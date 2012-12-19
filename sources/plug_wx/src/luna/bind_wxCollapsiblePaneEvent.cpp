@@ -66,6 +66,18 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_GetCollapsed(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -95,6 +107,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed)
+	static wxCollapsiblePaneEvent* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed) function, expected prototype:\nwxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed)\nClass arguments details:\narg 2 ID = 56813631\n");
+		}
+
+		wxObject* generator=(Luna< wxObject >::check(L,2));
+		int id=(int)lua_tointeger(L,3);
+		bool collapsed=(bool)(lua_toboolean(L,4)==1);
+
+		return new wrapper_wxCollapsiblePaneEvent(L,NULL, generator, id, collapsed);
+	}
+
 
 	// Function binds:
 	// bool wxCollapsiblePaneEvent::GetCollapsed() const
@@ -181,7 +209,8 @@ public:
 };
 
 wxCollapsiblePaneEvent* LunaTraits< wxCollapsiblePaneEvent >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxCollapsiblePaneEvent::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxEvent * wxEvent::Clone() const
 }

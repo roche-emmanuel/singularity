@@ -78,10 +78,14 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 
@@ -90,7 +94,8 @@ public:
 };
 
 wxRichTextStyleListBox* LunaTraits< wxRichTextStyleListBox >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxVListBox::OnDrawItem(wxDC & dc, const wxRect & rect, size_t n) const
 	// int wxVListBox::OnMeasureItem(size_t n) const

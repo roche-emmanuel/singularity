@@ -70,6 +70,8 @@ public:
 
 osgUtil::RenderBin::RenderLeafList* LunaTraits< osgUtil::RenderBin::RenderLeafList >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgUtil::RenderBin::RenderLeafList >::_bind_dtor(osgUtil::RenderBin::RenderLeafList* obj) {

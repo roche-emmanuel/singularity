@@ -1298,6 +1298,13 @@ protected:
 		return wxAuiNotebook::AddPendingEvent(event);
 	};
 
+	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	wxWindow * DoRemovePage(size_t arg1) {
+		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
+		_obj.pushArg(arg1);
+		return (_obj.callFunction<wxWindow*>());
+	};
+
 
 };
 

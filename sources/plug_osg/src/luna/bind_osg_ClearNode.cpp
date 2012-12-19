@@ -1342,6 +1342,8 @@ public:
 
 osg::ClearNode* LunaTraits< osg::ClearNode >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_ClearNode::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::ClearNode >::_bind_dtor(osg::ClearNode* obj) {

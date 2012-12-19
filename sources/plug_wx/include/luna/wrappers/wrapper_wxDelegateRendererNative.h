@@ -246,6 +246,16 @@ public:
 		return wxDelegateRendererNative::DrawFocusRect(win, dc, rect, flags);
 	};
 
+	// wxSplitterRenderParams wxDelegateRendererNative::GetSplitterParams(const wxWindow * win)
+	wxSplitterRenderParams GetSplitterParams(const wxWindow * win) {
+		if(_obj.pushFunction("GetSplitterParams")) {
+			_obj.pushArg(win);
+			return *(_obj.callFunction<wxSplitterRenderParams*>());
+		}
+
+		return wxDelegateRendererNative::GetSplitterParams(win);
+	};
+
 	// wxRendererVersion wxDelegateRendererNative::GetVersion() const
 	wxRendererVersion GetVersion() const {
 		if(_obj.pushFunction("GetVersion")) {

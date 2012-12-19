@@ -13,6 +13,8 @@ class wrapper_wxSplitterWindow : public wxSplitterWindow, public luna_wrapper_ba
 public:
 	
 
+	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum) : wxSplitterWindow(), luna_wrapper_base(L) {};
+	wrapper_wxSplitterWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = (0x0200|0x0100), const wxString & name = "splitterWindow") : wxSplitterWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {
@@ -989,6 +991,61 @@ public:
 		}
 
 		return wxSplitterWindow::UpdateWindowUI(flags);
+	};
+
+	// void wxSplitterWindow::OnDoubleClickSash(int x, int y)
+	void OnDoubleClickSash(int x, int y) {
+		if(_obj.pushFunction("OnDoubleClickSash")) {
+			_obj.pushArg(x);
+			_obj.pushArg(y);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSplitterWindow::OnDoubleClickSash(x, y);
+	};
+
+	// bool wxSplitterWindow::OnSashPositionChange(int newSashPosition)
+	bool OnSashPositionChange(int newSashPosition) {
+		if(_obj.pushFunction("OnSashPositionChange")) {
+			_obj.pushArg(newSashPosition);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSplitterWindow::OnSashPositionChange(newSashPosition);
+	};
+
+	// void wxSplitterWindow::OnUnsplit(wxWindow * removed)
+	void OnUnsplit(wxWindow * removed) {
+		if(_obj.pushFunction("OnUnsplit")) {
+			_obj.pushArg(removed);
+			return (_obj.callFunction<void>());
+		}
+
+		return wxSplitterWindow::OnUnsplit(removed);
+	};
+
+	// bool wxSplitterWindow::SplitHorizontally(wxWindow * window1, wxWindow * window2, int sashPosition = 0)
+	bool SplitHorizontally(wxWindow * window1, wxWindow * window2, int sashPosition = 0) {
+		if(_obj.pushFunction("SplitHorizontally")) {
+			_obj.pushArg(window1);
+			_obj.pushArg(window2);
+			_obj.pushArg(sashPosition);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSplitterWindow::SplitHorizontally(window1, window2, sashPosition);
+	};
+
+	// bool wxSplitterWindow::SplitVertically(wxWindow * window1, wxWindow * window2, int sashPosition = 0)
+	bool SplitVertically(wxWindow * window1, wxWindow * window2, int sashPosition = 0) {
+		if(_obj.pushFunction("SplitVertically")) {
+			_obj.pushArg(window1);
+			_obj.pushArg(window2);
+			_obj.pushArg(sashPosition);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxSplitterWindow::SplitVertically(window1, window2, sashPosition);
 	};
 
 

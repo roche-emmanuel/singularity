@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Append_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -222,6 +224,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// int wxItemContainer::Append(const wxString & item)
@@ -675,7 +679,8 @@ public:
 };
 
 wxItemContainer* LunaTraits< wxItemContainer >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	// wxString wxItemContainerImmutable::GetString(unsigned int n) const

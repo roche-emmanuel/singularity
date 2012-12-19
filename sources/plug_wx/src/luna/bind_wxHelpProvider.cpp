@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_AddHelp_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
@@ -183,6 +185,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
@@ -472,7 +476,8 @@ public:
 };
 
 wxHelpProvider* LunaTraits< wxHelpProvider >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxHelpProvider::GetHelp(const wxWindow * window)
 }

@@ -850,6 +850,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_getObjectWrapperManager(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_getArchiveExtensions(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -3310,6 +3316,27 @@ public:
 		return 1;
 	}
 
+	// osgDB::ObjectWrapperManager * osgDB::Registry::getObjectWrapperManager()
+	static int _bind_getObjectWrapperManager(lua_State *L) {
+		if (!_lg_typecheck_getObjectWrapperManager(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgDB::ObjectWrapperManager * osgDB::Registry::getObjectWrapperManager() function, expected prototype:\nosgDB::ObjectWrapperManager * osgDB::Registry::getObjectWrapperManager()\nClass arguments details:\n");
+		}
+
+
+		osgDB::Registry* self=Luna< osg::Referenced >::checkSubType< osgDB::Registry >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call osgDB::ObjectWrapperManager * osgDB::Registry::getObjectWrapperManager()");
+		}
+		osgDB::ObjectWrapperManager * lret = self->getObjectWrapperManager();
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osgDB::ObjectWrapperManager >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// const osgDB::Registry::ArchiveExtensionList & osgDB::Registry::getArchiveExtensions() const
 	static int _bind_getArchiveExtensions(lua_State *L) {
 		if (!_lg_typecheck_getArchiveExtensions(L)) {
@@ -3338,6 +3365,8 @@ public:
 
 osgDB::Registry* LunaTraits< osgDB::Registry >::_bind_ctor(lua_State *L) {
 	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::Registry >::_bind_dtor(osgDB::Registry* obj) {
@@ -3448,6 +3477,7 @@ luna_RegType LunaTraits< osgDB::Registry >::methods[] = {
 	{"addArchiveExtension", &luna_wrapper_osgDB_Registry::_bind_addArchiveExtension},
 	{"registerProtocol", &luna_wrapper_osgDB_Registry::_bind_registerProtocol},
 	{"isProtocolRegistered", &luna_wrapper_osgDB_Registry::_bind_isProtocolRegistered},
+	{"getObjectWrapperManager", &luna_wrapper_osgDB_Registry::_bind_getObjectWrapperManager},
 	{"getArchiveExtensions", &luna_wrapper_osgDB_Registry::_bind_getArchiveExtensions},
 	{"__eq", &luna_wrapper_osgDB_Registry::_bind___eq},
 	{"getTable", &luna_wrapper_osgDB_Registry::_bind_getTable},

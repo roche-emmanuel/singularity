@@ -1226,6 +1226,8 @@ public:
 
 wxHtmlWindow* LunaTraits< wxHtmlWindow >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxHtmlWindow::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxHtmlWindow >::_bind_dtor(wxHtmlWindow* obj) {

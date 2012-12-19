@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Add(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -103,6 +112,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxDataObjectComposite::wxDataObjectComposite(lua_Table * data)
+	static wxDataObjectComposite* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxDataObjectComposite::wxDataObjectComposite(lua_Table * data) function, expected prototype:\nwxDataObjectComposite::wxDataObjectComposite(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxDataObjectComposite(L,NULL);
+	}
+
 
 	// Function binds:
 	// void wxDataObjectComposite::Add(wxDataObjectSimple * dataObject, bool preferred = false)
@@ -210,7 +232,8 @@ public:
 };
 
 wxDataObjectComposite* LunaTraits< wxDataObjectComposite >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxDataObjectComposite::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const
 	// bool wxDataObject::GetDataHere(const wxDataFormat & format, void * buf) const

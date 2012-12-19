@@ -119,6 +119,8 @@ public:
 
 osg::Program::ActiveVarInfo* LunaTraits< osg::Program::ActiveVarInfo >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Program_ActiveVarInfo::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Program::ActiveVarInfo >::_bind_dtor(osg::Program::ActiveVarInfo* obj) {

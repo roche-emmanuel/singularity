@@ -207,8 +207,8 @@ public:
 		return CompositeViewer::realize();
 	};
 
-	// void osgViewer::CompositeViewer::setStartTick(unsigned long long tick)
-	void setStartTick(unsigned long long tick) {
+	// void osgViewer::CompositeViewer::setStartTick(__int64 tick)
+	void setStartTick(__int64 tick) {
 		if(_obj.pushFunction("setStartTick")) {
 			_obj.pushArg(tick);
 			return (_obj.callFunction<void>());

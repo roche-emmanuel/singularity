@@ -2516,6 +2516,8 @@ public:
 
 osgGA::OrbitManipulator* LunaTraits< osgGA::OrbitManipulator >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgGA_OrbitManipulator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgGA::OrbitManipulator >::_bind_dtor(osgGA::OrbitManipulator* obj) {

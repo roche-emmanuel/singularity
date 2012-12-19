@@ -408,6 +408,14 @@ public:
 class wxSockAddress : public wxObject
 {
 public:
+    enum Family
+    {
+        NONE,
+        IPV4,
+        IPV6,
+        UNIX
+    };
+	
     /**
         Default constructor.
     */
@@ -447,6 +455,10 @@ public:
             address.
     */
     int GetAddressDataLen() const;
+	
+	
+	virtual Family Type(void) = 0;
+	wxSockAddress* Clone(void) const = 0;
 };
 
 

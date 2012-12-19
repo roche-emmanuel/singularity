@@ -21,6 +21,7 @@
 
 #include <osg/Vec3d>
 #include <osg/RenderInfo>
+#include <osgDB/XmlParser>
 
 #include "plug_extensions.h"
 
@@ -36,12 +37,13 @@ struct luna_caster<osg::RenderInfo,dstType> {
 	};
 };
 
-template <>
-struct luna_caster<osg::RenderInfo,osg::RenderInfo> {
-	static inline osg::RenderInfo* cast(osg::RenderInfo* ptr) {
-		return ptr;
+template <typename dstType>
+struct luna_caster<osgDB::XmlNode::ControlMap,dstType> {
+	static inline dstType* cast(osgDB::XmlNode::ControlMap* ptr) {
+		return static_cast<dstType*>(ptr);
 	};
 };
+
 
 #endif
 

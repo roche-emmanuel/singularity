@@ -66,6 +66,15 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_Connect_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -334,6 +343,19 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxFTP::wxFTP(lua_Table * data)
+	static wxFTP* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxFTP::wxFTP(lua_Table * data) function, expected prototype:\nwxFTP::wxFTP(lua_Table * data)\nClass arguments details:\n");
+		}
+
+
+		return new wrapper_wxFTP(L,NULL);
+	}
+
 
 	// Function binds:
 	// bool wxFTP::Connect(const wxString & host)
@@ -1145,7 +1167,8 @@ public:
 };
 
 wxFTP* LunaTraits< wxFTP >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxFTP::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// wxString wxProtocol::GetContentType() const
 }

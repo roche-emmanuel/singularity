@@ -202,6 +202,27 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_report_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_report_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2993706) ) return false;
+		if( (!dynamic_cast< std::ostream* >(Luna< std::ostream >::check(L,2))) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -570,6 +591,68 @@ public:
 		return 0;
 	}
 
+	// void osg::Stats::report(std::ostream & out, const char * indent = 0) const
+	static int _bind_report_overload_1(lua_State *L) {
+		if (!_lg_typecheck_report_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Stats::report(std::ostream & out, const char * indent = 0) const function, expected prototype:\nvoid osg::Stats::report(std::ostream & out, const char * indent = 0) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Stats::report function");
+		}
+		std::ostream & out=*out_ptr;
+		const char * indent=luatop>2 ? (const char *)lua_tostring(L,3) : 0;
+
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, const char *) const");
+		}
+		self->report(out, indent);
+
+		return 0;
+	}
+
+	// void osg::Stats::report(std::ostream & out, unsigned int frameNumber, const char * indent = 0) const
+	static int _bind_report_overload_2(lua_State *L) {
+		if (!_lg_typecheck_report_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Stats::report(std::ostream & out, unsigned int frameNumber, const char * indent = 0) const function, expected prototype:\nvoid osg::Stats::report(std::ostream & out, unsigned int frameNumber, const char * indent = 0) const\nClass arguments details:\narg 1 ID = 2993706\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		std::ostream* out_ptr=(Luna< std::ostream >::check(L,2));
+		if( !out_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg out in osg::Stats::report function");
+		}
+		std::ostream & out=*out_ptr;
+		unsigned int frameNumber=(unsigned int)lua_tointeger(L,3);
+		const char * indent=luatop>3 ? (const char *)lua_tostring(L,4) : 0;
+
+		osg::Stats* self=Luna< osg::Referenced >::checkSubType< osg::Stats >(L,1);
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call void osg::Stats::report(std::ostream &, unsigned int, const char *) const");
+		}
+		self->report(out, frameNumber, indent);
+
+		return 0;
+	}
+
+	// Overload binder for osg::Stats::report
+	static int _bind_report(lua_State *L) {
+		if (_lg_typecheck_report_overload_1(L)) return _bind_report_overload_1(L);
+		if (_lg_typecheck_report_overload_2(L)) return _bind_report_overload_2(L);
+
+		luaL_error(L, "error in function report, cannot match any of the overloads for function report:\n  report(std::ostream &, const char *)\n  report(std::ostream &, unsigned int, const char *)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -577,6 +660,8 @@ public:
 
 osg::Stats* LunaTraits< osg::Stats >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osg_Stats::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osg::Stats >::_bind_dtor(osg::Stats* obj) {
@@ -601,6 +686,7 @@ luna_RegType LunaTraits< osg::Stats >::methods[] = {
 	{"getAveragedAttribute", &luna_wrapper_osg_Stats::_bind_getAveragedAttribute},
 	{"getAttributeMap", &luna_wrapper_osg_Stats::_bind_getAttributeMap},
 	{"collectStats", &luna_wrapper_osg_Stats::_bind_collectStats},
+	{"report", &luna_wrapper_osg_Stats::_bind_report},
 	{"__eq", &luna_wrapper_osg_Stats::_bind___eq},
 	{"getTable", &luna_wrapper_osg_Stats::_bind_getTable},
 	{0,0}

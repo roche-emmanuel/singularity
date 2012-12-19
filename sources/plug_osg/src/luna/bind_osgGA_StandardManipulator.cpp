@@ -66,6 +66,29 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>3 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
+		if( (!dynamic_cast< osgGA::StandardManipulator* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
+		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_className(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -451,6 +474,54 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// osgGA::StandardManipulator::StandardManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)
+	static osgGA::StandardManipulator* _bind_ctor_overload_1(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::StandardManipulator::StandardManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) function, expected prototype:\nosgGA::StandardManipulator::StandardManipulator(lua_Table * data, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS)\nClass arguments details:\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		int flags=luatop>1 ? (int)lua_tointeger(L,2) : osgGA::StandardManipulator::DEFAULT_SETTINGS;
+
+		return new wrapper_osgGA_StandardManipulator(L,NULL, flags);
+	}
+
+	// osgGA::StandardManipulator::StandardManipulator(lua_Table * data, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)
+	static osgGA::StandardManipulator* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in osgGA::StandardManipulator::StandardManipulator(lua_Table * data, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nosgGA::StandardManipulator::StandardManipulator(lua_Table * data, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 50169651\narg 3 ID = 27134364\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		const osgGA::StandardManipulator* m_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::StandardManipulator >(L,2));
+		if( !m_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg m in osgGA::StandardManipulator::StandardManipulator function");
+		}
+		const osgGA::StandardManipulator & m=*m_ptr;
+		const osg::CopyOp* copyOp_ptr=luatop>2 ? (Luna< osg::CopyOp >::check(L,3)) : NULL;
+		if( luatop>2 && !copyOp_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg copyOp in osgGA::StandardManipulator::StandardManipulator function");
+		}
+		const osg::CopyOp & copyOp=luatop>2 ? *copyOp_ptr : osg::CopyOp::SHALLOW_COPY;
+
+		return new wrapper_osgGA_StandardManipulator(L,NULL, m, copyOp);
+	}
+
+	// Overload binder for osgGA::StandardManipulator::StandardManipulator
+	static osgGA::StandardManipulator* _bind_ctor(lua_State *L) {
+		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
+		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+
+		luaL_error(L, "error in function StandardManipulator, cannot match any of the overloads for function StandardManipulator:\n  StandardManipulator(lua_Table *, int)\n  StandardManipulator(lua_Table *, const osgGA::StandardManipulator &, const osg::CopyOp &)\n");
+		return NULL;
+	}
+
 
 	// Function binds:
 	// const char * osgGA::StandardManipulator::className() const
@@ -1676,7 +1747,8 @@ public:
 };
 
 osgGA::StandardManipulator* LunaTraits< osgGA::StandardManipulator >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_osgGA_StandardManipulator::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osgGA::StandardManipulator::setTransformation(const osg::Vec3d & eye, const osg::Quat & rotation)
 	// void osgGA::StandardManipulator::setTransformation(const osg::Vec3d & eye, const osg::Vec3d & center, const osg::Vec3d & up)

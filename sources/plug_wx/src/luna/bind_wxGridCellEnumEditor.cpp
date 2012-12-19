@@ -66,6 +66,17 @@ public:
 	};
 
 
+	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<1 || luatop>2 ) return false;
+
+		if( lua_istable(L,1)==0 ) return false;
+		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		return true;
+	}
+
+
 	// Function checkers:
 	inline static bool _lg_typecheck_base_Destroy(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
@@ -127,6 +138,22 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
+	// wxGridCellEnumEditor::wxGridCellEnumEditor(lua_Table * data, const wxString & choices = wxEmptyString)
+	static wxGridCellEnumEditor* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxGridCellEnumEditor::wxGridCellEnumEditor(lua_Table * data, const wxString & choices = wxEmptyString) function, expected prototype:\nwxGridCellEnumEditor::wxGridCellEnumEditor(lua_Table * data, const wxString & choices = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxString choices(lua_tostring(L,2),lua_objlen(L,2));
+
+		return new wrapper_wxGridCellEnumEditor(L,NULL, choices);
+	}
+
 
 	// Function binds:
 	// void wxGridCellEnumEditor::base_Destroy()
@@ -305,8 +332,10 @@ public:
 };
 
 wxGridCellEnumEditor* LunaTraits< wxGridCellEnumEditor >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return luna_wrapper_wxGridCellEnumEditor::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
+	// wxString wxGridCellEditor::GetValue() const
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	// wxGridCellEditor * wxGridCellEditor::Clone() const
 	// void wxGridCellEditor::Create(wxWindow * parent, int id, wxEvtHandler * evtHandler)

@@ -79,6 +79,8 @@ public:
 	}
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_DrawCheckBox(lua_State *L) {
 		int luatop = lua_gettop(L);
@@ -284,6 +286,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_GetSplitterParams(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_GetVersion(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -325,6 +334,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
@@ -911,6 +922,29 @@ public:
 		return 1;
 	}
 
+	// wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)
+	static int _bind_GetSplitterParams(lua_State *L) {
+		if (!_lg_typecheck_GetSplitterParams(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win) function, expected prototype:\nwxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+		}
+
+		const wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
+
+		wxRendererNative* self=(Luna< wxRendererNative >::check(L,1));
+		if(!self) {
+			luna_printStack(L);
+			luaL_error(L, "Invalid object in function call wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow *)");
+		}
+		wxSplitterRenderParams stack_lret = self->GetSplitterParams(win);
+		wxSplitterRenderParams* lret = new wxSplitterRenderParams(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< wxSplitterRenderParams >::push(L,lret,true);
+
+		return 1;
+	}
+
 	// wxRendererVersion wxRendererNative::GetVersion() const
 	static int _bind_GetVersion(lua_State *L) {
 		if (!_lg_typecheck_GetVersion(L)) {
@@ -1021,7 +1055,8 @@ public:
 };
 
 wxRendererNative* LunaTraits< wxRendererNative >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	// void wxRendererNative::DrawComboBoxDropButton(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
@@ -1077,6 +1112,7 @@ luna_RegType LunaTraits< wxRendererNative >::methods[] = {
 	{"GetCheckBoxSize", &luna_wrapper_wxRendererNative::_bind_GetCheckBoxSize},
 	{"GetHeaderButtonHeight", &luna_wrapper_wxRendererNative::_bind_GetHeaderButtonHeight},
 	{"GetHeaderButtonMargin", &luna_wrapper_wxRendererNative::_bind_GetHeaderButtonMargin},
+	{"GetSplitterParams", &luna_wrapper_wxRendererNative::_bind_GetSplitterParams},
 	{"GetVersion", &luna_wrapper_wxRendererNative::_bind_GetVersion},
 	{"Get", &luna_wrapper_wxRendererNative::_bind_Get},
 	{"GetDefault", &luna_wrapper_wxRendererNative::_bind_GetDefault},

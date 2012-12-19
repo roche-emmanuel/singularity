@@ -66,6 +66,8 @@ public:
 	};
 
 
+	// Constructor checkers:
+
 	// Function checkers:
 	inline static bool _lg_typecheck_completed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
@@ -77,6 +79,8 @@ public:
 
 	// Operator checkers:
 	// (found 0 valid operators)
+
+	// Constructor binds:
 
 	// Function binds:
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
@@ -104,7 +108,8 @@ public:
 };
 
 osg::State::DynamicObjectRenderingCompletedCallback* LunaTraits< osg::State::DynamicObjectRenderingCompletedCallback >::_bind_ctor(lua_State *L) {
-	return NULL; // Class is abstract.
+	return NULL; // No valid default constructor.
+	// Note that this class is abstract (only lua wrappers can be created).
 	// Abstract methods:
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
 }

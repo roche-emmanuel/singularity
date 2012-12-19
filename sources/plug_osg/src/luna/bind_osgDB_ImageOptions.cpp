@@ -705,6 +705,8 @@ public:
 
 osgDB::ImageOptions* LunaTraits< osgDB::ImageOptions >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_osgDB_ImageOptions::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< osgDB::ImageOptions >::_bind_dtor(osgDB::ImageOptions* obj) {

@@ -607,6 +607,8 @@ public:
 
 wxPoint2DInt* LunaTraits< wxPoint2DInt >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxPoint2DInt::_bind_ctor(L);
+	// Note that this class is abstract (only lua wrappers can be created).
+	// Abstract methods:
 }
 
 void LunaTraits< wxPoint2DInt >::_bind_dtor(wxPoint2DInt* obj) {
