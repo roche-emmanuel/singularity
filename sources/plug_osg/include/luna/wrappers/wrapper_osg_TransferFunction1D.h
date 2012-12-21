@@ -129,6 +129,22 @@ public:
 
 
 
+// void osg::TransferFunction1D::assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c)
+void public_assignToImage(float lower_v, const osg::Vec4f & lower_c, float upper_v, const osg::Vec4f & upper_c) {
+	return osg::TransferFunction1D::assignToImage(lower_v, lower_c, upper_v, upper_c);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

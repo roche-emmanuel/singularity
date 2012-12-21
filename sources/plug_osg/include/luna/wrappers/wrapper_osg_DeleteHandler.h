@@ -53,6 +53,8 @@ public:
 
 
 
+// osg::DeleteHandler osg::DeleteHandler::operator=(const osg::DeleteHandler & arg1)
+
 };
 
 

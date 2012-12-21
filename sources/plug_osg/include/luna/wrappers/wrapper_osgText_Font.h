@@ -179,6 +179,22 @@ public:
 
 
 
+// void osgText::Font::addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph)
+void public_addGlyph(const osgText::FontResolution & fontRes, unsigned int charcode, osgText::Glyph * glyph) {
+	return osgText::Font::addGlyph(fontRes, charcode, glyph);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

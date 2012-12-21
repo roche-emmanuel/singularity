@@ -244,6 +244,54 @@ public:
 
 
 
+// osg::DrawPixels & osg::DrawPixels::operator=(const osg::DrawPixels & arg1)
+// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
+void public_setBound(const osg::BoundingBoxd & bb) const {
+	return osg::Drawable::setBound(bb);
+};
+
+// void osg::Drawable::addParent(osg::Node * node)
+void public_addParent(osg::Node * node) {
+	return osg::Drawable::addParent(node);
+};
+
+// void osg::Drawable::removeParent(osg::Node * node)
+void public_removeParent(osg::Node * node) {
+	return osg::Drawable::removeParent(node);
+};
+
+// void osg::Drawable::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringUpdateTraversal() const
+unsigned int public_getNumChildrenRequiringUpdateTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringUpdateTraversal();
+};
+
+// void osg::Drawable::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringEventTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringEventTraversal() const
+unsigned int public_getNumChildrenRequiringEventTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringEventTraversal();
+};
+
+// osg::Drawable & osg::Drawable::operator=(const osg::Drawable & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

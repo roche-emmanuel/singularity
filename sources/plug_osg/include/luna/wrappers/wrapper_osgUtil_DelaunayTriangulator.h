@@ -26,6 +26,23 @@ public:
 
 
 
+// int osgUtil::DelaunayTriangulator::getindex(const osg::Vec3f & pt, const osg::Vec3Array * points)
+int public_getindex(const osg::Vec3f & pt, const osg::Vec3Array * points) {
+	return osgUtil::DelaunayTriangulator::getindex(pt, points);
+};
+
+// osgUtil::DelaunayTriangulator & osgUtil::DelaunayTriangulator::operator=(const osgUtil::DelaunayTriangulator & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

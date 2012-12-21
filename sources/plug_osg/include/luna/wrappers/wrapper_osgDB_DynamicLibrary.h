@@ -26,6 +26,23 @@ public:
 
 
 
+// static void * osgDB::DynamicLibrary::getLibraryHandle(const std::string & libraryName)
+static void * public_getLibraryHandle(const std::string & libraryName) {
+	return osgDB::DynamicLibrary::getLibraryHandle(libraryName);
+};
+
+// osgDB::DynamicLibrary & osgDB::DynamicLibrary::operator=(const osgDB::DynamicLibrary & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

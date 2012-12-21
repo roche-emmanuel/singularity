@@ -35,6 +35,22 @@ public:
 
 
 
+// void osgDB::Field::_init()
+void public__init() {
+	return osgDB::Field::_init();
+};
+
+// void osgDB::Field::_free()
+void public__free() {
+	return osgDB::Field::_free();
+};
+
+// void osgDB::Field::_copy(const osgDB::Field & ic)
+void public__copy(const osgDB::Field & ic) {
+	return osgDB::Field::_copy(ic);
+};
+
+
 };
 
 

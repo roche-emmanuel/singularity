@@ -1,0 +1,5 @@
+WebConfig conf;
+conf.log_level = kLogLevel_Verbose;
+conf.additional_options.Push(WSLit("--use-gl=desktop"));
+
+webCore = WebCore::Initialize(conf);

@@ -378,6 +378,47 @@ protected:
 		return ExplosionDebrisEffect::childInserted(arg1);
 	};
 
+public:
+// void osg::Node::addParent(osg::Group * node)
+void public_addParent(osg::Group * node) {
+	return osg::Node::addParent(node);
+};
+
+// void osg::Node::removeParent(osg::Group * node)
+void public_removeParent(osg::Group * node) {
+	return osg::Node::removeParent(node);
+};
+
+// void osg::Node::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::Node::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// void osg::Node::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::Node::setNumChildrenRequiringEventTraversal(num);
+};
+
+// void osg::Node::setNumChildrenWithCullingDisabled(unsigned int num)
+void public_setNumChildrenWithCullingDisabled(unsigned int num) {
+	return osg::Node::setNumChildrenWithCullingDisabled(num);
+};
+
+// void osg::Node::setNumChildrenWithOccluderNodes(unsigned int num)
+void public_setNumChildrenWithOccluderNodes(unsigned int num) {
+	return osg::Node::setNumChildrenWithOccluderNodes(num);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

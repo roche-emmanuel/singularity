@@ -24,6 +24,27 @@ public:
 
 
 
+// void osgDB::Registry::destruct()
+void public_destruct() {
+	return osgDB::Registry::destruct();
+};
+
+// static std::string osgDB::Registry::trim(const std::string & str)
+static std::string public_trim(const std::string & str) {
+	return osgDB::Registry::trim(str);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

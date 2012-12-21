@@ -31,7 +31,7 @@ public:
 
 	// void osg::BarrierOperation::operator()(osg::Object * arg1)
 	void operator()(osg::Object * arg1) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -40,6 +40,17 @@ public:
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

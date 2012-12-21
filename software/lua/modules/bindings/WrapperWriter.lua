@@ -78,11 +78,13 @@ function Class:writeFunctionBody(func)
 	local cname = class:getFullName()
 	local wname = corr:correct("filename",cname)
 
+	local fname = func:getLuaName() or func:getName()
+	
 	if func:isAbstract() then
-		buf:writeSubLine('THROW_IF(!_obj.pushFunction("${1}"),"No implementation for abstract function ${2}");',func:getName(),func:getFullName())
+		buf:writeSubLine('THROW_IF(!_obj.pushFunction("${1}"),"No implementation for abstract function ${2}");',fname,func:getFullName())
 		self:writeFunctionCall(func)
 	else
-		buf:writeSubLine('if(_obj.pushFunction("${1}")) {',func:getName())
+		buf:writeSubLine('if(_obj.pushFunction("${1}")) {',fname)
 		buf:pushIndent()
 		self:writeFunctionCall(func)
 		buf:popIndent()
@@ -98,6 +100,25 @@ function Class:writeFunction(func)
 	buf:writeLine(func:getPrototype(true,false,true).." {");
 	buf:pushIndent()
 	self:writeFunctionBody(func)
+	buf:popIndent();
+	buf:writeLine("};")
+	buf:newLine()
+end
+
+function Class:writeProtectedFunction(func)
+	local buf = self;
+	
+	if not func:getLuaName() then
+		return
+	end
+	
+	local name = func:getName()
+	func:setName("public_".. func:getLuaName())
+	buf:writeLine(func:getPrototype(true,false,true).." {");
+	func:setName(name)
+	
+	buf:pushIndent()
+		buf:writeSubLine("return ${3}::${1}(${2});",func:getName(),func:getArgumentNames(),func:getParent():getFullName());
 	buf:popIndent();
 	buf:writeLine("};")
 	buf:newLine()
@@ -182,6 +203,14 @@ function Class:writeHeader()
 	end
 	buf:popIndent()
 
+	buf:writeLine(protectedFuncs:empty() and "" or "public:")
+	-- write the public wrapping for the protected non virtual functions:
+	local notVirtualFuncs = class:getProtectedFunctions():filterItems{"Valid"}
+	for _,func in notVirtualFuncs:sequence() do
+		buf:writeLine("// "..func:getPrototype(true,true,true))
+		self:writeProtectedFunction(func)
+	end
+	
 	buf:newLine();
 
 	-- Now we write the invalid functions wrappers:

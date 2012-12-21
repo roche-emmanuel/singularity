@@ -22,13 +22,24 @@ public:
 
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {
-		THROW_IF(!_obj.pushFunction("operator()"),"No implementation for abstract function osgViewer::ScreenCaptureHandler::CaptureOperation::operator()");
+		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function osgViewer::ScreenCaptureHandler::CaptureOperation::operator()");
 		_obj.pushArg(&image);
 		_obj.pushArg(context_id);
 		return (_obj.callFunction<void>());
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

@@ -282,6 +282,158 @@ protected:
 		return Text::computePositions(contextID);
 	};
 
+public:
+// osgText::Font * osgText::Text::getActiveFont()
+osgText::Font * public_getActiveFont() {
+	return osgText::Text::getActiveFont();
+};
+
+// const osgText::Font * osgText::Text::getActiveFont() const
+const osgText::Font * public_getActiveFont() const {
+	return osgText::Text::getActiveFont();
+};
+
+// bool osgText::Text::computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const
+bool public_computeAverageGlyphWidthAndHeight(float & avg_width, float & avg_height) const {
+	return osgText::Text::computeAverageGlyphWidthAndHeight(avg_width, avg_height);
+};
+
+// void osgText::Text::computeBackdropPositions(unsigned int contextID) const
+void public_computeBackdropPositions(unsigned int contextID) const {
+	return osgText::Text::computeBackdropPositions(contextID);
+};
+
+// void osgText::Text::computeBackdropBoundingBox() const
+void public_computeBackdropBoundingBox() const {
+	return osgText::Text::computeBackdropBoundingBox();
+};
+
+// void osgText::Text::computeBoundingBoxMargin() const
+void public_computeBoundingBoxMargin() const {
+	return osgText::Text::computeBoundingBoxMargin();
+};
+
+// void osgText::Text::computeColorGradients() const
+void public_computeColorGradients() const {
+	return osgText::Text::computeColorGradients();
+};
+
+// void osgText::Text::computeColorGradientsOverall() const
+void public_computeColorGradientsOverall() const {
+	return osgText::Text::computeColorGradientsOverall();
+};
+
+// void osgText::Text::computeColorGradientsPerCharacter() const
+void public_computeColorGradientsPerCharacter() const {
+	return osgText::Text::computeColorGradientsPerCharacter();
+};
+
+// void osgText::Text::drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_drawImplementation(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::drawImplementation(state, colorMultiplier);
+};
+
+// void osgText::Text::drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const
+void public_drawForegroundText(osg::State & state, const osgText::Text::GlyphQuads & glyphquad, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::drawForegroundText(state, glyphquad, colorMultiplier);
+};
+
+// void osgText::Text::drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_drawTextWithBackdrop(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::drawTextWithBackdrop(state, colorMultiplier);
+};
+
+// void osgText::Text::renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderOnlyForegroundText(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderOnlyForegroundText(state, colorMultiplier);
+};
+
+// void osgText::Text::renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderWithPolygonOffset(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderWithPolygonOffset(state, colorMultiplier);
+};
+
+// void osgText::Text::renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderWithNoDepthBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderWithNoDepthBuffer(state, colorMultiplier);
+};
+
+// void osgText::Text::renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderWithDepthRange(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderWithDepthRange(state, colorMultiplier);
+};
+
+// void osgText::Text::renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderWithStencilBuffer(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderWithStencilBuffer(state, colorMultiplier);
+};
+
+// void osgText::Text::renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const
+void public_renderWithDelayedDepthWrites(osg::State & state, const osg::Vec4f & colorMultiplier) const {
+	return osgText::Text::renderWithDelayedDepthWrites(state, colorMultiplier);
+};
+
+// float osgText::Text::bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const
+float public_bilinearInterpolate(float x1, float x2, float y1, float y2, float x, float y, float q11, float q12, float q21, float q22) const {
+	return osgText::Text::bilinearInterpolate(x1, x2, y1, y2, x, y, q11, q12, q21, q22);
+};
+
+// void osgText::TextBase::positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength)
+void public_positionCursor(const osg::Vec2f & endOfLine_coords, osg::Vec2f & cursor, unsigned int linelength) {
+	return osgText::TextBase::positionCursor(endOfLine_coords, cursor, linelength);
+};
+
+// void osgText::TextBase::computePositions()
+void public_computePositions() {
+	return osgText::TextBase::computePositions();
+};
+
+// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
+void public_setBound(const osg::BoundingBoxd & bb) const {
+	return osg::Drawable::setBound(bb);
+};
+
+// void osg::Drawable::addParent(osg::Node * node)
+void public_addParent(osg::Node * node) {
+	return osg::Drawable::addParent(node);
+};
+
+// void osg::Drawable::removeParent(osg::Node * node)
+void public_removeParent(osg::Node * node) {
+	return osg::Drawable::removeParent(node);
+};
+
+// void osg::Drawable::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringUpdateTraversal() const
+unsigned int public_getNumChildrenRequiringUpdateTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringUpdateTraversal();
+};
+
+// void osg::Drawable::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringEventTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringEventTraversal() const
+unsigned int public_getNumChildrenRequiringEventTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringEventTraversal();
+};
+
+// osg::Drawable & osg::Drawable::operator=(const osg::Drawable & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

@@ -138,7 +138,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -169,6 +169,57 @@ public:
 	};
 
 
+
+
+// void osgViewer::StatsHandler::setUpHUDCamera(osgViewer::ViewerBase * viewer)
+void public_setUpHUDCamera(osgViewer::ViewerBase * viewer) {
+	return osgViewer::StatsHandler::setUpHUDCamera(viewer);
+};
+
+// osg::Geometry * osgViewer::StatsHandler::createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color)
+osg::Geometry * public_createBackgroundRectangle(const osg::Vec3f & pos, const float width, const float height, osg::Vec4f & color) {
+	return osgViewer::StatsHandler::createBackgroundRectangle(pos, width, height, color);
+};
+
+// osg::Geometry * osgViewer::StatsHandler::createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)
+osg::Geometry * public_createGeometry(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) {
+	return osgViewer::StatsHandler::createGeometry(pos, height, colour, numBlocks);
+};
+
+// osg::Geometry * osgViewer::StatsHandler::createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks)
+osg::Geometry * public_createFrameMarkers(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numBlocks) {
+	return osgViewer::StatsHandler::createFrameMarkers(pos, height, colour, numBlocks);
+};
+
+// osg::Geometry * osgViewer::StatsHandler::createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks)
+osg::Geometry * public_createTick(const osg::Vec3f & pos, float height, const osg::Vec4f & colour, unsigned int numTicks) {
+	return osgViewer::StatsHandler::createTick(pos, height, colour, numTicks);
+};
+
+// void osgViewer::StatsHandler::createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName)
+void public_createTimeStatsLine(const std::string & lineLabel, osg::Vec3f pos, const osg::Vec4f & textColor, const osg::Vec4f & barColor, osg::Stats * viewerStats, osg::Stats * stats, const std::string & timeTakenName, float multiplier, bool average, bool averageInInverseSpace, const std::string & beginTimeName, const std::string & endTimeName) {
+	return osgViewer::StatsHandler::createTimeStatsLine(lineLabel, pos, textColor, barColor, viewerStats, stats, timeTakenName, multiplier, average, averageInInverseSpace, beginTimeName, endTimeName);
+};
+
+// void osgViewer::StatsHandler::createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera)
+void public_createCameraTimeStats(osg::Vec3f & pos, bool acquireGPUStats, osg::Stats * viewerStats, osg::Camera * camera) {
+	return osgViewer::StatsHandler::createCameraTimeStats(pos, acquireGPUStats, viewerStats, camera);
+};
+
+// void osgViewer::StatsHandler::setUpScene(osgViewer::ViewerBase * viewer)
+void public_setUpScene(osgViewer::ViewerBase * viewer) {
+	return osgViewer::StatsHandler::setUpScene(viewer);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

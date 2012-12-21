@@ -104,7 +104,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -186,6 +186,32 @@ public:
 	};
 
 
+
+
+// bool osgViewer::InteractiveImageHandler::mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const
+bool public_mousePosition(osgViewer::View * view, osg::NodeVisitor * nv, const osgGA::GUIEventAdapter & ea, int & x, int & y) const {
+	return osgViewer::InteractiveImageHandler::mousePosition(view, nv, ea, x, y);
+};
+
+// bool osgViewer::InteractiveImageHandler::computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const
+bool public_computeIntersections(osgViewer::View * view, float x, float y, const osg::NodePath & nodePath, osgUtil::LineSegmentIntersector::Intersections & intersections, unsigned int traversalMask = 0xffffffff) const {
+	return osgViewer::InteractiveImageHandler::computeIntersections(view, x, y, nodePath, intersections, traversalMask);
+};
+
+// void osgViewer::InteractiveImageHandler::resize(int width, int height)
+void public_resize(int width, int height) {
+	return osgViewer::InteractiveImageHandler::resize(width, height);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

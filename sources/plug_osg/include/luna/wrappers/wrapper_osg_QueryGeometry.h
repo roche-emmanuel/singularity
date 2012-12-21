@@ -222,6 +222,84 @@ public:
 
 
 
+// bool osg::Geometry::verifyBindings(const osg::Geometry::ArrayData & arrayData) const
+bool public_verifyBindings(const osg::Geometry::ArrayData & arrayData) const {
+	return osg::Geometry::verifyBindings(arrayData);
+};
+
+// bool osg::Geometry::verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const
+bool public_verifyBindings(const osg::Geometry::Vec3ArrayData & arrayData) const {
+	return osg::Geometry::verifyBindings(arrayData);
+};
+
+// void osg::Geometry::computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName)
+void public_computeCorrectBindingsAndArraySizes(osg::Geometry::ArrayData & arrayData, const char * arrayName) {
+	return osg::Geometry::computeCorrectBindingsAndArraySizes(arrayData, arrayName);
+};
+
+// void osg::Geometry::computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName)
+void public_computeCorrectBindingsAndArraySizes(osg::Geometry::Vec3ArrayData & arrayData, const char * arrayName) {
+	return osg::Geometry::computeCorrectBindingsAndArraySizes(arrayData, arrayName);
+};
+
+// void osg::Geometry::addVertexBufferObjectIfRequired(osg::Array * array)
+void public_addVertexBufferObjectIfRequired(osg::Array * array) {
+	return osg::Geometry::addVertexBufferObjectIfRequired(array);
+};
+
+// void osg::Geometry::addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet)
+void public_addElementBufferObjectIfRequired(osg::PrimitiveSet * primitiveSet) {
+	return osg::Geometry::addElementBufferObjectIfRequired(primitiveSet);
+};
+
+// osg::Geometry & osg::Geometry::operator=(const osg::Geometry & arg1)
+// void osg::Drawable::setBound(const osg::BoundingBoxd & bb) const
+void public_setBound(const osg::BoundingBoxd & bb) const {
+	return osg::Drawable::setBound(bb);
+};
+
+// void osg::Drawable::addParent(osg::Node * node)
+void public_addParent(osg::Node * node) {
+	return osg::Drawable::addParent(node);
+};
+
+// void osg::Drawable::removeParent(osg::Node * node)
+void public_removeParent(osg::Node * node) {
+	return osg::Drawable::removeParent(node);
+};
+
+// void osg::Drawable::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringUpdateTraversal() const
+unsigned int public_getNumChildrenRequiringUpdateTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringUpdateTraversal();
+};
+
+// void osg::Drawable::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::Drawable::setNumChildrenRequiringEventTraversal(num);
+};
+
+// unsigned int osg::Drawable::getNumChildrenRequiringEventTraversal() const
+unsigned int public_getNumChildrenRequiringEventTraversal() const {
+	return osg::Drawable::getNumChildrenRequiringEventTraversal();
+};
+
+// osg::Drawable & osg::Drawable::operator=(const osg::Drawable & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

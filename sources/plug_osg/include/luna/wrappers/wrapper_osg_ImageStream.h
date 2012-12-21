@@ -453,6 +453,28 @@ protected:
 		return ImageStream::applyLoopingMode();
 	};
 
+public:
+// void osg::Image::deallocateData()
+void public_deallocateData() {
+	return osg::Image::deallocateData();
+};
+
+// void osg::Image::setData(unsigned char * data, osg::Image::AllocationMode allocationMode)
+void public_setData(unsigned char * data, osg::Image::AllocationMode allocationMode) {
+	return osg::Image::setData(data, allocationMode);
+};
+
+// osg::Image & osg::Image::operator=(const osg::Image & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

@@ -138,7 +138,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -169,6 +169,27 @@ public:
 	};
 
 
+
+
+// void osgViewer::HelpHandler::setUpHUDCamera(osgViewer::ViewerBase * viewer)
+void public_setUpHUDCamera(osgViewer::ViewerBase * viewer) {
+	return osgViewer::HelpHandler::setUpHUDCamera(viewer);
+};
+
+// void osgViewer::HelpHandler::setUpScene(osgViewer::ViewerBase * viewer)
+void public_setUpScene(osgViewer::ViewerBase * viewer) {
+	return osgViewer::HelpHandler::setUpScene(viewer);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

@@ -453,6 +453,43 @@ protected:
 		return ImageSequence::applyLoopingMode();
 	};
 
+public:
+// void osg::ImageSequence::setImageToChild(const osg::Image * image)
+void public_setImageToChild(const osg::Image * image) {
+	return osg::ImageSequence::setImageToChild(image);
+};
+
+// void osg::ImageSequence::computeTimePerImage()
+void public_computeTimePerImage() {
+	return osg::ImageSequence::computeTimePerImage();
+};
+
+// int osg::ImageSequence::imageIndex(double time)
+int public_imageIndex(double time) {
+	return osg::ImageSequence::imageIndex(time);
+};
+
+// void osg::Image::deallocateData()
+void public_deallocateData() {
+	return osg::Image::deallocateData();
+};
+
+// void osg::Image::setData(unsigned char * data, osg::Image::AllocationMode allocationMode)
+void public_setData(unsigned char * data, osg::Image::AllocationMode allocationMode) {
+	return osg::Image::setData(data, allocationMode);
+};
+
+// osg::Image & osg::Image::operator=(const osg::Image & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

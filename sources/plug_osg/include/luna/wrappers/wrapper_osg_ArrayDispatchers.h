@@ -24,6 +24,32 @@ public:
 
 
 
+// void osg::ArrayDispatchers::init()
+void public_init() {
+	return osg::ArrayDispatchers::init();
+};
+
+// void osg::ArrayDispatchers::assignTexCoordDispatchers(unsigned int unit)
+void public_assignTexCoordDispatchers(unsigned int unit) {
+	return osg::ArrayDispatchers::assignTexCoordDispatchers(unit);
+};
+
+// void osg::ArrayDispatchers::assignVertexAttribDispatchers(unsigned int unit)
+void public_assignVertexAttribDispatchers(unsigned int unit) {
+	return osg::ArrayDispatchers::assignVertexAttribDispatchers(unit);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

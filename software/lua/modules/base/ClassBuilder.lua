@@ -99,22 +99,27 @@ function Class:__call(options)
 		end
 	end
 	
-	function result:generateWrapping(wrapper,...) 
-		self._wrappers = self._wrappers or {}
-		local obj = wrapper(self,...)
-		self:check(obj,"Could not create wrapper object.");
-		
-		table.insert(self._wrappers, obj)
+	function result:generateWrapping(wrapper,index)
+		index = index or 1
 		
 		for name,func in pairs(wrapper) do
-			if type(func)=="function" and (not self[name]) and name~="new" and name~="__eq" and name~="__gc" and name~="delete" then
+			if type(func)=="function" and (not result[name]) and name~="new" and name~="__eq" and name~="__gc" and name~="delete" then
 				--self:info("Adding auto wrapped function: ",name)
 				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
-				self[name] = function(arg1, ...) 
+				result[name] = function(self, ...) 
+					local obj = self._wrappers[index]
 					return obj[wname](obj, ...) 
 				end
 			end
 		end			
+	end
+	
+	function result:createWrapper(wrapper,...) 
+		self._wrappers = self._wrappers or {}
+		local obj = wrapper(self,...)
+		self:check(obj,"Could not create wrapper object.");
+		
+		table.insert(self._wrappers, obj)		
 	end
 	
 	-- return the resulting class:

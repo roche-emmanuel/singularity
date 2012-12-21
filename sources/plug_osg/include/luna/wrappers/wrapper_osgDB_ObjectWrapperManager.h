@@ -24,6 +24,22 @@ public:
 
 
 
+// osgDB::IntLookup & osgDB::ObjectWrapperManager::findLookup(const std::string & group)
+osgDB::IntLookup & public_findLookup(const std::string & group) {
+	return osgDB::ObjectWrapperManager::findLookup(group);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

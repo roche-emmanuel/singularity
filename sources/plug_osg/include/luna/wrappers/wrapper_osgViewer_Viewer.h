@@ -434,6 +434,37 @@ protected:
 		return Viewer::viewerInit();
 	};
 
+public:
+// void osgViewer::Viewer::constructorInit()
+void public_constructorInit() {
+	return osgViewer::Viewer::constructorInit();
+};
+
+// void osgViewer::ViewerBase::viewerBaseInit()
+void public_viewerBaseInit() {
+	return osgViewer::ViewerBase::viewerBaseInit();
+};
+
+// void osgViewer::ViewerBase::makeCurrent(osg::GraphicsContext * gc)
+void public_makeCurrent(osg::GraphicsContext * gc) {
+	return osgViewer::ViewerBase::makeCurrent(gc);
+};
+
+// void osgViewer::ViewerBase::releaseContext()
+void public_releaseContext() {
+	return osgViewer::ViewerBase::releaseContext();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

@@ -138,7 +138,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -169,6 +169,32 @@ public:
 	};
 
 
+
+
+// void osgViewer::WindowSizeHandler::toggleFullscreen(osgViewer::GraphicsWindow * window)
+void public_toggleFullscreen(osgViewer::GraphicsWindow * window) {
+	return osgViewer::WindowSizeHandler::toggleFullscreen(window);
+};
+
+// void osgViewer::WindowSizeHandler::changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase)
+void public_changeWindowedResolution(osgViewer::GraphicsWindow * window, bool increase) {
+	return osgViewer::WindowSizeHandler::changeWindowedResolution(window, increase);
+};
+
+// unsigned int osgViewer::WindowSizeHandler::getNearestResolution(int screenWidth, int screenHeight, int width, int height) const
+unsigned int public_getNearestResolution(int screenWidth, int screenHeight, int width, int height) const {
+	return osgViewer::WindowSizeHandler::getNearestResolution(screenWidth, screenHeight, width, height);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

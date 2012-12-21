@@ -1,9 +1,12 @@
 local Class = require("classBuilder"){name="BasicGroup",bases="osg.BasicObject"};
 
+require "osg"
+Class:generateWrapping(osg.Group)
+	
 function Class:initialize(options)	
 	self:debug2("Creating BasicGroup object");
-	require "osg"
-	self:generateWrapping(osg.Group)
+	
+	self:createWrapper(osg.Group)
 	
 	self:addAssociate("osg::Node")
 	self:addAssociate("osg::Group")

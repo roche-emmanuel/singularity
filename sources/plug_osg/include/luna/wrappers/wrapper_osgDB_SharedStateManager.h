@@ -122,6 +122,52 @@ public:
 
 
 
+// bool osgDB::SharedStateManager::shareTexture(osg::Object::DataVariance variance)
+bool public_shareTexture(osg::Object::DataVariance variance) {
+	return osgDB::SharedStateManager::shareTexture(variance);
+};
+
+// bool osgDB::SharedStateManager::shareStateSet(osg::Object::DataVariance variance)
+bool public_shareStateSet(osg::Object::DataVariance variance) {
+	return osgDB::SharedStateManager::shareStateSet(variance);
+};
+
+// void osgDB::SharedStateManager::process(osg::StateSet * ss, osg::Object * parent)
+void public_process(osg::StateSet * ss, osg::Object * parent) {
+	return osgDB::SharedStateManager::process(ss, parent);
+};
+
+// osg::StateAttribute * osgDB::SharedStateManager::find(osg::StateAttribute * sa)
+osg::StateAttribute * public_find(osg::StateAttribute * sa) {
+	return osgDB::SharedStateManager::find(sa);
+};
+
+// osg::StateSet * osgDB::SharedStateManager::find(osg::StateSet * ss)
+osg::StateSet * public_find(osg::StateSet * ss) {
+	return osgDB::SharedStateManager::find(ss);
+};
+
+// void osgDB::SharedStateManager::setStateSet(osg::StateSet * ss, osg::Object * object)
+void public_setStateSet(osg::StateSet * ss, osg::Object * object) {
+	return osgDB::SharedStateManager::setStateSet(ss, object);
+};
+
+// void osgDB::SharedStateManager::shareTextures(osg::StateSet * ss)
+void public_shareTextures(osg::StateSet * ss) {
+	return osgDB::SharedStateManager::shareTextures(ss);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

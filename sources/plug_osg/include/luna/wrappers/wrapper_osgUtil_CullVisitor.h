@@ -325,6 +325,43 @@ public:
 
 
 
+// void osgUtil::CullVisitor::handle_cull_callbacks_and_traverse(osg::Node & node)
+void public_handle_cull_callbacks_and_traverse(osg::Node & node) {
+	return osgUtil::CullVisitor::handle_cull_callbacks_and_traverse(node);
+};
+
+// void osgUtil::CullVisitor::handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode)
+void public_handle_cull_callbacks_and_accept(osg::Node & node, osg::Node * acceptNode) {
+	return osgUtil::CullVisitor::handle_cull_callbacks_and_accept(node, acceptNode);
+};
+
+// osgUtil::RenderLeaf * osgUtil::CullVisitor::createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f)
+osgUtil::RenderLeaf * public_createOrReuseRenderLeaf(osg::Drawable * drawable, osg::RefMatrixd * projection, osg::RefMatrixd * matrix, float depth = 0.0f) {
+	return osgUtil::CullVisitor::createOrReuseRenderLeaf(drawable, projection, matrix, depth);
+};
+
+// osgUtil::CullVisitor & osgUtil::CullVisitor::operator=(const osgUtil::CullVisitor & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+// void osg::CullStack::computeFrustumVolume()
+void public_computeFrustumVolume() {
+	return osg::CullStack::computeFrustumVolume();
+};
+
+// osg::RefMatrixd * osg::CullStack::createOrReuseMatrix(const osg::Matrixd & value)
+osg::RefMatrixd * public_createOrReuseMatrix(const osg::Matrixd & value) {
+	return osg::CullStack::createOrReuseMatrix(value);
+};
+
+
 };
 
 

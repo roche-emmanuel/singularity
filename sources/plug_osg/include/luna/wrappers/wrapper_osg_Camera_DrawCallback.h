@@ -128,7 +128,7 @@ public:
 
 	// void osg::Camera::DrawCallback::operator()(osg::RenderInfo & renderInfo) const
 	void operator()(osg::RenderInfo & renderInfo) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(&renderInfo);
 			return (_obj.callFunction<void>());
 		}
@@ -138,7 +138,7 @@ public:
 
 	// void osg::Camera::DrawCallback::operator()(const osg::Camera & arg1) const
 	void operator()(const osg::Camera & arg1) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(&arg1);
 			return (_obj.callFunction<void>());
 		}
@@ -147,6 +147,17 @@ public:
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

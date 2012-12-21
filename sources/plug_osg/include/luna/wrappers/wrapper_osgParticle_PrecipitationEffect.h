@@ -240,6 +240,77 @@ public:
 
 
 
+// void osgParticle::PrecipitationEffect::compileGLObjects(osg::RenderInfo & renderInfo) const
+void public_compileGLObjects(osg::RenderInfo & renderInfo) const {
+	return osgParticle::PrecipitationEffect::compileGLObjects(renderInfo);
+};
+
+// void osgParticle::PrecipitationEffect::update()
+void public_update() {
+	return osgParticle::PrecipitationEffect::update();
+};
+
+// void osgParticle::PrecipitationEffect::createGeometry(unsigned int numParticles, osg::Geometry * quad_geometry, osg::Geometry * line_geometry, osg::Geometry * point_geometry)
+void public_createGeometry(unsigned int numParticles, osg::Geometry * quad_geometry, osg::Geometry * line_geometry, osg::Geometry * point_geometry) {
+	return osgParticle::PrecipitationEffect::createGeometry(numParticles, quad_geometry, line_geometry, point_geometry);
+};
+
+// void osgParticle::PrecipitationEffect::setUpGeometries(unsigned int numParticles)
+void public_setUpGeometries(unsigned int numParticles) {
+	return osgParticle::PrecipitationEffect::setUpGeometries(numParticles);
+};
+
+// void osgParticle::PrecipitationEffect::cull(osgParticle::PrecipitationEffect::PrecipitationDrawableSet & pds, osgUtil::CullVisitor * cv) const
+void public_cull(osgParticle::PrecipitationEffect::PrecipitationDrawableSet & pds, osgUtil::CullVisitor * cv) const {
+	return osgParticle::PrecipitationEffect::cull(pds, cv);
+};
+
+// bool osgParticle::PrecipitationEffect::build(const osg::Vec3f eyeLocal, int i, int j, int k, float startTime, osgParticle::PrecipitationEffect::PrecipitationDrawableSet & pds, osg::Polytope & frustum, osgUtil::CullVisitor * cv) const
+bool public_build(const osg::Vec3f eyeLocal, int i, int j, int k, float startTime, osgParticle::PrecipitationEffect::PrecipitationDrawableSet & pds, osg::Polytope & frustum, osgUtil::CullVisitor * cv) const {
+	return osgParticle::PrecipitationEffect::build(eyeLocal, i, j, k, startTime, pds, frustum, cv);
+};
+
+// void osg::Node::addParent(osg::Group * node)
+void public_addParent(osg::Group * node) {
+	return osg::Node::addParent(node);
+};
+
+// void osg::Node::removeParent(osg::Group * node)
+void public_removeParent(osg::Group * node) {
+	return osg::Node::removeParent(node);
+};
+
+// void osg::Node::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::Node::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// void osg::Node::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::Node::setNumChildrenRequiringEventTraversal(num);
+};
+
+// void osg::Node::setNumChildrenWithCullingDisabled(unsigned int num)
+void public_setNumChildrenWithCullingDisabled(unsigned int num) {
+	return osg::Node::setNumChildrenWithCullingDisabled(num);
+};
+
+// void osg::Node::setNumChildrenWithOccluderNodes(unsigned int num)
+void public_setNumChildrenWithOccluderNodes(unsigned int num) {
+	return osg::Node::setNumChildrenWithOccluderNodes(num);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

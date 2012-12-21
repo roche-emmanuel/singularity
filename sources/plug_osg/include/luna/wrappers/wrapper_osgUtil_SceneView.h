@@ -287,6 +287,37 @@ protected:
 		return SceneView::cullStage(projection, modelview, cullVisitor, rendergraph, renderStage, viewport);
 	};
 
+public:
+// void osgUtil::SceneView::computeLeftEyeViewport(const osg::Viewport * viewport)
+void public_computeLeftEyeViewport(const osg::Viewport * viewport) {
+	return osgUtil::SceneView::computeLeftEyeViewport(viewport);
+};
+
+// void osgUtil::SceneView::computeRightEyeViewport(const osg::Viewport * viewport)
+void public_computeRightEyeViewport(const osg::Viewport * viewport) {
+	return osgUtil::SceneView::computeRightEyeViewport(viewport);
+};
+
+// const osg::Matrixd osgUtil::SceneView::computeMVPW() const
+const osg::Matrixd public_computeMVPW() const {
+	return osgUtil::SceneView::computeMVPW();
+};
+
+// void osgUtil::SceneView::clearArea(int x, int y, int width, int height, const osg::Vec4f & color)
+void public_clearArea(int x, int y, int width, int height, const osg::Vec4f & color) {
+	return osgUtil::SceneView::clearArea(x, y, width, height, color);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

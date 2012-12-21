@@ -84,6 +84,27 @@ public:
 
 
 
+// bool osgUtil::LineSegmentIntersector::intersects(const osg::BoundingSphered & bs)
+bool public_intersects(const osg::BoundingSphered & bs) {
+	return osgUtil::LineSegmentIntersector::intersects(bs);
+};
+
+// bool osgUtil::LineSegmentIntersector::intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb)
+bool public_intersectAndClip(osg::Vec3d & s, osg::Vec3d & e, const osg::BoundingBoxd & bb) {
+	return osgUtil::LineSegmentIntersector::intersectAndClip(s, e, bb);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

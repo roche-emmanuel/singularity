@@ -134,6 +134,27 @@ protected:
 		return DatabasePager::removeExpiredSubgraphs(frameStamp);
 	};
 
+public:
+// void osgDB::DatabasePager::compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest)
+void public_compileCompleted(osgDB::DatabasePager::DatabaseRequest * databaseRequest) {
+	return osgDB::DatabasePager::compileCompleted(databaseRequest);
+};
+
+// void osgDB::DatabasePager::addLoadedDataToSceneGraph(const osg::FrameStamp & frameStamp)
+void public_addLoadedDataToSceneGraph(const osg::FrameStamp & frameStamp) {
+	return osgDB::DatabasePager::addLoadedDataToSceneGraph(frameStamp);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

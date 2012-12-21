@@ -128,7 +128,7 @@ public:
 
 	// void osg::StateSet::Callback::operator()(osg::StateSet * arg1, osg::NodeVisitor * arg2)
 	void operator()(osg::StateSet * arg1, osg::NodeVisitor * arg2) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(arg1);
 			_obj.pushArg(arg2);
 			return (_obj.callFunction<void>());
@@ -138,6 +138,17 @@ public:
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

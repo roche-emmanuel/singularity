@@ -129,7 +129,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -329,6 +329,47 @@ public:
 	};
 
 
+
+
+// bool osgGA::DriveManipulator::intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const
+bool public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection, osg::Vec3d & normal) const {
+	return osgGA::DriveManipulator::intersect(start, end, intersection, normal);
+};
+
+// void osgGA::DriveManipulator::flushMouseEventStack()
+void public_flushMouseEventStack() {
+	return osgGA::DriveManipulator::flushMouseEventStack();
+};
+
+// void osgGA::DriveManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
+void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
+	return osgGA::DriveManipulator::addMouseEvent(ea);
+};
+
+// void osgGA::DriveManipulator::computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up)
+void public_computePosition(const osg::Vec3d & eye, const osg::Vec3d & lv, const osg::Vec3d & up) {
+	return osgGA::DriveManipulator::computePosition(eye, lv, up);
+};
+
+// bool osgGA::DriveManipulator::calcMovement()
+bool public_calcMovement() {
+	return osgGA::DriveManipulator::calcMovement();
+};
+
+// std::string osgGA::CameraManipulator::getManipulatorName() const
+std::string public_getManipulatorName() const {
+	return osgGA::CameraManipulator::getManipulatorName();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

@@ -251,6 +251,10 @@ function Class:containsFunctionArg()
 	if self.returnType and self.returnType:getName():find("%(") then
 		return true;
 	end
+	
+	if self.returnType and self.returnType:getName()=="typedef" then
+		return true;
+	end
 end
 
 --- Check if this function has template parameters.

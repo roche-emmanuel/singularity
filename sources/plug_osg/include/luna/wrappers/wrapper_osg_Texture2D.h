@@ -319,6 +319,87 @@ protected:
 		return Texture2D::allocateMipmap(state);
 	};
 
+public:
+// bool osg::Texture2D::textureObjectValid(osg::State & state) const
+bool public_textureObjectValid(osg::State & state) const {
+	return osg::Texture2D::textureObjectValid(state);
+};
+
+// void osg::Texture::computeInternalFormatWithImage(const osg::Image & image) const
+void public_computeInternalFormatWithImage(const osg::Image & image) const {
+	return osg::Texture::computeInternalFormatWithImage(image);
+};
+
+// void osg::Texture::computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const
+void public_computeRequiredTextureDimensions(osg::State & state, const osg::Image & image, int & width, int & height, int & numMipmapLevels) const {
+	return osg::Texture::computeRequiredTextureDimensions(state, image, width, height, numMipmapLevels);
+};
+
+// void osg::Texture::computeInternalFormatType() const
+void public_computeInternalFormatType() const {
+	return osg::Texture::computeInternalFormatType();
+};
+
+// void osg::Texture::applyTexParameters(unsigned int target, osg::State & state) const
+void public_applyTexParameters(unsigned int target, osg::State & state) const {
+	return osg::Texture::applyTexParameters(target, state);
+};
+
+// bool osg::Texture::isHardwareMipmapGenerationEnabled(const osg::State & state) const
+bool public_isHardwareMipmapGenerationEnabled(const osg::State & state) const {
+	return osg::Texture::isHardwareMipmapGenerationEnabled(state);
+};
+
+// bool osg::Texture::isSafeToUnrefImageData(const osg::State & state) const
+bool public_isSafeToUnrefImageData(const osg::State & state) const {
+	return osg::Texture::isSafeToUnrefImageData(state);
+};
+
+// osg::Texture::GenerateMipmapMode osg::Texture::mipmapBeforeTexImage(const osg::State & state, bool hardwareMipmapOn) const
+osg::Texture::GenerateMipmapMode public_mipmapBeforeTexImage(const osg::State & state, bool hardwareMipmapOn) const {
+	return osg::Texture::mipmapBeforeTexImage(state, hardwareMipmapOn);
+};
+
+// void osg::Texture::mipmapAfterTexImage(osg::State & state, osg::Texture::GenerateMipmapMode beforeResult) const
+void public_mipmapAfterTexImage(osg::State & state, osg::Texture::GenerateMipmapMode beforeResult) const {
+	return osg::Texture::mipmapAfterTexImage(state, beforeResult);
+};
+
+// void osg::Texture::generateMipmap(osg::State & state) const
+void public_generateMipmap(osg::State & state) const {
+	return osg::Texture::generateMipmap(state);
+};
+
+// int osg::Texture::compareTexture(const osg::Texture & rhs) const
+int public_compareTexture(const osg::Texture & rhs) const {
+	return osg::Texture::compareTexture(rhs);
+};
+
+// int osg::Texture::compareTextureObjects(const osg::Texture & rhs) const
+int public_compareTextureObjects(const osg::Texture & rhs) const {
+	return osg::Texture::compareTextureObjects(rhs);
+};
+
+// void osg::StateAttribute::addParent(osg::StateSet * object)
+void public_addParent(osg::StateSet * object) {
+	return osg::StateAttribute::addParent(object);
+};
+
+// void osg::StateAttribute::removeParent(osg::StateSet * object)
+void public_removeParent(osg::StateSet * object) {
+	return osg::StateAttribute::removeParent(object);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

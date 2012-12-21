@@ -74,9 +74,9 @@ function Class:create()
 end
 
 function Class:onFrame()
-	self:info("Rendering frame...")
+	--self:info("Rendering frame...")
 	self._viewer:frame();
-	self:info("Done rendering frame.")
+	--self:info("Done rendering frame.")
 end
 
 function Class:getRoot()

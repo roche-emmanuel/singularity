@@ -23,7 +23,7 @@ public:
 
 	// void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(&image);
 			_obj.pushArg(context_id);
 			return (_obj.callFunction<void>());
@@ -33,6 +33,18 @@ public:
 	};
 
 
+
+
+// osgViewer::ScreenCaptureHandler::WriteToFile & osgViewer::ScreenCaptureHandler::WriteToFile::operator=(const osgViewer::ScreenCaptureHandler::WriteToFile & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

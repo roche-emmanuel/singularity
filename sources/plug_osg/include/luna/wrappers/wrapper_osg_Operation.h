@@ -34,12 +34,23 @@ public:
 
 	// void osg::Operation::operator()(osg::Object * arg1)
 	void operator()(osg::Object * arg1) {
-		THROW_IF(!_obj.pushFunction("operator()"),"No implementation for abstract function osg::Operation::operator()");
+		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function osg::Operation::operator()");
 		_obj.pushArg(arg1);
 		return (_obj.callFunction<void>());
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

@@ -131,6 +131,27 @@ public:
 
 
 
+// bool osg::Shader::addProgramRef(osg::Program * program)
+bool public_addProgramRef(osg::Program * program) {
+	return osg::Shader::addProgramRef(program);
+};
+
+// bool osg::Shader::removeProgramRef(osg::Program * program)
+bool public_removeProgramRef(osg::Program * program) {
+	return osg::Shader::removeProgramRef(program);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

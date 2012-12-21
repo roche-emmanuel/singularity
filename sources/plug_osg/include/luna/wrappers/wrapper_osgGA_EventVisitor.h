@@ -202,6 +202,38 @@ public:
 
 
 
+// void osgGA::EventVisitor::handle_callbacks(osg::StateSet * stateset)
+void public_handle_callbacks(osg::StateSet * stateset) {
+	return osgGA::EventVisitor::handle_callbacks(stateset);
+};
+
+// void osgGA::EventVisitor::handle_callbacks_and_traverse(osg::Node & node)
+void public_handle_callbacks_and_traverse(osg::Node & node) {
+	return osgGA::EventVisitor::handle_callbacks_and_traverse(node);
+};
+
+// void osgGA::EventVisitor::handle_geode_callbacks(osg::Geode & node)
+void public_handle_geode_callbacks(osg::Geode & node) {
+	return osgGA::EventVisitor::handle_geode_callbacks(node);
+};
+
+// void osgGA::EventVisitor::traverseGeode(osg::Geode & geode)
+void public_traverseGeode(osg::Geode & geode) {
+	return osgGA::EventVisitor::traverseGeode(geode);
+};
+
+// osgGA::EventVisitor & osgGA::EventVisitor::operator=(const osgGA::EventVisitor & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

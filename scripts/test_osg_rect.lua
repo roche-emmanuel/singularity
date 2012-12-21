@@ -37,10 +37,20 @@ local tools = require "osg.Tools"
 local WebTile = require "web.WebTile"
 local obj = WebTile()
 canvas:getRoot():addChild(obj:getWrapper())
+--obj:loadURL("http://www.google.fr")
+obj:loadURL("http://www.doesmybrowsersupportwebgl.com/")
 
-obj:loadURL("http://www.google.fr")
+-- local quad = tools:createScreenQuad{image=obj:getImage()}
+local tt = {}
+function tt:traverse(nv)
+	log:info("I'm calling traverse!")
+end
 
---local quad = tools:createScreenQuad{image=obj:getImage()}
+-- local grp = osg.Group(tt)
+-- grp:addChild(quad)
+
+-- canvas:getRoot():addChild(grp)
+
 --canvas:getRoot():addChild(quad)
 
 

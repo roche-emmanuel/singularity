@@ -32,7 +32,7 @@ public:
 
 	// void osg::SwapBuffersOperation::operator()(osg::GraphicsContext * context)
 	void operator()(osg::GraphicsContext * context) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(context);
 			return (_obj.callFunction<void>());
 		}
@@ -41,6 +41,17 @@ public:
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

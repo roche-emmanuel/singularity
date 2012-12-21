@@ -68,7 +68,7 @@ public:
 
 	// void osgViewer::Renderer::operator()(osg::Object * object)
 	void operator()(osg::Object * object) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(object);
 			return (_obj.callFunction<void>());
 		}
@@ -78,7 +78,7 @@ public:
 
 	// void osgViewer::Renderer::operator()(osg::GraphicsContext * context)
 	void operator()(osg::GraphicsContext * context) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(context);
 			return (_obj.callFunction<void>());
 		}
@@ -97,6 +97,22 @@ protected:
 
 		return Renderer::updateSceneView(sceneView);
 	};
+
+public:
+// void osgViewer::Renderer::initialize(osg::State * state)
+void public_initialize(osg::State * state) {
+	return osgViewer::Renderer::initialize(state);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

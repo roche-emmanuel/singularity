@@ -139,6 +139,19 @@ public:
 
 
 
+// osgParticle::RadialShooter & osgParticle::RadialShooter::operator=(const osgParticle::RadialShooter & arg1)
+// osgParticle::Shooter & osgParticle::Shooter::operator=(const osgParticle::Shooter & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

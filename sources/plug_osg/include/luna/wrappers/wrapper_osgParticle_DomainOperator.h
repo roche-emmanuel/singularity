@@ -265,6 +265,29 @@ protected:
 		return DomainOperator::handleDisk(domain, P, dt);
 	};
 
+public:
+// void osgParticle::DomainOperator::computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4)
+void public_computeNewBasis(const osg::Vec3f & arg1, const osg::Vec3f & arg2, osg::Vec3f & arg3, osg::Vec3f & arg4) {
+	return osgParticle::DomainOperator::computeNewBasis(arg1, arg2, arg3, arg4);
+};
+
+// void osgParticle::DomainOperator::ignore(const std::string & func)
+void public_ignore(const std::string & func) {
+	return osgParticle::DomainOperator::ignore(func);
+};
+
+// osgParticle::DomainOperator & osgParticle::DomainOperator::operator=(const osgParticle::DomainOperator & arg1)
+// osgParticle::Operator & osgParticle::Operator::operator=(const osgParticle::Operator & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

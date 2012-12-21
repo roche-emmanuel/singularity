@@ -202,6 +202,33 @@ public:
 
 
 
+// void osgUtil::UpdateVisitor::handle_callbacks(osg::StateSet * stateset)
+void public_handle_callbacks(osg::StateSet * stateset) {
+	return osgUtil::UpdateVisitor::handle_callbacks(stateset);
+};
+
+// void osgUtil::UpdateVisitor::handle_callbacks_and_traverse(osg::Node & node)
+void public_handle_callbacks_and_traverse(osg::Node & node) {
+	return osgUtil::UpdateVisitor::handle_callbacks_and_traverse(node);
+};
+
+// void osgUtil::UpdateVisitor::handle_geode_callbacks(osg::Geode & geode)
+void public_handle_geode_callbacks(osg::Geode & geode) {
+	return osgUtil::UpdateVisitor::handle_geode_callbacks(geode);
+};
+
+// osgUtil::UpdateVisitor & osgUtil::UpdateVisitor::operator=(const osgUtil::UpdateVisitor & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

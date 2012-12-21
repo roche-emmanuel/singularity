@@ -129,7 +129,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -339,6 +339,52 @@ public:
 	};
 
 
+
+
+// bool osgGA::UFOManipulator::intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const
+bool public_intersect(const osg::Vec3d & start, const osg::Vec3d & end, osg::Vec3d & intersection) const {
+	return osgGA::UFOManipulator::intersect(start, end, intersection);
+};
+
+// void osgGA::UFOManipulator::_stop()
+void public__stop() {
+	return osgGA::UFOManipulator::_stop();
+};
+
+// void osgGA::UFOManipulator::_keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
+void public__keyDown(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) {
+	return osgGA::UFOManipulator::_keyDown(ea, arg2);
+};
+
+// void osgGA::UFOManipulator::_keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
+void public__keyUp(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) {
+	return osgGA::UFOManipulator::_keyUp(ea, arg2);
+};
+
+// void osgGA::UFOManipulator::_frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2)
+void public__frame(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & arg2) {
+	return osgGA::UFOManipulator::_frame(ea, arg2);
+};
+
+// void osgGA::UFOManipulator::_adjustPosition()
+void public__adjustPosition() {
+	return osgGA::UFOManipulator::_adjustPosition();
+};
+
+// std::string osgGA::CameraManipulator::getManipulatorName() const
+std::string public_getManipulatorName() const {
+	return osgGA::CameraManipulator::getManipulatorName();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

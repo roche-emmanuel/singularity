@@ -170,6 +170,43 @@ public:
 
 
 
+// bool osg::Uniform::isCompatibleType(osg::Uniform::Type t) const
+bool public_isCompatibleType(osg::Uniform::Type t) const {
+	return osg::Uniform::isCompatibleType(t);
+};
+
+// bool osg::Uniform::isScalar() const
+bool public_isScalar() const {
+	return osg::Uniform::isScalar();
+};
+
+// void osg::Uniform::allocateDataArray()
+void public_allocateDataArray() {
+	return osg::Uniform::allocateDataArray();
+};
+
+// void osg::Uniform::addParent(osg::StateSet * object)
+void public_addParent(osg::StateSet * object) {
+	return osg::Uniform::addParent(object);
+};
+
+// void osg::Uniform::removeParent(osg::StateSet * object)
+void public_removeParent(osg::StateSet * object) {
+	return osg::Uniform::removeParent(object);
+};
+
+// osg::Uniform & osg::Uniform::operator=(const osg::Uniform & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

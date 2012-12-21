@@ -122,6 +122,42 @@ public:
 
 
 
+// bool osgUtil::IntersectVisitor::intersect(osg::Drawable & gset)
+bool public_intersect(osg::Drawable & gset) {
+	return osgUtil::IntersectVisitor::intersect(gset);
+};
+
+// void osgUtil::IntersectVisitor::pushMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame rf)
+void public_pushMatrix(osg::RefMatrixd * matrix, osg::Transform::ReferenceFrame rf) {
+	return osgUtil::IntersectVisitor::pushMatrix(matrix, rf);
+};
+
+// void osgUtil::IntersectVisitor::popMatrix()
+void public_popMatrix() {
+	return osgUtil::IntersectVisitor::popMatrix();
+};
+
+// bool osgUtil::IntersectVisitor::enterNode(osg::Node & node)
+bool public_enterNode(osg::Node & node) {
+	return osgUtil::IntersectVisitor::enterNode(node);
+};
+
+// void osgUtil::IntersectVisitor::leaveNode()
+void public_leaveNode() {
+	return osgUtil::IntersectVisitor::leaveNode();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

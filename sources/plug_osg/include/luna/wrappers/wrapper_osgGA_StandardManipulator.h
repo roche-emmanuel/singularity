@@ -130,7 +130,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -642,6 +642,72 @@ protected:
 
 		return StandardManipulator::allocAnimationData();
 	};
+
+public:
+// void osgGA::StandardManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
+void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
+	return osgGA::StandardManipulator::addMouseEvent(ea);
+};
+
+// void osgGA::StandardManipulator::flushMouseEventStack()
+void public_flushMouseEventStack() {
+	return osgGA::StandardManipulator::flushMouseEventStack();
+};
+
+// float osgGA::StandardManipulator::getThrowScale(const double eventTimeDelta) const
+float public_getThrowScale(const double eventTimeDelta) const {
+	return osgGA::StandardManipulator::getThrowScale(eventTimeDelta);
+};
+
+// void osgGA::StandardManipulator::fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver)
+void public_fixVerticalAxis(osg::Vec3d & eye, osg::Quat & rotation, bool disallowFlipOver) {
+	return osgGA::StandardManipulator::fixVerticalAxis(eye, rotation, disallowFlipOver);
+};
+
+// bool osgGA::StandardManipulator::getRelativeFlag(int index) const
+bool public_getRelativeFlag(int index) const {
+	return osgGA::StandardManipulator::getRelativeFlag(index);
+};
+
+// void osgGA::StandardManipulator::setRelativeFlag(int index, bool value)
+void public_setRelativeFlag(int index, bool value) {
+	return osgGA::StandardManipulator::setRelativeFlag(index, value);
+};
+
+// static void osgGA::StandardManipulator::rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.))
+static void public_rotateYawPitch(osg::Quat & rotation, const double yaw, const double pitch, const osg::Vec3d & localUp = osg::Vec3d (0., 0., 0.)) {
+	return osgGA::StandardManipulator::rotateYawPitch(rotation, yaw, pitch, localUp);
+};
+
+// static void osgGA::StandardManipulator::fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver)
+static void public_fixVerticalAxis(osg::Quat & rotation, const osg::Vec3d & localUp, bool disallowFlipOver) {
+	return osgGA::StandardManipulator::fixVerticalAxis(rotation, localUp, disallowFlipOver);
+};
+
+// static void osgGA::StandardManipulator::fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver)
+static void public_fixVerticalAxis(const osg::Vec3d & forward, const osg::Vec3d & up, osg::Vec3d & newUp, const osg::Vec3d & localUp, bool disallowFlipOver) {
+	return osgGA::StandardManipulator::fixVerticalAxis(forward, up, newUp, localUp, disallowFlipOver);
+};
+
+// static int osgGA::StandardManipulator::allocateRelativeFlag()
+static int public_allocateRelativeFlag() {
+	return osgGA::StandardManipulator::allocateRelativeFlag();
+};
+
+// std::string osgGA::CameraManipulator::getManipulatorName() const
+std::string public_getManipulatorName() const {
+	return osgGA::CameraManipulator::getManipulatorName();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

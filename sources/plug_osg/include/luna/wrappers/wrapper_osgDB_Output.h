@@ -110,6 +110,7 @@ protected:
 		return Output::init();
 	};
 
+public:
 
 };
 

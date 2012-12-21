@@ -24,6 +24,22 @@ public:
 
 
 
+// unsigned int osg::GLBufferObject::computeBufferAlignment(unsigned int pos, unsigned int bufferAlignment) const
+unsigned int public_computeBufferAlignment(unsigned int pos, unsigned int bufferAlignment) const {
+	return osg::GLBufferObject::computeBufferAlignment(pos, bufferAlignment);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

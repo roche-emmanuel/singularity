@@ -55,6 +55,17 @@ public:
 
 
 
+// void osg::CullStack::computeFrustumVolume()
+void public_computeFrustumVolume() {
+	return osg::CullStack::computeFrustumVolume();
+};
+
+// osg::RefMatrixd * osg::CullStack::createOrReuseMatrix(const osg::Matrixd & value)
+osg::RefMatrixd * public_createOrReuseMatrix(const osg::Matrixd & value) {
+	return osg::CullStack::createOrReuseMatrix(value);
+};
+
+
 };
 
 

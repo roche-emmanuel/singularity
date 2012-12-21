@@ -138,7 +138,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -179,6 +179,32 @@ public:
 	};
 
 
+
+
+// void osgViewer::ScreenCaptureHandler::addCallbackToViewer(osgViewer::ViewerBase & viewer)
+void public_addCallbackToViewer(osgViewer::ViewerBase & viewer) {
+	return osgViewer::ScreenCaptureHandler::addCallbackToViewer(viewer);
+};
+
+// void osgViewer::ScreenCaptureHandler::removeCallbackFromViewer(osgViewer::ViewerBase & viewer)
+void public_removeCallbackFromViewer(osgViewer::ViewerBase & viewer) {
+	return osgViewer::ScreenCaptureHandler::removeCallbackFromViewer(viewer);
+};
+
+// osg::Camera * osgViewer::ScreenCaptureHandler::findAppropriateCameraForCallback(osgViewer::ViewerBase & viewer)
+osg::Camera * public_findAppropriateCameraForCallback(osgViewer::ViewerBase & viewer) {
+	return osgViewer::ScreenCaptureHandler::findAppropriateCameraForCallback(viewer);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

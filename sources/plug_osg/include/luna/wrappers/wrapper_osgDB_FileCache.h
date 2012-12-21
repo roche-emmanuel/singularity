@@ -170,6 +170,27 @@ public:
 
 
 
+// osgDB::FileList * osgDB::FileCache::readFileList(const std::string & originalFileName) const
+osgDB::FileList * public_readFileList(const std::string & originalFileName) const {
+	return osgDB::FileCache::readFileList(originalFileName);
+};
+
+// bool osgDB::FileCache::removeFileFromBlackListed(const std::string & originalFileName) const
+bool public_removeFileFromBlackListed(const std::string & originalFileName) const {
+	return osgDB::FileCache::removeFileFromBlackListed(originalFileName);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

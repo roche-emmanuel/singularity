@@ -32,7 +32,7 @@ public:
 
 	// void osg::GraphicsOperation::operator()(osg::Object * object)
 	void operator()(osg::Object * object) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(object);
 			return (_obj.callFunction<void>());
 		}
@@ -42,12 +42,23 @@ public:
 
 	// void osg::GraphicsOperation::operator()(osg::GraphicsContext * context)
 	void operator()(osg::GraphicsContext * context) {
-		THROW_IF(!_obj.pushFunction("operator()"),"No implementation for abstract function osg::GraphicsOperation::operator()");
+		THROW_IF(!_obj.pushFunction("op_call"),"No implementation for abstract function osg::GraphicsOperation::operator()");
 		_obj.pushArg(context);
 		return (_obj.callFunction<void>());
 	};
 
 
+
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

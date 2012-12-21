@@ -206,6 +206,37 @@ protected:
 		return GraphicsContext::clone(arg1);
 	};
 
+public:
+// void osg::GraphicsContext::addCamera(osg::Camera * camera)
+void public_addCamera(osg::Camera * camera) {
+	return osg::GraphicsContext::addCamera(camera);
+};
+
+// void osg::GraphicsContext::removeCamera(osg::Camera * camera)
+void public_removeCamera(osg::Camera * camera) {
+	return osg::GraphicsContext::removeCamera(camera);
+};
+
+// static void osg::GraphicsContext::registerGraphicsContext(osg::GraphicsContext * gc)
+static void public_registerGraphicsContext(osg::GraphicsContext * gc) {
+	return osg::GraphicsContext::registerGraphicsContext(gc);
+};
+
+// static void osg::GraphicsContext::unregisterGraphicsContext(osg::GraphicsContext * gc)
+static void public_unregisterGraphicsContext(osg::GraphicsContext * gc) {
+	return osg::GraphicsContext::unregisterGraphicsContext(gc);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 

@@ -192,6 +192,42 @@ public:
 
 
 
+// bool osgUtil::IntersectionVisitor::enter(const osg::Node & node)
+bool public_enter(const osg::Node & node) {
+	return osgUtil::IntersectionVisitor::enter(node);
+};
+
+// void osgUtil::IntersectionVisitor::leave()
+void public_leave() {
+	return osgUtil::IntersectionVisitor::leave();
+};
+
+// void osgUtil::IntersectionVisitor::intersect(osg::Drawable * drawable)
+void public_intersect(osg::Drawable * drawable) {
+	return osgUtil::IntersectionVisitor::intersect(drawable);
+};
+
+// void osgUtil::IntersectionVisitor::push_clone()
+void public_push_clone() {
+	return osgUtil::IntersectionVisitor::push_clone();
+};
+
+// void osgUtil::IntersectionVisitor::pop_clone()
+void public_pop_clone() {
+	return osgUtil::IntersectionVisitor::pop_clone();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

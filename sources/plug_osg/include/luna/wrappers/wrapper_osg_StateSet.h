@@ -129,6 +129,98 @@ public:
 
 
 
+// void osg::StateSet::addParent(osg::Object * object)
+void public_addParent(osg::Object * object) {
+	return osg::StateSet::addParent(object);
+};
+
+// void osg::StateSet::removeParent(osg::Object * object)
+void public_removeParent(osg::Object * object) {
+	return osg::StateSet::removeParent(object);
+};
+
+// osg::StateSet::ModeList & osg::StateSet::getOrCreateTextureModeList(unsigned int unit)
+osg::StateSet::ModeList & public_getOrCreateTextureModeList(unsigned int unit) {
+	return osg::StateSet::getOrCreateTextureModeList(unit);
+};
+
+// osg::StateSet::AttributeList & osg::StateSet::getOrCreateTextureAttributeList(unsigned int unit)
+osg::StateSet::AttributeList & public_getOrCreateTextureAttributeList(unsigned int unit) {
+	return osg::StateSet::getOrCreateTextureAttributeList(unit);
+};
+
+// int osg::StateSet::compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs)
+int public_compareModes(const osg::StateSet::ModeList & lhs, const osg::StateSet::ModeList & rhs) {
+	return osg::StateSet::compareModes(lhs, rhs);
+};
+
+// int osg::StateSet::compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)
+int public_compareAttributePtrs(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) {
+	return osg::StateSet::compareAttributePtrs(lhs, rhs);
+};
+
+// int osg::StateSet::compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs)
+int public_compareAttributeContents(const osg::StateSet::AttributeList & lhs, const osg::StateSet::AttributeList & rhs) {
+	return osg::StateSet::compareAttributeContents(lhs, rhs);
+};
+
+// void osg::StateSet::setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value)
+void public_setMode(osg::StateSet::ModeList & modeList, unsigned int mode, unsigned int value) {
+	return osg::StateSet::setMode(modeList, mode, value);
+};
+
+// void osg::StateSet::setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode)
+void public_setModeToInherit(osg::StateSet::ModeList & modeList, unsigned int mode) {
+	return osg::StateSet::setModeToInherit(modeList, mode);
+};
+
+// unsigned int osg::StateSet::getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const
+unsigned int public_getMode(const osg::StateSet::ModeList & modeList, unsigned int mode) const {
+	return osg::StateSet::getMode(modeList, mode);
+};
+
+// void osg::StateSet::setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF)
+void public_setAttribute(osg::StateSet::AttributeList & attributeList, osg::StateAttribute * attribute, const unsigned int value = osg::StateAttribute::OFF) {
+	return osg::StateSet::setAttribute(attributeList, attribute, value);
+};
+
+// osg::StateAttribute * osg::StateSet::getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member)
+osg::StateAttribute * public_getAttribute(osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) {
+	return osg::StateSet::getAttribute(attributeList, type, member);
+};
+
+// const osg::StateAttribute * osg::StateSet::getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
+const osg::StateAttribute * public_getAttribute(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const {
+	return osg::StateSet::getAttribute(attributeList, type, member);
+};
+
+// const osg::StateSet::RefAttributePair * osg::StateSet::getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const
+const osg::StateSet::RefAttributePair * public_getAttributePair(const osg::StateSet::AttributeList & attributeList, const osg::StateAttribute::Type type, unsigned int member) const {
+	return osg::StateSet::getAttributePair(attributeList, type, member);
+};
+
+// void osg::StateSet::setNumChildrenRequiringUpdateTraversal(unsigned int num)
+void public_setNumChildrenRequiringUpdateTraversal(unsigned int num) {
+	return osg::StateSet::setNumChildrenRequiringUpdateTraversal(num);
+};
+
+// void osg::StateSet::setNumChildrenRequiringEventTraversal(unsigned int num)
+void public_setNumChildrenRequiringEventTraversal(unsigned int num) {
+	return osg::StateSet::setNumChildrenRequiringEventTraversal(num);
+};
+
+// osg::StateSet & osg::StateSet::operator=(const osg::StateSet & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

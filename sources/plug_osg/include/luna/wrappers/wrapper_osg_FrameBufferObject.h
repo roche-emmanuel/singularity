@@ -224,6 +224,43 @@ public:
 
 
 
+// void osg::FrameBufferObject::updateDrawBuffers()
+void public_updateDrawBuffers() {
+	return osg::FrameBufferObject::updateDrawBuffers();
+};
+
+// void osg::FrameBufferObject::dirtyAll()
+void public_dirtyAll() {
+	return osg::FrameBufferObject::dirtyAll();
+};
+
+// unsigned int osg::FrameBufferObject::convertBufferComponentToGLenum(osg::Camera::BufferComponent attachment_point) const
+unsigned int public_convertBufferComponentToGLenum(osg::Camera::BufferComponent attachment_point) const {
+	return osg::FrameBufferObject::convertBufferComponentToGLenum(attachment_point);
+};
+
+// osg::FrameBufferObject & osg::FrameBufferObject::operator=(const osg::FrameBufferObject & arg1)
+// void osg::StateAttribute::addParent(osg::StateSet * object)
+void public_addParent(osg::StateSet * object) {
+	return osg::StateAttribute::addParent(object);
+};
+
+// void osg::StateAttribute::removeParent(osg::StateSet * object)
+void public_removeParent(osg::StateSet * object) {
+	return osg::StateAttribute::removeParent(object);
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
+
 };
 
 

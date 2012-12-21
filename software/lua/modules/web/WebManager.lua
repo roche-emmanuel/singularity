@@ -31,7 +31,7 @@ function Class:createWebImage(options)
 end
 
 function Class:onFrame()
-	self:info("Updating webcore...");
+	--self:info("Updating webcore...");
 	self._core:Update()
 end
 

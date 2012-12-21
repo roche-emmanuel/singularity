@@ -23,7 +23,7 @@ public:
 
 	// osg::Referenced * osg::CopyOp::operator()(const osg::Referenced * ref) const
 	osg::Referenced * operator()(const osg::Referenced * ref) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(ref);
 			return (_obj.callFunction<osg::Referenced*>());
 		}
@@ -33,7 +33,7 @@ public:
 
 	// osg::Object * osg::CopyOp::operator()(const osg::Object * obj) const
 	osg::Object * operator()(const osg::Object * obj) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(obj);
 			return (_obj.callFunction<osg::Object*>());
 		}
@@ -43,7 +43,7 @@ public:
 
 	// osg::Node * osg::CopyOp::operator()(const osg::Node * node) const
 	osg::Node * operator()(const osg::Node * node) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			return (_obj.callFunction<osg::Node*>());
 		}
@@ -53,7 +53,7 @@ public:
 
 	// osg::Drawable * osg::CopyOp::operator()(const osg::Drawable * drawable) const
 	osg::Drawable * operator()(const osg::Drawable * drawable) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(drawable);
 			return (_obj.callFunction<osg::Drawable*>());
 		}
@@ -63,7 +63,7 @@ public:
 
 	// osg::StateSet * osg::CopyOp::operator()(const osg::StateSet * stateset) const
 	osg::StateSet * operator()(const osg::StateSet * stateset) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(stateset);
 			return (_obj.callFunction<osg::StateSet*>());
 		}
@@ -73,7 +73,7 @@ public:
 
 	// osg::StateAttribute * osg::CopyOp::operator()(const osg::StateAttribute * attr) const
 	osg::StateAttribute * operator()(const osg::StateAttribute * attr) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(attr);
 			return (_obj.callFunction<osg::StateAttribute*>());
 		}
@@ -83,7 +83,7 @@ public:
 
 	// osg::Texture * osg::CopyOp::operator()(const osg::Texture * text) const
 	osg::Texture * operator()(const osg::Texture * text) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(text);
 			return (_obj.callFunction<osg::Texture*>());
 		}
@@ -93,7 +93,7 @@ public:
 
 	// osg::Image * osg::CopyOp::operator()(const osg::Image * image) const
 	osg::Image * operator()(const osg::Image * image) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(image);
 			return (_obj.callFunction<osg::Image*>());
 		}
@@ -103,7 +103,7 @@ public:
 
 	// osg::Array * osg::CopyOp::operator()(const osg::Array * array) const
 	osg::Array * operator()(const osg::Array * array) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(array);
 			return (_obj.callFunction<osg::Array*>());
 		}
@@ -113,7 +113,7 @@ public:
 
 	// osg::PrimitiveSet * osg::CopyOp::operator()(const osg::PrimitiveSet * primitives) const
 	osg::PrimitiveSet * operator()(const osg::PrimitiveSet * primitives) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(primitives);
 			return (_obj.callFunction<osg::PrimitiveSet*>());
 		}
@@ -123,7 +123,7 @@ public:
 
 	// osg::Shape * osg::CopyOp::operator()(const osg::Shape * shape) const
 	osg::Shape * operator()(const osg::Shape * shape) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(shape);
 			return (_obj.callFunction<osg::Shape*>());
 		}
@@ -133,7 +133,7 @@ public:
 
 	// osg::Uniform * osg::CopyOp::operator()(const osg::Uniform * shape) const
 	osg::Uniform * operator()(const osg::Uniform * shape) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(shape);
 			return (_obj.callFunction<osg::Uniform*>());
 		}
@@ -143,7 +143,7 @@ public:
 
 	// osg::NodeCallback * osg::CopyOp::operator()(const osg::NodeCallback * nodecallback) const
 	osg::NodeCallback * operator()(const osg::NodeCallback * nodecallback) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(nodecallback);
 			return (_obj.callFunction<osg::NodeCallback*>());
 		}
@@ -153,13 +153,14 @@ public:
 
 	// osg::StateAttributeCallback * osg::CopyOp::operator()(const osg::StateAttributeCallback * stateattributecallback) const
 	osg::StateAttributeCallback * operator()(const osg::StateAttributeCallback * stateattributecallback) const {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(stateattributecallback);
 			return (_obj.callFunction<osg::StateAttributeCallback*>());
 		}
 
 		return CopyOp::operator()(stateattributecallback);
 	};
+
 
 
 

@@ -129,7 +129,7 @@ public:
 
 	// void osgGA::GUIEventHandler::operator()(osg::Node * node, osg::NodeVisitor * nv)
 	void operator()(osg::Node * node, osg::NodeVisitor * nv) {
-		if(_obj.pushFunction("operator()")) {
+		if(_obj.pushFunction("op_call")) {
 			_obj.pushArg(node);
 			_obj.pushArg(nv);
 			return (_obj.callFunction<void>());
@@ -339,6 +339,42 @@ public:
 	};
 
 
+
+
+// void osgGA::SphericalManipulator::flushMouseEventStack()
+void public_flushMouseEventStack() {
+	return osgGA::SphericalManipulator::flushMouseEventStack();
+};
+
+// void osgGA::SphericalManipulator::addMouseEvent(const osgGA::GUIEventAdapter & ea)
+void public_addMouseEvent(const osgGA::GUIEventAdapter & ea) {
+	return osgGA::SphericalManipulator::addMouseEvent(ea);
+};
+
+// bool osgGA::SphericalManipulator::calcMovement()
+bool public_calcMovement() {
+	return osgGA::SphericalManipulator::calcMovement();
+};
+
+// bool osgGA::SphericalManipulator::isMouseMoving()
+bool public_isMouseMoving() {
+	return osgGA::SphericalManipulator::isMouseMoving();
+};
+
+// std::string osgGA::CameraManipulator::getManipulatorName() const
+std::string public_getManipulatorName() const {
+	return osgGA::CameraManipulator::getManipulatorName();
+};
+
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
 
 
 };

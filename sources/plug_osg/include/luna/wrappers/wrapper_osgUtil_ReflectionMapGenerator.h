@@ -34,6 +34,29 @@ protected:
 		return ReflectionMapGenerator::compute_color(R);
 	};
 
+public:
+// osgUtil::ReflectionMapGenerator & osgUtil::ReflectionMapGenerator::operator=(const osgUtil::ReflectionMapGenerator & arg1)
+// void osgUtil::CubeMapGenerator::set_pixel(int index, int c, int r, const osg::Vec4f & color)
+void public_set_pixel(int index, int c, int r, const osg::Vec4f & color) {
+	return osgUtil::CubeMapGenerator::set_pixel(index, c, r, color);
+};
+
+// static osg::Vec4f osgUtil::CubeMapGenerator::vector_to_color(const osg::Vec3f & vec)
+static osg::Vec4f public_vector_to_color(const osg::Vec3f & vec) {
+	return osgUtil::CubeMapGenerator::vector_to_color(vec);
+};
+
+// osgUtil::CubeMapGenerator & osgUtil::CubeMapGenerator::operator=(const osgUtil::CubeMapGenerator & arg1)
+// void osg::Referenced::signalObserversAndDelete(bool signalDelete, bool doDelete) const
+void public_signalObserversAndDelete(bool signalDelete, bool doDelete) const {
+	return osg::Referenced::signalObserversAndDelete(signalDelete, doDelete);
+};
+
+// void osg::Referenced::deleteUsingDeleteHandler() const
+void public_deleteUsingDeleteHandler() const {
+	return osg::Referenced::deleteUsingDeleteHandler();
+};
+
 
 };
 
