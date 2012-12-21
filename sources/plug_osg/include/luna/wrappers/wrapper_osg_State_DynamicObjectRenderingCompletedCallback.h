@@ -11,8 +11,14 @@
 class wrapper_osg_State_DynamicObjectRenderingCompletedCallback : public osg::State::DynamicObjectRenderingCompletedCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_State_DynamicObjectRenderingCompletedCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::State::DynamicObjectRenderingCompletedCallback::completed(osg::State * arg1)
 	void completed(osg::State * arg1) {

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_CullVisitor : public osgUtil::CullVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_CullVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum) : osgUtil::CullVisitor(), luna_wrapper_base(L) {};
 	wrapper_osgUtil_CullVisitor(lua_State* L, lua_Table* dum, const osgUtil::CullVisitor & arg1) : osgUtil::CullVisitor(arg1), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_wxGridCellRenderer : public wxGridCellRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const
 	wxGridCellRenderer * Clone() const {

@@ -11,8 +11,14 @@
 class wrapper_wxDelegateRendererNative : public wxDelegateRendererNative, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDelegateRendererNative() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum) : wxDelegateRendererNative(), luna_wrapper_base(L) {};
 	wrapper_wxDelegateRendererNative(lua_State* L, lua_Table* dum, wxRendererNative & rendererNative) : wxDelegateRendererNative(rendererNative), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osg_SwapBuffersOperation : public osg::SwapBuffersOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_SwapBuffersOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_SwapBuffersOperation(lua_State* L, lua_Table* dum) : osg::SwapBuffersOperation(), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()

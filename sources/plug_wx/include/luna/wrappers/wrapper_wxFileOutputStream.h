@@ -11,8 +11,14 @@
 class wrapper_wxFileOutputStream : public wxFileOutputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileOutputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, const wxString & ofileName) : wxFileOutputStream(ofileName), luna_wrapper_base(L) {};
 	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, wxFile & file) : wxFileOutputStream(file), luna_wrapper_base(L) {};
 	wrapper_wxFileOutputStream(lua_State* L, lua_Table* dum, int fd) : wxFileOutputStream(fd), luna_wrapper_base(L) {};

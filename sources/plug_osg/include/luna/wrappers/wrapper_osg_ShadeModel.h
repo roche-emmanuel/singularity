@@ -11,8 +11,14 @@
 class wrapper_osg_ShadeModel : public osg::ShadeModel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ShadeModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ShadeModel(lua_State* L, lua_Table* dum, osg::ShadeModel::Mode mode = osg::ShadeModel::SMOOTH) : osg::ShadeModel(mode), luna_wrapper_base(L) {};
 	wrapper_osg_ShadeModel(lua_State* L, lua_Table* dum, const osg::ShadeModel & sm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShadeModel(sm, copyop), luna_wrapper_base(L) {};
 

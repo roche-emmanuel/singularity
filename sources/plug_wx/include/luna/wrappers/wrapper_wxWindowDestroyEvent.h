@@ -11,8 +11,14 @@
 class wrapper_wxWindowDestroyEvent : public wxWindowDestroyEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxWindowDestroyEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxWindowDestroyEvent(lua_State* L, lua_Table* dum, wxWindow * win = NULL) : wxWindowDestroyEvent(win), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

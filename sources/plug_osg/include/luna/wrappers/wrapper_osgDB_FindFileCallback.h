@@ -11,8 +11,14 @@
 class wrapper_osgDB_FindFileCallback : public osgDB::FindFileCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FindFileCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// std::string osgDB::FindFileCallback::findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity)
 	std::string findDataFile(const std::string & filename, const osgDB::Options * options, osgDB::CaseSensitivity caseSensitivity) {

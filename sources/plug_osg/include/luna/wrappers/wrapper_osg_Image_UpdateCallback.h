@@ -11,8 +11,14 @@
 class wrapper_osg_Image_UpdateCallback : public osg::Image::UpdateCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Image_UpdateCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

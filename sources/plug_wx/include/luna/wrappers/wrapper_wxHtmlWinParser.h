@@ -11,8 +11,14 @@
 class wrapper_wxHtmlWinParser : public wxHtmlWinParser, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlWinParser() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)
 	void AddTagHandler(wxHtmlTagHandler * handler) {

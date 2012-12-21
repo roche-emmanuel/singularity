@@ -11,8 +11,14 @@
 class wrapper_wxSocketInputStream : public wxSocketInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSocketInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSocketInputStream(lua_State* L, lua_Table* dum, wxSocketBase & s) : wxSocketInputStream(s), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

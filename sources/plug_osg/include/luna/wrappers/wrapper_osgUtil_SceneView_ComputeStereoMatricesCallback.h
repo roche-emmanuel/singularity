@@ -11,8 +11,14 @@
 class wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback : public osgUtil::SceneView::ComputeStereoMatricesCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_SceneView_ComputeStereoMatricesCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osg::Matrixd osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection(const osg::Matrixd & projection) const
 	osg::Matrixd computeLeftEyeProjection(const osg::Matrixd & projection) const {

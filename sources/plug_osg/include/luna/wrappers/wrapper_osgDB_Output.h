@@ -11,8 +11,14 @@
 class wrapper_osgDB_Output : public osgDB::Output, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Output() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Output(lua_State* L, lua_Table* dum) : osgDB::Output(), luna_wrapper_base(L) {};
 	wrapper_osgDB_Output(lua_State* L, lua_Table* dum, const char * name) : osgDB::Output(name), luna_wrapper_base(L) {};
 

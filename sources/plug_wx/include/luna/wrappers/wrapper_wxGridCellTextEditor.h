@@ -11,8 +11,14 @@
 class wrapper_wxGridCellTextEditor : public wxGridCellTextEditor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellTextEditor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellTextEditor(lua_State* L, lua_Table* dum) : wxGridCellTextEditor(), luna_wrapper_base(L) {};
 
 	// wxString wxGridCellEditor::GetValue() const

@@ -11,8 +11,14 @@
 class wrapper_osg_BarrierOperation : public osg::BarrierOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BarrierOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::BarrierOperation::release()
 	void release() {

@@ -11,8 +11,14 @@
 class wrapper_wxImageHandler : public wxImageHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxImageHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxImageHandler(lua_State* L, lua_Table* dum) : wxImageHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

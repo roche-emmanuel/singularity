@@ -11,8 +11,14 @@
 class wrapper_osg_CullStack : public osg::CullStack, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_CullStack() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum) : osg::CullStack(), luna_wrapper_base(L) {};
 	wrapper_osg_CullStack(lua_State* L, lua_Table* dum, const osg::CullStack & cs) : osg::CullStack(cs), luna_wrapper_base(L) {};
 

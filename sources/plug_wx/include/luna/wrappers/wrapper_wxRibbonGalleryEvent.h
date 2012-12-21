@@ -11,8 +11,14 @@
 class wrapper_wxRibbonGalleryEvent : public wxRibbonGalleryEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonGalleryEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonGalleryEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonGallery * gallery = NULL, wxRibbonGalleryItem * item = NULL) : wxRibbonGalleryEvent(command_type, win_id, gallery, item), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

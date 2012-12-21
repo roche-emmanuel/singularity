@@ -11,8 +11,14 @@
 class wrapper_osgDB_DotOsgWrapper : public osgDB::DotOsgWrapper, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_DotOsgWrapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

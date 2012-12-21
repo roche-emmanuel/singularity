@@ -11,8 +11,14 @@
 class wrapper_wxSpinButton : public wxSpinButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSpinButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSpinButton(lua_State* L, lua_Table* dum) : wxSpinButton(), luna_wrapper_base(L) {};
 	wrapper_wxSpinButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_VERTICAL, const wxString & name = "spinButton") : wxSpinButton(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

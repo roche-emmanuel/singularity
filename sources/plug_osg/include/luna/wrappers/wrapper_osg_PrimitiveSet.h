@@ -11,8 +11,14 @@
 class wrapper_osg_PrimitiveSet : public osg::PrimitiveSet, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_PrimitiveSet() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::PrimitiveSet(primType, mode, numInstances), luna_wrapper_base(L) {};
 	wrapper_osg_PrimitiveSet(lua_State* L, lua_Table* dum, const osg::PrimitiveSet & prim, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PrimitiveSet(prim, copyop), luna_wrapper_base(L) {};
 

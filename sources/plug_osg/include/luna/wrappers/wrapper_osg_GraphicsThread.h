@@ -11,8 +11,14 @@
 class wrapper_osg_GraphicsThread : public osg::GraphicsThread, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GraphicsThread() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

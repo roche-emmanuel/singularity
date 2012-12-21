@@ -11,8 +11,14 @@
 class wrapper_wxHeaderColumnSimple : public wxHeaderColumnSimple, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHeaderColumnSimple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxString & title, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_NOT, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(title, width, align, flags), luna_wrapper_base(L) {};
 	wrapper_wxHeaderColumnSimple(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int width = ::wxCOL_WIDTH_DEFAULT, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxCOL_DEFAULT_FLAGS) : wxHeaderColumnSimple(bitmap, width, align, flags), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_wxBoxSizer : public wxBoxSizer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBoxSizer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBoxSizer(lua_State* L, lua_Table* dum, int orient) : wxBoxSizer(orient), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

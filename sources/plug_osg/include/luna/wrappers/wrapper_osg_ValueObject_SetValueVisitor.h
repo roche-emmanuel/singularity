@@ -11,8 +11,14 @@
 class wrapper_osg_ValueObject_SetValueVisitor : public osg::ValueObject::SetValueVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ValueObject_SetValueVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::ValueObject::SetValueVisitor::apply(bool & value)
 	void apply(bool & value) {

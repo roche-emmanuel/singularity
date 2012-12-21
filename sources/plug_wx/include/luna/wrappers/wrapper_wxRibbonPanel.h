@@ -11,8 +11,14 @@
 class wrapper_wxRibbonPanel : public wxRibbonPanel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonPanel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum) : wxRibbonPanel(), luna_wrapper_base(L) {};
 	wrapper_wxRibbonPanel(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & minimised_icon = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxRIBBON_PANEL_DEFAULT_STYLE) : wxRibbonPanel(parent, id, label, minimised_icon, pos, size, style), luna_wrapper_base(L) {};
 

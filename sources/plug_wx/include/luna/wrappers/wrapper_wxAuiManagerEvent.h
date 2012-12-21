@@ -11,8 +11,14 @@
 class wrapper_wxAuiManagerEvent : public wxAuiManagerEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiManagerEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiManagerEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL) : wxAuiManagerEvent(type), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

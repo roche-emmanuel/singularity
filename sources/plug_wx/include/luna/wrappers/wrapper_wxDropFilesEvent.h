@@ -11,8 +11,14 @@
 class wrapper_wxDropFilesEvent : public wxDropFilesEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDropFilesEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDropFilesEvent(lua_State* L, lua_Table* dum, int id = 0, int noFiles = 0, wxString * files = NULL) : wxDropFilesEvent(id, noFiles, files), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

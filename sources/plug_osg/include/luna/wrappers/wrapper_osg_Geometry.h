@@ -11,8 +11,14 @@
 class wrapper_osg_Geometry : public osg::Geometry, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Geometry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Geometry(lua_State* L, lua_Table* dum) : osg::Geometry(), luna_wrapper_base(L) {};
 	wrapper_osg_Geometry(lua_State* L, lua_Table* dum, const osg::Geometry & geometry, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Geometry(geometry, copyop), luna_wrapper_base(L) {};
 

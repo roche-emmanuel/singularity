@@ -11,8 +11,14 @@
 class wrapper_osg_Shader : public osg::Shader, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Shader() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type = osg::Shader::UNDEFINED) : osg::Shader(type), luna_wrapper_base(L) {};
 	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, const std::string & source) : osg::Shader(type, source), luna_wrapper_base(L) {};
 	wrapper_osg_Shader(lua_State* L, lua_Table* dum, osg::Shader::Type type, osg::ShaderBinary * shaderBinary) : osg::Shader(type, shaderBinary), luna_wrapper_base(L) {};

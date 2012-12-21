@@ -11,8 +11,14 @@
 class wrapper_wxStaticBoxSizer : public wxStaticBoxSizer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxStaticBoxSizer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, wxStaticBox * box, int orient) : wxStaticBoxSizer(box, orient), luna_wrapper_base(L) {};
 	wrapper_wxStaticBoxSizer(lua_State* L, lua_Table* dum, int orient, wxWindow * parent, const wxString & label = wxEmptyString) : wxStaticBoxSizer(orient, parent, label), luna_wrapper_base(L) {};
 

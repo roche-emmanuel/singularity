@@ -11,8 +11,14 @@
 class wrapper_osg_Viewport : public osg::Viewport, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Viewport() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Viewport(lua_State* L, lua_Table* dum) : osg::Viewport(), luna_wrapper_base(L) {};
 	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, double x, double y, double width, double height) : osg::Viewport(x, y, width, height), luna_wrapper_base(L) {};
 	wrapper_osg_Viewport(lua_State* L, lua_Table* dum, const osg::Viewport & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Viewport(vp, copyop), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_wxDialUpEvent : public wxDialUpEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDialUpEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDialUpEvent(lua_State* L, lua_Table* dum, bool isConnected, bool isOwnEvent) : wxDialUpEvent(isConnected, isOwnEvent), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

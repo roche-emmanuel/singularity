@@ -11,8 +11,14 @@
 class wrapper_osgUtil_Simplifier_ContinueSimplificationCallback : public osgUtil::Simplifier::ContinueSimplificationCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_Simplifier_ContinueSimplificationCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const
 	bool continueSimplification(const osgUtil::Simplifier & simplifier, float nextError, unsigned int numOriginalPrimitives, unsigned int numRemainingPrimitives) const {

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_BaseOptimizerVisitor : public osgUtil::BaseOptimizerVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_BaseOptimizerVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_BaseOptimizerVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer, unsigned int operation) : osgUtil::BaseOptimizerVisitor(optimizer, operation), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

@@ -11,8 +11,14 @@
 class wrapper_wxBitmapHandler : public wxBitmapHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBitmapHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBitmapHandler(lua_State* L, lua_Table* dum) : wxBitmapHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxFocusEvent : public wxFocusEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFocusEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFocusEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0) : wxFocusEvent(eventType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

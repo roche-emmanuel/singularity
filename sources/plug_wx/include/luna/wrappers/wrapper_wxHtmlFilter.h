@@ -11,8 +11,14 @@
 class wrapper_wxHtmlFilter : public wxHtmlFilter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlFilter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlFilter(lua_State* L, lua_Table* dum) : wxHtmlFilter(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

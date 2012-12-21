@@ -11,8 +11,14 @@
 class wrapper_wxMouseCaptureChangedEvent : public wxMouseCaptureChangedEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMouseCaptureChangedEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMouseCaptureChangedEvent(lua_State* L, lua_Table* dum, int windowId = 0, wxWindow * gainedCapture = NULL) : wxMouseCaptureChangedEvent(windowId, gainedCapture), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

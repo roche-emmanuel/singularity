@@ -11,8 +11,14 @@
 class wrapper_osgGA_OrbitManipulator : public osgGA::OrbitManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_OrbitManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_OrbitManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::OrbitManipulator(flags), luna_wrapper_base(L) {};
 	wrapper_osgGA_OrbitManipulator(lua_State* L, lua_Table* dum, const osgGA::OrbitManipulator & om, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::OrbitManipulator(om, copyOp), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_StateToCompile : public osgUtil::StateToCompile, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_StateToCompile() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_StateToCompile(lua_State* L, lua_Table* dum, unsigned int mode) : osgUtil::StateToCompile(mode), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

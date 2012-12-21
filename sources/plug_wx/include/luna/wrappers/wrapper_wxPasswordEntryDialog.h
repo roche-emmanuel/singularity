@@ -11,8 +11,14 @@
 class wrapper_wxPasswordEntryDialog : public wxPasswordEntryDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPasswordEntryDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPasswordEntryDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxPasswordEntryDialog(parent, message, caption, defaultValue, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

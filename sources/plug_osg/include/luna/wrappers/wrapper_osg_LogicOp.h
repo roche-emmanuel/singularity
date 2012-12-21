@@ -11,8 +11,14 @@
 class wrapper_osg_LogicOp : public osg::LogicOp, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_LogicOp() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_LogicOp(lua_State* L, lua_Table* dum) : osg::LogicOp(), luna_wrapper_base(L) {};
 	wrapper_osg_LogicOp(lua_State* L, lua_Table* dum, osg::LogicOp::Opcode opcode) : osg::LogicOp(opcode), luna_wrapper_base(L) {};
 	wrapper_osg_LogicOp(lua_State* L, lua_Table* dum, const osg::LogicOp & trans, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::LogicOp(trans, copyop), luna_wrapper_base(L) {};

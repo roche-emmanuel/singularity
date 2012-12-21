@@ -11,8 +11,14 @@
 class wrapper_osg_QueryGeometry : public osg::QueryGeometry, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_QueryGeometry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

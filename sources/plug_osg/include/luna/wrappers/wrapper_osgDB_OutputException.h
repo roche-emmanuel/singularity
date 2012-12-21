@@ -11,8 +11,14 @@
 class wrapper_osgDB_OutputException : public osgDB::OutputException, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_OutputException() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

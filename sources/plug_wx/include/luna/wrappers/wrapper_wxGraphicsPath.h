@@ -11,8 +11,14 @@
 class wrapper_wxGraphicsPath : public wxGraphicsPath, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGraphicsPath() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

@@ -11,8 +11,14 @@
 class wrapper_wxRibbonToolBar : public wxRibbonToolBar, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonToolBar() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonToolBar(lua_State* L, lua_Table* dum) : wxRibbonToolBar(), luna_wrapper_base(L) {};
 	wrapper_wxRibbonToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) : wxRibbonToolBar(parent, id, pos, size, style), luna_wrapper_base(L) {};
 

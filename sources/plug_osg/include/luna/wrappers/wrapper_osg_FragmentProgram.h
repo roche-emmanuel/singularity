@@ -11,8 +11,14 @@
 class wrapper_osg_FragmentProgram : public osg::FragmentProgram, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_FragmentProgram() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum) : osg::FragmentProgram(), luna_wrapper_base(L) {};
 	wrapper_osg_FragmentProgram(lua_State* L, lua_Table* dum, const osg::FragmentProgram & vp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FragmentProgram(vp, copyop), luna_wrapper_base(L) {};
 

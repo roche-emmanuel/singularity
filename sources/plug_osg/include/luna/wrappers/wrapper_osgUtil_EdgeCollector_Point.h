@@ -11,8 +11,14 @@
 class wrapper_osgUtil_EdgeCollector_Point : public osgUtil::EdgeCollector::Point, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_EdgeCollector_Point() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_EdgeCollector_Point(lua_State* L, lua_Table* dum) : osgUtil::EdgeCollector::Point(), luna_wrapper_base(L) {};
 
 

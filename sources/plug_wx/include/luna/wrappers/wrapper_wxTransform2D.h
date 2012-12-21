@@ -11,8 +11,14 @@
 class wrapper_wxTransform2D : public wxTransform2D, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTransform2D() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxTransform2D::Transform(wxPoint2DInt * pt) const
 	void Transform(wxPoint2DInt * pt) const {

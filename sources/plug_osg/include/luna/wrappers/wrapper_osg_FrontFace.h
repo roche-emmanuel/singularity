@@ -11,8 +11,14 @@
 class wrapper_osg_FrontFace : public osg::FrontFace, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_FrontFace() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, osg::FrontFace::Mode face = osg::FrontFace::COUNTER_CLOCKWISE) : osg::FrontFace(face), luna_wrapper_base(L) {};
 	wrapper_osg_FrontFace(lua_State* L, lua_Table* dum, const osg::FrontFace & ff, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::FrontFace(ff, copyop), luna_wrapper_base(L) {};
 

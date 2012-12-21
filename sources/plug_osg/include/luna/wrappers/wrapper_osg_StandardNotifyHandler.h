@@ -11,8 +11,14 @@
 class wrapper_osg_StandardNotifyHandler : public osg::StandardNotifyHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_StandardNotifyHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::StandardNotifyHandler::notify(osg::NotifySeverity severity, const char * message)
 	void notify(osg::NotifySeverity severity, const char * message) {

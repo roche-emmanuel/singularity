@@ -11,8 +11,14 @@
 class wrapper_osg_DeleteHandler : public osg::DeleteHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DeleteHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, int numberOfFramesToRetainObjects = 0) : osg::DeleteHandler(numberOfFramesToRetainObjects), luna_wrapper_base(L) {};
 	wrapper_osg_DeleteHandler(lua_State* L, lua_Table* dum, const osg::DeleteHandler & arg1) : osg::DeleteHandler(arg1), luna_wrapper_base(L) {};
 

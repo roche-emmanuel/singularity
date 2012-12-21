@@ -11,8 +11,14 @@
 class wrapper_wxDirDialog : public wxDirDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDirDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDirDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message = wxDirSelectorPromptStr, const wxString & defaultPath = wxEmptyString, long style = wxDD_DEFAULT_STYLE, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, const wxString & name = wxDirDialogNameStr) : wxDirDialog(parent, message, defaultPath, style, pos, size, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

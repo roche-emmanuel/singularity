@@ -11,8 +11,14 @@
 class wrapper_osg_Cylinder : public osg::Cylinder, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Cylinder() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Cylinder(lua_State* L, lua_Table* dum) : osg::Cylinder(), luna_wrapper_base(L) {};
 	wrapper_osg_Cylinder(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Cylinder(center, radius, height), luna_wrapper_base(L) {};
 	wrapper_osg_Cylinder(lua_State* L, lua_Table* dum, const osg::Cylinder & cylinder, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Cylinder(cylinder, copyop), luna_wrapper_base(L) {};

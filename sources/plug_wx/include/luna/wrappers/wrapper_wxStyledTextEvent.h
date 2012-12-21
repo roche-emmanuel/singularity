@@ -11,8 +11,14 @@
 class wrapper_wxStyledTextEvent : public wxStyledTextEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxStyledTextEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxStyledTextEvent(commandType, id), luna_wrapper_base(L) {};
 	wrapper_wxStyledTextEvent(lua_State* L, lua_Table* dum, const wxStyledTextEvent & event) : wxStyledTextEvent(event), luna_wrapper_base(L) {};
 

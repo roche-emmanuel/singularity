@@ -11,8 +11,14 @@
 class wrapper_wxSockAddress : public wxSockAddress, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSockAddress() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSockAddress(lua_State* L, lua_Table* dum) : wxSockAddress(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

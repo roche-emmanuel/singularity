@@ -11,8 +11,14 @@
 class wrapper_osgDB_basic_type_wrapper : public osgDB::basic_type_wrapper, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_basic_type_wrapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool osgDB::basic_type_wrapper::matches(const osg::Object * proto) const
 	bool matches(const osg::Object * proto) const {

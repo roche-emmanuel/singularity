@@ -11,8 +11,14 @@
 class wrapper_osg_ConstArrayVisitor : public osg::ConstArrayVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ConstArrayVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ConstArrayVisitor(lua_State* L, lua_Table* dum) : osg::ConstArrayVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ConstArrayVisitor::apply(const osg::Array & arg1)

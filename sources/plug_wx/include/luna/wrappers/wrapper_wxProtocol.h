@@ -11,8 +11,14 @@
 class wrapper_wxProtocol : public wxProtocol, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxProtocol() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

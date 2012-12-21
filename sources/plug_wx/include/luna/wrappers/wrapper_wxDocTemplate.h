@@ -11,8 +11,14 @@
 class wrapper_wxDocTemplate : public wxDocTemplate, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDocTemplate() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDocTemplate(lua_State* L, lua_Table* dum, wxDocManager * manager, const wxString & descr, const wxString & filter, const wxString & dir, const wxString & ext, const wxString & docTypeName, const wxString & viewTypeName, wxClassInfo * docClassInfo = 0, wxClassInfo * viewClassInfo = 0, long flags = ::wxTEMPLATE_VISIBLE) : wxDocTemplate(manager, descr, filter, dir, ext, docTypeName, viewTypeName, docClassInfo, viewClassInfo, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

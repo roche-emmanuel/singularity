@@ -11,8 +11,14 @@
 class wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback : public osgGA::AnimationPathManipulator::AnimationCompletedCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_AnimationPathManipulator_AnimationCompletedCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed(const osgGA::AnimationPathManipulator * apm)
 	void completed(const osgGA::AnimationPathManipulator * apm) {

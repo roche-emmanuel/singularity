@@ -11,8 +11,14 @@
 class wrapper_wxGLContext : public wxGLContext, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGLContext() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGLContext(lua_State* L, lua_Table* dum, wxGLCanvas * win, const wxGLContext * other = NULL) : wxGLContext(win, other), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

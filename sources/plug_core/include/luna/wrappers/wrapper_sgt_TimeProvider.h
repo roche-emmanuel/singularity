@@ -11,8 +11,14 @@
 class wrapper_sgt_TimeProvider : public sgt::TimeProvider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_sgt_TimeProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum) : sgt::TimeProvider(), luna_wrapper_base(L) {};
 	wrapper_sgt_TimeProvider(lua_State* L, lua_Table* dum, const sgt::TimeProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) : sgt::TimeProvider(tm, co), luna_wrapper_base(L) {};
 

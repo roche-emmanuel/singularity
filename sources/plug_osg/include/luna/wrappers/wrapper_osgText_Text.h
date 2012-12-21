@@ -11,8 +11,14 @@
 class wrapper_osgText_Text : public osgText::Text, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Text() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Text(lua_State* L, lua_Table* dum) : osgText::Text(), luna_wrapper_base(L) {};
 	wrapper_osgText_Text(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Text(text, copyop), luna_wrapper_base(L) {};
 

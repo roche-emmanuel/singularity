@@ -11,8 +11,14 @@
 class wrapper_wxAuiDockArt : public wxAuiDockArt, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiDockArt() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiDockArt(lua_State* L, lua_Table* dum) : wxAuiDockArt(), luna_wrapper_base(L) {};
 
 	// void wxAuiDockArt::DrawBackground(wxDC & dc, wxWindow * window, int orientation, const wxRect & rect)

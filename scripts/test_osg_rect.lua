@@ -30,8 +30,30 @@ intf:popParent(true)
 
 parent:Layout()
 
-canvas:createScreenQuad();
+local tools = require "osg.Tools"
 
+--tools:createScreenQuad{parent=canvas:getRoot()};
+
+local WebTile = require "web.WebTile"
+local obj = WebTile()
+canvas:getRoot():addChild(obj:getWrapper())
+
+obj:loadURL("http://www.google.fr")
+
+--local quad = tools:createScreenQuad{image=obj:getImage()}
+--canvas:getRoot():addChild(quad)
+
+
+--obj = require("osg.BasicNode")()
+--wrap = obj:getWrapper()
+--canvas:getRoot():addChild(wrap)
+
+--local obj = osg.Node()
+
+--canvas:getRoot():addChild(quad)
+--canvas:getRoot():addChild(obj)
+
+--obj:info("Creation completed")
 app:run()
 
 log:info "Cleaning up"

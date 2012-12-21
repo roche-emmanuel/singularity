@@ -11,8 +11,14 @@
 class wrapper_osg_ClipPlane : public osg::ClipPlane, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ClipPlane() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum) : osg::ClipPlane(), luna_wrapper_base(L) {};
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no) : osg::ClipPlane(no), luna_wrapper_base(L) {};
 	wrapper_osg_ClipPlane(lua_State* L, lua_Table* dum, unsigned int no, const osg::Vec4d & plane) : osg::ClipPlane(no, plane), luna_wrapper_base(L) {};

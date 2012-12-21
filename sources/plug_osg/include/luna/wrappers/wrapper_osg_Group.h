@@ -11,8 +11,14 @@
 class wrapper_osg_Group : public osg::Group, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Group() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Group(lua_State* L, lua_Table* dum) : osg::Group(), luna_wrapper_base(L) {};
 	wrapper_osg_Group(lua_State* L, lua_Table* dum, const osg::Group & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Group(arg1, copyop), luna_wrapper_base(L) {};
 

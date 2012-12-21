@@ -11,8 +11,14 @@
 class wrapper_wxSystemSettings : public wxSystemSettings, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSystemSettings() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

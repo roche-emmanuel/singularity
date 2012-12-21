@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2D : public osg::Texture2D, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2D() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture2D(lua_State* L, lua_Table* dum) : osg::Texture2D(), luna_wrapper_base(L) {};
 	wrapper_osg_Texture2D(lua_State* L, lua_Table* dum, osg::Image * image) : osg::Texture2D(image), luna_wrapper_base(L) {};
 	wrapper_osg_Texture2D(lua_State* L, lua_Table* dum, const osg::Texture2D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture2D(text, copyop), luna_wrapper_base(L) {};

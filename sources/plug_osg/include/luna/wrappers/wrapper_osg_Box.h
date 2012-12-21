@@ -11,8 +11,14 @@
 class wrapper_osg_Box : public osg::Box, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Box() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Box(lua_State* L, lua_Table* dum) : osg::Box(), luna_wrapper_base(L) {};
 	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float width) : osg::Box(center, width), luna_wrapper_base(L) {};
 	wrapper_osg_Box(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float lengthX, float lengthY, float lengthZ) : osg::Box(center, lengthX, lengthY, lengthZ), luna_wrapper_base(L) {};

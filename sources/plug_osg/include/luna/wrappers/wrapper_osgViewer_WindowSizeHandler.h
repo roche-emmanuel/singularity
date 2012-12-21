@@ -11,8 +11,14 @@
 class wrapper_osgViewer_WindowSizeHandler : public osgViewer::WindowSizeHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_WindowSizeHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_WindowSizeHandler(lua_State* L, lua_Table* dum) : osgViewer::WindowSizeHandler(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

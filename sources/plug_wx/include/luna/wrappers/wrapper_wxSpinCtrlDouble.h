@@ -11,8 +11,14 @@
 class wrapper_wxSpinCtrlDouble : public wxSpinCtrlDouble, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSpinCtrlDouble() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum) : wxSpinCtrlDouble(), luna_wrapper_base(L) {};
 	wrapper_wxSpinCtrlDouble(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxSP_ARROW_KEYS, double min = 0, double max = 100, double initial = 0, double inc = 1, const wxString & name = wxT ("wxSpinCtrlDouble")) : wxSpinCtrlDouble(parent, id, value, pos, size, style, min, max, initial, inc, name), luna_wrapper_base(L) {};
 

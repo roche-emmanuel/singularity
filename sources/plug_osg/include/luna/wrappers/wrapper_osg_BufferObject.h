@@ -11,8 +11,14 @@
 class wrapper_osg_BufferObject : public osg::BufferObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BufferObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum) : osg::BufferObject(), luna_wrapper_base(L) {};
 	wrapper_osg_BufferObject(lua_State* L, lua_Table* dum, const osg::BufferObject & bo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BufferObject(bo, copyop), luna_wrapper_base(L) {};
 

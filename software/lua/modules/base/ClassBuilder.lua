@@ -107,10 +107,12 @@ function Class:__call(options)
 		table.insert(self._wrappers, obj)
 		
 		for name,func in pairs(wrapper) do
-			if(type(func)=="function" and not self[name]) and name~="new" and name~="__eq" and name~="__gc" then
+			if type(func)=="function" and (not self[name]) and name~="new" and name~="__eq" and name~="__gc" and name~="delete" then
 				--self:info("Adding auto wrapped function: ",name)
 				local wname = (name:sub(1,5)=="base_" and name) or (wrapper["base_"..name] and "base_"..name) or name -- force rediction to the base function call to avoid infinite looping.
-				self[name] = function(arg1, ...) obj[wname](obj, ...) end
+				self[name] = function(arg1, ...) 
+					return obj[wname](obj, ...) 
+				end
 			end
 		end			
 	end

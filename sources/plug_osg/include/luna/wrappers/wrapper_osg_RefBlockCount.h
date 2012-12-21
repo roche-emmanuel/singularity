@@ -11,8 +11,14 @@
 class wrapper_osg_RefBlockCount : public osg::RefBlockCount, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_RefBlockCount() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_RefBlockCount(lua_State* L, lua_Table* dum, unsigned int blockCount) : osg::RefBlockCount(blockCount), luna_wrapper_base(L) {};
 
 

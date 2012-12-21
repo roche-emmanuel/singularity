@@ -11,8 +11,14 @@
 class wrapper_osg_LineStipple : public osg::LineStipple, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_LineStipple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum) : osg::LineStipple(), luna_wrapper_base(L) {};
 	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, int factor, unsigned short pattern) : osg::LineStipple(factor, pattern), luna_wrapper_base(L) {};
 	wrapper_osg_LineStipple(lua_State* L, lua_Table* dum, const osg::LineStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::LineStipple(lw, copyop), luna_wrapper_base(L) {};

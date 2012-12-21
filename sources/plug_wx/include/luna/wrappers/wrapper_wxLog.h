@@ -11,8 +11,14 @@
 class wrapper_wxLog : public wxLog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxLog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxLog::Flush()
 	void Flush() {

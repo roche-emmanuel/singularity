@@ -11,8 +11,14 @@
 class wrapper_wxControl : public wxControl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxControl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxControl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxControlNameStr) : wxControl(parent, id, pos, size, style, validator, name), luna_wrapper_base(L) {};
 	wrapper_wxControl(lua_State* L, lua_Table* dum) : wxControl(), luna_wrapper_base(L) {};
 

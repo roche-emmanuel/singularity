@@ -11,8 +11,14 @@
 class wrapper_wxAuiToolBarEvent : public wxAuiToolBarEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiToolBarEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

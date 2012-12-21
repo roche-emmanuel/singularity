@@ -11,8 +11,14 @@
 class wrapper_wxTextEntryDialog : public wxTextEntryDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextEntryDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTextEntryDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxGetTextFromUserPromptStr, const wxString & value = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxTextEntryDialog(parent, message, caption, value, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

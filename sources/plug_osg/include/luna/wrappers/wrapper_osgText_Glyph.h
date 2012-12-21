@@ -11,8 +11,14 @@
 class wrapper_osgText_Glyph : public osgText::Glyph, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Glyph() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Glyph(lua_State* L, lua_Table* dum, osgText::Font * font, unsigned int glyphCode) : osgText::Glyph(font, glyphCode), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

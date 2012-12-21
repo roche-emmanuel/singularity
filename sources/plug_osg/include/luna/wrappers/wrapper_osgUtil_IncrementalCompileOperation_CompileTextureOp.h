@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp : public osgUtil::IncrementalCompileOperation::CompileTextureOp, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IncrementalCompileOperation_CompileTextureOp() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

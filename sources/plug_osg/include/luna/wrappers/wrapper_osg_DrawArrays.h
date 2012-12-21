@@ -11,8 +11,14 @@
 class wrapper_osg_DrawArrays : public osg::DrawArrays, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DrawArrays() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawArrays(mode), luna_wrapper_base(L) {};
 	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, unsigned int mode, int first, int count, int numInstances = 0) : osg::DrawArrays(mode, first, count, numInstances), luna_wrapper_base(L) {};
 	wrapper_osg_DrawArrays(lua_State* L, lua_Table* dum, const osg::DrawArrays & da, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawArrays(da, copyop), luna_wrapper_base(L) {};

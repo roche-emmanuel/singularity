@@ -11,8 +11,14 @@
 class wrapper_osg_ShaderComposer : public osg::ShaderComposer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ShaderComposer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ShaderComposer(lua_State* L, lua_Table* dum) : osg::ShaderComposer(), luna_wrapper_base(L) {};
 	wrapper_osg_ShaderComposer(lua_State* L, lua_Table* dum, const osg::ShaderComposer & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderComposer(sa, copyop), luna_wrapper_base(L) {};
 

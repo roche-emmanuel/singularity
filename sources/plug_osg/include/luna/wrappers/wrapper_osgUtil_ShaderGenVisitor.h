@@ -11,8 +11,14 @@
 class wrapper_osgUtil_ShaderGenVisitor : public osgUtil::ShaderGenVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_ShaderGenVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum) : osgUtil::ShaderGenVisitor(), luna_wrapper_base(L) {};
 	wrapper_osgUtil_ShaderGenVisitor(lua_State* L, lua_Table* dum, osgUtil::ShaderGenCache * stateCache) : osgUtil::ShaderGenVisitor(stateCache), luna_wrapper_base(L) {};
 

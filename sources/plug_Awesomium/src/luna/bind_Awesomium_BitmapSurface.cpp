@@ -179,6 +179,17 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_copyTo(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,23910648)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
+		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
+		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_Paint(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -501,6 +512,25 @@ public:
 		return 0;
 	}
 
+	// void Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true)
+	static int _bind_copyTo(lua_State *L) {
+		if (!_lg_typecheck_copyTo(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true) function, expected prototype:\nvoid Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true)\nClass arguments details:\narg 1 ID = 23910648\narg 2 ID = 50169651\n");
+		}
+
+		int luatop = lua_gettop(L);
+
+		Awesomium::BitmapSurface* surface=(Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1));
+		osg::Image* img=(Luna< osg::Image >::check(L,2));
+		bool to_rgba=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : true;
+		bool flip_y=luatop>3 ? (bool)(lua_toboolean(L,4)==1) : true;
+
+		copyTo(surface, img, to_rgba, flip_y);
+
+		return 0;
+	}
+
 	// void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	static int _bind_base_Paint(lua_State *L) {
 		if (!_lg_typecheck_base_Paint(L)) {
@@ -591,6 +621,7 @@ luna_RegType LunaTraits< Awesomium::BitmapSurface >::methods[] = {
 	{"GetAlphaAtPoint", &luna_wrapper_Awesomium_BitmapSurface::_bind_GetAlphaAtPoint},
 	{"Paint", &luna_wrapper_Awesomium_BitmapSurface::_bind_Paint},
 	{"Scroll", &luna_wrapper_Awesomium_BitmapSurface::_bind_Scroll},
+	{"copyTo", &luna_wrapper_Awesomium_BitmapSurface::_bind_copyTo},
 	{"base_Paint", &luna_wrapper_Awesomium_BitmapSurface::_bind_base_Paint},
 	{"base_Scroll", &luna_wrapper_Awesomium_BitmapSurface::_bind_base_Scroll},
 	{"__eq", &luna_wrapper_Awesomium_BitmapSurface::_bind___eq},

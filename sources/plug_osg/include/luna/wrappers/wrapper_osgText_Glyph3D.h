@@ -11,8 +11,14 @@
 class wrapper_osgText_Glyph3D : public osgText::Glyph3D, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Glyph3D() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Glyph3D(lua_State* L, lua_Table* dum, osgText::Font * font, unsigned int glyphCode) : osgText::Glyph3D(font, glyphCode), luna_wrapper_base(L) {};
 
 

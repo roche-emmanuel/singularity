@@ -11,8 +11,14 @@
 class wrapper_wxWizard : public wxWizard, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxWizard() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxWizard(lua_State* L, lua_Table* dum) : wxWizard(), luna_wrapper_base(L) {};
 	wrapper_wxWizard(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = wxEmptyString, const wxBitmap & bitmap = wxNullBitmap, const wxPoint & pos = wxDefaultPosition, long style = wxDEFAULT_DIALOG_STYLE) : wxWizard(parent, id, title, bitmap, pos, style), luna_wrapper_base(L) {};
 

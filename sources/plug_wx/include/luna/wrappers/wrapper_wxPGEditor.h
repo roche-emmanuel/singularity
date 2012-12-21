@@ -11,8 +11,14 @@
 class wrapper_wxPGEditor : public wxPGEditor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPGEditor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPGEditor(lua_State* L, lua_Table* dum) : wxPGEditor(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

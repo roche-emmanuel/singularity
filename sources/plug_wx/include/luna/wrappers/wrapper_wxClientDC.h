@@ -11,8 +11,14 @@
 class wrapper_wxClientDC : public wxClientDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxClientDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxClientDC(lua_State* L, lua_Table* dum, wxWindow * window) : wxClientDC(window), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

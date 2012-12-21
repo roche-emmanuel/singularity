@@ -11,8 +11,14 @@
 class wrapper_wxDataViewModelNotifier : public wxDataViewModelNotifier, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewModelNotifier() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewModelNotifier(lua_State* L, lua_Table* dum) : wxDataViewModelNotifier(), luna_wrapper_base(L) {};
 
 	// bool wxDataViewModelNotifier::Cleared()

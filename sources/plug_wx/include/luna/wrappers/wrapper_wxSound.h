@@ -11,8 +11,14 @@
 class wrapper_wxSound : public wxSound, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSound() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSound(lua_State* L, lua_Table* dum) : wxSound(), luna_wrapper_base(L) {};
 	wrapper_wxSound(lua_State* L, lua_Table* dum, const wxString & fileName, bool isResource = false) : wxSound(fileName, isResource), luna_wrapper_base(L) {};
 	wrapper_wxSound(lua_State* L, lua_Table* dum, size_t size, const void * data) : wxSound(size, data), luna_wrapper_base(L) {};

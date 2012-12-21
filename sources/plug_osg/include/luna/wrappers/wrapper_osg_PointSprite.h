@@ -11,8 +11,14 @@
 class wrapper_osg_PointSprite : public osg::PointSprite, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_PointSprite() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum) : osg::PointSprite(), luna_wrapper_base(L) {};
 	wrapper_osg_PointSprite(lua_State* L, lua_Table* dum, const osg::PointSprite & ps, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PointSprite(ps, copyop), luna_wrapper_base(L) {};
 

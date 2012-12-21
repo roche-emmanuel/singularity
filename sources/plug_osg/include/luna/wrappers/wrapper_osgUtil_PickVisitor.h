@@ -11,8 +11,14 @@
 class wrapper_osgUtil_PickVisitor : public osgUtil::PickVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_PickVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_PickVisitor(lua_State* L, lua_Table* dum, const osg::Viewport * viewport, const osg::Matrixd & proj, const osg::Matrixd & view, float mx, float my) : osgUtil::PickVisitor(viewport, proj, view, mx, my), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const

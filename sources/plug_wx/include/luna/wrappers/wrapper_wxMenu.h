@@ -11,8 +11,14 @@
 class wrapper_wxMenu : public wxMenu, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMenu() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMenu(lua_State* L, lua_Table* dum) : wxMenu(), luna_wrapper_base(L) {};
 	wrapper_wxMenu(lua_State* L, lua_Table* dum, long style) : wxMenu(style), luna_wrapper_base(L) {};
 	wrapper_wxMenu(lua_State* L, lua_Table* dum, const wxString & title, long style = 0) : wxMenu(title, style), luna_wrapper_base(L) {};

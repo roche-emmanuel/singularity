@@ -11,8 +11,14 @@
 class wrapper_osgUtil_TriStripVisitor : public osgUtil::TriStripVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_TriStripVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_TriStripVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::TriStripVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

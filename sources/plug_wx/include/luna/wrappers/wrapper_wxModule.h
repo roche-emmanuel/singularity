@@ -11,8 +11,14 @@
 class wrapper_wxModule : public wxModule, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxModule() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxModule(lua_State* L, lua_Table* dum) : wxModule(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

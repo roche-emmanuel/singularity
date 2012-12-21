@@ -11,8 +11,14 @@
 class wrapper_wxDialUpManager : public wxDialUpManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDialUpManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxDialUpManager::CancelDialing()
 	bool CancelDialing() {

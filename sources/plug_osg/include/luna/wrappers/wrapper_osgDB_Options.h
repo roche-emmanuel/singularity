@@ -11,8 +11,14 @@
 class wrapper_osgDB_Options : public osgDB::Options, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Options() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Options(lua_State* L, lua_Table* dum) : osgDB::Options(), luna_wrapper_base(L) {};
 	wrapper_osgDB_Options(lua_State* L, lua_Table* dum, const std::string & str) : osgDB::Options(str), luna_wrapper_base(L) {};
 	wrapper_osgDB_Options(lua_State* L, lua_Table* dum, const osgDB::Options & options, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::Options(options, copyop), luna_wrapper_base(L) {};

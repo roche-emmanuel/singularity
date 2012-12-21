@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IntersectionVisitor : public osgUtil::IntersectionVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IntersectionVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_IntersectionVisitor(lua_State* L, lua_Table* dum, osgUtil::Intersector * intersector = 0, osgUtil::IntersectionVisitor::ReadCallback * readCallback = 0) : osgUtil::IntersectionVisitor(intersector, readCallback), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getViewPoint() const

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_StatsVisitor : public osgUtil::StatsVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_StatsVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_StatsVisitor(lua_State* L, lua_Table* dum) : osgUtil::StatsVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const

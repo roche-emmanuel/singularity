@@ -11,8 +11,14 @@
 class wrapper_osg_BlendEquation : public osg::BlendEquation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BlendEquation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BlendEquation(lua_State* L, lua_Table* dum) : osg::BlendEquation(), luna_wrapper_base(L) {};
 	wrapper_osg_BlendEquation(lua_State* L, lua_Table* dum, osg::BlendEquation::Equation equation) : osg::BlendEquation(equation), luna_wrapper_base(L) {};
 	wrapper_osg_BlendEquation(lua_State* L, lua_Table* dum, osg::BlendEquation::Equation equationRGB, osg::BlendEquation::Equation equationAlpha) : osg::BlendEquation(equationRGB, equationAlpha), luna_wrapper_base(L) {};

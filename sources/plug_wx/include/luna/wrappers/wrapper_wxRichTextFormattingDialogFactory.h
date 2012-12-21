@@ -11,8 +11,14 @@
 class wrapper_wxRichTextFormattingDialogFactory : public wxRichTextFormattingDialogFactory, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextFormattingDialogFactory() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

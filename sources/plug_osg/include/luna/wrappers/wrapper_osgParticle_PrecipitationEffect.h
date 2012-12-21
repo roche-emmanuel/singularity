@@ -11,8 +11,14 @@
 class wrapper_osgParticle_PrecipitationEffect : public osgParticle::PrecipitationEffect, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_PrecipitationEffect() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_PrecipitationEffect(lua_State* L, lua_Table* dum) : osgParticle::PrecipitationEffect(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_PrecipitationEffect(lua_State* L, lua_Table* dum, const osgParticle::PrecipitationEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::PrecipitationEffect(copy, copyop), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_wxHelpProvider : public wxHelpProvider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHelpProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxHelpProvider::AddHelp(wxWindow * window, const wxString & text)
 	void AddHelp(wxWindow * window, const wxString & text) {

@@ -11,8 +11,14 @@
 class wrapper_wxNavigationKeyEvent : public wxNavigationKeyEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxNavigationKeyEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum) : wxNavigationKeyEvent(), luna_wrapper_base(L) {};
 	wrapper_wxNavigationKeyEvent(lua_State* L, lua_Table* dum, const wxNavigationKeyEvent & event) : wxNavigationKeyEvent(event), luna_wrapper_base(L) {};
 

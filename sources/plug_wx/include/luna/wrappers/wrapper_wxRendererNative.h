@@ -11,8 +11,14 @@
 class wrapper_wxRendererNative : public wxRendererNative, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRendererNative() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxRendererNative::DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0)
 	void DrawCheckBox(wxWindow * win, wxDC & dc, const wxRect & rect, int flags = 0) {

@@ -11,8 +11,14 @@
 class wrapper_wxDocManager : public wxDocManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDocManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDocManager(lua_State* L, lua_Table* dum, long flags = 0, bool initialize = true) : wxDocManager(flags, initialize), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

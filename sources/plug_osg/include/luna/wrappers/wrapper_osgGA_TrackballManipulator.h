@@ -11,8 +11,14 @@
 class wrapper_osgGA_TrackballManipulator : public osgGA::TrackballManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_TrackballManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_TrackballManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::TrackballManipulator(flags), luna_wrapper_base(L) {};
 	wrapper_osgGA_TrackballManipulator(lua_State* L, lua_Table* dum, const osgGA::TrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::TrackballManipulator(tm, copyOp), luna_wrapper_base(L) {};
 

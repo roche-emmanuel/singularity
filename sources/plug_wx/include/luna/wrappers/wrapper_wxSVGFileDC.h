@@ -11,8 +11,14 @@
 class wrapper_wxSVGFileDC : public wxSVGFileDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSVGFileDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSVGFileDC(lua_State* L, lua_Table* dum, const wxString & filename, int width = 320, int height = 240, double dpi = 72) : wxSVGFileDC(filename, width, height, dpi), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

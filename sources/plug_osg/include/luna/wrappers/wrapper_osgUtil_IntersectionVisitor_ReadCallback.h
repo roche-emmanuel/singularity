@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IntersectionVisitor_ReadCallback : public osgUtil::IntersectionVisitor::ReadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IntersectionVisitor_ReadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osg::Node * osgUtil::IntersectionVisitor::ReadCallback::readNodeFile(const std::string & filename)
 	osg::Node * readNodeFile(const std::string & filename) {

@@ -11,8 +11,14 @@
 class wrapper_wxAcceleratorTable : public wxAcceleratorTable, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAcceleratorTable() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum) : wxAcceleratorTable(), luna_wrapper_base(L) {};
 	wrapper_wxAcceleratorTable(lua_State* L, lua_Table* dum, const wxString & resource) : wxAcceleratorTable(resource), luna_wrapper_base(L) {};
 

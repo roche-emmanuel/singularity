@@ -11,8 +11,14 @@
 class wrapper_osg_Drawable_Extensions : public osg::Drawable::Extensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Drawable_Extensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Drawable_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Drawable::Extensions(contextID), luna_wrapper_base(L) {};
 
 

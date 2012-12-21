@@ -11,8 +11,14 @@
 class wrapper_wxImageList : public wxImageList, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxImageList() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxImageList(lua_State* L, lua_Table* dum) : wxImageList(), luna_wrapper_base(L) {};
 	wrapper_wxImageList(lua_State* L, lua_Table* dum, int width, int height, bool mask = true, int initialCount = 1) : wxImageList(width, height, mask, initialCount), luna_wrapper_base(L) {};
 

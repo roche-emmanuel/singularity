@@ -11,8 +11,14 @@
 class wrapper_osgUtil_Intersector : public osgUtil::Intersector, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_Intersector() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_Intersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf = osgUtil::Intersector::MODEL) : osgUtil::Intersector(cf), luna_wrapper_base(L) {};
 
 	// osgUtil::Intersector * osgUtil::Intersector::clone(osgUtil::IntersectionVisitor & iv)

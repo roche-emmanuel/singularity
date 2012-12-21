@@ -11,8 +11,14 @@
 class wrapper_osg_DisplaySettings : public osg::DisplaySettings, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DisplaySettings() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DisplaySettings(lua_State* L, lua_Table* dum) : osg::DisplaySettings(), luna_wrapper_base(L) {};
 	wrapper_osg_DisplaySettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::DisplaySettings(arguments), luna_wrapper_base(L) {};
 	wrapper_osg_DisplaySettings(lua_State* L, lua_Table* dum, const osg::DisplaySettings & vs) : osg::DisplaySettings(vs), luna_wrapper_base(L) {};

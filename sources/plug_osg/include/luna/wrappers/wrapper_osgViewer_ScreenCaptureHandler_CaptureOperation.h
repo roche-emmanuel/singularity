@@ -11,8 +11,14 @@
 class wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation : public osgViewer::ScreenCaptureHandler::CaptureOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_ScreenCaptureHandler_CaptureOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osgViewer::ScreenCaptureHandler::CaptureOperation::operator()(const osg::Image & image, const unsigned int context_id)
 	void operator()(const osg::Image & image, const unsigned int context_id) {

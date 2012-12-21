@@ -11,8 +11,14 @@
 class wrapper_osgParticle_RadialShooter : public osgParticle::RadialShooter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_RadialShooter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum) : osgParticle::RadialShooter(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_RadialShooter(lua_State* L, lua_Table* dum, const osgParticle::RadialShooter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::RadialShooter(copy, copyop), luna_wrapper_base(L) {};
 

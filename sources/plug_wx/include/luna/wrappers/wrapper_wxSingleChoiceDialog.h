@@ -11,8 +11,14 @@
 class wrapper_wxSingleChoiceDialog : public wxSingleChoiceDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSingleChoiceDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

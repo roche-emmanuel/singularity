@@ -11,8 +11,14 @@
 class wrapper_osg_NodeCallback : public osg::NodeCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_NodeCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum) : osg::NodeCallback(), luna_wrapper_base(L) {};
 	wrapper_osg_NodeCallback(lua_State* L, lua_Table* dum, const osg::NodeCallback & nc, const osg::CopyOp & arg2) : osg::NodeCallback(nc, arg2), luna_wrapper_base(L) {};
 

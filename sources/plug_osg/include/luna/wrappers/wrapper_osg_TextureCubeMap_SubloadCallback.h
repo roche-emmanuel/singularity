@@ -11,8 +11,14 @@
 class wrapper_osg_TextureCubeMap_SubloadCallback : public osg::TextureCubeMap::SubloadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TextureCubeMap_SubloadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::TextureCubeMap::SubloadCallback::load(const osg::TextureCubeMap & texture, osg::State & state) const
 	void load(const osg::TextureCubeMap & texture, osg::State & state) const {

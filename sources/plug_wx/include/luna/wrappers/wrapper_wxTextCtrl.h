@@ -11,8 +11,14 @@
 class wrapper_wxTextCtrl : public wxTextCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTextCtrl(lua_State* L, lua_Table* dum) : wxTextCtrl(), luna_wrapper_base(L) {};
 	wrapper_wxTextCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxTextCtrlNameStr) : wxTextCtrl(parent, id, value, pos, size, style, validator, name), luna_wrapper_base(L) {};
 

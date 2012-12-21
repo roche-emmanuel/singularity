@@ -11,8 +11,14 @@
 class wrapper_osgParticle_DampingOperator : public osgParticle::DampingOperator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_DampingOperator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum) : osgParticle::DampingOperator(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_DampingOperator(lua_State* L, lua_Table* dum, const osgParticle::DampingOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::DampingOperator(copy, copyop), luna_wrapper_base(L) {};
 

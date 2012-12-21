@@ -11,8 +11,14 @@
 class wrapper_osg_GraphicsContext_ResizedCallback : public osg::GraphicsContext::ResizedCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GraphicsContext_ResizedCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::GraphicsContext::ResizedCallback::resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height)
 	void resizedImplementation(osg::GraphicsContext * gc, int x, int y, int width, int height) {

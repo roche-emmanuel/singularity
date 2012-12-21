@@ -11,8 +11,14 @@
 class wrapper_wxFileDirPickerEvent : public wxFileDirPickerEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileDirPickerEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFileDirPickerEvent(lua_State* L, lua_Table* dum, int type, wxObject * generator, int id, const wxString & path) : wxFileDirPickerEvent(type, generator, id, path), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

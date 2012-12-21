@@ -11,8 +11,14 @@
 class wrapper_wxValidator : public wxValidator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxValidator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxValidator(lua_State* L, lua_Table* dum) : wxValidator(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

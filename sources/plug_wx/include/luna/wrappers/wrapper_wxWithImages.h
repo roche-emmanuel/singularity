@@ -11,8 +11,14 @@
 class wrapper_wxWithImages : public wxWithImages, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxWithImages() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxWithImages(lua_State* L, lua_Table* dum) : wxWithImages(), luna_wrapper_base(L) {};
 
 	// void wxWithImages::SetImageList(wxImageList * imageList)

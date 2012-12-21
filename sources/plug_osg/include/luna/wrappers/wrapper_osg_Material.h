@@ -11,8 +11,14 @@
 class wrapper_osg_Material : public osg::Material, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Material() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Material(lua_State* L, lua_Table* dum) : osg::Material(), luna_wrapper_base(L) {};
 	wrapper_osg_Material(lua_State* L, lua_Table* dum, const osg::Material & mat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Material(mat, copyop), luna_wrapper_base(L) {};
 

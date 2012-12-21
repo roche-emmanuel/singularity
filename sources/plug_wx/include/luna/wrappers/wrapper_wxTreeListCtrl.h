@@ -11,8 +11,14 @@
 class wrapper_wxTreeListCtrl : public wxTreeListCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTreeListCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum) : wxTreeListCtrl(), luna_wrapper_base(L) {};
 	wrapper_wxTreeListCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxTL_DEFAULT_STYLE, const wxString & name = wxTreeListCtrlNameStr) : wxTreeListCtrl(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

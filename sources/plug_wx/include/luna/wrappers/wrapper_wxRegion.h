@@ -11,8 +11,14 @@
 class wrapper_wxRegion : public wxRegion, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRegion() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRegion(lua_State* L, lua_Table* dum) : wxRegion(), luna_wrapper_base(L) {};
 	wrapper_wxRegion(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : wxRegion(x, y, width, height), luna_wrapper_base(L) {};
 	wrapper_wxRegion(lua_State* L, lua_Table* dum, const wxPoint & topLeft, const wxPoint & bottomRight) : wxRegion(topLeft, bottomRight), luna_wrapper_base(L) {};

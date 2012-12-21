@@ -11,8 +11,14 @@
 class wrapper_osg_KdTree : public osg::KdTree, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_KdTree() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_KdTree(lua_State* L, lua_Table* dum) : osg::KdTree(), luna_wrapper_base(L) {};
 	wrapper_osg_KdTree(lua_State* L, lua_Table* dum, const osg::KdTree & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::KdTree(rhs, copyop), luna_wrapper_base(L) {};
 

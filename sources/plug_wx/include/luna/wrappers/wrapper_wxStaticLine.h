@@ -11,8 +11,14 @@
 class wrapper_wxStaticLine : public wxStaticLine, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxStaticLine() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxStaticLine(lua_State* L, lua_Table* dum) : wxStaticLine(), luna_wrapper_base(L) {};
 	wrapper_wxStaticLine(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxLI_HORIZONTAL, const wxString & name = wxStaticLineNameStr) : wxStaticLine(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

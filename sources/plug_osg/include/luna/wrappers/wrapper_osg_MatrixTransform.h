@@ -11,8 +11,14 @@
 class wrapper_osg_MatrixTransform : public osg::MatrixTransform, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_MatrixTransform() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum) : osg::MatrixTransform(), luna_wrapper_base(L) {};
 	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::MatrixTransform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::MatrixTransform(arg1, copyop), luna_wrapper_base(L) {};
 	wrapper_osg_MatrixTransform(lua_State* L, lua_Table* dum, const osg::Matrixd & matix) : osg::MatrixTransform(matix), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_wxHyperlinkCtrl : public wxHyperlinkCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHyperlinkCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHyperlinkCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxString & url, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxHL_DEFAULT_STYLE, const wxString & name = wxHyperlinkCtrlNameStr) : wxHyperlinkCtrl(parent, id, label, url, pos, size, style, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxFileSystemWatcherEvent : public wxFileSystemWatcherEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileSystemWatcherEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

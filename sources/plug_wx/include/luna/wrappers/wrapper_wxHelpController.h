@@ -11,8 +11,14 @@
 class wrapper_wxHelpController : public wxHelpController, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHelpController() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHelpController(lua_State* L, lua_Table* dum, wxWindow * parentWindow = NULL) : wxHelpController(parentWindow), luna_wrapper_base(L) {};
 
 	// bool wxHelpController::DisplayBlock(long blockNo)

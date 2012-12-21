@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IndexMeshVisitor : public osgUtil::IndexMeshVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IndexMeshVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_IndexMeshVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::IndexMeshVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

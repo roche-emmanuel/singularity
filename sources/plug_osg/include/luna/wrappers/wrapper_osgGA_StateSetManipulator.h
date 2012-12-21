@@ -11,8 +11,14 @@
 class wrapper_osgGA_StateSetManipulator : public osgGA::StateSetManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_StateSetManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_StateSetManipulator(lua_State* L, lua_Table* dum, osg::StateSet * stateset = 0) : osgGA::StateSetManipulator(stateset), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

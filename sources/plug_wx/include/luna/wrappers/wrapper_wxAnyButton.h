@@ -11,8 +11,14 @@
 class wrapper_wxAnyButton : public wxAnyButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAnyButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAnyButton(lua_State* L, lua_Table* dum) : wxAnyButton(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

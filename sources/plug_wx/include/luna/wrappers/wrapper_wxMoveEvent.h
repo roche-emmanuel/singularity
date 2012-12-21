@@ -11,8 +11,14 @@
 class wrapper_wxMoveEvent : public wxMoveEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMoveEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMoveEvent(lua_State* L, lua_Table* dum, const wxPoint & pt, int id = 0) : wxMoveEvent(pt, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

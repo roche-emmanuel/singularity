@@ -11,8 +11,14 @@
 class wrapper_wxPropertyGridEvent : public wxPropertyGridEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPropertyGridEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, int commandType = 0, int id = 0) : wxPropertyGridEvent(commandType, id), luna_wrapper_base(L) {};
 	wrapper_wxPropertyGridEvent(lua_State* L, lua_Table* dum, const wxPropertyGridEvent & event) : wxPropertyGridEvent(event), luna_wrapper_base(L) {};
 

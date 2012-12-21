@@ -11,8 +11,14 @@
 class wrapper_wxAuiNotebook : public wxAuiNotebook, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiNotebook() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum) : wxAuiNotebook(), luna_wrapper_base(L) {};
 	wrapper_wxAuiNotebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) : wxAuiNotebook(parent, id, pos, size, style), luna_wrapper_base(L) {};
 

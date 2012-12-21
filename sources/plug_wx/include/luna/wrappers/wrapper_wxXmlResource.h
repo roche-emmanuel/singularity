@@ -11,8 +11,14 @@
 class wrapper_wxXmlResource : public wxXmlResource, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxXmlResource() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

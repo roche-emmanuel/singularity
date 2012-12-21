@@ -11,8 +11,14 @@
 class wrapper_wxDocument : public wxDocument, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDocument() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDocument(lua_State* L, lua_Table* dum, wxDocument * parent = NULL) : wxDocument(parent), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

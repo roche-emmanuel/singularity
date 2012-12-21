@@ -11,8 +11,14 @@
 class wrapper_osg_RefMatrixf : public osg::RefMatrixf, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_RefMatrixf() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum) : osg::RefMatrixf(), luna_wrapper_base(L) {};
 	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixf & other) : osg::RefMatrixf(other), luna_wrapper_base(L) {};
 	wrapper_osg_RefMatrixf(lua_State* L, lua_Table* dum, const osg::Matrixd & other) : osg::RefMatrixf(other), luna_wrapper_base(L) {};

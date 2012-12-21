@@ -11,8 +11,14 @@
 class wrapper_wxMediaCtrl : public wxMediaCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMediaCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMediaCtrl(lua_State* L, lua_Table* dum) : wxMediaCtrl(), luna_wrapper_base(L) {};
 	wrapper_wxMediaCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & fileName = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & szBackend = wxEmptyString, const wxValidator & validator = wxDefaultValidator, const wxString & name = "mediaCtrl") : wxMediaCtrl(parent, id, fileName, pos, size, style, szBackend, validator, name), luna_wrapper_base(L) {};
 

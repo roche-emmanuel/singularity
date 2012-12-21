@@ -11,8 +11,14 @@
 class wrapper_osgText_FadeText : public osgText::FadeText, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_FadeText() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum) : osgText::FadeText(), luna_wrapper_base(L) {};
 	wrapper_osgText_FadeText(lua_State* L, lua_Table* dum, const osgText::Text & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::FadeText(text, copyop), luna_wrapper_base(L) {};
 

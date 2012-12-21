@@ -11,8 +11,14 @@
 class wrapper_osgDB_WriteFileCallback : public osgDB::WriteFileCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_WriteFileCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osgDB::ReaderWriter::WriteResult osgDB::WriteFileCallback::writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options)
 	osgDB::ReaderWriter::WriteResult writeObject(const osg::Object & obj, const std::string & fileName, const osgDB::Options * options) {

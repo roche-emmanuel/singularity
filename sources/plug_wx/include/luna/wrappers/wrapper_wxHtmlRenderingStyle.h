@@ -11,8 +11,14 @@
 class wrapper_wxHtmlRenderingStyle : public wxHtmlRenderingStyle, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlRenderingStyle() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	wxColour GetSelectedTextColour(const wxColour & clr) {

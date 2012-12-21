@@ -11,8 +11,14 @@
 class wrapper_wxThreadHelper : public wxThreadHelper, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxThreadHelper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

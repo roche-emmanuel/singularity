@@ -11,8 +11,14 @@
 class wrapper_wxDirTraverser : public wxDirTraverser, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDirTraverser() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	wxDirTraverseResult OnDir(const wxString & dirname) {

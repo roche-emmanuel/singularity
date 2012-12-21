@@ -11,8 +11,14 @@
 class wrapper_osg_AttributeDispatch : public osg::AttributeDispatch, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_AttributeDispatch() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)
 	void assign(const void * arg1, const osg::IndexArray * arg2) {

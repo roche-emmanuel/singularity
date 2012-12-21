@@ -11,8 +11,14 @@
 class wrapper_wxGridCellFloatRenderer : public wxGridCellFloatRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellFloatRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellFloatRenderer(lua_State* L, lua_Table* dum, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) : wxGridCellFloatRenderer(width, precision, format), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const

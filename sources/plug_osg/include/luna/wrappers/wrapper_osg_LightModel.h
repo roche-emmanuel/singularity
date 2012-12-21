@@ -11,8 +11,14 @@
 class wrapper_osg_LightModel : public osg::LightModel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_LightModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_LightModel(lua_State* L, lua_Table* dum) : osg::LightModel(), luna_wrapper_base(L) {};
 	wrapper_osg_LightModel(lua_State* L, lua_Table* dum, const osg::LightModel & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::LightModel(lw, copyop), luna_wrapper_base(L) {};
 

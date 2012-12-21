@@ -11,8 +11,14 @@
 class wrapper_osgDB_DatabaseRevisions : public osgDB::DatabaseRevisions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_DatabaseRevisions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum) : osgDB::DatabaseRevisions(), luna_wrapper_base(L) {};
 	wrapper_osgDB_DatabaseRevisions(lua_State* L, lua_Table* dum, const osgDB::DatabaseRevisions & revisions, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) : osgDB::DatabaseRevisions(revisions, arg2), luna_wrapper_base(L) {};
 

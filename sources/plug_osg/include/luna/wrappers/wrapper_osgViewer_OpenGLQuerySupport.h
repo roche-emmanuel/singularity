@@ -11,8 +11,14 @@
 class wrapper_osgViewer_OpenGLQuerySupport : public osgViewer::OpenGLQuerySupport, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_OpenGLQuerySupport() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_OpenGLQuerySupport(lua_State* L, lua_Table* dum) : osgViewer::OpenGLQuerySupport(), luna_wrapper_base(L) {};
 
 	// void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)

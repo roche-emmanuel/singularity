@@ -11,8 +11,14 @@
 class wrapper_osgParticle_ExplosionEffect : public osgParticle::ExplosionEffect, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_ExplosionEffect() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_ExplosionEffect(lua_State* L, lua_Table* dum, bool automaticSetup = true) : osgParticle::ExplosionEffect(automaticSetup), luna_wrapper_base(L) {};
 	wrapper_osgParticle_ExplosionEffect(lua_State* L, lua_Table* dum, const osg::Vec3f & position, float scale = 1.0f, float intensity = 1.0f) : osgParticle::ExplosionEffect(position, scale, intensity), luna_wrapper_base(L) {};
 	wrapper_osgParticle_ExplosionEffect(lua_State* L, lua_Table* dum, const osgParticle::ExplosionEffect & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ExplosionEffect(copy, copyop), luna_wrapper_base(L) {};

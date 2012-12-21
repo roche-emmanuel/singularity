@@ -3,10 +3,10 @@
 
 #include "luna/luna.h"
 
-//LUNA_CLASS_EXTENSION LUNA_RENAME create_standard
-//int create_standard(FANN::neural_net* nn, lua_Table* dum, lua_State* L);
+#include <Awesomium/BitmapSurface.h>
+#include <osg/Image>
 
-//LUNA_CLASS_EXTENSION LUNA_RENAME run
-//int nn_run(FANN::neural_net* nn, lua_Table* dum, lua_State* L);
+/** LUNA_CLASS_EXTENSION */
+void copyTo(Awesomium::BitmapSurface* surface, osg::Image* img, bool to_rgba = true, bool flip_y = true);
 
 #endif

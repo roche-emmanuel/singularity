@@ -11,8 +11,14 @@
 class wrapper_wxHtmlHelpController : public wxHtmlHelpController, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlHelpController() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlHelpController(lua_State* L, lua_Table* dum, int style = wxHF_DEFAULT_STYLE, wxWindow * parentWindow = NULL) : wxHtmlHelpController(style, parentWindow), luna_wrapper_base(L) {};
 
 	// bool wxHtmlHelpController::DisplayContents()

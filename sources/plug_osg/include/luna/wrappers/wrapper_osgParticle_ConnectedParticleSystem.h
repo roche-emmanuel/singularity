@@ -11,8 +11,14 @@
 class wrapper_osgParticle_ConnectedParticleSystem : public osgParticle::ConnectedParticleSystem, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_ConnectedParticleSystem() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum) : osgParticle::ConnectedParticleSystem(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_ConnectedParticleSystem(lua_State* L, lua_Table* dum, const osgParticle::ConnectedParticleSystem & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ConnectedParticleSystem(copy, copyop), luna_wrapper_base(L) {};
 

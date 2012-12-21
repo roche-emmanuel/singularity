@@ -11,8 +11,14 @@
 class wrapper_wxPropertyGridInterface : public wxPropertyGridInterface, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPropertyGridInterface() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxPropertyGridInterface::Clear()
 	void Clear() {

@@ -11,8 +11,14 @@
 class wrapper_wxLayoutAlgorithm : public wxLayoutAlgorithm, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxLayoutAlgorithm() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxLayoutAlgorithm(lua_State* L, lua_Table* dum) : wxLayoutAlgorithm(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

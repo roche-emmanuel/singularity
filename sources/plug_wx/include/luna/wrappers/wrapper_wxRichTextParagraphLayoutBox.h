@@ -11,8 +11,14 @@
 class wrapper_wxRichTextParagraphLayoutBox : public wxRichTextParagraphLayoutBox, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextParagraphLayoutBox() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

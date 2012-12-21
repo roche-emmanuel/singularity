@@ -11,8 +11,14 @@
 class wrapper_wxPrintDialog : public wxPrintDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPrintDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

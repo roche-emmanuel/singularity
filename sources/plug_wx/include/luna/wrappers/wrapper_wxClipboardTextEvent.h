@@ -11,8 +11,14 @@
 class wrapper_wxClipboardTextEvent : public wxClipboardTextEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxClipboardTextEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxClipboardTextEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxClipboardTextEvent(commandType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

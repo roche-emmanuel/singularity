@@ -11,8 +11,14 @@
 class wrapper_wxFFileInputStream : public wxFFileInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFFileInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

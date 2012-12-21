@@ -11,8 +11,14 @@
 class wrapper_osgDB_InputIterator : public osgDB::InputIterator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_InputIterator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_InputIterator(lua_State* L, lua_Table* dum) : osgDB::InputIterator(), luna_wrapper_base(L) {};
 
 	// bool osgDB::InputIterator::isBinary() const

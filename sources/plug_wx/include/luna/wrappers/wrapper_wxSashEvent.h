@@ -11,8 +11,14 @@
 class wrapper_wxSashEvent : public wxSashEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSashEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSashEvent(lua_State* L, lua_Table* dum, int id = 0, wxSashEdgePosition edge = ::wxSASH_NONE) : wxSashEvent(id, edge), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

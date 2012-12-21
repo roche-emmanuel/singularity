@@ -11,8 +11,14 @@
 class wrapper_osgUtil_PlaneIntersector : public osgUtil::PlaneIntersector, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_PlaneIntersector() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(plane, boundingPolytope), luna_wrapper_base(L) {};
 	wrapper_osgUtil_PlaneIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Plane & plane, const osg::Polytope & boundingPolytope = osg::Polytope ()) : osgUtil::PlaneIntersector(cf, plane, boundingPolytope), luna_wrapper_base(L) {};
 

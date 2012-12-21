@@ -11,8 +11,14 @@
 class wrapper_wxBookCtrlEvent : public wxBookCtrlEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBookCtrlEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBookCtrlEvent(lua_State* L, lua_Table* dum, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) : wxBookCtrlEvent(eventType, id, sel, oldSel), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

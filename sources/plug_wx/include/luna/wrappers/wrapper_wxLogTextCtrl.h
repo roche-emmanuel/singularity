@@ -11,8 +11,14 @@
 class wrapper_wxLogTextCtrl : public wxLogTextCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxLogTextCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxLogTextCtrl(lua_State* L, lua_Table* dum, wxTextCtrl * pTextCtrl) : wxLogTextCtrl(pTextCtrl), luna_wrapper_base(L) {};
 
 	// void wxLog::Flush()

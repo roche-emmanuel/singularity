@@ -11,8 +11,14 @@
 class wrapper_osgDB_ImageOptions_TexCoordRange : public osgDB::ImageOptions::TexCoordRange, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_ImageOptions_TexCoordRange() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_ImageOptions_TexCoordRange(lua_State* L, lua_Table* dum) : osgDB::ImageOptions::TexCoordRange(), luna_wrapper_base(L) {};
 
 

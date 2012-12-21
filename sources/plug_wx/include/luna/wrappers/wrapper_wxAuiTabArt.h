@@ -11,8 +11,14 @@
 class wrapper_wxAuiTabArt : public wxAuiTabArt, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiTabArt() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiTabArt(lua_State* L, lua_Table* dum) : wxAuiTabArt(), luna_wrapper_base(L) {};
 
 	// wxAuiTabArt * wxAuiTabArt::Clone()

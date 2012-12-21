@@ -11,8 +11,14 @@
 class wrapper_osgViewer_GraphicsWindow : public osgViewer::GraphicsWindow, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_GraphicsWindow() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_GraphicsWindow(lua_State* L, lua_Table* dum) : osgViewer::GraphicsWindow(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

@@ -11,8 +11,14 @@
 class wrapper_osg_TexEnvCombine : public osg::TexEnvCombine, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TexEnvCombine() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum) : osg::TexEnvCombine(), luna_wrapper_base(L) {};
 	wrapper_osg_TexEnvCombine(lua_State* L, lua_Table* dum, const osg::TexEnvCombine & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexEnvCombine(texenv, copyop), luna_wrapper_base(L) {};
 

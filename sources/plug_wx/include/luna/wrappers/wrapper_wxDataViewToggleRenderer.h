@@ -11,8 +11,14 @@
 class wrapper_wxDataViewToggleRenderer : public wxDataViewToggleRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewToggleRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewToggleRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "bool", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewToggleRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

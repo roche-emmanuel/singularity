@@ -11,8 +11,14 @@
 class wrapper_osgUtil_UpdateVisitor : public osgUtil::UpdateVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_UpdateVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_UpdateVisitor(lua_State* L, lua_Table* dum) : osgUtil::UpdateVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const

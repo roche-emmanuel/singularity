@@ -11,8 +11,14 @@
 class wrapper_osg_Referenced : public osg::Referenced, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Referenced() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Referenced(lua_State* L, lua_Table* dum) : osg::Referenced(), luna_wrapper_base(L) {};
 	wrapper_osg_Referenced(lua_State* L, lua_Table* dum, bool threadSafeRefUnref) : osg::Referenced(threadSafeRefUnref), luna_wrapper_base(L) {};
 	wrapper_osg_Referenced(lua_State* L, lua_Table* dum, const osg::Referenced & arg1) : osg::Referenced(arg1), luna_wrapper_base(L) {};

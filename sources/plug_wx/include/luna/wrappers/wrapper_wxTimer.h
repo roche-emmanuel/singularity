@@ -11,8 +11,14 @@
 class wrapper_wxTimer : public wxTimer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTimer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTimer(lua_State* L, lua_Table* dum) : wxTimer(), luna_wrapper_base(L) {};
 	wrapper_wxTimer(lua_State* L, lua_Table* dum, wxEvtHandler * owner, int id = -1) : wxTimer(owner, id), luna_wrapper_base(L) {};
 

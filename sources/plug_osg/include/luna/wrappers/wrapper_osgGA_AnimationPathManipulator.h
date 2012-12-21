@@ -11,8 +11,14 @@
 class wrapper_osgGA_AnimationPathManipulator : public osgGA::AnimationPathManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_AnimationPathManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, osg::AnimationPath * animationPath = 0) : osgGA::AnimationPathManipulator(animationPath), luna_wrapper_base(L) {};
 	wrapper_osgGA_AnimationPathManipulator(lua_State* L, lua_Table* dum, const std::string & filename) : osgGA::AnimationPathManipulator(filename), luna_wrapper_base(L) {};
 

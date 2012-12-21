@@ -11,8 +11,14 @@
 class wrapper_wxExtHelpController : public wxExtHelpController, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxExtHelpController() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxHelpController::DisplayContextPopup(int contextId)
 	bool DisplayContextPopup(int contextId) {

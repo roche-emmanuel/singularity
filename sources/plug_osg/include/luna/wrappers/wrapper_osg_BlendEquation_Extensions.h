@@ -11,8 +11,14 @@
 class wrapper_osg_BlendEquation_Extensions : public osg::BlendEquation::Extensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BlendEquation_Extensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BlendEquation_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::BlendEquation::Extensions(contextID), luna_wrapper_base(L) {};
 
 

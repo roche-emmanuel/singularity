@@ -11,8 +11,14 @@
 class wrapper_osg_TexMat : public osg::TexMat, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TexMat() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TexMat(lua_State* L, lua_Table* dum) : osg::TexMat(), luna_wrapper_base(L) {};
 	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::Matrixd & matrix) : osg::TexMat(matrix), luna_wrapper_base(L) {};
 	wrapper_osg_TexMat(lua_State* L, lua_Table* dum, const osg::TexMat & texmat, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexMat(texmat, copyop), luna_wrapper_base(L) {};

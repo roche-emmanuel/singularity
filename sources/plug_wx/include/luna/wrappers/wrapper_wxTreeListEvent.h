@@ -11,8 +11,14 @@
 class wrapper_wxTreeListEvent : public wxTreeListEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTreeListEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxEvent * wxEvent::Clone() const
 	wxEvent * Clone() const {

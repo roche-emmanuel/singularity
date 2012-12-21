@@ -11,8 +11,14 @@
 class wrapper_osgDB_ImageProcessor : public osgDB::ImageProcessor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_ImageProcessor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum) : osgDB::ImageProcessor(), luna_wrapper_base(L) {};
 	wrapper_osgDB_ImageProcessor(lua_State* L, lua_Table* dum, const osgDB::ImageProcessor & rw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgDB::ImageProcessor(rw, copyop), luna_wrapper_base(L) {};
 

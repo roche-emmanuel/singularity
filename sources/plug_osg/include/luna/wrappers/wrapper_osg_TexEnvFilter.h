@@ -11,8 +11,14 @@
 class wrapper_osg_TexEnvFilter : public osg::TexEnvFilter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TexEnvFilter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TexEnvFilter(lua_State* L, lua_Table* dum, float lodBias = 0.0f) : osg::TexEnvFilter(lodBias), luna_wrapper_base(L) {};
 	wrapper_osg_TexEnvFilter(lua_State* L, lua_Table* dum, const osg::TexEnvFilter & texenv, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexEnvFilter(texenv, copyop), luna_wrapper_base(L) {};
 

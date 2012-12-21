@@ -11,8 +11,14 @@
 class wrapper_osg_Transform : public osg::Transform, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Transform() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Transform(lua_State* L, lua_Table* dum) : osg::Transform(), luna_wrapper_base(L) {};
 	wrapper_osg_Transform(lua_State* L, lua_Table* dum, const osg::Transform & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Transform(arg1, copyop), luna_wrapper_base(L) {};
 

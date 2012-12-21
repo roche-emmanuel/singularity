@@ -11,8 +11,14 @@
 class wrapper_wxPrintData : public wxPrintData, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPrintData() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

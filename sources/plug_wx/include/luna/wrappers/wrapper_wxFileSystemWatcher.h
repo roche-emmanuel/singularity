@@ -11,8 +11,14 @@
 class wrapper_wxFileSystemWatcher : public wxFileSystemWatcher, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileSystemWatcher() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFileSystemWatcher(lua_State* L, lua_Table* dum) : wxFileSystemWatcher(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

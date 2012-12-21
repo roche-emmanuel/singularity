@@ -11,8 +11,14 @@
 class wrapper_osgViewer_ScreenCaptureHandler_WriteToFile : public osgViewer::ScreenCaptureHandler::WriteToFile, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_ScreenCaptureHandler_WriteToFile() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_ScreenCaptureHandler_WriteToFile(lua_State* L, lua_Table* dum, const std::string & filename, const std::string & extension, osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy = osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER) : osgViewer::ScreenCaptureHandler::WriteToFile(filename, extension, savePolicy), luna_wrapper_base(L) {};
 
 	// void osgViewer::ScreenCaptureHandler::WriteToFile::operator()(const osg::Image & image, const unsigned int context_id)

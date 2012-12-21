@@ -11,8 +11,14 @@
 class wrapper_wxSetCursorEvent : public wxSetCursorEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSetCursorEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSetCursorEvent(lua_State* L, lua_Table* dum, int x = 0, int y = 0) : wxSetCursorEvent(x, y), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

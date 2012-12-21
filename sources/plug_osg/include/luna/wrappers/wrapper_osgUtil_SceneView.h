@@ -11,8 +11,14 @@
 class wrapper_osgUtil_SceneView : public osgUtil::SceneView, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_SceneView() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, osg::DisplaySettings * ds = NULL) : osgUtil::SceneView(ds), luna_wrapper_base(L) {};
 	wrapper_osgUtil_SceneView(lua_State* L, lua_Table* dum, const osgUtil::SceneView & sceneview, const osg::CopyOp & copyop = osg::CopyOp ()) : osgUtil::SceneView(sceneview, copyop), luna_wrapper_base(L) {};
 

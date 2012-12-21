@@ -11,8 +11,14 @@
 class wrapper_osg_Sphere : public osg::Sphere, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Sphere() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Sphere(lua_State* L, lua_Table* dum) : osg::Sphere(), luna_wrapper_base(L) {};
 	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius) : osg::Sphere(center, radius), luna_wrapper_base(L) {};
 	wrapper_osg_Sphere(lua_State* L, lua_Table* dum, const osg::Sphere & sphere, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Sphere(sphere, copyop), luna_wrapper_base(L) {};

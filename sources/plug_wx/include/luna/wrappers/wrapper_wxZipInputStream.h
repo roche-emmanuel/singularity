@@ -11,8 +11,14 @@
 class wrapper_wxZipInputStream : public wxZipInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxZipInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

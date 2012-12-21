@@ -11,8 +11,14 @@
 class wrapper_osg_GL2Extensions : public osg::GL2Extensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GL2Extensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_GL2Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::GL2Extensions(contextID), luna_wrapper_base(L) {};
 
 

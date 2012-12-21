@@ -11,8 +11,14 @@
 class wrapper_osgUtil_VertexCacheVisitor : public osgUtil::VertexCacheVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_VertexCacheVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_VertexCacheVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexCacheVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

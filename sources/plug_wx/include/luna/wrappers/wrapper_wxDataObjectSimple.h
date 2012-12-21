@@ -11,8 +11,14 @@
 class wrapper_wxDataObjectSimple : public wxDataObjectSimple, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataObjectSimple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataObjectSimple(lua_State* L, lua_Table* dum, const wxDataFormat & format = wxFormatInvalid) : wxDataObjectSimple(format), luna_wrapper_base(L) {};
 
 	// void wxDataObject::GetAllFormats(wxDataFormat * formats, wxDataObject::Direction dir = wxDataObject::Get) const

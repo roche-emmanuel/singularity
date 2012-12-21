@@ -11,8 +11,14 @@
 class wrapper_wxFileDropTarget : public wxFileDropTarget, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileDropTarget() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFileDropTarget(lua_State* L, lua_Table* dum) : wxFileDropTarget(), luna_wrapper_base(L) {};
 
 	// bool wxDropTarget::GetData()

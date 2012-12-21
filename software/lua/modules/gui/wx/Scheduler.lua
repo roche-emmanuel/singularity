@@ -15,7 +15,7 @@ function Class:initialize(options)
 
 	self._timers = Set();
 	
-	evtman:addListener(Event.APP_CLOSING,self)
+	evtman:addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:addTimer{frequency=cfg.master_framerate,callback=function(event) 
 		--self:info("Handing frame timer event...");

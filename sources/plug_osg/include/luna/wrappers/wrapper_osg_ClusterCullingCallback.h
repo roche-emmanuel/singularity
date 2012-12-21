@@ -11,8 +11,14 @@
 class wrapper_osg_ClusterCullingCallback : public osg::ClusterCullingCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ClusterCullingCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum) : osg::ClusterCullingCallback(), luna_wrapper_base(L) {};
 	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::ClusterCullingCallback & ccc, const osg::CopyOp & copyop) : osg::ClusterCullingCallback(ccc, copyop), luna_wrapper_base(L) {};
 	wrapper_osg_ClusterCullingCallback(lua_State* L, lua_Table* dum, const osg::Vec3f & controlPoint, const osg::Vec3f & normal, float deviation) : osg::ClusterCullingCallback(controlPoint, normal, deviation), luna_wrapper_base(L) {};

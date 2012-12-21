@@ -11,8 +11,14 @@
 class wrapper_wxHtmlParser : public wxHtmlParser, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlParser() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlParser(lua_State* L, lua_Table* dum) : wxHtmlParser(), luna_wrapper_base(L) {};
 
 	// void wxHtmlParser::AddTagHandler(wxHtmlTagHandler * handler)

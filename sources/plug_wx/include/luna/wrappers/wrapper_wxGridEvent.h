@@ -11,8 +11,14 @@
 class wrapper_wxGridEvent : public wxGridEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridEvent(lua_State* L, lua_Table* dum) : wxGridEvent(), luna_wrapper_base(L) {};
 	wrapper_wxGridEvent(lua_State* L, lua_Table* dum, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) : wxGridEvent(id, type, obj, row, col, x, y, sel, kbd), luna_wrapper_base(L) {};
 

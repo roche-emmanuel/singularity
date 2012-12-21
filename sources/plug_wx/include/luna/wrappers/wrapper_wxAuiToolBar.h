@@ -11,8 +11,14 @@
 class wrapper_wxAuiToolBar : public wxAuiToolBar, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiToolBar() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiToolBar(lua_State* L, lua_Table* dum, wxWindow * parent, int id = -1, const wxPoint & position = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_TB_DEFAULT_STYLE) : wxAuiToolBar(parent, id, position, size, style), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

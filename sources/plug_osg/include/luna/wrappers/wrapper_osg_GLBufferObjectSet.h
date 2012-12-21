@@ -11,8 +11,14 @@
 class wrapper_osg_GLBufferObjectSet : public osg::GLBufferObjectSet, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GLBufferObjectSet() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_GLBufferObjectSet(lua_State* L, lua_Table* dum, osg::GLBufferObjectManager * parent, const osg::BufferObjectProfile & profile) : osg::GLBufferObjectSet(parent, profile), luna_wrapper_base(L) {};
 
 

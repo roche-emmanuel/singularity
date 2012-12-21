@@ -11,8 +11,14 @@
 class wrapper_osgUtil_RenderBin_DrawCallback : public osgUtil::RenderBin::DrawCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_RenderBin_DrawCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osgUtil::RenderBin::DrawCallback::drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous)
 	void drawImplementation(osgUtil::RenderBin * bin, osg::RenderInfo & renderInfo, osgUtil::RenderLeaf *& previous) {

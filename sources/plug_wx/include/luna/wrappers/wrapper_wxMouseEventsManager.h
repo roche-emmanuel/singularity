@@ -11,8 +11,14 @@
 class wrapper_wxMouseEventsManager : public wxMouseEventsManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMouseEventsManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum) : wxMouseEventsManager(), luna_wrapper_base(L) {};
 	wrapper_wxMouseEventsManager(lua_State* L, lua_Table* dum, wxWindow * win) : wxMouseEventsManager(win), luna_wrapper_base(L) {};
 

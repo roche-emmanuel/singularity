@@ -11,8 +11,14 @@
 class wrapper_osg_ValueObject : public osg::ValueObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ValueObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ValueObject(lua_State* L, lua_Table* dum) : osg::ValueObject(), luna_wrapper_base(L) {};
 	wrapper_osg_ValueObject(lua_State* L, lua_Table* dum, const std::string & name) : osg::ValueObject(name), luna_wrapper_base(L) {};
 	wrapper_osg_ValueObject(lua_State* L, lua_Table* dum, const osg::ValueObject & rhs, const osg::CopyOp copyop = osg::CopyOp::SHALLOW_COPY) : osg::ValueObject(rhs, copyop), luna_wrapper_base(L) {};

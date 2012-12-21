@@ -11,8 +11,14 @@
 class wrapper_osg_DefaultUserDataContainer : public osg::DefaultUserDataContainer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DefaultUserDataContainer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DefaultUserDataContainer(lua_State* L, lua_Table* dum) : osg::DefaultUserDataContainer(), luna_wrapper_base(L) {};
 	wrapper_osg_DefaultUserDataContainer(lua_State* L, lua_Table* dum, const osg::DefaultUserDataContainer & udc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DefaultUserDataContainer(udc, copyop), luna_wrapper_base(L) {};
 

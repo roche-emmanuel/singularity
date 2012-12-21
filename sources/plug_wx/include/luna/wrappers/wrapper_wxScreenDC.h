@@ -11,8 +11,14 @@
 class wrapper_wxScreenDC : public wxScreenDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxScreenDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxScreenDC(lua_State* L, lua_Table* dum) : wxScreenDC(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

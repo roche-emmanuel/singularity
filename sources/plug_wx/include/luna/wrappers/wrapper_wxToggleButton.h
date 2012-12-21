@@ -11,8 +11,14 @@
 class wrapper_wxToggleButton : public wxToggleButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxToggleButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxToggleButton(lua_State* L, lua_Table* dum) : wxToggleButton(), luna_wrapper_base(L) {};
 	wrapper_wxToggleButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & val = wxDefaultValidator, const wxString & name = wxCheckBoxNameStr) : wxToggleButton(parent, id, label, pos, size, style, val, name), luna_wrapper_base(L) {};
 

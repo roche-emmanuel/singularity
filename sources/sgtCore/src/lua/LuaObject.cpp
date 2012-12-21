@@ -22,7 +22,7 @@ bool LuaObject::pushFunction(String name) const {
 	lua_gettable(_state,-2);			 // pop key and push value.
 
 	if(lua_type(_state,-1)!=LUA_TFUNCTION) {
-		logWARN("Wrong result type on pushed function: "<<lua_type(_state,-1));
+		//logWARN("Wrong result type on pushed function: "<<lua_type(_state,-1));
 		lua_pop(_state,2); // pop the wrong value and table.
 		return false;
 	}

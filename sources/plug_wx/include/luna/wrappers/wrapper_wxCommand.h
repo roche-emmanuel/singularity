@@ -11,8 +11,14 @@
 class wrapper_wxCommand : public wxCommand, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxCommand() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxCommand(lua_State* L, lua_Table* dum, bool canUndo = false, const wxString & name = wxEmptyString) : wxCommand(canUndo, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

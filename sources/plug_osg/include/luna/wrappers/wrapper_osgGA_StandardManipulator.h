@@ -11,8 +11,14 @@
 class wrapper_osgGA_StandardManipulator : public osgGA::StandardManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_StandardManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::StandardManipulator(flags), luna_wrapper_base(L) {};
 	wrapper_osgGA_StandardManipulator(lua_State* L, lua_Table* dum, const osgGA::StandardManipulator & m, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::StandardManipulator(m, copyOp), luna_wrapper_base(L) {};
 

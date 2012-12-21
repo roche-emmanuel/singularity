@@ -11,8 +11,14 @@
 class wrapper_osgDB_Registry : public osgDB::Registry, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Registry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Registry(lua_State* L, lua_Table* dum) : osgDB::Registry(), luna_wrapper_base(L) {};
 
 

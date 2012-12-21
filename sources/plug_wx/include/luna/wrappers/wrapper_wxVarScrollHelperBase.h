@@ -11,8 +11,14 @@
 class wrapper_wxVarScrollHelperBase : public wxVarScrollHelperBase, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxVarScrollHelperBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxVarScrollHelperBase(lua_State* L, lua_Table* dum, wxWindow * winToScroll) : wxVarScrollHelperBase(winToScroll), luna_wrapper_base(L) {};
 
 	// int wxVarScrollHelperBase::GetNonOrientationTargetSize() const

@@ -11,8 +11,14 @@
 class wrapper_wxTipProvider : public wxTipProvider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTipProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTipProvider(lua_State* L, lua_Table* dum, size_t currentTip) : wxTipProvider(currentTip), luna_wrapper_base(L) {};
 
 	// wxString wxTipProvider::GetTip()

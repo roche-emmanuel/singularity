@@ -11,8 +11,14 @@
 class wrapper_wxFrame : public wxFrame, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFrame() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFrame(lua_State* L, lua_Table* dum) : wxFrame(), luna_wrapper_base(L) {};
 	wrapper_wxFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) : wxFrame(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 

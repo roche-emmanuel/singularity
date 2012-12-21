@@ -11,8 +11,14 @@
 class wrapper_osgUtil_RenderBin : public osgUtil::RenderBin, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_RenderBin() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_RenderBin(lua_State* L, lua_Table* dum) : osgUtil::RenderBin(), luna_wrapper_base(L) {};
 	wrapper_osgUtil_RenderBin(lua_State* L, lua_Table* dum, osgUtil::RenderBin::SortMode mode) : osgUtil::RenderBin(mode), luna_wrapper_base(L) {};
 	wrapper_osgUtil_RenderBin(lua_State* L, lua_Table* dum, const osgUtil::RenderBin & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::RenderBin(rhs, copyop), luna_wrapper_base(L) {};

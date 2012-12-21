@@ -11,8 +11,14 @@
 class wrapper_wxMemoryDC : public wxMemoryDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMemoryDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum) : wxMemoryDC(), luna_wrapper_base(L) {};
 	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxDC * dc) : wxMemoryDC(dc), luna_wrapper_base(L) {};
 	wrapper_wxMemoryDC(lua_State* L, lua_Table* dum, wxBitmap & bitmap) : wxMemoryDC(bitmap), luna_wrapper_base(L) {};

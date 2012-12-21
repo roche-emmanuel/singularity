@@ -11,8 +11,14 @@
 class wrapper_osg_BlendFunc : public osg::BlendFunc, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BlendFunc() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum) : osg::BlendFunc(), luna_wrapper_base(L) {};
 	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination) : osg::BlendFunc(source, destination), luna_wrapper_base(L) {};
 	wrapper_osg_BlendFunc(lua_State* L, lua_Table* dum, unsigned int source, unsigned int destination, unsigned int source_alpha, unsigned int destination_alpha) : osg::BlendFunc(source, destination, source_alpha, destination_alpha), luna_wrapper_base(L) {};

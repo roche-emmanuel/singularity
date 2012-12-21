@@ -11,8 +11,14 @@
 class wrapper_wxLayoutConstraints : public wxLayoutConstraints, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxLayoutConstraints() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxLayoutConstraints(lua_State* L, lua_Table* dum) : wxLayoutConstraints(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

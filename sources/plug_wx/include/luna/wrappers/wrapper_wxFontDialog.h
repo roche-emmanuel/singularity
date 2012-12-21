@@ -11,8 +11,14 @@
 class wrapper_wxFontDialog : public wxFontDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFontDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFontDialog(lua_State* L, lua_Table* dum) : wxFontDialog(), luna_wrapper_base(L) {};
 	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent) : wxFontDialog(parent), luna_wrapper_base(L) {};
 	wrapper_wxFontDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxFontData & data) : wxFontDialog(parent, data), luna_wrapper_base(L) {};

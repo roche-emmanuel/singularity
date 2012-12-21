@@ -11,8 +11,14 @@
 class wrapper_osg_ArrayDispatchers : public osg::ArrayDispatchers, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ArrayDispatchers() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ArrayDispatchers(lua_State* L, lua_Table* dum) : osg::ArrayDispatchers(), luna_wrapper_base(L) {};
 
 

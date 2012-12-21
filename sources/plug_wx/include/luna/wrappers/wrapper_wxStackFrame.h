@@ -11,8 +11,14 @@
 class wrapper_wxStackFrame : public wxStackFrame, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxStackFrame() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	bool GetParam(size_t n, wxString * type, wxString * name, wxString * value) const {

@@ -11,8 +11,14 @@
 class wrapper_wxTCPConnection : public wxTCPConnection, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTCPConnection() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum) : wxTCPConnection(), luna_wrapper_base(L) {};
 	wrapper_wxTCPConnection(lua_State* L, lua_Table* dum, void * buffer, size_t size) : wxTCPConnection(buffer, size), luna_wrapper_base(L) {};
 

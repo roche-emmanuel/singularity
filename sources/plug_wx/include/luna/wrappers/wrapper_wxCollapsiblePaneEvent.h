@@ -11,8 +11,14 @@
 class wrapper_wxCollapsiblePaneEvent : public wxCollapsiblePaneEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxCollapsiblePaneEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxCollapsiblePaneEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, bool collapsed) : wxCollapsiblePaneEvent(generator, id, collapsed), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

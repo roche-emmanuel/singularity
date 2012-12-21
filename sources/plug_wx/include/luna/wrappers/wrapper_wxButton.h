@@ -11,8 +11,14 @@
 class wrapper_wxButton : public wxButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxButton(lua_State* L, lua_Table* dum) : wxButton(), luna_wrapper_base(L) {};
 	wrapper_wxButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label = wxEmptyString, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxButtonNameStr) : wxButton(parent, id, label, pos, size, style, validator, name), luna_wrapper_base(L) {};
 

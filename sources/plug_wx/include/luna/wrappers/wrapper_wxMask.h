@@ -11,8 +11,14 @@
 class wrapper_wxMask : public wxMask, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMask() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMask(lua_State* L, lua_Table* dum) : wxMask(), luna_wrapper_base(L) {};
 	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, int index) : wxMask(bitmap, index), luna_wrapper_base(L) {};
 	wrapper_wxMask(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxMask(bitmap), luna_wrapper_base(L) {};

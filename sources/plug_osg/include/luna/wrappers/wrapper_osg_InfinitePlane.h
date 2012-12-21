@@ -11,8 +11,14 @@
 class wrapper_osg_InfinitePlane : public osg::InfinitePlane, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_InfinitePlane() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_InfinitePlane(lua_State* L, lua_Table* dum) : osg::InfinitePlane(), luna_wrapper_base(L) {};
 	wrapper_osg_InfinitePlane(lua_State* L, lua_Table* dum, const osg::InfinitePlane & plane, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::InfinitePlane(plane, copyop), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_PrintVisitor : public osgUtil::PrintVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_PrintVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_PrintVisitor(lua_State* L, lua_Table* dum, std::ostream & out, int indent = 0, int step = 2) : osgUtil::PrintVisitor(out, indent, step), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

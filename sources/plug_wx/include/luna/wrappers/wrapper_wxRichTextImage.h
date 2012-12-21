@@ -11,8 +11,14 @@
 class wrapper_wxRichTextImage : public wxRichTextImage, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextImage() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

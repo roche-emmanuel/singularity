@@ -11,8 +11,14 @@
 class wrapper_osg_CullSettings : public osg::CullSettings, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_CullSettings() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum) : osg::CullSettings(), luna_wrapper_base(L) {};
 	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, osg::ArgumentParser & arguments) : osg::CullSettings(arguments), luna_wrapper_base(L) {};
 	wrapper_osg_CullSettings(lua_State* L, lua_Table* dum, const osg::CullSettings & cs) : osg::CullSettings(cs), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_wxItemContainer : public wxItemContainer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxItemContainer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// unsigned int wxItemContainerImmutable::GetCount() const
 	unsigned int GetCount() const {

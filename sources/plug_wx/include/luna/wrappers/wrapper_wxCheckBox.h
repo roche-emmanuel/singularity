@@ -11,8 +11,14 @@
 class wrapper_wxCheckBox : public wxCheckBox, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxCheckBox() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxCheckBox(lua_State* L, lua_Table* dum) : wxCheckBox(), luna_wrapper_base(L) {};
 	wrapper_wxCheckBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxCheckBoxNameStr) : wxCheckBox(parent, id, label, pos, size, style, validator, name), luna_wrapper_base(L) {};
 

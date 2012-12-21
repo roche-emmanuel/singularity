@@ -11,8 +11,14 @@
 class wrapper_osg_View_Slave_UpdateSlaveCallback : public osg::View::Slave::UpdateSlaveCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_View_Slave_UpdateSlaveCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::View::Slave::UpdateSlaveCallback::updateSlave(osg::View & view, osg::View::Slave & slave)
 	void updateSlave(osg::View & view, osg::View::Slave & slave) {

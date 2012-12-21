@@ -11,8 +11,14 @@
 class wrapper_osg_AnimationPathCallback : public osg::AnimationPathCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_AnimationPathCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum) : osg::AnimationPathCallback(), luna_wrapper_base(L) {};
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, const osg::AnimationPathCallback & apc, const osg::CopyOp & copyop) : osg::AnimationPathCallback(apc, copyop), luna_wrapper_base(L) {};
 	wrapper_osg_AnimationPathCallback(lua_State* L, lua_Table* dum, osg::AnimationPath * ap, double timeOffset = 0.0, double timeMultiplier = 1.0) : osg::AnimationPathCallback(ap, timeOffset, timeMultiplier), luna_wrapper_base(L) {};

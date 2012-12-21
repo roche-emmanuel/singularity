@@ -11,8 +11,14 @@
 class wrapper_wxClipboard : public wxClipboard, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxClipboard() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxClipboard(lua_State* L, lua_Table* dum) : wxClipboard(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

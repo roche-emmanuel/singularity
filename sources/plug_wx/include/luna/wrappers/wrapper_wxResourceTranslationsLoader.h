@@ -11,8 +11,14 @@
 class wrapper_wxResourceTranslationsLoader : public wxResourceTranslationsLoader, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxResourceTranslationsLoader() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxMsgCatalog * wxTranslationsLoader::LoadCatalog(const wxString & domain, const wxString & lang)
 	wxMsgCatalog * LoadCatalog(const wxString & domain, const wxString & lang) {

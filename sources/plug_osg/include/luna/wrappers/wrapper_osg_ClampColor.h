@@ -11,8 +11,14 @@
 class wrapper_osg_ClampColor : public osg::ClampColor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ClampColor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum) : osg::ClampColor(), luna_wrapper_base(L) {};
 	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, unsigned int vertexMode, unsigned int fragmentMode, unsigned int readMode) : osg::ClampColor(vertexMode, fragmentMode, readMode), luna_wrapper_base(L) {};
 	wrapper_osg_ClampColor(lua_State* L, lua_Table* dum, const osg::ClampColor & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ClampColor(rhs, copyop), luna_wrapper_base(L) {};

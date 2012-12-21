@@ -11,8 +11,14 @@
 class wrapper_osgViewer_InteractiveImageHandler : public osgViewer::InteractiveImageHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_InteractiveImageHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image) : osgViewer::InteractiveImageHandler(image), luna_wrapper_base(L) {};
 	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum, osg::Image * image, osg::Texture2D * texture, osg::Camera * camera) : osgViewer::InteractiveImageHandler(image, texture, camera), luna_wrapper_base(L) {};
 	wrapper_osgViewer_InteractiveImageHandler(lua_State* L, lua_Table* dum) : osgViewer::InteractiveImageHandler(), luna_wrapper_base(L) {};

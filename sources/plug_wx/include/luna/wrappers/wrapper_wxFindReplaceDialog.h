@@ -11,8 +11,14 @@
 class wrapper_wxFindReplaceDialog : public wxFindReplaceDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFindReplaceDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum) : wxFindReplaceDialog(), luna_wrapper_base(L) {};
 	wrapper_wxFindReplaceDialog(lua_State* L, lua_Table* dum, wxWindow * parent, wxFindReplaceData * data, const wxString & title, int style = 0) : wxFindReplaceDialog(parent, data, title, style), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osg_RenderBuffer : public osg::RenderBuffer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_RenderBuffer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum) : osg::RenderBuffer(), luna_wrapper_base(L) {};
 	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, int width, int height, unsigned int internalFormat, int samples = 0, int colorSamples = 0) : osg::RenderBuffer(width, height, internalFormat, samples, colorSamples), luna_wrapper_base(L) {};
 	wrapper_osg_RenderBuffer(lua_State* L, lua_Table* dum, const osg::RenderBuffer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::RenderBuffer(copy, copyop), luna_wrapper_base(L) {};

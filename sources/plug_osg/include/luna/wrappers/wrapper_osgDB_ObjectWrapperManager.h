@@ -11,8 +11,14 @@
 class wrapper_osgDB_ObjectWrapperManager : public osgDB::ObjectWrapperManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_ObjectWrapperManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_ObjectWrapperManager(lua_State* L, lua_Table* dum) : osgDB::ObjectWrapperManager(), luna_wrapper_base(L) {};
 
 

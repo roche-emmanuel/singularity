@@ -11,8 +11,14 @@
 class wrapper_wxMediaEvent : public wxMediaEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMediaEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMediaEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int winid = 0) : wxMediaEvent(commandType, winid), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

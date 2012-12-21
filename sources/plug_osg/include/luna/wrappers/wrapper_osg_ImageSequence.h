@@ -11,8 +11,14 @@
 class wrapper_osg_ImageSequence : public osg::ImageSequence, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ImageSequence() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum) : osg::ImageSequence(), luna_wrapper_base(L) {};
 	wrapper_osg_ImageSequence(lua_State* L, lua_Table* dum, const osg::ImageSequence & ImageSequence, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ImageSequence(ImageSequence, copyop), luna_wrapper_base(L) {};
 

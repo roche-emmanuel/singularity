@@ -11,8 +11,14 @@
 class wrapper_osg_VertexBufferObject : public osg::VertexBufferObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_VertexBufferObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_VertexBufferObject(lua_State* L, lua_Table* dum) : osg::VertexBufferObject(), luna_wrapper_base(L) {};
 	wrapper_osg_VertexBufferObject(lua_State* L, lua_Table* dum, const osg::VertexBufferObject & vbo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::VertexBufferObject(vbo, copyop), luna_wrapper_base(L) {};
 

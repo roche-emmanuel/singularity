@@ -11,8 +11,14 @@
 class wrapper_wxHeaderCtrl : public wxHeaderCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHeaderCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum) : wxHeaderCtrl(), luna_wrapper_base(L) {};
 	wrapper_wxHeaderCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int winid = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHD_DEFAULT_STYLE, const wxString & name = wxHeaderCtrlNameStr) : wxHeaderCtrl(parent, winid, pos, size, style, name), luna_wrapper_base(L) {};
 

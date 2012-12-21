@@ -11,8 +11,14 @@
 class wrapper_wxNonOwnedWindow : public wxNonOwnedWindow, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxNonOwnedWindow() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

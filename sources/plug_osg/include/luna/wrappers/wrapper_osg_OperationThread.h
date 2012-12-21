@@ -11,8 +11,14 @@
 class wrapper_osg_OperationThread : public osg::OperationThread, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_OperationThread() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

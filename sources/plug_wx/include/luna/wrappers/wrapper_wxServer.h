@@ -11,8 +11,14 @@
 class wrapper_wxServer : public wxServer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxServer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxServer(lua_State* L, lua_Table* dum) : wxServer(), luna_wrapper_base(L) {};
 
 	// wxConnectionBase * wxServer::OnAcceptConnection(const wxString & topic)

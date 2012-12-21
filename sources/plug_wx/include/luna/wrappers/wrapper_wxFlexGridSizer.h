@@ -11,8 +11,14 @@
 class wrapper_wxFlexGridSizer : public wxFlexGridSizer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFlexGridSizer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFlexGridSizer(lua_State* L, lua_Table* dum, int cols, int vgap, int hgap) : wxFlexGridSizer(cols, vgap, hgap), luna_wrapper_base(L) {};
 	wrapper_wxFlexGridSizer(lua_State* L, lua_Table* dum, int cols, const wxSize & gap = wxSize (0, 0)) : wxFlexGridSizer(cols, gap), luna_wrapper_base(L) {};
 	wrapper_wxFlexGridSizer(lua_State* L, lua_Table* dum, int rows, int cols, int vgap, int hgap) : wxFlexGridSizer(rows, cols, vgap, hgap), luna_wrapper_base(L) {};

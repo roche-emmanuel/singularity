@@ -11,7 +11,7 @@
 class wrapper_osgDB_DeprecatedDotOsgWrapperManager : public osgDB::DeprecatedDotOsgWrapperManager, public luna_wrapper_base {
 
 public:
-	
+		
 
 
 

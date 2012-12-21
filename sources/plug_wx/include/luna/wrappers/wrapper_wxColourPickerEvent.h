@@ -11,8 +11,14 @@
 class wrapper_wxColourPickerEvent : public wxColourPickerEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxColourPickerEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxColourPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxColour & colour) : wxColourPickerEvent(generator, id, colour), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

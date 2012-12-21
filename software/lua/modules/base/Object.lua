@@ -122,8 +122,6 @@ function Object:isInstanceOf(class,obj)
 end
 
 function Object:checkType(obj,base,strict)
-	--self:deprecated("checkType() should be replaced with isInstanceOf()")
-	
 	if not obj then 
 		return 
 	end

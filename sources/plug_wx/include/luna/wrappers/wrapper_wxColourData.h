@@ -11,8 +11,14 @@
 class wrapper_wxColourData : public wxColourData, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxColourData() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxColourData(lua_State* L, lua_Table* dum) : wxColourData(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

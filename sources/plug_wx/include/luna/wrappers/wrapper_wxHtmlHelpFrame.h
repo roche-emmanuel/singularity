@@ -11,8 +11,14 @@
 class wrapper_wxHtmlHelpFrame : public wxHtmlHelpFrame, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlHelpFrame() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxHtmlHelpData * data = NULL) : wxHtmlHelpFrame(data), luna_wrapper_base(L) {};
 	wrapper_wxHtmlHelpFrame(lua_State* L, lua_Table* dum, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL, wxConfigBase * config = NULL, const wxString & rootpath = wxEmptyString) : wxHtmlHelpFrame(parent, wxWindowID, title, style, data, config, rootpath), luna_wrapper_base(L) {};
 

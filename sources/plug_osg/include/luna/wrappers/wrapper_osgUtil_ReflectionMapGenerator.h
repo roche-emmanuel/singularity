@@ -11,8 +11,14 @@
 class wrapper_osgUtil_ReflectionMapGenerator : public osgUtil::ReflectionMapGenerator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_ReflectionMapGenerator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::ReflectionMapGenerator(texture_size), luna_wrapper_base(L) {};
 	wrapper_osgUtil_ReflectionMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::ReflectionMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::ReflectionMapGenerator(copy, copyop), luna_wrapper_base(L) {};
 

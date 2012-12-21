@@ -11,8 +11,14 @@
 class wrapper_osg_Cone : public osg::Cone, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Cone() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Cone(lua_State* L, lua_Table* dum) : osg::Cone(), luna_wrapper_base(L) {};
 	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Vec3f & center, float radius, float height) : osg::Cone(center, radius, height), luna_wrapper_base(L) {};
 	wrapper_osg_Cone(lua_State* L, lua_Table* dum, const osg::Cone & cone, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Cone(cone, copyop), luna_wrapper_base(L) {};

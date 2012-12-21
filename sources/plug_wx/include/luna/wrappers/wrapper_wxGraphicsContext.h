@@ -11,8 +11,14 @@
 class wrapper_wxGraphicsContext : public wxGraphicsContext, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGraphicsContext() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

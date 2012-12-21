@@ -11,8 +11,14 @@
 class wrapper_wxDialogLayoutAdapter : public wxDialogLayoutAdapter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDialogLayoutAdapter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDialogLayoutAdapter(lua_State* L, lua_Table* dum) : wxDialogLayoutAdapter(), luna_wrapper_base(L) {};
 
 	// bool wxDialogLayoutAdapter::CanDoLayoutAdaptation(wxDialog * dialog)

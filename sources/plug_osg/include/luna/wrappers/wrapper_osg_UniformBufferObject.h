@@ -11,8 +11,14 @@
 class wrapper_osg_UniformBufferObject : public osg::UniformBufferObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_UniformBufferObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_UniformBufferObject(lua_State* L, lua_Table* dum) : osg::UniformBufferObject(), luna_wrapper_base(L) {};
 	wrapper_osg_UniformBufferObject(lua_State* L, lua_Table* dum, const osg::UniformBufferObject & ubo, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::UniformBufferObject(ubo, copyop), luna_wrapper_base(L) {};
 

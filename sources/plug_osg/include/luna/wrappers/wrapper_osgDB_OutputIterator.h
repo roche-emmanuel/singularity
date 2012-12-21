@@ -11,8 +11,14 @@
 class wrapper_osgDB_OutputIterator : public osgDB::OutputIterator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_OutputIterator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_OutputIterator(lua_State* L, lua_Table* dum) : osgDB::OutputIterator(), luna_wrapper_base(L) {};
 
 	// bool osgDB::OutputIterator::isBinary() const

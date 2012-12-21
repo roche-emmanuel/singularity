@@ -11,8 +11,14 @@
 class wrapper_osg_State : public osg::State, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_State() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_State(lua_State* L, lua_Table* dum) : osg::State(), luna_wrapper_base(L) {};
 
 	// void osg::State::objectDeleted(void * arg1)

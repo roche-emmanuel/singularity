@@ -11,8 +11,14 @@
 class wrapper_osg_StencilTwoSided : public osg::StencilTwoSided, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_StencilTwoSided() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_StencilTwoSided(lua_State* L, lua_Table* dum) : osg::StencilTwoSided(), luna_wrapper_base(L) {};
 	wrapper_osg_StencilTwoSided(lua_State* L, lua_Table* dum, const osg::StencilTwoSided & stencil, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::StencilTwoSided(stencil, copyop), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_wxPopupWindow : public wxPopupWindow, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPopupWindow() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPopupWindow(lua_State* L, lua_Table* dum, wxWindow * parent, int flags = ::wxBORDER_NONE) : wxPopupWindow(parent, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

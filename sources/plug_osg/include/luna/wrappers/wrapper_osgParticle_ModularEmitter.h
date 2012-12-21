@@ -11,8 +11,14 @@
 class wrapper_osgParticle_ModularEmitter : public osgParticle::ModularEmitter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_ModularEmitter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_ModularEmitter(lua_State* L, lua_Table* dum) : osgParticle::ModularEmitter(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_ModularEmitter(lua_State* L, lua_Table* dum, const osgParticle::ModularEmitter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ModularEmitter(copy, copyop), luna_wrapper_base(L) {};
 

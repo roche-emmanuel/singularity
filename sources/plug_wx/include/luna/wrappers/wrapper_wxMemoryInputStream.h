@@ -11,8 +11,14 @@
 class wrapper_wxMemoryInputStream : public wxMemoryInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMemoryInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const void * data, size_t len) : wxMemoryInputStream(data, len), luna_wrapper_base(L) {};
 	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, const wxMemoryOutputStream & stream) : wxMemoryInputStream(stream), luna_wrapper_base(L) {};
 	wrapper_wxMemoryInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, long long len = wxInvalidOffset) : wxMemoryInputStream(stream, len), luna_wrapper_base(L) {};

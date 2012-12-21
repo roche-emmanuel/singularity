@@ -11,8 +11,14 @@
 class wrapper_wxTaskBarIcon : public wxTaskBarIcon, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTaskBarIcon() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTaskBarIcon(lua_State* L, lua_Table* dum) : wxTaskBarIcon(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxIcon : public wxIcon, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxIcon() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxIcon(lua_State* L, lua_Table* dum) : wxIcon(), luna_wrapper_base(L) {};
 	wrapper_wxIcon(lua_State* L, lua_Table* dum, const wxIcon & icon) : wxIcon(icon), luna_wrapper_base(L) {};
 	wrapper_wxIcon(lua_State* L, lua_Table* dum, const char *const * bits) : wxIcon(bits), luna_wrapper_base(L) {};

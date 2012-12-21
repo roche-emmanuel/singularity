@@ -11,8 +11,14 @@
 class wrapper_osg_TextureRectangle_SubloadCallback : public osg::TextureRectangle::SubloadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TextureRectangle_SubloadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::TextureRectangle::SubloadCallback::load(const osg::TextureRectangle & arg1, osg::State & arg2) const
 	void load(const osg::TextureRectangle & arg1, osg::State & arg2) const {

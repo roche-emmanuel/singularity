@@ -11,8 +11,14 @@
 class wrapper_wxDataViewIconText : public wxDataViewIconText, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewIconText() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxString & text = wxEmptyString, const wxIcon & icon = wxNullIcon) : wxDataViewIconText(text, icon), luna_wrapper_base(L) {};
 	wrapper_wxDataViewIconText(lua_State* L, lua_Table* dum, const wxDataViewIconText & other) : wxDataViewIconText(other), luna_wrapper_base(L) {};
 

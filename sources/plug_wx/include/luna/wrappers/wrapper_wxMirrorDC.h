@@ -11,8 +11,14 @@
 class wrapper_wxMirrorDC : public wxMirrorDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMirrorDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMirrorDC(lua_State* L, lua_Table* dum, wxDC & dc, bool mirror) : wxMirrorDC(dc, mirror), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

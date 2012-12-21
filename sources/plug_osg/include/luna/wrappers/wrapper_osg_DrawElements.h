@@ -11,8 +11,14 @@
 class wrapper_osg_DrawElements : public osg::DrawElements, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DrawElements() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, osg::PrimitiveSet::Type primType = osg::PrimitiveSet::PrimitiveType, unsigned int mode = 0, int numInstances = 0) : osg::DrawElements(primType, mode, numInstances), luna_wrapper_base(L) {};
 	wrapper_osg_DrawElements(lua_State* L, lua_Table* dum, const osg::DrawElements & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElements(copy, copyop), luna_wrapper_base(L) {};
 

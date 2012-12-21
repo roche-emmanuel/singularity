@@ -11,8 +11,14 @@
 class wrapper_wxPersistenceManager : public wxPersistenceManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPersistenceManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPersistenceManager(lua_State* L, lua_Table* dum) : wxPersistenceManager(), luna_wrapper_base(L) {};
 
 

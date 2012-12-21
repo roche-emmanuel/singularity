@@ -11,8 +11,14 @@
 class wrapper_wxTextCompleterSimple : public wxTextCompleterSimple, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextCompleterSimple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxTextCompleter::Start(const wxString & prefix)
 	bool Start(const wxString & prefix) {

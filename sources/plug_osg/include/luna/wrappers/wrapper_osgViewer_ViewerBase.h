@@ -11,8 +11,14 @@
 class wrapper_osgViewer_ViewerBase : public osgViewer::ViewerBase, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_ViewerBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum) : osgViewer::ViewerBase(), luna_wrapper_base(L) {};
 	wrapper_osgViewer_ViewerBase(lua_State* L, lua_Table* dum, const osgViewer::ViewerBase & vb) : osgViewer::ViewerBase(vb), luna_wrapper_base(L) {};
 

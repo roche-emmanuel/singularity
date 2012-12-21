@@ -11,8 +11,14 @@
 class wrapper_wxSizerXmlHandler : public wxSizerXmlHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSizerXmlHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSizerXmlHandler(lua_State* L, lua_Table* dum) : wxSizerXmlHandler(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_osg_Depth : public osg::Depth, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Depth() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Depth(lua_State* L, lua_Table* dum, osg::Depth::Function func = osg::Depth::LESS, double zNear = 0.0, double zFar = 1.0, bool writeMask = true) : osg::Depth(func, zNear, zFar, writeMask), luna_wrapper_base(L) {};
 	wrapper_osg_Depth(lua_State* L, lua_Table* dum, const osg::Depth & dp, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Depth(dp, copyop), luna_wrapper_base(L) {};
 

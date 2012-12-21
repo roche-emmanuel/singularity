@@ -11,8 +11,14 @@
 class wrapper_wxTextEntry : public wxTextEntry, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextEntry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxTextEntry::AppendText(const wxString & text)
 	void AppendText(const wxString & text) {

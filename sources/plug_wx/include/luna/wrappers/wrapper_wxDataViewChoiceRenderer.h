@@ -11,8 +11,14 @@
 class wrapper_wxDataViewChoiceRenderer : public wxDataViewChoiceRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewChoiceRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewChoiceRenderer(lua_State* L, lua_Table* dum, const wxArrayString & choices, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int alignment = -1) : wxDataViewChoiceRenderer(choices, mode, alignment), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

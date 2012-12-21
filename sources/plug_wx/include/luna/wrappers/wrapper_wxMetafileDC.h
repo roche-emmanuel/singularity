@@ -11,8 +11,14 @@
 class wrapper_wxMetafileDC : public wxMetafileDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMetafileDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

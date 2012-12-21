@@ -11,8 +11,14 @@
 class wrapper_wxSymbolPickerDialog : public wxSymbolPickerDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSymbolPickerDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum) : wxSymbolPickerDialog(), luna_wrapper_base(L) {};
 	wrapper_wxSymbolPickerDialog(lua_State* L, lua_Table* dum, const wxString & symbol, const wxString & initialFont, const wxString & normalTextFont, wxWindow * parent, int id = ::wxID_ANY, const wxString & title = _ ("Symbols"), const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxCLOSE_BOX) : wxSymbolPickerDialog(symbol, initialFont, normalTextFont, parent, id, title, pos, size, style), luna_wrapper_base(L) {};
 

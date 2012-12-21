@@ -11,8 +11,14 @@
 class wrapper_wxGCDC : public wxGCDC, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGCDC() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxWindowDC & windowDC) : wxGCDC(windowDC), luna_wrapper_base(L) {};
 	wrapper_wxGCDC(lua_State* L, lua_Table* dum, const wxMemoryDC & memoryDC) : wxGCDC(memoryDC), luna_wrapper_base(L) {};
 	wrapper_wxGCDC(lua_State* L, lua_Table* dum) : wxGCDC(), luna_wrapper_base(L) {};

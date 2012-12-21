@@ -11,8 +11,14 @@
 class wrapper_osg_TransformFeedbackBufferBinding : public osg::TransformFeedbackBufferBinding, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TransformFeedbackBufferBinding() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TransformFeedbackBufferBinding(lua_State* L, lua_Table* dum, unsigned int index = 0) : osg::TransformFeedbackBufferBinding(index), luna_wrapper_base(L) {};
 	wrapper_osg_TransformFeedbackBufferBinding(lua_State* L, lua_Table* dum, unsigned int index, osg::BufferObject * bo, int offset, int size) : osg::TransformFeedbackBufferBinding(index, bo, offset, size), luna_wrapper_base(L) {};
 	wrapper_osg_TransformFeedbackBufferBinding(lua_State* L, lua_Table* dum, const osg::TransformFeedbackBufferBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransformFeedbackBufferBinding(rhs, copyop), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_wxWindowModalDialogEvent : public wxWindowModalDialogEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxWindowModalDialogEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxWindowModalDialogEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0) : wxWindowModalDialogEvent(commandType, id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

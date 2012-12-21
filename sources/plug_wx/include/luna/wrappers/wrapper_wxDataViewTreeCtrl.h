@@ -11,8 +11,14 @@
 class wrapper_wxDataViewTreeCtrl : public wxDataViewTreeCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewTreeCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewTreeCtrl(lua_State* L, lua_Table* dum) : wxDataViewTreeCtrl(), luna_wrapper_base(L) {};
 	wrapper_wxDataViewTreeCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0x0002|0x0010, const wxValidator & validator = wxDefaultValidator) : wxDataViewTreeCtrl(parent, id, pos, size, style, validator), luna_wrapper_base(L) {};
 

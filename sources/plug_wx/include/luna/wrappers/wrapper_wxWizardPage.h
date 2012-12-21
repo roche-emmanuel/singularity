@@ -11,8 +11,14 @@
 class wrapper_wxWizardPage : public wxWizardPage, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxWizardPage() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxWizardPage(lua_State* L, lua_Table* dum, wxWizard * parent, const wxBitmap & bitmap = wxNullBitmap) : wxWizardPage(parent, bitmap), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

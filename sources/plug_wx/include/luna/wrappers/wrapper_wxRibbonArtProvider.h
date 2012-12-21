@@ -11,8 +11,14 @@
 class wrapper_wxRibbonArtProvider : public wxRibbonArtProvider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonArtProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonArtProvider(lua_State* L, lua_Table* dum) : wxRibbonArtProvider(), luna_wrapper_base(L) {};
 
 	// wxRibbonArtProvider * wxRibbonArtProvider::Clone() const

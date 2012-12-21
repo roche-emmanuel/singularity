@@ -11,8 +11,14 @@
 class wrapper_osgText_Text3D : public osgText::Text3D, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Text3D() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Text3D(lua_State* L, lua_Table* dum) : osgText::Text3D(), luna_wrapper_base(L) {};
 	wrapper_osgText_Text3D(lua_State* L, lua_Table* dum, const osgText::Text3D & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Text3D(text, copyop), luna_wrapper_base(L) {};
 

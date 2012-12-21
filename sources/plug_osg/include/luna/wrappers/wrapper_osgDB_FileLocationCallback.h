@@ -11,8 +11,14 @@
 class wrapper_osgDB_FileLocationCallback : public osgDB::FileLocationCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FileLocationCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osgDB::FileLocationCallback::Location osgDB::FileLocationCallback::fileLocation(const std::string & filename, const osgDB::Options * options)
 	osgDB::FileLocationCallback::Location fileLocation(const std::string & filename, const osgDB::Options * options) {

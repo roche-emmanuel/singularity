@@ -11,8 +11,14 @@
 class wrapper_wxDataViewListModel : public wxDataViewListModel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewListModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxDataViewModel::Cleared()
 	bool Cleared() {

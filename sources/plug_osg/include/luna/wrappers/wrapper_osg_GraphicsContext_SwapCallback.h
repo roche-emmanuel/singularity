@@ -11,8 +11,14 @@
 class wrapper_osg_GraphicsContext_SwapCallback : public osg::GraphicsContext::SwapCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GraphicsContext_SwapCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::GraphicsContext::SwapCallback::swapBuffersImplementation(osg::GraphicsContext * gc)
 	void swapBuffersImplementation(osg::GraphicsContext * gc) {

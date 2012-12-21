@@ -11,8 +11,14 @@
 class wrapper_osg_FlushDeletedGLObjectsOperation : public osg::FlushDeletedGLObjectsOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_FlushDeletedGLObjectsOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_FlushDeletedGLObjectsOperation(lua_State* L, lua_Table* dum, double availableTime, bool keep = false) : osg::FlushDeletedGLObjectsOperation(availableTime, keep), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()

@@ -11,8 +11,14 @@
 class wrapper_wxDocMDIParentFrame : public wxDocMDIParentFrame, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDocMDIParentFrame() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDocMDIParentFrame(lua_State* L, lua_Table* dum) : wxDocMDIParentFrame(), luna_wrapper_base(L) {};
 	wrapper_wxDocMDIParentFrame(lua_State* L, lua_Table* dum, wxDocManager * manager, wxFrame * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxDEFAULT_FRAME_STYLE, const wxString & name = wxFrameNameStr) : wxDocMDIParentFrame(manager, parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 

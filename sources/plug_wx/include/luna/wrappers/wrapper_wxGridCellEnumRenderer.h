@@ -11,8 +11,14 @@
 class wrapper_wxGridCellEnumRenderer : public wxGridCellEnumRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellEnumRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellEnumRenderer(lua_State* L, lua_Table* dum, const wxString & choices = wxEmptyString) : wxGridCellEnumRenderer(choices), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const

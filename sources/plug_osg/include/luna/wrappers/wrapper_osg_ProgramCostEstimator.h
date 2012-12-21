@@ -11,8 +11,14 @@
 class wrapper_osg_ProgramCostEstimator : public osg::ProgramCostEstimator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ProgramCostEstimator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ProgramCostEstimator(lua_State* L, lua_Table* dum) : osg::ProgramCostEstimator(), luna_wrapper_base(L) {};
 
 

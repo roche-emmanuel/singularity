@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2DArray_SubloadCallback : public osg::Texture2DArray::SubloadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2DArray_SubloadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Texture2DArray::SubloadCallback::load(const osg::Texture2DArray & texture, osg::State & state) const
 	void load(const osg::Texture2DArray & texture, osg::State & state) const {

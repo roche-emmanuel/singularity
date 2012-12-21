@@ -11,8 +11,14 @@
 class wrapper_osgUtil_LineSegmentIntersector : public osgUtil::LineSegmentIntersector, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_LineSegmentIntersector() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(start, end), luna_wrapper_base(L) {};
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, const osg::Vec3d & start, const osg::Vec3d & end) : osgUtil::LineSegmentIntersector(cf, start, end), luna_wrapper_base(L) {};
 	wrapper_osgUtil_LineSegmentIntersector(lua_State* L, lua_Table* dum, osgUtil::Intersector::CoordinateFrame cf, double x, double y) : osgUtil::LineSegmentIntersector(cf, x, y), luna_wrapper_base(L) {};

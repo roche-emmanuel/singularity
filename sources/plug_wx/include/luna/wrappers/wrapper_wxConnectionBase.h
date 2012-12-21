@@ -11,8 +11,14 @@
 class wrapper_wxConnectionBase : public wxConnectionBase, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxConnectionBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

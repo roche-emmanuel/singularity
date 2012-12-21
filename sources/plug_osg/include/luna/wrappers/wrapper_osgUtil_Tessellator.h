@@ -11,8 +11,14 @@
 class wrapper_osgUtil_Tessellator : public osgUtil::Tessellator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_Tessellator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_Tessellator(lua_State* L, lua_Table* dum) : osgUtil::Tessellator(), luna_wrapper_base(L) {};
 
 

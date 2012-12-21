@@ -11,8 +11,14 @@
 class wrapper_osg_RunOperations : public osg::RunOperations, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_RunOperations() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_RunOperations(lua_State* L, lua_Table* dum) : osg::RunOperations(), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()

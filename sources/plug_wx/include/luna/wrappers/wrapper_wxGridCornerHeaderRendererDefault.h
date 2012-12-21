@@ -11,8 +11,14 @@
 class wrapper_wxGridCornerHeaderRendererDefault : public wxGridCornerHeaderRendererDefault, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCornerHeaderRendererDefault() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	void DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const {

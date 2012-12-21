@@ -11,8 +11,14 @@
 class wrapper_wxStdDialogButtonSizer : public wxStdDialogButtonSizer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxStdDialogButtonSizer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxStdDialogButtonSizer(lua_State* L, lua_Table* dum) : wxStdDialogButtonSizer(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

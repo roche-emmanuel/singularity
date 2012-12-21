@@ -11,8 +11,14 @@
 class wrapper_osgDB_AuthenticationDetails : public osgDB::AuthenticationDetails, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_AuthenticationDetails() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_AuthenticationDetails(lua_State* L, lua_Table* dum, const std::string & u, const std::string & p, osgDB::AuthenticationDetails::HttpAuthentication auth = osgDB::AuthenticationDetails::BASIC) : osgDB::AuthenticationDetails(u, p, auth), luna_wrapper_base(L) {};
 
 

@@ -11,8 +11,14 @@
 class wrapper_wxJoystick : public wxJoystick, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxJoystick() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxJoystick(lua_State* L, lua_Table* dum, int joystick = ::wxJOYSTICK1) : wxJoystick(joystick), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

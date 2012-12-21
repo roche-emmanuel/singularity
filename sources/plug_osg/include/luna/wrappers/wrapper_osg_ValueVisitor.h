@@ -11,8 +11,14 @@
 class wrapper_osg_ValueVisitor : public osg::ValueVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ValueVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ValueVisitor(lua_State* L, lua_Table* dum) : osg::ValueVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ValueVisitor::apply(signed char & arg1)

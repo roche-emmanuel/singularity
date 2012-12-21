@@ -11,8 +11,14 @@
 class wrapper_osgDB_Input : public osgDB::Input, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Input() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Input(lua_State* L, lua_Table* dum) : osgDB::Input(), luna_wrapper_base(L) {};
 
 	// bool osgDB::FieldReaderIterator::eof() const

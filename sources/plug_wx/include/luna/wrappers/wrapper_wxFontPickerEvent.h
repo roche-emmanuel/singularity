@@ -11,8 +11,14 @@
 class wrapper_wxFontPickerEvent : public wxFontPickerEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFontPickerEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFontPickerEvent(lua_State* L, lua_Table* dum, wxObject * generator, int id, const wxFont & font) : wxFontPickerEvent(generator, id, font), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

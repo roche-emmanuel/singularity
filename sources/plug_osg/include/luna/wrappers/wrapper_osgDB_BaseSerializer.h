@@ -11,8 +11,14 @@
 class wrapper_osgDB_BaseSerializer : public osgDB::BaseSerializer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_BaseSerializer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_BaseSerializer(lua_State* L, lua_Table* dum) : osgDB::BaseSerializer(), luna_wrapper_base(L) {};
 
 	// bool osgDB::BaseSerializer::read(osgDB::InputStream & arg1, osg::Object & arg2)

@@ -11,8 +11,14 @@
 class wrapper_wxGridCellAutoWrapStringRenderer : public wxGridCellAutoWrapStringRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellAutoWrapStringRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellAutoWrapStringRenderer(lua_State* L, lua_Table* dum) : wxGridCellAutoWrapStringRenderer(), luna_wrapper_base(L) {};
 
 	// wxGridCellRenderer * wxGridCellRenderer::Clone() const

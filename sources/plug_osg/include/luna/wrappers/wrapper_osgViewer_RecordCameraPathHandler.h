@@ -11,8 +11,14 @@
 class wrapper_osgViewer_RecordCameraPathHandler : public osgViewer::RecordCameraPathHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_RecordCameraPathHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_RecordCameraPathHandler(lua_State* L, lua_Table* dum, const std::string & filename = "saved_animation.path", float fps = 25.0f) : osgViewer::RecordCameraPathHandler(filename, fps), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

@@ -11,8 +11,14 @@
 class wrapper_osg_CollectOccludersVisitor : public osg::CollectOccludersVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_CollectOccludersVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_CollectOccludersVisitor(lua_State* L, lua_Table* dum) : osg::CollectOccludersVisitor(), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const

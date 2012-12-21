@@ -11,8 +11,14 @@
 class wrapper_osgViewer_ThreadingHandler : public osgViewer::ThreadingHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_ThreadingHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

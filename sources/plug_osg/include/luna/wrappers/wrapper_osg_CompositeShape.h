@@ -11,8 +11,14 @@
 class wrapper_osg_CompositeShape : public osg::CompositeShape, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_CompositeShape() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_CompositeShape(lua_State* L, lua_Table* dum) : osg::CompositeShape(), luna_wrapper_base(L) {};
 	wrapper_osg_CompositeShape(lua_State* L, lua_Table* dum, const osg::CompositeShape & cs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::CompositeShape(cs, copyop), luna_wrapper_base(L) {};
 

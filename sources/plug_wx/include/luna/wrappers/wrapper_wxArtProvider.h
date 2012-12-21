@@ -11,8 +11,14 @@
 class wrapper_wxArtProvider : public wxArtProvider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxArtProvider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

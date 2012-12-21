@@ -11,8 +11,14 @@
 class wrapper_osgGA_EventQueue : public osgGA::EventQueue, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_EventQueue() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_EventQueue(lua_State* L, lua_Table* dum, osgGA::GUIEventAdapter::MouseYOrientation mouseYOrientation = osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS) : osgGA::EventQueue(mouseYOrientation), luna_wrapper_base(L) {};
 
 

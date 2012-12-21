@@ -11,8 +11,14 @@
 class wrapper_wxMemoryOutputStream : public wxMemoryOutputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMemoryOutputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMemoryOutputStream(lua_State* L, lua_Table* dum, void * data = NULL, size_t length = 0) : wxMemoryOutputStream(data, length), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

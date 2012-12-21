@@ -11,8 +11,14 @@
 class wrapper_wxHeaderColumn : public wxHeaderColumn, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHeaderColumn() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxString wxHeaderColumn::GetTitle() const
 	wxString GetTitle() const {

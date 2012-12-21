@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2DMultisample : public osg::Texture2DMultisample, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2DMultisample() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture2DMultisample(lua_State* L, lua_Table* dum) : osg::Texture2DMultisample(), luna_wrapper_base(L) {};
 	wrapper_osg_Texture2DMultisample(lua_State* L, lua_Table* dum, int numSamples, unsigned char fixedsamplelocations) : osg::Texture2DMultisample(numSamples, fixedsamplelocations), luna_wrapper_base(L) {};
 	wrapper_osg_Texture2DMultisample(lua_State* L, lua_Table* dum, const osg::Texture2DMultisample & text, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture2DMultisample(text, copyop), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_wxMessageOutputStderr : public wxMessageOutputStderr, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMessageOutputStderr() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxMessageOutput::Output(const wxString & str)
 	void Output(const wxString & str) {

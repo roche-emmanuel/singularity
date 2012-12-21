@@ -11,8 +11,14 @@
 class wrapper_wxDialog : public wxDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDialog(lua_State* L, lua_Table* dum) : wxDialog(), luna_wrapper_base(L) {};
 	wrapper_wxDialog(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & title, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ( wxCAPTION | wxSYSTEM_MENU | wxCLOSE_BOX ), const wxString & name = wxDialogNameStr) : wxDialog(parent, id, title, pos, size, style, name), luna_wrapper_base(L) {};
 

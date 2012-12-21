@@ -11,8 +11,14 @@
 class wrapper_wxEvent : public wxEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxEvent(lua_State* L, lua_Table* dum, int id = 0, int eventType = wxEVT_NULL) : wxEvent(id, eventType), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

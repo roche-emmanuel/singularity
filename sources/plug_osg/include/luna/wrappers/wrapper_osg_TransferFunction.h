@@ -11,8 +11,14 @@
 class wrapper_osg_TransferFunction : public osg::TransferFunction, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TransferFunction() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum) : osg::TransferFunction(), luna_wrapper_base(L) {};
 	wrapper_osg_TransferFunction(lua_State* L, lua_Table* dum, const osg::TransferFunction & tf, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TransferFunction(tf, copyop), luna_wrapper_base(L) {};
 

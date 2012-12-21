@@ -11,8 +11,14 @@
 class wrapper_wxColour : public wxColour, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxColour() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxColour(lua_State* L, lua_Table* dum) : wxColour(), luna_wrapper_base(L) {};
 	wrapper_wxColour(lua_State* L, lua_Table* dum, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) : wxColour(red, green, blue, alpha), luna_wrapper_base(L) {};
 	wrapper_wxColour(lua_State* L, lua_Table* dum, const wxString & colourName) : wxColour(colourName), luna_wrapper_base(L) {};

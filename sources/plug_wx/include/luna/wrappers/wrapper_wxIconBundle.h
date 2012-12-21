@@ -11,8 +11,14 @@
 class wrapper_wxIconBundle : public wxIconBundle, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxIconBundle() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxIconBundle(lua_State* L, lua_Table* dum) : wxIconBundle(), luna_wrapper_base(L) {};
 	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(file, type), luna_wrapper_base(L) {};
 	wrapper_wxIconBundle(lua_State* L, lua_Table* dum, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) : wxIconBundle(stream, type), luna_wrapper_base(L) {};

@@ -11,8 +11,14 @@
 class wrapper_osgDB_SharedStateManager : public osgDB::SharedStateManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_SharedStateManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_SharedStateManager(lua_State* L, lua_Table* dum, unsigned int mode = osgDB::SharedStateManager::SHARE_ALL) : osgDB::SharedStateManager(mode), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()

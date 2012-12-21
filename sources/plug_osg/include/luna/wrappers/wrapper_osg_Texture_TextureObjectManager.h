@@ -11,8 +11,14 @@
 class wrapper_osg_Texture_TextureObjectManager : public osg::Texture::TextureObjectManager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture_TextureObjectManager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture_TextureObjectManager(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Texture::TextureObjectManager(contextID), luna_wrapper_base(L) {};
 
 

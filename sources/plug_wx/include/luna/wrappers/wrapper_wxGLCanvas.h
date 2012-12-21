@@ -11,8 +11,14 @@
 class wrapper_wxGLCanvas : public wxGLCanvas, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGLCanvas() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGLCanvas(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const int * attribList = NULL, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = "GLCanvas", const wxPalette & palette = wxNullPalette) : wxGLCanvas(parent, id, attribList, pos, size, style, name, palette), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

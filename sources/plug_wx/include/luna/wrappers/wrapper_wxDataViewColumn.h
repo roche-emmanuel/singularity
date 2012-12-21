@@ -11,8 +11,14 @@
 class wrapper_wxDataViewColumn : public wxDataViewColumn, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewColumn() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxString & title, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(title, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
 	wrapper_wxDataViewColumn(lua_State* L, lua_Table* dum, const wxBitmap & bitmap, wxDataViewRenderer * renderer, unsigned int model_column, int width = 80, wxAlignment align = ::wxALIGN_CENTER, int flags = ::wxDATAVIEW_COL_RESIZABLE) : wxDataViewColumn(bitmap, renderer, model_column, width, align, flags), luna_wrapper_base(L) {};
 

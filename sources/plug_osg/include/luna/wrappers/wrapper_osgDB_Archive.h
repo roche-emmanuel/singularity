@@ -11,8 +11,14 @@
 class wrapper_osgDB_Archive : public osgDB::Archive, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Archive() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Archive(lua_State* L, lua_Table* dum) : osgDB::Archive(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

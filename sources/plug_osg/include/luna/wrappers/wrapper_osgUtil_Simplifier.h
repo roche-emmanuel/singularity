@@ -11,8 +11,14 @@
 class wrapper_osgUtil_Simplifier : public osgUtil::Simplifier, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_Simplifier() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_Simplifier(lua_State* L, lua_Table* dum, double sampleRatio = 1.0, double maximumError = FLT_MAX, double maximumLength = 0.0) : osgUtil::Simplifier(sampleRatio, maximumError, maximumLength), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::reset()

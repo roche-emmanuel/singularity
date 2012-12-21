@@ -11,8 +11,14 @@
 class wrapper_osgGA_DriveManipulator : public osgGA::DriveManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_DriveManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_DriveManipulator(lua_State* L, lua_Table* dum) : osgGA::DriveManipulator(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

@@ -11,8 +11,14 @@
 class wrapper_wxPalette : public wxPalette, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPalette() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPalette(lua_State* L, lua_Table* dum) : wxPalette(), luna_wrapper_base(L) {};
 	wrapper_wxPalette(lua_State* L, lua_Table* dum, const wxPalette & palette) : wxPalette(palette), luna_wrapper_base(L) {};
 	wrapper_wxPalette(lua_State* L, lua_Table* dum, int n, unsigned char * red, unsigned char * green, unsigned char * blue) : wxPalette(n, red, green, blue), luna_wrapper_base(L) {};

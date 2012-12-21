@@ -11,8 +11,14 @@
 class wrapper_wxDataViewTextRenderer : public wxDataViewTextRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewTextRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewTextRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "string", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewTextRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

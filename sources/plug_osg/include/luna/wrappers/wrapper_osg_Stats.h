@@ -11,8 +11,14 @@
 class wrapper_osg_Stats : public osg::Stats, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Stats() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Stats(lua_State* L, lua_Table* dum, const std::string & name) : osg::Stats(name), luna_wrapper_base(L) {};
 	wrapper_osg_Stats(lua_State* L, lua_Table* dum, const std::string & name, unsigned int numberOfFrames) : osg::Stats(name, numberOfFrames), luna_wrapper_base(L) {};
 

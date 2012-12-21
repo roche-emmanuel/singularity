@@ -11,8 +11,14 @@
 class wrapper_osgDB_FinishedObjectReadCallback : public osgDB::FinishedObjectReadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FinishedObjectReadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osgDB::FinishedObjectReadCallback::objectRead(osgDB::InputStream & is, osg::Object & obj)
 	void objectRead(osgDB::InputStream & is, osg::Object & obj) {

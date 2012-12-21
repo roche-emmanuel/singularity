@@ -11,8 +11,14 @@
 class wrapper_osg_Drawable_CullCallback : public osg::Drawable::CullCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Drawable_CullCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Drawable_CullCallback(lua_State* L, lua_Table* dum) : osg::Drawable::CullCallback(), luna_wrapper_base(L) {};
 	wrapper_osg_Drawable_CullCallback(lua_State* L, lua_Table* dum, const osg::Drawable::CullCallback & arg1, const osg::CopyOp & arg2) : osg::Drawable::CullCallback(arg1, arg2), luna_wrapper_base(L) {};
 

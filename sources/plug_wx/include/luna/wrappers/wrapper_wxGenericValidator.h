@@ -11,8 +11,14 @@
 class wrapper_wxGenericValidator : public wxGenericValidator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGenericValidator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, const wxGenericValidator & validator) : wxGenericValidator(validator), luna_wrapper_base(L) {};
 	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, bool * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};
 	wrapper_wxGenericValidator(lua_State* L, lua_Table* dum, wxString * valPtr) : wxGenericValidator(valPtr), luna_wrapper_base(L) {};

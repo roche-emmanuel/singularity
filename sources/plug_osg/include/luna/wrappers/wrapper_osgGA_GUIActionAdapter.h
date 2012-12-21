@@ -11,8 +11,14 @@
 class wrapper_osgGA_GUIActionAdapter : public osgGA::GUIActionAdapter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_GUIActionAdapter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osg::View * osgGA::GUIActionAdapter::asView()
 	osg::View * asView() {

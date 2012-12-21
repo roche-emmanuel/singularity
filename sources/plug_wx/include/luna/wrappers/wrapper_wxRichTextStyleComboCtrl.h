@@ -11,8 +11,14 @@
 class wrapper_wxRichTextStyleComboCtrl : public wxRichTextStyleComboCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextStyleComboCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

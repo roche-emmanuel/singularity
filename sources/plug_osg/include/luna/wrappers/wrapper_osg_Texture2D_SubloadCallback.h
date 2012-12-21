@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2D_SubloadCallback : public osg::Texture2D::SubloadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2D_SubloadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool osg::Texture2D::SubloadCallback::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
 	bool textureObjectValid(const osg::Texture2D & texture, osg::State & state) const {

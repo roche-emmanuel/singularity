@@ -11,8 +11,14 @@
 class wrapper_wxDataViewDateRenderer : public wxDataViewDateRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewDateRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewDateRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "datetime", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_ACTIVATABLE, int align = -1) : wxDataViewDateRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

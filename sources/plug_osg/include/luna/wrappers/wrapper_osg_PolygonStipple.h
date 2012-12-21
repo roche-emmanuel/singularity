@@ -11,8 +11,14 @@
 class wrapper_osg_PolygonStipple : public osg::PolygonStipple, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_PolygonStipple() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum) : osg::PolygonStipple(), luna_wrapper_base(L) {};
 	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const unsigned char * mask) : osg::PolygonStipple(mask), luna_wrapper_base(L) {};
 	wrapper_osg_PolygonStipple(lua_State* L, lua_Table* dum, const osg::PolygonStipple & lw, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::PolygonStipple(lw, copyop), luna_wrapper_base(L) {};

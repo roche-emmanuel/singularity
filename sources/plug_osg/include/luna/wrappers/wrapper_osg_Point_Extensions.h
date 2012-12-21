@@ -11,8 +11,14 @@
 class wrapper_osg_Point_Extensions : public osg::Point::Extensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Point_Extensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Point_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Point::Extensions(contextID), luna_wrapper_base(L) {};
 
 

@@ -11,8 +11,14 @@
 class wrapper_osg_ShapeDrawable : public osg::ShapeDrawable, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ShapeDrawable() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum) : osg::ShapeDrawable(), luna_wrapper_base(L) {};
 	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, osg::Shape * shape, osg::TessellationHints * hints = 0) : osg::ShapeDrawable(shape, hints), luna_wrapper_base(L) {};
 	wrapper_osg_ShapeDrawable(lua_State* L, lua_Table* dum, const osg::ShapeDrawable & pg, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShapeDrawable(pg, copyop), luna_wrapper_base(L) {};

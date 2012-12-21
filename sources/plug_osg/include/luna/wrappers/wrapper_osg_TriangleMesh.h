@@ -11,8 +11,14 @@
 class wrapper_osg_TriangleMesh : public osg::TriangleMesh, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TriangleMesh() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum) : osg::TriangleMesh(), luna_wrapper_base(L) {};
 	wrapper_osg_TriangleMesh(lua_State* L, lua_Table* dum, const osg::TriangleMesh & mesh, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TriangleMesh(mesh, copyop), luna_wrapper_base(L) {};
 

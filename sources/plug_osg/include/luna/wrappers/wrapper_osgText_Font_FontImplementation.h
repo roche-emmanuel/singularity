@@ -11,8 +11,14 @@
 class wrapper_osgText_Font_FontImplementation : public osgText::Font::FontImplementation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Font_FontImplementation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Font_FontImplementation(lua_State* L, lua_Table* dum) : osgText::Font::FontImplementation(), luna_wrapper_base(L) {};
 
 	// std::string osgText::Font::FontImplementation::getFileName() const

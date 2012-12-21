@@ -11,8 +11,14 @@
 class wrapper_wxDataViewIndexListModel : public wxDataViewIndexListModel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewIndexListModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewIndexListModel(lua_State* L, lua_Table* dum, unsigned int initial_size = 0) : wxDataViewIndexListModel(initial_size), luna_wrapper_base(L) {};
 
 	// bool wxDataViewModel::Cleared()

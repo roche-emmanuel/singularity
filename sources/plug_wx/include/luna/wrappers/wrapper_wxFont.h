@@ -11,8 +11,14 @@
 class wrapper_wxFont : public wxFont, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFont() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFont(lua_State* L, lua_Table* dum) : wxFont(), luna_wrapper_base(L) {};
 	wrapper_wxFont(lua_State* L, lua_Table* dum, const wxFont & font) : wxFont(font), luna_wrapper_base(L) {};
 	wrapper_wxFont(lua_State* L, lua_Table* dum, int pointSize, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & faceName = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) : wxFont(pointSize, family, style, weight, underline, faceName, encoding), luna_wrapper_base(L) {};

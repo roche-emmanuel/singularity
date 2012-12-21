@@ -11,8 +11,14 @@
 class wrapper_osg_DrawElementsUByte : public osg::DrawElementsUByte, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_DrawElementsUByte() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode = 0) : osg::DrawElementsUByte(mode), luna_wrapper_base(L) {};
 	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, const osg::DrawElementsUByte & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::DrawElementsUByte(array, copyop), luna_wrapper_base(L) {};
 	wrapper_osg_DrawElementsUByte(lua_State* L, lua_Table* dum, unsigned int mode, unsigned int no, const unsigned char * ptr, int numInstances = 0) : osg::DrawElementsUByte(mode, no, ptr, numInstances), luna_wrapper_base(L) {};

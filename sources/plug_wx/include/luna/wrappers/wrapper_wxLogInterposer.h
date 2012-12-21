@@ -11,8 +11,14 @@
 class wrapper_wxLogInterposer : public wxLogInterposer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxLogInterposer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxLogInterposer(lua_State* L, lua_Table* dum) : wxLogInterposer(), luna_wrapper_base(L) {};
 
 	// void wxLog::Flush()

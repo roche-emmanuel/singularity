@@ -143,6 +143,17 @@ function Class:writeHeader()
 	
 	buf:pushIndent()
 	
+	local str = [[~wrapper_${1}() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	]]
+	local destructor = class:getDestructor()
+	if not destructor or not destructor:isPrivate() then
+		buf:writeSubLine(str,wname)
+	end
+	
 	for _,cons in constructors:sequence() do
 		if not cons:isWrapper() then
 			self:writeConstructor(cons)

@@ -11,8 +11,14 @@
 class wrapper_wxFindReplaceData : public wxFindReplaceData, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFindReplaceData() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFindReplaceData(lua_State* L, lua_Table* dum, unsigned int flags = 0) : wxFindReplaceData(flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

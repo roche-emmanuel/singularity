@@ -11,8 +11,14 @@
 class wrapper_osgUtil_GLObjectsVisitor : public osgUtil::GLObjectsVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_GLObjectsVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_GLObjectsVisitor(lua_State* L, lua_Table* dum, unsigned int mode = osgUtil::GLObjectsVisitor::COMPILE_DISPLAY_LISTS | osgUtil::GLObjectsVisitor::COMPILE_STATE_ATTRIBUTES | osgUtil::GLObjectsVisitor::CHECK_BLACK_LISTED_MODES) : osgUtil::GLObjectsVisitor(mode), luna_wrapper_base(L) {};
 
 	// osg::Vec3f osg::NodeVisitor::getEyePoint() const

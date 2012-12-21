@@ -11,8 +11,14 @@
 class wrapper_wxMessageDialog : public wxMessageDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMessageDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) : wxMessageDialog(parent, message, caption, style, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

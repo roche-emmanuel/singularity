@@ -11,8 +11,14 @@
 class wrapper_osg_CullSettings_ClampProjectionMatrixCallback : public osg::CullSettings::ClampProjectionMatrixCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_CullSettings_ClampProjectionMatrixCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const
 	bool clampProjectionMatrixImplementation(osg::Matrixf & projection, double & znear, double & zfar) const {

@@ -11,8 +11,14 @@
 class wrapper_wxProtocolLog : public wxProtocolLog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxProtocolLog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxProtocolLog(lua_State* L, lua_Table* dum, const wxString & traceMask) : wxProtocolLog(traceMask), luna_wrapper_base(L) {};
 
 	// void wxProtocolLog::LogRequest(const wxString & str)

@@ -11,8 +11,14 @@
 class wrapper_osgParticle_Program : public osgParticle::Program, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_Program() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum) : osgParticle::Program(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_Program(lua_State* L, lua_Table* dum, const osgParticle::Program & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::Program(copy, copyop), luna_wrapper_base(L) {};
 

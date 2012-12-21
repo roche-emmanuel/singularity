@@ -11,8 +11,14 @@
 class wrapper_wxAuiToolBarArt : public wxAuiToolBarArt, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiToolBarArt() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiToolBarArt(lua_State* L, lua_Table* dum) : wxAuiToolBarArt(), luna_wrapper_base(L) {};
 
 	// wxAuiToolBarArt * wxAuiToolBarArt::Clone()

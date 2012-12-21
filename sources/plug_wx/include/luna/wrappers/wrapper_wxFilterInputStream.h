@@ -11,8 +11,14 @@
 class wrapper_wxFilterInputStream : public wxFilterInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFilterInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream) : wxFilterInputStream(stream), luna_wrapper_base(L) {};
 	wrapper_wxFilterInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream) : wxFilterInputStream(stream), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_wxHtmlHelpData : public wxHtmlHelpData, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlHelpData() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlHelpData(lua_State* L, lua_Table* dum) : wxHtmlHelpData(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxBitmapComboBox : public wxBitmapComboBox, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBitmapComboBox() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBitmapComboBox(lua_State* L, lua_Table* dum) : wxBitmapComboBox(), luna_wrapper_base(L) {};
 	wrapper_wxBitmapComboBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & value, const wxPoint & pos, const wxSize & size, const wxArrayString & choices, long style, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxBitmapComboBoxNameStr) : wxBitmapComboBox(parent, id, value, pos, size, choices, style, validator, name), luna_wrapper_base(L) {};
 

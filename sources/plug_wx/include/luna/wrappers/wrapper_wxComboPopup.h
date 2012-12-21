@@ -11,8 +11,14 @@
 class wrapper_wxComboPopup : public wxComboPopup, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxComboPopup() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxComboPopup(lua_State* L, lua_Table* dum) : wxComboPopup(), luna_wrapper_base(L) {};
 
 	// bool wxComboPopup::Create(wxWindow * parent)

@@ -11,8 +11,14 @@
 class wrapper_osgUtil_VertexAccessOrderVisitor : public osgUtil::VertexAccessOrderVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_VertexAccessOrderVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_VertexAccessOrderVisitor(lua_State* L, lua_Table* dum, osgUtil::Optimizer * optimizer = 0) : osgUtil::VertexAccessOrderVisitor(optimizer), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

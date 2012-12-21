@@ -11,8 +11,14 @@
 class wrapper_wxGridCellFloatEditor : public wxGridCellFloatEditor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellFloatEditor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellFloatEditor(lua_State* L, lua_Table* dum, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) : wxGridCellFloatEditor(width, precision, format), luna_wrapper_base(L) {};
 
 	// wxString wxGridCellEditor::GetValue() const

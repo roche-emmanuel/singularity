@@ -11,8 +11,14 @@
 class wrapper_wxGauge : public wxGauge, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGauge() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGauge(lua_State* L, lua_Table* dum) : wxGauge(), luna_wrapper_base(L) {};
 	wrapper_wxGauge(lua_State* L, lua_Table* dum, wxWindow * parent, int id, int range, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHORIZONTAL, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxGaugeNameStr) : wxGauge(parent, id, range, pos, size, style, validator, name), luna_wrapper_base(L) {};
 

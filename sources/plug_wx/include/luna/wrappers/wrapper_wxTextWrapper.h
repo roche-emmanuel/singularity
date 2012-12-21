@@ -11,8 +11,14 @@
 class wrapper_wxTextWrapper : public wxTextWrapper, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextWrapper() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTextWrapper(lua_State* L, lua_Table* dum) : wxTextWrapper(), luna_wrapper_base(L) {};
 
 

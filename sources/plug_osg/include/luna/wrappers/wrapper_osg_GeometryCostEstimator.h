@@ -11,8 +11,14 @@
 class wrapper_osg_GeometryCostEstimator : public osg::GeometryCostEstimator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GeometryCostEstimator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_GeometryCostEstimator(lua_State* L, lua_Table* dum) : osg::GeometryCostEstimator(), luna_wrapper_base(L) {};
 
 

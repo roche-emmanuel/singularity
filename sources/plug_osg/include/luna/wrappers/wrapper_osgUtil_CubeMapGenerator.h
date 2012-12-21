@@ -11,8 +11,14 @@
 class wrapper_osgUtil_CubeMapGenerator : public osgUtil::CubeMapGenerator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_CubeMapGenerator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, int texture_size = 64) : osgUtil::CubeMapGenerator(texture_size), luna_wrapper_base(L) {};
 	wrapper_osgUtil_CubeMapGenerator(lua_State* L, lua_Table* dum, const osgUtil::CubeMapGenerator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgUtil::CubeMapGenerator(copy, copyop), luna_wrapper_base(L) {};
 

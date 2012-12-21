@@ -11,8 +11,14 @@
 class wrapper_osg_TessellationHints : public osg::TessellationHints, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TessellationHints() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TessellationHints(lua_State* L, lua_Table* dum) : osg::TessellationHints(), luna_wrapper_base(L) {};
 	wrapper_osg_TessellationHints(lua_State* L, lua_Table* dum, const osg::TessellationHints & tess, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TessellationHints(tess, copyop), luna_wrapper_base(L) {};
 

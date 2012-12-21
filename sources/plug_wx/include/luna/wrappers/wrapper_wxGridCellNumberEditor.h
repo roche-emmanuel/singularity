@@ -11,8 +11,14 @@
 class wrapper_wxGridCellNumberEditor : public wxGridCellNumberEditor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridCellNumberEditor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxGridCellNumberEditor(lua_State* L, lua_Table* dum, int min = -1, int max = -1) : wxGridCellNumberEditor(min, max), luna_wrapper_base(L) {};
 
 	// wxString wxGridCellEditor::GetValue() const

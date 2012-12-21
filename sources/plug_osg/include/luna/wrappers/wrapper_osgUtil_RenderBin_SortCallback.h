@@ -11,8 +11,14 @@
 class wrapper_osgUtil_RenderBin_SortCallback : public osgUtil::RenderBin::SortCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_RenderBin_SortCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osgUtil::RenderBin::SortCallback::sortImplementation(osgUtil::RenderBin * arg1)
 	void sortImplementation(osgUtil::RenderBin * arg1) {

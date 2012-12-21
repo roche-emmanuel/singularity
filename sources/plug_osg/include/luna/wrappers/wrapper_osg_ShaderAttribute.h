@@ -11,8 +11,14 @@
 class wrapper_osg_ShaderAttribute : public osg::ShaderAttribute, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ShaderAttribute() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ShaderAttribute(lua_State* L, lua_Table* dum) : osg::ShaderAttribute(), luna_wrapper_base(L) {};
 	wrapper_osg_ShaderAttribute(lua_State* L, lua_Table* dum, const osg::ShaderAttribute & sa, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderAttribute(sa, copyop), luna_wrapper_base(L) {};
 

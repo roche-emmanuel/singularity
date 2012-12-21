@@ -11,8 +11,14 @@
 class wrapper_osg_View_Slave : public osg::View::Slave, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_View_Slave() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_View_Slave(lua_State* L, lua_Table* dum, bool useMastersSceneData = true) : osg::View::Slave(useMastersSceneData), luna_wrapper_base(L) {};
 	wrapper_osg_View_Slave(lua_State* L, lua_Table* dum, osg::Camera * camera, const osg::Matrixd & projectionOffset, const osg::Matrixd & viewOffset, bool useMastersSceneData = true) : osg::View::Slave(camera, projectionOffset, viewOffset, useMastersSceneData), luna_wrapper_base(L) {};
 	wrapper_osg_View_Slave(lua_State* L, lua_Table* dum, const osg::View::Slave & rhs) : osg::View::Slave(rhs), luna_wrapper_base(L) {};

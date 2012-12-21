@@ -11,8 +11,14 @@
 class wrapper_wxListbook : public wxListbook, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxListbook() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxListbook(lua_State* L, lua_Table* dum) : wxListbook(), luna_wrapper_base(L) {};
 	wrapper_wxListbook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxListbook(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

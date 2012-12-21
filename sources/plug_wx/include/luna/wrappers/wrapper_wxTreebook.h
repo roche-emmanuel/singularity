@@ -11,8 +11,14 @@
 class wrapper_wxTreebook : public wxTreebook, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTreebook() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTreebook(lua_State* L, lua_Table* dum) : wxTreebook(), luna_wrapper_base(L) {};
 	wrapper_wxTreebook(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxBK_DEFAULT, const wxString & name = wxEmptyString) : wxTreebook(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

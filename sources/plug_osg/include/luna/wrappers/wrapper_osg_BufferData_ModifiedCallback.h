@@ -11,8 +11,14 @@
 class wrapper_osg_BufferData_ModifiedCallback : public osg::BufferData::ModifiedCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BufferData_ModifiedCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum) : osg::BufferData::ModifiedCallback(), luna_wrapper_base(L) {};
 	wrapper_osg_BufferData_ModifiedCallback(lua_State* L, lua_Table* dum, const osg::BufferData::ModifiedCallback & arg1, const osg::CopyOp & arg2) : osg::BufferData::ModifiedCallback(arg1, arg2), luna_wrapper_base(L) {};
 

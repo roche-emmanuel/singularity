@@ -11,8 +11,14 @@
 class wrapper_osgGA_CameraManipulator_CoordinateFrameCallback : public osgGA::CameraManipulator::CoordinateFrameCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_CameraManipulator_CoordinateFrameCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osg::Matrixd osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame(const osg::Vec3d & position) const
 	osg::Matrixd getCoordinateFrame(const osg::Vec3d & position) const {

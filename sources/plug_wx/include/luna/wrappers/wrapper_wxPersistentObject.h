@@ -11,8 +11,14 @@
 class wrapper_wxPersistentObject : public wxPersistentObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPersistentObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPersistentObject(lua_State* L, lua_Table* dum, void * obj) : wxPersistentObject(obj), luna_wrapper_base(L) {};
 
 	// void wxPersistentObject::Save() const

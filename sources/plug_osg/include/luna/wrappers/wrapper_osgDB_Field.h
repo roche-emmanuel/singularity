@@ -11,8 +11,14 @@
 class wrapper_osgDB_Field : public osgDB::Field, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_Field() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum) : osgDB::Field(), luna_wrapper_base(L) {};
 	wrapper_osgDB_Field(lua_State* L, lua_Table* dum, const osgDB::Field & field) : osgDB::Field(field), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osgDB_FileList : public osgDB::FileList, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FileList() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_FileList(lua_State* L, lua_Table* dum) : osgDB::FileList(), luna_wrapper_base(L) {};
 	wrapper_osgDB_FileList(lua_State* L, lua_Table* dum, const osgDB::FileList & fileList, const osg::CopyOp arg2 = osg::CopyOp::SHALLOW_COPY) : osgDB::FileList(fileList, arg2), luna_wrapper_base(L) {};
 

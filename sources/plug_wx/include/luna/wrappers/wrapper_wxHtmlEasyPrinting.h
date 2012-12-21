@@ -11,8 +11,14 @@
 class wrapper_wxHtmlEasyPrinting : public wxHtmlEasyPrinting, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlEasyPrinting() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlEasyPrinting(lua_State* L, lua_Table* dum, const wxString & name = "Printing", wxWindow * parentWindow = NULL) : wxHtmlEasyPrinting(name, parentWindow), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxZipEntry : public wxZipEntry, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxZipEntry() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

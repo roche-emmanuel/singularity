@@ -11,8 +11,14 @@
 class wrapper_wxHtmlDCRenderer : public wxHtmlDCRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlDCRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlDCRenderer(lua_State* L, lua_Table* dum) : wxHtmlDCRenderer(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

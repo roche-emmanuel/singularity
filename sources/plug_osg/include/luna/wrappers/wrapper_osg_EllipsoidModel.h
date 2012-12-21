@@ -11,8 +11,14 @@
 class wrapper_osg_EllipsoidModel : public osg::EllipsoidModel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_EllipsoidModel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, double radiusEquator = osg::WGS_84_RADIUS_EQUATOR, double radiusPolar = osg::WGS_84_RADIUS_POLAR) : osg::EllipsoidModel(radiusEquator, radiusPolar), luna_wrapper_base(L) {};
 	wrapper_osg_EllipsoidModel(lua_State* L, lua_Table* dum, const osg::EllipsoidModel & et, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::EllipsoidModel(et, copyop), luna_wrapper_base(L) {};
 

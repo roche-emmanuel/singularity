@@ -11,8 +11,14 @@
 class wrapper_osg_Point : public osg::Point, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Point() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Point(lua_State* L, lua_Table* dum) : osg::Point(), luna_wrapper_base(L) {};
 	wrapper_osg_Point(lua_State* L, lua_Table* dum, float size) : osg::Point(size), luna_wrapper_base(L) {};
 	wrapper_osg_Point(lua_State* L, lua_Table* dum, const osg::Point & point, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Point(point, copyop), luna_wrapper_base(L) {};

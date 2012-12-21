@@ -11,8 +11,14 @@
 class wrapper_wxHtmlListBox : public wxHtmlListBox, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlListBox() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxHtmlListBoxNameStr) : wxHtmlListBox(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 	wrapper_wxHtmlListBox(lua_State* L, lua_Table* dum) : wxHtmlListBox(), luna_wrapper_base(L) {};
 

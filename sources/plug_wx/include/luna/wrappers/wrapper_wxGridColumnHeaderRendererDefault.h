@@ -11,8 +11,14 @@
 class wrapper_wxGridColumnHeaderRendererDefault : public wxGridColumnHeaderRendererDefault, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxGridColumnHeaderRendererDefault() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void wxGridHeaderLabelsRenderer::DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
 	void DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const {

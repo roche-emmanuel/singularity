@@ -11,8 +11,14 @@
 class wrapper_wxBookCtrlBase : public wxBookCtrlBase, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBookCtrlBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum) : wxBookCtrlBase(), luna_wrapper_base(L) {};
 	wrapper_wxBookCtrlBase(lua_State* L, lua_Table* dum, wxWindow * parent, int winid, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) : wxBookCtrlBase(parent, winid, pos, size, style, name), luna_wrapper_base(L) {};
 

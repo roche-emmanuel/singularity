@@ -11,8 +11,14 @@
 class wrapper_osgDB_AuthenticationMap : public osgDB::AuthenticationMap, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_AuthenticationMap() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_AuthenticationMap(lua_State* L, lua_Table* dum) : osgDB::AuthenticationMap(), luna_wrapper_base(L) {};
 
 	// void osgDB::AuthenticationMap::addAuthenticationDetails(const std::string & path, osgDB::AuthenticationDetails * details)

@@ -11,8 +11,14 @@
 class wrapper_osg_AudioSink : public osg::AudioSink, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_AudioSink() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_AudioSink(lua_State* L, lua_Table* dum) : osg::AudioSink(), luna_wrapper_base(L) {};
 
 	// bool osg::Object::isSameKindAs(const osg::Object * arg1) const

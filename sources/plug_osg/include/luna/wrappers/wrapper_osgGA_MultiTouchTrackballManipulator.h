@@ -11,8 +11,14 @@
 class wrapper_osgGA_MultiTouchTrackballManipulator : public osgGA::MultiTouchTrackballManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_MultiTouchTrackballManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_MultiTouchTrackballManipulator(lua_State* L, lua_Table* dum, int flags = osgGA::StandardManipulator::DEFAULT_SETTINGS) : osgGA::MultiTouchTrackballManipulator(flags), luna_wrapper_base(L) {};
 	wrapper_osgGA_MultiTouchTrackballManipulator(lua_State* L, lua_Table* dum, const osgGA::MultiTouchTrackballManipulator & tm, const osg::CopyOp & copyOp = osg::CopyOp::SHALLOW_COPY) : osgGA::MultiTouchTrackballManipulator(tm, copyOp), luna_wrapper_base(L) {};
 

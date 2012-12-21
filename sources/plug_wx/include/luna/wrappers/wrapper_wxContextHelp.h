@@ -11,8 +11,14 @@
 class wrapper_wxContextHelp : public wxContextHelp, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxContextHelp() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxContextHelp(lua_State* L, lua_Table* dum, wxWindow * window = NULL, bool doNow = true) : wxContextHelp(window, doNow), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

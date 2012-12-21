@@ -11,8 +11,14 @@
 class wrapper_wxCaret : public wxCaret, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxCaret() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxCaret(lua_State* L, lua_Table* dum) : wxCaret(), luna_wrapper_base(L) {};
 	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, int width, int height) : wxCaret(window, width, height), luna_wrapper_base(L) {};
 	wrapper_wxCaret(lua_State* L, lua_Table* dum, wxWindow * window, const wxSize & size) : wxCaret(window, size), luna_wrapper_base(L) {};

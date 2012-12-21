@@ -11,8 +11,14 @@
 class wrapper_osg_ConstValueVisitor : public osg::ConstValueVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ConstValueVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ConstValueVisitor(lua_State* L, lua_Table* dum) : osg::ConstValueVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ConstValueVisitor::apply(const signed char & arg1)

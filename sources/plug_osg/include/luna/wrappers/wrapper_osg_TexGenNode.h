@@ -11,8 +11,14 @@
 class wrapper_osg_TexGenNode : public osg::TexGenNode, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_TexGenNode() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum) : osg::TexGenNode(), luna_wrapper_base(L) {};
 	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, osg::TexGen * texgen) : osg::TexGenNode(texgen), luna_wrapper_base(L) {};
 	wrapper_osg_TexGenNode(lua_State* L, lua_Table* dum, const osg::TexGenNode & tgb, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::TexGenNode(tgb, copyop), luna_wrapper_base(L) {};

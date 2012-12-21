@@ -11,8 +11,14 @@
 class wrapper_wxColourPickerCtrl : public wxColourPickerCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxColourPickerCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxColourPickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxColour & colour = * wxBLACK, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLRP_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxColourPickerCtrlNameStr) : wxColourPickerCtrl(parent, id, colour, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

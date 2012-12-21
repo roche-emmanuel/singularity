@@ -11,8 +11,14 @@
 class wrapper_wxHelpEvent : public wxHelpEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHelpEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHelpEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int winid = 0, const wxPoint & pt = wxDefaultPosition, wxHelpEvent::Origin origin = wxHelpEvent::Origin_Unknown) : wxHelpEvent(type, winid, pt, origin), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

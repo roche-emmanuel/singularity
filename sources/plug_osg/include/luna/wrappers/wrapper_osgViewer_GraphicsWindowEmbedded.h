@@ -11,8 +11,14 @@
 class wrapper_osgViewer_GraphicsWindowEmbedded : public osgViewer::GraphicsWindowEmbedded, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_GraphicsWindowEmbedded() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, osg::GraphicsContext::Traits * traits = 0) : osgViewer::GraphicsWindowEmbedded(traits), luna_wrapper_base(L) {};
 	wrapper_osgViewer_GraphicsWindowEmbedded(lua_State* L, lua_Table* dum, int x, int y, int width, int height) : osgViewer::GraphicsWindowEmbedded(x, y, width, height), luna_wrapper_base(L) {};
 

@@ -11,8 +11,14 @@
 class wrapper_osg_Node : public osg::Node, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Node() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Node(lua_State* L, lua_Table* dum) : osg::Node(), luna_wrapper_base(L) {};
 	wrapper_osg_Node(lua_State* L, lua_Table* dum, const osg::Node & arg1, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Node(arg1, copyop), luna_wrapper_base(L) {};
 

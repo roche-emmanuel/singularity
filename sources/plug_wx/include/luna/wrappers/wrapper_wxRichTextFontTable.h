@@ -11,8 +11,14 @@
 class wrapper_wxRichTextFontTable : public wxRichTextFontTable, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextFontTable() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

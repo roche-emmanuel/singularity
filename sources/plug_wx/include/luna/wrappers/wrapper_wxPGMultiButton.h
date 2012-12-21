@@ -11,8 +11,14 @@
 class wrapper_wxPGMultiButton : public wxPGMultiButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPGMultiButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPGMultiButton(lua_State* L, lua_Table* dum, wxPropertyGrid * pg, const wxSize & sz) : wxPGMultiButton(pg, sz), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

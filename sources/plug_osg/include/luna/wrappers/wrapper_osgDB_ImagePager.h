@@ -11,8 +11,14 @@
 class wrapper_osgDB_ImagePager : public osgDB::ImagePager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_ImagePager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_ImagePager(lua_State* L, lua_Table* dum) : osgDB::ImagePager(), luna_wrapper_base(L) {};
 
 	// double osgDB::ImagePager::getPreLoadTime() const

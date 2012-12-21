@@ -11,8 +11,14 @@
 class wrapper_wxImage : public wxImage, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxImage() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxImage(lua_State* L, lua_Table* dum) : wxImage(), luna_wrapper_base(L) {};
 	wrapper_wxImage(lua_State* L, lua_Table* dum, int width, int height, bool clear = true) : wxImage(width, height, clear), luna_wrapper_base(L) {};
 	wrapper_wxImage(lua_State* L, lua_Table* dum, const wxSize & sz, bool clear = true) : wxImage(sz, clear), luna_wrapper_base(L) {};

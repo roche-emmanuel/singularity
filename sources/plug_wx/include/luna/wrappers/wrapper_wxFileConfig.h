@@ -11,8 +11,14 @@
 class wrapper_wxFileConfig : public wxFileConfig, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFileConfig() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

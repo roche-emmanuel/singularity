@@ -11,8 +11,14 @@
 class wrapper_wxFilePickerCtrl : public wxFilePickerCtrl, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFilePickerCtrl() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxFilePickerCtrl(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxString & path = wxEmptyString, const wxString & message = wxFileSelectorPromptStr, const wxString & wildcard = wxFileSelectorDefaultWildcardStr, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxFLP_DEFAULT_STYLE, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxFilePickerCtrlNameStr) : wxFilePickerCtrl(parent, id, path, message, wildcard, pos, size, style, validator, name), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

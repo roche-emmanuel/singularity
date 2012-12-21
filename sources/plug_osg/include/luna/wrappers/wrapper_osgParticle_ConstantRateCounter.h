@@ -11,8 +11,14 @@
 class wrapper_osgParticle_ConstantRateCounter : public osgParticle::ConstantRateCounter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_ConstantRateCounter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_ConstantRateCounter(lua_State* L, lua_Table* dum) : osgParticle::ConstantRateCounter(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_ConstantRateCounter(lua_State* L, lua_Table* dum, const osgParticle::ConstantRateCounter & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::ConstantRateCounter(copy, copyop), luna_wrapper_base(L) {};
 

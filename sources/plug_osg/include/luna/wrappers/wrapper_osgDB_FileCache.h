@@ -11,8 +11,14 @@
 class wrapper_osgDB_FileCache : public osgDB::FileCache, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FileCache() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_FileCache(lua_State* L, lua_Table* dum, const std::string & path) : osgDB::FileCache(path), luna_wrapper_base(L) {};
 
 	// bool osgDB::FileCache::isFileAppropriateForFileCache(const std::string & originalFileName) const

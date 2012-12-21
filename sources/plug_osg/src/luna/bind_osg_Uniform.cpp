@@ -1491,6 +1491,22 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setInt(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setFloat(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_computeDataVariance(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -5274,6 +5290,36 @@ public:
 		return 1;
 	}
 
+	// void osg::Uniform::setInt(osg::Uniform * unif, int val)
+	static int _bind_setInt(lua_State *L) {
+		if (!_lg_typecheck_setInt(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::setInt(osg::Uniform * unif, int val) function, expected prototype:\nvoid osg::Uniform::setInt(osg::Uniform * unif, int val)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Uniform* unif=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1));
+		int val=(int)lua_tointeger(L,2);
+
+		setInt(unif, val);
+
+		return 0;
+	}
+
+	// void osg::Uniform::setFloat(osg::Uniform * unif, float val)
+	static int _bind_setFloat(lua_State *L) {
+		if (!_lg_typecheck_setFloat(L)) {
+			luna_printStack(L);
+			luaL_error(L, "luna typecheck failed in void osg::Uniform::setFloat(osg::Uniform * unif, float val) function, expected prototype:\nvoid osg::Uniform::setFloat(osg::Uniform * unif, float val)\nClass arguments details:\narg 1 ID = 50169651\n");
+		}
+
+		osg::Uniform* unif=(Luna< osg::Referenced >::checkSubType< osg::Uniform >(L,1));
+		float val=(float)lua_tonumber(L,2);
+
+		setFloat(unif, val);
+
+		return 0;
+	}
+
 	// void osg::Uniform::base_computeDataVariance()
 	static int _bind_base_computeDataVariance(lua_State *L) {
 		if (!_lg_typecheck_base_computeDataVariance(L)) {
@@ -5689,6 +5735,8 @@ luna_RegType LunaTraits< osg::Uniform >::methods[] = {
 	{"getTypeId", &luna_wrapper_osg_Uniform::_bind_getTypeId},
 	{"getGlApiType", &luna_wrapper_osg_Uniform::_bind_getGlApiType},
 	{"getInternalArrayType", &luna_wrapper_osg_Uniform::_bind_getInternalArrayType},
+	{"setInt", &luna_wrapper_osg_Uniform::_bind_setInt},
+	{"setFloat", &luna_wrapper_osg_Uniform::_bind_setFloat},
 	{"base_computeDataVariance", &luna_wrapper_osg_Uniform::_bind_base_computeDataVariance},
 	{"base_setUserData", &luna_wrapper_osg_Uniform::_bind_base_setUserData},
 	{"base_getUserData", &luna_wrapper_osg_Uniform::_bind_base_getUserData},

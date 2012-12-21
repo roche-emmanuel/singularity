@@ -11,8 +11,14 @@
 class wrapper_wxRichMessageDialog : public wxRichMessageDialog, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichMessageDialog() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRichMessageDialog(lua_State* L, lua_Table* dum, wxWindow * parent, const wxString & message, const wxString & caption = wxMessageBoxCaptionStr, long style = wxOK | ::wxCENTRE) : wxRichMessageDialog(parent, message, caption, style), luna_wrapper_base(L) {};
 
 	// int wxRichMessageDialog::ShowModal()

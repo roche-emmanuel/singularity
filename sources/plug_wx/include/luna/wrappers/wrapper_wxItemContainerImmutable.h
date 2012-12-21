@@ -11,8 +11,14 @@
 class wrapper_wxItemContainerImmutable : public wxItemContainerImmutable, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxItemContainerImmutable() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxItemContainerImmutable(lua_State* L, lua_Table* dum) : wxItemContainerImmutable(), luna_wrapper_base(L) {};
 
 	// unsigned int wxItemContainerImmutable::GetCount() const

@@ -11,8 +11,14 @@
 class wrapper_osg_Texture3D_SubloadCallback : public osg::Texture3D::SubloadCallback, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture3D_SubloadCallback() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Texture3D::SubloadCallback::load(const osg::Texture3D & texture, osg::State & state) const
 	void load(const osg::Texture3D & texture, osg::State & state) const {

@@ -11,8 +11,14 @@
 class wrapper_osg_NodeVisitor_DatabaseRequestHandler : public osg::NodeVisitor::DatabaseRequestHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_NodeVisitor_DatabaseRequestHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_NodeVisitor_DatabaseRequestHandler(lua_State* L, lua_Table* dum) : osg::NodeVisitor::DatabaseRequestHandler(), luna_wrapper_base(L) {};
 
 	// void osg::NodeVisitor::DatabaseRequestHandler::requestNodeFile(const std::string & fileName, osg::NodePath & nodePath, float priority, const osg::FrameStamp * framestamp, osg::ref_ptr< osg::Referenced > & databaseRequest, const osg::Referenced * options = 0)

@@ -11,8 +11,14 @@
 class wrapper_wxHtmlColourCell : public wxHtmlColourCell, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxHtmlColourCell() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxHtmlColourCell(lua_State* L, lua_Table* dum, const wxColour & clr, int flags = wxHTML_CLR_FOREGROUND) : wxHtmlColourCell(clr, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

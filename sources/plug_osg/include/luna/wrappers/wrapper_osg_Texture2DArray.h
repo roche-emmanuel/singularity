@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2DArray : public osg::Texture2DArray, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2DArray() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture2DArray(lua_State* L, lua_Table* dum) : osg::Texture2DArray(), luna_wrapper_base(L) {};
 	wrapper_osg_Texture2DArray(lua_State* L, lua_Table* dum, const osg::Texture2DArray & cm, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Texture2DArray(cm, copyop), luna_wrapper_base(L) {};
 

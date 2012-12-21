@@ -11,8 +11,14 @@
 class wrapper_wxCommandProcessor : public wxCommandProcessor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxCommandProcessor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxCommandProcessor(lua_State* L, lua_Table* dum, int maxCommands = -1) : wxCommandProcessor(maxCommands), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

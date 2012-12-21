@@ -11,8 +11,14 @@
 class wrapper_wxSashLayoutWindow : public wxSashLayoutWindow, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSashLayoutWindow() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSashLayoutWindow(lua_State* L, lua_Table* dum) : wxSashLayoutWindow(), luna_wrapper_base(L) {};
 	wrapper_wxSashLayoutWindow(lua_State* L, lua_Table* dum, wxSashLayoutWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = wxCLIP_CHILDREN | wxSW_3D, const wxString & name = "layoutWindow") : wxSashLayoutWindow(parent, id, pos, size, style, name), luna_wrapper_base(L) {};
 

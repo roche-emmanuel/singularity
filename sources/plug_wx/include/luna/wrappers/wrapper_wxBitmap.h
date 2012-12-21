@@ -11,8 +11,14 @@
 class wrapper_wxBitmap : public wxBitmap, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBitmap() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBitmap(lua_State* L, lua_Table* dum) : wxBitmap(), luna_wrapper_base(L) {};
 	wrapper_wxBitmap(lua_State* L, lua_Table* dum, const wxBitmap & bitmap) : wxBitmap(bitmap), luna_wrapper_base(L) {};
 	wrapper_wxBitmap(lua_State* L, lua_Table* dum, int width, int height, int depth = (-1)) : wxBitmap(width, height, depth), luna_wrapper_base(L) {};

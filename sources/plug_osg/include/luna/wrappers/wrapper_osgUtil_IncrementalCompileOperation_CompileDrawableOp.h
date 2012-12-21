@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IncrementalCompileOperation_CompileDrawableOp : public osgUtil::IncrementalCompileOperation::CompileDrawableOp, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IncrementalCompileOperation_CompileDrawableOp() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

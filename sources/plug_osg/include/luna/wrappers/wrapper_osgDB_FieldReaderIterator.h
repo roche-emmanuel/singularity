@@ -11,8 +11,14 @@
 class wrapper_osgDB_FieldReaderIterator : public osgDB::FieldReaderIterator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_FieldReaderIterator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum) : osgDB::FieldReaderIterator(), luna_wrapper_base(L) {};
 	wrapper_osgDB_FieldReaderIterator(lua_State* L, lua_Table* dum, const osgDB::FieldReaderIterator & ic) : osgDB::FieldReaderIterator(ic), luna_wrapper_base(L) {};
 

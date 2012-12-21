@@ -11,8 +11,14 @@
 class wrapper_osgViewer_HelpHandler : public osgViewer::HelpHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_HelpHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_HelpHandler(lua_State* L, lua_Table* dum, osg::ApplicationUsage * au = 0) : osgViewer::HelpHandler(au), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

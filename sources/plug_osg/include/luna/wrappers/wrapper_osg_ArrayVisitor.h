@@ -11,8 +11,14 @@
 class wrapper_osg_ArrayVisitor : public osg::ArrayVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ArrayVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ArrayVisitor(lua_State* L, lua_Table* dum) : osg::ArrayVisitor(), luna_wrapper_base(L) {};
 
 	// void osg::ArrayVisitor::apply(osg::Array & arg1)

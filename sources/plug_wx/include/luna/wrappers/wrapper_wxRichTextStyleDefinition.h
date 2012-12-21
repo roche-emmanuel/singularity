@@ -11,8 +11,14 @@
 class wrapper_wxRichTextStyleDefinition : public wxRichTextStyleDefinition, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRichTextStyleDefinition() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

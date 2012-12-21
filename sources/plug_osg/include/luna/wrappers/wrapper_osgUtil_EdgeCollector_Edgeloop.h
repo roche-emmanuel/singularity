@@ -11,8 +11,14 @@
 class wrapper_osgUtil_EdgeCollector_Edgeloop : public osgUtil::EdgeCollector::Edgeloop, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_EdgeCollector_Edgeloop() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 
 

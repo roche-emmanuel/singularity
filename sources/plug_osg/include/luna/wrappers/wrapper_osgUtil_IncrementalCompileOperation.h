@@ -11,8 +11,14 @@
 class wrapper_osgUtil_IncrementalCompileOperation : public osgUtil::IncrementalCompileOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_IncrementalCompileOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Operation::release()
 	void release() {

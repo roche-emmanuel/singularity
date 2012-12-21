@@ -11,8 +11,14 @@
 class wrapper_wxQuantize : public wxQuantize, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxQuantize() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxQuantize(lua_State* L, lua_Table* dum) : wxQuantize(), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

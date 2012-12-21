@@ -11,8 +11,14 @@
 class wrapper_osg_GraphicsOperation : public osg::GraphicsOperation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GraphicsOperation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_GraphicsOperation(lua_State* L, lua_Table* dum, const std::string & name, bool keep) : osg::GraphicsOperation(name, keep), luna_wrapper_base(L) {};
 
 	// void osg::Operation::release()

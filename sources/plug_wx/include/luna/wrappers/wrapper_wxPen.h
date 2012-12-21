@@ -11,8 +11,14 @@
 class wrapper_wxPen : public wxPen, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPen() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPen(lua_State* L, lua_Table* dum) : wxPen(), luna_wrapper_base(L) {};
 	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxColour & colour, int width = 1, wxPenStyle style = ::wxPENSTYLE_SOLID) : wxPen(colour, width, style), luna_wrapper_base(L) {};
 	wrapper_wxPen(lua_State* L, lua_Table* dum, const wxBitmap & stipple, int width) : wxPen(stipple, width), luna_wrapper_base(L) {};

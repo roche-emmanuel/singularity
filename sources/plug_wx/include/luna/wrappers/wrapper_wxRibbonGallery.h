@@ -11,8 +11,14 @@
 class wrapper_wxRibbonGallery : public wxRibbonGallery, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonGallery() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonGallery(lua_State* L, lua_Table* dum) : wxRibbonGallery(), luna_wrapper_base(L) {};
 	wrapper_wxRibbonGallery(lua_State* L, lua_Table* dum, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) : wxRibbonGallery(parent, id, pos, size, style), luna_wrapper_base(L) {};
 

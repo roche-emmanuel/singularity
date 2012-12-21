@@ -11,8 +11,14 @@
 class wrapper_osgViewer_Renderer : public osgViewer::Renderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_Renderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_Renderer(lua_State* L, lua_Table* dum, osg::Camera * camera) : osgViewer::Renderer(camera), luna_wrapper_base(L) {};
 
 	// void osgViewer::Renderer::cull()

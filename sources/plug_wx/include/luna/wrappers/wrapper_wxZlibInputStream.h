@@ -11,8 +11,14 @@
 class wrapper_wxZlibInputStream : public wxZlibInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxZlibInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream & stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) {};
 	wrapper_wxZlibInputStream(lua_State* L, lua_Table* dum, wxInputStream * stream, int flags = 3) : wxZlibInputStream(stream, flags), luna_wrapper_base(L) {};
 

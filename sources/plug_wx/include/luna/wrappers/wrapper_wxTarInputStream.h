@@ -11,8 +11,14 @@
 class wrapper_wxTarInputStream : public wxTarInputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTarInputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxTarInputStream::CloseEntry()
 	bool CloseEntry() {

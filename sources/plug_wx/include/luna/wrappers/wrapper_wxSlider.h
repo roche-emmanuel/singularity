@@ -11,8 +11,14 @@
 class wrapper_wxSlider : public wxSlider, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSlider() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSlider(lua_State* L, lua_Table* dum) : wxSlider(), luna_wrapper_base(L) {};
 	wrapper_wxSlider(lua_State* L, lua_Table* dum, wxWindow * parent, int id, int value, int minValue, int maxValue, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxHORIZONTAL, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxSliderNameStr) : wxSlider(parent, id, value, minValue, maxValue, pos, size, style, validator, name), luna_wrapper_base(L) {};
 

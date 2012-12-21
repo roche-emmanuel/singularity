@@ -11,8 +11,14 @@
 class wrapper_osg_OperationQueue : public osg::OperationQueue, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_OperationQueue() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_OperationQueue(lua_State* L, lua_Table* dum) : osg::OperationQueue(), luna_wrapper_base(L) {};
 
 

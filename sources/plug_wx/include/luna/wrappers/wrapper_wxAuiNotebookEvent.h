@@ -11,8 +11,14 @@
 class wrapper_wxAuiNotebookEvent : public wxAuiNotebookEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAuiNotebookEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAuiNotebookEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0) : wxAuiNotebookEvent(command_type, win_id), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

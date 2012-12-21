@@ -11,8 +11,14 @@
 class wrapper_wxEventLoopBase : public wxEventLoopBase, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxEventLoopBase() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// int wxEventLoopBase::Run()
 	int Run() {

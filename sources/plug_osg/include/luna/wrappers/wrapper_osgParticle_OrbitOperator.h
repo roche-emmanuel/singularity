@@ -11,8 +11,14 @@
 class wrapper_osgParticle_OrbitOperator : public osgParticle::OrbitOperator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_OrbitOperator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum) : osgParticle::OrbitOperator(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_OrbitOperator(lua_State* L, lua_Table* dum, const osgParticle::OrbitOperator & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::OrbitOperator(copy, copyop), luna_wrapper_base(L) {};
 

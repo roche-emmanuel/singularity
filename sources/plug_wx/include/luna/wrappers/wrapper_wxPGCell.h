@@ -11,8 +11,14 @@
 class wrapper_wxPGCell : public wxPGCell, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxPGCell() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxPGCell(lua_State* L, lua_Table* dum) : wxPGCell(), luna_wrapper_base(L) {};
 	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxPGCell & other) : wxPGCell(other), luna_wrapper_base(L) {};
 	wrapper_wxPGCell(lua_State* L, lua_Table* dum, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) : wxPGCell(text, bitmap, fgCol, bgCol), luna_wrapper_base(L) {};

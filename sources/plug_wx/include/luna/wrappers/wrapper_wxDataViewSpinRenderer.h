@@ -11,8 +11,14 @@
 class wrapper_wxDataViewSpinRenderer : public wxDataViewSpinRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewSpinRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewSpinRenderer(lua_State* L, lua_Table* dum, int min, int max, wxDataViewCellMode mode = ::wxDATAVIEW_CELL_EDITABLE, int align = -1) : wxDataViewSpinRenderer(min, max, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxTextDataObject : public wxTextDataObject, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTextDataObject() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTextDataObject(lua_State* L, lua_Table* dum, const wxString & text = wxEmptyString) : wxTextDataObject(text), luna_wrapper_base(L) {};
 
 	// size_t wxDataObject::GetFormatCount(wxDataObject::Direction dir = wxDataObject::Get) const

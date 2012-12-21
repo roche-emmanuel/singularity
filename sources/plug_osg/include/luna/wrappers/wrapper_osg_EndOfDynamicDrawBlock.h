@@ -11,8 +11,14 @@
 class wrapper_osg_EndOfDynamicDrawBlock : public osg::EndOfDynamicDrawBlock, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_EndOfDynamicDrawBlock() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_EndOfDynamicDrawBlock(lua_State* L, lua_Table* dum, unsigned int arg1) : osg::EndOfDynamicDrawBlock(arg1), luna_wrapper_base(L) {};
 
 	// void osg::EndOfDynamicDrawBlock::completed(osg::State * state)

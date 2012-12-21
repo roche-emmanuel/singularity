@@ -11,8 +11,14 @@
 class wrapper_osg_UniformBufferBinding : public osg::UniformBufferBinding, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_UniformBufferBinding() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum) : osg::UniformBufferBinding(), luna_wrapper_base(L) {};
 	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index) : osg::UniformBufferBinding(index), luna_wrapper_base(L) {};
 	wrapper_osg_UniformBufferBinding(lua_State* L, lua_Table* dum, unsigned int index, osg::BufferObject * bo, int offset, int size) : osg::UniformBufferBinding(index, bo, offset, size), luna_wrapper_base(L) {};

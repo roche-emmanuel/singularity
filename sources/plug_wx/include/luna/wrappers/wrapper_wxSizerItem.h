@@ -11,8 +11,14 @@
 class wrapper_wxSizerItem : public wxSizerItem, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxSizerItem() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxSizerItem(lua_State* L, lua_Table* dum, int width, int height, int proportion = 0, int flag = 0, int border = 0, wxObject * userData = NULL) : wxSizerItem(width, height, proportion, flag, border, userData), luna_wrapper_base(L) {};
 	wrapper_wxSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, const wxSizerFlags & flags) : wxSizerItem(window, flags), luna_wrapper_base(L) {};
 	wrapper_wxSizerItem(lua_State* L, lua_Table* dum, wxWindow * window, int proportion = 0, int flag = 0, int border = 0, wxObject * userData = NULL) : wxSizerItem(window, proportion, flag, border, userData), luna_wrapper_base(L) {};

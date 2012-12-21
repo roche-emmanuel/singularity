@@ -11,8 +11,14 @@
 class wrapper_wxDatagramSocket : public wxDatagramSocket, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDatagramSocket() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDatagramSocket(lua_State* L, lua_Table* dum, const wxSockAddress & addr, int flags = ::wxSOCKET_NONE) : wxDatagramSocket(addr, flags), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

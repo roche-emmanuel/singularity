@@ -11,8 +11,14 @@
 class wrapper_osg_ShaderComponent : public osg::ShaderComponent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ShaderComponent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum) : osg::ShaderComponent(), luna_wrapper_base(L) {};
 	wrapper_osg_ShaderComponent(lua_State* L, lua_Table* dum, const osg::ShaderComponent & sc, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ShaderComponent(sc, copyop), luna_wrapper_base(L) {};
 

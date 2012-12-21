@@ -11,8 +11,14 @@
 class wrapper_wxFontEnumerator : public wxFontEnumerator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxFontEnumerator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// bool wxFontEnumerator::EnumerateEncodings(const wxString & font = wxEmptyString)
 	bool EnumerateEncodings(const wxString & font = wxEmptyString) {

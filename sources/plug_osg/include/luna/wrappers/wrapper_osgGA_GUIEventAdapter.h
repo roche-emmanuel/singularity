@@ -11,8 +11,14 @@
 class wrapper_osgGA_GUIEventAdapter : public osgGA::GUIEventAdapter, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_GUIEventAdapter() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum) : osgGA::GUIEventAdapter(), luna_wrapper_base(L) {};
 	wrapper_osgGA_GUIEventAdapter(lua_State* L, lua_Table* dum, const osgGA::GUIEventAdapter & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgGA::GUIEventAdapter(rhs, copyop), luna_wrapper_base(L) {};
 

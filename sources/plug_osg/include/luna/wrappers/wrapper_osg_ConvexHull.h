@@ -11,8 +11,14 @@
 class wrapper_osg_ConvexHull : public osg::ConvexHull, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_ConvexHull() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_ConvexHull(lua_State* L, lua_Table* dum) : osg::ConvexHull(), luna_wrapper_base(L) {};
 	wrapper_osg_ConvexHull(lua_State* L, lua_Table* dum, const osg::ConvexHull & hull, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::ConvexHull(hull, copyop), luna_wrapper_base(L) {};
 

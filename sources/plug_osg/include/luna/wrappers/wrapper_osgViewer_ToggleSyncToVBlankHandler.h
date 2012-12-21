@@ -11,8 +11,14 @@
 class wrapper_osgViewer_ToggleSyncToVBlankHandler : public osgViewer::ToggleSyncToVBlankHandler, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_ToggleSyncToVBlankHandler() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_ToggleSyncToVBlankHandler(lua_State* L, lua_Table* dum) : osgViewer::ToggleSyncToVBlankHandler(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

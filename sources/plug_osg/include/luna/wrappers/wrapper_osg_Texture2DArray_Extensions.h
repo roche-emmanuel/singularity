@@ -11,8 +11,14 @@
 class wrapper_osg_Texture2DArray_Extensions : public osg::Texture2DArray::Extensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture2DArray_Extensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture2DArray_Extensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::Texture2DArray::Extensions(contextID), luna_wrapper_base(L) {};
 
 

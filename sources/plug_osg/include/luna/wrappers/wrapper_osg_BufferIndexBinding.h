@@ -11,8 +11,14 @@
 class wrapper_osg_BufferIndexBinding : public osg::BufferIndexBinding, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_BufferIndexBinding() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_BufferIndexBinding(lua_State* L, lua_Table* dum, unsigned int target, unsigned int index) : osg::BufferIndexBinding(target, index), luna_wrapper_base(L) {};
 	wrapper_osg_BufferIndexBinding(lua_State* L, lua_Table* dum, unsigned int target, unsigned int index, osg::BufferObject * bo, int offset, int size) : osg::BufferIndexBinding(target, index, bo, offset, size), luna_wrapper_base(L) {};
 	wrapper_osg_BufferIndexBinding(lua_State* L, lua_Table* dum, const osg::BufferIndexBinding & rhs, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::BufferIndexBinding(rhs, copyop), luna_wrapper_base(L) {};

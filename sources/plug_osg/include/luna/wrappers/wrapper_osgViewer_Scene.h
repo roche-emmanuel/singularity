@@ -11,8 +11,14 @@
 class wrapper_osgViewer_Scene : public osgViewer::Scene, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgViewer_Scene() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgViewer_Scene(lua_State* L, lua_Table* dum) : osgViewer::Scene(), luna_wrapper_base(L) {};
 
 	// const char * osgViewer::Scene::className() const

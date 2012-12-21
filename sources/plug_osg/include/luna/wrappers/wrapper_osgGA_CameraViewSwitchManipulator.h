@@ -11,8 +11,14 @@
 class wrapper_osgGA_CameraViewSwitchManipulator : public osgGA::CameraViewSwitchManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_CameraViewSwitchManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgGA_CameraViewSwitchManipulator(lua_State* L, lua_Table* dum) : osgGA::CameraViewSwitchManipulator(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

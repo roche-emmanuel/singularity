@@ -11,8 +11,14 @@
 class wrapper_wxContextMenuEvent : public wxContextMenuEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxContextMenuEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxContextMenuEvent(lua_State* L, lua_Table* dum, int type = wxEVT_NULL, int id = 0, const wxPoint & pos = wxDefaultPosition) : wxContextMenuEvent(type, id, pos), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

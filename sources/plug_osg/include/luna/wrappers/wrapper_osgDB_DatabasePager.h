@@ -11,8 +11,14 @@
 class wrapper_osgDB_DatabasePager : public osgDB::DatabasePager, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgDB_DatabasePager() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum) : osgDB::DatabasePager(), luna_wrapper_base(L) {};
 	wrapper_osgDB_DatabasePager(lua_State* L, lua_Table* dum, const osgDB::DatabasePager & rhs) : osgDB::DatabasePager(rhs), luna_wrapper_base(L) {};
 

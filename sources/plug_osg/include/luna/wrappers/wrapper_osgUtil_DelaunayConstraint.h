@@ -11,8 +11,14 @@
 class wrapper_osgUtil_DelaunayConstraint : public osgUtil::DelaunayConstraint, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_DelaunayConstraint() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_DelaunayConstraint(lua_State* L, lua_Table* dum) : osgUtil::DelaunayConstraint(), luna_wrapper_base(L) {};
 
 	// void osg::Object::setName(const std::string & name)

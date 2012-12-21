@@ -11,8 +11,14 @@
 class wrapper_wxMessageOutputDebug : public wxMessageOutputDebug, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxMessageOutputDebug() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxMessageOutputDebug(lua_State* L, lua_Table* dum) : wxMessageOutputDebug(), luna_wrapper_base(L) {};
 
 	// void wxMessageOutput::Output(const wxString & str)

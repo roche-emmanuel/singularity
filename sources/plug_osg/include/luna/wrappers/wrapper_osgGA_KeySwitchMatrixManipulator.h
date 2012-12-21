@@ -11,8 +11,14 @@
 class wrapper_osgGA_KeySwitchMatrixManipulator : public osgGA::KeySwitchMatrixManipulator, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgGA_KeySwitchMatrixManipulator() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// void osg::Object::setName(const std::string & name)
 	void setName(const std::string & name) {

@@ -11,8 +11,14 @@
 class wrapper_osg_GraphicsContext_WindowingSystemInterface : public osg::GraphicsContext::WindowingSystemInterface, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_GraphicsContext_WindowingSystemInterface() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// osg::GraphicsContext * osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext(osg::GraphicsContext::Traits * traits)
 	osg::GraphicsContext * createGraphicsContext(osg::GraphicsContext::Traits * traits) {

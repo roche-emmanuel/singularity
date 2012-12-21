@@ -11,8 +11,14 @@
 class wrapper_wxDataViewBitmapRenderer : public wxDataViewBitmapRenderer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxDataViewBitmapRenderer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxDataViewBitmapRenderer(lua_State* L, lua_Table* dum, const wxString & varianttype = "wxBitmap", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) : wxDataViewBitmapRenderer(varianttype, mode, align), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

@@ -11,8 +11,14 @@
 class wrapper_wxScrollEvent : public wxScrollEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxScrollEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxScrollEvent(lua_State* L, lua_Table* dum, int commandType = wxEVT_NULL, int id = 0, int pos = 0, int orientation = 0) : wxScrollEvent(commandType, id, pos, orientation), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

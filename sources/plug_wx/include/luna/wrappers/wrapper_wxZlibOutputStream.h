@@ -11,8 +11,14 @@
 class wrapper_wxZlibOutputStream : public wxZlibOutputStream, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxZlibOutputStream() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 
 	// wxClassInfo * wxObject::GetClassInfo() const
 	wxClassInfo * GetClassInfo() const {

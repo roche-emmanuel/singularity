@@ -11,8 +11,14 @@
 class wrapper_osg_Texture_TextureObjectSet : public osg::Texture::TextureObjectSet, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Texture_TextureObjectSet() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Texture_TextureObjectSet(lua_State* L, lua_Table* dum, osg::Texture::TextureObjectManager * parent, const osg::Texture::TextureProfile & profile) : osg::Texture::TextureObjectSet(parent, profile), luna_wrapper_base(L) {};
 
 

@@ -11,8 +11,14 @@
 class wrapper_osgText_Bevel : public osgText::Bevel, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgText_Bevel() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgText_Bevel(lua_State* L, lua_Table* dum) : osgText::Bevel(), luna_wrapper_base(L) {};
 	wrapper_osgText_Bevel(lua_State* L, lua_Table* dum, const osgText::Bevel & bevel, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgText::Bevel(bevel, copyop), luna_wrapper_base(L) {};
 

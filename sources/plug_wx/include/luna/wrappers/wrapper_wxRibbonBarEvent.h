@@ -11,8 +11,14 @@
 class wrapper_wxRibbonBarEvent : public wxRibbonBarEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxRibbonBarEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxRibbonBarEvent(lua_State* L, lua_Table* dum, int command_type = wxEVT_NULL, int win_id = 0, wxRibbonPage * page = NULL) : wxRibbonBarEvent(command_type, win_id, page), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

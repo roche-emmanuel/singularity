@@ -11,8 +11,14 @@
 class wrapper_sgt_FileLogger : public sgt::FileLogger, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_sgt_FileLogger() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum) : sgt::FileLogger(), luna_wrapper_base(L) {};
 	wrapper_sgt_FileLogger(lua_State* L, lua_Table* dum, const std::string & filename, bool append = false, const std::string & name = "") : sgt::FileLogger(filename, append, name), luna_wrapper_base(L) {};
 

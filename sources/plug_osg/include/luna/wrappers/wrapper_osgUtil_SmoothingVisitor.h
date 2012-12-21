@@ -11,8 +11,14 @@
 class wrapper_osgUtil_SmoothingVisitor : public osgUtil::SmoothingVisitor, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgUtil_SmoothingVisitor() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgUtil_SmoothingVisitor(lua_State* L, lua_Table* dum) : osgUtil::SmoothingVisitor(), luna_wrapper_base(L) {};
 
 	// const char * osg::NodeVisitor::libraryName() const

@@ -11,8 +11,14 @@
 class wrapper_osgParticle_SegmentPlacer : public osgParticle::SegmentPlacer, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osgParticle_SegmentPlacer() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osgParticle_SegmentPlacer(lua_State* L, lua_Table* dum) : osgParticle::SegmentPlacer(), luna_wrapper_base(L) {};
 	wrapper_osgParticle_SegmentPlacer(lua_State* L, lua_Table* dum, const osgParticle::SegmentPlacer & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osgParticle::SegmentPlacer(copy, copyop), luna_wrapper_base(L) {};
 

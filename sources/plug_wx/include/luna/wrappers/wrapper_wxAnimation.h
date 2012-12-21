@@ -11,8 +11,14 @@
 class wrapper_wxAnimation : public wxAnimation, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxAnimation() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxAnimation & anim) : wxAnimation(anim), luna_wrapper_base(L) {};
 	wrapper_wxAnimation(lua_State* L, lua_Table* dum, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) : wxAnimation(name, type), luna_wrapper_base(L) {};
 

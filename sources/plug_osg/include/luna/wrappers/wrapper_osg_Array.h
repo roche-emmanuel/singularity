@@ -11,8 +11,14 @@
 class wrapper_osg_Array : public osg::Array, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_Array() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_Array(lua_State* L, lua_Table* dum, osg::Array::Type arrayType = osg::Array::ArrayType, int dataSize = 0, unsigned int dataType = 0) : osg::Array(arrayType, dataSize, dataType), luna_wrapper_base(L) {};
 	wrapper_osg_Array(lua_State* L, lua_Table* dum, const osg::Array & array, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) : osg::Array(array, copyop), luna_wrapper_base(L) {};
 

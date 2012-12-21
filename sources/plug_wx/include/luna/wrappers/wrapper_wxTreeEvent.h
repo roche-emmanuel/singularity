@@ -11,8 +11,14 @@
 class wrapper_wxTreeEvent : public wxTreeEvent, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxTreeEvent() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxTreeEvent(lua_State* L, lua_Table* dum, int commandType, wxTreeCtrl * tree, const wxTreeItemId & item = wxTreeItemId ()) : wxTreeEvent(commandType, tree, item), luna_wrapper_base(L) {};
 
 	// wxClassInfo * wxObject::GetClassInfo() const

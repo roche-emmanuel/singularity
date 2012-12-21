@@ -11,8 +11,14 @@
 class wrapper_wxBitmapToggleButton : public wxBitmapToggleButton, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_wxBitmapToggleButton() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_wxBitmapToggleButton(lua_State* L, lua_Table* dum) : wxBitmapToggleButton(), luna_wrapper_base(L) {};
 	wrapper_wxBitmapToggleButton(lua_State* L, lua_Table* dum, wxWindow * parent, int id, const wxBitmap & label, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxValidator & val = wxDefaultValidator, const wxString & name = wxCheckBoxNameStr) : wxBitmapToggleButton(parent, id, label, pos, size, style, val, name), luna_wrapper_base(L) {};
 

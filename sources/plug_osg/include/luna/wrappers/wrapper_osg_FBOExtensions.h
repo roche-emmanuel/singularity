@@ -11,8 +11,14 @@
 class wrapper_osg_FBOExtensions : public osg::FBOExtensions, public luna_wrapper_base {
 
 public:
-	
+		
 
+	~wrapper_osg_FBOExtensions() {
+		if(_obj.pushFunction("delete")) {
+			_obj.callFunction<void>();
+		}
+	};
+	
 	wrapper_osg_FBOExtensions(lua_State* L, lua_Table* dum, unsigned int contextID) : osg::FBOExtensions(contextID), luna_wrapper_base(L) {};
 
 
