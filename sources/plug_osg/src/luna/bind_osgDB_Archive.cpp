@@ -328,7 +328,7 @@ public:
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,50169651)) ) return false;
-		if( luatop>4 && (lua_isnil(L,5)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,5)) ) ) return false;
+		if( luatop>4 && (lua_isnil(L,5)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,5)) ) ) return false;
 		return true;
 	}
 
@@ -337,9 +337,9 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,77972206) ) return false;
-		if( (!dynamic_cast< std::istream* >(Luna< std::istream >::check(L,2))) ) return false;
+		if( (!(Luna< std::istream >::check(L,2))) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osgDB::Options* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 		return true;
 	}
 

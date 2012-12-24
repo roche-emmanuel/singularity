@@ -73,7 +73,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903840) ) return false;
-		if( (!dynamic_cast< osg::Matrixf* >(Luna< osg::Matrixf >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;
@@ -83,7 +83,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,18903838) ) return false;
-		if( (!dynamic_cast< osg::Matrixd* >(Luna< osg::Matrixd >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isnumber(L,4)==0 ) return false;
 		return true;

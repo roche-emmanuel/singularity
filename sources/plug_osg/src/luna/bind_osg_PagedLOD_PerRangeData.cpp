@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,17496146) ) return false;
-		if( (!dynamic_cast< osg::PagedLOD::PerRangeData* >(Luna< osg::PagedLOD::PerRangeData >::check(L,1))) ) return false;
+		if( (!(Luna< osg::PagedLOD::PerRangeData >::check(L,1))) ) return false;
 		return true;
 	}
 

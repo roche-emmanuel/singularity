@@ -191,7 +191,6 @@ function Class:isInteger()
 		or str:find("int") 
 		or str:find("long") 
 		or str:find("size_t") 
-		or str:find("__int64") 
 		or str:find("unsigned char") 
 		or str:find("unsigned short")
 		or str:find("^%s*char%s*[%*&]?$")
@@ -243,6 +242,11 @@ end
 function Class:isClass()
 	if type(self._base)=="string" and (self._base:find("<")) then
 		-- this is a template!
+		return true;
+	end
+	
+	local str = self:getName()
+	if str:find("__int64") then
 		return true;
 	end
 	

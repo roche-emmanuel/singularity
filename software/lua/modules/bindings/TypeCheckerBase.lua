@@ -87,13 +87,21 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 					writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !Luna<void>::has_uniqueid(L,${1},${2})) ) return false;",index,bhash,defStr)
 					if completeCheck then
 						-- use dynamic cast here:
-						writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName())						
+						if bfname==pt:getBaseName() then
+							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::check(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName())
+						else
+							writer:writeSubLine("if( ${3}(lua_isnil(L,${1})==0 && !(Luna< ${2} >::checkSubType< ${4} >(L,${1})) ) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >			
+						end
 					end
 				else
 					writer:writeSubLine("if( ${3}!Luna<void>::has_uniqueid(L,${1},${2}) ) return false;",index,bhash,defStr)				
 					if completeCheck then
 						-- use dynamic cast here:
-						writer:writeSubLine("if( ${3}(!dynamic_cast< ${4}* >(Luna< ${2} >::check(L,${1}))) ) return false;",index,bfname,defStr,pt:getBaseName())						
+						if bfname==pt:getBaseName() then
+							writer:writeSubLine("if( ${3}(!(Luna< ${2} >::check(L,${1}))) ) return false;",index,bfname,defStr)
+						else
+							writer:writeSubLine("if( ${3}(!(Luna< ${2} >::checkSubType< ${4} >(L,${1}))) ) return false;",index,bfname,defStr,pt:getBaseName()) --dynamic_cast< ${4}* >
+						end						
 					end
 				end
 			else

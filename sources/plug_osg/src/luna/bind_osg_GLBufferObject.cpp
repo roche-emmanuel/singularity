@@ -73,7 +73,7 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::BufferObject* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::BufferObject >(L,2)) ) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -85,7 +85,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::BufferObject* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::BufferObject >(L,3)) ) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}

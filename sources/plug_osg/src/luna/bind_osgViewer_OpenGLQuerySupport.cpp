@@ -81,7 +81,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,32973728) ) return false;
 		return true;
 	}
 
@@ -104,7 +104,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
@@ -112,7 +112,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 		return true;
 	}
 
@@ -138,12 +138,16 @@ public:
 	static int _bind_checkQuery(lua_State *L) {
 		if (!_lg_typecheck_checkQuery(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::checkQuery(osg::Stats * stats, osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\narg 3 ID = 32973728\n");
 		}
 
 		osg::Stats* stats=(Luna< osg::Referenced >::checkSubType< osg::Stats >(L,2));
 		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,3));
-		__int64 startTick=(__int64)lua_tointeger(L,4);
+		__int64* startTick_ptr=(Luna< __int64 >::check(L,4));
+		if( !startTick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg startTick in osgViewer::OpenGLQuerySupport::checkQuery function");
+		}
+		__int64 startTick=*startTick_ptr;
 
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
@@ -198,11 +202,15 @@ public:
 	static int _bind_initialize(lua_State *L) {
 		if (!_lg_typecheck_initialize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::initialize(osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::initialize(osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::initialize(osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::initialize(osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 32973728\n");
 		}
 
 		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		__int64 startTick=(__int64)lua_tointeger(L,3);
+		__int64* startTick_ptr=(Luna< __int64 >::check(L,3));
+		if( !startTick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg startTick in osgViewer::OpenGLQuerySupport::initialize function");
+		}
+		__int64 startTick=*startTick_ptr;
 
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {
@@ -218,11 +226,15 @@ public:
 	static int _bind_base_initialize(lua_State *L) {
 		if (!_lg_typecheck_base_initialize(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::base_initialize(osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::base_initialize(osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void osgViewer::OpenGLQuerySupport::base_initialize(osg::State * state, __int64 startTick) function, expected prototype:\nvoid osgViewer::OpenGLQuerySupport::base_initialize(osg::State * state, __int64 startTick)\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 32973728\n");
 		}
 
 		osg::State* state=(Luna< osg::Referenced >::checkSubType< osg::State >(L,2));
-		__int64 startTick=(__int64)lua_tointeger(L,3);
+		__int64* startTick_ptr=(Luna< __int64 >::check(L,3));
+		if( !startTick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg startTick in osgViewer::OpenGLQuerySupport::base_initialize function");
+		}
+		__int64 startTick=*startTick_ptr;
 
 		osgViewer::OpenGLQuerySupport* self=Luna< osg::Referenced >::checkSubType< osgViewer::OpenGLQuerySupport >(L,1);
 		if(!self) {

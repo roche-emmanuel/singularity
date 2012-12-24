@@ -99,7 +99,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,35264102) ) return false;
-		if( (!dynamic_cast< osg::ArrayVisitor* >(Luna< osg::ArrayVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArrayVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -107,7 +107,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80735172) ) return false;
-		if( (!dynamic_cast< osg::ConstArrayVisitor* >(Luna< osg::ConstArrayVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ConstArrayVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -116,7 +116,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,87991103) ) return false;
-		if( (!dynamic_cast< osg::ValueVisitor* >(Luna< osg::ValueVisitor >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ValueVisitor >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -125,7 +125,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,86989408) ) return false;
-		if( (!dynamic_cast< osg::ConstValueVisitor* >(Luna< osg::ConstValueVisitor >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ConstValueVisitor >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -237,7 +237,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,35264102) ) return false;
-		if( (!dynamic_cast< osg::ArrayVisitor* >(Luna< osg::ArrayVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArrayVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -245,7 +245,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,80735172) ) return false;
-		if( (!dynamic_cast< osg::ConstArrayVisitor* >(Luna< osg::ConstArrayVisitor >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ConstArrayVisitor >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -254,7 +254,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,87991103) ) return false;
-		if( (!dynamic_cast< osg::ValueVisitor* >(Luna< osg::ValueVisitor >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ValueVisitor >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -263,7 +263,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,86989408) ) return false;
-		if( (!dynamic_cast< osg::ConstValueVisitor* >(Luna< osg::ConstValueVisitor >::check(L,3))) ) return false;
+		if( (!(Luna< osg::ConstValueVisitor >::check(L,3))) ) return false;
 		return true;
 	}
 

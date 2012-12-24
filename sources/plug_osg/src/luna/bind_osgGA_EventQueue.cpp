@@ -97,7 +97,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
-		if( (!dynamic_cast< osgGA::EventQueue::Events* >(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
+		if( (!(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -105,7 +105,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,42735238) ) return false;
-		if( (!dynamic_cast< osgGA::EventQueue::Events* >(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
+		if( (!(Luna< osgGA::EventQueue::Events >::check(L,2))) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -486,7 +486,7 @@ public:
 	inline static bool _lg_typecheck_setStartTick(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 		return true;
 	}
 
@@ -531,7 +531,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -539,7 +539,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Referenced* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::check(L,2)) ) ) return false;
 		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
@@ -1747,10 +1747,14 @@ public:
 	static int _bind_setStartTick(lua_State *L) {
 		if (!_lg_typecheck_setStartTick(L)) {
 			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(__int64 tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(__int64 tick)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void osgGA::EventQueue::setStartTick(__int64 tick) function, expected prototype:\nvoid osgGA::EventQueue::setStartTick(__int64 tick)\nClass arguments details:\narg 1 ID = 32973728\n");
 		}
 
-		__int64 tick=(__int64)lua_tointeger(L,2);
+		__int64* tick_ptr=(Luna< __int64 >::check(L,2));
+		if( !tick_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg tick in osgGA::EventQueue::setStartTick function");
+		}
+		__int64 tick=*tick_ptr;
 
 		osgGA::EventQueue* self=Luna< osg::Referenced >::checkSubType< osgGA::EventQueue >(L,1);
 		if(!self) {
@@ -1775,8 +1779,11 @@ public:
 			luna_printStack(L);
 			luaL_error(L, "Invalid object in function call __int64 osgGA::EventQueue::getStartTick() const");
 		}
-		__int64 lret = self->getStartTick();
-		lua_pushnumber(L,lret);
+		__int64 stack_lret = self->getStartTick();
+		__int64* lret = new __int64(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< __int64 >::push(L,lret,true);
 
 		return 1;
 	}

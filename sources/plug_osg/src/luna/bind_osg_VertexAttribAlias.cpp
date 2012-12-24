@@ -64,7 +64,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,48453816) ) return false;
-		if( (!dynamic_cast< osg::VertexAttribAlias* >(Luna< osg::VertexAttribAlias >::check(L,1))) ) return false;
+		if( (!(Luna< osg::VertexAttribAlias >::check(L,1))) ) return false;
 		return true;
 	}
 

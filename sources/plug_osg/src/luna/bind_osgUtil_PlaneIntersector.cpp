@@ -72,9 +72,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,86970521) ) return false;
-		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Plane >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,26652350) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::Polytope >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -84,9 +84,9 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
-		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Plane >::check(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,26652350) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::Polytope >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -96,9 +96,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,86970521) ) return false;
-		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Plane >::check(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,26652350) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::Polytope >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -109,9 +109,9 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,86970521) ) return false;
-		if( (!dynamic_cast< osg::Plane* >(Luna< osg::Plane >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Plane >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,26652350) ) return false;
-		if( luatop>3 && (!dynamic_cast< osg::Polytope* >(Luna< osg::Polytope >::check(L,4))) ) return false;
+		if( luatop>3 && (!(Luna< osg::Polytope >::check(L,4))) ) return false;
 		return true;
 	}
 

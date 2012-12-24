@@ -88,11 +88,11 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3)) ) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
-		if( (lua_isnil(L,4)==0 && !dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,4)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,4)) ) ) return false;
 		return true;
 	}
 
@@ -109,7 +109,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2)) ) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -118,9 +118,9 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osgUtil::EdgeCollector::Triangle* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Triangle >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osgUtil::EdgeCollector::Point* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgUtil::EdgeCollector::Point >(L,3)) ) ) return false;
 		return true;
 	}
 

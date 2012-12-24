@@ -65,7 +65,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,54653644) ) return false;
-		if( (!dynamic_cast< osgDB::ReaderWriter::WriteResult* >(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1))) ) return false;
+		if( (!(Luna< osgDB::ReaderWriter::WriteResult >::check(L,1))) ) return false;
 		return true;
 	}
 

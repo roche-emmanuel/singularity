@@ -104,7 +104,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2))) ) return false;
 		return true;
 	}
 
@@ -112,7 +112,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2))) ) return false;
 		return true;
 	}
 
@@ -120,7 +120,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Billboard* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,2))) ) return false;
 		return true;
 	}
 
@@ -128,7 +128,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::LightSource* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::LightSource >(L,2))) ) return false;
 		return true;
 	}
 
@@ -136,7 +136,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Group* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Group >(L,2))) ) return false;
 		return true;
 	}
 
@@ -144,7 +144,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,2))) ) return false;
 		return true;
 	}
 
@@ -152,7 +152,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Projection* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Projection >(L,2))) ) return false;
 		return true;
 	}
 
@@ -160,7 +160,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Switch* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Switch >(L,2))) ) return false;
 		return true;
 	}
 
@@ -168,7 +168,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::LOD* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::LOD >(L,2))) ) return false;
 		return true;
 	}
 
@@ -176,7 +176,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::OccluderNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::OccluderNode >(L,2))) ) return false;
 		return true;
 	}
 
@@ -238,7 +238,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Node* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,2))) ) return false;
 		return true;
 	}
 
@@ -246,7 +246,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Geode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Geode >(L,2))) ) return false;
 		return true;
 	}
 
@@ -254,7 +254,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Billboard* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Billboard >(L,2))) ) return false;
 		return true;
 	}
 
@@ -262,7 +262,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::LightSource* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::LightSource >(L,2))) ) return false;
 		return true;
 	}
 
@@ -270,7 +270,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Group* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Group >(L,2))) ) return false;
 		return true;
 	}
 
@@ -278,7 +278,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Transform* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Transform >(L,2))) ) return false;
 		return true;
 	}
 
@@ -286,7 +286,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Projection* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Projection >(L,2))) ) return false;
 		return true;
 	}
 
@@ -294,7 +294,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::Switch* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::Switch >(L,2))) ) return false;
 		return true;
 	}
 
@@ -302,7 +302,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::LOD* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::LOD >(L,2))) ) return false;
 		return true;
 	}
 
@@ -310,7 +310,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::OccluderNode* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::OccluderNode >(L,2))) ) return false;
 		return true;
 	}
 

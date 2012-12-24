@@ -65,9 +65,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,26680564) ) return false;
-		if( (!dynamic_cast< osg::Geometry::ArrayData* >(Luna< osg::Geometry::ArrayData >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Geometry::ArrayData >::check(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -76,7 +76,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,1)) ) ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
@@ -87,9 +87,9 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Array* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Array >(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::IndexArray* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,2)) ) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;

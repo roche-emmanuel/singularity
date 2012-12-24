@@ -71,7 +71,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1)) ) ) return false;
 		return true;
 	}
 
@@ -79,11 +79,11 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -92,7 +92,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -101,11 +101,11 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( (lua_isnil(L,3)==0 && !dynamic_cast< osg::Texture2D* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,3)) ) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
-		if( (lua_isnil(L,4)==0 && !dynamic_cast< osg::Camera* >(Luna< osg::Referenced >::check(L,4)) ) ) return false;
+		if( (lua_isnil(L,4)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Camera >(L,4)) ) ) return false;
 		return true;
 	}
 

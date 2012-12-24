@@ -71,9 +71,9 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -82,9 +82,9 @@ public:
 
 		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -102,9 +102,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
 	}
 
@@ -114,9 +114,9 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
-		if( (!dynamic_cast< osg::Vec3d* >(Luna< osg::Vec3d >::check(L,4))) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,4))) ) return false;
 		return true;
 	}
 

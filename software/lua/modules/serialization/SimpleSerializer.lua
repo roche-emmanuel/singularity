@@ -10,9 +10,6 @@ function Class:initialize(options)
 		or (options.type=="String" and "")
 		or (options.type=="Int" and 0)
 		or (options.type=="Bool" and false) -- this should be the last one in this listing.
-		
-	self:check(self._wrappers,"Invalid wrapper list 1.")
-	self:check(self:getWrapper(),"Invalid first wrapper.")
 end
 
 function Class:read(is, obj)

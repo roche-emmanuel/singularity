@@ -73,7 +73,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,52841328) ) return false;
-		if( (!dynamic_cast< osg::NodePath* >(Luna< osg::NodePath >::check(L,2))) ) return false;
+		if( (!(Luna< osg::NodePath >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -81,7 +81,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,5626651) ) return false;
-		if( (!dynamic_cast< osg::ObserverNodePath* >(Luna< osg::ObserverNodePath >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ObserverNodePath >::check(L,2))) ) return false;
 		return true;
 	}
 

@@ -78,9 +78,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-		if( (lua_isnil(L,1)==0 && !dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,1)) ) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Shape >(L,1)) ) ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( luatop>1 && (lua_isnil(L,2)==0 && !dynamic_cast< osg::TessellationHints* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( luatop>1 && (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,2)) ) ) return false;
 		return true;
 	}
 
@@ -89,9 +89,9 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( (!dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,1))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,1))) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,27134364) ) return false;
-		if( luatop>1 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,2))) ) return false;
+		if( luatop>1 && (!(Luna< osg::CopyOp >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -108,9 +108,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnil(L,2)==0 && !dynamic_cast< osg::Shape* >(Luna< osg::Referenced >::check(L,2)) ) ) return false;
+		if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Shape >(L,2)) ) ) return false;
 		if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( luatop>2 && (lua_isnil(L,3)==0 && !dynamic_cast< osg::TessellationHints* >(Luna< osg::Referenced >::check(L,3)) ) ) return false;
+		if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osg::TessellationHints >(L,3)) ) ) return false;
 		return true;
 	}
 
@@ -120,9 +120,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( (!dynamic_cast< osg::ShapeDrawable* >(Luna< osg::Referenced >::check(L,2))) ) return false;
+		if( (!(Luna< osg::Referenced >::checkSubType< osg::ShapeDrawable >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,27134364) ) return false;
-		if( luatop>2 && (!dynamic_cast< osg::CopyOp* >(Luna< osg::CopyOp >::check(L,3))) ) return false;
+		if( luatop>2 && (!(Luna< osg::CopyOp >::check(L,3))) ) return false;
 		return true;
 	}
 

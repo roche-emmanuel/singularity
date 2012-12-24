@@ -51,7 +51,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,12032151) ) return false;
-		if( (!dynamic_cast< osg::BufferObjectProfile* >(Luna< osg::BufferObjectProfile >::check(L,1))) ) return false;
+		if( (!(Luna< osg::BufferObjectProfile >::check(L,1))) ) return false;
 		return true;
 	}
 

@@ -90,7 +90,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -98,7 +98,7 @@ public:
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,1))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,1))) ) return false;
 		return true;
 	}
 
@@ -114,7 +114,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,99527028) ) return false;
-		if( (!dynamic_cast< osg::ArgumentParser* >(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
+		if( (!(Luna< osg::ArgumentParser >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -123,7 +123,7 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -159,7 +159,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -167,7 +167,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -397,7 +397,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		return true;
 	}
 
@@ -405,7 +405,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,31435107) ) return false;
-		if( (!dynamic_cast< osg::CullSettings* >(Luna< osg::CullSettings >::check(L,2))) ) return false;
+		if( (!(Luna< osg::CullSettings >::check(L,2))) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
